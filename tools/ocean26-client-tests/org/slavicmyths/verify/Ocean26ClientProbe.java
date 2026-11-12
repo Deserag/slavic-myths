@@ -35,6 +35,7 @@ import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
 import org.slavicmyths.ships.ShipyardModular;
 import org.slavicmyths.ships.RaftContent;
+import org.slavicmyths.ships.client.FirstShipRenderer;
 
 /** Disposable real-client input/network probe; excluded from production JAR. */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
@@ -48,6 +49,13 @@ public final class Ocean26ClientProbe {
     private static final boolean MODULAR_VISUAL = Boolean.getBoolean("ocean26.modularVisual");
     private static final boolean LONG_FORWARD = Boolean.getBoolean("ocean26.longForward");
     private static final boolean TURN_CAMERAS = Boolean.getBoolean("ocean26.turnCamera");
+    private static final boolean RENDER_BENCH = LONG_FORWARD && MODULAR_VISUAL;
+    private static volatile BlockPos benchAnchor;
+    private static volatile UUID benchShipId;
+    private static volatile String benchError;
+    private static boolean benchPreparing;
+    private static UUID benchPrevious;
+    private static int benchCase, benchWait;
     private static volatile boolean modularSetupRequested, modularReady;
     private static boolean turnMotionStarted;
     private static int phase;
@@ -252,6 +260,7 @@ public final class Ocean26ClientProbe {
                         chest.setItem(0, new ItemStack(Items.DIAMOND, 7));
                     }
                     shipId = ship.getUUID();
+                    if (RENDER_BENCH) benchAnchor = anchor;
                     player.teleportTo(ship.getX(), ship.deckY() + 2D, ship.getZ() - 6D);
                     modularReady = true;
                 });
@@ -371,6 +380,10 @@ public final class Ocean26ClientProbe {
         }
         if (phase == 3) {
             visualTick(mc, server);
+            return;
+        }
+        if (phase == 6) {
+            profileShips(mc, server);
             return;
         }
         if (phase == 4) {
@@ -641,7 +654,12 @@ public final class Ocean26ClientProbe {
                          && maximumRiderCurrentSeatError < .04D
                         && (clientShip.modularConfiguration() != null
                             || Math.abs(clientShip.helmSeatZ() + 4D) < .001D))
-                    finish(mc, true, "longForward");
+                    {
+                        if (RENDER_BENCH) {
+                            phase = 6;
+                            benchPrevious = shipId;
+                        } else finish(mc, true, "longForward");
+                    }
                 else fail(mc, "sustained forward motion reversed or stalled");
                 return;
             }
@@ -878,6 +896,103 @@ public final class Ocean26ClientProbe {
                                 + names[view] + " " + message.getString()));
             }
         }
+    }
+
+    /** Uses the existing CaptainCi arena; every case is a real detached moving hull. */
+    private static ShipBuildConfiguration benchConfig(int index) {
+        if (index == 0) return ShipBuildConfiguration.initial(ShipSectionPlan.ShipClass.SMALL);
+        ShipSectionPlan.ShipClass type = index == 3
+                ? ShipSectionPlan.ShipClass.LARGEST : ShipSectionPlan.ShipClass.LARGE;
+        int growth = index == 3 ? 2 : 1;
+        ShipBuildConfiguration config = ShipBuildConfiguration.initial(type)
+                .resize(growth, growth).withSail(1, 2)
+                .withDecks(2).withBridge(true).withCabin(true);
+        return index >= 2 ? config.withLighting() : config;
+    }
+
+    private static void profileShips(Minecraft mc, MinecraftServer server) {
+        mc.options.keyUp.setDown(false);
+        mc.options.keyLeft.setDown(false);
+        mc.options.keyRight.setDown(false);
+        mc.options.keyDown.setDown(false);
+        mc.options.keyShift.setDown(false);
+        if (benchError != null) {
+            fail(mc, "render profile: " + benchError);
+            return;
+        }
+        if (benchShipId == null && !benchPreparing) {
+            benchPreparing = true;
+            int index = benchCase;
+            UUID previous = benchPrevious, playerId = mc.player.getUUID();
+            server.execute(() -> {
+                try {
+                    ServerPlayer player = server.getPlayerList().getPlayer(playerId);
+                    var level = server.getLevel(Level.OVERWORLD);
+                    if (player == null || level == null || benchAnchor == null)
+                        throw new IllegalStateException("Missing bench player, level or anchor");
+                    player.stopRiding();
+                    if (previous != null && level.getEntity(previous) instanceof FirstShipEntity old)
+                        old.discard();
+                    ShipBuildConfiguration config = benchConfig(index);
+                    boolean originalCreative = player.getAbilities().instabuild;
+                    player.getAbilities().instabuild = true;
+                    ItemStack item;
+                    try { item = ShipyardModular.build(player, config); }
+                    finally { player.getAbilities().instabuild = originalCreative; }
+                    if (item.isEmpty()) throw new IllegalStateException("Could not build " + config.shipClass());
+                    FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+                    if (ship == null) throw new IllegalStateException("Could not create ship entity");
+                    ship.initializeNativeHull(benchAnchor, 0);
+                    ship.enableSmoothMotion();
+                    if (!ship.loadPacked(item)
+                            || !ShipModularBlockHull.place(level, benchAnchor, 0,
+                                    config, ship.pendingBlockCargo())
+                            || !level.addFreshEntity(ship))
+                        throw new IllegalStateException("Could not place " + config.shipClass());
+                    FirstShipHull.Point seat = FirstShipHull.toWorld(0D, ship.helmSeatZ(),
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    player.teleportTo(seat.x(), ship.getY() + ship.helmSeatHeight(), seat.z());
+                    if (!player.startRiding(ship)
+                            || !ship.helmStep(player, org.slavicmyths.ships.FirstShipNetwork.FORWARD))
+                        throw new IllegalStateException("Could not sail " + config.shipClass());
+                    ship.helmStep(player, org.slavicmyths.ships.FirstShipNetwork.HELM_IDLE);
+                    benchShipId = ship.getUUID();
+                    System.out.println("OCEAN26_RENDER_SCENE class=" + config.shipClass()
+                            + " geometry=" + config.hullGeometry()
+                            + " size=" + config.width() + "x" + config.length());
+                } catch (Throwable error) {
+                    benchError = error.toString();
+                }
+            });
+            return;
+        }
+        if (benchShipId == null) {
+            if (++benchWait > 300) fail(mc, "render profile setup timed out");
+            return;
+        }
+        FirstShipEntity ship = mc.level.getEntitiesOfClass(FirstShipEntity.class,
+                new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D)).stream()
+                .filter(candidate -> candidate.getUUID().equals(benchShipId))
+                .findFirst().orElse(null);
+        if (ship != null && ship.isMoving()) {
+            mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+            mc.player.setYRot(ship.getYRot());
+            mc.player.setXRot(16F);
+            if (mc.getEntityRenderDispatcher().getRenderer(ship) instanceof FirstShipRenderer renderer
+                    && renderer.profileComplete(benchShipId)) {
+                benchPrevious = benchShipId;
+                benchShipId = null;
+                benchPreparing = false;
+                benchWait = 0;
+                if (++benchCase == 4) {
+                    System.out.println("OCEAN26_RENDER_BENCH_DONE cases=" + benchCase);
+                    finish(mc, true, "longForward");
+                }
+                return;
+            }
+        }
+        if (++benchWait > 450)
+            fail(mc, "render profile did not collect 100 frames case " + benchCase);
     }
 
     private static void fail(Minecraft mc, String reason) {

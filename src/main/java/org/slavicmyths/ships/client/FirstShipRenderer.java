@@ -49,8 +49,22 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             || Boolean.getBoolean("ocean26.renderProfile");
     private static final int PROFILE_WARMUP = 20, PROFILE_SAMPLES = 100;
     private final long[] profileTimes = new long[PROFILE_SAMPLES];
-    private long profileTotalNs, profilePaletteNs, profileBlocksNs, profileBuildNs;
-    private int profileFrames, profileCalls, profileBlocks, profileLanterns, profileMisses;
+    private long profileTotalNs, profilePaletteNs, profileBlocksNs, profileBuildNs, profileLightNs;
+    private int profileFrames, profileCalls, profileHullCalls, profilePieceCalls;
+    private int profileBlocks, profileLanterns, profileMisses;
+    private java.util.UUID profileShipId;
+
+    private void resetProfile(java.util.UUID shipId) {
+        profileShipId = shipId;
+        profileFrames = profileCalls = profileHullCalls = profilePieceCalls = 0;
+        profileBlocks = profileLanterns = profileMisses = 0;
+        profileTotalNs = profilePaletteNs = profileBlocksNs = profileBuildNs = profileLightNs = 0L;
+    }
+
+    public boolean profileComplete(java.util.UUID shipId) {
+        return PROFILE && shipId.equals(profileShipId)
+                && profileFrames >= PROFILE_WARMUP + PROFILE_SAMPLES;
+    }
     private final ItemRenderer items;
     private final ItemStack helm;
     private record PaletteKey(java.util.UUID shipId, org.slavicmyths.ships.ShipBuildConfiguration config,
@@ -158,7 +172,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             blocks = Map.of();
         }
-        MovingPalette built = new MovingPalette(blocks, localBlockLight(blocks, config));
+        long lightStart = PROFILE ? System.nanoTime() : 0L;
+        Map<BlockPos, Integer> blockLight = localBlockLight(blocks, config);
+        if (PROFILE) profileLightNs += System.nanoTime() - lightStart;
+        MovingPalette built = new MovingPalette(blocks, blockLight);
         paletteCache.put(key, built);
         if (PROFILE) {
             profileMisses++;
@@ -174,10 +191,13 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             return;
         }
         var config = ship.modularConfiguration();
-        boolean measuring = PROFILE && ship.isMoving() && config != null && profileFrames < PROFILE_WARMUP + PROFILE_SAMPLES;
+        if (PROFILE && ship.isMoving() && config != null && !ship.getUUID().equals(profileShipId))
+            resetProfile(ship.getUUID());
+        boolean measuring = PROFILE && ship.isMoving() && config != null
+                && profileFrames < PROFILE_WARMUP + PROFILE_SAMPLES;
         long renderStart = measuring ? System.nanoTime() : 0L;
         long paletteElapsed = 0L, blocksElapsed = 0L;
-        if (measuring) profileCalls = 0;
+        if (measuring) profileCalls = profileHullCalls = profilePieceCalls = 0;
         if (ship.isMoving()) {
             pose.pushPose();
             pose.mulPose(Axis.YP.rotationDegrees(-yaw));
@@ -205,7 +225,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                             ItemDisplayContext.FIXED, visualLight, OverlayTexture.NO_OVERLAY,
                             pose, buffers, ship.level(), ship.getId());
                 } else {
-                    if (measuring) profileCalls++;
+                    if (measuring) { profileCalls++; profileHullCalls++; }
                     Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
                             state, pose, buffers, state.is(Blocks.LANTERN)
                                     ? (visualLight & 0xFFFF0000) | 0x00F0 : visualLight,
@@ -269,12 +289,14 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         java.util.Arrays.sort(ordered);
         double unit = PROFILE_SAMPLES * 1_000_000D;
         System.out.println(String.format(java.util.Locale.ROOT,
-                "OCEAN26_RENDER_PROFILE class=%s warmup=%d frames=%d blocks=%d singleBlockCalls=%d lanterns=%d avgCpuMs=%.5f p95CpuMs=%.5f avgPaletteMs=%.5f avgBlockLoopMs=%.5f cacheMisses=%d cacheBuildTotalMs=%.5f",
-                ship.modularConfiguration().shipClass(), PROFILE_WARMUP, PROFILE_SAMPLES,
-                profileBlocks, profileCalls, profileLanterns,
+                "OCEAN26_RENDER_PROFILE class=%s geometry=%d size=%dx%d warmup=%d frames=%d blocks=%d hullCalls=%d extraCalls=%d singleBlockCalls=%d lanterns=%d avgCpuMs=%.5f p95CpuMs=%.5f avgPaletteMs=%.5f avgBlockLoopMs=%.5f cacheMisses=%d cacheBuildTotalMs=%.5f lightBuildTotalMs=%.5f",
+                ship.modularConfiguration().shipClass(), ship.modularConfiguration().hullGeometry(),
+                ship.modularConfiguration().width(), ship.modularConfiguration().length(),
+                PROFILE_WARMUP, PROFILE_SAMPLES,
+                profileBlocks, profileHullCalls, profilePieceCalls, profileCalls, profileLanterns,
                 profileTotalNs / unit, ordered[(int)Math.ceil(.95D * PROFILE_SAMPLES) - 1] / 1_000_000D,
                 profilePaletteNs / unit, profileBlocksNs / unit,
-                profileMisses, profileBuildNs / 1_000_000D));
+                profileMisses, profileBuildNs / 1_000_000D, profileLightNs / 1_000_000D));
     }
 
     private static BlockState sailCloth(int fabric) {
@@ -484,7 +506,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.pushPose();
         pose.translate(x, y, z);
         pose.scale(sx, sy, sz);
-        if (PROFILE) profileCalls++;
+        if (PROFILE && profileFrames < PROFILE_WARMUP + PROFILE_SAMPLES) {
+            profileCalls++;
+            profilePieceCalls++;
+        }
         Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
                 state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
         pose.popPose();
