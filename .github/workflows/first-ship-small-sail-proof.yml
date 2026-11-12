@@ -1,0 +1,46 @@
+name: Ocean 2.6 - SMALL V12 sail clearance Java21 proof
+
+on:
+  push:
+    branches:
+      - 'fix/2.6-small-ship-sail-clearance'
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/FirstShipSmallSailPlan.java'
+      - 'src/main/java/org/slavicmyths/ships/FirstShipBlockHull.java'
+      - 'src/main/java/org/slavicmyths/ships/client/FirstShipRenderer.java'
+      - 'src/main/java/org/slavicmyths/ships/FirstShipEntity.java'
+      - 'experimental/raft26/FirstShipSmallSailProof.java'
+      - '.github/workflows/first-ship-small-sail-proof.yml'
+  pull_request:
+    branches:
+      - 'fix/2.6-all-ship-hulls-geometry'
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/FirstShipSmallSailPlan.java'
+      - 'src/main/java/org/slavicmyths/ships/FirstShipBlockHull.java'
+      - 'src/main/java/org/slavicmyths/ships/client/FirstShipRenderer.java'
+      - 'src/main/java/org/slavicmyths/ships/FirstShipEntity.java'
+      - 'experimental/raft26/FirstShipSmallSailProof.java'
+      - '.github/workflows/first-ship-small-sail-proof.yml'
+permissions:
+  contents: read
+jobs:
+  small-ship-sails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile original V11 hull and versioned V12 small sail plan
+        run: |
+          mkdir -p build/small-sail-proof
+          javac -encoding UTF-8 -d build/small-sail-proof \
+            src/main/java/org/slavicmyths/ships/FirstShipHull.java \
+            src/main/java/org/slavicmyths/ships/FirstShipSmallSailPlan.java \
+            experimental/raft26/FirstShipHullV11Proof.java \
+            experimental/raft26/FirstShipSmallSailProof.java
+      - name: Test unchanged V11 sections, SMALL V12 tiers and 4 headings
+        run: |
+          java -ea -cp build/small-sail-proof FirstShipHullV11Proof
+          java -ea -cp build/small-sail-proof FirstShipSmallSailProof
