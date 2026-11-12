@@ -88,6 +88,31 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         return original;
     }
 
+    /**
+     * An inventory-button click carries only an action number. Use this
+     * versioned command for GUI actions to reject a stale upgrade when the
+     * inspected item (or the sole nearby vessel) changed while the packet
+     * was travelling to the server.
+     */
+    public boolean clickVerifiedButton(ServerPlayer player, int action,
+                                       int itemFingerprint, int nearbyEntityId) {
+        if (player == null || player.containerMenu != this || !stillValid(player))
+            return false;
+        if (ItemStack.hashItemAndComponents(input.getItem(0)) != itemFingerprint) {
+            player.displayClientMessage(Component.literal(
+                    "Судно изменилось — выберите улучшение ещё раз"), true);
+            return false;
+        }
+        FirstShipEntity nearby = input.isEmpty() ? nearbyModular(player) : null;
+        int actualEntityId = nearby == null ? -1 : nearby.getId();
+        if (actualEntityId != nearbyEntityId) {
+            player.displayClientMessage(Component.literal(
+                    "Судно у верфи изменилось — обновите выбор"), true);
+            return false;
+        }
+        return clickMenuButton(player, action);
+    }
+
     @Override public boolean clickMenuButton(Player player, int action) {
         if (!(player instanceof ServerPlayer) || !stillValid(player)) return false;
         if (action >= 100 && action < 164) {

@@ -14,6 +14,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.slavicmyths.ships.FirstShipItem;
 import org.slavicmyths.ships.FirstShipEntity;
+import org.slavicmyths.ships.FirstShipNetwork;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.RaftCharacteristics;
 import org.slavicmyths.ships.RaftContent;
@@ -97,16 +99,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 : stack.getItem() instanceof RaftItem ? 1 : 0;
     }
 
-    private ShipBuildConfiguration currentConfig() {
-        ShipBuildConfiguration packed = ShipyardModular.configuration(menu.inspected());
-        if (packed != null || !menu.inspected().isEmpty()
-                || minecraft == null || minecraft.player == null) return packed;
+    private FirstShipEntity nearbyModular() {
+        if (!menu.inspected().isEmpty() || minecraft == null || minecraft.player == null)
+            return null;
         var candidates = minecraft.player.level().getEntitiesOfClass(
                 FirstShipEntity.class,
                 new net.minecraft.world.phys.AABB(menu.shipyardPosition()).inflate(30D, 18D, 30D),
                 ship -> ship.isNativeHull() && !ship.isRemoved() && !ship.isMoving()
                         && !ship.isVehicle() && ship.modularConfiguration() != null);
-        return candidates.size() == 1 ? candidates.get(0).modularConfiguration() : null;
+        return candidates.size() == 1 ? candidates.get(0) : null;
+    }
+
+    private ShipBuildConfiguration currentConfig() {
+        ShipBuildConfiguration packed = ShipyardModular.configuration(menu.inspected());
+        if (packed != null || !menu.inspected().isEmpty()) return packed;
+        FirstShipEntity nearby = nearbyModular();
+        return nearby == null ? null : nearby.modularConfiguration();
     }
 
     private ShipBuildConfiguration creationConfig() {
@@ -252,7 +260,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
                     // Keep blocked choices selectable so the reason is visible,
                     // but mark them clearly instead of masquerading as valid upgrades.
-                    boolean possible = nextConfig(current, option) != null;
+                    ShipBuildConfiguration preview = nextConfig(current, option);
+                    boolean possible = preview != null && !preview.equals(current);
                     String label = (possible ? chosen() == option ? "» " : "" : "× ")
                             + MODULAR_OPTIONS[option];
                     Button button = Button.builder(Component.literal(label),
@@ -295,7 +304,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? MODULAR_ACTIONS[chosen()]
                     : vesselKind() == 2 ? SHIP_ACTIONS[chosen()] : RAFT_ACTIONS[chosen()];
         }
-        minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action);
+        FirstShipEntity nearby = nearbyModular();
+        PacketDistributor.sendToServer(new FirstShipNetwork.ShipyardAction(
+                menu.containerId, action, ItemStack.hashItemAndComponents(menu.inspected()),
+                nearby == null ? -1 : nearby.getId()));
     }
 
     private int count(Item item) {
@@ -599,7 +611,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
         }
-        graphics.drawString(font, "Инвентарь", 198, 182, 0xfff2d9aa, false);
+        graphics.drawString(font, "Инвентарь", 198, 182, DARK, false);
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
