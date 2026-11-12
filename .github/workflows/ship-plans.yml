@@ -39,6 +39,7 @@ jobs:
             src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
+            src/main/java/org/slavicmyths/ships/FirstShipHull.java \
             src/main/java/org/slavicmyths/ships/ShipRigging.java \
             src/main/java/org/slavicmyths/ships/ShipRigidMotion.java \
             src/main/java/org/slavicmyths/ships/ShipSailMotion.java \
@@ -46,7 +47,8 @@ jobs:
             tools/ship-section-tests/ShipSuperstructureCheck.java \
             tools/ship-section-tests/ShipSailMotionCheck.java \
             tools/ship-section-tests/ShipHullVoxelLayoutCheck.java \
-            tools/ship-section-tests/ShipSteppedHullCheck.java
+            tools/ship-section-tests/ShipSteppedHullCheck.java \
+            tools/ship-section-tests/ShipHullImageExport.java
       - name: Validate sections, superstructures and sail physics
         shell: bash
         run: |
@@ -55,3 +57,13 @@ jobs:
           java -cp build/ship-checks ShipSailMotionCheck
           java -cp build/ship-checks ShipHullVoxelLayoutCheck
           java -cp build/ship-checks ShipSteppedHullCheck
+
+      - name: Render nine PNGs from Java voxel geometry
+        shell: bash
+        run: java -Djava.awt.headless=true -cp build/ship-checks ShipHullImageExport
+      - name: Publish geometry images
+        uses: actions/upload-artifact@v4
+        with:
+          name: ship-hull-geometry-java21
+          path: build/ship-hull-images/*.png
+          if-no-files-found: error
