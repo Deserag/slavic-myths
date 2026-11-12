@@ -74,15 +74,21 @@ public final class Ocean26ShipP0GameTests {
     }
 
     @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_p0_versions")
-    public static void largeV4KeepsLegacyV2GeometryAndValidatesClearance(GameTestHelper t) {
+    public static void largeV5AndLegacyV4MaintainClearanceAndSaves(GameTestHelper t) {
         for (ShipSectionPlan.ShipClass type : new ShipSectionPlan.ShipClass[]{
                 ShipSectionPlan.ShipClass.LARGE, ShipSectionPlan.ShipClass.LARGEST}) {
             ShipBuildConfiguration latest = ShipBuildConfiguration.initial(type)
                     .withDecks(3).withSail(1, 2);
-            t.assertTrue(latest.hullGeometry() == 4, type + " must use new geometry 4");
+            t.assertTrue(latest.hullGeometry() == 5, type + " new ships must use geometry 5");
             t.assertTrue(ShipBuildConfiguration.load(latest.save()).equals(latest),
                     "New geometry lost its NBT version");
-            var layout = ShipHullVoxelLayout.generate(latest.structure(), 4);
+            var layout = ShipHullVoxelLayout.generate(latest.structure(), 5);
+            ShipBuildConfiguration previousRig = new ShipBuildConfiguration(type, 0, 0,
+                    List.of(1, 2), 3, false, false, 4);
+            t.assertTrue(ShipBuildConfiguration.load(previousRig.save()).equals(previousRig),
+                    "Existing V4 packed ship no longer loads");
+            t.assertTrue(ShipHullVoxelLayout.generate(previousRig.structure(), 4).size() > 0,
+                    "Existing V4 physical ship geometry is missing");
             for (var sail : ShipClearanceSailPlan.forPlan(latest.structure()).sails()) {
                 t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
                         type + " lower yard blocks upper-deck headroom");
@@ -121,7 +127,7 @@ public final class Ocean26ShipP0GameTests {
             for (var sail : FirstShipMediumSailPlan.forPlan(a.structure()).sails())
                 t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
                         label + " MEDIUM upper-deck collision");
-        } else if (a.hullGeometry() == 4) {
+        } else if (a.hullGeometry() >= 4) {
             for (var sail : ShipClearanceSailPlan.forPlan(a.structure()).sails())
                 t.assertTrue(sail.lowerYardY() - sail.highestDeckY() - 1 >= 3,
                         label + " LARGE upper-deck collision");
