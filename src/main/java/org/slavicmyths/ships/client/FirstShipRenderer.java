@@ -49,6 +49,26 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private String paletteKey = "";
     private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private java.util.List<BlockPos> cachedLanterns = java.util.List.of();
+
+    /**
+     * Moving-hull blocks are not in vanilla's world light engine.
+     * Compute a local visual block-light contribution from attached lanterns.
+     * This renders the ship itself as illuminated without claiming to light
+     * nearby terrain, players or mobs. Entity/source light is preserved.
+     */
+    private int movingVisualLight(BlockPos block, int packed) {
+        int blockLight = packed & 0xFFFF;
+        for (BlockPos lantern : cachedLanterns) {
+            int distance = Math.abs(block.getX() - lantern.getX())
+                    + Math.abs(block.getY() - lantern.getY())
+                    + Math.abs(block.getZ() - lantern.getZ());
+            if (distance > 13) continue;
+            blockLight = Math.max(blockLight, (14 - distance) << 4);
+            if (blockLight >= 14 << 4) break;
+        }
+        return (packed & 0xFFFF0000) | blockLight;
+    }
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -111,6 +131,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
+        if (config != null && config.hullGeometry() >= 7) {
+            java.util.List<BlockPos> lamps = new java.util.ArrayList<>();
+            for (var entry : cachedPalette.entrySet())
+                if (entry.getValue().is(Blocks.LANTERN)) lamps.add(entry.getKey());
+            cachedLanterns = java.util.List.copyOf(lamps);
+        } else cachedLanterns = java.util.List.of();
         paletteKey = key;
         return cachedPalette;
     }
@@ -129,14 +155,18 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
+                int visualLight = cachedLanterns.isEmpty() ? light
+                        : movingVisualLight(p, light);
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
                     items.renderStatic(new ItemStack(Items.CHEST),
-                            ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY,
+                            ItemDisplayContext.FIXED, visualLight, OverlayTexture.NO_OVERLAY,
                             pose, buffers, ship.level(), ship.getId());
                 } else Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
-                        state, pose, buffers, light, OverlayTexture.NO_OVERLAY);
+                        state, pose, buffers, state.is(Blocks.LANTERN)
+                                ? (visualLight & 0xFFFF0000) | 0x00F0 : visualLight,
+                        OverlayTexture.NO_OVERLAY);
                 pose.popPose();
             }
             pose.popPose();
