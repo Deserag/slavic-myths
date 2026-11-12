@@ -85,6 +85,16 @@ public final class FirstShipMovingDeckEvents {
                 player.setOnGround(true);
                 player.fallDistance = 0F;
             }
+            // Free-standing crew use the same previous/current render frame
+            // as the hull. Vanilla LocalPlayer.tick can overwrite xo/zo before
+            // the moving-deck carry; then Camera interpolates a different
+            // history from the moving ship and jitters after Shift dismount.
+            // Preserve genuine walking by using the PREVIOUS observed feet,
+            // not projecting the current local offset onto the old deck.
+            if (newClientFrame && ship.clientPoseFrame() - last.poseFrame() == 1L) {
+                player.xo = last.feetX();
+                player.zo = last.feetZ();
+            }
             LAST.put(player, new Contact(ship.getId(), floor, ship.clientPoseFrame(), player.getX(), player.getZ()));
             return;
         }
