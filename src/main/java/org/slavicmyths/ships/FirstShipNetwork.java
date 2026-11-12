@@ -34,6 +34,22 @@ public final class FirstShipNetwork {
         @Override public Type<Command> type() { return TYPE; }
     }
 
+    public record ShipyardAction(int containerId, int action, int itemFingerprint,
+                                 int nearbyEntityId) implements CustomPacketPayload {
+        public static final Type<ShipyardAction> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "shipyard_verified_action"));
+        public static final StreamCodec<FriendlyByteBuf, ShipyardAction> CODEC = StreamCodec.of(
+                (buffer, packet) -> {
+                    buffer.writeVarInt(packet.containerId);
+                    buffer.writeVarInt(packet.action);
+                    buffer.writeInt(packet.itemFingerprint);
+                    buffer.writeVarInt(packet.nearbyEntityId);
+                },
+                buffer -> new ShipyardAction(buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readInt(), buffer.readVarInt()));
+        @Override public Type<ShipyardAction> type() { return TYPE; }
+    }
+
     /** Boat tracking does not reliably stream continuous ship pose around dismount. */
     public record MotionPose(int shipId, double x, double y, double z, float yaw,
                              double speed, double turn)
@@ -70,6 +86,16 @@ public final class FirstShipNetwork {
                 if (context.player().level().getEntity(pose.shipId()) instanceof FirstShipEntity ship)
                     ship.acceptCaptainMotionPose(pose.x(), pose.y(), pose.z(), pose.yaw(),
                             pose.speed(), pose.turn());
+            });
+        });
+        registrar.playToServer(ShipyardAction.TYPE, ShipyardAction.CODEC, (packet, context) -> {
+            context.enqueueWork(() -> {
+                if (!(context.player() instanceof ServerPlayer player)
+                        || !player.isAlive() || player.isSpectator()
+                        || !(player.containerMenu instanceof ShipyardMenu menu)
+                        || menu.containerId != packet.containerId()) return;
+                menu.clickVerifiedButton(player, packet.action(),
+                        packet.itemFingerprint(), packet.nearbyEntityId());
             });
         });
         registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
