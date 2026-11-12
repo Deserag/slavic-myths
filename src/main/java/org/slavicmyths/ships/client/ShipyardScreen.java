@@ -306,7 +306,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         }
         FirstShipEntity nearby = nearbyModular();
         PacketDistributor.sendToServer(new FirstShipNetwork.ShipyardAction(
-                menu.containerId, action, ItemStack.hashItemAndComponents(menu.inspected()),
+                menu.containerId, action, ShipyardMenu.selectionFingerprint(
+                        menu.inspected(), nearby == null ? null : nearby.modularConfiguration()),
                 nearby == null ? -1 : nearby.getId()));
     }
 
