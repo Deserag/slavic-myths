@@ -406,6 +406,36 @@ public final class FirstShipBlockHull {
         return blocks;
     }
 
+    /**
+     * V12 changes ONLY the rigging above the unchanged V11 hull.
+     * Old native ships still use their saved version until cargo-safe migration.
+     */
+    private static Map<BlockPos, BlockState> layoutV12(BlockPos anchor, int turns, int rig, int fabric) {
+        Map<BlockPos, BlockState> blocks = layoutV11(anchor, turns, rig, fabric);
+        // V11 inherited these real solid yards (including Y=7 for the starter
+        // sail). Strip ONLY old rig logs in the mast station above deck.
+        for (int y = 7; y <= MAX_Y; y++)
+            for (int x = -4; x <= 4; x++) {
+                BlockPos pos = world(anchor, turns, x, y, -1);
+                BlockState state = blocks.get(pos);
+                if (state != null && (state.is(Blocks.DARK_OAK_LOG)
+                        || state.is(Blocks.STRIPPED_SPRUCE_LOG)))
+                    blocks.remove(pos);
+            }
+
+        FirstShipSmallSailPlan.Layout plan = FirstShipSmallSailPlan.forRig(rig, fabric);
+        for (int y = 7; y <= plan.mastTop(); y++)
+            blocks.put(world(anchor, turns, 0, y, -1),
+                    Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+        if (rig == 0) addYardV3(blocks, anchor, turns, 10, 2);
+        for (FirstShipSmallSailPlan.Sail sail : plan.sails()) {
+            addYardV3(blocks, anchor, turns, sail.lowerYardY(),
+                    Math.max(1, sail.halfSpan() - 1));
+            addYardV3(blocks, anchor, turns, sail.upperYardY(), sail.halfSpan());
+        }
+        return blocks;
+    }
+
     private static void addYardV3(Map<BlockPos, BlockState> blocks, BlockPos anchor,
             int turns, int y, int span) {
         BlockState beam = Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
@@ -436,7 +466,8 @@ public final class FirstShipBlockHull {
 
     private static Map<BlockPos, BlockState> layout(BlockPos anchor, int turns,
             int rig, int fabric, int geometry) {
-        return geometry >= 11 ? layoutV11(anchor, turns, rig, fabric)
+        return geometry >= 12 ? layoutV12(anchor, turns, rig, fabric)
+                : geometry >= 11 ? layoutV11(anchor, turns, rig, fabric)
                 : geometry >= 10 ? layoutV10(anchor, turns, rig, fabric)
                 : geometry >= 8 ? layoutV8(anchor, turns, rig, fabric)
                 : geometry == 7 ? layoutV7(anchor, turns, rig, fabric)
@@ -756,6 +787,12 @@ public final class FirstShipBlockHull {
         return migrateGeometry(level, anchor, turns, rig, fabric, 4, 5);
     }
 
+    /** The caller must first verify empty deck, closed menus and no riders. */
+    public static boolean migrateSmallRigV12(ServerLevel level, BlockPos anchor,
+            int turns, int rig, int fabric) {
+        return migrateGeometry(level, anchor, turns, rig, fabric, 11, 12);
+    }
+
     public static boolean migrateGeometryToV10(ServerLevel level, BlockPos anchor, int turns,
             int rig, int fabric, int from) {
         return (from == 7 || from == 8)
@@ -884,7 +921,7 @@ public final class FirstShipBlockHull {
     public record MotionSnapshot(ListTag cargo, int geometry, int rig, int fabric, int turn) {
         public MotionSnapshot {
             if (cargo == null || cargo.size() > WIDTH * LENGTH * 2
-                    || geometry < 2 || geometry > 11 || geometry == 9
+                    || geometry < 2 || geometry > 12 || geometry == 9
                     || turn < 0 || turn > 3
                     || decode(cargo) == null)
                 throw new IllegalArgumentException("Unsafe moving ship snapshot");
@@ -900,7 +937,7 @@ public final class FirstShipBlockHull {
 
     public static MotionSnapshot captureForMotion(ServerLevel level, BlockPos anchor,
             int turns, int rig, int fabric, int geometry) {
-        if (geometry < 2 || geometry > 11 || geometry == 9 || turns < 0 || turns > 3) return null;
+        if (geometry < 2 || geometry > 12 || geometry == 9 || turns < 0 || turns > 3) return null;
         ListTag cargo = pack(level, anchor, turns, rig, fabric, geometry);
         if (cargo == null) {
             for (var entry : layout(anchor, turns, rig, fabric, geometry).entrySet()) {
