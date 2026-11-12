@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.Screenshot;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -33,6 +34,14 @@ public final class Ocean26ShipyardSwitchProbe {
     private static ShipyardMenu menu;
     private static ItemStack modular, legacy, raft;
     private static int transitions;
+    private static int screenshots;
+
+    private static void screenshot(Minecraft mc, String name) {
+        Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(), message ->
+                System.out.println("OCEAN26_SHIPYARD_SCREENSHOT " + name
+                        + " " + message.getString()));
+        screenshots++;
+    }
 
     private static ItemStack modularFixture() {
         ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
@@ -111,17 +120,22 @@ public final class Ocean26ShipyardSwitchProbe {
                     if (chosen() != 6) throw new AssertionError("did not select modular index 6");
                 }
                 case 4 -> {
+                    screenshot(mc, "modular-mast-selection");
                     swap(legacy);
                     if (chosen() < 0 || chosen() >= 6)
                         throw new AssertionError("legacy ship kept incompatible modular index");
                 }
                 case 5 -> {
+                    screenshot(mc, "legacy-after-modular-index-6");
                     swap(raft);
                     if (chosen() < 0 || chosen() >= 9)
                         throw new AssertionError("raft index out of bounds");
                 }
                 case 6 -> {
+                    screenshot(mc, "raft-after-legacy");
                     swap(modular);
+                    if (!ItemStack.isSameItemSameComponents(menu.getSlot(0).getItem(), modular))
+                        throw new AssertionError("modular item NBT/components changed during switching");
                     if (chosen() < 0 || chosen() >= 10)
                         throw new AssertionError("modular action not restored");
                 }
@@ -129,6 +143,7 @@ public final class Ocean26ShipyardSwitchProbe {
                 case 8 -> click(133, 20); // creation tab (first tab midpoint is 123)
                 case 9 -> click(350, 20); // modifications tab again
                 case 10 -> {
+                    screenshot(mc, "modular-after-tab-switch");
                     swap(ItemStack.EMPTY);
                     if (chosen() >= 10)
                         throw new AssertionError("empty slot selected invalid action");
@@ -139,11 +154,14 @@ public final class Ocean26ShipyardSwitchProbe {
                         throw new AssertionError("invalid item must not have an upgrade action");
                 }
                 case 12 -> {
+                    screenshot(mc, "invalid-item-no-actions");
                     swap(legacy);
                     if (chosen() < 0 || chosen() >= 6)
                         throw new AssertionError("reinserted ship has invalid selection");
                 }
                 case 13 -> {
+                    if (screenshots != 5)
+                        throw new AssertionError("incomplete shipyard screenshots " + screenshots);
                     System.out.println("OCEAN26_SHIPYARD_RENDER_SEQUENCE swaps=" + transitions
                             + " guiScale=" + mc.options.guiScale().get()
                             + " finalIndex=" + chosen());
