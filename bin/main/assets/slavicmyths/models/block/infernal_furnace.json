@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "side": "slavicmyths:block/infernal_furnace_side",
-    "top": "slavicmyths:block/infernal_furnace_top",
-    "front": "slavicmyths:block/infernal_furnace_front"
-  }
-}

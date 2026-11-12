@@ -1,7 +1,0 @@
-{
-  "type": "slavicmyths:swamp_watchtower",
-  "biomes": "#slavicmyths:structures/swamp_watchtower",
-  "step": "surface_structures",
-  "spawn_overrides": {},
-  "terrain_adaptation": "none"
-}

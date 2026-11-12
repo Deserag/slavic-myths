@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:ancient_find",
-  "criteria": {
-    "done": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

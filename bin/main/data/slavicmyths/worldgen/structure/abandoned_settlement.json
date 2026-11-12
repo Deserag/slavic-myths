@@ -1,7 +1,0 @@
-{
-  "type": "slavicmyths:abandoned_settlement",
-  "biomes": "#slavicmyths:structures/abandoned_settlement",
-  "step": "surface_structures",
-  "spawn_overrides": {},
-  "terrain_adaptation": "none"
-}

@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#slavicmyths:has_bog_iron",
-  "features": "slavicmyths:bog_iron",
-  "step": "underground_ores"
-}

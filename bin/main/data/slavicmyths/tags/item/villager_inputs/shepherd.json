@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:shears",
-    "minecraft:wheat",
-    "#minecraft:wool"
-  ]
-}

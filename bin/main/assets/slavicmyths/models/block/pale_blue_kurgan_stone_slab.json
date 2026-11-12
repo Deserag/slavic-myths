@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "slavicmyths:block/pale_blue_kurgan_stone",
-    "top": "slavicmyths:block/pale_blue_kurgan_stone",
-    "side": "slavicmyths:block/pale_blue_kurgan_stone"
-  }
-}
