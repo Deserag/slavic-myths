@@ -83,6 +83,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private int lastKind = -1;
     private String lastSelectedShip = "";
     private Button primary;
+    private ShipBuildConfiguration previewBase;
+    private ShipBuildConfiguration previewResult;
+    private int previewOption = -1, previewMast = -1;
 
     public ShipyardScreen(ShipyardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -154,8 +157,11 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private ShipBuildConfiguration nextConfig(ShipBuildConfiguration current, int option) {
         if (current == null || option < 0 || option >= MODULAR_ACTIONS.length) return null;
+        if (current.equals(previewBase) && option == previewOption && selectedMast == previewMast)
+            return previewResult;
+        ShipBuildConfiguration candidate = null;
         try {
-            return switch (MODULAR_ACTIONS[option]) {
+            candidate = switch (MODULAR_ACTIONS[option]) {
                 case 200 -> current.resize(current.extraLength() + 1, current.extraWidth());
                 case 201 -> current.resize(current.extraLength(), current.extraWidth() + 1);
                 case 202 -> current.withSail(current.sailTiers().size() - 1,
@@ -172,7 +178,18 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 case 206 -> current.withCabin(true);
                 default -> null;
             };
-        } catch (RuntimeException invalid) { return null; }
+            // The model can reject a physically impossible mast/upper deck
+            // even when all scalar upgrades are inside their tier limits.
+            // Validate the exact same geometry used by server construction
+            // before showing a purchasable button or calling material costs.
+            if (candidate != null)
+                ShipHullVoxelLayout.generate(candidate.structure(), candidate.hullGeometry());
+        } catch (RuntimeException invalid) { candidate = null; }
+        previewBase = current;
+        previewOption = option;
+        previewMast = selectedMast;
+        previewResult = candidate;
+        return candidate;
     }
 
     @Override protected void init() {
