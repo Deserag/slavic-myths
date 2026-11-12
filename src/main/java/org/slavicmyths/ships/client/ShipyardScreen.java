@@ -117,6 +117,15 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         return nearby == null ? null : nearby.modularConfiguration();
     }
 
+    /** The preview follows the actual versioned deck outline, not a legacy trapezoid. */
+    private static int previewHalfBeam(ShipBuildConfiguration config, int z) {
+        return switch (config.hullGeometry()) {
+            case 5, 6 -> ShipHullVoxelLayout.asymmetricLargeBeam(config.structure(), z);
+            case 2, 3, 4 -> ShipHullVoxelLayout.steppedDeckBeam(config.structure(), z);
+            default -> ShipHullVoxelLayout.halfBeam(config.structure(), z);
+        };
+    }
+
     private ShipBuildConfiguration creationConfig() {
         if (createRafts || chosen() < 0 || chosen() >= 4) return null;
         try {
@@ -551,8 +560,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 graphics.drawString(font, "старого корабля 7×11", 18, 143, 0xfff2dfbd, false);
             }
         } else if (current != null) {
-            graphics.drawString(font, "Размер " + current.width() + "×" + current.length()
-                    + " | мачт " + current.sailTiers().size(), 17, 200, 0xfff2dfbd, false);
+            graphics.drawString(font, font.plainSubstrByWidth(
+                    "Корпус " + current.width() + "×" + current.length()
+                            + " | мачт " + current.sailTiers().size(), 154),
+                    17, 200, 0xfff2dfbd, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
                 graphics.drawString(font, font.plainSubstrByWidth(
@@ -566,9 +577,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     ? "Положите судно в ячейку"
                     : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
         }
-        graphics.drawString(font, tab == 0 ? "Созданное судно — в слот сверху"
-                : "Судно — в слот сверху", 18, 214, 0xffeacfa2, false);
-        if (tab == 1) graphics.drawString(font,
+        graphics.drawString(font, tab == 0 ? "Готовое судно — забрать" :
+                "Судно — в верхний слот", 18, 214, 0xffeacfa2, false);
+        graphics.drawString(font, tab == 0 ? "из выходной ячейки" :
                 "Детали — из инвентаря", 18, 226, 0xffeacfa2, false);
 
         String heading = tab == 0
@@ -664,9 +675,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         double topScale = Math.min(43D / width, 38D / length);
         int cx = 246, topY = 67;
         for (int z = -halfLength; z <= halfLength; z++) {
-            int beam = ShipHullVoxelLayout.halfBeam(design.structure(), z);
+            int beam = previewHalfBeam(design, z);
             int oldBeam = original == null || Math.abs(z) > original.length() / 2
-                    ? -1 : ShipHullVoxelLayout.halfBeam(original.structure(), z);
+                    ? -1 : previewHalfBeam(original, z);
+            if (beam < 0) continue;
             int top = topY + (int)Math.floor((z + halfLength) * topScale);
             int bottom = topY + (int)Math.ceil((z + halfLength + 1) * topScale);
             int left = cx - (int)Math.ceil((beam + .5D) * topScale);
@@ -677,6 +689,23 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             if (original != null && (oldBeam < 0 || beam > oldBeam)) {
                 graphics.fill(left, top, left + 1, Math.max(top + 1, bottom), highlight);
                 graphics.fill(right, top, right + 1, Math.max(top + 1, bottom), highlight);
+            }
+        }
+        // Plot the actual stair-flight stations of the versioned V6 hull.
+        // A new or expanded stair run is highlighted rather than drawn as
+        // part of the old geometry-5 outer hull outline.
+        if (design.hullGeometry() == 6) {
+            int stairStartZ = -halfLength + 9;
+            for (int floor = 1; floor < design.decks(); floor++) {
+                int stairX = floor % 2 == 1 ? 4 : -4;
+                for (int step = 0; step < 4; step++) {
+                    int x = cx + (int)Math.round(stairX * topScale);
+                    int y = topY + (int)Math.round((stairStartZ + step
+                            + halfLength + .5D) * topScale);
+                    int stairColor = original != null && original.decks() >= floor + 1
+                            && original.hullGeometry() == 6 ? rail : highlight;
+                    graphics.fill(x - 1, y, x + 2, y + 2, stairColor);
+                }
             }
         }
         for (int mast = 0; mast < design.sailTiers().size(); mast++) {
