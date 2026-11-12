@@ -161,6 +161,19 @@ public final class ShipModularBlockHull {
                 || below == ShipHullVoxelLayout.Part.BRIDGE;
     }
 
+    /**
+     * Inspection and placement must cover the ACTUAL deck outline. V5/V6
+     * deliberately have a wide transom where the old symmetric V1-V4
+     * halfBeam() was only one block wide; using that older envelope can
+     * strand chests outside the moving-ship cargo snapshot.
+     */
+    private static int interiorHalfBeam(ShipSuperstructurePlan structure,
+            int geometry, int z) {
+        if (geometry == 5 || geometry == 6)
+            return ShipHullVoxelLayout.asymmetricLargeBeam(structure, z);
+        return ShipHullVoxelLayout.halfBeam(structure, z);
+    }
+
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
@@ -173,13 +186,12 @@ public final class ShipModularBlockHull {
         ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
                 ShipHullVoxelLayout.generate(structure, config.hullGeometry());
-        int halfWidth = config.width() / 2, halfLength = config.length() / 2;
+        int halfLength = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
-        for (int z = -halfLength; z <= halfLength; z++)
-            for (int x = -halfWidth; x <= halfWidth; x++)
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int beam = interiorHalfBeam(structure, config.hullGeometry(), z);
+            for (int x = -beam; x <= beam; x++)
                 for (int y = 1; y <= maxY; y++) {
-                    if (Math.abs(x) > ShipHullVoxelLayout.halfBeam(structure, z))
-                        continue;
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(world)) return null;
                     if (source.containsKey(world)) continue;
@@ -193,6 +205,7 @@ public final class ShipModularBlockHull {
                             : blockEntity.saveWithFullMetadata(level.registryAccess());
                     cargo.add(new Cargo(x, y, z, type, state, data));
                 }
+        }
         return new Snapshot(source, cargo);
     }
 
@@ -305,15 +318,17 @@ public final class ShipModularBlockHull {
         // existing buildings or unloaded chunks between its timber supports.
         int half = config.length() / 2;
         int maxY = Math.max(24, 4 + config.decks() * 4);
-        for (int z = -half; z <= half; z++)
-            for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z);
-                 x <= ShipHullVoxelLayout.halfBeam(config.structure(), z); x++)
+        ShipSuperstructurePlan structure = config.structure();
+        for (int z = -half; z <= half; z++) {
+            int beam = interiorHalfBeam(structure, config.hullGeometry(), z);
+            for (int x = -beam; x <= beam; x++)
                 for (int y = 1; y <= maxY; y++) {
                     BlockPos p = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(p)) return false;
                     if (!planned.containsKey(p) && !owned.contains(p)
                             && !level.getBlockState(p).isAir()) return false;
                 }
+        }
         return true;
     }
 
