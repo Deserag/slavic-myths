@@ -24,6 +24,8 @@ public final class FirstShipMovingDeckEvents {
     private record Contact(int shipId, int floor, long poseFrame, double feetX, double feetZ) {}
     private static final Map<Player, Contact> LAST =
             Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<Player, Long> CAMERA_ALIGNED_FRAME =
+            Collections.synchronizedMap(new WeakHashMap<>());
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
@@ -99,6 +101,94 @@ public final class FirstShipMovingDeckEvents {
             return;
         }
         LAST.remove(player);
+    }
+
+
+    /**
+     * Synchronize the local client walker at the exact hull movement step.
+     * PlayerTick.Post may run BEFORE the ship tick. In that order it cannot
+     * see the current frame, so the player would remain still for one rendered
+     * frame even though the ship has already advanced. This caused a visible
+     * 0.16-0.20-block camera jump after Shift dismount.
+     *
+     * Only an established free-standing contact is carried: a just-dismounted
+     * passenger is already placed at the new pose by vanilla and must not
+     * receive an old transform a second time.
+     */
+    public static void carryClientCrew(FirstShipEntity ship,
+            double oldX, double oldZ, float oldYaw) {
+        if (!ship.level().isClientSide) return;
+        for (Player player : ship.level().getEntitiesOfClass(Player.class,
+                new net.minecraft.world.phys.AABB(oldX - 30D, ship.getY() - 1D,
+                        oldZ - 30D, oldX + 30D, ship.getY() + 18D, oldZ + 30D))) {
+            if (!player.isAlive() || player.isPassenger() || player.isSpectator()
+                    || player.getAbilities().flying || player.isFallFlying()) continue;
+            Contact last = LAST.get(player);
+            if (last == null || last.shipId() != ship.getId()
+                    || last.poseFrame() == ship.clientPoseFrame()) continue;
+            Vec3 feet = player.position();
+            FirstShipHull.Point local = FirstShipHull.toLocal(
+                    feet.x, feet.z, oldX, oldZ, oldYaw);
+            int floor = last.floor();
+            if (!ShipDeckContact.supports(ship, local.x(), local.z(), floor)) continue;
+            double surface = ship.getY() + ShipDeckContact.height(floor);
+            if (feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
+            FirstShipHull.Point target = FirstShipHull.toWorld(
+                    local.x(), local.z(), ship.getX(), ship.getZ(), ship.getYRot());
+            double dx = target.x() - feet.x, dz = target.z() - feet.z;
+            if (Math.abs(dx) > 1E-4D || Math.abs(dz) > 1E-4D)
+                ShipDynamicCollision.carryWithWorldCollision(player, ship,
+                        new Vec3(dx, 0D, dz));
+            boolean grounded = feet.y <= surface + .19D
+                    && player.getDeltaMovement().y <= .09D;
+            if (grounded) {
+                if (Math.abs(player.getY() - (surface + .02D)) > 1E-4D)
+                    player.setPos(player.getX(), surface + .02D, player.getZ());
+                Vec3 velocity = player.getDeltaMovement();
+                if (velocity.y < 0D)
+                    player.setDeltaMovement(velocity.x, 0D, velocity.z);
+                player.setOnGround(true);
+                player.fallDistance = 0F;
+            }
+            LAST.put(player, new Contact(ship.getId(), floor,
+                    ship.clientPoseFrame(), player.getX(), player.getZ()));
+        }
+    }
+
+    /**
+     * Last hook of the client tick, after both the player and ship tick.
+     * A vanilla LocalPlayer tick can overwrite xo/zo even after hull carry;
+     * use the matching prior hull pose for interpolation exactly once per
+     * advanced ship frame. No physical/player movement is done here.
+     */
+    public static void alignClientCrewCamera(Player player) {
+        if (player == null || !player.level().isClientSide || !player.isAlive()
+                || player.isPassenger() || player.isSpectator()) {
+            CAMERA_ALIGNED_FRAME.remove(player);
+            return;
+        }
+        Contact last = LAST.get(player);
+        if (last == null) return;
+        for (FirstShipEntity ship : player.level().getEntitiesOfClass(
+                FirstShipEntity.class, player.getBoundingBox().inflate(36D, 20D, 36D))) {
+            if (ship.isRemoved() || !ship.isMoving() || ship.getId() != last.shipId()
+                    || last.poseFrame() != ship.clientPoseFrame()
+                    || ship.clientPoseFrame() <= 0L
+                    || CAMERA_ALIGNED_FRAME.getOrDefault(player, -1L)
+                            == ship.clientPoseFrame()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(
+                    player.getX(), player.getZ(),
+                    ship.getX(), ship.getZ(), ship.getYRot());
+            if (!ShipDeckContact.supports(ship, local.x(), local.z(), last.floor()))
+                continue;
+            FirstShipHull.Point previous = FirstShipHull.toWorld(
+                    local.x(), local.z(), ship.clientPreviousX(),
+                    ship.clientPreviousZ(), ship.clientPreviousYaw());
+            player.xo = previous.x();
+            player.zo = previous.z();
+            CAMERA_ALIGNED_FRAME.put(player, ship.clientPoseFrame());
+            return;
+        }
     }
 
 
