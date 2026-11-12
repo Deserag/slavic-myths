@@ -90,6 +90,12 @@ public final class ShipSteppedHullCheck {
                 21, 33, List.of(1, 2, 3), 3, true, true));
         verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
                 23, 37, List.of(1, 2, 3), 3, true, true));
+        // LARGEST shares the 21x33 base beam but is a separate versioned
+        // class with four mast stations, three decks and a full aft fit-out.
+        verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGEST,
+                21, 33, List.of(3, 3, 2, 1), 3, true, true));
+        verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGEST,
+                23, 37, List.of(3, 3, 2, 1), 3, true, true));
         System.out.println("PASS ShipSteppedHullCheck assertions=" + checks);
     }
 }

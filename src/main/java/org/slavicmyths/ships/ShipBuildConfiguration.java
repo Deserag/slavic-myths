@@ -61,8 +61,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
-                type == ShipSectionPlan.ShipClass.MEDIUM
-                        || type == ShipSectionPlan.ShipClass.LARGE ? 2 : 1);
+                type == ShipSectionPlan.ShipClass.SMALL ? 1 : 2);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
