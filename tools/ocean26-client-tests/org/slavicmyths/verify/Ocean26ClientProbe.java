@@ -464,7 +464,17 @@ public final class Ocean26ClientProbe {
         // Walk outward along the clear rail when checking free deck movement.
         mc.options.keyLeft.setDown(!MODULAR_VISUAL && elapsed >= 112 && elapsed <= (RAIL ? 155 : 120)
                 || REVERSE && elapsed >= 150 && elapsed <= 165);
-        mc.options.keyJump.setDown(elapsed >= 102 && elapsed <= 104);
+        mc.options.keyJump.setDown(!LONG_FORWARD && elapsed >= 102 && elapsed <= 104);
+        // The sustained forward camera scenario must remain mounted. The
+        // general-purpose suite enters spectator mode at tick 145; running
+        // that unrelated sequence made the "captain" camera probe compare a
+        // free-flying spectator against the helm seat until tick 175.
+        if (LONG_FORWARD && elapsed < 175) {
+            if (!(mc.player.getVehicle() instanceof FirstShipEntity)) {
+                fail(mc, "captain detached during sustained forward steering");
+            }
+            return;
+        }
         if (HOLD && elapsed >= 160 && elapsed <= 250) {
             FirstShipEntity body = mc.level.getEntitiesOfClass(FirstShipEntity.class,
                     new AABB(mc.player.blockPosition()).inflate(128D, 32D, 128D))
