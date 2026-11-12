@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - fix/2.6-ship-crew-and-upgrades-p0
+      - feat/2.6-large-ship-closed-decks-p1
   pull_request:
     branches:
       - fix/2.6-medium-ship-sail-clearance
+      - fix/2.6-ship-crew-and-upgrades-p0
   workflow_dispatch:
 
 permissions:
