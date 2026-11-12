@@ -101,6 +101,34 @@ public final class ShipModularBlockHull {
         return java.util.Collections.unmodifiableMap(result);
     }
 
+    /**
+     * Client-only collision/render reconstruction from the public, compact
+     * moving-cargo view. The network view contains x,y,z,kind only: it must
+     * never be passed to decode(), which intentionally requires full NBT
+     * block-state properties and inventory data for authoritative restoration.
+     */
+    public static Map<BlockPos, BlockState> localClientMotionPalette(
+            ShipBuildConfiguration config, ListTag cargoKinds) {
+        if (config == null) return Map.of();
+        Map<BlockPos, BlockState> result = new LinkedHashMap<>(localPalette(config));
+        if (cargoKinds == null || cargoKinds.size() >
+                config.width() * config.length() * config.decks())
+            return java.util.Collections.unmodifiableMap(result);
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
+                ShipHullVoxelLayout.generate(config.structure(), config.hullGeometry());
+        Set<BlockPos> seen = new HashSet<>();
+        for (int i = 0; i < cargoKinds.size(); i++) {
+            CompoundTag row = cargoKinds.getCompound(i);
+            int x = row.getInt("X"), y = row.getInt("Y"), z = row.getInt("Z");
+            int type = row.getInt("Kind");
+            BlockPos at = new BlockPos(x, y, z);
+            if (type < 1 || type > 4 || !cargoCell(plan, x, y, z)
+                    || !seen.add(at)) continue;
+            result.put(at, kindState(type));
+        }
+        return java.util.Collections.unmodifiableMap(result);
+    }
+
     private static Map<BlockPos, BlockState> worldPalette(ShipBuildConfiguration config,
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
