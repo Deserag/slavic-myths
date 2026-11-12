@@ -7,6 +7,7 @@ on:
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigging.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigidMotion.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSailMotion.java'
@@ -18,6 +19,7 @@ on:
       - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
       - 'src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigging.java'
       - 'src/main/java/org/slavicmyths/ships/ShipRigidMotion.java'
       - 'src/main/java/org/slavicmyths/ships/ShipSailMotion.java'
@@ -42,6 +44,7 @@ jobs:
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
             src/main/java/org/slavicmyths/ships/FirstShipMediumSailPlan.java \
+            src/main/java/org/slavicmyths/ships/ShipClearanceSailPlan.java \
             src/main/java/org/slavicmyths/ships/FirstShipHull.java \
             src/main/java/org/slavicmyths/ships/ShipRigging.java \
             src/main/java/org/slavicmyths/ships/ShipRigidMotion.java \
@@ -52,6 +55,7 @@ jobs:
             tools/ship-section-tests/ShipHullVoxelLayoutCheck.java \
             tools/ship-section-tests/ShipSteppedHullCheck.java \
             tools/ship-section-tests/ShipMediumSailClearanceCheck.java \
+            tools/ship-section-tests/ShipRiggingOrderCheck.java \
             tools/ship-section-tests/ShipHullImageExport.java
       - name: Validate sections, superstructures and sail physics
         shell: bash
@@ -62,6 +66,7 @@ jobs:
           java -cp build/ship-checks ShipHullVoxelLayoutCheck
           java -cp build/ship-checks ShipSteppedHullCheck
           java -cp build/ship-checks ShipMediumSailClearanceCheck
+          java -cp build/ship-checks ShipRiggingOrderCheck
 
       - name: Render nine PNGs from Java voxel geometry
         shell: bash
