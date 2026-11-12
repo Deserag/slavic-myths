@@ -119,17 +119,20 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration nextConfig() {
-        ShipBuildConfiguration current = currentConfig();
-        if (current == null || chosen() < 0 || chosen() >= MODULAR_ACTIONS.length) return null;
+        return nextConfig(currentConfig(), chosen());
+    }
+
+    private ShipBuildConfiguration nextConfig(ShipBuildConfiguration current, int option) {
+        if (current == null || option < 0 || option >= MODULAR_ACTIONS.length) return null;
         try {
-            return switch (MODULAR_ACTIONS[chosen()]) {
+            return switch (MODULAR_ACTIONS[option]) {
                 case 200 -> current.resize(current.extraLength() + 1, current.extraWidth());
                 case 201 -> current.resize(current.extraLength(), current.extraWidth() + 1);
                 case 202 -> current.withSail(current.sailTiers().size() - 1,
                         current.sailTiers().get(current.sailTiers().size() - 1) + 1);
                 case 207, 208, 209, 210 -> current.withSail(
-                        MODULAR_ACTIONS[chosen()] - 207,
-                        current.sailTiers().get(MODULAR_ACTIONS[chosen()] - 207) + 1);
+                        MODULAR_ACTIONS[option] - 207,
+                        current.sailTiers().get(MODULAR_ACTIONS[option] - 207) + 1);
                 case 203 -> current.withSail(current.sailTiers().size(), 1);
                 case 204 -> current.withDecks(current.decks() + 1);
                 case 205 -> current.withBridge(true);
@@ -247,7 +250,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 for (int index = 0; index < options.length; index++) {
                     final int option = options[index];
                     int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
-                    Button button = Button.builder(Component.literal(chosen() == option ? "» " + MODULAR_OPTIONS[option] : MODULAR_OPTIONS[option]),
+                    // Keep blocked choices selectable so the reason is visible,
+                    // but mark them clearly instead of masquerading as valid upgrades.
+                    boolean possible = nextConfig(current, option) != null;
+                    String label = (possible ? chosen() == option ? "» " : "" : "× ")
+                            + MODULAR_OPTIONS[option];
+                    Button button = Button.builder(Component.literal(label),
                             clicked -> { choose(option); rebuild(); })
                             .bounds(leftPos + x, topPos + y, 75, 20).build();
                     button.active = true;
