@@ -45,13 +45,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             {"Парус I", "Парус II", "Парус III", "Оснастка +", "Оснастка −", "Снять всё"};
     private static final int[] SHIP_ACTIONS = {20, 21, 22, 23, 24, 25};
     private static final String[] MODULAR_OPTIONS = {
-            "Длина +", "Ширина +", "Парус 1 +", "Парус 2 +",
-            "Парус 3 +", "Парус 4 +", "Мачта +", "Палуба +",
-            "Мостик", "Каюта"
+            "Увеличить длину", "Увеличить ширину", "Парус мачты 1 +",
+            "Парус мачты 2 +", "Парус мачты 3 +", "Парус мачты 4 +",
+            "Добавить мачту", "Добавить палубу", "Капитанский мостик", "Каюта",
+            "Увеличить высоту мачты", "Укрепить мачту",
+            "Увеличить ширину реи", "Добавить верхнюю рею",
+            "Увеличить парус", "Добавить ярус паруса", "Улучшить ткань"
     };
-    private static final int[] MODULAR_ACTIONS = {200, 201, 207, 208, 209, 210, 203, 204, 205, 206};
-    private static final String[] MODULAR_CATEGORIES = {"Корпус", "Паруса и мачты", "Палубы", "Капитанские помещения"};
-    private static final int[][] MODULAR_GROUPS = {{0, 1}, {6, 2, 3, 4, 5}, {7}, {8, 9}};
+    private static final int[] MODULAR_ACTIONS = {
+            200, 201, 207, 208, 209, 210, 203, 204, 205, 206,
+            220, 221, 222, 223, 224, 225, 226
+    };
+    private static final String[] MODULAR_CATEGORIES =
+            {"Корпус", "Палубы", "Мачты", "Реи", "Паруса"};
+    private static final int[][] MODULAR_GROUPS = {
+            {0, 1}, {7, 8, 9}, {6, 10, 11}, {12, 13}, {14, 15, 16, 2, 3, 4, 5}
+    };
     private static final String[] CLASS_NAMES = {
             "Малый", "Средний", "Большой", "Крупнейший"
     };
@@ -64,6 +73,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private int tab;
     private final ShipyardSelectionState selections = new ShipyardSelectionState();
     private int modCategory;
+    private int selectedMast;
     private boolean createRafts;
     private int selectedLength;
     private int selectedWidth;
@@ -151,6 +161,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         MODULAR_ACTIONS[option] - 207,
                         current.sailTiers().get(MODULAR_ACTIONS[option] - 207) + 1);
                 case 203 -> current.withSail(current.sailTiers().size(), 1);
+                case 220, 221, 222, 223, 224, 225, 226 ->
+                        current.upgradeRigging(selectedMast, MODULAR_ACTIONS[option] - 220);
                 case 204 -> current.withDecks(current.decks() + 1);
                 case 205 -> current.withBridge(true);
                 case 206 -> current.withCabin(true);
@@ -244,16 +256,20 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         } else {
             ShipBuildConfiguration current = currentConfig();
             if (current != null) {
+                selectedMast = Math.max(0, Math.min(selectedMast, current.sailTiers().size() - 1));
                 modCategory = Math.max(0, Math.min(modCategory, MODULAR_CATEGORIES.length - 1));
+                for (int i = 0; i < current.sailTiers().size(); i++) {
+                    final int mast = i;
+                    Button selector = Button.builder(Component.literal(
+                            (selectedMast == i ? "» " : "") + "М" + (i + 1)),
+                            clicked -> { selectedMast = mast; rebuild(); })
+                            .bounds(leftPos + 200 + i * 45, topPos + 65, 41, 17).build();
+                    addRenderableWidget(selector);
+                }
                 for (int i = 0; i < MODULAR_CATEGORIES.length; i++) {
                     final int category = i;
                     int x = 16 + (i % 2) * 80, y = 63 + (i / 2) * 24;
-                    String title = switch (i) {
-                        case 0 -> "Корпус";
-                        case 1 -> "Мачты";
-                        case 2 -> "Палубы";
-                        default -> "Помещения";
-                    };
+                    String title = MODULAR_CATEGORIES[i];
                     Button button = Button.builder(Component.literal(modCategory == i ? "» " + title : title),
                             clicked -> selectModificationCategory(category))
                             .bounds(leftPos + x, topPos + y, 75, 20).build();
@@ -266,7 +282,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 if (!found) choose(options[0]);
                 for (int index = 0; index < options.length; index++) {
                     final int option = options[index];
-                    int x = 16 + (index % 2) * 80, y = 118 + (index / 2) * 23;
+                    int x = 16, y = 137 + index * 15;
                     // Keep blocked choices selectable so the reason is visible,
                     // but mark them clearly instead of masquerading as valid upgrades.
                     ShipBuildConfiguration preview = nextConfig(current, option);
@@ -275,7 +291,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                             + MODULAR_OPTIONS[option];
                     Button button = Button.builder(Component.literal(label),
                             clicked -> { choose(option); rebuild(); })
-                            .bounds(leftPos + x, topPos + y, 75, 20).build();
+                            .bounds(leftPos + x, topPos + y, 154, 15).build();
                     button.active = true;
                     addRenderableWidget(button);
                 }
@@ -310,7 +326,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             else action = 100 + chosen() * 16 + selectedLength * 4 + selectedWidth;
         } else {
             action = currentConfig() != null
-                    ? MODULAR_ACTIONS[chosen()]
+                    ? MODULAR_ACTIONS[chosen()] >= 220
+                            ? MODULAR_ACTIONS[chosen()] + selectedMast * 7
+                            : MODULAR_ACTIONS[chosen()]
                     : vesselKind() == 2 ? SHIP_ACTIONS[chosen()] : RAFT_ACTIONS[chosen()];
         }
         FirstShipEntity nearby = nearbyModular();
@@ -434,6 +452,22 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
+        if (action >= 220 && action <= 226) {
+            if (selectedMast >= current.rigging().size()) return "Сначала установите мачту";
+            ShipBuildConfiguration.Rigging r = current.rigging().get(selectedMast);
+            if (action == 220 && r.height() >= (kind == ShipSectionPlan.ShipClass.SMALL ? 1 : 2))
+                return "Максимальная высота мачты";
+            if (action == 221 && r.strength() >= 3) return "Мачта максимально укреплена";
+            if (action == 222 && r.width() >= 2) return "Максимальная ширина реи";
+            if (action == 223 && r.yards() >=
+                    (kind == ShipSectionPlan.ShipClass.SMALL ? 2
+                    : kind == ShipSectionPlan.ShipClass.LARGEST ? 4 : 3))
+                return "Максимальное количество рей";
+            if (action == 224 && r.area() >= 2) return "Максимальная площадь паруса";
+            if (action == 225 && r.layers() >= r.yards() - 1)
+                return "Сначала добавьте ещё одну рею";
+            if (action == 226 && r.fabric() >= 3) return "Ткань уже улучшена до III";
+        }
         if (action == 203 && current.sailTiers().size() >= kind.maxMasts)
             return "Все мачты этого класса установлены";
         if (action >= 207 && action <= 210) {
@@ -562,25 +596,27 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         } else if (current != null) {
             graphics.drawString(font, font.plainSubstrByWidth(
                     "Корпус " + current.width() + "×" + current.length()
-                            + " | мачт " + current.sailTiers().size(), 154),
-                    17, 200, 0xfff2dfbd, false);
+                            + " | мачт " + current.sailTiers().size(), 245),
+                    201, 86, DARK, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
                 graphics.drawString(font, font.plainSubstrByWidth(
-                        unavailableReason(current), 159), 17, 188, 0xffffb18c, false);
+                        unavailableReason(current), 244), 201, 99, 0xffad3838, false);
             else
                 graphics.drawString(font, font.plainSubstrByWidth(
-                                "Раздел: " + MODULAR_CATEGORIES[modCategory], 160),
-                        17, 188, 0xffeacfa2, false);
+                                "Раздел: " + MODULAR_CATEGORIES[modCategory], 244),
+                        201, 99, DARK, false);
         } else {
             graphics.drawString(font, vesselKind() == 0
                     ? "Положите судно в ячейку"
                     : "Улучшение старого судна", 17, 65, 0xfff2dfbd, false);
         }
-        graphics.drawString(font, tab == 0 ? "Готовое судно — забрать" :
-                "Судно — в верхний слот", 18, 214, 0xffeacfa2, false);
-        graphics.drawString(font, tab == 0 ? "из выходной ячейки" :
-                "Детали — из инвентаря", 18, 226, 0xffeacfa2, false);
+        if (tab == 0 || current == null) {
+            graphics.drawString(font, tab == 0 ? "Готовое судно — забрать" :
+                    "Судно — в верхний слот", 18, 214, 0xffeacfa2, false);
+            graphics.drawString(font, tab == 0 ? "из выходной ячейки" :
+                    "Детали — из инвентаря", 18, 226, 0xffeacfa2, false);
+        }
 
         String heading = tab == 0
                 ? createRafts ? VESSELS[chosen()] : "Проект: " + CLASS_NAMES[chosen()]

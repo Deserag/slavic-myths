@@ -54,13 +54,13 @@ public final class ShipyardModular {
         int helm = delta.getOrDefault(ShipHullVoxelLayout.Part.HELM, 0);
         int basic = 0, linen = 0, reinforced = 0;
         for (int i = 0; i < next.sailTiers().size(); i++) {
-            int tier = next.sailTiers().get(i);
-            int previousTier = original != null && i < original.sailTiers().size()
-                    ? original.sailTiers().get(i) : 0;
-            if (tier > previousTier) {
-                if (tier == 1) basic++;
-                if (tier == 2) linen++;
-                if (tier == 3) reinforced++;
+            int quality = next.rigging().get(i).fabric();
+            int previousQuality = original != null && i < original.rigging().size()
+                    ? original.rigging().get(i).fabric() : 0;
+            if (quality > previousQuality) {
+                if (quality == 1) basic++;
+                if (quality == 2) linen++;
+                if (quality == 3) reinforced++;
             }
         }
         return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
@@ -180,8 +180,14 @@ public final class ShipyardModular {
                 || old.cabin() && !next.cabin()
                 || old.hullGeometry() != next.hullGeometry()
                 || next.sailTiers().size() < old.sailTiers().size()) return false;
-        for (int i = 0; i < old.sailTiers().size(); i++)
+        for (int i = 0; i < old.sailTiers().size(); i++) {
             if (next.sailTiers().get(i) < old.sailTiers().get(i)) return false;
+            ShipBuildConfiguration.Rigging a = old.rigging().get(i), b = next.rigging().get(i);
+            if (b.height() < a.height() || b.strength() < a.strength()
+                    || b.width() < a.width() || b.yards() < a.yards()
+                    || b.area() < a.area() || b.layers() < a.layers()
+                    || b.fabric() < a.fabric()) return false;
+        }
         return true;
     }
 
