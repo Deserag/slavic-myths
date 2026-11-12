@@ -46,6 +46,12 @@ public final class ShipHullVoxelLayout {
                     throw new IllegalArgumentException("Geometry 3 is reserved for MEDIUM");
                 yield generateMediumClearance(plan);
             }
+            case 4 -> {
+                if (plan.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                        && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
+                    throw new IllegalArgumentException("Geometry 4 requires LARGE or LARGEST");
+                yield generateLargeClearance(plan);
+            }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
     }
@@ -294,6 +300,48 @@ public final class ShipHullVoxelLayout {
                     if (blocks.containsKey(fabric))
                         throw new IllegalArgumentException("MEDIUM cloth intersects superstructure");
                     // Logical cloth only: ShipModularBlockHull deliberately omits SAIL.
+                    put(blocks, x, y, z + 1, Part.SAIL);
+                }
+        }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+
+    /**
+     * Geometry 4 only: rebuild rigging AFTER the entire version-2 structure
+     * has been generated without sails. This makes decks-before-sails and
+     * sails-before-decks produce precisely the same voxel coordinates, while
+     * saved V1/V2 hulls remain byte-for-byte unchanged.
+     */
+    private static Map<Cell, Part> generateLargeClearance(ShipSuperstructurePlan plan) {
+        ShipSuperstructurePlan bare = new ShipSuperstructurePlan(
+                plan.shipClass(), plan.hullWidth(), plan.hullLength(), List.of(),
+                plan.decks(), plan.bridge(), plan.cabin());
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateStepped(bare));
+        for (ShipClearanceSailPlan.Sail sail : ShipClearanceSailPlan.forPlan(plan).sails()) {
+            int z = sail.mastZ();
+            for (int y = 5; y <= sail.mastTopY(); y++) {
+                Cell cell = new Cell(0, y, z);
+                Part previous = blocks.get(cell);
+                if (previous != null && previous != Part.DECK
+                        && previous != Part.MAST)
+                    throw new IllegalArgumentException("Large mast intersects " + previous);
+                put(blocks, 0, y, z, Part.MAST);
+            }
+            for (int y : new int[]{sail.lowerYardY(), sail.upperYardY()})
+                for (int x = -sail.halfSpan(); x <= sail.halfSpan(); x++) {
+                    if (x == 0) continue;
+                    Cell yard = new Cell(x, y, z);
+                    if (blocks.containsKey(yard))
+                        throw new IllegalArgumentException("Large yard intersects superstructure");
+                    put(blocks, x, y, z, Part.YARD);
+                }
+            for (int y = sail.bottom(); y <= sail.top(); y++)
+                for (int x = -sail.rowHalfSpan(y); x <= sail.rowHalfSpan(y); x++) {
+                    if (x == 0) continue;
+                    Cell cloth = new Cell(x, y, z + 1);
+                    if (blocks.containsKey(cloth))
+                        throw new IllegalArgumentException("Large sail intersects superstructure");
                     put(blocks, x, y, z + 1, Part.SAIL);
                 }
         }

@@ -38,8 +38,14 @@ public final class FirstShipMediumSailPlan {
             throw new IllegalArgumentException("MEDIUM sail plan requires MEDIUM hull");
         // Read actual surviving floors from the frozen V2 construction, not
         // guessed Y offsets. Important for two decks, cabin roofs and bridge.
+        // V2 rigging overwrites some upper-deck cells with mast/yard blocks.
+        // Inspect the structural deck BEFORE any rigging is installed, or
+        // a later deck upgrade can leave the sails too low.
+        ShipSuperstructurePlan bare = new ShipSuperstructurePlan(
+                plan.shipClass(), plan.hullWidth(), plan.hullLength(),
+                List.of(), plan.decks(), plan.bridge(), plan.cabin());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull =
-                ShipHullVoxelLayout.generate(plan, 2);
+                ShipHullVoxelLayout.generate(bare, 2);
         List<Sail> sails = new ArrayList<>();
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i), z = plan.mastPositions().get(i);

@@ -26,7 +26,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public ShipBuildConfiguration {
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (hullGeometry != 1 && hullGeometry != 2
-                && !(hullGeometry == 3 && shipClass == ShipSectionPlan.ShipClass.MEDIUM))
+                && !(hullGeometry == 3 && shipClass == ShipSectionPlan.ShipClass.MEDIUM)
+                && !(hullGeometry == 4 && (shipClass == ShipSectionPlan.ShipClass.LARGE
+                        || shipClass == ShipSectionPlan.ShipClass.LARGEST)))
             throw new IllegalArgumentException("Unsupported modular hull geometry");
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
         sailTiers = List.copyOf(sailTiers);
@@ -63,7 +65,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
                 type == ShipSectionPlan.ShipClass.SMALL ? 1
-                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 2);
+                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 4);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
