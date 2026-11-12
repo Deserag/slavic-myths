@@ -57,6 +57,8 @@ public final class Ocean26ClientProbe {
     private static UUID benchPrevious;
     private static int benchCase = -1, benchWait;
     private static volatile boolean benchBaselineReady;
+    private static Integer benchOriginalFpsLimit;
+    private static Boolean benchOriginalVsync;
     private static boolean benchSampling, benchSceneDone;
     private static int benchRepeat, benchWarmup, benchSamples;
     private static long benchLastFrameNanos;
@@ -494,7 +496,10 @@ public final class Ocean26ClientProbe {
             if (mc.player.getVehicle() instanceof FirstShipEntity ship && ship.isMoving()) {
                 turnMotionStarted = true;
                 elapsed = 0;
-                System.out.println("OCEAN26_TURN_MOTION_READY moving=true ship=" + ship.getId());
+                System.out.println("OCEAN26_TURN_MOTION_READY moving=true ship=" + ship.getId()
+                        + " fpsOption=" + mc.options.framerateLimit().get()
+                        + " vsync=" + mc.options.enableVsync().get()
+                        + " observedFps=" + mc.getFps());
             } else if (elapsed > 300) {
                 fail(mc, "turn camera scenario never entered a moving hull");
             }
@@ -733,6 +738,8 @@ public final class Ocean26ClientProbe {
                         if (RENDER_BENCH) {
                             phase = 6;
                             benchPrevious = shipId;
+                            benchOriginalVsync = mc.options.enableVsync().get();
+                            benchOriginalFpsLimit = mc.options.framerateLimit().get();
                             mc.options.enableVsync().set(false);
                             mc.options.framerateLimit().set(260);
                             System.out.println("OCEAN26_FRAME_ENV resolution="
@@ -1149,7 +1156,21 @@ public final class Ocean26ClientProbe {
                     (passed ? "PASS " : "FAIL ") + detail);
         } catch (IOException error) {
             throw new IllegalStateException("Cannot record client probe result", error);
+        } finally {
+            try {
+                if (benchOriginalFpsLimit != null && benchOriginalVsync != null) {
+                    mc.options.enableVsync().set(benchOriginalVsync);
+                    mc.options.framerateLimit().set(benchOriginalFpsLimit);
+                    mc.options.save();
+                    System.out.println("OCEAN26_FRAME_RESTORE fpsOption="
+                            + mc.options.framerateLimit().get()
+                            + " vsync=" + mc.options.enableVsync().get());
+                }
+            } finally {
+                benchOriginalFpsLimit = null;
+                benchOriginalVsync = null;
+                mc.stop();
+            }
         }
-        mc.stop();
     }
 }
