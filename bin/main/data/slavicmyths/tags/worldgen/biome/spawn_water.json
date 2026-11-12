@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:frozen_river",
-    "minecraft:mangrove_swamp",
-    "minecraft:river",
-    "minecraft:swamp"
-  ]
-}

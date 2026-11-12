@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "slavicmyths:block/linden_planks",
-    "top": "slavicmyths:block/linden_planks",
-    "side": "slavicmyths:block/linden_planks"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "slavicmyths:block/mor_dirt",
-    "particle": "slavicmyths:block/mor_dirt",
-    "side": "slavicmyths:block/mor_grass_block_snow",
-    "top": "slavicmyths:block/mor_grass_block_top"
-  }
-}

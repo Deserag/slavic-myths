@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "slavicmyths:block/rowan_planks",
-    "top": "slavicmyths:block/rowan_planks",
-    "side": "slavicmyths:block/rowan_planks"
-  }
-}

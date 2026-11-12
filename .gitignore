@@ -61,3 +61,10 @@ Thumbs.db
 /docs/verification/
 /docs/maintenance/
 /docs/audit/
+
+# Rebuildable IDE/Gradle outputs and obsolete root scratch (preserved in Git history).
+/bin/
+/all_errors.txt
+/crash.txt
+/gpt_task.txt
+/SistersModel.backup.txt

@@ -1,4 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {"cross": "slavicmyths:block/violet_fire", "particle": "slavicmyths:block/violet_fire"}
-}

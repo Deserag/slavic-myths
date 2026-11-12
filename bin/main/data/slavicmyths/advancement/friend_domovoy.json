@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:offer_domovoy",
-  "criteria": {
-    "done": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}
