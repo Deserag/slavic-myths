@@ -27,7 +27,7 @@ public record ShipRiggingState(int height, int strength, int width, int yards,
         };
     }    public static List<ShipRiggingState> defaults(List<Integer> tiers) {
         List<ShipRiggingState> result = new ArrayList<>();
-        for (int tier : tiers) result.add(new ShipRiggingState(0, 1, 0, 1, 0, 1, tier));
+        for (int tier : tiers) result.add(new ShipRiggingState(0, 1, 0, 2, 0, 1, tier));
         return List.copyOf(result);
     }
 }
