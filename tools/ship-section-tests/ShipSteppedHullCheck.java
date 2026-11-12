@@ -84,6 +84,12 @@ public final class ShipSteppedHullCheck {
                 13, 21, List.of(1, 2), 2, true, true));
         verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.MEDIUM,
                 15, 25, List.of(1, 2), 2, false, false));
+        // Large vessels keep three actual decks while gaining a broader,
+        // tapered keel than MEDIUM. Verify added length/beam sections as well.
+        verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                21, 33, List.of(1, 2, 3), 3, true, true));
+        verify(new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                23, 37, List.of(1, 2, 3), 3, true, true));
         System.out.println("PASS ShipSteppedHullCheck assertions=" + checks);
     }
 }
