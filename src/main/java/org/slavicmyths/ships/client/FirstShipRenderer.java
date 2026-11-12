@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.FirstShipSmallSailPlan;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.RaftContent;
 
@@ -205,7 +206,14 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         int rig = ship.rigLevel();
-        if (rig == 1) {
+        if (ship.geometryVersion() >= 12) {
+            // This mesh is the ONLY cloth for V12; the world palette contains
+            // masts/yards but no wool, and both use the same tiered plan.
+            for (FirstShipSmallSailPlan.Sail sail :
+                    FirstShipSmallSailPlan.forRig(rig, ship.fabricQuality()).sails())
+                smallSailPanel(ship, partialTick, pose, buffers, light, seam, sail);
+        }
+        else if (rig == 1) {
             int top = ship.geometryVersion() >= 8 && ship.fabricQuality() > 1
                     ? (ship.fabricQuality() == 2 ? 13 : 14) : 12;
             int span = ship.geometryVersion() >= 8 && ship.fabricQuality() == 3 ? 4 : 3;
@@ -220,6 +228,58 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                     seam, 18D, 20D, 2);
         }
         pose.popPose();
+    }
+
+    /**
+     * V12 SMALL only: individual one-block-high fabric strips form a stepped
+     * Minecraft silhouette rather than an uninterrupted rounded rectangle.
+     * Cloth starts ABOVE the lowest solid yard; the V11 renderer is untouched.
+     */
+    private void smallSailPanel(FirstShipEntity ship, float partialTick, PoseStack pose,
+            MultiBufferSource buffers, int light, BlockState seam,
+            FirstShipSmallSailPlan.Sail sail) {
+        VertexConsumer fabric = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
+        float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
+        float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
+        float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
+        for (int y = sail.bottom(); y <= sail.top(); y++) {
+            int half = sail.rowHalfSpan(y);
+            for (int col = 0; col < 8; col++) {
+                smallSailVertex(fabric, pose, ship, partialTick, light, tintR, tintG,
+                        tintB, col, y, half, sail);
+                smallSailVertex(fabric, pose, ship, partialTick, light, tintR, tintG,
+                        tintB, col + 1, y, half, sail);
+                smallSailVertex(fabric, pose, ship, partialTick, light, tintR, tintG,
+                        tintB, col + 1, y + 1, half, sail);
+                smallSailVertex(fabric, pose, ship, partialTick, light, tintR, tintG,
+                        tintB, col, y + 1, half, sail);
+            }
+            for (double side : new double[]{-1D, 1D})
+                piece(Blocks.OAK_PLANKS.defaultBlockState(), pose, buffers, light,
+                        side * (half + .25D) - .03D, y, .13D, .06F, 1F, .06F);
+        }
+        for (int y : new int[]{sail.bottom(), sail.top() + 1}) {
+            int span = sail.rowHalfSpan(y == sail.bottom() ? y : sail.top());
+            piece(seam, pose, buffers, light, -span - .25D, y, .15D,
+                    (float)(span * 2D + .5D), .08F, .025F);
+        }
+    }
+
+    private void smallSailVertex(VertexConsumer out, PoseStack pose, FirstShipEntity ship,
+            float partialTick, int light, float red, float green, float blue,
+            int column, int y, int half, FirstShipSmallSailPlan.Sail sail) {
+        float u = column / 8F;
+        float v = (y - sail.bottom()) / (float)(sail.top() - sail.bottom() + 1);
+        double x = (half + .25D) * (2D * u - 1D);
+        double fullness = 1D - Math.pow(2D * u - 1D, 2D);
+        double wave = Math.sin(Math.PI * v);
+        double belly = .10D + .55D * fullness * wave;
+        double wind = Math.sin((ship.tickCount + partialTick) * .075D + x * .6D)
+                * .045D * wave;
+        out.addVertex(pose.last().pose(), (float)x, y, (float)(belly + wind))
+                .setColor(red, green, blue, 1F).setUv(u, v)
+                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
+                .setNormal(pose.last(), (float)(-.5D * (2D * u - 1D) * wave), 0F, 1F);
     }
 
     private void sailPanel(FirstShipEntity ship, float partialTick, PoseStack pose,
