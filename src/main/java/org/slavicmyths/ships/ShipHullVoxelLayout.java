@@ -451,7 +451,15 @@ public final class ShipHullVoxelLayout {
         // Enclosed main/upper stories; the final exposed deck remains rail-lined.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int deckY = 4 + (floor - 1) * 4;
-            int rear = -halfLength + 2, front = halfLength - 3 * (floor - 1);
+            int rear = -halfLength + 2;
+            // Upper accommodation occupies the aft section only. A ship
+            // should have an exposed forward working deck, not a full-length
+            // wooden apartment block. The third storey becomes a shorter
+            // sterncastle, with a slightly longer one for LARGEST.
+            int front = floor == 2 ? halfLength / 2
+                    : plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        ? Math.max(3, halfLength / 4)
+                        : Math.max(2, halfLength / 6);
             for (int z = rear; z <= front; z++) {
                 int beam = Math.max(0, asymmetricLargeBeam(plan, z) - 1);
                 for (int x = -beam; x <= beam; x++) {
