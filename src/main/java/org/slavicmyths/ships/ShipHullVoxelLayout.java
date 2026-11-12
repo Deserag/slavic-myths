@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, STAIR, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN
     }
 
     private static int beam(int width, int length, int z) {
@@ -69,8 +69,50 @@ public final class ShipHullVoxelLayout {
                     throw new IllegalArgumentException("Geometry 6 requires LARGE or LARGEST");
                 yield generateLargeStairs(plan);
             }
+            case 7, 8, 9 -> {
+                if (plan.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                        && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
+                    throw new IllegalArgumentException("Lighting requires a large ship");
+                yield generateLitLargeShip(plan, geometry - 6);
+            }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
+    }
+
+    /** Solid, real-light emitting Minecraft lanterns, added after stairs/doors. */
+    private static Map<Cell, Part> generateLitLargeShip(ShipSuperstructurePlan plan, int level) {
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateLargeStairs(plan));
+        int radius = plan.hullLength() / 2;
+        for (int floor = 1; floor <= plan.decks(); floor++) {
+            if (floor != plan.decks() && level < 2) continue;
+            int y = 5 + (floor - 1) * 4;
+            for (int z = -radius + 5; z <= radius - 5; z += 7) {
+                int x = Math.min(4, Math.max(2, asymmetricLargeBeam(plan, z) - 2));
+                for (int side : new int[]{-1, 1})
+                    placeSupportedLantern(blocks, side * x, y, z);
+            }
+        }
+        if (level >= 3) {
+            for (int z = -radius + 4; z <= radius - 4; z += 8) {
+                for (int x : new int[]{-2, 2})
+                    placeSupportedLantern(blocks, x, 1, z);
+                placeSupportedLantern(blocks, 3, 5, z + 2);
+                placeSupportedLantern(blocks, -3, 5, z + 2);
+            }
+            if (plan.bridge()) {
+                placeSupportedLantern(blocks, 2, 10, -radius + 4);
+                placeSupportedLantern(blocks, -2, 10, -radius + 4);
+            }
+        }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    private static void placeSupportedLantern(Map<Cell, Part> blocks, int x, int y, int z) {
+        Cell position = new Cell(x, y, z);
+        Part below = blocks.get(new Cell(x, y - 1, z));
+        if (!blocks.containsKey(position) && (below == Part.DECK
+                || below == Part.BRIDGE || below == Part.HULL || below == Part.KEEL))
+            put(blocks, x, y, z, Part.LANTERN);
     }
 
     /** Physical rigs are recreated from one shared, collision-checked plan. */

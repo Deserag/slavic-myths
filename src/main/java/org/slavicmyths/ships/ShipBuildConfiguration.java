@@ -41,7 +41,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (hullGeometry != 1 && hullGeometry != 2
                 && !(hullGeometry == 3 && shipClass == ShipSectionPlan.ShipClass.MEDIUM)
-                && !((hullGeometry == 4 || hullGeometry == 5 || hullGeometry == 6)
+                && !((hullGeometry >= 4 && hullGeometry <= 9)
                         && (shipClass == ShipSectionPlan.ShipClass.LARGE
                         || shipClass == ShipSectionPlan.ShipClass.LARGEST)))
             throw new IllegalArgumentException("Unsupported modular hull geometry");
@@ -121,6 +121,13 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         upgraded.set(mast, upgraded.get(mast).increase(aspect));
         return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
                 sailTiers, decks, bridge, cabin, hullGeometry, upgraded);
+    }
+
+    public ShipBuildConfiguration withLighting() {
+        if (hullGeometry < 6 || hullGeometry >= 9)
+            throw new IllegalArgumentException("Lighting requires LARGE/LARGEST V6");
+        return new ShipBuildConfiguration(shipClass, extraLength, extraWidth,
+                sailTiers, decks, bridge, cabin, hullGeometry + 1, rigging);
     }
 
     public ShipBuildConfiguration withDecks(int count) {
