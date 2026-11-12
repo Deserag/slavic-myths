@@ -356,6 +356,24 @@ public final class ShipHullVoxelLayout {
 
 
     /**
+     * A closed floor must end away from a mast's centre. In particular, a
+     * four-mast LARGEST sterncastle may otherwise close its forward door
+     * directly around a mast at z=2/4 after an order-independent upgrade.
+     */
+    public static int enclosedFloorFront(ShipSuperstructurePlan plan, int floor) {
+        if (plan == null || floor < 2 || floor > plan.decks())
+            throw new IllegalArgumentException("Unknown closed floor");
+        int halfLength = plan.hullLength() / 2;
+        int front = floor == 2 ? halfLength / 2
+                : plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    ? Math.max(3, halfLength / 4)
+                    : Math.max(2, halfLength / 6);
+        while (plan.mastPositions().contains(front) && front < halfLength - 2)
+            front++;
+        return front;
+    }
+
+    /**
      * Only new geometry 5 has an intentionally different bow and stern.
      * The aft transom retains substantial beam; the bow tapers to a point.
      * Historical V1-V4 profile functions and their palettes are untouched.
@@ -456,10 +474,7 @@ public final class ShipHullVoxelLayout {
             // should have an exposed forward working deck, not a full-length
             // wooden apartment block. The third storey becomes a shorter
             // sterncastle, with a slightly longer one for LARGEST.
-            int front = floor == 2 ? halfLength / 2
-                    : plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        ? Math.max(3, halfLength / 4)
-                        : Math.max(2, halfLength / 6);
+            int front = enclosedFloorFront(plan, floor);
             for (int z = rear; z <= front; z++) {
                 int beam = Math.max(0, asymmetricLargeBeam(plan, z) - 1);
                 for (int x = -beam; x <= beam; x++) {
