@@ -115,7 +115,7 @@ jobs:
             ./gradlew --no-daemon --console=plain -Pocean26ClientProbe \
               -Pocean26ModularVisualProbe -Pocean26TurnCameraProbe \
               -Pocean26ShipClass=MEDIUM -Pocean26ProbeWorld=CaptainTurnCi runOcean26ClientProbe
-          grep -q '^PASS main' run-ocean26-client/ocean26-probe-result.txt
+          grep -q '^PASS turnCamera' run-ocean26-client/ocean26-probe-result.txt
           cp run-ocean26-client/ocean26-probe-result.txt captain-turn-result.txt
       - name: Record real client scenario outcomes
         if: always()

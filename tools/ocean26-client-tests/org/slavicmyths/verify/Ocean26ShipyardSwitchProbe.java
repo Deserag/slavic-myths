@@ -98,6 +98,11 @@ public final class Ocean26ShipyardSwitchProbe {
                 raft = new ItemStack(RaftContent.RAFT_ITEM.get());
                 if (org.slavicmyths.ships.ShipyardModular.configuration(modular) == null)
                     throw new AssertionError("modular fixture did not decode");
+                // Minecraft's default 854x480 GLFW window clamps the
+                // effective GUI scale to 2. Enlarge the real window so this
+                // fixture actually exercises scale 4 in 1920x1080 Xvfb.
+                mc.getWindow().setWindowed(1600, 1000);
+                mc.resizeDisplay();
                 mc.options.guiScale().set(4);
                 mc.resizeDisplay();
                 menu = new ShipyardMenu(188, mc.player.getInventory(), mc.player.blockPosition());
@@ -162,6 +167,9 @@ public final class Ocean26ShipyardSwitchProbe {
                 case 13 -> {
                     if (screenshots != 5)
                         throw new AssertionError("incomplete shipyard screenshots " + screenshots);
+                    if (Math.abs(mc.getWindow().getGuiScale() - 4D) > .05D)
+                        throw new AssertionError("GUI scale 4 not actually rendered: "
+                                + mc.getWindow().getGuiScale());
                     System.out.println("OCEAN26_SHIPYARD_RENDER_SEQUENCE swaps=" + transitions
                             + " guiScale=" + mc.options.guiScale().get()
                             + " finalIndex=" + chosen());

@@ -575,6 +575,37 @@ public final class Ocean26ClientProbe {
             FirstShipHull.Point local = clientShip == null ? null : FirstShipHull.toLocal(
                     mc.player.getX(), mc.player.getZ(), clientShip.getX(),
                     clientShip.getZ(), clientShip.getYRot());
+            if (TURN_CAMERAS) {
+                int clientContact = clientShip == null || local == null ? -1
+                        : ShipDeckContact.contactFloor(clientShip, local.x(), local.z(),
+                                mc.player.getY());
+                System.out.println("OCEAN26_TURN_CAMERA_RESULT turnFrames=" + turnFrames
+                        + " seatError=" + maximumTurnSeatError
+                        + " dismountFrames=" + dismountCameraFrames
+                        + " dismountLocalStep=" + maximumDismountCameraStep
+                        + " reverseFrames=" + reverseMotionFrames
+                        + " yawStep=" + largestYawStep
+                        + " traveled=" + traveled
+                        + " clientDeckContact=" + clientContact
+                        + " mounted=" + mc.player.isPassenger());
+                // Camera motion and an actual Shift dismount are independently
+                // checked here. Deck walking and landing support have their
+                // own server and real-client regressions; do not accidentally
+                // demand that unrelated walk/jump itinerary in a turn probe.
+                if (clientShip != null && traveled > 1D
+                        && !mc.player.isPassenger()
+                        && turnFrames >= 10 && maximumTurnSeatError <= .04D
+                        && dismountCameraFrames >= 20
+                        && maximumDismountCameraStep <= .12D
+                        && reverseMotionFrames == 0
+                        && largestYawStep > .05D
+                        && largestYawStep <= ShipRigidMotion.MAX_ANGULAR + .11D) {
+                    finish(mc, true, "turnCamera");
+                } else {
+                    fail(mc, "turning/Shift dismount camera regression");
+                }
+                return;
+            }
             if (LONG_FORWARD) {
                 System.out.println("OCEAN26_LONG_FORWARD traveled=" + traveled
                         + " reverseFrames=" + reverseMotionFrames
