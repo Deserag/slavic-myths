@@ -27,7 +27,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (hullGeometry != 1 && hullGeometry != 2
                 && !(hullGeometry == 3 && shipClass == ShipSectionPlan.ShipClass.MEDIUM)
-                && !((hullGeometry == 4 || hullGeometry == 5)
+                && !((hullGeometry == 4 || hullGeometry == 5 || hullGeometry == 6)
                         && (shipClass == ShipSectionPlan.ShipClass.LARGE
                         || shipClass == ShipSectionPlan.ShipClass.LARGEST)))
             throw new IllegalArgumentException("Unsupported modular hull geometry");
@@ -66,7 +66,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
                 type == ShipSectionPlan.ShipClass.SMALL ? 1
-                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 5);
+                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 6);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
