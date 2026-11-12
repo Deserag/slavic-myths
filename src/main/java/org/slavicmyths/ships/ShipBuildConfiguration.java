@@ -89,7 +89,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
                 type == ShipSectionPlan.ShipClass.SMALL ? 1
-                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 6);
+                        : type == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 6,
+                List.of(new ShipRiggingState(0, 1, 0, 1, 0, 1, 1)));
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
@@ -104,7 +105,7 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         List<ShipRiggingState> upgraded = new ArrayList<>(rigging);
         if (mast == next.size()) {
             next.add(tier);
-            upgraded.add(defaultRigging(List.of(tier)).get(0));
+            upgraded.add(new ShipRiggingState(0, 1, 0, 1, 0, 1, tier));
         } else {
             int previous = next.set(mast, tier);
             if (upgraded.get(mast).equals(defaultRigging(List.of(previous)).get(0)))
