@@ -2,7 +2,7 @@ name: Ocean 2.6 - isolated real-world GameTest
 on:
   workflow_dispatch:
   push:
-    branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109", "fix/2.6-ship-crew-and-upgrades-p0"]
+    branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109", "fix/2.6-ship-crew-and-upgrades-p0", "feat/2.6-large-ship-closed-decks-p1"]
     paths:
       - "src/main/java/org/slavicmyths/ships/**"
       - "gradle/wrapper/**"
