@@ -26,6 +26,7 @@ import org.slavicmyths.ships.ShipyardUpgrades;
 import org.slavicmyths.ships.ShipyardModular;
 import org.slavicmyths.ships.ShipBuildConfiguration;
 import org.slavicmyths.ships.ShipRiggingState;
+import org.slavicmyths.ships.ShipRiggingPlan;
 import org.slavicmyths.ships.ShipSectionPlan;
 import org.slavicmyths.ships.ShipHullVoxelLayout;
 
@@ -61,7 +62,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private static final String[] MODULAR_CATEGORIES =
             {"Корпус", "Палубы", "Мачты", "Реи", "Паруса", "Освещение"};
     private static final int[][] MODULAR_GROUPS = {
-            {0, 1}, {7, 8, 9}, {6, 10, 11}, {12, 13}, {14, 15, 16, 2, 3, 4, 5}, {17}
+            {0, 1}, {7, 8, 9}, {6, 10, 11}, {12, 13}, {14, 15, 16}, {17}
     };
     private static final String[] CLASS_NAMES = {
             "Малый", "Средний", "Большой", "Крупнейший"
@@ -576,6 +577,34 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         graphics.fill(leftPos + 15, topPos + 233, leftPos + 173, topPos + 234, 0xffa77f4b);
     }
 
+    private String selectedValue(ShipBuildConfiguration c) {
+        if (c == null) return "Недоступно";
+        int action = MODULAR_ACTIONS[chosen()];
+        if (action >= 220 && action <= 226 && selectedMast < c.rigging().size()) {
+            ShipRiggingState r = c.rigging().get(selectedMast);
+            return switch (action) {
+                case 220 -> "Высота " + r.height();
+                case 221 -> "Прочность мачты " + r.strength();
+                case 222 -> "Ширина рей " + r.width();
+                case 223 -> "Количество рей " + r.yards();
+                case 224 -> "Размер паруса " + r.area();
+                case 225 -> "Ярусы парусов " + r.layers();
+                case 226 -> "Качество ткани " + r.fabric();
+                default -> "";
+            };
+        }
+        return switch (action) {
+            case 200 -> "Длина " + c.length() + " блоков";
+            case 201 -> "Ширина " + c.width() + " блоков";
+            case 203 -> "Мачты " + c.sailTiers().size();
+            case 204 -> "Палубы " + c.decks();
+            case 205 -> "Мостик " + (c.bridge() ? "есть" : "нет");
+            case 206 -> "Каюта " + (c.cabin() ? "есть" : "нет");
+            case 250 -> "Фонари " + Math.max(0, c.hullGeometry() - 6) + "/3";
+            default -> "Уровень паруса";
+        };
+    }
+
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         graphics.drawString(font, "Корабельная верфь", 17, 45, 0xfff8e1b5, false);
         ShipBuildConfiguration current = currentConfig();
@@ -603,6 +632,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 graphics.drawString(font, "старого корабля 7×11", 18, 143, 0xfff2dfbd, false);
             }
         } else if (current != null) {
+            ShipBuildConfiguration projected = nextConfig();
+            graphics.drawString(font, font.plainSubstrByWidth(
+                    "Сейчас: " + selectedValue(current), 150), 17, 208,
+                    0xffeacfa2, false);
+            graphics.drawString(font, font.plainSubstrByWidth(
+                    "Будет: " + (projected == null ? "недоступно" : selectedValue(projected)), 150),
+                    17, 221, projected == null ? 0xffffb18c : 0xffb5f4b8, false);
             graphics.drawString(font, font.plainSubstrByWidth(
                     "Корпус " + current.width() + "×" + current.length()
                             + " | мачт " + current.sailTiers().size(), 245),
@@ -739,7 +775,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         // Plot the actual stair-flight stations of the versioned V6 hull.
         // A new or expanded stair run is highlighted rather than drawn as
         // part of the old geometry-5 outer hull outline.
-        if (design.hullGeometry() == 6) {
+        if (design.hullGeometry() >= 6) {
             int stairStartZ = -halfLength + 9;
             for (int floor = 1; floor < design.decks(); floor++) {
                 int stairX = floor % 2 == 1 ? 4 : -4;
@@ -748,7 +784,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     int y = topY + (int)Math.round((stairStartZ + step
                             + halfLength + .5D) * topScale);
                     int stairColor = original != null && original.decks() >= floor + 1
-                            && original.hullGeometry() == 6 ? rail : highlight;
+                            && original.hullGeometry() >= 6 ? rail : highlight;
                     graphics.fill(x - 1, y, x + 2, y + 2, stairColor);
                 }
             }
@@ -756,10 +792,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         for (int mast = 0; mast < design.sailTiers().size(); mast++) {
             int z = design.structure().mastPositions().get(mast);
             int y = topY + (int)Math.round((z + halfLength + .5D) * topScale);
-            int color = original == null || mast < original.sailTiers().size()
-                    && original.sailTiers().get(mast).equals(design.sailTiers().get(mast))
-                    ? ink : highlight;
-            graphics.fill(cx - 3, y, cx + 4, y + 2, color);
+            boolean altered = original != null && (mast >= original.rigging().size()
+                    || !original.rigging().get(mast).equals(design.rigging().get(mast)));
+            int color = altered ? highlight : ink;
+            int half = design.structure().customPhysicalRigging()
+                    ? ShipRiggingPlan.forPlan(design.structure(), design.hullGeometry())
+                            .masts().get(mast).yards().get(0).span() : 2;
+            int halfPixels = Math.max(3, (int)Math.round(half * topScale));
+            graphics.fill(cx - halfPixels, y, cx + halfPixels + 1, y + 2, color);
         }
 
         // Profile: a shaped timber hull with elevated bow/stern and
@@ -781,19 +821,36 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         original != null && original.decks() >= floor ? rail : highlight);
             }
         }
+        ShipRiggingPlan.Layout actualRig = design.structure().customPhysicalRigging()
+                ? ShipRiggingPlan.forPlan(design.structure(), design.hullGeometry()) : null;
         for (int mast = 0; mast < design.sailTiers().size(); mast++) {
             int z = design.structure().mastPositions().get(mast);
             int x = sideX + (int)Math.round((z + halfLength) * 85D / length);
             int tier = design.sailTiers().get(mast);
-            int top = tier == 1 ? 79 : tier == 2 ? 74 : 69;
-            boolean changed = original != null
-                    && (mast >= original.sailTiers().size()
-                        || !original.sailTiers().get(mast).equals(tier));
+            boolean changed = original != null && (mast >= original.rigging().size()
+                    || !original.rigging().get(mast).equals(design.rigging().get(mast)));
             int tone = changed ? highlight : rail;
-            graphics.fill(x, top - 2, x + 2, 94, tone);
-            graphics.fill(x - 5, top, x + 7, top + 2, tone);
-            for (int y = top + 2; y < 89; y++)
-                graphics.fill(x + 2, y, x + 5, y + 1, sail);
+            if (actualRig == null) {
+                int top = tier == 1 ? 79 : tier == 2 ? 74 : 69;
+                graphics.fill(x, top - 2, x + 2, 94, tone);
+                graphics.fill(x - 5, top, x + 7, top + 2, tone);
+                for (int y = top + 2; y < 89; y++)
+                    graphics.fill(x + 2, y, x + 5, y + 1, sail);
+            } else {
+                ShipRiggingPlan.Mast rig = actualRig.masts().get(mast);
+                int top = 94 - (int)Math.round(rig.topY() * .78D);
+                graphics.fill(x, top, x + 2, 94, tone);
+                for (ShipRiggingPlan.Yard yard : rig.yards()) {
+                    int y = 94 - (int)Math.round(yard.y() * .78D);
+                    int halfWidth = Math.max(3, yard.span() * 2);
+                    graphics.fill(x - halfWidth, y, x + halfWidth + 2, y + 2, tone);
+                }
+                for (ShipRiggingPlan.Panel panel : rig.panels()) {
+                    int topCloth = 94 - (int)Math.round(panel.top() * .78D);
+                    int bottomCloth = 94 - (int)Math.round(panel.bottom() * .78D);
+                    graphics.fill(x + 2, topCloth, x + 5, Math.max(topCloth + 1, bottomCloth), sail);
+                }
+            }
         }
         if (design.cabin()) graphics.fill(307, 82, 326, 94,
                 original != null && original.cabin() ? timber : highlight);
