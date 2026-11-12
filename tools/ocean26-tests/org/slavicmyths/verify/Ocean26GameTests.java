@@ -618,6 +618,27 @@ public final class Ocean26GameTests {
                         level, anchor, turn, config);
                 t.assertTrue(cargo != null && cargo.size() == 1,
                         "The widened stern chest was silently omitted from packed cargo");
+                // The synchronized client view intentionally contains NO
+                // full NBT State or inventory tags. It must still preserve
+                // the solid hull and the chest's collision shape.
+                CompoundTag visualChest = new CompoundTag();
+                visualChest.putInt("X", x);
+                visualChest.putInt("Y", 5);
+                visualChest.putInt("Z", z);
+                visualChest.putInt("Kind", 1);
+                ListTag clientKinds = new ListTag();
+                clientKinds.add(visualChest);
+                var visualPalette = org.slavicmyths.ships.ShipModularBlockHull
+                        .localClientMotionPalette(config, clientKinds);
+                t.assertTrue(visualPalette.get(new BlockPos(x, 5, z)) != null
+                        && visualPalette.get(new BlockPos(x, 5, z)).is(Blocks.CHEST),
+                        "Compact client cargo lost the moving chest collision block");
+                t.assertTrue(visualPalette.get(new BlockPos(x, 4, z)) != null
+                        && visualPalette.get(new BlockPos(x, 4, z)).is(Blocks.SPRUCE_PLANKS),
+                        "Compact client cargo removed the moving deck collision palette");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull
+                        .localMotionPalette(config, clientKinds).isEmpty(),
+                        "Authoritative full-NBT restoration must reject compact cargo");
                 t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                         level, anchor, turn, config),
                         "Could not safely remove wide-stern ship and its cargo");
