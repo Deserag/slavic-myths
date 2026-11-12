@@ -45,7 +45,8 @@ jobs:
             tools/ship-section-tests/ShipSectionPlanCheck.java \
             tools/ship-section-tests/ShipSuperstructureCheck.java \
             tools/ship-section-tests/ShipSailMotionCheck.java \
-            tools/ship-section-tests/ShipHullVoxelLayoutCheck.java
+            tools/ship-section-tests/ShipHullVoxelLayoutCheck.java \
+            tools/ship-section-tests/ShipSteppedHullCheck.java
       - name: Validate sections, superstructures and sail physics
         shell: bash
         run: |
@@ -53,3 +54,4 @@ jobs:
           java -cp build/ship-checks ShipSuperstructureCheck
           java -cp build/ship-checks ShipSailMotionCheck
           java -cp build/ship-checks ShipHullVoxelLayoutCheck
+          java -cp build/ship-checks ShipSteppedHullCheck

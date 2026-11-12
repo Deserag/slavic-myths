@@ -36,6 +36,30 @@ public final class ShipHullVoxelLayout {
         return beam(plan.hullWidth(), plan.hullLength(), z);
     }
 
+    /** Geometry 1 is frozen for existing modular ship saves and packed items. */
+    public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, int geometry) {
+        return switch (geometry) {
+            case 1 -> generate(plan);
+            case 2 -> generateStepped(plan);
+            default -> throw new IllegalArgumentException("Unknown modular hull geometry");
+        };
+    }
+
+    /** Radius of the physical chine, from the keel to the weather-deck rim. */
+    public static int steppedHalfBeam(ShipSuperstructurePlan plan, int z, int y) {
+        if (plan == null || y < 0 || y > 3) return -1;
+        int top = halfBeam(plan, z);
+        if (top < 0) return -1;
+        int full = plan.hullWidth() / 2;
+        int target = switch (y) {
+            case 0 -> Math.max(1, (full + 1) / 4);
+            case 1 -> Math.max(1, (full + 1) / 2);
+            case 2 -> full - Math.max(1, full / 5);
+            default -> full;
+        };
+        return Math.max(0, top - (full - target));
+    }
+
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
@@ -144,6 +168,36 @@ public final class ShipHullVoxelLayout {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    /**
+     * New modular keel and chine. Generate the legacy furnishings/decks first,
+     * then replace ONLY the bottom four timber layers. Mast, yards, sail
+     * positions, helm, hatches, ladders and upper decks are not regenerated.
+     * Each lower shoulder forms a solid floor for the air cell above it.
+     */
+    private static Map<Cell, Part> generateStepped(ShipSuperstructurePlan plan) {
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generate(plan));
+        blocks.entrySet().removeIf(entry -> entry.getKey().y() <= 3
+                && (entry.getValue() == Part.HULL || entry.getValue() == Part.KEEL));
+        int halfLength = plan.hullLength() / 2;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            for (int y = 0; y <= 3; y++) {
+                int width = steppedHalfBeam(plan, z, y);
+                int lower = y == 0 ? -1 : steppedHalfBeam(plan, z, y - 1);
+                for (int x = -width; x <= width; x++) {
+                    Cell cell = new Cell(x, y, z);
+                    Part existing = blocks.get(cell);
+                    if (existing == Part.LADDER || existing == Part.FRAME) continue;
+                    boolean face = y == 0 || Math.abs(x) > lower
+                            || Math.abs(x) == width
+                            || Math.abs(x) > steppedHalfBeam(plan, z - 1, y)
+                            || Math.abs(x) > steppedHalfBeam(plan, z + 1, y);
+                    if (face) put(blocks, x, y, z, y == 0 && x == 0 ? Part.KEEL : Part.HULL);
+                }
+            }
+        }
         return Collections.unmodifiableMap(blocks);
     }
 
