@@ -186,11 +186,18 @@ public final class FirstShipEntity extends Boat {
         return config != null && config.bridge() ? 10D : FirstShipHull.MAIN_DECK;
     }
 
+    /** Use the actual hull silhouette for V5/V6, not their old narrow stern. */
+    private static int deckHalfBeam(ShipBuildConfiguration config, int z) {
+        if (config.hullGeometry() == 5 || config.hullGeometry() == 6)
+            return ShipHullVoxelLayout.asymmetricLargeBeam(config.structure(), z);
+        return ShipHullVoxelLayout.halfBeam(config.structure(), z);
+    }
+
     public boolean withinShip(double x, double z) {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.withinHull(x, z, .1D);
         if (Math.abs(z) > config.length() / 2D + .49D) return false;
-        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        int half = deckHalfBeam(config, (int)Math.round(z));
         return half >= 0 && Math.abs(x) <= half + .49D;
     }
 
@@ -873,8 +880,7 @@ public final class FirstShipEntity extends Boat {
             double zValue = FirstShipHull.clamp(local.z(),
                     -configuration.length() / 2D + 1D,
                     configuration.length() / 2D - 1D);
-            int beam = ShipHullVoxelLayout.halfBeam(
-                    configuration.structure(), (int)Math.round(zValue));
+            int beam = deckHalfBeam(configuration, (int)Math.round(zValue));
             if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
                     || Math.abs(local.x()) < beam - 1D) return false;
             double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);
