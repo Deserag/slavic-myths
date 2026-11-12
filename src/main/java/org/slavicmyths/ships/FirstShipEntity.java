@@ -107,6 +107,12 @@ public final class FirstShipEntity extends Boat {
     public double clientPreviousZ() { return clientPreviousZ; }
     public float clientPreviousYaw() { return clientPreviousYaw; }
 
+    /** Distance to the last authoritative network pose, used by client QA. */
+    public double clientAuthoritativePoseGap() {
+        return level().isClientSide && clientMotionSteps > 0
+                ? Math.hypot(clientMotionX - getX(), clientMotionZ - getZ()) : -1D;
+    }
+
     /** Nearby clients receive an explicit pose even around a rider dismount. */
     public void acceptCaptainMotionPose(double x, double y, double z, float yaw,
                                         double speed, double turn) {
@@ -1315,12 +1321,30 @@ public final class FirstShipEntity extends Boat {
                 double correction = Math.abs(longitudinal) > .45D
                         ? Math.max(-.01D, Math.min(.01D, longitudinal * .02D)) : 0D;
                 if (clientThrottleDirection > 0) correction = Math.max(0D, correction);
+                // A delayed real-client frame can be several blocks behind the
+                // server. The old +/-0.01-block correction could never catch up
+                // before Shift dismount, leaving the captain outside the CLIENT
+                // deck even though the authoritative server placed them safely.
+                // Recover the excess lag gradually, without moving the vessel
+                // faster than the established forward velocity bound. No server
+                // propulsion, turning or NBT format is changed.
+                if (longitudinal > .75D) {
+                    double available = Math.max(0D, ShipRigidMotion.MAX_FORWARD
+                            - Math.max(0D, clientMotionSpeed));
+                    double recovery = Math.min(.35D, (longitudinal - .75D) * .18D);
+                    correction = Math.max(correction, Math.min(available, recovery));
+                }
                 double dx = forwardX * (clientMotionSpeed + correction)
                         + (Math.abs(lateralX) > .45D
                             ? Math.max(-.01D, Math.min(.01D, lateralX * .02D)) : 0D);
                 double dz = forwardZ * (clientMotionSpeed + correction)
                         + (Math.abs(lateralZ) > .45D
                             ? Math.max(-.01D, Math.min(.01D, lateralZ * .02D)) : 0D);
+                double predictedStep = Math.hypot(dx, dz);
+                if (predictedStep > ShipRigidMotion.MAX_FORWARD) {
+                    dx *= ShipRigidMotion.MAX_FORWARD / predictedStep;
+                    dz *= ShipRigidMotion.MAX_FORWARD / predictedStep;
+                }
                 double yawError = ShipRigidMotion.wrapDegrees(clientMotionYaw - getYRot());
                 if (Math.abs(yawError) > 4D)
                     yawStep += Math.max(-.05D, Math.min(.05D, yawError * .02D));
