@@ -72,6 +72,42 @@ public final class ShipLargeClosedDeckCheck {
         cases++;
     }
 
+    private static void inspectStairs(ShipSuperstructurePlan plan) {
+        var v5 = ShipHullVoxelLayout.generate(plan, 5);
+        var v6 = ShipHullVoxelLayout.generate(plan, 6);
+        int startZ = -plan.hullLength() / 2 + 9;
+        int count = 0;
+        check(!v6.equals(v5), "V6 must be a new opt-in blueprint, not mutate V5");
+        check(v5.values().stream().noneMatch(x -> x == ShipHullVoxelLayout.Part.STAIR),
+                "Saved V5 geometry unexpectedly contains new stairs");
+        for (int floor = 1; floor < plan.decks(); floor++) {
+            int base = 4 + (floor - 1) * 4;
+            int x = floor % 2 == 1 ? 4 : -4;
+            check(v6.get(new ShipHullVoxelLayout.Cell(x, base, startZ - 1))
+                    == ShipHullVoxelLayout.Part.DECK, "Stair base has no approach");
+            check(v6.get(new ShipHullVoxelLayout.Cell(x, base + 4, startZ + 4))
+                    == ShipHullVoxelLayout.Part.DECK, "Stair landing has no deck");
+            for (int step = 0; step < 4; step++) {
+                int y = base + 1 + step, z = startZ + step;
+                check(v6.get(new ShipHullVoxelLayout.Cell(x, y, z))
+                        == ShipHullVoxelLayout.Part.STAIR,
+                        "Missing solid stair tread floor=" + floor + " step=" + step);
+                for (int head = 1; head <= 2; head++)
+                    check(v6.get(new ShipHullVoxelLayout.Cell(x, y + head, z)) == null,
+                            "Blocked stair headroom floor=" + floor + " step=" + step);
+                count++;
+            }
+            check(v6.get(new ShipHullVoxelLayout.Cell(-2, base + 4, 0))
+                    == ShipHullVoxelLayout.Part.DECK,
+                    "Old open shaft left unprotected on upper deck");
+        }
+        check(v6.get(new ShipHullVoxelLayout.Cell(-2, 1, 1))
+                == ShipHullVoxelLayout.Part.LADDER, "Hold ladder must remain climbable");
+        check(count == (plan.decks() - 1) * 4, "Not all built decks have stair access");
+        check(v6.equals(ShipHullVoxelLayout.generate(plan, 6)),
+                "V6 voxel generation is not deterministic");
+    }
+
     public static void main(String[] args) {
         var large = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
                 21, 33, List.of(1), 1, false, false);
@@ -101,11 +137,15 @@ public final class ShipLargeClosedDeckCheck {
                                         ShipHullVoxelLayout.generate(b, 5)),
                                         "Order changes new V5 geometry");
                                 inspect(a);
+                                inspectStairs(a);
+                                check(ShipHullVoxelLayout.generate(a, 6).equals(
+                                        ShipHullVoxelLayout.generate(b, 6)),
+                                        "Order changes new V6 stairs");
                                 check(ShipHullVoxelLayout.generate(a, 4).equals(
                                         ShipHullVoxelLayout.generate(b, 4)),
                                         "V4 compatibility changed");
                             }
-        System.out.println("SHIP_P1_CLOSED_DECK_PASS cases=" + cases
+        System.out.println("SHIP_P1_CLOSED_DECK_AND_STAIRS_PASS cases=" + cases
                 + " assertions=" + assertions);
     }
 
