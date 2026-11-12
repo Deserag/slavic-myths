@@ -63,6 +63,7 @@ jobs:
             tools/ship-section-tests/ShipMediumSailClearanceCheck.java \
             tools/ship-section-tests/ShipRiggingOrderCheck.java \
             tools/ship-section-tests/ShipLargeClosedDeckCheck.java \
+            tools/ship-section-tests/ShipIndependentRiggingCheck.java \
             tools/ship-section-tests/ShipHullImageExport.java
       - name: Validate sections, superstructures and sail physics
         shell: bash
@@ -75,6 +76,7 @@ jobs:
           java -cp build/ship-checks ShipMediumSailClearanceCheck
           java -cp build/ship-checks ShipRiggingOrderCheck
           java -cp build/ship-checks ShipLargeClosedDeckCheck
+          java -cp build/ship-checks ShipIndependentRiggingCheck
 
       - name: Render nine PNGs from Java voxel geometry
         shell: bash
