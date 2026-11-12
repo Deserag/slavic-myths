@@ -53,10 +53,10 @@ public final class ShipModularBlockHull {
                     });
             case STAIR -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(StairBlock.FACING,
                     switch (Math.floorMod(turns, 4)) {
-                        case 0 -> Direction.NORTH;
-                        case 1 -> Direction.EAST;
-                        case 2 -> Direction.SOUTH;
-                        default -> Direction.WEST;
+                        case 0 -> Direction.SOUTH;
+                        case 1 -> Direction.WEST;
+                        case 2 -> Direction.NORTH;
+                        default -> Direction.EAST;
                     });
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,

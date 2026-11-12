@@ -594,7 +594,7 @@ public final class Ocean26GameTests {
             var state = level.getBlockState(p);
             t.assertTrue(state.is(Blocks.SPRUCE_STAIRS)
                     && state.getValue(net.minecraft.world.level.block.StairBlock.FACING)
-                            == net.minecraft.core.Direction.NORTH
+                            == net.minecraft.core.Direction.SOUTH
                     && !state.getCollisionShape(level, p).isEmpty(),
                     "V6 stair has no real climbing block/collision at " + c);
             for (int height = 1; height <= 2; height++)
