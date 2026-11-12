@@ -19,7 +19,7 @@ import java.util.Map;
 public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
-        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
+        KEEL, HULL, FRAME, DECK, RAIL, LADDER, STAIR, MAST, YARD, SAIL,
         CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
     }
 
@@ -57,6 +57,12 @@ public final class ShipHullVoxelLayout {
                         && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
                     throw new IllegalArgumentException("Geometry 5 requires LARGE or LARGEST");
                 yield generateAsymmetricClosed(plan);
+            }
+            case 6 -> {
+                if (plan.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                        && plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
+                    throw new IllegalArgumentException("Geometry 6 requires LARGE or LARGEST");
+                yield generateLargeStairs(plan);
             }
             default -> throw new IllegalArgumentException("Unknown modular hull geometry");
         };
@@ -506,6 +512,61 @@ public final class ShipHullVoxelLayout {
                             && !blocks.containsKey(new Cell(x, deckY + 1, z)))
                         put(blocks, x, deckY + 1, z, Part.RAIL);
                 }
+            }
+        }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    /**
+     * V6 adds traversable, four-block-rise stair flights without rewriting
+     * existing V5 saves. A staircase ascends toward the bow (+Z), one block
+     * per tread, to a clear landing on the next deck. Opposite-side flights
+     * keep adjacent levels independent and away from the central mast.
+     * The compact hatch ladder remains only for access to the deep hold.
+     */
+    private static Map<Cell, Part> generateLargeStairs(ShipSuperstructurePlan plan) {
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generateAsymmetricClosed(plan));
+        int halfLength = plan.hullLength() / 2;
+        int startZ = -halfLength + 9;
+        // Remove the V5 multi-storey vertical shaft above the hold. Preserve
+        // historical saves via the separate V5 generator.
+        for (int y = 5; y <= 4 + (plan.decks() - 1) * 4; y++) {
+            Cell ladder = new Cell(-2, y, 1);
+            Cell support = new Cell(-3, y, 1);
+            if (blocks.get(ladder) == Part.LADDER) blocks.remove(ladder);
+            if (blocks.get(support) == Part.FRAME) blocks.remove(support);
+        }
+        for (int floor = 2; floor <= plan.decks(); floor++) {
+            int upperY = 4 + (floor - 1) * 4;
+            // Former upper hatch openings are floors, not unprotected holes.
+            put(blocks, -2, upperY, 0, Part.DECK);
+            put(blocks, -2, upperY, 1, Part.DECK);
+        }
+        for (int lowerFloor = 1; lowerFloor < plan.decks(); lowerFloor++) {
+            int baseY = 4 + (lowerFloor - 1) * 4;
+            int x = lowerFloor % 2 == 1 ? 4 : -4;
+            // Approach and landing are full deck, with two blocks of headroom.
+            if (blocks.get(new Cell(x, baseY, startZ - 1)) != Part.DECK
+                    || blocks.get(new Cell(x, baseY + 4, startZ + 4)) != Part.DECK)
+                throw new IllegalArgumentException("Missing full-block stair approach/landing");
+            for (int i = 0; i < 4; i++) {
+                int y = baseY + 1 + i;
+                int z = startZ + i;
+                for (int clearY = y; clearY <= y + 2; clearY++) {
+                    Cell cell = new Cell(x, clearY, z);
+                    Part prior = blocks.get(cell);
+                    if (prior == Part.MAST || prior == Part.YARD
+                            || prior == Part.SAIL || prior == Part.HELM
+                            || prior == Part.DOOR || prior == Part.WINDOW)
+                        throw new IllegalArgumentException("Blocked stair clearance " + cell);
+                    blocks.remove(cell);
+                }
+                put(blocks, x, y, z, Part.STAIR);
+            }
+            for (int y = baseY + 5; y <= baseY + 6; y++) {
+                Cell headroom = new Cell(x, y, startZ + 4);
+                if (blocks.containsKey(headroom))
+                    throw new IllegalArgumentException("Blocked staircase landing " + headroom);
             }
         }
         return Collections.unmodifiableMap(blocks);
