@@ -775,7 +775,11 @@ public final class Ocean26GameTests {
                 .hullGeometry() == 1
                 && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(historicalWire)
                 .hullGeometry() == 1
-                && original.hullGeometry() == 2, "Old modular blueprint was upgraded silently");
+                && original.hullGeometry() == 3
+                && new org.slavicmyths.ships.ShipBuildConfiguration(
+                        original.shipClass(), 0, 0, original.sailTiers(), original.decks(),
+                        original.bridge(), original.cabin(), 2).hullGeometry() == 2,
+                "Old modular blueprint was upgraded silently");
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                 anchor, 0, original, new ListTag()), "Medium-class modular hull placement failed");
         t.assertTrue(level.getBlockState(org.slavicmyths.ships.FirstShipBlockHull.world(
