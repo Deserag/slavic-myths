@@ -150,9 +150,12 @@ public final class ShipHullVoxelLayout {
                     if ((Math.abs(x) == side || z == rear || z == front)
                             && !(z == front && x == -side + 1))
                         put(blocks, x, 9, z, Part.RAIL);
-            // External ladder: no obstruction of the cabin door or roof path.
-            for (int y = 5; y <= 9; y++)
+            // Support the external ladder against a real post. Leave its
+            // opening clear through an optional second-deck floor.
+            for (int y = 5; y <= 9; y++) {
+                put(blocks, -side, y, front + 1, Part.FRAME);
                 put(blocks, -side + 1, y, front + 1, Part.LADDER);
+            }
             put(blocks, 0, 9, rear + 2, Part.HELM);
         } else {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
