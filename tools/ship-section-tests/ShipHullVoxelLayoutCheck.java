@@ -137,6 +137,42 @@ public final class ShipHullVoxelLayoutCheck {
                                             == ShipHullVoxelLayout.Part.MAST,
                                             "mast survives upgrades: " + variant);
                             }
+        // LARGE V2 is opt-in: old blueprints retain exactly their legacy shape.
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int floors : new int[]{1, 2, 3})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true}) {
+                            var oldLarge = plan(ShipSectionPlan.ShipClass.LARGE,
+                                    width, length, List.of(1, 2), floors, bridge, cabin);
+                            var newLarge = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGE, width, length,
+                                    List.of(1, 2), floors, bridge, cabin, 2);
+                            var oldCells = ShipHullVoxelLayout.generate(oldLarge);
+                            var newCells = ShipHullVoxelLayout.generate(newLarge);
+                            yes(!oldCells.equals(newCells), "new LARGE revision changes hull");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2) == 0,
+                                    "LARGE sharp stem");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2) >= 2,
+                                    "LARGE wide transom");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2 - 5)
+                                    < ShipHullVoxelLayout.halfBeam(newLarge, 0),
+                                    "LARGE tapered bow shoulders");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2 + 5)
+                                    < ShipHullVoxelLayout.halfBeam(newLarge, 0),
+                                    "LARGE curved stern shoulders");
+                            yes(newCells.equals(ShipHullVoxelLayout.generate(newLarge)),
+                                    "LARGE deterministic across upgrades");
+                            yes(newCells.values().stream().filter(p ->
+                                    p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                    "LARGE one helm");
+                            if (floors >= 2)
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
+                                        length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE no full-length upper box");
+                            yes(oldCells.equals(ShipHullVoxelLayout.generate(oldLarge)),
+                                    "LARGE legacy layout stable");
+                        }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
