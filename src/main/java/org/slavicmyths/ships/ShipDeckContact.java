@@ -39,7 +39,10 @@ public final class ShipDeckContact {
             return floor == 0 ? FirstShipHull.holdSupports(localX, localZ)
                     : floor == 1 && FirstShipHull.mainDeckSupports(localX, localZ);
         }
-        boolean roof = config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM && config.cabin();
+        boolean roof = config.cabin()
+                && (config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        || config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                                && config.hullRevision() >= 2);
         if (floor < 0 || floor > (config.bridge() ? 4 : Math.max(config.decks(), roof ? 2 : 1))
                 || (floor == 4 && !config.bridge())
                 || (floor == 3 && config.decks() < 3)
