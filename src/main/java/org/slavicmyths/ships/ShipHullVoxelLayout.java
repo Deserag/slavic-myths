@@ -213,7 +213,12 @@ public final class ShipHullVoxelLayout {
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
-                    if (Math.abs(x) == half && !hatch)
+                    // Aft and forward ends of the raised flagship decks need
+                    // actual cross-rails. Side rails alone leave full-width
+                    // unguarded drops on the short upper-deck footprints.
+                    boolean flagshipEnd = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                            && plan.hullRevision() >= 2 && (z == rear || z == front);
+                    if ((Math.abs(x) == half || flagshipEnd) && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
