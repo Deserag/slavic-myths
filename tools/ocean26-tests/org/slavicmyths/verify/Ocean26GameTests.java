@@ -539,10 +539,14 @@ public final class Ocean26GameTests {
                 ship, 2D, 0D, 3), "LARGE walker needs a solid third deck");
 
         ServerPlayer captain = player(level, "ThirdDeckCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight() + .02D,
+                        ship.getZ() + ship.helmSeatZ()));
         ServerPlayer walker = player(level, "ThirdDeckWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ()));
-        t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
+        BlockPos wheel = FirstShipBlockHull.world(anchor, 0, 0,
+                (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(ship.tryHelmFromBlock(captain, wheel),
+                "LARGE real third-deck wheel could not board captain");
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),
