@@ -148,6 +148,25 @@ public final class ShipHullVoxelLayout {
                             ? Part.FRAME : Part.KEEL);
             }
         }
+        // Revision-2 flagship sheer: the long bow rises three steps and the
+        // broad transom two. These perimeter bulwarks leave the central deck
+        // and its two-block walking headroom untouched, but break the old
+        // flat side elevation that made the vessel resemble an iron.
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2) {
+            for (int z = -halfLength; z <= halfLength; z++) {
+                int bowRun = halfLength - z, sternRun = halfLength + z;
+                int lift = bowRun <= 2 ? 3 : bowRun <= 5 ? 2
+                        : bowRun <= 8 ? 1
+                        : sternRun <= 2 ? 2 : sternRun <= 5 ? 1 : 0;
+                if (lift == 0) continue;
+                int half = halfBeam(plan, z);
+                for (int x : new int[]{-half, half})
+                    for (int y = 6; y <= 5 + lift; y++)
+                        put(blocks, x, y, z,
+                                y == 5 + lift ? Part.RAIL : Part.FRAME);
+            }
+        }
         // The hold shaft stops at the main deck on medium ships. Their
         // quarterdeck has its own exterior ladder near the stern, so a
         // second mast-height freestanding ladder is not generated amidships.
