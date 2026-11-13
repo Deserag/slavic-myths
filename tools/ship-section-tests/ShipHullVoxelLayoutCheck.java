@@ -151,6 +151,30 @@ public final class ShipHullVoxelLayoutCheck {
                             var oldCells = ShipHullVoxelLayout.generate(oldLarge);
                             var newCells = ShipHullVoxelLayout.generate(newLarge);
                             yes(!oldCells.equals(newCells), "new LARGE revision changes hull");
+                            // The transverse section must no longer be a
+                            // flat-bottomed, straight-sided rectangular tub.
+                            int midZ = 0;
+                            int fullHalf = ShipHullVoxelLayout.halfBeam(newLarge, midZ);
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 0, midZ))
+                                    == null, "LARGE bilge draws in the lower hull");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf - 2, 0, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE dry structural floor");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf - 1, 1, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE outward first chine");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 2, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE stepped upper chine");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 3, midZ))
+                                    != null, "LARGE sheer supported");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 5, midZ))
+                                    == ShipHullVoxelLayout.Part.RAIL,
+                                    "LARGE outer rail follows hull outline");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 5,
+                                    length / 2)) == ShipHullVoxelLayout.Part.RAIL,
+                                    "LARGE forward stem railing");
+
                             yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2) == 0,
                                     "LARGE sharp stem");
                             yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2) >= 2,
