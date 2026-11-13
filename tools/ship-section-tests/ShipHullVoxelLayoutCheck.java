@@ -451,6 +451,32 @@ public final class ShipHullVoxelLayoutCheck {
                                 p == ShipHullVoxelLayout.Part.HELM).count() == 1,
                                 "three-mast LARGE retains one helm");
                     }
+        // Mixed sail tiers are supported independently per mast; testing only
+        // uniform rigs misses a low sail on a three-deck vessel beside a
+        // taller adjacent rig. Cover all 27 three-mast tier combinations.
+        for (int deckCount = 1; deckCount <= 3; deckCount++)
+            for (int aftTier = 1; aftTier <= 3; aftTier++)
+                for (int centerTier = 1; centerTier <= 3; centerTier++)
+                    for (int bowTier = 1; bowTier <= 3; bowTier++) {
+                        var variant = new ShipSuperstructurePlan(
+                                ShipSectionPlan.ShipClass.LARGE, 25, 45,
+                                List.of(aftTier, centerTier, bowTier),
+                                deckCount, true, true, 2);
+                        var layout = ShipHullVoxelLayout.generate(variant);
+                        int highestDeck = 4 + (deckCount - 1) * 4;
+                        for (int mastZ : variant.mastPositions()) {
+                            yes(layout.get(new ShipHullVoxelLayout.Cell(0, 6, mastZ))
+                                    == ShipHullVoxelLayout.Part.MAST,
+                                    "mixed LARGE rig retains mast anchor: " + variant);
+                            for (int y = highestDeck + 1; y <= highestDeck + 2; y++)
+                                yes(layout.get(new ShipHullVoxelLayout.Cell(1, y, mastZ + 1))
+                                        != ShipHullVoxelLayout.Part.SAIL,
+                                        "mixed LARGE rig clears walking headroom: " + variant);
+                        }
+                        yes(layout.values().stream().filter(p ->
+                                p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                "mixed LARGE rig keeps exactly one helm: " + variant);
+                    }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
