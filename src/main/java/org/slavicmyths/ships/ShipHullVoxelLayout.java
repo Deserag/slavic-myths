@@ -129,8 +129,11 @@ public final class ShipHullVoxelLayout {
         // The hold shaft stops at the main deck on medium ships. Their
         // quarterdeck has its own exterior ladder near the stern, so a
         // second mast-height freestanding ladder is not generated amidships.
+        boolean largeRevision2 = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() >= 2;
         int mainShaftTop = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                ? 4 : 4 + (plan.decks() - 1) * 4;
+                ? 4 : largeRevision2 ? (plan.decks() >= 2 ? 8 : 4)
+                : 4 + (plan.decks() - 1) * 4;
         for (int y = 1; y <= mainShaftTop; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
@@ -175,6 +178,17 @@ public final class ShipHullVoxelLayout {
                     put(blocks, -3, ladderY, accessZ, Part.FRAME);
                     put(blocks, -2, ladderY, accessZ, Part.LADDER);
                 }
+            }
+        }
+
+        // The compact third aft deck does not reach the midships ladder.
+        // Add a separate supported stair shaft from deck two to deck three,
+        // forward of the cabin but inside the upper stern-deck footprint.
+        if (largeRevision2 && plan.decks() == 3) {
+            int accessZ = -halfLength + 11;
+            for (int y = 9; y <= 12; y++) {
+                put(blocks, -3, y, accessZ, Part.FRAME);
+                put(blocks, -2, y, accessZ, Part.LADDER);
             }
         }
 
