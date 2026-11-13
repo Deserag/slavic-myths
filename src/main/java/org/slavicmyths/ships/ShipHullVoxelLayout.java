@@ -136,7 +136,9 @@ public final class ShipHullVoxelLayout {
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
                     put(blocks, x, 9, z, Part.BRIDGE);
-                    if (Math.abs(x) == side || z == rear || z == front)
+                    if ((Math.abs(x) == side || z == rear || z == front)
+                            && !(plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                                    && z == front && x == -side + 1))
                         put(blocks, x, 10, z, Part.RAIL);
                 }
             for (int y = 5; y <= 9; y++) {
