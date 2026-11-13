@@ -313,6 +313,14 @@ public final class ShipHullVoxelLayout {
                                     && z == front && x == -side + 1))
                         put(blocks, x, 10, z, Part.RAIL);
                 }
+            // A stand-alone LARGE bridge must have real support at all four
+            // corners. Previously only its ladder-side corner reached the
+            // main deck, leaving a visibly floating timber platform.
+            if (modernLarge && !plan.cabin())
+                for (int postZ : new int[]{rear, front})
+                    for (int postX : new int[]{-side, side})
+                        for (int postY = 5; postY <= 8; postY++)
+                            put(blocks, postX, postY, postZ, Part.FRAME);
             for (int y = 5; y <= 9; y++) {
                 if ((plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         || modernLarge) && !plan.cabin() && y < 9)
