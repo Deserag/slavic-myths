@@ -68,7 +68,10 @@ public final class ShipyardModular {
                 divRoundUp(sail, 4),
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
-                helm > 0 ? 1 : 0,
+                // Cabin/bridge upgrades move the MEDIUM's existing helm;
+                // do not demand a second helm module for the same wheel.
+                helm > 0 && !(next.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && before.containsValue(ShipHullVoxelLayout.Part.HELM)) ? 1 : 0,
                 basic, linen, reinforced);
     }
 
