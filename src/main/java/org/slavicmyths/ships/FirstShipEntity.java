@@ -421,7 +421,9 @@ public final class FirstShipEntity extends Boat {
                 FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
                         getX(), getZ(), getYRot());
                 if (ShipDeckContact.supports(this, local.x(), local.z(),
-                        modularConfiguration() != null && modularConfiguration().bridge() ? 4 : modularConfiguration().cabin() && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 2 : 1))
+                        modularConfiguration() != null && modularConfiguration().bridge() ? 4
+                                : modularConfiguration() != null && modularConfiguration().cabin()
+                                        && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 2 : 1))
                     pendingDismounts.put(player.getUUID(), new PendingDismount(
                             local.x(), local.z(), target.y - (getY() + helmSeatHeight()),
                             level().getGameTime() + 40L));
