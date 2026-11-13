@@ -584,6 +584,28 @@ public final class Ocean26GameTests {
         var menu = new org.slavicmyths.ships.ShipyardMenu(16, builder.getInventory(), bench);
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE) {
+                t.assertTrue(config.hullRevision() == 2,
+                        "New LARGE ships must use shaped hull revision");
+                t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(
+                        config.save()).equals(config),
+                        "LARGE hull revision lost during NBT roundtrip");
+                t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                        config.wire()).equals(config),
+                        "LARGE hull revision lost in moving-ship sync");
+                var preserved = config.resize(1, 1).withSail(0, 3)
+                        .withDecks(3).withBridge(true).withCabin(true);
+                t.assertTrue(preserved.hullRevision() == 2,
+                        "LARGE hull revision lost after shipyard upgrades");
+                var legacy = new org.slavicmyths.ships.ShipBuildConfiguration(
+                        type, 0, 0, java.util.List.of(1), 1, false, false);
+                t.assertTrue(legacy.hullRevision() == 1
+                        && org.slavicmyths.ships.ShipBuildConfiguration.load(
+                                legacy.save()).equals(legacy)
+                        && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                                legacy.wire()).equals(legacy),
+                        "Old LARGE blueprint geometry must remain loadable");
+            }
             t.assertTrue(menu.clickMenuButton(builder, 100 + type.ordinal() * 16),
                     type + " could not be crafted in the shipyard menu");
             t.assertTrue(config.equals(org.slavicmyths.ships.ShipyardModular.configuration(
