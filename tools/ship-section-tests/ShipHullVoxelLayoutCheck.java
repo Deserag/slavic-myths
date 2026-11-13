@@ -239,6 +239,18 @@ public final class ShipHullVoxelLayoutCheck {
                                             ? ShipHullVoxelLayout.Part.BRIDGE
                                             : ShipHullVoxelLayout.Part.DECK),
                                     "LARGE helm has physical deck " + newLarge);
+                            if (bridge) {
+                                int bridgeFront = -length / 2 + 6;
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 10, bridgeFront))
+                                        != ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE bridge ladder has unblocked upper exit");
+                                if (!cabin)
+                                    for (int accessY = 5; accessY <= 8; accessY++)
+                                        yes(newCells.get(new ShipHullVoxelLayout.Cell(-3,
+                                                accessY, bridgeFront))
+                                                == ShipHullVoxelLayout.Part.FRAME,
+                                                "LARGE freestanding bridge ladder supported");
+                            }
                             if (cabin && !bridge) {
                                 for (int accessY = 5; accessY <= 9; accessY++) {
                                     yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
