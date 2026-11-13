@@ -203,6 +203,21 @@ public final class ShipHullVoxelLayoutCheck {
                                     "flagship keeps one helm");
                             yes(geometry.equals(ShipHullVoxelLayout.generate(flagship)),
                                     "flagship deterministic geometry");
+                            // Every exposed end of the shortened flagship
+                            // deck has a transverse guard, not just side rails.
+                            for (int upper = 2; upper <= floors; upper++) {
+                                int rear = -length / 2 + 2;
+                                int front = Math.min(length / 2 - 5,
+                                        rear + (upper == 2 ? length * 2 / 3 : length / 2));
+                                int y = 4 + (upper - 1) * 4;
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, front))
+                                                == ShipHullVoxelLayout.Part.RAIL,
+                                        "flagship forward raised deck has end guard " + flagship);
+                                if (upper == 3)
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, rear))
+                                                    == ShipHullVoxelLayout.Part.RAIL,
+                                            "flagship third deck stern has end guard " + flagship);
+                            }
                             // At every flagship station the narrow keel,
                             // stepped solid hold-floor and outer chine form
                             // a closed bottom; a full-width y=0 slab is banned.
