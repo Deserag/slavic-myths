@@ -254,6 +254,22 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "LARGE no full-length upper box");
+                            if (floors == 3) {
+                                int thirdAccessZ = -length / 2 + 11;
+                                for (int yy = 9; yy <= 12; yy++) {
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
+                                            yy, thirdAccessZ))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "LARGE third floor reachable by supported aft ladder");
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-3,
+                                            yy, thirdAccessZ))
+                                            == ShipHullVoxelLayout.Part.FRAME,
+                                            "LARGE third floor ladder has physical supports");
+                                }
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 12, 1))
+                                        != ShipHullVoxelLayout.Part.LADDER,
+                                        "LARGE no floating central shaft above second floor");
+                            }
                             yes(oldCells.equals(ShipHullVoxelLayout.generate(oldLarge)),
                                     "LARGE legacy layout stable");
                         }
