@@ -745,10 +745,13 @@ public final class Ocean26GameTests {
                         "Cabin-only flagship failed to place");
                 int rear = -roofOnly.length() / 2 + 2;
                 BlockPos rail = FirstShipBlockHull.world(anchor, 0, 3, 9, rear + 3);
+                BlockPos rooftopHelm = FirstShipBlockHull.world(anchor, 0, 0, 9, rear + 3);
                 BlockPos entry = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 6);
                 BlockPos ladder = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 7);
                 t.assertTrue(level.getBlockState(rail).is(Blocks.SPRUCE_FENCE),
                         "Cabin-only flagship roof lacks real safety fence");
+                t.assertTrue(level.getBlockState(rooftopHelm).is(Blocks.DARK_OAK_FENCE),
+                        "Cabin-only flagship roof has no physical helm");
                 t.assertTrue(level.getBlockState(entry).isAir(),
                         "Cabin-only flagship roof access is obstructed");
                 t.assertTrue(level.getBlockState(ladder).is(Blocks.LADDER),
