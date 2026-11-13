@@ -1,0 +1,42 @@
+name: Khrabr v3 Java21 NeoForge build
+on:
+  push:
+    branches: ["feat/2.6-khrabr-v3-minecraft"]
+  pull_request:
+    branches: ["fix/2.6-hide-legacy-small-ship-item-20261113"]
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "tools/ship-section-tests/**"
+      - ".github/workflows/khrabr-v3-java21.yml"
+permissions:
+  contents: read
+jobs:
+  verify-khrabr-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile and test pure-Java ship voxel geometry
+        run: |
+          mkdir -p build/khrabr-geometry
+          javac -encoding UTF-8 -d build/khrabr-geometry \
+            src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
+            src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
+            src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
+            tools/ship-section-tests/ShipHullVoxelLayoutCheck.java
+          java -cp build/khrabr-geometry ShipHullVoxelLayoutCheck
+      - name: Build Minecraft 1.21.1 NeoForge with Java 21
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Save development JAR (not game-tested)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: khrabr-v3-java21-unverified
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 10
