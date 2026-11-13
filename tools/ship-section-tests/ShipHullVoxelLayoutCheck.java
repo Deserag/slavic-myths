@@ -223,6 +223,13 @@ public final class ShipHullVoxelLayoutCheck {
                         int highestDeck = 4 + 4 * (floors - 1);
                         int lowerYard = Math.max(7, highestDeck + 3);
                         for (int mastZ : flagship.mastPositions()) {
+                            int topYard = lowerYard + (tier == 1 ? 5 : tier == 2 ? 8 : 12) + 1;
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, topYard, mastZ))
+                                            == ShipHullVoxelLayout.Part.YARD,
+                                    "LARGEST retains full sail tier height " + flagship);
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, topYard - 1, mastZ + 1))
+                                            == ShipHullVoxelLayout.Part.SAIL,
+                                    "LARGEST sailcloth reaches lifted upper yard " + flagship);
                             yes(voxels.get(new ShipHullVoxelLayout.Cell(1, lowerYard, mastZ))
                                             == ShipHullVoxelLayout.Part.YARD,
                                     "LARGEST lower yard above raised deck " + flagship);
