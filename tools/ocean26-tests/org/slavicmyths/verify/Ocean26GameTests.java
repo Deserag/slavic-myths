@@ -612,6 +612,23 @@ public final class Ocean26GameTests {
                                 + " rotation=" + turn);
                 t.assertTrue(level.getBlockState(chestPos).isAir(),
                         "Stern cargo fixture is already occupied");
+                if (geometry == 9 && turn == 0) {
+                    BlockPos plank = chestPos.below();
+                    BlockState originalPlank = level.getBlockState(plank);
+                    level.setBlock(plank, Blocks.AIR.defaultBlockState(), 2);
+                    String reason = org.slavicmyths.ships.ShipModularBlockHull
+                            .inspectionFailure(level, anchor, turn, config);
+                    t.assertTrue(reason.contains("hull mismatch")
+                                    && reason.contains(plank.toString()),
+                            "V9 rejected-source diagnostic must name missing deck block: " + reason);
+                    t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull
+                                    .pack(level, anchor, turn, config) == null,
+                            "Tampered V9 hull was allowed to detach");
+                    level.setBlock(plank, originalPlank, 2);
+                    t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull
+                                    .pack(level, anchor, turn, config) != null,
+                            "Restored V9 source should be packable");
+                }
                 level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2);
                 chest(level, chestPos, t).setItem(0, new ItemStack(Items.EMERALD, 17));
                 ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(
