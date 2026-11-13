@@ -281,12 +281,15 @@ public final class ShipHullVoxelLayoutCheck {
                             }
                             if (floors == 3) {
                                 int thirdFront = Math.min(length / 2 - 5,
-                                        -length / 2 + 2 + length * 2 / 5);
+                                        Math.max(0, -length / 2 + 2 + length * 2 / 5));
                                 var frontGuard = newCells.get(
                                         new ShipHullVoxelLayout.Cell(0, 13, thirdFront));
                                 yes(frontGuard == ShipHullVoxelLayout.Part.RAIL
                                                 || frontGuard == ShipHullVoxelLayout.Part.MAST,
                                         "LARGE third deck has guarded or mast-supported bow end");
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 12,
+                                        thirdFront)) == ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck forward hatch is sealed and walkable");
                             }
                             if (floors == 3) {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
