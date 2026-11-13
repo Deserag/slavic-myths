@@ -662,6 +662,33 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_largest_blueprints")
+    public static void allFlagshipUpgradesRoundTripNBTAndWire(GameTestHelper t) {
+        int tested = 0;
+        for (int width = 0; width <= 2; width++)
+            for (int length = 0; length <= 3; length++)
+                for (int decks = 1; decks <= 3; decks++)
+                    for (boolean bridge : new boolean[]{false, true})
+                        for (boolean cabin : new boolean[]{false, true})
+                            for (java.util.List<Integer> sails : java.util.List.of(
+                                    java.util.List.of(1), java.util.List.of(1, 2),
+                                    java.util.List.of(1, 2, 3), java.util.List.of(1, 2, 3, 1))) {
+                                var config = new org.slavicmyths.ships.ShipBuildConfiguration(
+                                        org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
+                                        length, width, sails, decks, bridge, cabin, 2);
+                                t.assertTrue(config.equals(org.slavicmyths.ships.ShipBuildConfiguration.load(
+                                        config.save())), "LARGEST NBT lost upgrade revision " + config);
+                                t.assertTrue(config.equals(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                                        config.wire())), "LARGEST wire lost upgrade revision " + config);
+                                t.assertTrue(config.hullRevision() == config.withDecks(decks)
+                                        .withBridge(bridge).withCabin(cabin).resize(length, width)
+                                        .hullRevision(), "LARGEST upgrade replaced revision " + config);
+                                tested++;
+                            }
+        t.assertTrue(tested == 576, "Expected full flagship blueprint upgrade matrix");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
     public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
         ServerLevel level = t.getLevel();
