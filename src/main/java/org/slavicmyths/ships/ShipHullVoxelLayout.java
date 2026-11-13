@@ -39,7 +39,12 @@ public final class ShipHullVoxelLayout {
             int halfLength = plan.hullLength() / 2;
             if (Math.abs(z) > halfLength) return -1;
             int halfWidth = plan.hullWidth() / 2;
-            int run = z >= 0 ? Math.min(12, halfLength) : Math.min(7, halfLength);
+            // Scale the bow and quarter taper with hull length. A fixed 12/7
+            // block curve left stretched LARGE variants with a very long,
+            // iron-shaped rectangular midbody. Keep the 33-block baseline
+            // unchanged, then devote the extra length to curved shoulders.
+            int run = z >= 0 ? Math.min(halfLength, Math.max(12, halfLength - 4))
+                    : Math.min(halfLength, Math.max(7, halfLength - 9));
             int distance = z >= 0 ? halfLength - z : halfLength + z;
             if (distance >= run) return halfWidth;
             double t = Math.max(0D, distance / (double)run);
