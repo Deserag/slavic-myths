@@ -290,7 +290,11 @@ public final class ShipHullVoxelLayout {
             for (int z = rear; z <= front; z++)
                 for (int x = -3; x <= 3; x++)
                     if (Math.abs(x) == 3 || z == rear || z == front)
-                        if (!(x == -2 && z == front))
+                        // With a second deck, the cabin roof and the aft
+                        // walking deck share the same elevation. A full rail
+                        // across their junction creates an artificial wall.
+                        // Keep the enclosure on single-deck hulls.
+                        if (!(z == front && (plan.decks() >= 2 || x == -2)))
                             put(blocks, x, 9, z, Part.RAIL);
         }
 
