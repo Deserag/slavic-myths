@@ -209,6 +209,20 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 4, 0)) == null,
                                         "hold hatch is open");
                                 if (count == 2) {
+                                    int quarterdeckFront = rear + (cabin ? 6 : 5);
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 8, rear + 2))
+                                                    == ShipHullVoxelLayout.Part.DECK,
+                                            "raised stern platform has walkable planks");
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 8, quarterdeckFront + 2))
+                                                    != ShipHullVoxelLayout.Part.DECK,
+                                            "medium second deck cannot become full-length slab");
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 8, quarterdeckFront + 1))
+                                                    == ShipHullVoxelLayout.Part.LADDER,
+                                            "raised platform has external ladder");
+                                    if (!bridge && !cabin)
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 9, rear + 2))
+                                                        == ShipHullVoxelLayout.Part.HELM,
+                                                "wheel is above deck, not trapped underneath");
                                     yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 8, 0)) == null,
                                             "upper hatch is open");
                                     for (int mastZ : mediumVariant.mastPositions())
