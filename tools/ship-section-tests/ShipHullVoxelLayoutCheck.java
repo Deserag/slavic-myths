@@ -61,9 +61,13 @@ public final class ShipHullVoxelLayoutCheck {
             }
             if (config.bridge()) yes(voxels.values().contains(ShipHullVoxelLayout.Part.BRIDGE),
                     "raised quarterdeck installed");
-            if (config.decks() >= 2)
-                yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(0, 8, 3)),
-                        "upper deck floor");
+            if (config.decks() >= 2) {
+                int upperZ = config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        ? -config.hullLength() / 2 + 5 : 3;
+                yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 8, upperZ))
+                                == ShipHullVoxelLayout.Part.DECK,
+                        "supported upper deck floor");
+            }
             if (config.decks() >= 3)
                 yes(voxels.containsKey(new ShipHullVoxelLayout.Cell(1, 12, 3)),
                         "third deck floor");
@@ -108,11 +112,15 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(!model.containsKey(new ShipHullVoxelLayout.Cell(-2, 4, 0)),
                                         "main hatch open: " + variant);
                                 if (decks == 2) {
-                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, 8, 1))
+                                    int accessZ = -length / 2 + 3 + (cabin ? 6 : 5);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, 8, accessZ))
                                             == ShipHullVoxelLayout.Part.LADDER,
-                                            "upper hatch keeps ladder: " + variant);
+                                            "quarterdeck has dedicated exterior ladder: " + variant);
                                     yes(!model.containsKey(new ShipHullVoxelLayout.Cell(-2, 8, 0)),
-                                            "upper hatch open: " + variant);
+                                            "no floating midships second-deck hatch: " + variant);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, 8, 1))
+                                            != ShipHullVoxelLayout.Part.LADDER,
+                                            "old amidships shaft stops at main deck: " + variant);
                                 }
                                 if (cabin && !bridge) {
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 9,
@@ -162,8 +170,9 @@ public final class ShipHullVoxelLayoutCheck {
                                         part == ShipHullVoxelLayout.Part.HELM).count() == 1,
                                         "exactly one MEDIUM helm " + mediumVariant);
                                 int rear = -length / 2 + 2;
-                                int helmHeight = bridge ? 10 : cabin ? 9 : 5;
-                                int variantHelmZ = bridge || cabin ? rear + 2 : rear + 1;
+                                int helmHeight = bridge ? 10 : cabin || count == 2 ? 9 : 5;
+                                int variantHelmZ = bridge || cabin || count == 2
+                                        ? rear + 2 : rear + 1;
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(0, helmHeight, variantHelmZ))
                                         == ShipHullVoxelLayout.Part.HELM,
                                         "MEDIUM helm aligned " + mediumVariant);
