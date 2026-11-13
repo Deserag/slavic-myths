@@ -155,9 +155,15 @@ public final class ShipHullVoxelLayoutCheck {
                         yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 6, z))
                                 == ShipHullVoxelLayout.Part.MAST,
                                 "LARGE upgraded mast stays anchored");
-                        yes(voxels.get(new ShipHullVoxelLayout.Cell(1, 8, z + 1))
-                                != ShipHullVoxelLayout.Part.SAIL,
-                                "LARGE sails cannot replace a walkable deck");
+                        int upperDeck = 4 + (decksCount - 1) * 4;
+                        for (int height = upperDeck + 1; height <= upperDeck + 2; height++) {
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, height, z + 1))
+                                    != ShipHullVoxelLayout.Part.SAIL,
+                                    "LARGE sail clears deck headroom");
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, height, z))
+                                    != ShipHullVoxelLayout.Part.YARD,
+                                    "LARGE lower yard clears deck headroom");
+                        }
                     }
                     yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 4, 0)) == null,
                             "LARGE main hatch stays open");
