@@ -252,14 +252,14 @@ public final class ShipHullVoxelLayoutCheck {
                             int rear = -length / 2 + 2;
                             int floorY = bridge ? (floors >= 3 ? 12 : 9)
                                     : floors >= 3 ? 12 : floors >= 2 || cabin ? 8 : 4;
-                            int helmZ = rear + (bridge ? 2 : cabin ? 3 : 4);
-                            yes(voxels.get(new ShipHullVoxelLayout.Cell(0, floorY + 1, helmZ))
+                            int flagshipHelmZ = rear + (bridge ? 2 : cabin ? 3 : 4);
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(0, floorY + 1, flagshipHelmZ))
                                             == ShipHullVoxelLayout.Part.HELM,
                                     "LARGEST helm stands above occupied deck " + flagship);
                             yes(voxels.values().stream().filter(p ->
                                     p == ShipHullVoxelLayout.Part.HELM).count() == 1,
                                     "LARGEST has one helm " + flagship);
-                            var support = voxels.get(new ShipHullVoxelLayout.Cell(0, floorY, helmZ));
+                            var support = voxels.get(new ShipHullVoxelLayout.Cell(0, floorY, flagshipHelmZ));
                             yes(support == ShipHullVoxelLayout.Part.DECK
                                             || support == ShipHullVoxelLayout.Part.BRIDGE,
                                     "LARGEST helm supported by floor " + flagship);
