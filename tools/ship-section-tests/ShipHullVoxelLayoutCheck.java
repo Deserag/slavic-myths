@@ -236,6 +236,48 @@ public final class ShipHullVoxelLayoutCheck {
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "flagship avoids full-length upper deck slab");
                         }
+        // All 144 flagship room/deck/dimension combinations must place the
+        // one helm at a walkable height, never under the top sterncastle.
+        int flagshipHelmVariants = 0;
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int floors : new int[]{1, 2, 3})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true}) {
+                            var flagship = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGEST, width, length,
+                                    List.of(1, 2), floors, bridge, cabin, 2);
+                            var voxels = ShipHullVoxelLayout.generate(flagship);
+                            flagshipHelmVariants++;
+                            int rear = -length / 2 + 2;
+                            int floorY = bridge ? (floors >= 3 ? 12 : 9)
+                                    : floors >= 3 ? 12 : floors >= 2 || cabin ? 8 : 4;
+                            int helmZ = rear + (bridge ? 2 : cabin ? 3 : 4);
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(0, floorY + 1, helmZ))
+                                            == ShipHullVoxelLayout.Part.HELM,
+                                    "LARGEST helm stands above occupied deck " + flagship);
+                            yes(voxels.values().stream().filter(p ->
+                                    p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                    "LARGEST has one helm " + flagship);
+                            var support = voxels.get(new ShipHullVoxelLayout.Cell(0, floorY, helmZ));
+                            yes(support == ShipHullVoxelLayout.Part.DECK
+                                            || support == ShipHullVoxelLayout.Part.BRIDGE,
+                                    "LARGEST helm supported by floor " + flagship);
+                            if (bridge) {
+                                int front = rear + 4;
+                                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, floorY, front))
+                                                == ShipHullVoxelLayout.Part.LADDER,
+                                        "LARGEST bridge entrance has ladder " + flagship);
+                                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, floorY + 1, front))
+                                                != ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGEST bridge ladder exit unblocked " + flagship);
+                            }
+                            if (cabin && !bridge && floors == 1)
+                                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 9, rear + 7))
+                                                == ShipHullVoxelLayout.Part.LADDER,
+                                        "LARGEST cabin-only roof remains accessible");
+                        }
+        yes(flagshipHelmVariants == 144, "all flagship captain station variants covered");
         // Four independent masts and all three sail tiers must remain above
         // each LARGEST sterncastle variant, including the narrow third floor.
         int flagshipRigVariants = 0;
