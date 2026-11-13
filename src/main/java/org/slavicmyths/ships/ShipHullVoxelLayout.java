@@ -277,13 +277,14 @@ public final class ShipHullVoxelLayout {
                 for (int x = -side; x <= side; x++) {
                     put(blocks, x, 9, z, Part.BRIDGE);
                     if ((Math.abs(x) == side || z == rear || z == front)
-                            && !(plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                            && !((plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                                    || modernLarge)
                                     && z == front && x == -side + 1))
                         put(blocks, x, 10, z, Part.RAIL);
                 }
             for (int y = 5; y <= 9; y++) {
-                if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                        && !plan.cabin() && y < 9)
+                if ((plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        || modernLarge) && !plan.cabin() && y < 9)
                     put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, -side + 1, y, front, Part.LADDER);
             }
