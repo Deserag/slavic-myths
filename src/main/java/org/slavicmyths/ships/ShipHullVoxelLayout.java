@@ -319,8 +319,13 @@ public final class ShipHullVoxelLayout {
             if (modernLarge && !plan.cabin())
                 for (int postZ : new int[]{rear, front})
                     for (int postX : new int[]{-side, side})
-                        for (int postY = 5; postY <= 8; postY++)
-                            put(blocks, postX, postY, postZ, Part.FRAME);
+                        for (int postY = 5; postY <= 8; postY++) {
+                            Cell support = new Cell(postX, postY, postZ);
+                            // An existing second-deck plank already carries
+                            // the bridge. Never punch a hole in that walkway.
+                            if (blocks.get(support) != Part.DECK)
+                                put(blocks, postX, postY, postZ, Part.FRAME);
+                        }
             for (int y = 5; y <= 9; y++) {
                 if ((plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         || modernLarge) && !plan.cabin() && y < 9)
