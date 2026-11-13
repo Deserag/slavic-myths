@@ -45,6 +45,25 @@ public final class ShipSuperstructureCheck {
         yes(plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(2), 1, false, false).propulsionFactor()
                 > initialMedium.propulsionFactor(), "sail II improves medium travel");
+        var fullMedium = plan(ShipSectionPlan.ShipClass.MEDIUM, 15, 29,
+                List.of(2, 2), 2, true, true);
+        yes(fullMedium.propulsionFactor() == 1D,
+                "fully upgraded MEDIUM reaches rigid-motion speed cap");
+        yes(fullMedium.loadFactor() > initialMedium.loadFactor(),
+                "extensions and upper deck still impose load");
+        double oldInitial = 1D / ((13D * 21D / 77D));
+        double oldFull = 3.4D / ((15D * 29D / 77D) * 1.60D);
+        yes(initialMedium.propulsionFactor() > oldInitial,
+                "initial MEDIUM faster than old load model");
+        yes(fullMedium.propulsionFactor() > oldFull,
+                "fully upgraded MEDIUM faster than old load model");
+        var movement = new org.slavicmyths.ships.ShipRigidMotion(
+                new org.slavicmyths.ships.ShipRigidMotion.Pose(0D, 0D, 0D));
+        for (int tick = 0; tick < 100; tick++)
+            movement.advance(new org.slavicmyths.ships.ShipRigidMotion.Control(
+                    fullMedium.propulsionFactor(), 0D), pose -> true);
+        yes(Math.abs(movement.speed() - .1773D) < .00001D,
+                "MEDIUM propulsion is usable by the actual motion kernel");
         invalid(() -> medium.withSail(2), "medium mast limit");
         invalid(() -> medium.withDecks(3), "medium deck limit");
         invalid(() -> plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
