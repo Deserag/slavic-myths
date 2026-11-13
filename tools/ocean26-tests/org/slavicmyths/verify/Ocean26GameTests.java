@@ -614,7 +614,7 @@ public final class Ocean26GameTests {
                         "Stern cargo fixture is already occupied");
                 if (geometry == 9 && turn == 0) {
                     BlockPos plank = chestPos.below();
-                    BlockState originalPlank = level.getBlockState(plank);
+                    var originalPlank = level.getBlockState(plank);
                     level.setBlock(plank, Blocks.AIR.defaultBlockState(), 2);
                     String reason = org.slavicmyths.ships.ShipModularBlockHull
                             .inspectionFailure(level, anchor, turn, config);
