@@ -616,6 +616,19 @@ public final class Ocean26GameTests {
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, maximum, new ListTag()), type + " maximum hull placement failed");
             if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+                int aft = -maximum.length() / 2 + 2;
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, 0, 13, aft + 2)).is(Blocks.DARK_OAK_FENCE),
+                        "LARGEST captain helm must stand above third sterncastle deck");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, 0, 12, aft + 2)).is(Blocks.DARK_OAK_PLANKS),
+                        "LARGEST helm must have bridge-floor support");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, -2, 12, aft + 4)).is(Blocks.LADDER),
+                        "LARGEST third deck bridge entrance must have a ladder");
+                t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, -2, 13, aft + 4)).is(Blocks.SPRUCE_FENCE),
+                        "LARGEST bridge ladder exit cannot be blocked by railing");
                 int beam = maximum.width() / 2;
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, beam, 0, 0)).is(Blocks.WATER),
