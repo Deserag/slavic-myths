@@ -282,9 +282,11 @@ public final class ShipHullVoxelLayoutCheck {
                             if (floors == 3) {
                                 int thirdFront = Math.min(length / 2 - 5,
                                         -length / 2 + 2 + length * 2 / 5);
-                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 13,
-                                        thirdFront)) == ShipHullVoxelLayout.Part.RAIL,
-                                        "LARGE third deck has forward safety rail");
+                                var frontGuard = newCells.get(
+                                        new ShipHullVoxelLayout.Cell(0, 13, thirdFront));
+                                yes(frontGuard == ShipHullVoxelLayout.Part.RAIL
+                                                || frontGuard == ShipHullVoxelLayout.Part.MAST,
+                                        "LARGE third deck has guarded or mast-supported bow end");
                             }
                             if (floors == 3) {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
