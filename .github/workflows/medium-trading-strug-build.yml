@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - 'feat/2.6-medium-trading-strug-20261113'
-      - 'feat/2.6-large-hull-silhouette-v2-20261113'
   pull_request:
     branches:
       - 'restart/2.6-ships-approved-baseline-20261113'
