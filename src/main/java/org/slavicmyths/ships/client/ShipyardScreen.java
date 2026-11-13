@@ -310,9 +310,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     boolean possible = preview != null && !preview.equals(current);
                     String label = (possible ? chosen() == option ? "» " : "" : "× ")
                             + MODULAR_OPTIONS[option];
-                    Button button = Button.builder(Component.literal(label),
+                    String visibleLabel = font.plainSubstrByWidth(label, 142);
+                    Button button = Button.builder(Component.literal(visibleLabel),
                             clicked -> { choose(option); rebuild(); })
                             .bounds(leftPos + x, topPos + y, 154, 15).build();
+                    if (!visibleLabel.equals(label))
+                        button.setTooltip(net.minecraft.client.gui.components.Tooltip.create(
+                                Component.literal(label)));
                     button.active = true;
                     addRenderableWidget(button);
                 }
@@ -879,9 +883,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 frontCenter - frontHalf + 2, 95, rail);
         graphics.fill(frontCenter + frontHalf - 1, 91,
                 frontCenter + frontHalf + 1, 95, rail);
-        graphics.drawString(font, width + "×" + length + " | "
-                + design.sailTiers().size() + " мачт. | "
-                + design.decks() + " пал.", 202, 105, ink, false);
+        // The right-pane header already displays hull dimensions at y=86.
+        // A second footer here overlaps the upgrade status and cost heading.
     }
 
     /** Preserve all 476x282 slot coordinates, but fit the workbench to the
