@@ -144,6 +144,71 @@ public final class ShipHullVoxelLayoutCheck {
                 ShipHullVoxelLayout.generate(bare), ShipHullVoxelLayout.generate(decks));
         yes(addedDeck.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0) > 0,
                 "deck bills include new flooring");
+        // Exhaust the supported MEDIUM hull/room/deck/rig variants. This is
+        // the actual voxel generator used by parked AND moving modular ships.
+        int configurations = 0;
+        for (int length : new int[]{21, 25, 29})
+            for (int width : new int[]{13, 15})
+                for (int count : new int[]{1, 2})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true})
+                            for (List<Integer> sails : List.of(
+                                    List.of(1), List.of(2), List.of(1, 1), List.of(2, 2))) {
+                                var mediumVariant = plan(ShipSectionPlan.ShipClass.MEDIUM,
+                                        width, length, sails, count, bridge, cabin);
+                                var geometry = ShipHullVoxelLayout.generate(mediumVariant);
+                                configurations++;
+                                yes(geometry.values().stream().filter(part ->
+                                        part == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                        "exactly one MEDIUM helm " + mediumVariant);
+                                int rear = -length / 2 + 2;
+                                int helmHeight = bridge ? 10 : cabin ? 9 : 5;
+                                int helmZ = bridge || cabin ? rear + 2 : rear + 1;
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(0, helmHeight, helmZ))
+                                        == ShipHullVoxelLayout.Part.HELM,
+                                        "MEDIUM helm aligned " + mediumVariant);
+                                if (cabin) {
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 8, rear + 2))
+                                            == ShipHullVoxelLayout.Part.DECK,
+                                            "accessible cabin roof under helm");
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 5, rear + 6))
+                                            == ShipHullVoxelLayout.Part.DOOR,
+                                            "unblocked cabin entry");
+                                }
+                                if (cabin && !bridge) {
+                                    for (int y = 5; y <= 9; y++) {
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, y, rear + 7))
+                                                == ShipHullVoxelLayout.Part.LADDER,
+                                                "cabin exterior ladder " + y);
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(-3, y, rear + 7))
+                                                == ShipHullVoxelLayout.Part.FRAME,
+                                                "cabin ladder attached " + y);
+                                    }
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, rear + 6)) == null,
+                                            "roof railing entrance must remain open");
+                                }
+                                for (int mastZ : mediumVariant.mastPositions()) {
+                                    yes(mastZ > rear + (cabin ? 7 : 4),
+                                            "mast clear of stern structures");
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 6, mastZ))
+                                            == ShipHullVoxelLayout.Part.MAST,
+                                            "mast base remains solid");
+                                }
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 1, 1))
+                                        == ShipHullVoxelLayout.Part.LADDER,
+                                        "hold shaft accessible");
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 4, 0)) == null,
+                                        "hold hatch is open");
+                                if (count == 2) {
+                                    yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 8, 0)) == null,
+                                            "upper hatch is open");
+                                    for (int mastZ : mediumVariant.mastPositions())
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(1, 9, mastZ + 1))
+                                                != ShipHullVoxelLayout.Part.SAIL,
+                                                "sail does not cut through raised deck");
+                                }
+                            }
+        yes(configurations == 96, "all MEDIUM variants enumerated");
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
