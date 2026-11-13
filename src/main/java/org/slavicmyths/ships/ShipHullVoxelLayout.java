@@ -140,7 +140,7 @@ public final class ShipHullVoxelLayout {
             for (int y = 5; y <= 9; y++)
                 put(blocks, -side + 1, y, front, Part.LADDER);
             put(blocks, 0, 10, rear + 2, Part.HELM);
-        } else if (plan.cabin()) {
+        } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
             // The cabin roof IS the captain's platform when no separate
             // bridge was purchased. Keep the only helm above the room.
             int rear = -halfLength + 2, front = rear + 6;
@@ -151,11 +151,11 @@ public final class ShipHullVoxelLayout {
                             && !(z == front && x == -side + 1))
                         put(blocks, x, 9, z, Part.RAIL);
             // External ladder: no obstruction of the cabin door or roof path.
-            for (int y = 5; y <= 8; y++)
+            for (int y = 5; y <= 9; y++)
                 put(blocks, -side + 1, y, front + 1, Part.LADDER);
             put(blocks, 0, 9, rear + 2, Part.HELM);
         } else {
-            put(blocks, 0, 5, -halfLength + 3, Part.HELM);
+            put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
 
         return Collections.unmodifiableMap(blocks);
