@@ -31,9 +31,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (layoutVersion < 1 || layoutVersion > VERSION)
             throw new IllegalArgumentException("Unknown blueprint layout");
         if (layoutVersion == 2 && (shipClass != ShipSectionPlan.ShipClass.SMALL
-                || extraWidth != 0 || decks != 1 || bridge || cabin
-                || sailTiers == null || !sailTiers.equals(List.of(1))))
-            throw new IllegalArgumentException("Khrabr v3 requires a 7-wide shallow hull and one basic sail");
+                || decks != 1 || bridge || cabin
+                || sailTiers == null || sailTiers.isEmpty()))
+            throw new IllegalArgumentException("Khrabr v3 requires a single open deck and at least one mast");
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
         sailTiers = List.copyOf(sailTiers);
         new ShipSuperstructurePlan(shipClass, hullWidth(shipClass, extraWidth),
