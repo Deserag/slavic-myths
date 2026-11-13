@@ -208,7 +208,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                 "sail does not cut through raised deck");
                                 }
                             }
-        yes(configurations == 96, "all MEDIUM variants enumerated");
+        yes(configurations == 192, "all MEDIUM variants enumerated");
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
