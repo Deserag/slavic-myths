@@ -163,7 +163,11 @@ public final class ShipHullVoxelLayout {
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
-                    boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
+                    // LARGE third deck uses a separate aft ladder. Do not
+                    // punch a floating midships hatch through its bow edge.
+                    boolean hatch = !mediumQuarterdeck
+                            && !(largeAftDeck && floor == 3)
+                            && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
                     if ((Math.abs(x) == half
                             || largeAftDeck && (z == rear || z == front)) && !hatch)
