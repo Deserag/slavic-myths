@@ -32,16 +32,16 @@ public final class ShipMovingClearance {
 
     private static boolean check(ServerLevel level, ShipRigidMotion.Pose pose,
             int surfaceY, int localX, int relativeY, int localZ,
-            LongSet visited, boolean waterline) {
+            LongSet visited, boolean waterline, double cos, double sin) {
         // Sample the four corners. A rotation can otherwise sweep the tip of
         // a full wood block through stone even if its center was clear.
         for (double sampleX : SAMPLES)
             for (double sampleZ : SAMPLES) {
-                FirstShipHull.Point point = FirstShipHull.toWorld(
-                        localX + sampleX, localZ + sampleZ,
-                        pose.x(), pose.z(), pose.yaw());
-                BlockPos target = BlockPos.containing(point.x(),
-                        surfaceY + relativeY + 0.5D, point.z());
+                double x = localX + sampleX, z = localZ + sampleZ;
+                BlockPos target = BlockPos.containing(
+                        pose.x() + x * cos - z * sin,
+                        surfaceY + relativeY + 0.5D,
+                        pose.z() + x * sin + z * cos);
                 if (visited.add(target.asLong())) {
                     if (!level.hasChunkAt(target)) return false;
                     BlockState obstacle = level.getBlockState(target);
@@ -60,17 +60,19 @@ public final class ShipMovingClearance {
             int waterlineY, Map<BlockPos, BlockState> palette) {
         if (palette == null || palette.isEmpty()) return false;
         LongSet visited = new LongOpenHashSet();
+        double yaw = Math.toRadians(pose.yaw());
+        double cos = Math.cos(yaw), sin = Math.sin(yaw);
         // Full hull, sails, mast, stern rudder and optional chest blocks.
         for (BlockPos p : palette.keySet())
             if (!check(level, pose, waterlineY, p.getX(), p.getY(), p.getZ(),
-                    visited, p.getY() == 0)) return false;
+                    visited, p.getY() == 0, cos, sin)) return false;
         // Unoccupied air within the cabin is part of the ship's swept
         // collision volume too; never phase a person through a cliff.
         for (BlockPos floor : palette.keySet()) {
             if (floor.getY() != 0) continue;
             for (int y = 1; y <= 6; y++)
                 if (!check(level, pose, waterlineY, floor.getX(), y,
-                        floor.getZ(), visited, false)) return false;
+                        floor.getZ(), visited, false, cos, sin)) return false;
         }
         return true;
     }
@@ -82,12 +84,14 @@ public final class ShipMovingClearance {
      * BlockEntity can be removed. Only called AFTER the full pose is accepted.
      */
     private static void clearCell(ServerLevel level, ShipRigidMotion.Pose pose,
-            int waterlineY, int localX, int relativeY, int localZ, LongSet visited) {
+            int waterlineY, int localX, int relativeY, int localZ,
+            LongSet visited, double cos, double sin) {
         for (double sx : SAMPLES) for (double sz : SAMPLES) {
-            FirstShipHull.Point point = FirstShipHull.toWorld(
-                    localX + sx, localZ + sz, pose.x(), pose.z(), pose.yaw());
-            BlockPos target = BlockPos.containing(point.x(),
-                    waterlineY + relativeY + .5D, point.z());
+            double x = localX + sx, z = localZ + sz;
+            BlockPos target = BlockPos.containing(
+                    pose.x() + x * cos - z * sin,
+                    waterlineY + relativeY + .5D,
+                    pose.z() + x * sin + z * cos);
             if (!visited.add(target.asLong()) || !level.hasChunkAt(target)) continue;
             BlockState state = level.getBlockState(target);
             if (!FirstShipBlockHull.softWaterObstacle(level, target, state)) continue;
@@ -102,13 +106,15 @@ public final class ShipMovingClearance {
             int waterlineY, Map<BlockPos, BlockState> palette) {
         if (palette == null || palette.isEmpty()) return;
         LongSet visited = new LongOpenHashSet();
+        double yaw = Math.toRadians(pose.yaw());
+        double cos = Math.cos(yaw), sin = Math.sin(yaw);
         for (BlockPos cell : palette.keySet()) {
             clearCell(level, pose, waterlineY, cell.getX(), cell.getY(),
-                    cell.getZ(), visited);
+                    cell.getZ(), visited, cos, sin);
             if (cell.getY() == 0)
                 for (int y = 1; y <= 6; y++)
                     clearCell(level, pose, waterlineY, cell.getX(), y,
-                            cell.getZ(), visited);
+                            cell.getZ(), visited, cos, sin);
         }
     }
 
