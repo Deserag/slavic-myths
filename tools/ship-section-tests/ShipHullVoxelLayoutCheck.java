@@ -267,6 +267,19 @@ public final class ShipHullVoxelLayoutCheck {
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "LARGE no full-length upper box");
                             if (floors >= 2) {
+                                int outerBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                        outerBeam - 1, 8, 0)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE second deck narrows inside hull sheer");
+                            }
+                            if (floors == 3) {
+                                int outerBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                        outerBeam - 2, 12, 0)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck is narrower than second deck");
+                            }
+
+                            if (floors >= 2) {
                                 int aftStart = -length / 2 + 2;
                                 int upperFront = Math.min(length / 2 - 5,
                                         aftStart + length * 3 / 5);
