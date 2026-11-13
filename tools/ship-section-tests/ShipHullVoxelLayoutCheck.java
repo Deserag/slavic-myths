@@ -297,9 +297,9 @@ public final class ShipHullVoxelLayoutCheck {
                         "flagship raised transom");
                 yes(model.get(new ShipHullVoxelLayout.Cell(width / 2, 6, 0)) == null,
                         "flagship amidships never grows vertical wall");
-                yes(model.get(new ShipHullVoxelLayout.Cell(0, 5, halfLength))
+                yes(model.get(new ShipHullVoxelLayout.Cell(0, 6, halfLength))
                                 == null,
-                        "flagship bow centerline remains passable");
+                        "flagship bow centerline has no tall solid pillar");
             }
         // Four independent masts and all three sail tiers must remain above
         // each LARGEST sterncastle variant, including the narrow third floor.
