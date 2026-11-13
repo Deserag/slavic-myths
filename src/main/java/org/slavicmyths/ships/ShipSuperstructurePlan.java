@@ -90,6 +90,12 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      * Provisional bounded thrust-efficiency factor, not blocks/tick.
      * Caller must keep the established rigid-body speed and acceleration caps.
      */
+    /** Speed progression for the shallow small boat: tier I no longer saturates thrust. */
+    public double khrabrPropulsionFactor() {
+        if (sailTiers.isEmpty()) return 0D;
+        return Math.min(1D, rawThrust() * .80D / loadFactor());
+    }
+
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
         return Math.min(1D, rawThrust() / loadFactor());
