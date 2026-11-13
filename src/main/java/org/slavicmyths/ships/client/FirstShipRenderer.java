@@ -186,19 +186,20 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
-            int top = khrabr ? ShipHullVoxelLayout.KHRABR_SAIL_TOP
+            int top = khrabr ? ShipHullVoxelLayout.khrabrSailTop(tier)
                     : tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = khrabr ? ShipHullVoxelLayout.KHRABR_SAIL_HALF_SPAN
+            int span = khrabr ? ShipHullVoxelLayout.khrabrSailSpan(tier)
                     : tier == 1 ? 2 : tier == 2 ? 3 : 4;
             double bottom = khrabr ? ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM : 8D;
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
-            pose.translate(0D, 0D, khrabr ? 1D : plan.mastPositions().get(i));
+            pose.translate(0D, 0D, khrabr
+                    ? ShipHullVoxelLayout.khrabrMastZ(plan, i) : plan.mastPositions().get(i));
             sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
             if (khrabr)
                 piece(Blocks.BONE_BLOCK.defaultBlockState(), pose, buffers, light,
-                        -2.25D, top + .75D, .19D, 4.5F, .12F, .035F);
+                        -span - .25D, top + .75D, .19D, span * 2F + .5F, .12F, .035F);
             pose.popPose();
         }
         pose.popPose();
