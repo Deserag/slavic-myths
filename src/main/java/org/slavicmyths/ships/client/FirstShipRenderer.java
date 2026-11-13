@@ -107,6 +107,17 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         } catch (RuntimeException invalid) {
             cachedPalette = Map.of();
         }
+        // Calculate hidden cells only when the ship palette changes. Doing
+        // six neighbour lookups for every cube on every rendered frame would
+        // replace GPU pressure with avoidable render-thread CPU work.
+        if (!cachedPalette.isEmpty()) {
+            Map<BlockPos, BlockState> source = cachedPalette;
+            Map<BlockPos, BlockState> visible = new LinkedHashMap<>();
+            for (var entry : source.entrySet())
+                if (!hiddenOpaque(entry.getKey(), entry.getValue(), source))
+                    visible.put(entry.getKey(), entry.getValue());
+            cachedPalette = java.util.Collections.unmodifiableMap(visible);
+        }
         paletteKey = key;
         return cachedPalette;
     }
@@ -151,7 +162,6 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
-                if (hiddenOpaque(p, state, palette)) continue;
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
