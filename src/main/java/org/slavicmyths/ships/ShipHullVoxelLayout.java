@@ -161,7 +161,10 @@ public final class ShipHullVoxelLayout {
                                     : Math.max(0, rear + (plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
-                int half = Math.max(0, halfBeam(plan, z) - 1);
+                // Progressive narrowing makes the upper works visibly
+                // subordinate to the curved hull, not a full-width timber box.
+                int inset = largeAftDeck ? (floor == 2 ? 2 : 3) : 1;
+                int half = Math.max(0, halfBeam(plan, z) - inset);
                 for (int x = -half; x <= half; x++) {
                     // LARGE third deck uses a separate aft ladder. Do not
                     // punch a floating midships hatch through its bow edge.
