@@ -33,7 +33,7 @@ public final class FirstShipItem extends Item {
                             pack.getCompound(ShipBuildConfiguration.NBT_KEY));
                     String className = switch (blueprint.shipClass()) {
                         case SMALL -> "малый";
-                        case MEDIUM -> "средний";
+                        case MEDIUM -> "торговый струг II";
                         case LARGE -> "большой";
                         case LARGEST -> "крупнейший";
                     };
