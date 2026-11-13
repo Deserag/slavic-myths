@@ -533,7 +533,7 @@ public final class Ocean26GameTests {
         ServerPlayer captain = player(level, "ThirdDeckCaptain",
                 new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
         ServerPlayer walker = player(level, "ThirdDeckWalker",
-                new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ()));
+                new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ() - 8D));
         t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
@@ -546,7 +546,9 @@ public final class Ocean26GameTests {
                     ship.getX(), ship.getZ(), ship.getYRot());
             t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D,
                     "Large third-deck ship did not advance");
-            t.assertTrue(Math.abs(local.x() - 2D) < .12D && Math.abs(local.z()) < .12D
+            // The revised LARGE third deck ends forward of amidships.
+            // Stand at z=-8 on the installed floor, not open main deck z=0.
+            t.assertTrue(Math.abs(local.x() - 2D) < .12D && Math.abs(local.z() + 8D) < .12D
                     && walker.getY() >= ship.getY() + 12.8D,
                     "Third-deck walker was left behind or fell through floor");
             walker.discard(); captain.discard(); builder.discard(); ship.discard();
@@ -632,7 +634,7 @@ public final class Ocean26GameTests {
             }
             if (type.maxDecks >= 3)
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, 2, 12, 0)).is(Blocks.SPRUCE_PLANKS),
+                        0, 2, 12, -maximum.length() / 2 + 10)).is(Blocks.SPRUCE_PLANKS),
                         type + " third deck floor is absent");
             BlockPos maxChest = FirstShipBlockHull.world(anchor, 0, 2, 5, 0);
             t.assertTrue(level.setBlock(maxChest, Blocks.CHEST.defaultBlockState(), 2),
