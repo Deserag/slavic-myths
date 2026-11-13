@@ -181,8 +181,13 @@ public final class ShipHullVoxelLayout {
                             || largeAftDeck && (z == rear || z == front)) && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
-                        for (int sy = y - 3; sy < y; sy++)
-                            put(blocks, x, sy, z, Part.FRAME);
+                        for (int sy = y - 3; sy < y; sy++) {
+                            // Narrow third-deck supports must never replace
+                            // the second-deck rail, bridge or its ladder.
+                            if (largeAftDeck && floor == 3)
+                                blocks.putIfAbsent(new Cell(x, sy, z), Part.FRAME);
+                            else put(blocks, x, sy, z, Part.FRAME);
+                        }
                 }
             }
             if (mediumQuarterdeck) {
