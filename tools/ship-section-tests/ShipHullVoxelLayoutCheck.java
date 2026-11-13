@@ -96,6 +96,18 @@ public final class ShipHullVoxelLayoutCheck {
         // Khrabr v3 must never silently replace v1 blueprints.
         var khrabr = ShipHullVoxelLayout.generate(small, true);
         yes(!khrabr.equals(ShipHullVoxelLayout.generate(small)), "v3 and v1 are isolated");
+        yes(ShipHullVoxelLayout.KHRABR_SAIL_TOP + 1 == ShipHullVoxelLayout.KHRABR_YARD_Y,
+                "cloth meets the physical yard with no vertical gap");
+        yes(ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM >= 9, "sail clears the open deck");
+        for (int y = ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM;
+                y <= ShipHullVoxelLayout.KHRABR_SAIL_TOP; y++)
+            for (int x : new int[]{-2, -1, 1, 2})
+                yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, y, 2))
+                        == ShipHullVoxelLayout.Part.SAIL, "cloth marker matches moving sail panel");
+        for (int x = -3; x <= 3; x++)
+            yes(khrabr.get(new ShipHullVoxelLayout.Cell(x,
+                    ShipHullVoxelLayout.KHRABR_YARD_Y, 1))
+                    == ShipHullVoxelLayout.Part.YARD_SLAB, "continuous full wooden yard");
         int[] widths = {1, 3, 5, 7, 7, 7, 7, 7, 5, 3, 3};
         for (int i = 0; i < widths.length; i++) {
             int z = 5 - i;

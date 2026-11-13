@@ -38,6 +38,12 @@ public final class ShipHullVoxelLayout {
     }
 
 
+    /** Shared coordinates for physical v3 sail markers and moving cloth renderer. */
+    public static final int KHRABR_SAIL_BOTTOM = 9;
+    public static final int KHRABR_SAIL_TOP = 13;
+    public static final int KHRABR_YARD_Y = 14;
+    public static final int KHRABR_SAIL_HALF_SPAN = 2;
+
     /** The exact eleven v3 half-beams indexed by Z+5, stern first. */
     private static final int[] KHRABR_BEAM = {1, 1, 2, 3, 3, 3, 3, 3, 2, 1, 0};
 
@@ -108,9 +114,9 @@ public final class ShipHullVoxelLayout {
         put(blocks, 1, 3, 0, Part.HULL);
         // Thin mast at X0,Z+1, raised yard, cloth markers for material accounting.
         for (int y = 5; y <= 14; y++) put(blocks, 0, y, 1, Part.THIN_MAST);
-        for (int x = -3; x <= 3; x++) put(blocks, x, 14, 1, Part.YARD_SLAB);
-        for (int y = 9; y <= 13; y++)
-            for (int x = -2; x <= 2; x++)
+        for (int x = -3; x <= 3; x++) put(blocks, x, KHRABR_YARD_Y, 1, Part.YARD_SLAB);
+        for (int y = KHRABR_SAIL_BOTTOM; y <= KHRABR_SAIL_TOP; y++)
+            for (int x = -KHRABR_SAIL_HALF_SPAN; x <= KHRABR_SAIL_HALF_SPAN; x++)
                 if (x != 0) put(blocks, x, y, 2, Part.SAIL);
         put(blocks, 0, 5, -1, Part.HELM);
         return Collections.unmodifiableMap(blocks);
