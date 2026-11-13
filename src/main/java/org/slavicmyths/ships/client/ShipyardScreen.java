@@ -714,7 +714,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             }
             if (requirements.size() > 6)
                 graphics.drawString(font, "+" + (requirements.size() - 6)
-                        + " других видов ресурсов — полный список в подсказках",
+                        + " видов ресурсов не показано",
                         200, 174, DARK, false);
         }
         graphics.drawString(font, "Инвентарь", 198, 184, DARK, false);
