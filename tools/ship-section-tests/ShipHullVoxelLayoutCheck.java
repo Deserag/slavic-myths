@@ -205,17 +205,17 @@ public final class ShipHullVoxelLayoutCheck {
                                     "flagship deterministic geometry");
                             if (floors == 1 && cabin && !bridge) {
                                 int rear = -length / 2 + 2;
-                                int cabinFront = rear + 6;
+                                int flagshipRoofFront = rear + 6;
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(3, 9, rear + 3))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "single-deck flagship cabin roof has side rail");
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 9, cabinFront))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 9, flagshipRoofFront))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "single-deck flagship cabin roof has forward guard");
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, cabinFront))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, flagshipRoofFront))
                                                 == null,
                                         "cabin roof ladder entrance remains open");
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, cabinFront + 1))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, flagshipRoofFront + 1))
                                                 == ShipHullVoxelLayout.Part.LADDER,
                                         "single-deck flagship cabin roof keeps accessible ladder");
                             }
