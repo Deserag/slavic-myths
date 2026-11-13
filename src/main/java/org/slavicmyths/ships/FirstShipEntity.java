@@ -174,6 +174,10 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2)
+            return -config.length() / 2D + (config.bridge() ? 3D
+                    : config.cabin() ? 4D : 5D);
         return -config.length() / 2 + (config.bridge() ? 3D
                 : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 3D
@@ -186,10 +190,27 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2)
+            return config.decks() >= 3 ? 13D
+                    : config.bridge() ? 10D
+                    : config.decks() >= 2 || config.cabin() ? 9D : 5D;
         return config != null && config.bridge() ? 10D
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2)
                 ? 9D : FirstShipHull.MAIN_DECK;
+    }
+
+    private int helmFloorIndex() {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2)
+            return config.decks() >= 3 ? 3
+                    : config.bridge() ? 4
+                    : config.decks() >= 2 || config.cabin() ? 2 : 1;
+        return config != null && config.bridge() ? 4
+                : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && (config.cabin() || config.decks() >= 2) ? 2 : 1;
     }
 
     public boolean withinShip(double x, double z) {
@@ -364,7 +385,7 @@ public final class FirstShipEntity extends Boat {
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
         if (modularConfiguration() != null) {
-            int floorIndex = modularConfiguration().bridge() ? 4 : modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM && (modularConfiguration().cabin() || modularConfiguration().decks() >= 2) ? 2 : 1;
+            int floorIndex = helmFloorIndex();
             // Helm seats may sit on half coordinates for odd-length hulls;
             // support cells are integer local block positions.
             double baseZ = Math.round(helmSeatZ());
@@ -424,10 +445,7 @@ public final class FirstShipEntity extends Boat {
                 FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
                         getX(), getZ(), getYRot());
                 if (ShipDeckContact.supports(this, local.x(), local.z(),
-                        modularConfiguration() != null && modularConfiguration().bridge() ? 4
-                                : modularConfiguration() != null
-                                        && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                                        && (modularConfiguration().cabin() || modularConfiguration().decks() >= 2) ? 2 : 1))
+                        helmFloorIndex()))
                     pendingDismounts.put(player.getUUID(), new PendingDismount(
                             local.x(), local.z(), target.y - (getY() + helmSeatHeight()),
                             level().getGameTime() + 40L));
