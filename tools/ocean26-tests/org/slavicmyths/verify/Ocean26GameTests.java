@@ -465,6 +465,56 @@ public final class Ocean26GameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_largest_top_helm")
+    public static void largestThreeDeckBridgeHasReachablePhysicalHelm(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(28, 4, 28));
+        for (int x = -20; x <= 20; x++)
+            for (int z = -28; z <= 28; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 32; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST)
+                .resize(3, 2).withDecks(3).withCabin(true).withBridge(true)
+                .withSail(1, 2).withSail(2, 3).withSail(3, 1);
+        ServerPlayer builder = player(level, "FlagshipTopHelmBuilder",
+                new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(ship != null && !item.isEmpty(), "Three-deck flagship item creation failed");
+        ship.initializeNativeHull(anchor, 0);
+        ship.enableSmoothMotion();
+        t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()), "Three-deck flagship placement failed");
+        t.assertTrue(level.addFreshEntity(ship), "Three-deck flagship entity missing");
+        t.assertTrue(Math.abs(ship.helmSeatHeight() - 13D) < .001D,
+                "Top-deck wheel height does not match bridge floor");
+        BlockPos helm = FirstShipBlockHull.world(ship.blockAnchor(),
+                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
+                "Three-deck flagship physical helm and click target do not align");
+        ServerPlayer captain = player(level, "FlagshipTopHelmCaptain",
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
+                        ship.getZ() + ship.helmSeatZ() + 1.25D));
+        var wheelClick = new net.neoforged.neoforge.event.entity.player
+                .PlayerInteractEvent.RightClickBlock(captain,
+                        net.minecraft.world.InteractionHand.MAIN_HAND, helm,
+                        new net.minecraft.world.phys.BlockHitResult(
+                                Vec3.atCenterOf(helm), net.minecraft.core.Direction.UP, helm, false));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(wheelClick);
+        t.assertTrue(wheelClick.isCanceled() && captain.getVehicle() == ship,
+                "Three-deck flagship captain could not board physical wheel");
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship,
+                1D, ship.helmSeatZ(), 3), "Top flagship bridge lacks dismount floor support");
+        captain.discard(); builder.discard(); ship.discard();
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_remote_menu")
     public static void largeShipCannotDetachWithRemoteCargoMenuOpen(GameTestHelper t) {
         ServerLevel level = t.getLevel();
