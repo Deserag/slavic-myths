@@ -193,9 +193,11 @@ public final class FirstShipEntity extends Boat {
         return config != null && config.bridge() ? 10D : FirstShipHull.MAIN_DECK;
     }
 
-    /** Use the actual hull silhouette for V5/V6, not their old narrow stern. */
+    /** Keep boarding, helm contact and deck boundaries aligned with every V5-V9 wide stern. */
     private static int deckHalfBeam(ShipBuildConfiguration config, int z) {
-        if (config.hullGeometry() == 5 || config.hullGeometry() == 6)
+        if (config.hullGeometry() >= 5
+                && (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST))
             return ShipHullVoxelLayout.asymmetricLargeBeam(config.structure(), z);
         return ShipHullVoxelLayout.halfBeam(config.structure(), z);
     }
