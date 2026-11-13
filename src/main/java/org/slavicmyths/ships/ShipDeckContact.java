@@ -32,6 +32,14 @@ public final class ShipDeckContact {
         };
     }
 
+    private static double height(ShipBuildConfiguration config, int floor) {
+        // Revision-2 flagship bilges have a raised solid hold floor at y=1.
+        // Matching this physical surface is essential for moving passengers.
+        return floor == 0 && config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2 ? 2D : height(floor);
+    }
+
     public static boolean supports(FirstShipEntity ship,
             double localX, double localZ, int floor) {
         ShipBuildConfiguration config = ship.modularConfiguration();
@@ -49,7 +57,7 @@ public final class ShipDeckContact {
         if (Math.abs(localX - x) >= .50D || Math.abs(localZ - z) >= .50D)
             return false;
         var material = layout(config).get(new ShipHullVoxelLayout.Cell(
-                x, (int)height(floor) - 1, z));
+                x, (int)height(config, floor) - 1, z));
         return floor == 0
                 ? material == ShipHullVoxelLayout.Part.HULL
                     || material == ShipHullVoxelLayout.Part.KEEL
@@ -64,7 +72,7 @@ public final class ShipDeckContact {
         int[] order = config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
-            double target = ship.getY() + height(floor);
+            double target = ship.getY() + height(config, floor);
             if (absoluteFeetY >= target - .35D
                     && absoluteFeetY <= target + .55D
                     && supports(ship, x, z, floor)) return floor;
