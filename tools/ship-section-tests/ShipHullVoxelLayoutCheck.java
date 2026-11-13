@@ -219,6 +219,17 @@ public final class ShipHullVoxelLayoutCheck {
                             yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2 + 5)
                                     < ShipHullVoxelLayout.halfBeam(newLarge, 0),
                                     "LARGE curved stern shoulders");
+                            // Long hull upgrades must extend the curved run, not
+                            // add a rectangular strip between fixed short ends.
+                            if (length >= 41) {
+                                int midBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2 - 13)
+                                        < midBeam,
+                                        "extended LARGE bow must not be a straight box");
+                                yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2 + 9)
+                                        < midBeam,
+                                        "extended LARGE quarter must not be a flat box");
+                            }
                             yes(newCells.equals(ShipHullVoxelLayout.generate(newLarge)),
                                     "LARGE deterministic across upgrades");
                             yes(newCells.values().stream().filter(p ->
