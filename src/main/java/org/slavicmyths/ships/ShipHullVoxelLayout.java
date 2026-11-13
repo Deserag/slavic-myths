@@ -218,6 +218,9 @@ public final class ShipHullVoxelLayout {
             int lowerYard = raisedLargeRig ? highestDeck + 3 : 7;
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
+                // Keep the mast continuous at its centerline. Cross yards
+                // join the mast from either side, rather than replacing it.
+                if (raisedLargeRig && x == 0) continue;
                 put(blocks, x, top + 1, z, Part.YARD);
                 put(blocks, x, lowerYard, z, Part.YARD);
             }
