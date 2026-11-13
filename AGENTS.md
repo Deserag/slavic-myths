@@ -1,3 +1,9 @@
+# SHIP 2.6 OWNER RESET — HIGHEST PRIORITY (2026-11-13)
+
+All ship implementations AFTER accepted SHA `d965d5c845c58f14c676931ef9621499573f926f` were explicitly REJECTED. Do not restore/cherry-pick/merge/copy/reuse ANY rejected post-acceptance ship work, including hull silhouettes, mast/cloth models, GUI, rendering optimizations or camera patches. Do not start new ship code until the owner inspects the baseline and authorizes one scoped task. Canonical lock and working method: `docs/SHIP_RESTART_LOCK_20261113.md`. This new rule supersedes contradictory historical ship instructions and PRs; unrelated 2.5 work is untouched.
+
+---
+
 # OWNER OVERRIDE — BOUNDED CONTEXT / NO BULK READING — 2026-11-06
 
 **Корабли 2.6 — принятый выпуск 11.11.2026.** Перед любым изменением движения, штурвала, пассажиров, палубы или синхронизации кораблей прочитать точечный контракт `docs/SHIP_MOTION_RELEASE_20261111.md`. Владелец прямо поручил сохранить устройство принятого движения для следующих чатов. Особенно сохранить общий предыдущий кадр `xo/yo/zo/yRotO` корабля и капитана; GameTest и прямой ход не заменяют покадровую проверку поворота в Minecraft.
