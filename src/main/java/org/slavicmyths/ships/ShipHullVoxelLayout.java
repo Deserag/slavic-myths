@@ -77,6 +77,30 @@ public final class ShipHullVoxelLayout {
                 halfWidth - reduction);
     }
 
+    /** Shared server/client rig heights: never let the renderer invent another sail profile. */
+    public static int sailLowerYard(ShipSuperstructurePlan plan) {
+        return plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2
+                ? Math.max(7, 4 + (plan.decks() - 1) * 4 + 3) : 7;
+    }
+
+    public static int sailTop(ShipSuperstructurePlan plan, int tier) {
+        if (tier < 1 || tier > 3) throw new IllegalArgumentException("Unknown sail tier");
+        int base = tier == 1 ? 12 : tier == 2 ? 15 : 19;
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2)
+            return Math.max(base, sailLowerYard(plan)
+                    + (tier == 1 ? 5 : tier == 2 ? 8 : 12));
+        return base;
+    }
+
+    public static int sailBottom(ShipSuperstructurePlan plan) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2) return sailLowerYard(plan) + 1;
+        return plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                && plan.decks() >= 2 ? 10 : 8;
+    }
+
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
@@ -189,27 +213,15 @@ public final class ShipHullVoxelLayout {
         List<Integer> masts = plan.mastPositions();
         for (int i = 0; i < masts.size(); i++) {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            // On three-deck flagships the lowest standard yards used to cut
-            // through the raised sterncastle. Raise the whole working rig
-            // above the highest deck without changing the purchased sail tier.
-            int upperDeck = 4 + (plan.decks() - 1) * 4;
-            boolean flagship = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                    && plan.hullRevision() >= 2;
-            int lowerYard = flagship ? Math.max(7, upperDeck + 3) : 7;
-            // Keep the complete cloth height for each purchased tier when
-            // lifting the rig: otherwise a tier-I sail shrinks to two rows.
-            if (flagship) top = Math.max(top,
-                    lowerYard + (tier == 1 ? 5 : tier == 2 ? 8 : 12));
+            int top = sailTop(plan, tier);
+            int lowerYard = sailLowerYard(plan);
             int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
                 put(blocks, x, top + 1, z, Part.YARD);
                 put(blocks, x, lowerYard, z, Part.YARD);
             }
-            int sailBottom = flagship ? lowerYard + 1
-                    : plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                            && plan.decks() >= 2 ? 10 : 8;
+            int sailBottom = sailBottom(plan);
             for (int y = sailBottom; y <= top; y++)
                 for (int x = -span; x <= span; x++)
                     if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
