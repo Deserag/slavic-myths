@@ -606,6 +606,30 @@ public final class Ocean26GameTests {
                 maximum = maximum.withBridge(true).withCabin(true);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, maximum, new ListTag()), type + " maximum hull placement failed");
+            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+                int beam = maximum.width() / 2;
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, beam, 0, 0)).is(Blocks.WATER),
+                        "LARGEST outer bottom must be water, not a flat planked slab");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, beam - 2, 1, 0)).is(Blocks.SPRUCE_PLANKS),
+                        "LARGEST watertight stepped floor was not placed");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, beam - 1, 2, 0)).is(Blocks.SPRUCE_PLANKS),
+                        "LARGEST outer chine is missing");
+                int lowerYard = 4 + (maximum.decks() - 1) * 4 + 3;
+                for (int mast = 0; mast < maximum.sailTiers().size(); mast++) {
+                    int tier = maximum.sailTiers().get(mast);
+                    int height = tier == 1 ? 5 : tier == 2 ? 8 : 12;
+                    int z = maximum.structure().mastPositions().get(mast);
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, 1, lowerYard, z)).is(Blocks.DARK_OAK_LOG),
+                            "LARGEST missing lower yard on mast " + mast);
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, 1, lowerYard + height, z + 1)).is(Blocks.WHITE_WOOL),
+                            "LARGEST missing full-height sailcloth on mast " + mast);
+                }
+            }
             if (type.maxDecks >= 3)
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, 2, 12, 0)).is(Blocks.SPRUCE_PLANKS),
