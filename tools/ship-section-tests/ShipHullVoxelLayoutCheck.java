@@ -274,8 +274,10 @@ public final class ShipHullVoxelLayoutCheck {
                                         upperFront)) == ShipHullVoxelLayout.Part.RAIL,
                                         "LARGE second deck has forward safety rail");
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 9,
-                                        aftStart)) == ShipHullVoxelLayout.Part.RAIL,
-                                        "LARGE second deck has stern safety rail");
+                                        aftStart)) == (bridge
+                                                ? ShipHullVoxelLayout.Part.BRIDGE
+                                                : ShipHullVoxelLayout.Part.RAIL),
+                                        "LARGE second deck stern guarded or joined to bridge");
                             }
                             if (floors == 3) {
                                 int thirdFront = Math.min(length / 2 - 5,
