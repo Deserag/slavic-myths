@@ -118,9 +118,33 @@ public final class ShipHullVoxelLayoutCheck {
                 || p == ShipHullVoxelLayout.Part.HULL || p == ShipHullVoxelLayout.Part.DECK
                 || p == ShipHullVoxelLayout.Part.HATCH
                 || p == ShipHullVoxelLayout.Part.SHEER_SLAB).count();
-        yes(hull == 158L, "exact Python v3 base-hull cell count");
+        yes(hull > 0, "nonempty shallow wooden hull");
+        int minHullY = Integer.MAX_VALUE, maxHullY = Integer.MIN_VALUE;
+        for (var entry : khrabr.entrySet()) {
+            var p = entry.getValue();
+            if (p != ShipHullVoxelLayout.Part.KEEL
+                    && p != ShipHullVoxelLayout.Part.HULL
+                    && p != ShipHullVoxelLayout.Part.DECK
+                    && p != ShipHullVoxelLayout.Part.HATCH
+                    && p != ShipHullVoxelLayout.Part.SHEER_SLAB) continue;
+            minHullY = Math.min(minHullY, entry.getKey().y());
+            maxHullY = Math.max(maxHullY, entry.getKey().y());
+            yes(entry.getKey().y() >= 2, "no deep lower hold");
+        }
+        yes(maxHullY - minHullY <= 4, "shallow hull height");
+        for (int z = -5; z <= 5; z++) {
+            int half = ShipHullVoxelLayout.halfBeam(small, z, true);
+            for (int x = -half; x <= half; x++)
+                for (int y = 0; y <= 1; y++)
+                    yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(x, y, z)),
+                            "no artificial lower deck");
+        }
+        for (int z = -2; z <= 2; z++)
+            for (int x : new int[]{-2, -1, 1, 2})
+                yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, 4, z))
+                        == ShipHullVoxelLayout.Part.DECK, "open midship deck");
         yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 4, 0))
-                == ShipHullVoxelLayout.Part.HATCH, "closed walkable hatch");
+                == ShipHullVoxelLayout.Part.DECK, "open walking deck");
         yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 5, 1))
                 == ShipHullVoxelLayout.Part.THIN_MAST, "mast forward at z+1");
         yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 5, -1))
