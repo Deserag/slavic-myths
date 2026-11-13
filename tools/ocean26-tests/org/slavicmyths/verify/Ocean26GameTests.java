@@ -332,7 +332,7 @@ public final class Ocean26GameTests {
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ() + upperZ));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
                 new Vec3(ship.getX() + 1D, ship.getY() + 10.02D,
-                        ship.getZ() - config.length() / 2D + 4D));
+                        ship.getZ() - (config.length() / 2) + 4D));
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> {
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
@@ -358,8 +358,11 @@ public final class Ocean26GameTests {
                     && Math.abs(upperLocal.z() - upperZ) < .12D,
                     "Second-deck walker was left behind by modular ship");
             t.assertTrue(Math.abs(bridgeLocal.x() - 1D) < .12D
-                    && Math.abs(bridgeLocal.z() - (-config.length() / 2D + 4D)) < .12D,
-                    "Bridge walker was left behind by modular ship");
+                    && Math.abs(bridgeLocal.z() - (-(config.length() / 2) + 4D)) < .12D,
+                    "Bridge walker was left behind by modular ship"
+                            + " local=" + bridgeLocal + " expectedZ="
+                            + (-(config.length() / 2) + 4D)
+                            + " shipZ=" + ship.getZ());
             CompoundTag saved = new CompoundTag();
             ship.saveWithoutId(saved);
             var restored = org.slavicmyths.ships.ShipMovingContraption.load(
@@ -530,11 +533,26 @@ public final class Ocean26GameTests {
         t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()), "Large third-deck placement failed");
         t.assertTrue(level.addFreshEntity(ship), "Large third-deck entity did not spawn");
+        t.assertTrue(ship.helmSeatHeight() == 13D,
+                "LARGE helm must follow third-deck elevation");
+        t.assertTrue(Math.abs(ship.helmWheelZ() -
+                (-(config.length() / 2) + 4D)) < .01D,
+                "LARGE wheel interaction must align with the actual helm block"
+                        + " expected=" + (-(config.length() / 2) + 4D)
+                        + " actual=" + ship.helmWheelZ()
+                        + " loaded=" + ship.modularConfiguration());
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(
+                ship, 2D, 0D, 3), "LARGE walker needs a solid third deck");
+
         ServerPlayer captain = player(level, "ThirdDeckCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
+                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight() + .02D,
+                        ship.getZ() + ship.helmSeatZ()));
         ServerPlayer walker = player(level, "ThirdDeckWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ()));
-        t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
+        BlockPos wheel = FirstShipBlockHull.world(anchor, 0, 0,
+                (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+        t.assertTrue(ship.tryHelmFromBlock(captain, wheel),
+                "LARGE real third-deck wheel could not board captain");
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),
@@ -576,6 +594,28 @@ public final class Ocean26GameTests {
         var menu = new org.slavicmyths.ships.ShipyardMenu(16, builder.getInventory(), bench);
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE) {
+                t.assertTrue(config.hullRevision() == 2,
+                        "New LARGE ships must use shaped hull revision");
+                t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.load(
+                        config.save()).equals(config),
+                        "LARGE hull revision lost during NBT roundtrip");
+                t.assertTrue(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                        config.wire()).equals(config),
+                        "LARGE hull revision lost in moving-ship sync");
+                var preserved = config.resize(1, 1).withSail(0, 3)
+                        .withDecks(3).withBridge(true).withCabin(true);
+                t.assertTrue(preserved.hullRevision() == 2,
+                        "LARGE hull revision lost after shipyard upgrades");
+                var legacy = new org.slavicmyths.ships.ShipBuildConfiguration(
+                        type, 0, 0, java.util.List.of(1), 1, false, false);
+                t.assertTrue(legacy.hullRevision() == 1
+                        && org.slavicmyths.ships.ShipBuildConfiguration.load(
+                                legacy.save()).equals(legacy)
+                        && org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                                legacy.wire()).equals(legacy),
+                        "Old LARGE blueprint geometry must remain loadable");
+            }
             t.assertTrue(menu.clickMenuButton(builder, 100 + type.ordinal() * 16),
                     type + " could not be crafted in the shipyard menu");
             t.assertTrue(config.equals(org.slavicmyths.ships.ShipyardModular.configuration(

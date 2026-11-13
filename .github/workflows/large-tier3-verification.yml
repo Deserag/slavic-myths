@@ -1,0 +1,37 @@
+name: LARGE tier III full verification
+on:
+  push:
+    branches:
+      - 'feat/2.6-large-hull-silhouette-v2-20261113'
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/**'
+      - 'tools/ship-section-tests/**'
+      - '.github/workflows/large-tier3-verification.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-gametest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build Java 21 NeoForge mod
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Headless Ocean ship GameTests
+        run: ./gradlew -Pocean26Check --no-daemon runOcean26Checks --console=plain
+      - name: Record JAR SHA256
+        if: success()
+        run: sha256sum build/libs/*.jar
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: large-tier3-unverified-client-jar
+          path: build/libs/*.jar
+          retention-days: 7
+          if-no-files-found: error

@@ -17,6 +17,42 @@ public final class ShipHullVoxelLayoutCheck {
         return new ShipSuperstructurePlan(type, width, length, sails, decks, bridge, cabin);
     }
 
+    private static boolean exteriorReachesHold(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull,
+            int width, int length) {
+        int outerX = width / 2 + 2, outerZ = length / 2 + 2;
+        java.util.ArrayDeque<ShipHullVoxelLayout.Cell> queue = new java.util.ArrayDeque<>();
+        java.util.Set<ShipHullVoxelLayout.Cell> visited = new java.util.HashSet<>();
+        for (int y = 0; y <= 3; y++) {
+            for (int z = -outerZ; z <= outerZ; z++)
+                for (int x : new int[]{-outerX, outerX}) {
+                    var cell = new ShipHullVoxelLayout.Cell(x, y, z);
+                    if (visited.add(cell)) queue.add(cell);
+                }
+            for (int x = -outerX; x <= outerX; x++)
+                for (int z : new int[]{-outerZ, outerZ}) {
+                    var cell = new ShipHullVoxelLayout.Cell(x, y, z);
+                    if (visited.add(cell)) queue.add(cell);
+                }
+        }
+        int[][] directions = {{1,0,0},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1},{0,0,-1}};
+        while (!queue.isEmpty()) {
+            var here = queue.removeFirst();
+            if (here.x() == 0 && here.y() == 2 && here.z() == 0)
+                return true;
+            for (int[] d : directions) {
+                var next = new ShipHullVoxelLayout.Cell(
+                        here.x() + d[0], here.y() + d[1], here.z() + d[2]);
+                if (Math.abs(next.x()) > outerX || Math.abs(next.z()) > outerZ
+                        || next.y() < 0 || next.y() > 3
+                        || hull.containsKey(next) || !visited.add(next))
+                    continue;
+                queue.addLast(next);
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         var small = plan(ShipSectionPlan.ShipClass.SMALL, 7, 11,
                 List.of(1), 1, false, false);
@@ -137,6 +173,310 @@ public final class ShipHullVoxelLayoutCheck {
                                             == ShipHullVoxelLayout.Part.MAST,
                                             "mast survives upgrades: " + variant);
                             }
+        // Exercise the actual mast/sail upgrades independently of the hull
+        // dimensions. A rig upgrade must never reset geometry revision 2.
+        for (int count : new int[]{1, 2, 3})
+            for (int tier : new int[]{1, 2, 3})
+                for (int decksCount : new int[]{1, 2, 3}) {
+                    List<Integer> tiers = new java.util.ArrayList<>();
+                    for (int i = 0; i < count; i++) tiers.add(tier);
+                    var rig = new ShipSuperstructurePlan(
+                            ShipSectionPlan.ShipClass.LARGE, 25, 45,
+                            tiers, decksCount, true, true, 2);
+                    var voxels = ShipHullVoxelLayout.generate(rig);
+                    yes(voxels.values().stream().filter(p ->
+                            p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                            "LARGE rig has only one helm");
+                    for (int z : rig.mastPositions()) {
+                        yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 6, z))
+                                == ShipHullVoxelLayout.Part.MAST,
+                                "LARGE upgraded mast stays anchored");
+                        int upperDeck = 4 + (decksCount - 1) * 4;
+                        for (int height = upperDeck + 1; height <= upperDeck + 2; height++) {
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, height, z + 1))
+                                    != ShipHullVoxelLayout.Part.SAIL,
+                                    "LARGE sail clears deck headroom");
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, height, z))
+                                    != ShipHullVoxelLayout.Part.YARD,
+                                    "LARGE lower yard clears deck headroom");
+                        }
+                    }
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 4, 0)) == null,
+                            "LARGE main hatch stays open");
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 4, 1))
+                            == ShipHullVoxelLayout.Part.LADDER,
+                            "LARGE hold remains accessible");
+                }
+        // LARGE V2 is opt-in: old blueprints retain exactly their legacy shape.
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int floors : new int[]{1, 2, 3})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true}) {
+                            var oldLarge = plan(ShipSectionPlan.ShipClass.LARGE,
+                                    width, length, List.of(1, 2), floors, bridge, cabin);
+                            var newLarge = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGE, width, length,
+                                    List.of(1, 2), floors, bridge, cabin, 2);
+                            var oldCells = ShipHullVoxelLayout.generate(oldLarge);
+                            var newCells = ShipHullVoxelLayout.generate(newLarge);
+                            yes(!oldCells.equals(newCells), "new LARGE revision changes hull");
+                            if (floors == 1 && !cabin && !bridge) {
+                                yes(!exteriorReachesHold(newCells, width, length),
+                                        "LARGE hull must remain watertight: " + width + "x" + length);
+                                int sternZ = -length / 2;
+                                int transomHalf = ShipHullVoxelLayout.halfBeam(newLarge, sternZ);
+                                for (int transomX = -transomHalf; transomX <= transomHalf; transomX++)
+                                    for (int bulkheadY = 1; bulkheadY <= 3; bulkheadY++)
+                                        yes(newCells.containsKey(new ShipHullVoxelLayout.Cell(
+                                                transomX, bulkheadY, sternZ)),
+                                                "LARGE broad stern bulkhead sealed");
+                            }
+
+                            // The transverse section must no longer be a
+                            // flat-bottomed, straight-sided rectangular tub.
+                            int midZ = 0;
+                            int fullHalf = ShipHullVoxelLayout.halfBeam(newLarge, midZ);
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 0, midZ))
+                                    == null, "LARGE bilge draws in the lower hull");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf - 2, 0, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE dry structural floor");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf - 1, 1, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE outward first chine");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 2, midZ))
+                                    == ShipHullVoxelLayout.Part.HULL,
+                                    "LARGE stepped upper chine");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 3, midZ))
+                                    != null, "LARGE sheer supported");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(fullHalf, 5, midZ))
+                                    == ShipHullVoxelLayout.Part.RAIL,
+                                    "LARGE outer rail follows hull outline");
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 5,
+                                    length / 2)) == ShipHullVoxelLayout.Part.RAIL,
+                                    "LARGE forward stem railing");
+
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2) == 0,
+                                    "LARGE sharp stem");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2) >= 2,
+                                    "LARGE wide transom");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2 - 5)
+                                    < ShipHullVoxelLayout.halfBeam(newLarge, 0),
+                                    "LARGE tapered bow shoulders");
+                            yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2 + 5)
+                                    < ShipHullVoxelLayout.halfBeam(newLarge, 0),
+                                    "LARGE curved stern shoulders");
+                            // Long hull upgrades must extend the curved run, not
+                            // add a rectangular strip between fixed short ends.
+                            if (length >= 41) {
+                                int midBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(ShipHullVoxelLayout.halfBeam(newLarge, length / 2 - 13)
+                                        < midBeam,
+                                        "extended LARGE bow must not be a straight box");
+                                yes(ShipHullVoxelLayout.halfBeam(newLarge, -length / 2 + 9)
+                                        < midBeam,
+                                        "extended LARGE quarter must not be a flat box");
+                            }
+                            yes(newCells.equals(ShipHullVoxelLayout.generate(newLarge)),
+                                    "LARGE deterministic across upgrades");
+                            yes(newCells.values().stream().filter(p ->
+                                    p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                    "LARGE one helm");
+                            int rear = -length / 2 + 2;
+                            int helmY = floors == 3 ? 13
+                                    : bridge ? 10
+                                    : cabin && floors == 1 ? 9
+                                    : floors == 2 ? 9 : 5;
+                            int largeHelmZ = -length / 2 + (bridge || cabin ? 4 : 3);
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, helmY, largeHelmZ))
+                                    == ShipHullVoxelLayout.Part.HELM,
+                                    "LARGE helm above its deck " + newLarge);
+                            int helmDeckY = helmY == 10 ? 9 : helmY - 1;
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, helmDeckY, largeHelmZ))
+                                    == (helmDeckY == 9
+                                            ? ShipHullVoxelLayout.Part.BRIDGE
+                                            : ShipHullVoxelLayout.Part.DECK),
+                                    "LARGE helm has physical deck " + newLarge);
+                            if (bridge) {
+                                int bridgeFront = -length / 2 + 6;
+                                if (!cabin) {
+                                    int bridgeRear = -length / 2 + 2;
+                                    int side = Math.min(3, width / 2 - 2);
+                                    for (int postZ : new int[]{bridgeRear, bridgeFront})
+                                        for (int postX : new int[]{-side, side})
+                                            for (int supportY = 5; supportY <= 8; supportY++)
+                                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                                        postX, supportY, postZ))
+                                                        == ShipHullVoxelLayout.Part.FRAME
+                                                        || supportY == 8 && newCells.get(
+                                                                new ShipHullVoxelLayout.Cell(
+                                                                        postX, supportY, postZ))
+                                                                == ShipHullVoxelLayout.Part.DECK,
+                                                        "LARGE stand-alone bridge corner supported: "
+                                                                + newLarge + " corner=" + postX
+                                                                + "," + postZ + " y=" + supportY);
+                                }
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 10, bridgeFront))
+                                        != ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE bridge ladder has unblocked upper exit");
+                                if (!cabin)
+                                    for (int accessY = 5; accessY <= 8; accessY++)
+                                        yes(newCells.get(new ShipHullVoxelLayout.Cell(-3,
+                                                accessY, bridgeFront))
+                                                == ShipHullVoxelLayout.Part.FRAME,
+                                                "LARGE freestanding bridge ladder supported");
+                            }
+                            if (cabin && !bridge) {
+                                for (int accessY = 5; accessY <= 9; accessY++) {
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
+                                            accessY, rear + 7))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "LARGE cabin roof ladder " + newLarge);
+                                }
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 9,
+                                        rear + 6)) != ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE cabin roof rail has entrance");
+                                // The roof joins deck two at its forward end.
+                                // Do not force players through a one-wide
+                                // gap in a decorative internal barrier.
+                                if (floors >= 2)
+                                    for (int doorwayX = -1; doorwayX <= 1; doorwayX++)
+                                        yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                                doorwayX, 9, rear + 6))
+                                                != ShipHullVoxelLayout.Part.RAIL,
+                                                "LARGE roof-to-second-deck passage "
+                                                        + newLarge + " x=" + doorwayX);
+                                else
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                            0, 9, rear + 6))
+                                            == ShipHullVoxelLayout.Part.RAIL,
+                                            "single-deck LARGE cabin roof keeps its front rail");
+                            }
+                            if (floors >= 2)
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
+                                        length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE no full-length upper box");
+                            if (floors >= 2) {
+                                int outerBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                        outerBeam - 1, 8, 0)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE second deck narrows inside hull sheer");
+                            }
+                            if (floors == 3) {
+                                int outerBeam = ShipHullVoxelLayout.halfBeam(newLarge, 0);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                        outerBeam - 2, 12, 0)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck is narrower than second deck");
+                            }
+
+                            if (floors >= 2) {
+                                int aftStart = -length / 2 + 2;
+                                int upperFront = Math.min(length / 2 - 5,
+                                        aftStart + length * 3 / 5);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 9,
+                                        upperFront)) == ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE second deck has forward safety rail");
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 9,
+                                        aftStart)) == (bridge
+                                                ? ShipHullVoxelLayout.Part.BRIDGE
+                                                : ShipHullVoxelLayout.Part.RAIL),
+                                        "LARGE second deck stern guarded or joined to bridge: "
+                                        + newLarge + " value="
+                                        + newCells.get(new ShipHullVoxelLayout.Cell(0, 9, aftStart)));
+                            }
+                            if (floors == 3) {
+                                int thirdFront = Math.min(length / 2 - 5,
+                                        Math.max(0, -length / 2 + 2 + length * 2 / 5));
+                                var frontGuard = newCells.get(
+                                        new ShipHullVoxelLayout.Cell(0, 13, thirdFront));
+                                yes(frontGuard == ShipHullVoxelLayout.Part.RAIL
+                                                || frontGuard == ShipHullVoxelLayout.Part.MAST,
+                                        "LARGE third deck has guarded or mast-supported bow end: "
+                                                + newLarge + " z=" + thirdFront + " part=" + frontGuard);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 12,
+                                        thirdFront)) == ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck forward hatch is sealed and walkable");
+                            }
+                            if (floors == 3) {
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
+                                        == ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third-deck central walking floor");
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12,
+                                        length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck leaves open forward bow");
+                            }
+
+                            if (floors == 3) {
+                                int thirdAccessZ = -length / 2 + 11;
+                                for (int yy = 9; yy <= 12; yy++) {
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
+                                            yy, thirdAccessZ))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "LARGE third floor reachable by supported aft ladder");
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-3,
+                                            yy, thirdAccessZ))
+                                            == ShipHullVoxelLayout.Part.FRAME,
+                                            "LARGE third floor ladder has physical supports");
+                                }
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 12, 1))
+                                        != ShipHullVoxelLayout.Part.LADDER,
+                                        "LARGE no floating central shaft above second floor");
+                            }
+                            yes(oldCells.equals(ShipHullVoxelLayout.generate(oldLarge)),
+                                    "LARGE legacy layout stable");
+                        }
+        // Maximum three-mast LARGE rig and all sail tiers must stay clear of
+        // player headroom on upgraded second/third decks.
+        for (int length : new int[]{33, 37, 41, 45})
+            for (int width : new int[]{21, 23, 25})
+                for (int decks : new int[]{1, 2, 3})
+                    for (List<Integer> sailTiers : List.of(
+                            List.of(1, 1, 1), List.of(2, 2, 2), List.of(3, 3, 3))) {
+                        var rigged = new ShipSuperstructurePlan(
+                                ShipSectionPlan.ShipClass.LARGE, width, length,
+                                sailTiers, decks, false, false, 2);
+                        var geometry = ShipHullVoxelLayout.generate(rigged);
+                        int highest = 4 + (decks - 1) * 4;
+                        for (int mastZ : rigged.mastPositions()) {
+                            for (int y = highest + 1; y <= highest + 2; y++)
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y, mastZ + 1))
+                                        != ShipHullVoxelLayout.Part.SAIL,
+                                        "LARGE rig cloth clears player headroom");
+                            yes(geometry.get(new ShipHullVoxelLayout.Cell(0, highest + 3,
+                                    mastZ)) != ShipHullVoxelLayout.Part.YARD,
+                                    "LARGE yard not inside center mast travel");
+                        }
+                        yes(geometry.values().stream().filter(p ->
+                                p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                "three-mast LARGE retains one helm");
+                    }
+        // Mixed sail tiers are supported independently per mast; testing only
+        // uniform rigs misses a low sail on a three-deck vessel beside a
+        // taller adjacent rig. Cover all 27 three-mast tier combinations.
+        for (int deckCount = 1; deckCount <= 3; deckCount++)
+            for (int aftTier = 1; aftTier <= 3; aftTier++)
+                for (int centerTier = 1; centerTier <= 3; centerTier++)
+                    for (int bowTier = 1; bowTier <= 3; bowTier++) {
+                        var variant = new ShipSuperstructurePlan(
+                                ShipSectionPlan.ShipClass.LARGE, 25, 45,
+                                List.of(aftTier, centerTier, bowTier),
+                                deckCount, true, true, 2);
+                        var layout = ShipHullVoxelLayout.generate(variant);
+                        int highestDeck = 4 + (deckCount - 1) * 4;
+                        for (int mastZ : variant.mastPositions()) {
+                            yes(layout.get(new ShipHullVoxelLayout.Cell(0, 6, mastZ))
+                                    == ShipHullVoxelLayout.Part.MAST,
+                                    "mixed LARGE rig retains mast anchor: " + variant);
+                            for (int y = highestDeck + 1; y <= highestDeck + 2; y++)
+                                yes(layout.get(new ShipHullVoxelLayout.Cell(1, y, mastZ + 1))
+                                        != ShipHullVoxelLayout.Part.SAIL,
+                                        "mixed LARGE rig clears walking headroom: " + variant);
+                        }
+                        yes(layout.values().stream().filter(p ->
+                                p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                "mixed LARGE rig keeps exactly one helm: " + variant);
+                    }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);

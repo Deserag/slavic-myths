@@ -174,6 +174,9 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() >= 2)
+            return -config.length() / 2 + (config.bridge() || config.cabin() ? 3D : 2D);
         return -config.length() / 2 + (config.bridge() ? 3D
                 : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 3D
@@ -186,6 +189,13 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() >= 2) {
+            if (config.decks() == 3) return 13D;
+            if (config.bridge()) return 10D;
+            if (config.cabin() && config.decks() == 1) return 9D;
+            return config.decks() == 2 ? 9D : 5D;
+        }
         return config != null && config.bridge() ? 10D
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2)
@@ -364,7 +374,16 @@ public final class FirstShipEntity extends Boat {
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
         if (modularConfiguration() != null) {
-            int floorIndex = modularConfiguration().bridge() ? 4 : modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM && (modularConfiguration().cabin() || modularConfiguration().decks() >= 2) ? 2 : 1;
+            ShipBuildConfiguration config = modularConfiguration();
+            boolean modernLarge = config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && config.hullRevision() >= 2;
+            int floorIndex = modernLarge
+                    ? config.decks() == 3 ? 3
+                            : config.bridge() ? 4
+                            : config.decks() == 2 || config.cabin() ? 2 : 1
+                    : config.bridge() ? 4
+                    : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                            && (config.cabin() || config.decks() >= 2) ? 2 : 1;
             // Helm seats may sit on half coordinates for odd-length hulls;
             // support cells are integer local block positions.
             double baseZ = Math.round(helmSeatZ());
