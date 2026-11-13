@@ -33,7 +33,18 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
-        return beam(plan.hullWidth(), plan.hullLength(), z);
+        if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
+            return beam(plan.hullWidth(), plan.hullLength(), z);
+        // The trading strug has a long, narrow bow and a fuller working
+        // midship, not the same four-row taper as every other ship class.
+        int halfLength = plan.hullLength() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int halfWidth = plan.hullWidth() / 2;
+        int taperLength = z >= 0 ? 7 : 5;
+        int taper = Math.max(0, Math.abs(z) - (halfLength - taperLength));
+        int reduction = (int)Math.ceil(taper * halfWidth / (double)taperLength);
+        return Math.max(z == halfLength ? 0 : z == -halfLength ? 1 : 0,
+                halfWidth - reduction);
     }
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
@@ -49,16 +60,28 @@ public final class ShipHullVoxelLayout {
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = 1; y <= 3; y++)
-                    put(blocks, x, y, z, Part.HULL);
-                else if (Math.floorMod(z, 3) == 0)
+                if (edge) for (int y = 1; y <= 3; y++) {
+                    // Timber sheer band and spaced upright ribs break up the
+                    // untextured full-height slab without opening the dry hold.
+                    // All replacement cells remain solid structural blocks.
+                    boolean trading = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
+                    boolean side = Math.abs(x) == half && Math.abs(z) <= halfLength - 3;
+                    Part board = trading && side && y == 2 ? Part.KEEL
+                            : trading && side && Math.floorMod(z, 5) == 0
+                                    ? Part.FRAME : Part.HULL;
+                    put(blocks, x, y, z, board);
+                } else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
-        // Access shaft and actual ladders, aligned through every built deck.
-        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++) {
+        // The hold shaft stops at the main deck on medium ships. Their
+        // quarterdeck has its own exterior ladder near the stern, so a
+        // second mast-height freestanding ladder is not generated amidships.
+        int mainShaftTop = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                ? 4 : 4 + (plan.decks() - 1) * 4;
+        for (int y = 1; y <= mainShaftTop; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
         }
@@ -68,18 +91,34 @@ public final class ShipHullVoxelLayout {
         // Elevated deck floors are stepped, not full-height rectangular towers.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int y = 4 + (floor - 1) * 4;
-            int front = halfLength - 3 * (floor - 1);
             int rear = -halfLength + 2;
+            // The medium ship gets a short, raised quarterdeck. A long
+            // full-width second floor made the vessel look like a two-storey
+            // rectangular building and interfered with the mast.
+            boolean mediumQuarterdeck = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                    && floor == 2;
+            int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
+                    : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
-                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
                     if (Math.abs(x) == half && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
                             put(blocks, x, sy, z, Part.FRAME);
+                }
+            }
+            if (mediumQuarterdeck) {
+                // External access is separate from the hold hatch. Put the
+                // ladder immediately forward of the quarterdeck, never inside
+                // the captain's cabin or through an occupied mast station.
+                int accessZ = front + 1;
+                for (int ladderY = 5; ladderY <= 8; ladderY++) {
+                    put(blocks, -3, ladderY, accessZ, Part.FRAME);
+                    put(blocks, -2, ladderY, accessZ, Part.LADDER);
                 }
             }
         }
@@ -96,7 +135,9 @@ public final class ShipHullVoxelLayout {
                 put(blocks, x, top + 1, z, Part.YARD);
                 put(blocks, x, 7, z, Part.YARD);
             }
-            for (int y = 8; y <= top; y++)
+            int sailBottom = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                    && plan.decks() >= 2 ? 10 : 8;
+            for (int y = sailBottom; y <= top; y++)
                 for (int x = -span; x <= span; x++)
                     if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
                         put(blocks, x, y, z + 1, Part.SAIL);
@@ -134,12 +175,40 @@ public final class ShipHullVoxelLayout {
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
                     put(blocks, x, 9, z, Part.BRIDGE);
-                    if (Math.abs(x) == side || z == rear || z == front)
+                    if ((Math.abs(x) == side || z == rear || z == front)
+                            && !(plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                                    && z == front && x == -side + 1))
                         put(blocks, x, 10, z, Part.RAIL);
                 }
-            for (int y = 5; y <= 9; y++)
+            for (int y = 5; y <= 9; y++) {
+                if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && !plan.cabin() && y < 9)
+                    put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, -side + 1, y, front, Part.LADDER);
+            }
             put(blocks, 0, 10, rear + 2, Part.HELM);
+        } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
+            // The cabin roof IS the captain's platform when no separate
+            // bridge was purchased. Keep the only helm above the room.
+            int rear = -halfLength + 2, front = rear + 6;
+            int side = Math.min(3, plan.hullWidth() / 2 - 2);
+            for (int z = rear; z <= front; z++)
+                for (int x = -side; x <= side; x++)
+                    if ((Math.abs(x) == side || z == rear || z == front)
+                            && !(z == front && x == -side + 1))
+                        put(blocks, x, 9, z, Part.RAIL);
+            // Support the external ladder against a real post. Leave its
+            // opening clear through an optional second-deck floor.
+            for (int y = 5; y <= 9; y++) {
+                put(blocks, -side, y, front + 1, Part.FRAME);
+                put(blocks, -side + 1, y, front + 1, Part.LADDER);
+            }
+            put(blocks, 0, 9, rear + 2, Part.HELM);
+        } else if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                && plan.decks() >= 2) {
+            // With a raised quarterdeck the wheel must be above it, not
+            // hidden underneath the floor at main-deck height.
+            put(blocks, 0, 9, -halfLength + 4, Part.HELM);
         } else {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }

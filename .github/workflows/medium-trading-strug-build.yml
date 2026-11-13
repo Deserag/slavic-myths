@@ -1,0 +1,38 @@
+name: MEDIUM trading strug Java 21 build
+on:
+  push:
+    branches:
+      - 'feat/2.6-medium-trading-strug-20261113'
+  pull_request:
+    branches:
+      - 'restart/2.6-ships-approved-baseline-20261113'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Clean build and unit tests
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon clean build --console=plain
+      - name: Run existing Ocean 2.6 headless GameTests
+        run: ./gradlew -Pocean26Check --no-daemon runOcean26Checks --console=plain
+      - name: JAR SHA256
+        if: success()
+        run: sha256sum build/libs/*.jar
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: medium-trading-strug-unverified-jar
+          path: build/libs/*.jar
+          retention-days: 10
+          if-no-files-found: error

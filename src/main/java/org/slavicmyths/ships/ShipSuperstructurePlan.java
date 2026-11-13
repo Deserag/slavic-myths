@@ -80,6 +80,14 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
     /** Approximate displacement proportional to deck area and additional floor load. */
     public double loadFactor() {
+        if (shipClass == ShipSectionPlan.ShipClass.MEDIUM) {
+            // Medium load is normalized to its own 13x21 trading hull.
+            // Additional structure has diminishing, but nonzero, resistance.
+            double footprint = (double)hullWidth * hullLength / (13D * 21D);
+            return 1D + .22D * (footprint - 1D)
+                    + .15D * (decks - 1)
+                    + (bridge ? .08D : 0D) + (cabin ? .10D : 0D);
+        }
         double footprint = (double)hullWidth * hullLength / (7D * 11D);
         double floors = 1D + (decks - 1) * .30D;
         double rooms = (bridge ? .12D : 0D) + (cabin ? .18D : 0D);
@@ -92,6 +100,12 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      */
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
+        if (shipClass == ShipSectionPlan.ShipClass.MEDIUM) {
+            // Medium ships must not lose 28% of their sail thrust simply
+            // for belonging to the trading class. The existing motion cap
+            // still bounds the speed, and extra decks/cabins add resistance.
+            return Math.min(1D, rawThrust() / loadFactor());
+        }
         return Math.min(1D, rawThrust() / loadFactor());
     }
 
