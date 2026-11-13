@@ -39,6 +39,7 @@ public final class ShipDeckContact {
             return floor == 0 ? FirstShipHull.holdSupports(localX, localZ)
                     : floor == 1 && FirstShipHull.mainDeckSupports(localX, localZ);
         }
+        if (config.isKhrabrV3() && floor == 0) return false;
         if (floor < 0 || floor > (config.bridge() ? 4 : config.decks())
                 || (floor == 4 && !config.bridge())
                 || (floor == 3 && config.decks() < 3)
@@ -61,7 +62,8 @@ public final class ShipDeckContact {
     public static int contactFloor(FirstShipEntity ship,
             double x, double z, double absoluteFeetY) {
         ShipBuildConfiguration config = ship.modularConfiguration();
-        int[] order = config != null && config.bridge()
+        int[] order = config != null && config.isKhrabrV3()
+                ? new int[]{1} : config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
             double target = ship.getY() + (config != null && config.isKhrabrV3()
