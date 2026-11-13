@@ -425,6 +425,13 @@ public final class Ocean26GameTests {
         t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
+        if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, 2D, 0D, 0),
+                    "LARGEST raised hold floor has no passenger support");
+            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(
+                    ship, 2D, 0D, ship.getY() + 2.02D) == 0,
+                    "LARGEST hold foot-height does not match real solid bilge floor");
+        }
         ServerPlayer captain = player(level, type + "VoyageCaptain",
                 new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
                         ship.getZ() + ship.helmSeatZ() + 1.25D));
