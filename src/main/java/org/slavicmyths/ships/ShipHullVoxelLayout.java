@@ -242,24 +242,31 @@ public final class ShipHullVoxelLayout {
         // The bridge is elevated over the stern; it uses the SAME HELM as the
         // rest of the vessel. Only one helm control position is generated.
         if (plan.bridge()) {
-            // A shorter quarterdeck keeps the forward mast on medium ships clear.
+            // LARGEST's bridge belongs on the highest aft deck: a fixed
+            // y=9 wheel is buried under a three-deck sterncastle.
+            boolean flagshipBridge = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && plan.hullRevision() >= 2;
+            int bridgeFloor = flagshipBridge && plan.decks() >= 3 ? 12 : 9;
             int rear = -halfLength + 2, front = rear + 4;
             int side = Math.min(3, plan.hullWidth() / 2 - 2);
+            int ladderX = -side + 1;
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
-                    put(blocks, x, 9, z, Part.BRIDGE);
-                    if ((Math.abs(x) == side || z == rear || z == front)
-                            && !(plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                                    && z == front && x == -side + 1))
-                        put(blocks, x, 10, z, Part.RAIL);
+                    put(blocks, x, bridgeFloor, z, Part.BRIDGE);
+                    boolean entrance = z == front && x == ladderX
+                            && (flagshipBridge || plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM);
+                    if ((Math.abs(x) == side || z == rear || z == front) && !entrance)
+                        put(blocks, x, bridgeFloor + 1, z, Part.RAIL);
                 }
-            for (int y = 5; y <= 9; y++) {
+            for (int y = 5; y <= bridgeFloor; y++) {
                 if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                        && !plan.cabin() && y < 9)
+                        && !plan.cabin() && y < bridgeFloor)
                     put(blocks, -side, y, front, Part.FRAME);
-                put(blocks, -side + 1, y, front, Part.LADDER);
+                if (flagshipBridge && y < bridgeFloor)
+                    put(blocks, -side, y, front, Part.FRAME);
+                put(blocks, ladderX, y, front, Part.LADDER);
             }
-            put(blocks, 0, 10, rear + 2, Part.HELM);
+            put(blocks, 0, bridgeFloor + 1, rear + 2, Part.HELM);
         } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
             // The cabin roof IS the captain's platform when no separate
             // bridge was purchased. Keep the only helm above the room.
@@ -282,6 +289,22 @@ public final class ShipHullVoxelLayout {
             // With a raised quarterdeck the wheel must be above it, not
             // hidden underneath the floor at main-deck height.
             put(blocks, 0, 9, -halfLength + 4, Part.HELM);
+        } else if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2) {
+            // Without a purchased bridge, use the highest accessible stern
+            // deck, or the cabin roof on an otherwise single-deck flagship.
+            int rear = -halfLength + 2;
+            int helmFloor = plan.decks() >= 3 ? 12
+                    : plan.decks() >= 2 || plan.cabin() ? 8 : 4;
+            if (plan.cabin() && plan.decks() == 1) {
+                int roofFront = rear + 6;
+                int side = Math.min(3, plan.hullWidth() / 2 - 2);
+                for (int y = 5; y <= 9; y++) {
+                    put(blocks, -side, y, roofFront + 1, Part.FRAME);
+                    put(blocks, -side + 1, y, roofFront + 1, Part.LADDER);
+                }
+            }
+            put(blocks, 0, helmFloor + 1, rear + (plan.cabin() ? 3 : 4), Part.HELM);
         } else {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
