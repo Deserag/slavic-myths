@@ -184,7 +184,8 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
-        return config != null && config.bridge() ? 10D : FirstShipHull.MAIN_DECK;
+        return config != null && config.bridge() ? 10D
+                : config != null && config.isKhrabrV3() ? 2D : FirstShipHull.MAIN_DECK;
     }
 
     public boolean withinShip(double x, double z) {
