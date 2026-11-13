@@ -24,6 +24,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon clean build --console=plain
+      - name: Run existing Ocean 2.6 headless GameTests
+        run: ./gradlew -Pocean26Check --no-daemon runOcean26Checks --console=plain
       - name: JAR SHA256
         if: success()
         run: sha256sum build/libs/*.jar
