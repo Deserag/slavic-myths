@@ -221,24 +221,13 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            // Render from the SAME mast/yard coordinates as the server voxel
-            // blueprint. Flagship upper decks otherwise intersect low cloth.
-            boolean flagship = plan.shipClass()
-                    == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
-                    && plan.hullRevision() >= 2;
-            int lowerYard = flagship
-                    ? Math.max(7, 4 + (plan.decks() - 1) * 4 + 3) : 7;
-            if (flagship) top = Math.max(top,
-                    lowerYard + (tier == 1 ? 5 : tier == 2 ? 8 : 12));
+            int top = org.slavicmyths.ships.ShipHullVoxelLayout.sailTop(plan, tier);
             int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
             pose.translate(0D, 0D, plan.mastPositions().get(i));
-            double bottom = flagship ? lowerYard + 1D
-                    : plan.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM
-                            && plan.decks() >= 2 ? 10D : 8D;
+            double bottom = org.slavicmyths.ships.ShipHullVoxelLayout.sailBottom(plan);
             sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
             pose.popPose();
         }
