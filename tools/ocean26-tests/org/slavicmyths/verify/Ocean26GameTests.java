@@ -792,6 +792,22 @@ public final class Ocean26GameTests {
                         "Cabin-only flagship roof has no access ladder");
                 t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
                         anchor, 0, roofOnly), "Cabin-only flagship cleanup failed");
+                // The intermediate two-deck upgrade must keep a working
+                // physical helm on its aft deck even without a bridge.
+                var twoDeck = roofOnly.withDecks(2);
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                        anchor, 0, twoDeck, new ListTag()),
+                        "Two-deck flagship without bridge failed to place");
+                BlockPos raisedWheel = FirstShipBlockHull.world(anchor, 0,
+                        0, 9, rear + 3);
+                BlockPos raisedFloor = FirstShipBlockHull.world(anchor, 0,
+                        0, 8, rear + 3);
+                t.assertTrue(level.getBlockState(raisedWheel).is(Blocks.DARK_OAK_FENCE),
+                        "Two-deck flagship loses wheel without bridge upgrade");
+                t.assertTrue(level.getBlockState(raisedFloor).is(Blocks.SPRUCE_PLANKS),
+                        "Two-deck flagship wheel lacks supporting floor");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                        anchor, 0, twoDeck), "Two-deck flagship cleanup failed");
             }
         }
         menu.removed(builder);
