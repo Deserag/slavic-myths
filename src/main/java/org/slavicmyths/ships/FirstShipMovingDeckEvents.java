@@ -27,7 +27,19 @@ public final class FirstShipMovingDeckEvents {
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
-        Player player = event.getEntity();
+        // On the server this is only a floor/contact check: horizontal carry
+        // belongs to FirstShipEntity.tick(). Client hull motion can occur after
+        // PlayerTick.Post, so apply it once after ALL client entities tick.
+        if (!event.getEntity().level().isClientSide)
+            carryPlayer(event.getEntity());
+    }
+
+    public static void carryClientPlayer(Player player) {
+        if (player != null && player.level().isClientSide)
+            carryPlayer(player);
+    }
+
+    private static void carryPlayer(Player player) {
         if (!player.isAlive() || player.isPassenger() || player.isSpectator()
                 || player.getAbilities().flying || player.isFallFlying()) {
             LAST.remove(player);
