@@ -39,78 +39,66 @@ public final class ShipHullVoxelLayout {
 
 
     /** Shared coordinates for physical v3 sail markers and moving cloth renderer. */
-    public static final int KHRABR_SAIL_BOTTOM = 9;
-    public static final int KHRABR_SAIL_TOP = 13;
-    public static final int KHRABR_YARD_Y = 14;
+    public static final int KHRABR_SAIL_BOTTOM = 7;
+    public static final int KHRABR_SAIL_TOP = 11;
+    public static final int KHRABR_YARD_Y = 12;
     public static final int KHRABR_SAIL_HALF_SPAN = 2;
 
-    /** The exact eleven v3 half-beams indexed by Z+5, stern first. */
-    private static final int[] KHRABR_BEAM = {1, 1, 2, 3, 3, 3, 3, 3, 2, 1, 0};
-
+    /**
+     * Version 2 Khrabr may be lengthened (11 -> 15 blocks), without switching
+     * back to the original deep-hulled modular ship. Beam is always seven.
+     */
     public static int halfBeam(ShipSuperstructurePlan plan, int z, boolean khrabrV3) {
-        return khrabrV3 ? (z < -5 || z > 5 ? -1 : KHRABR_BEAM[z + 5])
-                : halfBeam(plan, z);
+        if (!khrabrV3) return halfBeam(plan, z);
+        int halfLength = plan.hullLength() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int fromEnd = halfLength - Math.abs(z);
+        if (z == halfLength) return 0;
+        if (z == -halfLength) return 1;
+        return Math.min(3, Math.max(1, fromEnd));
     }
 
     /** Pure-Java selectable layout: no Minecraft/NBT dependency in this class. */
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, boolean khrabrV3) {
-        return khrabrV3 ? khrabrV3() : generate(plan);
+        return khrabrV3 ? khrabrV3(plan) : generate(plan);
     }
 
     /**
-     * Shallow open 11x7 longboat: deck Y4, one-block gunwale Y5.
-     * Solid stepped bottom, no enclosed lower hold or artificial second deck.
+     * Four-block shallow open hull at the actual surface waterline:
+     * keel Y0, stepped chine Y1, walking deck Y2, low gunwale Y3.
+     * No buried compartment, trapped air, or suspended wooden belly.
      */
-    private static Map<Cell, Part> khrabrV3() {
+    private static Map<Cell, Part> khrabrV3(ShipSuperstructurePlan plan) {
         Map<Cell, Part> blocks = new LinkedHashMap<>();
-        for (int z = -5; z <= 5; z++) {
-            int half = KHRABR_BEAM[z + 5];
-            int a = Math.abs(z);
-            if (a <= 2) {
-                // Narrow keel -> stepped planking -> open walking deck.
-                put(blocks, 0, 2, z, Part.KEEL);
-                for (int x = -1; x <= 1; x++)
-                    put(blocks, x, 3, z, Part.HULL);
-                for (int x : new int[]{-2, -1, 1, 2})
-                    put(blocks, x, 3, z, Part.HULL);
-                for (int x = -2; x <= 2; x++)
-                    put(blocks, x, 4, z, Part.DECK);
-            } else if (a == 3) {
-                put(blocks, 0, 3, z, Part.KEEL);
-                for (int x = -1; x <= 1; x++)
-                    put(blocks, x, 4, z, Part.DECK);
-            } else if (a == 4) {
-                put(blocks, 0, 3, z, Part.KEEL);
-                put(blocks, 0, 4, z, Part.DECK);
-            } else if (z == 5) {
-                put(blocks, 0, 3, z, Part.KEEL);
-                put(blocks, 0, 4, z, Part.HULL);
-                put(blocks, 0, 5, z, Part.HULL);
-            } else {
-                put(blocks, 0, 3, z, Part.KEEL);
-                put(blocks, 0, 4, z, Part.DECK);
-            }
-
-            // Only the outermost edge forms a low one-block gunwale.
-            // Bow/stern tips receive a single raised sheer slab.
-            if (half > 0) {
+        int halfLength = plan.hullLength() / 2;
+        for (int z = -halfLength; z <= halfLength; z++) {
+            int half = halfBeam(plan, z, true);
+            put(blocks, 0, 0, z, Part.KEEL);
+            if (half >= 2)
+                for (int x = -1; x <= 1; x++) put(blocks, x, 1, z, Part.HULL);
+            if (half >= 3)
+                for (int x : new int[]{-2, 2}) put(blocks, x, 1, z, Part.HULL);
+            for (int x = -Math.max(0, half - 1); x <= Math.max(0, half - 1); x++)
+                put(blocks, x, 2, z, Part.DECK);
+            if (half > 0)
                 for (int x : new int[]{-half, half}) {
-                    put(blocks, x, 4, z, Part.HULL);
-                    put(blocks, x, 5, z, Part.HULL);
+                    put(blocks, x, 2, z, Part.HULL);
+                    put(blocks, x, 3, z, Part.HULL);
                 }
-            }
-            if (z == 5) put(blocks, 0, 6, z, Part.SHEER_SLAB);
-            else if (z == -5)
+            // Only the stem and stern are raised, rather than tall side walls.
+            if (Math.abs(z) == halfLength)
                 for (int x = -half; x <= half; x++)
-                    put(blocks, x, 6, z, Part.SHEER_SLAB);
+                    put(blocks, x, 3, z, Part.SHEER_SLAB);
         }
-        // One central mast, clear walkways on both sides, same helm and red sail.
-        for (int y = 5; y <= 14; y++) put(blocks, 0, y, 1, Part.THIN_MAST);
-        for (int x = -3; x <= 3; x++) put(blocks, x, KHRABR_YARD_Y, 1, Part.YARD_SLAB);
+        // The deck stays open on both sides of the mast, including extensions.
+        for (int y = 3; y <= KHRABR_YARD_Y; y++)
+            put(blocks, 0, y, 1, Part.THIN_MAST);
+        for (int x = -3; x <= 3; x++)
+            put(blocks, x, KHRABR_YARD_Y, 1, Part.YARD_SLAB);
         for (int y = KHRABR_SAIL_BOTTOM; y <= KHRABR_SAIL_TOP; y++)
             for (int x = -KHRABR_SAIL_HALF_SPAN; x <= KHRABR_SAIL_HALF_SPAN; x++)
                 if (x != 0) put(blocks, x, y, 2, Part.SAIL);
-        put(blocks, 0, 5, -1, Part.HELM);
+        put(blocks, 0, 3, -1, Part.HELM);
         return Collections.unmodifiableMap(blocks);
     }
 
