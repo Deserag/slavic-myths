@@ -1,0 +1,42 @@
+name: Ship IV flagship voxel image audit
+
+on:
+  push:
+    branches:
+      - 'feat/2.6-largest-hull-overhaul-20261113'
+    paths:
+      - 'src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSectionPlan.java'
+      - 'src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java'
+      - 'tools/ship-section-tests/ShipFlagshipImageExport.java'
+      - '.github/workflows/ship-flagship-visual.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile exact ship voxel generator and orthographic exporter
+        run: |
+          mkdir -p build/flagship-classes
+          javac --release 21 -d build/flagship-classes \
+            src/main/java/org/slavicmyths/ships/ShipSectionPlan.java \
+            src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
+            src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
+            tools/ship-section-tests/ShipFlagshipImageExport.java
+      - name: Generate 16 block-accurate LARGEST images
+        run: |
+          java -Djava.awt.headless=true -cp build/flagship-classes \
+            ShipFlagshipImageExport build/flagship-views
+          test "$(find build/flagship-views -type f -name '*.png' | wc -l)" -eq 16
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LARGEST-IV-real-voxel-views
+          path: build/flagship-views/*.png
+          if-no-files-found: error
