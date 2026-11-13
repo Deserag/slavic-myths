@@ -163,8 +163,8 @@ public final class ShipHullVoxelLayoutCheck {
                                         "exactly one MEDIUM helm " + mediumVariant);
                                 int rear = -length / 2 + 2;
                                 int helmHeight = bridge ? 10 : cabin ? 9 : 5;
-                                int helmZ = bridge || cabin ? rear + 2 : rear + 1;
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(0, helmHeight, helmZ))
+                                int variantHelmZ = bridge || cabin ? rear + 2 : rear + 1;
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(0, helmHeight, variantHelmZ))
                                         == ShipHullVoxelLayout.Part.HELM,
                                         "MEDIUM helm aligned " + mediumVariant);
                                 if (cabin) {
