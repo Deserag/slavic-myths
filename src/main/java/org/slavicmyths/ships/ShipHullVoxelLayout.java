@@ -70,6 +70,37 @@ public final class ShipHullVoxelLayout {
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z);
             for (int x = -half; x <= half; x++) {
+                // Revision 2 LARGE hulls have an actual stepped bilge in
+                // transverse section. The center remains a closed dry floor,
+                // while the outer planking climbs outward toward the sheer.
+                // This branch is isolated from every persisted revision 1.
+                if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && plan.hullRevision() >= 2) {
+                    int absX = Math.abs(x);
+                    int bottom = Math.max(0, half - 2);
+                    int chine = Math.max(0, half - 1);
+                    if (absX <= bottom)
+                        put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                    if (absX >= bottom && absX <= chine)
+                        put(blocks, x, 1, z, absX == bottom ? Part.FRAME : Part.HULL);
+                    if (absX >= chine && absX <= half)
+                        put(blocks, x, 2, z, absX == chine ? Part.KEEL : Part.HULL);
+                    boolean outerEdge = absX == half
+                            || absX > halfBeam(plan, z - 1)
+                            || absX > halfBeam(plan, z + 1);
+                    if (outerEdge)
+                        put(blocks, x, 3, z, Math.floorMod(z, 6) == 0
+                                ? Part.FRAME : Part.HULL);
+                    else if (Math.floorMod(z, 4) == 0 && absX < half)
+                        put(blocks, x, 3, z, Part.FRAME);
+                    if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
+                    if (outerEdge) {
+                        put(blocks, x, 5, z, Part.RAIL);
+                        if (z >= halfLength - 3 || z <= -halfLength + 2)
+                            put(blocks, x, 6, z, Part.RAIL);
+                    }
+                    continue;
+                }
                 put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
