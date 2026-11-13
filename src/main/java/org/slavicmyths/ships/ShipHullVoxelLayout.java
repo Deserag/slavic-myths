@@ -165,7 +165,8 @@ public final class ShipHullVoxelLayout {
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
-                    if (Math.abs(x) == half && !hatch)
+                    if ((Math.abs(x) == half
+                            || largeAftDeck && (z == rear || z == front)) && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
