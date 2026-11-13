@@ -320,6 +320,21 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 9,
                                         rear + 6)) != ShipHullVoxelLayout.Part.RAIL,
                                         "LARGE cabin roof rail has entrance");
+                                // The roof joins deck two at its forward end.
+                                // Do not force players through a one-wide
+                                // gap in a decorative internal barrier.
+                                if (floors >= 2)
+                                    for (int doorwayX = -1; doorwayX <= 1; doorwayX++)
+                                        yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                                doorwayX, 9, rear + 6))
+                                                != ShipHullVoxelLayout.Part.RAIL,
+                                                "LARGE roof-to-second-deck passage "
+                                                        + newLarge + " x=" + doorwayX);
+                                else
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                            0, 9, rear + 6))
+                                            == ShipHullVoxelLayout.Part.RAIL,
+                                            "single-deck LARGE cabin roof keeps its front rail");
                             }
                             if (floors >= 2)
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
