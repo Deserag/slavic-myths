@@ -111,6 +111,32 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         return cachedPalette;
     }
 
+    /**
+     * An enclosed opaque cube contributes no visible faces. Unlike disabling
+     * collision cells, renderer-only culling leaves cargo, physics and world
+     * restoration untouched. Exclude stairs, rails, windows, chests and other
+     * partial/interactive blocks from both the candidate and its neighbours.
+     */
+    private static boolean fullOpaque(BlockState state) {
+        return state.is(Blocks.SPRUCE_PLANKS)
+                || state.is(Blocks.DARK_OAK_PLANKS)
+                || state.is(Blocks.STRIPPED_SPRUCE_LOG)
+                || state.is(Blocks.STRIPPED_DARK_OAK_LOG)
+                || state.is(Blocks.DARK_OAK_LOG)
+                || state.is(Blocks.WHITE_WOOL);
+    }
+
+    private static boolean hiddenOpaque(BlockPos pos, BlockState state,
+            Map<BlockPos, BlockState> palette) {
+        return fullOpaque(state)
+                && fullOpaque(palette.getOrDefault(pos.above(), Blocks.AIR.defaultBlockState()))
+                && fullOpaque(palette.getOrDefault(pos.below(), Blocks.AIR.defaultBlockState()))
+                && fullOpaque(palette.getOrDefault(pos.north(), Blocks.AIR.defaultBlockState()))
+                && fullOpaque(palette.getOrDefault(pos.south(), Blocks.AIR.defaultBlockState()))
+                && fullOpaque(palette.getOrDefault(pos.east(), Blocks.AIR.defaultBlockState()))
+                && fullOpaque(palette.getOrDefault(pos.west(), Blocks.AIR.defaultBlockState()));
+    }
+
     @Override public void render(FirstShipEntity ship, float yaw, float partialTick,
             PoseStack pose, MultiBufferSource buffers, int light) {
         if (!ship.isNativeHull()) {
@@ -125,6 +151,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
+                if (hiddenOpaque(p, state, palette)) continue;
                 pose.pushPose();
                 pose.translate(p.getX() - .5D, p.getY(), p.getZ() - .5D);
                 if (state.is(Blocks.CHEST)) {
@@ -294,9 +321,13 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double cameraX, double cameraY, double cameraZ) {
         // Entity's vanilla boat AABB is much smaller than the 7x11 ship and
         // can be outside the camera while its stern wheel remains visible.
-        return ship.isNativeHull()
-                ? frustum.isVisible(ship.getBoundingBox().inflate(9D, 16D, 9D))
-                : super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
+        if (!ship.isNativeHull())
+            return super.shouldRender(ship, frustum, cameraX, cameraY, cameraZ);
+        var config = ship.modularConfiguration();
+        double radius = config == null ? 9D : Math.hypot(
+                config.width() / 2D + 1D, config.length() / 2D + 1D) + 2D;
+        double height = config == null ? 22D : 24D;
+        return frustum.isVisible(ship.getBoundingBox().inflate(radius, height, radius));
     }
 
     @Override public ResourceLocation getTextureLocation(FirstShipEntity ship) {
