@@ -9,6 +9,7 @@ on:
       - 'fix/2.6-shipyard-helm-ui-20261110'
       - 'integration/2.6-modular-ships-20261110'
       - 'fix/2.6-*'
+      - 'feat/2.6-largest-hull-overhaul-20261113'
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'tools/ocean26-tests/**'
