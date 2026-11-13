@@ -92,6 +92,16 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      */
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
+        if (shipClass == ShipSectionPlan.ShipClass.MEDIUM) {
+            // A medium trading hull displaces much more water than a skiff.
+            // Normalize against its own initial footprint, while retaining
+            // penalties for extensions, extra decks and captain's rooms.
+            double footprint = (double) hullWidth * hullLength / (13D * 21D);
+            double burden = 1D + .22D * (footprint - 1D)
+                    + .15D * (decks - 1)
+                    + (bridge ? .08D : 0D) + (cabin ? .10D : 0D);
+            return Math.min(1D, .72D * rawThrust() / burden);
+        }
         return Math.min(1D, rawThrust() / loadFactor());
     }
 
