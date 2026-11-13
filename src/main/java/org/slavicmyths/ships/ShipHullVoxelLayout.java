@@ -60,9 +60,17 @@ public final class ShipHullVoxelLayout {
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = 1; y <= 3; y++)
-                    put(blocks, x, y, z, Part.HULL);
-                else if (Math.floorMod(z, 3) == 0)
+                if (edge) for (int y = 1; y <= 3; y++) {
+                    // Timber sheer band and spaced upright ribs break up the
+                    // untextured full-height slab without opening the dry hold.
+                    // All replacement cells remain solid structural blocks.
+                    boolean trading = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
+                    boolean side = Math.abs(x) == half && Math.abs(z) <= halfLength - 3;
+                    Part board = trading && side && y == 2 ? Part.KEEL
+                            : trading && side && Math.floorMod(z, 5) == 0
+                                    ? Part.FRAME : Part.HULL;
+                    put(blocks, x, y, z, board);
+                } else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
