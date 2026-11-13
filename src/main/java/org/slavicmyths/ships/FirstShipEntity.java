@@ -118,7 +118,7 @@ public final class FirstShipEntity extends Boat {
         clientMotionZ = z;
         clientMotionYaw = yaw;
         clientMotionSpeed = Math.max(-ShipRigidMotion.MAX_REVERSE,
-                Math.min(ShipRigidMotion.MAX_FORWARD, speed));
+                Math.min(.28D, speed));
         clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
                 Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
         clientMotionSteps = 1;
@@ -1314,7 +1314,9 @@ public final class FirstShipEntity extends Boat {
                 ShipRigidMotion.Control propulsion = modularConfiguration == null
                         ? ShipSailMotion.apply(control, rigLevel, fabricQuality)
                         : new ShipRigidMotion.Control(control.throttle() *
-                                Math.max(.16D, modularConfiguration.structure().propulsionFactor()),
+                                Math.max(.16D, modularConfiguration.isKhrabrV3()
+                                        ? modularConfiguration.structure().khrabrPropulsionFactor()
+                                        : modularConfiguration.structure().propulsionFactor()),
                                 control.rudder());
                 ShipRigidMotion.Frame frame = movingBody.tick(server, propulsion);
                 ShipRigidMotion.Pose next = movingBody.pose();
