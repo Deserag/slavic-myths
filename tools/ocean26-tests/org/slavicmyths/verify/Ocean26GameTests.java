@@ -677,6 +677,52 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    /**
+     * Regression for the owner's real LARGEST V9 configuration: expanded hull,
+     * three occupied decks, four masts, independent rigging and paid lighting.
+     * A successful Java geometry test alone is not proof the world can detach.
+     */
+    @GameTest(template = "empty", timeoutTicks = 240, batch = "ocean_modular_largest_v9_full")
+    public static void fullyUpgradedLargestV9DetachesAndRestores(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(29, 4, 29));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        for (int x = -17; x <= 17; x++)
+            for (int z = -26; z <= 26; z++) {
+                BlockPos p = anchor.offset(x, 0, z);
+                level.setBlock(p.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(p, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 32; y++)
+                    level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var rig = new org.slavicmyths.ships.ShipRiggingState(0, 2, 0, 2, 0, 1, 2);
+        var config = new org.slavicmyths.ships.ShipBuildConfiguration(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
+                3, 2, java.util.List.of(3, 3, 3, 3), 3, true, true, 9,
+                java.util.List.of(rig, rig, rig, rig));
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()),
+                "Full LARGEST V9 placement failed");
+        ListTag source = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                level, anchor, 0, config);
+        t.assertTrue(source != null, "Full LARGEST V9 cannot inspect for motion: "
+                + org.slavicmyths.ships.ShipModularBlockHull.inspectionFailure(
+                        level, anchor, 0, config));
+        var motion = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, 0, config);
+        t.assertTrue(motion != null && motion.detach(level, anchor),
+                "Full LARGEST V9 failed motion assembly/detach");
+        t.assertTrue(motion.park(level), "Full LARGEST V9 could not restore its source");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
+                level, anchor, 0, config) != null,
+                "Full LARGEST V9 became non-inspectable after parking");
+        level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 3, anchor.asLong());
+        System.out.println("OCEAN26_LARGEST_V9_FULL_PASS hull=25x45 decks=3 masts=4 lights=3");
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_v6_stairs")
     public static void largeV6StairsArePhysicalAndPersistent(GameTestHelper t) {
         ServerLevel level = t.getLevel();
