@@ -72,8 +72,13 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
+        // Shipyard can still build the pre-existing extended SMALL designs.
+        // A placed Khrabr v3 cannot silently upgrade into the legacy hull:
+        // compatibleUpgrade rejects crossing the layout-version boundary.
+        int targetLayout = isKhrabrV3() && (lengthSections != 0 || widthSections != 0)
+                ? 1 : layoutVersion;
         return new ShipBuildConfiguration(shipClass, lengthSections, widthSections,
-                sailTiers, decks, bridge, cabin, layoutVersion);
+                sailTiers, decks, bridge, cabin, targetLayout);
     }
 
     public ShipBuildConfiguration withSail(int mast, int tier) {
