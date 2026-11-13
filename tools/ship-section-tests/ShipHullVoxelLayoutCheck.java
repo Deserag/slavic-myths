@@ -203,6 +203,28 @@ public final class ShipHullVoxelLayoutCheck {
                                     "flagship keeps one helm");
                             yes(geometry.equals(ShipHullVoxelLayout.generate(flagship)),
                                     "flagship deterministic geometry");
+                            // At every flagship station the narrow keel,
+                            // stepped solid hold-floor and outer chine form
+                            // a closed bottom; a full-width y=0 slab is banned.
+                            for (int z = -length / 2; z <= length / 2; z++) {
+                                int beam = ShipHullVoxelLayout.halfBeam(flagship, z);
+                                int keelHalf = Math.max(1, beam - 3);
+                                int floorHalf = Math.max(keelHalf, beam - 2);
+                                for (int x = -beam; x <= beam; x++) {
+                                    var bottom = geometry.get(new ShipHullVoxelLayout.Cell(x, 0, z));
+                                    yes((bottom != null) == (Math.abs(x) <= keelHalf),
+                                            "flagship narrow keel station " + z);
+                                    if (Math.abs(x) <= floorHalf)
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(x, 1, z))
+                                                        != null,
+                                                "flagship closed lower bilge floor " + z);
+                                    else
+                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(x, 2, z))
+                                                        != null,
+                                                "flagship solid stepped chine " + z);
+                                }
+                            }
+
                             if (floors >= 2)
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(2, 8,
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
