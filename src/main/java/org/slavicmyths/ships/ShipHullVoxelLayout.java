@@ -209,7 +209,19 @@ public final class ShipHullVoxelLayout {
                 // another full-beam rectangular storey above the second deck.
                 int inset = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                         && plan.hullRevision() >= 2 && floor >= 3 ? 3 : 1;
-                int half = Math.max(0, halfBeam(plan, z) - inset);
+                // A straight transverse cut across the bow of each raised
+                // deck made the upperworks look like stacked rectangular boxes.
+                // Narrow the last few stations without changing the mast,
+                // central ladder shaft or accessible helm walkway.
+                boolean flagship = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && plan.hullRevision() >= 2;
+                int forwardRun = front - z;
+                int aftRun = z - rear;
+                int endInset = flagship ? forwardRun <= 1 ? 3
+                        : forwardRun <= 3 ? 2 : forwardRun <= 5 ? 1
+                        : aftRun == 0 ? 2 : aftRun == 1 ? 1 : 0 : 0;
+                int half = Math.max(flagship ? 3 : 0,
+                        halfBeam(plan, z) - inset - endInset);
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
