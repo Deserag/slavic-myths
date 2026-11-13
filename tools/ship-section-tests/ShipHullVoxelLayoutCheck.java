@@ -266,6 +266,24 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "LARGE no full-length upper box");
+                            if (floors >= 2) {
+                                int aftStart = -length / 2 + 2;
+                                int upperFront = Math.min(length / 2 - 5,
+                                        aftStart + length * 3 / 5);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 9,
+                                        upperFront)) == ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE second deck has forward safety rail");
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 9,
+                                        aftStart)) == ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE second deck has stern safety rail");
+                            }
+                            if (floors == 3) {
+                                int thirdFront = Math.min(length / 2 - 5,
+                                        -length / 2 + 2 + length * 2 / 5);
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(0, 13,
+                                        thirdFront)) == ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE third deck has forward safety rail");
+                            }
                             if (floors == 3) {
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
                                         == ShipHullVoxelLayout.Part.DECK,
