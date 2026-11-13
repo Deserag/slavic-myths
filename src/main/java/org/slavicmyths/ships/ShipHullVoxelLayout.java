@@ -86,11 +86,23 @@ public final class ShipHullVoxelLayout {
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z);
             for (int x = -half; x <= half; x++) {
-                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                // The flagship bilge must NOT be a full-beam flat slab.
+                // A narrower solid keel steps out into a watertight floor at
+                // y=1, then rises into the wider chines at y=2.
+                boolean flagshipBilge = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && plan.hullRevision() >= 2;
+                int keelHalf = Math.max(1, half - 3);
+                int floorHalf = Math.max(keelHalf, half - 2);
+                if (!flagshipBilge || Math.abs(x) <= keelHalf)
+                    put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
+                if (flagshipBilge) {
+                    if (Math.abs(x) <= floorHalf) put(blocks, x, 1, z, Part.HULL);
+                    else put(blocks, x, 2, z, Part.HULL);
+                }
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = 1; y <= 3; y++) {
+                if (edge) for (int y = flagshipBilge ? 2 : 1; y <= 3; y++) {
                     // Timber sheer band and spaced upright ribs break up the
                     // untextured full-height slab without opening the dry hold.
                     // All replacement cells remain solid structural blocks.
