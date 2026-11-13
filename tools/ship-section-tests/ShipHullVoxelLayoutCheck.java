@@ -124,7 +124,8 @@ public final class ShipHullVoxelLayoutCheck {
             for (int z = -halfLength; z <= halfLength; z++) {
                 int half = ShipHullVoxelLayout.halfBeam(selected, z, true);
                 yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 0, z))
-                        == ShipHullVoxelLayout.Part.KEEL, "keel contacts water every section");
+                        == (Math.abs(z) <= 1 ? ShipHullVoxelLayout.Part.KEEL : null),
+                        "no protruding full-length waterline keel");
                 yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 4, z))
                         == (z == 1 ? ShipHullVoxelLayout.Part.THIN_MAST : null),
                         "no fake upper deck or enclosed hold");
@@ -183,6 +184,15 @@ public final class ShipHullVoxelLayoutCheck {
                 ShipHullVoxelLayout.generate(lengthened, true)).values().stream()
                 .mapToInt(Integer::intValue).sum() > 0,
                 "length extension charges real added blocks");
+        yes(small.khrabrPropulsionFactor() < 1D,
+                "starter sail leaves room for a real speed upgrade");
+        yes(plan(ShipSectionPlan.ShipClass.SMALL, 7, 11,
+                List.of(2), 1, false, false).khrabrPropulsionFactor()
+                > small.khrabrPropulsionFactor(),
+                "upgraded small sail increases forward speed");
+        yes(plan(ShipSectionPlan.ShipClass.SMALL, 7, 11,
+                List.of(2), 1, false, false).khrabrPropulsionFactor() == 1D,
+                "upgraded small sail reaches full available throttle");
         // First-tier shipyard options: length, beam, higher sail, extra mast,
         // and mixed upgrade order must keep a shallow physical hull.
         for (int length : new int[]{11, 15})
