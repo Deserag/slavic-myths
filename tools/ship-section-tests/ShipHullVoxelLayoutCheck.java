@@ -86,6 +86,49 @@ public final class ShipHullVoxelLayoutCheck {
             yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(-3, y, cabinFront + 1))
                     == ShipHullVoxelLayout.Part.FRAME, "ladder support " + y);
         }
+        // Every supported MEDIUM arrangement must preserve access, the shaped
+        // hold and exactly one active helm, including extensions and cabin.
+        for (int width : new int[]{13, 15})
+            for (int length : new int[]{21, 25, 29})
+                for (int decks : new int[]{1, 2})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true})
+                            for (int[] sails : new int[][]{{1}, {2}, {1, 1}, {2, 2}}) {
+                                List<Integer> tiers = new java.util.ArrayList<>();
+                                for (int tier : sails) tiers.add(tier);
+                                var variant = plan(ShipSectionPlan.ShipClass.MEDIUM,
+                                        width, length, tiers, decks, bridge, cabin);
+                                var model = ShipHullVoxelLayout.generate(variant);
+                                yes(model.values().stream().filter(p ->
+                                        p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                        "medium exactly one helm: " + variant);
+                                yes(model.get(new ShipHullVoxelLayout.Cell(-2, 4, 1))
+                                        == ShipHullVoxelLayout.Part.LADDER,
+                                        "main hatch keeps ladder: " + variant);
+                                yes(!model.containsKey(new ShipHullVoxelLayout.Cell(-2, 4, 0)),
+                                        "main hatch open: " + variant);
+                                if (decks == 2) {
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, 8, 1))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "upper hatch keeps ladder: " + variant);
+                                    yes(!model.containsKey(new ShipHullVoxelLayout.Cell(-2, 8, 0)),
+                                            "upper hatch open: " + variant);
+                                }
+                                if (cabin && !bridge) {
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 9,
+                                            -length / 2 + 4))
+                                            == ShipHullVoxelLayout.Part.HELM,
+                                            "cabin roof helm: " + variant);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, 9,
+                                            -length / 2 + 9))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "cabin roof access: " + variant);
+                                }
+                                for (int mastZ : variant.mastPositions())
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 6, mastZ))
+                                            == ShipHullVoxelLayout.Part.MAST,
+                                            "mast survives upgrades: " + variant);
+                            }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
