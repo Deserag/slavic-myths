@@ -117,7 +117,12 @@ public final class ShipHullVoxelLayout {
                         && plan.hullRevision() >= 2;
                 int keelHalf = Math.max(1, half - 3);
                 int floorHalf = Math.max(keelHalf, half - 2);
-                if (!flagshipBilge || Math.abs(x) <= keelHalf)
+                // Rise the keel above the waterline at both ends while the
+                // sealed hold-floor at y=1 stays intact. This removes the
+                // ruler-straight underwater rectangle in side elevation.
+                boolean liftedKeel = flagshipBilge
+                        && (halfLength - z <= 4 || halfLength + z <= 3);
+                if (!liftedKeel && (!flagshipBilge || Math.abs(x) <= keelHalf))
                     put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
                 if (flagshipBilge) {
                     if (Math.abs(x) <= floorHalf) put(blocks, x, 1, z, Part.HULL);
