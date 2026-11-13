@@ -255,6 +255,15 @@ public final class ShipHullVoxelLayoutCheck {
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "LARGE no full-length upper box");
                             if (floors == 3) {
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12, 0))
+                                        == ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third-deck central walking floor");
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 12,
+                                        length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
+                                        "LARGE third deck leaves open forward bow");
+                            }
+
+                            if (floors == 3) {
                                 int thirdAccessZ = -length / 2 + 11;
                                 for (int yy = 9; yy <= 12; yy++) {
                                     yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
