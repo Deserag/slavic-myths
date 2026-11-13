@@ -286,7 +286,8 @@ public final class ShipHullVoxelLayoutCheck {
                                         new ShipHullVoxelLayout.Cell(0, 13, thirdFront));
                                 yes(frontGuard == ShipHullVoxelLayout.Part.RAIL
                                                 || frontGuard == ShipHullVoxelLayout.Part.MAST,
-                                        "LARGE third deck has guarded or mast-supported bow end");
+                                        "LARGE third deck has guarded or mast-supported bow end: "
+                                                + newLarge + " z=" + thirdFront + " part=" + frontGuard);
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 12,
                                         thirdFront)) == ShipHullVoxelLayout.Part.DECK,
                                         "LARGE third deck forward hatch is sealed and walkable");
