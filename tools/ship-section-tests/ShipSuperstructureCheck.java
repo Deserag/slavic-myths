@@ -40,11 +40,14 @@ public final class ShipSuperstructureCheck {
                 "medium thrust remains bounded");
         var initialMedium = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1), 1, false, false);
-        yes(Math.abs(initialMedium.propulsionFactor() - .72D) < 1E-9D,
-                "single basic sail provides useful medium thrust");
-        yes(plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
-                List.of(2), 1, false, false).propulsionFactor()
-                > initialMedium.propulsionFactor(), "sail II improves medium travel");
+        yes(Math.abs(initialMedium.propulsionFactor() - 1D) < 1E-9D,
+                "unloaded medium must reach the shared rigid-motion cap");
+        var loadedBasic = plan(ShipSectionPlan.ShipClass.MEDIUM, 15, 29,
+                List.of(1), 2, true, true);
+        var loadedUpgraded = plan(ShipSectionPlan.ShipClass.MEDIUM, 15, 29,
+                List.of(2), 2, true, true);
+        yes(loadedUpgraded.propulsionFactor() > loadedBasic.propulsionFactor(),
+                "tier II sail improves heavily loaded medium travel");
         var fullMedium = plan(ShipSectionPlan.ShipClass.MEDIUM, 15, 29,
                 List.of(2, 2), 2, true, true);
         yes(fullMedium.propulsionFactor() == 1D,
