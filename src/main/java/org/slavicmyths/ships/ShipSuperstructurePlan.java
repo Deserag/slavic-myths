@@ -11,12 +11,21 @@ import java.util.List;
  */
 public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         int hullWidth, int hullLength, List<Integer> sailTiers,
-        int decks, boolean bridge, boolean cabin) {
+        int decks, boolean bridge, boolean cabin, int hullRevision) {
+    public ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
+            int hullWidth, int hullLength, List<Integer> sailTiers,
+            int decks, boolean bridge, boolean cabin) {
+        this(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, cabin, 1);
+    }
+
 
     public static final int MAST_CLEARANCE = 4;
     public static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
 
     public ShipSuperstructurePlan {
+        if (hullRevision < 1 || hullRevision > 2
+                || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE))
+            throw new IllegalArgumentException("Unsupported hull revision");
         if (shipClass == null || sailTiers == null || hullWidth < 7 || hullLength < 11
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
             throw new IllegalArgumentException("Invalid ship dimensions or class");
@@ -112,18 +121,18 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public ShipSuperstructurePlan withSail(int tier) {
         List<Integer> next = new ArrayList<>(sailTiers);
         next.add(tier);
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, next, decks, bridge, cabin);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, next, decks, bridge, cabin, hullRevision);
     }
 
     public ShipSuperstructurePlan withDecks(int count) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, count, bridge, cabin);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, count, bridge, cabin, hullRevision);
     }
 
     public ShipSuperstructurePlan withBridge(boolean enabled) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, enabled, cabin);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, enabled, cabin, hullRevision);
     }
 
     public ShipSuperstructurePlan withCabin(boolean enabled) {
-        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, enabled);
+        return new ShipSuperstructurePlan(shipClass, hullWidth, hullLength, sailTiers, decks, bridge, enabled, hullRevision);
     }
 }
