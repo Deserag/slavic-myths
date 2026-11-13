@@ -361,7 +361,7 @@ public final class FirstShipEntity extends Boat {
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
         if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
         if (modularConfiguration() != null) {
-            int floorIndex = modularConfiguration().bridge() ? 4 : modularConfiguration().cabin() && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 1;
+            int floorIndex = modularConfiguration().bridge() ? 4 : modularConfiguration().cabin() && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 2 : 1;
             // Helm seats may sit on half coordinates for odd-length hulls;
             // support cells are integer local block positions.
             double baseZ = Math.round(helmSeatZ());
@@ -421,7 +421,7 @@ public final class FirstShipEntity extends Boat {
                 FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
                         getX(), getZ(), getYRot());
                 if (ShipDeckContact.supports(this, local.x(), local.z(),
-                        modularConfiguration() != null && modularConfiguration().bridge() ? 4 : modularConfiguration().cabin() && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 3 : 1))
+                        modularConfiguration() != null && modularConfiguration().bridge() ? 4 : modularConfiguration().cabin() && modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.MEDIUM ? 2 : 1))
                     pendingDismounts.put(player.getUUID(), new PendingDismount(
                             local.x(), local.z(), target.y - (getY() + helmSeatHeight()),
                             level().getGameTime() + 40L));
