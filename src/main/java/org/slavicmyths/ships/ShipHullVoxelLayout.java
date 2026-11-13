@@ -96,7 +96,9 @@ public final class ShipHullVoxelLayout {
                 put(blocks, x, top + 1, z, Part.YARD);
                 put(blocks, x, 7, z, Part.YARD);
             }
-            for (int y = 8; y <= top; y++)
+            int sailBottom = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                    && plan.decks() >= 2 ? 10 : 8;
+            for (int y = sailBottom; y <= top; y++)
                 for (int x = -span; x <= span; x++)
                     if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
                         put(blocks, x, y, z + 1, Part.SAIL);
@@ -137,8 +139,12 @@ public final class ShipHullVoxelLayout {
                     if (Math.abs(x) == side || z == rear || z == front)
                         put(blocks, x, 10, z, Part.RAIL);
                 }
-            for (int y = 5; y <= 9; y++)
+            for (int y = 5; y <= 9; y++) {
+                if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && !plan.cabin() && y < 9)
+                    put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, -side + 1, y, front, Part.LADDER);
+            }
             put(blocks, 0, 10, rear + 2, Part.HELM);
         } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
             // The cabin roof IS the captain's platform when no separate
