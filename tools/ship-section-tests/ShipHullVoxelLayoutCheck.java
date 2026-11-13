@@ -182,6 +182,52 @@ public final class ShipHullVoxelLayoutCheck {
                 ShipHullVoxelLayout.generate(lengthened, true)).values().stream()
                 .mapToInt(Integer::intValue).sum() > 0,
                 "length extension charges real added blocks");
+        // First-tier shipyard options: length, beam, higher sail, extra mast,
+        // and mixed upgrade order must keep a shallow physical hull.
+        for (int length : new int[]{11, 15})
+            for (int width : new int[]{7, 9})
+                for (var sails : List.of(List.of(1), List.of(2),
+                        List.of(1, 1), List.of(2, 1), List.of(2, 2))) {
+                    var config = plan(ShipSectionPlan.ShipClass.SMALL,
+                            width, length, sails, 1, false, false);
+                    var voxels = ShipHullVoxelLayout.generate(config, true);
+                    int beam = 0, hullMinZ = 100, hullMaxZ = -100;
+                    for (var entry : voxels.entrySet()) {
+                        var p = entry.getValue();
+                        if (p == ShipHullVoxelLayout.Part.SAIL
+                                || p == ShipHullVoxelLayout.Part.THIN_MAST
+                                || p == ShipHullVoxelLayout.Part.YARD_SLAB
+                                || p == ShipHullVoxelLayout.Part.HELM) continue;
+                        var cell = entry.getKey();
+                        yes(cell.y() >= 0 && cell.y() <= 3,
+                                "every configured hull stays within four layers");
+                        hullMinZ = Math.min(hullMinZ, cell.z());
+                        hullMaxZ = Math.max(hullMaxZ, cell.z());
+                        beam = Math.max(beam, Math.abs(cell.x()));
+                    }
+                    yes(hullMaxZ - hullMinZ + 1 == length, "extended hull length");
+                    yes(beam * 2 + 1 == width, "expanded beam is physical");
+                    yes(voxels.values().stream().filter(p ->
+                            p == ShipHullVoxelLayout.Part.THIN_MAST).count() > 0,
+                            "at least one physical mast");
+                    for (int i = 0; i < sails.size(); i++) {
+                        int station = ShipHullVoxelLayout.khrabrMastZ(config, i);
+                        int top = ShipHullVoxelLayout.khrabrSailTop(sails.get(i));
+                        int span = ShipHullVoxelLayout.khrabrSailSpan(sails.get(i));
+                        yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 3, station))
+                                == ShipHullVoxelLayout.Part.THIN_MAST, "mast foot on deck");
+                        yes(voxels.get(new ShipHullVoxelLayout.Cell(0, top + 1, station))
+                                == ShipHullVoxelLayout.Part.YARD_SLAB, "yard meets mast");
+                        for (int x : new int[]{-span, span})
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(x, top, station + 1))
+                                    == ShipHullVoxelLayout.Part.SAIL, "correct sail upgrade");
+                    }
+                    yes(voxels.values().stream().filter(p ->
+                            p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                            "one unchanged helm per configured hull");
+                    yes(!voxels.equals(ShipHullVoxelLayout.generate(config)),
+                            "never fallback to large deep old model");
+                }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
