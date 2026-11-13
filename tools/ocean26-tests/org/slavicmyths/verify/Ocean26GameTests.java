@@ -359,7 +359,10 @@ public final class Ocean26GameTests {
                     "Second-deck walker was left behind by modular ship");
             t.assertTrue(Math.abs(bridgeLocal.x() - 1D) < .12D
                     && Math.abs(bridgeLocal.z() - (-(config.length() / 2) + 4D)) < .12D,
-                    "Bridge walker was left behind by modular ship");
+                    "Bridge walker was left behind by modular ship"
+                            + " local=" + bridgeLocal + " expectedZ="
+                            + (-(config.length() / 2) + 4D)
+                            + " shipZ=" + ship.getZ());
             CompoundTag saved = new CompoundTag();
             ship.saveWithoutId(saved);
             var restored = org.slavicmyths.ships.ShipMovingContraption.load(
@@ -534,7 +537,10 @@ public final class Ocean26GameTests {
                 "LARGE helm must follow third-deck elevation");
         t.assertTrue(Math.abs(ship.helmWheelZ() -
                 (-(config.length() / 2) + 4D)) < .01D,
-                "LARGE wheel interaction must align with the actual helm block");
+                "LARGE wheel interaction must align with the actual helm block"
+                        + " expected=" + (-(config.length() / 2) + 4D)
+                        + " actual=" + ship.helmWheelZ()
+                        + " loaded=" + ship.modularConfiguration());
         t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(
                 ship, 2D, 0D, 3), "LARGE walker needs a solid third deck");
 
