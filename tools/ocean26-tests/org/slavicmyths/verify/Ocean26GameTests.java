@@ -697,9 +697,17 @@ public final class Ocean26GameTests {
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                             0, 1, lowerYard, z)).is(Blocks.DARK_OAK_LOG),
                             "LARGEST missing lower yard on mast " + mast);
+                    // Cloth belongs to the voxel/render blueprint; physical
+                    // wool would block players and make the rig untraversable.
+                    t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                            maximum.structure()).get(
+                            new org.slavicmyths.ships.ShipHullVoxelLayout.Cell(
+                                    1, lowerYard + height, z + 1))
+                                    == org.slavicmyths.ships.ShipHullVoxelLayout.Part.SAIL,
+                            "LARGEST missing full-height virtual sailcloth on mast " + mast);
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, 1, lowerYard + height, z + 1)).is(Blocks.WHITE_WOOL),
-                            "LARGEST missing full-height sailcloth on mast " + mast);
+                            0, 1, lowerYard + height, z + 1)).isAir(),
+                            "LARGEST virtual sail must not create solid wool collision");
                 }
             }
             if (type.maxDecks >= 3)
