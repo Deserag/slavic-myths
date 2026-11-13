@@ -33,8 +33,8 @@ public final class ShipHelmBlockEvents {
                 new AABB(hit).inflate(32D, 18D, 32D))) {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (config == null || !ship.isNativeHull() || ship.isMoving() || ship.isRemoved()) continue;
-            int y = config.bridge() ? 10 : 5;
-            int z = -config.length() / 2 + (config.bridge() ? 4 : config.cabin() ? 9 : 3);
+            int y = (int)ship.helmSeatHeight();
+            int z = (int)ship.helmWheelZ();
             BlockPos helm = FirstShipBlockHull.world(
                     ship.blockAnchor(), ship.quarterTurns(), 0, y, z);
             if (!hit.equals(helm)) continue;
