@@ -214,10 +214,16 @@ public final class ShipHullVoxelLayoutCheck {
                                     var bottom = geometry.get(new ShipHullVoxelLayout.Cell(x, 0, z));
                                     yes((bottom != null) == (Math.abs(x) <= keelHalf),
                                             "flagship narrow keel station " + z);
-                                    if (Math.abs(x) <= floorHalf)
-                                        yes(geometry.get(new ShipHullVoxelLayout.Cell(x, 1, z))
-                                                        != null,
-                                                "flagship closed lower bilge floor " + z);
+                                    if (Math.abs(x) <= floorHalf) {
+                                        // The vertical hold access intentionally cuts
+                                        // a one-cell opening above the sealed y=0 keel.
+                                        boolean holdShaft = x == -2 && z == 0;
+                                        yes(holdShaft
+                                                ? geometry.get(new ShipHullVoxelLayout.Cell(x, 1, z)) == null
+                                                        && geometry.get(new ShipHullVoxelLayout.Cell(x, 0, z)) != null
+                                                : geometry.get(new ShipHullVoxelLayout.Cell(x, 1, z)) != null,
+                                                "flagship closed bilge and safe hold shaft " + z);
+                                    }
                                     else
                                         yes(geometry.get(new ShipHullVoxelLayout.Cell(x, 2, z))
                                                         != null,
