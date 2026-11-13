@@ -174,6 +174,7 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.isKhrabrV3()) return -2D;
         return -config.length() / 2 + (config.bridge() ? 3D : config.cabin() ? 8D : 2D);
     }
 
@@ -190,7 +191,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.withinHull(x, z, .1D);
         if (Math.abs(z) > config.length() / 2D + .49D) return false;
-        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        int half = ShipHullVoxelLayout.halfBeam(config, (int)Math.round(z));
         return half >= 0 && Math.abs(x) <= half + .49D;
     }
 
@@ -857,7 +858,7 @@ public final class FirstShipEntity extends Boat {
                     -configuration.length() / 2D + 1D,
                     configuration.length() / 2D - 1D);
             int beam = ShipHullVoxelLayout.halfBeam(
-                    configuration.structure(), (int)Math.round(zValue));
+                    configuration, (int)Math.round(zValue));
             if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
                     || Math.abs(local.x()) < beam - 1D) return false;
             double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);

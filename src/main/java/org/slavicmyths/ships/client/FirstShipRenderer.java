@@ -189,8 +189,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
-            pose.translate(0D, 0D, plan.mastPositions().get(i));
+            pose.translate(0D, 0D, ship.modularConfiguration().isKhrabrV3()
+                    ? 1D : plan.mastPositions().get(i));
             sailPanel(ship, partialTick, pose, buffers, light, edging, 8D, top, span);
+            if (ship.modularConfiguration().isKhrabrV3())
+                piece(Blocks.BONE_BLOCK.defaultBlockState(), pose, buffers, light,
+                        -2.25D, top - .18D, .19D, 4.5F, .12F, .035F);
             pose.popPose();
         }
         pose.popPose();
@@ -227,9 +231,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double bottom, double top, int span) {
         double height = top - bottom + 1D;
         VertexConsumer fabric = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
-        float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
-        float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
-        float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
+        boolean khrabr = ship.modularConfiguration() != null
+                && ship.modularConfiguration().isKhrabrV3();
+        float tintR = khrabr ? .88F : ship.fabricQuality() == 2 ? .82F : 1F;
+        float tintG = khrabr ? .16F : ship.fabricQuality() == 3 ? .86F : 1F;
+        float tintB = khrabr ? .16F : ship.fabricQuality() == 3 ? .58F : 1F;
         for (int row = 0; row < 5; row++) {
             for (int column = 0; column < 8; column++) {
                 sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,

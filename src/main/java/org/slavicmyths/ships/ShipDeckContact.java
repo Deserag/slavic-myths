@@ -17,7 +17,7 @@ public final class ShipDeckContact {
             ShipBuildConfiguration config) {
         synchronized (CACHE) {
             return CACHE.computeIfAbsent(config,
-                    key -> ShipHullVoxelLayout.generate(key.structure()));
+                    key -> ShipHullVoxelLayout.generate(key));
         }
     }
 
@@ -53,6 +53,7 @@ public final class ShipDeckContact {
                 ? material == ShipHullVoxelLayout.Part.HULL
                     || material == ShipHullVoxelLayout.Part.KEEL
                 : material == ShipHullVoxelLayout.Part.DECK
+                    || material == ShipHullVoxelLayout.Part.HATCH
                     || material == ShipHullVoxelLayout.Part.BRIDGE;
     }
 
