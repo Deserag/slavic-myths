@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
+import org.slavicmyths.ships.FirstShipMovingDeckEvents;
 import org.slavicmyths.ships.FirstShipNetwork;
 
 /**
@@ -30,6 +31,9 @@ public final class FirstShipSteeringClient {
             lastShip = -1;
             return;
         }
+        // Runs after the world/entity ticks, not during LocalPlayer.tick().
+        // The hull and the free walker now use the same completed pose frame.
+        FirstShipMovingDeckEvents.carryClientPlayer(mc.player);
         if (!(mc.player.getVehicle() instanceof FirstShipEntity ship)
                 || !ship.isNativeHull()) {
             lastShip = -1;

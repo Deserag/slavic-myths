@@ -31,17 +31,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public final class ShipDynamicCollision {
     private record Geometry(String key, Map<BlockPos, List<AABB>> cells) {}
     private static final Map<FirstShipEntity, Geometry> GEOMETRY = new WeakHashMap<>();
-    private record Carry(Player player, FirstShipEntity ship) {}
-    private static final ThreadLocal<Carry> CARRY = new ThreadLocal<>();
-
-    /** World collision still applies while the hull carries its own walker. */
+    /** The carried player must collide with mast, ladder backing and rails too. */
     public static void carryWithWorldCollision(Player player, FirstShipEntity ship, Vec3 delta) {
-        CARRY.set(new Carry(player, ship));
-        try {
-            player.move(MoverType.SELF, delta);
-        } finally {
-            CARRY.remove();
-        }
+        player.move(MoverType.SELF, delta);
     }
 
     /** Avoid allocating a copied vanilla collision list on unrelated entity moves. */
@@ -49,11 +41,9 @@ public final class ShipDynamicCollision {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger())
             return false;
-        Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(36D, 25D, 36D)))
-            if (!ship.isRemoved() && ship.isMoving()
-                    && (carry == null || carry.player() != player || carry.ship() != ship))
+            if (!ship.isRemoved() && ship.isMoving())
                 return true;
         return false;
     }
@@ -91,18 +81,11 @@ public final class ShipDynamicCollision {
                                List<VoxelShape> collisions) {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
-        Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(36D, 25D, 36D))) {
-            if (ship.isRemoved() || !ship.isMoving()
-                    || carry != null && carry.player() == player && carry.ship() == ship)
-                continue;
+            if (ship.isRemoved() || !ship.isMoving()) continue;
             Geometry geometry = geometry(ship, level);
             AABB local = localBounds(region, ship);
-            FirstShipHull.Point feet = FirstShipHull.toLocal(player.getX(), player.getZ(),
-                    ship.getX(), ship.getZ(), ship.getYRot());
-            boolean inLadderShaft = shipLadder(ship, feet.x(), feet.z(),
-                    player.getY() - ship.getY());
             double angle = Math.toRadians(ship.getYRot());
             double cos = Math.cos(angle), sin = Math.sin(angle);
             double remainder = Math.abs(ship.getYRot()) % 90D;
@@ -113,11 +96,8 @@ public final class ShipDynamicCollision {
                         x <= (int)Math.ceil(local.maxX) + 1; x++)
                     for (int z = (int)Math.floor(local.minZ) - 1;
                             z <= (int)Math.ceil(local.maxZ) + 1; z++) {
-                        // The physical hatch is open at these levels. Axis-aligned
-                        // approximations of adjacent rotated roof blocks otherwise
-                        // intrude into its one-block-wide climbing shaft.
-                        if (inLadderShaft && (y == 3 || y == 4)
-                                && x >= -2 && x <= 1 && z >= 0 && z <= 3) continue;
+                        // The real hatch is absent from the palette. Do not
+                        // discard its solid neighboring roof and backing cells.
                         List<AABB> shapes = geometry.cells().get(new BlockPos(x, y, z));
                         if (shapes == null) continue;
                         for (AABB shape : shapes) {
