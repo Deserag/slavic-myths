@@ -51,7 +51,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private static final String[] MODULAR_CATEGORIES = {"Корпус", "Паруса и мачты", "Палубы", "Капитанские помещения"};
     private static final int[][] MODULAR_GROUPS = {{0, 1}, {6, 2, 3, 4, 5}, {7}, {8, 9}};
     private static final String[] CLASS_NAMES = {
-            "Малый", "Средний", "Большой", "Крупнейший"
+            "Малый", "Торговый струг II", "Большой", "Крупнейший"
     };
     private static final String[] RAFT_OPTIONS =
             {"Борта +", "Парус +", "Руль +", "Вёсла +", "Борта −",
