@@ -184,8 +184,11 @@ public final class ShipHullVoxelLayout {
             int upperDeck = 4 + (plan.decks() - 1) * 4;
             boolean flagship = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                     && plan.hullRevision() >= 2;
-            if (flagship) top = Math.max(top, upperDeck + 5);
             int lowerYard = flagship ? Math.max(7, upperDeck + 3) : 7;
+            // Keep the complete cloth height for each purchased tier when
+            // lifting the rig: otherwise a tier-I sail shrinks to two rows.
+            if (flagship) top = Math.max(top,
+                    lowerYard + (tier == 1 ? 5 : tier == 2 ? 8 : 12));
             int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
