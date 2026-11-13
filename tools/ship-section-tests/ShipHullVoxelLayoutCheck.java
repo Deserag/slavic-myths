@@ -226,6 +226,21 @@ public final class ShipHullVoxelLayoutCheck {
                                 int front = Math.min(length / 2 - 5,
                                         rear + (upper == 2 ? length * 2 / 3 : length / 2));
                                 int y = 4 + (upper - 1) * 4;
+                                // The raised deck must taper into the fore
+                                // and aft ends, not finish as a rectangular
+                                // slab whose full width reaches the end rail.
+                                int inset = upper == 3 ? 3 : 1;
+                                int middleHalf = ShipHullVoxelLayout.halfBeam(flagship, front - 6) - inset;
+                                int forwardHalf = Math.max(3,
+                                        ShipHullVoxelLayout.halfBeam(flagship, front) - inset - 3);
+                                yes(middleHalf >= forwardHalf + 2,
+                                        "flagship elevated bow deck tapers " + flagship);
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(forwardHalf + 1, y, front))
+                                                != ShipHullVoxelLayout.Part.DECK,
+                                        "flagship upper deck forefoot must not be rectangular");
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y, front))
+                                                == ShipHullVoxelLayout.Part.DECK,
+                                        "flagship bow access remains connected");
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, front))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "flagship forward raised deck has end guard " + flagship);
