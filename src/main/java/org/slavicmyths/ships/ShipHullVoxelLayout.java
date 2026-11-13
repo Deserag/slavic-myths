@@ -340,6 +340,14 @@ public final class ShipHullVoxelLayout {
             if (plan.cabin() && plan.decks() == 1) {
                 int roofFront = rear + 6;
                 int side = Math.min(3, plan.hullWidth() / 2 - 2);
+                // The cabin roof is the captain's platform without bridge or
+                // upper-deck upgrades. It needs its own perimeter guard,
+                // with one gap aligned to the exterior access ladder.
+                for (int z = rear; z <= roofFront; z++)
+                    for (int x = -side; x <= side; x++)
+                        if ((Math.abs(x) == side || z == rear || z == roofFront)
+                                && !(x == -side + 1 && z == roofFront))
+                            put(blocks, x, 9, z, Part.RAIL);
                 for (int y = 5; y <= 9; y++) {
                     put(blocks, -side, y, roofFront + 1, Part.FRAME);
                     put(blocks, -side + 1, y, roofFront + 1, Part.LADDER);
