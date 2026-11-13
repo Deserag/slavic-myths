@@ -231,6 +231,25 @@ public final class ShipHullVoxelLayout {
             put(blocks, 0, 6, front, Part.DOOR);
         }
 
+        // LARGE revision 2 has one helm on the highest usable aft deck,
+        // never under the second or third floor. Cabin roof access must not
+        // depend on purchasing a separate bridge.
+        boolean modernLarge = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() >= 2;
+        if (modernLarge && plan.cabin() && !plan.bridge()) {
+            int rear = -halfLength + 2, front = rear + 6;
+            for (int y = 5; y <= 9; y++) {
+                put(blocks, -3, y, front + 1, Part.FRAME);
+                put(blocks, -2, y, front + 1, Part.LADDER);
+            }
+            // A rail-lined roof is a working upper captain's deck.
+            for (int z = rear; z <= front; z++)
+                for (int x = -3; x <= 3; x++)
+                    if (Math.abs(x) == 3 || z == rear || z == front)
+                        if (!(x == -2 && z == front))
+                            put(blocks, x, 9, z, Part.RAIL);
+        }
+
         // The bridge is elevated over the stern; it uses the SAME HELM as the
         // rest of the vessel. Only one helm control position is generated.
         if (plan.bridge()) {
@@ -251,7 +270,8 @@ public final class ShipHullVoxelLayout {
                     put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, -side + 1, y, front, Part.LADDER);
             }
-            put(blocks, 0, 10, rear + 2, Part.HELM);
+            if (!modernLarge || plan.decks() == 1)
+                put(blocks, 0, 10, rear + 2, Part.HELM);
         } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
             // The cabin roof IS the captain's platform when no separate
             // bridge was purchased. Keep the only helm above the room.
@@ -274,8 +294,14 @@ public final class ShipHullVoxelLayout {
             // With a raised quarterdeck the wheel must be above it, not
             // hidden underneath the floor at main-deck height.
             put(blocks, 0, 9, -halfLength + 4, Part.HELM);
-        } else {
+        } else if (!modernLarge) {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
+        }
+        if (modernLarge) {
+            int y = 4 + (plan.decks() - 1) * 4 + 1;
+            if (plan.decks() == 1 && (plan.bridge() || plan.cabin())) y = plan.bridge() ? 10 : 9;
+            int z = -halfLength + (plan.bridge() || plan.cabin() ? 4 : 3);
+            put(blocks, 0, y, z, Part.HELM);
         }
 
         return Collections.unmodifiableMap(blocks);
