@@ -116,9 +116,9 @@ public final class ShipHullVoxelLayout {
                 // ladder immediately forward of the quarterdeck, never inside
                 // the captain's cabin or through an occupied mast station.
                 int accessZ = front + 1;
-                for (int y = 5; y <= 8; y++) {
-                    put(blocks, -3, y, accessZ, Part.FRAME);
-                    put(blocks, -2, y, accessZ, Part.LADDER);
+                for (int ladderY = 5; ladderY <= 8; ladderY++) {
+                    put(blocks, -3, ladderY, accessZ, Part.FRAME);
+                    put(blocks, -2, ladderY, accessZ, Part.LADDER);
                 }
             }
         }
