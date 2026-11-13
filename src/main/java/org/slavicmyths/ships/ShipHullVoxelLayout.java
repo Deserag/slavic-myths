@@ -41,17 +41,14 @@ public final class ShipHullVoxelLayout {
     /** The exact eleven v3 half-beams indexed by Z+5, stern first. */
     private static final int[] KHRABR_BEAM = {1, 1, 2, 3, 3, 3, 3, 3, 2, 1, 0};
 
-    public static int halfBeam(ShipBuildConfiguration config, int z) {
-        if (config == null) throw new IllegalArgumentException("Missing blueprint");
-        return config.isKhrabrV3()
-                ? (z < -5 || z > 5 ? -1 : KHRABR_BEAM[z + 5])
-                : halfBeam(config.structure(), z);
+    public static int halfBeam(ShipSuperstructurePlan plan, int z, boolean khrabrV3) {
+        return khrabrV3 ? (z < -5 || z > 5 ? -1 : KHRABR_BEAM[z + 5])
+                : halfBeam(plan, z);
     }
 
-    /** Versioned entry point shared by construction, movement, material costs and contact. */
-    public static Map<Cell, Part> generate(ShipBuildConfiguration config) {
-        if (config == null) throw new IllegalArgumentException("Missing blueprint");
-        return config.isKhrabrV3() ? khrabrV3() : generate(config.structure());
+    /** Pure-Java selectable layout: no Minecraft/NBT dependency in this class. */
+    public static Map<Cell, Part> generate(ShipSuperstructurePlan plan, boolean khrabrV3) {
+        return khrabrV3 ? khrabrV3() : generate(plan);
     }
 
     /**

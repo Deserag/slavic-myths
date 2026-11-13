@@ -191,7 +191,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.withinHull(x, z, .1D);
         if (Math.abs(z) > config.length() / 2D + .49D) return false;
-        int half = ShipHullVoxelLayout.halfBeam(config, (int)Math.round(z));
+        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z), config.isKhrabrV3());
         return half >= 0 && Math.abs(x) <= half + .49D;
     }
 
@@ -858,7 +858,7 @@ public final class FirstShipEntity extends Boat {
                     -configuration.length() / 2D + 1D,
                     configuration.length() / 2D - 1D);
             int beam = ShipHullVoxelLayout.halfBeam(
-                    configuration, (int)Math.round(zValue));
+                    configuration.structure(), (int)Math.round(zValue), configuration.isKhrabrV3());
             if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
                     || Math.abs(local.x()) < beam - 1D) return false;
             double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);

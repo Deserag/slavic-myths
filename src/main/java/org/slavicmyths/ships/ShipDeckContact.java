@@ -17,7 +17,7 @@ public final class ShipDeckContact {
             ShipBuildConfiguration config) {
         synchronized (CACHE) {
             return CACHE.computeIfAbsent(config,
-                    key -> ShipHullVoxelLayout.generate(key));
+                    key -> ShipHullVoxelLayout.generate(key.structure(), key.isKhrabrV3()));
         }
     }
 
