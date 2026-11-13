@@ -17,6 +17,42 @@ public final class ShipHullVoxelLayoutCheck {
         return new ShipSuperstructurePlan(type, width, length, sails, decks, bridge, cabin);
     }
 
+    private static boolean exteriorReachesHold(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull,
+            int width, int length) {
+        int outerX = width / 2 + 2, outerZ = length / 2 + 2;
+        java.util.ArrayDeque<ShipHullVoxelLayout.Cell> queue = new java.util.ArrayDeque<>();
+        java.util.Set<ShipHullVoxelLayout.Cell> visited = new java.util.HashSet<>();
+        for (int y = 0; y <= 3; y++) {
+            for (int z = -outerZ; z <= outerZ; z++)
+                for (int x : new int[]{-outerX, outerX}) {
+                    var cell = new ShipHullVoxelLayout.Cell(x, y, z);
+                    if (visited.add(cell)) queue.add(cell);
+                }
+            for (int x = -outerX; x <= outerX; x++)
+                for (int z : new int[]{-outerZ, outerZ}) {
+                    var cell = new ShipHullVoxelLayout.Cell(x, y, z);
+                    if (visited.add(cell)) queue.add(cell);
+                }
+        }
+        int[][] directions = {{1,0,0},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1},{0,0,-1}};
+        while (!queue.isEmpty()) {
+            var here = queue.removeFirst();
+            if (here.x() == 0 && here.y() == 2 && here.z() == 0)
+                return true;
+            for (int[] d : directions) {
+                var next = new ShipHullVoxelLayout.Cell(
+                        here.x() + d[0], here.y() + d[1], here.z() + d[2]);
+                if (Math.abs(next.x()) > outerX || Math.abs(next.z()) > outerZ
+                        || next.y() < 0 || next.y() > 3
+                        || hull.containsKey(next) || !visited.add(next))
+                    continue;
+                queue.addLast(next);
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         var small = plan(ShipSectionPlan.ShipClass.SMALL, 7, 11,
                 List.of(1), 1, false, false);
@@ -185,6 +221,18 @@ public final class ShipHullVoxelLayoutCheck {
                             var oldCells = ShipHullVoxelLayout.generate(oldLarge);
                             var newCells = ShipHullVoxelLayout.generate(newLarge);
                             yes(!oldCells.equals(newCells), "new LARGE revision changes hull");
+                            if (floors == 1 && !cabin && !bridge) {
+                                yes(!exteriorReachesHold(newCells, width, length),
+                                        "LARGE hull must remain watertight: " + width + "x" + length);
+                                int sternZ = -length / 2;
+                                int transomHalf = ShipHullVoxelLayout.halfBeam(newLarge, sternZ);
+                                for (int transomX = -transomHalf; transomX <= transomHalf; transomX++)
+                                    for (int bulkheadY = 1; bulkheadY <= 3; bulkheadY++)
+                                        yes(newCells.containsKey(new ShipHullVoxelLayout.Cell(
+                                                transomX, bulkheadY, sternZ)),
+                                                "LARGE broad stern bulkhead sealed");
+                            }
+
                             // The transverse section must no longer be a
                             // flat-bottomed, straight-sided rectangular tub.
                             int midZ = 0;
