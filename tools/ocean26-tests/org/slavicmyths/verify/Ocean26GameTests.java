@@ -323,8 +323,13 @@ public final class Ocean26GameTests {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(helmClick);
         t.assertTrue(helmClick.isCanceled() && captain.getVehicle() == ship,
                 "Real NeoForge right-click on the wheel failed to board the captain");
+        // The medium second deck is a compact stern quarterdeck, no longer
+        // an unsupported full-length platform at the mast amidships.
+        double upperZ = -config.length() / 2 + 5D;
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(
+                ship, 2D, upperZ, 2), "Quarterdeck walker has no solid deck support");
         ServerPlayer upperWalker = player(level, "ModularUpperWalker",
-                new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ()));
+                new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ() + upperZ));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
                 new Vec3(ship.getX() + 1D, ship.getY() + 10.02D,
                         ship.getZ() - config.length() / 2D + 4D));
@@ -350,7 +355,7 @@ public final class Ocean26GameTests {
             FirstShipHull.Point bridgeLocal = FirstShipHull.toLocal(bridgeWalker.getX(),
                     bridgeWalker.getZ(), ship.getX(), ship.getZ(), ship.getYRot());
             t.assertTrue(Math.abs(upperLocal.x() - 2D) < .12D
-                    && Math.abs(upperLocal.z()) < .12D,
+                    && Math.abs(upperLocal.z() - upperZ) < .12D,
                     "Second-deck walker was left behind by modular ship");
             t.assertTrue(Math.abs(bridgeLocal.x() - 1D) < .12D
                     && Math.abs(bridgeLocal.z() - (-config.length() / 2D + 4D)) < .12D,
