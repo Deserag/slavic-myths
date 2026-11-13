@@ -73,10 +73,19 @@ public final class ShipHullVoxelLayoutCheck {
         var cabinWithoutBridge = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(1), 1, false, true);
         var cabinBlocks = ShipHullVoxelLayout.generate(cabinWithoutBridge);
-        int helmZ = -cabinWithoutBridge.hullLength() / 2 + 9;
-        yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 5, helmZ))
+        int helmZ = -cabinWithoutBridge.hullLength() / 2 + 4;
+        yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(0, 9, helmZ))
                 == ShipHullVoxelLayout.Part.HELM,
-                "lower helm must remain outside an aft cabin");
+                "cabin moves the only helm above the roof");
+        yes(cabinBlocks.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
+                .count() == 1, "cabin has only one helm");
+        int cabinFront = -cabinWithoutBridge.hullLength() / 2 + 8;
+        for (int y = 5; y <= 9; y++) {
+            yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(-2, y, cabinFront + 1))
+                    == ShipHullVoxelLayout.Part.LADDER, "roof-access ladder " + y);
+            yes(cabinBlocks.get(new ShipHullVoxelLayout.Cell(-3, y, cabinFront + 1))
+                    == ShipHullVoxelLayout.Part.FRAME, "ladder support " + y);
+        }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
