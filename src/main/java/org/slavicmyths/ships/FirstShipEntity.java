@@ -176,7 +176,9 @@ public final class FirstShipEntity extends Boat {
         if (config == null) return FirstShipHull.HELM_Z - 1D;
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                 && config.hullRevision() >= 2)
-            return -config.length() / 2D + (config.bridge() ? 3D
+            // Hull stations use integer half-length; double division shifts
+            // every odd-length wheel and dismount half a block off the deck.
+            return -(config.length() / 2) + (config.bridge() ? 3D
                     : config.cabin() ? 4D : 5D);
         return -config.length() / 2 + (config.bridge() ? 3D
                 : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
