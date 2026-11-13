@@ -31,9 +31,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         if (layoutVersion < 1 || layoutVersion > VERSION)
             throw new IllegalArgumentException("Unknown blueprint layout");
         if (layoutVersion == 2 && (shipClass != ShipSectionPlan.ShipClass.SMALL
-                || extraLength != 0 || extraWidth != 0 || decks != 1 || bridge || cabin
+                || extraWidth != 0 || decks != 1 || bridge || cabin
                 || sailTiers == null || !sailTiers.equals(List.of(1))))
-            throw new IllegalArgumentException("Khrabr v3 requires 11x7 and one basic sail");
+            throw new IllegalArgumentException("Khrabr v3 requires a 7-wide shallow hull and one basic sail");
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
         sailTiers = List.copyOf(sailTiers);
         new ShipSuperstructurePlan(shipClass, hullWidth(shipClass, extraWidth),
@@ -72,13 +72,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
-        // Shipyard can still build the pre-existing extended SMALL designs.
-        // A placed Khrabr v3 cannot silently upgrade into the legacy hull:
-        // compatibleUpgrade rejects crossing the layout-version boundary.
-        int targetLayout = isKhrabrV3() && (lengthSections != 0 || widthSections != 0)
-                ? 1 : layoutVersion;
         return new ShipBuildConfiguration(shipClass, lengthSections, widthSections,
-                sailTiers, decks, bridge, cabin, targetLayout);
+                sailTiers, decks, bridge, cabin, layoutVersion);
     }
 
     public ShipBuildConfiguration withSail(int mast, int tier) {
