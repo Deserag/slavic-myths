@@ -278,6 +278,40 @@ public final class ShipHullVoxelLayoutCheck {
                         }
                     }
         yes(flagshipRigVariants == 108, "LARGEST width/length/deck/sail matrix");
+        // Every one of the 3^4 mixed four-mast sail combinations must
+        // preserve independent yard heights and avoid occupied deck space.
+        int mixedFlagshipRigs = 0;
+        for (int code = 0; code < 81; code++) {
+            int encoded = code;
+            java.util.List<Integer> tiers = new java.util.ArrayList<>();
+            for (int mast = 0; mast < 4; mast++) {
+                tiers.add(1 + encoded % 3);
+                encoded /= 3;
+            }
+            for (int floors : new int[]{1, 2, 3}) {
+                var flagship = new ShipSuperstructurePlan(
+                        ShipSectionPlan.ShipClass.LARGEST, 23, 41,
+                        tiers, floors, true, true, 2);
+                var voxels = ShipHullVoxelLayout.generate(flagship);
+                mixedFlagshipRigs++;
+                int lowerYard = Math.max(7, 4 + (floors - 1) * 4 + 3);
+                for (int mast = 0; mast < 4; mast++) {
+                    int z = flagship.mastPositions().get(mast);
+                    int height = tiers.get(mast) == 1 ? 5
+                            : tiers.get(mast) == 2 ? 8 : 12;
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(1, lowerYard + height + 1, z))
+                                    == ShipHullVoxelLayout.Part.YARD,
+                            "mixed flagship rig keeps each yard independent " + code);
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(1, lowerYard + height, z + 1))
+                                    == ShipHullVoxelLayout.Part.SAIL,
+                            "mixed flagship rig has full-height cloth " + code);
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(1, lowerYard, z))
+                                    == ShipHullVoxelLayout.Part.YARD,
+                            "mixed flagship rig has supported lower yard " + code);
+                }
+            }
+        }
+        yes(mixedFlagshipRigs == 243, "all 81 mixed flagship rigs on 3 deck arrangements");
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
