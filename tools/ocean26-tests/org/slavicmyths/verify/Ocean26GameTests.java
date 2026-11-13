@@ -358,7 +358,7 @@ public final class Ocean26GameTests {
                     && Math.abs(upperLocal.z() - upperZ) < .12D,
                     "Second-deck walker was left behind by modular ship");
             t.assertTrue(Math.abs(bridgeLocal.x() - 1D) < .12D
-                    && Math.abs(bridgeLocal.z() - (-config.length() / 2D + 4D)) < .12D,
+                    && Math.abs(bridgeLocal.z() - (-(config.length() / 2) + 4D)) < .12D,
                     "Bridge walker was left behind by modular ship");
             CompoundTag saved = new CompoundTag();
             ship.saveWithoutId(saved);
