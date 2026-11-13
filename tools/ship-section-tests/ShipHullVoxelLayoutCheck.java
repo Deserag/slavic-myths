@@ -300,6 +300,19 @@ public final class ShipHullVoxelLayoutCheck {
                                     "LARGE helm has physical deck " + newLarge);
                             if (bridge) {
                                 int bridgeFront = -length / 2 + 6;
+                                if (!cabin) {
+                                    int bridgeRear = -length / 2 + 2;
+                                    int side = Math.min(3, width / 2 - 2);
+                                    for (int postZ : new int[]{bridgeRear, bridgeFront})
+                                        for (int postX : new int[]{-side, side})
+                                            for (int supportY = 5; supportY <= 8; supportY++)
+                                                yes(newCells.get(new ShipHullVoxelLayout.Cell(
+                                                        postX, supportY, postZ))
+                                                        == ShipHullVoxelLayout.Part.FRAME,
+                                                        "LARGE stand-alone bridge corner supported: "
+                                                                + newLarge + " corner=" + postX
+                                                                + "," + postZ + " y=" + supportY);
+                                }
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 10, bridgeFront))
                                         != ShipHullVoxelLayout.Part.RAIL,
                                         "LARGE bridge ladder has unblocked upper exit");
