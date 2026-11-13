@@ -91,6 +91,7 @@ public final class FirstShipEntity extends Boat {
     private long helmControlTick = -100L;
     private record PendingDismount(double localX, double localZ,
                                    double deckOffsetY, long expires) {}
+    private long lastAssemblyDiagnosticTick = -1000L;
     private final java.util.Map<java.util.UUID, PendingDismount> pendingDismounts =
             new java.util.HashMap<>();
     private int clientMotionSteps;
@@ -1480,9 +1481,20 @@ public final class FirstShipEntity extends Boat {
                 : ShipMovingContraption.prepare(server, blockAnchor,
                         quarterTurns, modularConfiguration);
         if (prepared == null) {
-            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
-                    "Ship motion assembly rejected: source inspection failed at {} geometry={} rig={} fabric={} modular={}",
-                    blockAnchor, geometryVersion, rigLevel, fabricQuality, modularConfiguration != null);
+            // A held W key may retry 20 times per second. Report one precise
+            // source mismatch at most every two seconds; never relax cargo safety.
+            if (server.getGameTime() - lastAssemblyDiagnosticTick >= 40L) {
+                lastAssemblyDiagnosticTick = server.getGameTime();
+                String reason = modularConfiguration == null ? "legacy hull inspection failed"
+                        : ShipModularBlockHull.inspectionFailure(
+                                server, blockAnchor, quarterTurns, modularConfiguration);
+                org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                        "Ship motion assembly rejected at {} geometry={} modular={} reason={}",
+                        blockAnchor, geometryVersion, modularConfiguration != null, reason);
+                if (getFirstPassenger() instanceof ServerPlayer driver)
+                    driver.displayClientMessage(Component.literal(
+                            "Корабль не готов к движению: см. координаты и причину в latest.log"), true);
+            }
             return false;
         }
         if (!prepared.detach(server, blockAnchor)) {
