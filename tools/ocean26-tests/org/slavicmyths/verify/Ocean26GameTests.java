@@ -533,7 +533,7 @@ public final class Ocean26GameTests {
         t.assertTrue(ship.helmSeatHeight() == 13D,
                 "LARGE helm must follow third-deck elevation");
         t.assertTrue(Math.abs(ship.helmWheelZ() -
-                (-config.length() / 2D + 4D)) < .01D,
+                (-(config.length() / 2) + 4D)) < .01D,
                 "LARGE wheel interaction must align with the actual helm block");
         t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(
                 ship, 2D, 0D, 3), "LARGE walker needs a solid third deck");
