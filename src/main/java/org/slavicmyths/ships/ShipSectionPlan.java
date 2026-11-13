@@ -7,7 +7,7 @@ package org.slavicmyths.ships;
  */
 public final class ShipSectionPlan {
     public enum ShipClass {
-        SMALL(1, 0, 1, 1, 1, 1),
+        SMALL(1, 1, 1, 2, 2, 2),
         MEDIUM(2, 1, 2, 2, 2, 2),
         LARGE(3, 2, 3, 3, 3, 3),
         LARGEST(3, 2, 3, 4, 4, 3);

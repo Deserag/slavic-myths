@@ -26,6 +26,7 @@ import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipModularBlockHull;
+import org.slavicmyths.ships.ShipHullVoxelLayout;
 import org.slavicmyths.ships.RaftContent;
 
 /**
@@ -180,17 +181,25 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private void renderModularSails(FirstShipEntity ship, float yaw, float partialTick,
             PoseStack pose, MultiBufferSource buffers, int light) {
         var plan = ship.modularConfiguration().structure();
+        boolean khrabr = ship.modularConfiguration().isKhrabrV3();
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
-            int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            int top = khrabr ? ShipHullVoxelLayout.khrabrSailTop(tier)
+                    : tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            int span = khrabr ? ShipHullVoxelLayout.khrabrSailSpan(tier)
+                    : tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            double bottom = khrabr ? ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM : 8D;
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
-            pose.translate(0D, 0D, plan.mastPositions().get(i));
-            sailPanel(ship, partialTick, pose, buffers, light, edging, 8D, top, span);
+            pose.translate(0D, 0D, khrabr
+                    ? ShipHullVoxelLayout.khrabrMastZ(plan, i) : plan.mastPositions().get(i));
+            sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
+            if (khrabr)
+                piece(Blocks.BONE_BLOCK.defaultBlockState(), pose, buffers, light,
+                        -span - .25D, top + .75D, .19D, span * 2F + .5F, .12F, .035F);
             pose.popPose();
         }
         pose.popPose();
@@ -227,9 +236,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             double bottom, double top, int span) {
         double height = top - bottom + 1D;
         VertexConsumer fabric = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
-        float tintR = ship.fabricQuality() == 2 ? .82F : 1F;
-        float tintG = ship.fabricQuality() == 3 ? .86F : 1F;
-        float tintB = ship.fabricQuality() == 3 ? .58F : 1F;
+        boolean khrabr = ship.modularConfiguration() != null
+                && ship.modularConfiguration().isKhrabrV3();
+        float tintR = khrabr ? .88F : ship.fabricQuality() == 2 ? .82F : 1F;
+        float tintG = khrabr ? .16F : ship.fabricQuality() == 3 ? .86F : 1F;
+        float tintB = khrabr ? .16F : ship.fabricQuality() == 3 ? .58F : 1F;
         for (int row = 0; row < 5; row++) {
             for (int column = 0; column < 8; column++) {
                 sailVertex(fabric, pose, ship, partialTick, light, tintR, tintG, tintB,

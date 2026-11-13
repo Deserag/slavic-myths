@@ -65,17 +65,25 @@ public final class ShipRigidMotion {
     private Pose pose;
     private Pose previous;
     private final double hullRadius;
+    private final double maxForward;
     private double speed;
     private double angularVelocity;
 
     public ShipRigidMotion(Pose start) { this(start, 6.5D); }
 
     public ShipRigidMotion(Pose start, double hullRadius) {
+        this(start, hullRadius, MAX_FORWARD);
+    }
+
+    public ShipRigidMotion(Pose start, double hullRadius, double maxForward) {
+        if (!Double.isFinite(maxForward) || maxForward < MAX_FORWARD || maxForward > .35D)
+            throw new IllegalArgumentException("Invalid ship forward limit");
         if (!Double.isFinite(hullRadius) || hullRadius < 1D || hullRadius > 100D)
             throw new IllegalArgumentException("Invalid ship collision radius");
         pose = start;
         previous = start;
         this.hullRadius = hullRadius;
+        this.maxForward = maxForward;
     }
 
     public Pose pose() { return pose; }
@@ -88,7 +96,7 @@ public final class ShipRigidMotion {
         Pose from = pose;
         previous = from;
         double desiredSpeed = control.throttle >= 0
-                ? control.throttle * MAX_FORWARD : control.throttle * MAX_REVERSE;
+                ? control.throttle * maxForward : control.throttle * MAX_REVERSE;
         // Unrigged rowing hulls still retain some momentum after helm release.
         // Acceleration is distinct from passive coasting drag, so small low-
         // power ships do not stop dead the moment a captain dismounts.
@@ -147,7 +155,7 @@ public final class ShipRigidMotion {
             throw new IllegalArgumentException("Non-finite saved ship velocity");
         pose = saved;
         previous = saved;
-        speed = clamp(savedSpeed, -MAX_REVERSE, MAX_FORWARD);
+        speed = clamp(savedSpeed, -MAX_REVERSE, maxForward);
         angularVelocity = clamp(savedTurn, -MAX_ANGULAR, MAX_ANGULAR);
     }
 

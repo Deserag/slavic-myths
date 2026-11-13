@@ -60,8 +60,10 @@ verify("player.setPos(" not in deck_events and "PlayerTickEvent" not in deck_eve
        "Old player-teleport physics must not be active")
 verify("blocks.renderSingleBlock(" not in render,
        "Hull must remain physical vanilla blocks; only existing helm model is rendered")
-verify("output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get())" in creative,
-       "Missing first ship in Creative")
+verify("output.accept(org.slavicmyths.ships.RaftContent.FIRST_SHIP_ITEM.get())" not in creative,
+       "Legacy direct-spawn ship must remain hidden in Creative")
+contains("ShipyardMenu.java", "ShipyardModular.build(player, config)",
+         "ShipBuildConfiguration.initial(")
 verify("new FirstShipItem(new Item.Properties().stacksTo(1))" in reg,
        "Ship must be stack-to-1 item")
 verify('"raft_2511_test"' in reg, "Legacy raft registry ID removed")

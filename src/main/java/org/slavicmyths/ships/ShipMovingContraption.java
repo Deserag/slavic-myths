@@ -64,7 +64,8 @@ public final class ShipMovingContraption {
         double radius = Math.hypot(configuration.width() / 2D + 1D,
                 configuration.length() / 2D + 1D);
         ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
-                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius);
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius,
+                configuration.isKhrabrV3() ? .28D : ShipRigidMotion.MAX_FORWARD);
         return new ShipMovingContraption(configuration, cargo, turns,
                 anchor.getY(), motion, false);
     }
@@ -209,7 +210,8 @@ public final class ShipMovingContraption {
                         tag.getCompound(ShipBuildConfiguration.NBT_KEY));
                 double radius = Math.hypot(config.width() / 2D + 1D,
                         config.length() / 2D + 1D);
-                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius);
+                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius,
+                        config.isKhrabrV3() ? .28D : ShipRigidMotion.MAX_FORWARD);
                 modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
                 return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
                         tag.getInt("OriginalTurn"), tag.getInt("Waterline"), modularMotion, detached);

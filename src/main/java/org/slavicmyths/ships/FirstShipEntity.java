@@ -118,7 +118,7 @@ public final class FirstShipEntity extends Boat {
         clientMotionZ = z;
         clientMotionYaw = yaw;
         clientMotionSpeed = Math.max(-ShipRigidMotion.MAX_REVERSE,
-                Math.min(ShipRigidMotion.MAX_FORWARD, speed));
+                Math.min(.28D, speed));
         clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
                 Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
         clientMotionSteps = 1;
@@ -174,6 +174,7 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.isKhrabrV3()) return -2D;
         return -config.length() / 2 + (config.bridge() ? 3D : config.cabin() ? 8D : 2D);
     }
 
@@ -183,14 +184,15 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
-        return config != null && config.bridge() ? 10D : FirstShipHull.MAIN_DECK;
+        return config != null && config.bridge() ? 10D
+                : config != null && config.isKhrabrV3() ? 3D : FirstShipHull.MAIN_DECK;
     }
 
     public boolean withinShip(double x, double z) {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.withinHull(x, z, .1D);
         if (Math.abs(z) > config.length() / 2D + .49D) return false;
-        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z), config.isKhrabrV3());
         return half >= 0 && Math.abs(x) <= half + .49D;
     }
 
@@ -247,7 +249,8 @@ public final class FirstShipEntity extends Boat {
         builder.define(MOTION_CARGO_VIEW, "");
     }
 
-    public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
+    public double deckY() { return getY() + (modularConfiguration() != null
+            && modularConfiguration().isKhrabrV3() ? 3D : FirstShipHull.MAIN_DECK); }
     public double holdY() { return getY() + FirstShipHull.HOLD_FLOOR; }
     public int moduleKind(int floor, int x, int z) {
         int tile = tileId(floor, x, z);
@@ -857,7 +860,7 @@ public final class FirstShipEntity extends Boat {
                     -configuration.length() / 2D + 1D,
                     configuration.length() / 2D - 1D);
             int beam = ShipHullVoxelLayout.halfBeam(
-                    configuration.structure(), (int)Math.round(zValue));
+                    configuration.structure(), (int)Math.round(zValue), configuration.isKhrabrV3());
             if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
                     || Math.abs(local.x()) < beam - 1D) return false;
             double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);
@@ -1311,7 +1314,9 @@ public final class FirstShipEntity extends Boat {
                 ShipRigidMotion.Control propulsion = modularConfiguration == null
                         ? ShipSailMotion.apply(control, rigLevel, fabricQuality)
                         : new ShipRigidMotion.Control(control.throttle() *
-                                Math.max(.16D, modularConfiguration.structure().propulsionFactor()),
+                                Math.max(.16D, modularConfiguration.isKhrabrV3()
+                                        ? modularConfiguration.structure().khrabrPropulsionFactor()
+                                        : modularConfiguration.structure().propulsionFactor()),
                                 control.rudder());
                 ShipRigidMotion.Frame frame = movingBody.tick(server, propulsion);
                 ShipRigidMotion.Pose next = movingBody.pose();

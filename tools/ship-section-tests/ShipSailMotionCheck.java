@@ -58,6 +58,23 @@ public final class ShipSailMotionCheck {
             rowingHull.advance(new ShipRigidMotion.Control(0, 0), pose -> true);
         check(rowingHull.speed() > 0D && rowingHull.speed() < rowingSpeed,
                 "low-power hull must coast after throttle release");
+        var khrabr = new ShipRigidMotion(new ShipRigidMotion.Pose(0, 0, 0),
+                6.5D, .28D);
+        var legacy = new ShipRigidMotion(new ShipRigidMotion.Pose(0, 0, 0));
+        for (int i = 0; i < 120; i++) {
+            khrabr.advance(new ShipRigidMotion.Control(1D, 0D), pose -> true);
+            legacy.advance(new ShipRigidMotion.Control(1D, 0D), pose -> true);
+        }
+        check(khrabr.speed() > legacy.speed(), "upgraded Khrabr moves faster than old cap");
+        check(khrabr.speed() <= .28D, "Khrabr stays below dedicated speed cap");
+        check(legacy.speed() <= ShipRigidMotion.MAX_FORWARD,
+                "other ships retain original forward cap");
+        var restoredKhrabr = new ShipRigidMotion(new ShipRigidMotion.Pose(0, 0, 0),
+                6.5D, .28D);
+        restoredKhrabr.restore(new ShipRigidMotion.Pose(0, 0, 0),
+                khrabr.speed(), 0D);
+        check(Math.abs(restoredKhrabr.speed() - khrabr.speed()) < 1E-9D,
+                "saved upgraded speed survives reload");
         System.out.println("PASS ShipSailMotionCheck assertions=" + checked);
     }
 }

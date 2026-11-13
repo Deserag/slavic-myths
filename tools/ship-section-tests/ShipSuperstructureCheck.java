@@ -26,8 +26,8 @@ public final class ShipSuperstructureCheck {
         yes(small.mastPositions().equals(List.of(0)), "small center mast");
         yes(small.rawThrust() == 1D, "basic sail thrust");
         yes(small.propulsionFactor() == 1D, "baseline thrust cap");
-        invalid(() -> small.withSail(1), "small second mast");
-        invalid(() -> small.withSail(2), "small tier II");
+        yes(small.withSail(1).sailTiers().equals(List.of(1, 1)), "small second mast");
+        yes(small.withSail(2).sailTiers().equals(List.of(1, 2)), "small tier II");
         invalid(() -> small.withDecks(2), "small second deck");
         invalid(() -> small.withCabin(true), "small cabin");
         invalid(() -> small.withBridge(true), "small bridge");

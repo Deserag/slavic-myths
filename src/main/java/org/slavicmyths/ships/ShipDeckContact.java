@@ -17,7 +17,7 @@ public final class ShipDeckContact {
             ShipBuildConfiguration config) {
         synchronized (CACHE) {
             return CACHE.computeIfAbsent(config,
-                    key -> ShipHullVoxelLayout.generate(key.structure()));
+                    key -> ShipHullVoxelLayout.generate(key.structure(), key.isKhrabrV3()));
         }
     }
 
@@ -39,6 +39,7 @@ public final class ShipDeckContact {
             return floor == 0 ? FirstShipHull.holdSupports(localX, localZ)
                     : floor == 1 && FirstShipHull.mainDeckSupports(localX, localZ);
         }
+        if (config.isKhrabrV3() && floor == 0) return false;
         if (floor < 0 || floor > (config.bridge() ? 4 : config.decks())
                 || (floor == 4 && !config.bridge())
                 || (floor == 3 && config.decks() < 3)
@@ -47,12 +48,13 @@ public final class ShipDeckContact {
         int x = (int)Math.round(localX), z = (int)Math.round(localZ);
         if (Math.abs(localX - x) >= .50D || Math.abs(localZ - z) >= .50D)
             return false;
-        var material = layout(config).get(new ShipHullVoxelLayout.Cell(
-                x, (int)height(floor) - 1, z));
+        int supportY = config.isKhrabrV3() && floor == 1 ? 2 : (int)height(floor) - 1;
+        var material = layout(config).get(new ShipHullVoxelLayout.Cell(x, supportY, z));
         return floor == 0
                 ? material == ShipHullVoxelLayout.Part.HULL
                     || material == ShipHullVoxelLayout.Part.KEEL
                 : material == ShipHullVoxelLayout.Part.DECK
+                    || material == ShipHullVoxelLayout.Part.HATCH
                     || material == ShipHullVoxelLayout.Part.BRIDGE;
     }
 
@@ -60,10 +62,12 @@ public final class ShipDeckContact {
     public static int contactFloor(FirstShipEntity ship,
             double x, double z, double absoluteFeetY) {
         ShipBuildConfiguration config = ship.modularConfiguration();
-        int[] order = config != null && config.bridge()
+        int[] order = config != null && config.isKhrabrV3()
+                ? new int[]{1} : config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
-            double target = ship.getY() + height(floor);
+            double target = ship.getY() + (config != null && config.isKhrabrV3()
+                    && floor == 1 ? 3D : height(floor));
             if (absoluteFeetY >= target - .35D
                     && absoluteFeetY <= target + .55D
                     && supports(ship, x, z, floor)) return floor;

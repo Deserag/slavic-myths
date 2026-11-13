@@ -33,20 +33,24 @@ public final class ShipyardModular {
             ShipBuildConfiguration next) {
         if (next == null) throw new IllegalArgumentException("Missing destination ship");
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
-                ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
+                ? Map.of() : ShipHullVoxelLayout.generate(original.structure(), original.isKhrabrV3());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
-                ShipHullVoxelLayout.generate(next.structure());
+                ShipHullVoxelLayout.generate(next.structure(), next.isKhrabrV3());
         Map<ShipHullVoxelLayout.Part, Integer> delta =
                 ShipHullVoxelLayout.additions(before, after);
         int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
         int frame = delta.getOrDefault(ShipHullVoxelLayout.Part.FRAME, 0);
-        int mast = delta.getOrDefault(ShipHullVoxelLayout.Part.MAST, 0);
-        int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0);
+        int mast = delta.getOrDefault(ShipHullVoxelLayout.Part.MAST, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.THIN_MAST, 0);
+        int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.YARD_SLAB, 0);
         int walls = delta.getOrDefault(ShipHullVoxelLayout.Part.CABIN_WALL, 0);
         int hull = delta.getOrDefault(ShipHullVoxelLayout.Part.HULL, 0);
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.HATCH, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.BRIDGE, 0);
-        int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0);
+        int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.SHEER_SLAB, 0);
         int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0);
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
         int windows = delta.getOrDefault(ShipHullVoxelLayout.Part.WINDOW, 0);
@@ -172,6 +176,7 @@ public final class ShipyardModular {
     public static boolean compatibleUpgrade(ShipBuildConfiguration old,
             ShipBuildConfiguration next) {
         if (old == null || next == null || old.shipClass() != next.shipClass()
+                || old.layoutVersion() != next.layoutVersion()
                 || next.extraLength() < old.extraLength()
                 || next.extraWidth() < old.extraWidth()
                 || next.decks() < old.decks()
