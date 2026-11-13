@@ -249,7 +249,8 @@ public final class FirstShipEntity extends Boat {
         builder.define(MOTION_CARGO_VIEW, "");
     }
 
-    public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
+    public double deckY() { return getY() + (modularConfiguration() != null
+            && modularConfiguration().isKhrabrV3() ? 3D : FirstShipHull.MAIN_DECK); }
     public double holdY() { return getY() + FirstShipHull.HOLD_FLOOR; }
     public int moduleKind(int floor, int x, int z) {
         int tile = tileId(floor, x, z);
