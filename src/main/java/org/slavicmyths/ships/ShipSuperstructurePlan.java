@@ -101,9 +101,10 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
         if (shipClass == ShipSectionPlan.ShipClass.MEDIUM) {
-            // Preserve the accepted linear speed cap; only reduce excess
-            // displacement resistance for the MEDIUM trading hull.
-            return Math.min(1D, .72D * rawThrust() / loadFactor());
+            // Medium ships must not lose 28% of their sail thrust simply
+            // for belonging to the trading class. The existing motion cap
+            // still bounds the speed, and extra decks/cabins add resistance.
+            return Math.min(1D, rawThrust() / loadFactor());
         }
         return Math.min(1D, rawThrust() / loadFactor());
     }
