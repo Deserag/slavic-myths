@@ -68,8 +68,12 @@ public final class ShipHullVoxelLayout {
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
-        // Access shaft and actual ladders, aligned through every built deck.
-        for (int y = 1; y <= 4 + (plan.decks() - 1) * 4; y++) {
+        // The hold shaft stops at the main deck on medium ships. Their
+        // quarterdeck has its own exterior ladder near the stern, so a
+        // second mast-height freestanding ladder is not generated amidships.
+        int mainShaftTop = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                ? 4 : 4 + (plan.decks() - 1) * 4;
+        for (int y = 1; y <= mainShaftTop; y++) {
             put(blocks, -3, y, 1, Part.FRAME);
             put(blocks, -2, y, 1, Part.LADDER);
         }
