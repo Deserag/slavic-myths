@@ -224,6 +224,32 @@ public final class ShipHullVoxelLayoutCheck {
                             yes(newCells.values().stream().filter(p ->
                                     p == ShipHullVoxelLayout.Part.HELM).count() == 1,
                                     "LARGE one helm");
+                            int rear = -length / 2 + 2;
+                            int helmY = floors == 3 ? 13
+                                    : bridge ? 10
+                                    : cabin && floors == 1 ? 9
+                                    : floors == 2 ? 9 : 5;
+                            int helmZ = -length / 2 + (bridge || cabin ? 4 : 3);
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, helmY, helmZ))
+                                    == ShipHullVoxelLayout.Part.HELM,
+                                    "LARGE helm above its deck " + newLarge);
+                            int helmDeckY = helmY == 10 ? 9 : helmY - 1;
+                            yes(newCells.get(new ShipHullVoxelLayout.Cell(0, helmDeckY, helmZ))
+                                    == (helmDeckY == 9
+                                            ? ShipHullVoxelLayout.Part.BRIDGE
+                                            : ShipHullVoxelLayout.Part.DECK),
+                                    "LARGE helm has physical deck " + newLarge);
+                            if (cabin && !bridge) {
+                                for (int accessY = 5; accessY <= 9; accessY++) {
+                                    yes(newCells.get(new ShipHullVoxelLayout.Cell(-2,
+                                            accessY, rear + 7))
+                                            == ShipHullVoxelLayout.Part.LADDER,
+                                            "LARGE cabin roof ladder " + newLarge);
+                                }
+                                yes(newCells.get(new ShipHullVoxelLayout.Cell(-2, 9,
+                                        rear + 6)) != ShipHullVoxelLayout.Part.RAIL,
+                                        "LARGE cabin roof rail has entrance");
+                            }
                             if (floors >= 2)
                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(2, 8,
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
