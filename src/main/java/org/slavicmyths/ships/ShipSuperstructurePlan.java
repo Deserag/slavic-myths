@@ -24,7 +24,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
     public ShipSuperstructurePlan {
         if (hullRevision < 1 || hullRevision > 2
-                || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE))
+                || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
+                        && shipClass != ShipSectionPlan.ShipClass.LARGEST))
             throw new IllegalArgumentException("Unsupported hull revision");
         if (shipClass == null || sailTiers == null || hullWidth < 7 || hullLength < 11
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
