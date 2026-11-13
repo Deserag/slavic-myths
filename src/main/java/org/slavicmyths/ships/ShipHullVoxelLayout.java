@@ -74,7 +74,8 @@ public final class ShipHullVoxelLayout {
         int halfLength = plan.hullLength() / 2;
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z, true);
-            put(blocks, 0, 0, z, Part.KEEL);
+            // Short submerged keel support; avoid a full-length visible waterline strip.
+            if (Math.abs(z) <= 1) put(blocks, 0, 0, z, Part.KEEL);
             if (half >= 2)
                 for (int x = -1; x <= 1; x++) put(blocks, x, 1, z, Part.HULL);
             if (half >= 3)
