@@ -198,18 +198,43 @@ public final class ShipModularBlockHull {
      */
     private static int interiorHalfBeam(ShipSuperstructurePlan structure,
             int geometry, int z) {
-        if (geometry == 5 || geometry == 6)
+        if (geometry >= 5 && (structure.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                || structure.shipClass() == ShipSectionPlan.ShipClass.LARGEST))
             return ShipHullVoxelLayout.asymmetricLargeBeam(structure, z);
         return ShipHullVoxelLayout.halfBeam(structure, z);
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
+        return inspect(level, anchor, turns, config, null);
+    }
+
+    /** Diagnose a rejected source without changing, skipping or repairing any world blocks. */
+    public static String inspectionFailure(ServerLevel level, BlockPos anchor, int turns,
+            ShipBuildConfiguration config) {
+        StringBuilder reason = new StringBuilder();
+        Snapshot result = inspect(level, anchor, turns, config, reason);
+        return result == null
+                ? (reason.isEmpty() ? "unclassified source rejection" : reason.toString())
+                : "source inspection passed; subsequent motion preparation failed";
+    }
+
+    private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
+            ShipBuildConfiguration config, StringBuilder reason) {
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
         for (var entry : source.entrySet()) {
-            if (!level.hasChunkAt(entry.getKey())
-                    || level.getBlockState(entry.getKey()).getBlock() != entry.getValue().getBlock())
+            BlockPos pos = entry.getKey();
+            if (!level.hasChunkAt(pos)) {
+                if (reason != null) reason.append("unloaded hull chunk at ").append(pos);
                 return null;
+            }
+            BlockState actual = level.getBlockState(pos);
+            if (actual.getBlock() != entry.getValue().getBlock()) {
+                if (reason != null) reason.append("hull mismatch at ").append(pos)
+                        .append(" expected=").append(entry.getValue().getBlock())
+                        .append(" actual=").append(actual.getBlock());
+                return null;
+            }
         }
         List<Cargo> cargo = new ArrayList<>();
         ShipSuperstructurePlan structure = config.structure();
@@ -222,14 +247,28 @@ public final class ShipModularBlockHull {
             for (int x = -beam; x <= beam; x++)
                 for (int y = 1; y <= maxY; y++) {
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
-                    if (!level.hasChunkAt(world)) return null;
+                    if (!level.hasChunkAt(world)) {
+                        if (reason != null) reason.append("unloaded cargo chunk at ").append(world);
+                        return null;
+                    }
                     if (source.containsKey(world)) continue;
                     BlockState state = level.getBlockState(world);
                     if (state.isAir()) continue;
                     int type = kind(state);
-                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) return null;
+                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) {
+                        if (reason != null) reason.append("unsupported interior block at ")
+                                .append(world).append(" local=(").append(x).append(',')
+                                .append(y).append(',').append(z).append(')')
+                                .append(" block=").append(state.getBlock())
+                                .append(" cargoKind=").append(type);
+                        return null;
+                    }
                     BlockEntity blockEntity = level.getBlockEntity(world);
-                    if (type != 3 && blockEntity == null) return null;
+                    if (type != 3 && blockEntity == null) {
+                        if (reason != null) reason.append("cargo missing block entity at ")
+                                .append(world).append(" block=").append(state.getBlock());
+                        return null;
+                    }
                     CompoundTag data = blockEntity == null ? new CompoundTag()
                             : blockEntity.saveWithFullMetadata(level.registryAccess());
                     cargo.add(new Cargo(x, y, z, type, state, data));
