@@ -332,7 +332,7 @@ public final class Ocean26GameTests {
                 new Vec3(ship.getX() + 2D, ship.getY() + 9.02D, ship.getZ() + upperZ));
         ServerPlayer bridgeWalker = player(level, "ModularBridgeWalker",
                 new Vec3(ship.getX() + 1D, ship.getY() + 10.02D,
-                        ship.getZ() - config.length() / 2D + 4D));
+                        ship.getZ() - (config.length() / 2) + 4D));
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> {
             t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
