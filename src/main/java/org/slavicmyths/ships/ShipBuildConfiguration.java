@@ -23,7 +23,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     public ShipBuildConfiguration {
         if (hullRevision < 1 || hullRevision > 2
-                || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE))
+                || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
+                        && shipClass != ShipSectionPlan.ShipClass.LARGEST))
             throw new IllegalArgumentException("Unsupported hull revision");
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
@@ -60,7 +61,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
-                type == ShipSectionPlan.ShipClass.LARGE ? 2 : 1);
+                type == ShipSectionPlan.ShipClass.LARGE
+                        || type == ShipSectionPlan.ShipClass.LARGEST ? 2 : 1);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
