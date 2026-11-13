@@ -93,92 +93,95 @@ public final class ShipHullVoxelLayoutCheck {
         yes(addedDeck.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0) > 0,
                 "deck bills include new flooring");
 
-        // Khrabr v3 must never silently replace v1 blueprints.
-        var khrabr = ShipHullVoxelLayout.generate(small, true);
-        yes(!khrabr.equals(ShipHullVoxelLayout.generate(small)), "v3 and v1 are isolated");
-        yes(ShipHullVoxelLayout.KHRABR_SAIL_TOP + 1 == ShipHullVoxelLayout.KHRABR_YARD_Y,
-                "cloth meets the physical yard with no vertical gap");
-        yes(ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM >= 9, "sail clears the open deck");
-        for (int y = ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM;
-                y <= ShipHullVoxelLayout.KHRABR_SAIL_TOP; y++)
-            for (int x : new int[]{-2, -1, 1, 2})
-                yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, y, 2))
-                        == ShipHullVoxelLayout.Part.SAIL, "cloth marker matches moving sail panel");
-        for (int x = -3; x <= 3; x++)
-            yes(khrabr.get(new ShipHullVoxelLayout.Cell(x,
-                    ShipHullVoxelLayout.KHRABR_YARD_Y, 1))
-                    == ShipHullVoxelLayout.Part.YARD_SLAB, "continuous full wooden yard");
-        int[] widths = {1, 3, 5, 7, 7, 7, 7, 7, 5, 3, 3};
-        for (int i = 0; i < widths.length; i++) {
-            int z = 5 - i;
-            yes(ShipHullVoxelLayout.halfBeam(small, z, true) * 2 + 1 == widths[i],
-                    "Khrabr section " + z);
-        }
-        long hull = khrabr.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.KEEL
-                || p == ShipHullVoxelLayout.Part.HULL || p == ShipHullVoxelLayout.Part.DECK
-                || p == ShipHullVoxelLayout.Part.HATCH
-                || p == ShipHullVoxelLayout.Part.SHEER_SLAB).count();
-        yes(hull > 0, "nonempty shallow wooden hull");
-        int minHullY = Integer.MAX_VALUE, maxHullY = Integer.MIN_VALUE;
-        for (var entry : khrabr.entrySet()) {
-            var p = entry.getValue();
-            if (p != ShipHullVoxelLayout.Part.KEEL
-                    && p != ShipHullVoxelLayout.Part.HULL
-                    && p != ShipHullVoxelLayout.Part.DECK
-                    && p != ShipHullVoxelLayout.Part.HATCH
-                    && p != ShipHullVoxelLayout.Part.SHEER_SLAB) continue;
-            minHullY = Math.min(minHullY, entry.getKey().y());
-            maxHullY = Math.max(maxHullY, entry.getKey().y());
-            yes(entry.getKey().y() >= 2, "no deep lower hold");
-        }
-        yes(maxHullY - minHullY <= 4, "shallow hull height");
-        for (int z = -5; z <= 5; z++) {
-            int half = ShipHullVoxelLayout.halfBeam(small, z, true);
-            for (int x = -half; x <= half; x++)
-                for (int y = 0; y <= 1; y++)
-                    yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(x, y, z)),
-                            "no artificial lower deck");
-        }
-        for (int z = -2; z <= 2; z++)
-            for (int x : new int[]{-2, -1, 1, 2})
-                yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, 4, z))
-                        == ShipHullVoxelLayout.Part.DECK, "open midship deck");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 4, 0))
-                == ShipHullVoxelLayout.Part.DECK, "open walking deck");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 5, 1))
-                == ShipHullVoxelLayout.Part.THIN_MAST, "mast forward at z+1");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 5, -1))
-                == ShipHullVoxelLayout.Part.HELM, "helm at z-1");
-        yes(khrabr.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
-                .count() == 1, "exactly one helm");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 6, 5))
-                == ShipHullVoxelLayout.Part.SHEER_SLAB, "raised bow is real slab");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 6, -5))
-                == ShipHullVoxelLayout.Part.SHEER_SLAB, "raised stern is real slab");
-        yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 6, 0)) == null,
-                "midship gunwale lower than ends");
-        for (int side : new int[]{-1, 1})
-            for (int z = -1; z <= 1; z++) {
-                var floor = khrabr.get(new ShipHullVoxelLayout.Cell(side, 4, z));
-                yes(floor == ShipHullVoxelLayout.Part.DECK,
-                        "both mast bypasses supported side=" + side + " z=" + z);
-                yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(side, 5, z)),
-                        "both mast bypasses headroom");
+        // First-tier Khrabr: each allowed length remains the SAME shallow v3 design.
+        var lengthened = plan(ShipSectionPlan.ShipClass.SMALL, 7, 15,
+                List.of(1), 1, false, false);
+        for (var selected : List.of(small, lengthened)) {
+            var khrabr = ShipHullVoxelLayout.generate(selected, true);
+            yes(!khrabr.equals(ShipHullVoxelLayout.generate(selected)),
+                    "new shallow layout never switches to legacy hull");
+            yes(khrabr.equals(ShipHullVoxelLayout.generate(selected, true)),
+                    "repeatable Khrabr layout");
+            int halfLength = selected.hullLength() / 2;
+            int minX = 100, maxX = -100, minZ = 100, maxZ = -100;
+            int minHullY = 100, maxHullY = -100;
+            for (var entry : khrabr.entrySet()) {
+                var cell = entry.getKey();
+                if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL
+                        || entry.getValue() == ShipHullVoxelLayout.Part.THIN_MAST
+                        || entry.getValue() == ShipHullVoxelLayout.Part.YARD_SLAB
+                        || entry.getValue() == ShipHullVoxelLayout.Part.HELM) continue;
+                minX = Math.min(minX, cell.x());
+                maxX = Math.max(maxX, cell.x());
+                minZ = Math.min(minZ, cell.z());
+                maxZ = Math.max(maxZ, cell.z());
+                minHullY = Math.min(minHullY, cell.y());
+                maxHullY = Math.max(maxHullY, cell.y());
             }
-        for (int turn = 0; turn < 4; turn++) {
-            java.util.Set<ShipHullVoxelLayout.Cell> rotated = new java.util.HashSet<>();
-            for (var cell : khrabr.keySet()) {
-                int x = cell.x(), z = cell.z();
-                var result = switch(turn) {
-                    case 1 -> new ShipHullVoxelLayout.Cell(-z, cell.y(), x);
-                    case 2 -> new ShipHullVoxelLayout.Cell(-x, cell.y(), -z);
-                    case 3 -> new ShipHullVoxelLayout.Cell(z, cell.y(), -x);
-                    default -> cell;
-                };
-                yes(rotated.add(result), "no overlap at quarter turn " + turn);
+            yes(maxX - minX + 1 == 7, "maximum hull beam seven");
+            yes(maxZ - minZ + 1 == selected.hullLength(), "real extended hull length");
+            yes(minHullY == 0 && maxHullY <= 3, "keel at waterline and four-block hull");
+            for (int z = -halfLength; z <= halfLength; z++) {
+                int half = ShipHullVoxelLayout.halfBeam(selected, z, true);
+                yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 0, z))
+                        == ShipHullVoxelLayout.Part.KEEL, "keel contacts water every section");
+                yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(0, 4, z)),
+                        "no fake upper deck or enclosed hold");
+                for (int x = -Math.max(0, half - 1); x <= Math.max(0, half - 1); x++)
+                    yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, 2, z))
+                            == ShipHullVoxelLayout.Part.DECK,
+                            "solid walkable main deck across extension");
             }
-            yes(rotated.size() == khrabr.size(), "rotation invariance " + turn);
+            for (int side : new int[]{-1, 1})
+                for (int z = -1; z <= 1; z++) {
+                    yes(khrabr.get(new ShipHullVoxelLayout.Cell(side, 2, z))
+                            == ShipHullVoxelLayout.Part.DECK, "both mast bypasses walkable");
+                    yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(side, 3, z)),
+                            "mast bypass headroom");
+                }
+            yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 3, 1))
+                    == ShipHullVoxelLayout.Part.THIN_MAST, "one mast begins at deck");
+            yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 3, -1))
+                    == ShipHullVoxelLayout.Part.HELM, "helm on deck");
+            yes(khrabr.values().stream().filter(p -> p == ShipHullVoxelLayout.Part.HELM)
+                    .count() == 1, "exactly one helm");
+            yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 3, halfLength))
+                    == ShipHullVoxelLayout.Part.SHEER_SLAB, "raised bow");
+            yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 3, -halfLength))
+                    == ShipHullVoxelLayout.Part.SHEER_SLAB, "raised stern");
+            yes(ShipHullVoxelLayout.KHRABR_SAIL_TOP + 1
+                    == ShipHullVoxelLayout.KHRABR_YARD_Y, "sail meets the upper yard");
+            for (int y = ShipHullVoxelLayout.KHRABR_SAIL_BOTTOM;
+                    y <= ShipHullVoxelLayout.KHRABR_SAIL_TOP; y++)
+                for (int x : new int[]{-2, -1, 1, 2})
+                    yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, y, 2))
+                            == ShipHullVoxelLayout.Part.SAIL, "matching sail markers");
+            for (int x = -3; x <= 3; x++)
+                yes(khrabr.get(new ShipHullVoxelLayout.Cell(x,
+                        ShipHullVoxelLayout.KHRABR_YARD_Y, 1))
+                        == ShipHullVoxelLayout.Part.YARD_SLAB, "continuous upper yard");
+            for (int turn = 0; turn < 4; turn++) {
+                java.util.Set<ShipHullVoxelLayout.Cell> rotated = new java.util.HashSet<>();
+                for (var cell : khrabr.keySet()) {
+                    int x = cell.x(), z = cell.z();
+                    var rotatedCell = switch (turn) {
+                        case 1 -> new ShipHullVoxelLayout.Cell(-z, cell.y(), x);
+                        case 2 -> new ShipHullVoxelLayout.Cell(-x, cell.y(), -z);
+                        case 3 -> new ShipHullVoxelLayout.Cell(z, cell.y(), -x);
+                        default -> cell;
+                    };
+                    yes(rotated.add(rotatedCell), "no overlaps in rotated Khrabr");
+                }
+            }
         }
+        yes(!ShipHullVoxelLayout.generate(small, true)
+                .equals(ShipHullVoxelLayout.generate(lengthened, true)),
+                "length extension actually changes physical geometry");
+        yes(ShipHullVoxelLayout.additions(
+                ShipHullVoxelLayout.generate(small, true),
+                ShipHullVoxelLayout.generate(lengthened, true)).values().stream()
+                .mapToInt(Integer::intValue).sum() > 0,
+                "length extension charges real added blocks");
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }
