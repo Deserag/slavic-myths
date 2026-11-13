@@ -154,8 +154,11 @@ public final class ShipHullVoxelLayout {
                     && plan.hullRevision() >= 2;
             int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
                     : largeAftDeck ? Math.min(halfLength - 5,
-                            rear + (floor == 2 ? (plan.hullLength() * 3 / 5)
-                                    : (plan.hullLength() * 2 / 5)))
+                            floor == 2 ? rear + (plan.hullLength() * 3 / 5)
+                                    // A central third-deck walking platform is
+                                    // required even on the longest LARGE hull.
+                                    // The forward part stays open to the sky.
+                                    : Math.max(0, rear + (plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
