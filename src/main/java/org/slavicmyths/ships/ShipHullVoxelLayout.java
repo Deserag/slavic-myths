@@ -33,6 +33,20 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() >= 2) {
+            // A fine bow and a wide, comparatively full working stern.
+            int halfLength = plan.hullLength() / 2;
+            if (Math.abs(z) > halfLength) return -1;
+            int halfWidth = plan.hullWidth() / 2;
+            int run = z >= 0 ? Math.min(12, halfLength) : Math.min(7, halfLength);
+            int distance = z >= 0 ? halfLength - z : halfLength + z;
+            if (distance >= run) return halfWidth;
+            double t = Math.max(0D, distance / (double)run);
+            double curve = t * t * (3D - 2D * t);
+            int tip = z >= 0 ? 0 : Math.max(2, halfWidth / 3);
+            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve));
+        }
         if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
             return beam(plan.hullWidth(), plan.hullLength(), z);
         // The trading strug has a long, narrow bow and a fuller working
@@ -74,6 +88,11 @@ public final class ShipHullVoxelLayout {
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
+                if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && plan.hullRevision() >= 2 && edge
+                        && Math.abs(x) == half && Math.abs(z) < halfLength - 2)
+                    put(blocks, x, 2, z, Math.floorMod(z, 6) == 0
+                            ? Part.FRAME : Part.KEEL);
             }
         }
         // The hold shaft stops at the main deck on medium ships. Their
@@ -97,7 +116,12 @@ public final class ShipHullVoxelLayout {
             // rectangular building and interfered with the mast.
             boolean mediumQuarterdeck = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                     && floor == 2;
+            boolean largeAftDeck = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && plan.hullRevision() >= 2;
             int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
+                    : largeAftDeck ? Math.min(halfLength - 5,
+                            rear + (floor == 2 ? (plan.hullLength() * 3 / 5)
+                                    : (plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
