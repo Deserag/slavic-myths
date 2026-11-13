@@ -96,6 +96,12 @@ public final class ShipHullVoxelLayout {
                     if (outerEdge)
                         put(blocks, x, 3, z, Math.floorMod(z, 6) == 0
                                 ? Part.FRAME : Part.HULL);
+                    // The square-ended working stern is a watertight transom,
+                    // not an open cavity between the stepped chine bands.
+                    // The fine bow is capped as well for every hull width.
+                    if (Math.abs(z) == halfLength)
+                        for (int bulkheadY = 1; bulkheadY <= 3; bulkheadY++)
+                            put(blocks, x, bulkheadY, z, Part.HULL);
                     else if (Math.floorMod(z, 4) == 0 && absX < half)
                         put(blocks, x, 3, z, Part.FRAME);
                     if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
