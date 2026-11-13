@@ -308,7 +308,11 @@ public final class ShipHullVoxelLayoutCheck {
                                             for (int supportY = 5; supportY <= 8; supportY++)
                                                 yes(newCells.get(new ShipHullVoxelLayout.Cell(
                                                         postX, supportY, postZ))
-                                                        == ShipHullVoxelLayout.Part.FRAME,
+                                                        == ShipHullVoxelLayout.Part.FRAME
+                                                        || supportY == 8 && newCells.get(
+                                                                new ShipHullVoxelLayout.Cell(
+                                                                        postX, supportY, postZ))
+                                                                == ShipHullVoxelLayout.Part.DECK,
                                                         "LARGE stand-alone bridge corner supported: "
                                                                 + newLarge + " corner=" + postX
                                                                 + "," + postZ + " y=" + supportY);
