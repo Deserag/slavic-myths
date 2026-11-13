@@ -42,7 +42,8 @@ public final class ShipSuperstructureCheck {
                 List.of(1), 1, false, false);
         yes(Math.abs(initialMedium.propulsionFactor() - .72D) < 1E-9D,
                 "single basic sail provides useful medium thrust");
-        yes(initialMedium.withSail(2).propulsionFactor()
+        yes(plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
+                List.of(2), 1, false, false).propulsionFactor()
                 > initialMedium.propulsionFactor(), "sail II improves medium travel");
         invalid(() -> medium.withSail(2), "medium mast limit");
         invalid(() -> medium.withDecks(3), "medium deck limit");
