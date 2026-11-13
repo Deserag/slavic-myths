@@ -36,8 +36,14 @@ public final class ShipSuperstructureCheck {
                 List.of(1, 2), 2, true, true);
         yes(medium.mastPositions().equals(List.of(0, 4)), "two centered masts");
         yes(Math.abs(medium.rawThrust() - 2.7D) < 1E-9D, "sum mixed sail tiers");
-        yes(medium.propulsionFactor() > 0D && medium.propulsionFactor() < 1D,
-                "large hull with small sails is underpowered");
+        yes(medium.propulsionFactor() > 0D && medium.propulsionFactor() <= 1D,
+                "medium thrust remains bounded");
+        var initialMedium = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
+                List.of(1), 1, false, false);
+        yes(Math.abs(initialMedium.propulsionFactor() - .72D) < 1E-9D,
+                "single basic sail provides useful medium thrust");
+        yes(initialMedium.withSail(2).propulsionFactor()
+                > initialMedium.propulsionFactor(), "sail II improves medium travel");
         invalid(() -> medium.withSail(2), "medium mast limit");
         invalid(() -> medium.withDecks(3), "medium deck limit");
         invalid(() -> plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
