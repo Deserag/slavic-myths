@@ -270,7 +270,7 @@ public final class ShipHullVoxelLayout {
                     put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, -side + 1, y, front, Part.LADDER);
             }
-            if (!modernLarge || plan.decks() == 1)
+            if (!modernLarge)
                 put(blocks, 0, 10, rear + 2, Part.HELM);
         } else if (plan.cabin() && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM) {
             // The cabin roof IS the captain's platform when no separate
@@ -299,7 +299,8 @@ public final class ShipHullVoxelLayout {
         }
         if (modernLarge) {
             int y = 4 + (plan.decks() - 1) * 4 + 1;
-            if (plan.decks() == 1 && (plan.bridge() || plan.cabin())) y = plan.bridge() ? 10 : 9;
+            if (plan.bridge() && plan.decks() <= 2) y = 10;
+            else if (plan.cabin() && plan.decks() == 1) y = 9;
             int z = -halfLength + (plan.bridge() || plan.cabin() ? 4 : 3);
             put(blocks, 0, y, z, Part.HELM);
         }
