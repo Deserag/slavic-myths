@@ -301,7 +301,9 @@ public final class ShipHullVoxelLayoutCheck {
                                         aftStart)) == (bridge
                                                 ? ShipHullVoxelLayout.Part.BRIDGE
                                                 : ShipHullVoxelLayout.Part.RAIL),
-                                        "LARGE second deck stern guarded or joined to bridge");
+                                        "LARGE second deck stern guarded or joined to bridge: "
+                                        + newLarge + " value="
+                                        + newCells.get(new ShipHullVoxelLayout.Cell(0, 9, aftStart)));
                             }
                             if (floors == 3) {
                                 int thirdFront = Math.min(length / 2 - 5,
