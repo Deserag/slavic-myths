@@ -59,7 +59,7 @@ public final class Ocean26ClientProbe {
     private static volatile boolean benchBaselineReady;
     private static Integer benchOriginalFpsLimit;
     private static Boolean benchOriginalVsync;
-    private static boolean benchSampling, benchSceneDone;
+    private static boolean benchSampling, benchSceneDone, benchScreenshotTaken;
     private static int benchRepeat, benchWarmup, benchSamples;
     private static long benchLastFrameNanos;
     private static final int FRAME_WARMUP = 60, FRAME_SAMPLES = 180, FRAME_REPEATS = 3;
@@ -113,6 +113,14 @@ public final class Ocean26ClientProbe {
         if (previous == 0L || now <= previous) return;
         if (benchWarmup < FRAME_WARMUP) {
             benchWarmup++;
+            if (benchWarmup == FRAME_WARMUP / 2 && benchCase >= 1 && !benchScreenshotTaken) {
+                benchScreenshotTaken = true;
+                String label = FRAME_SCENES[frameScenario()];
+                Screenshot.grab(Minecraft.getInstance().gameDirectory,
+                        Minecraft.getInstance().getMainRenderTarget(),
+                        message -> System.out.println("OCEAN26_AB_VISUAL " + label
+                                + " screenshot=" + message.getString()));
+            }
             return;
         }
         int scenario = frameScenario();
@@ -163,14 +171,8 @@ public final class Ocean26ClientProbe {
     }
 
     private static void beginFrameCapture() {
-        if (benchCase >= 1) {
-            String label = FRAME_SCENES[frameScenario()];
-            Screenshot.grab(Minecraft.getInstance().gameDirectory,
-                    Minecraft.getInstance().getMainRenderTarget(),
-                    message -> System.out.println("OCEAN26_AB_VISUAL " + label
-                            + " screenshot=" + message.getString()));
-        }
         benchRepeat = benchSamples = benchWarmup = 0;
+        benchScreenshotTaken = false;
         benchLastFrameNanos = 0L;
         benchSampling = true;
     }
