@@ -58,61 +58,53 @@ public final class ShipHullVoxelLayout {
     }
 
     /**
-     * Port of the original Khrabr v3 Python block coordinates, translated Y+1
-     * into the established Minecraft waterline (deck Y4, feet Y5).
-     * The hatch is a safe CLOSED decorative plank; no nonfunctional ladder.
+     * Shallow open 11x7 longboat: deck Y4, one-block gunwale Y5.
+     * Solid stepped bottom, no enclosed lower hold or artificial second deck.
      */
     private static Map<Cell, Part> khrabrV3() {
         Map<Cell, Part> blocks = new LinkedHashMap<>();
         for (int z = -5; z <= 5; z++) {
-            int a = Math.abs(z), half = KHRABR_BEAM[z + 5];
+            int half = KHRABR_BEAM[z + 5];
+            int a = Math.abs(z);
             if (a <= 2) {
-                put(blocks, 0, 0, z, Part.KEEL);
-                for (int x = -1; x <= 1; x++) put(blocks, x, 1, z, Part.HULL);
-                for (int x : new int[]{-2, -1, 1, 2}) put(blocks, x, 2, z, Part.HULL);
-                for (int x : new int[]{-2, 2}) put(blocks, x, 3, z, Part.HULL);
-                for (int x = -2; x <= 2; x++)
-                    put(blocks, x, 4, z, x == 0 && z == 0 ? Part.HATCH : Part.DECK);
-                for (int x : new int[]{-3, 3}) {
-                    put(blocks, x, 4, z, Part.HULL);
-                    put(blocks, x, 5, z, Part.HULL);
-                }
-            } else if (a == 3) {
-                put(blocks, 0, 1, z, Part.HULL);
-                for (int x : new int[]{-1, 1}) {
-                    put(blocks, x, 2, z, Part.HULL);
+                // Narrow keel -> stepped planking -> open walking deck.
+                put(blocks, 0, 2, z, Part.KEEL);
+                for (int x = -1; x <= 1; x++)
                     put(blocks, x, 3, z, Part.HULL);
-                }
-                for (int x = -1; x <= 1; x++) put(blocks, x, 4, z, Part.DECK);
-                for (int x : new int[]{-2, 2}) {
-                    put(blocks, x, 4, z, Part.HULL);
-                    put(blocks, x, 5, z, Part.HULL);
-                }
+                for (int x : new int[]{-2, -1, 1, 2})
+                    put(blocks, x, 3, z, Part.HULL);
+                for (int x = -2; x <= 2; x++)
+                    put(blocks, x, 4, z, Part.DECK);
+            } else if (a == 3) {
+                put(blocks, 0, 3, z, Part.KEEL);
+                for (int x = -1; x <= 1; x++)
+                    put(blocks, x, 4, z, Part.DECK);
             } else if (a == 4) {
-                put(blocks, 0, 2, z, Part.HULL);
-                for (int x = -1; x <= 1; x++) put(blocks, x, 3, z, Part.HULL);
+                put(blocks, 0, 3, z, Part.KEEL);
                 put(blocks, 0, 4, z, Part.DECK);
-                for (int x : new int[]{-1, 1}) {
-                    put(blocks, x, 4, z, Part.HULL);
-                    put(blocks, x, 5, z, Part.HULL);
-                }
             } else if (z == 5) {
-                for (int y = 3; y <= 5; y++) put(blocks, 0, y, z, Part.HULL);
+                put(blocks, 0, 3, z, Part.KEEL);
+                put(blocks, 0, 4, z, Part.HULL);
+                put(blocks, 0, 5, z, Part.HULL);
             } else {
-                put(blocks, 0, 3, z, Part.HULL);
-                for (int x = -1; x <= 1; x++) {
-                    put(blocks, x, 4, z, x == 0 ? Part.DECK : Part.HULL);
+                put(blocks, 0, 3, z, Part.KEEL);
+                put(blocks, 0, 4, z, Part.DECK);
+            }
+
+            // Only the outermost edge forms a low one-block gunwale.
+            // Bow/stern tips receive a single raised sheer slab.
+            if (half > 0) {
+                for (int x : new int[]{-half, half}) {
+                    put(blocks, x, 4, z, Part.HULL);
                     put(blocks, x, 5, z, Part.HULL);
                 }
             }
-            if (z == 3 || z == 4 || z == -4)
-                for (int x : new int[]{-half, half}) put(blocks, x, 6, z, Part.SHEER_SLAB);
-            else if (z == 5) put(blocks, 0, 6, z, Part.SHEER_SLAB);
+            if (z == 5) put(blocks, 0, 6, z, Part.SHEER_SLAB);
             else if (z == -5)
-                for (int x = -half; x <= half; x++) put(blocks, x, 6, z, Part.SHEER_SLAB);
+                for (int x = -half; x <= half; x++)
+                    put(blocks, x, 6, z, Part.SHEER_SLAB);
         }
-        put(blocks, 1, 3, 0, Part.HULL);
-        // Thin mast at X0,Z+1, raised yard, cloth markers for material accounting.
+        // One central mast, clear walkways on both sides, same helm and red sail.
         for (int y = 5; y <= 14; y++) put(blocks, 0, y, 1, Part.THIN_MAST);
         for (int x = -3; x <= 3; x++) put(blocks, x, KHRABR_YARD_Y, 1, Part.YARD_SLAB);
         for (int y = KHRABR_SAIL_BOTTOM; y <= KHRABR_SAIL_TOP; y++)
