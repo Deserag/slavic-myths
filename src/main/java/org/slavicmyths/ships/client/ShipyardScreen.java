@@ -284,7 +284,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     Button selector = Button.builder(Component.literal(
                             (selectedMast == i ? "» " : "") + "М" + (i + 1)),
                             clicked -> { selectedMast = mast; rebuild(); })
-                            .bounds(leftPos + 200 + i * 45, topPos + 65, 41, 17).build();
+                            .bounds(leftPos + 16 + i * 38, topPos + 187, 36, 17).build();
                     addRenderableWidget(selector);
                 }
                 for (int i = 0; i < MODULAR_CATEGORIES.length; i++) {
@@ -656,18 +656,10 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             graphics.drawString(font, font.plainSubstrByWidth(
                     "Будет: " + (projected == null ? "недоступно" : selectedValue(projected)), 150),
                     17, 221, projected == null ? 0xffffb18c : 0xffb5f4b8, false);
-            graphics.drawString(font, font.plainSubstrByWidth(
-                    "Корпус " + current.width() + "×" + current.length()
-                            + " | мачт " + current.sailTiers().size(), 245),
-                    201, 86, DARK, false);
             ShipBuildConfiguration next = nextConfig();
             if (next == null || next.equals(current))
                 graphics.drawString(font, font.plainSubstrByWidth(
-                        unavailableReason(current), 244), 201, 99, 0xffad3838, false);
-            else
-                graphics.drawString(font, font.plainSubstrByWidth(
-                                "Раздел: " + MODULAR_CATEGORIES[modCategory], 244),
-                        201, 99, DARK, false);
+                        unavailableReason(current), 150), 17, 233, 0xffffb18c, false);
         } else {
             graphics.drawString(font, vesselKind() == 0
                     ? "Положите судно в ячейку"
@@ -694,7 +686,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             graphics.drawString(font, "Оснастка: " + rig + "/4   Ткань: " + cloth + "/3",
                     201, 103, DARK, false);
         }
-        graphics.drawString(font, "Материалы", 200, 114, DARK, false);
+        graphics.drawString(font, "Материалы", 200, 116, DARK, false);
         if (minecraft != null && minecraft.player != null
                 && minecraft.player.getAbilities().instabuild)
             graphics.drawString(font, "Креатив: бесплатно", 351, 114, 0xff27663c, false);
@@ -706,9 +698,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                     tab == 1 && current != null && nextConfig() == null
                             ? 0xffad3838 : DARK, false);
         } else {
-            for (int i = 0; i < Math.min(12, requirements.size()); i++) {
+            for (int i = 0; i < Math.min(6, requirements.size()); i++) {
                 Cost cost = requirements.get(i);
-                int column = i % 3, row = i / 3, x = 200 + column * 89, y = 123 + row * 17;
+                int column = i % 3, row = i / 3, x = 200 + column * 89, y = 130 + row * 20;
                 graphics.renderItem(cost.icon(), x, y);
                 graphics.drawString(font, font.plainSubstrByWidth(cost.title(), 69),
                         x + 18, y, DARK, false);
@@ -720,8 +712,12 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                         ? "×" + cost.need() : cost.have() + "/" + cost.need(),
                         x + 18, y + 8, enough ? 0xff22612b : 0xffa13726, false);
             }
+            if (requirements.size() > 6)
+                graphics.drawString(font, "+" + (requirements.size() - 6)
+                        + " других видов ресурсов — полный список в подсказках",
+                        200, 174, DARK, false);
         }
-        graphics.drawString(font, "Инвентарь", 198, 182, DARK, false);
+        graphics.drawString(font, "Инвентарь", 198, 184, DARK, false);
         if (tab == 0 && !menu.inspected().isEmpty())
             graphics.drawString(font, "Заберите готовое судно", 17, 226, 0xffffb18c, false);
     }
