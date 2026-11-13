@@ -278,6 +278,29 @@ public final class ShipHullVoxelLayoutCheck {
                                         "LARGEST cabin-only roof remains accessible");
                         }
         yes(flagshipHelmVariants == 144, "all flagship captain station variants covered");
+        // Flagship side elevation has a real stepped sheer, not a horizontal
+        // rail from the broad transom to the clipper stem.
+        for (int length : new int[]{33, 37, 41, 45})
+            for (int width : new int[]{21, 23, 25}) {
+                var flagshipSheer = new ShipSuperstructurePlan(
+                        ShipSectionPlan.ShipClass.LARGEST, width, length,
+                        List.of(), 1, false, false, 2);
+                var model = ShipHullVoxelLayout.generate(flagshipSheer);
+                int halfLength = length / 2;
+                int bowHalf = ShipHullVoxelLayout.halfBeam(flagshipSheer, halfLength);
+                int sternHalf = ShipHullVoxelLayout.halfBeam(flagshipSheer, -halfLength);
+                yes(model.get(new ShipHullVoxelLayout.Cell(bowHalf, 8, halfLength))
+                                == ShipHullVoxelLayout.Part.RAIL,
+                        "flagship high clipper stem rail");
+                yes(model.get(new ShipHullVoxelLayout.Cell(sternHalf, 7, -halfLength))
+                                == ShipHullVoxelLayout.Part.RAIL,
+                        "flagship raised transom");
+                yes(model.get(new ShipHullVoxelLayout.Cell(width / 2, 6, 0)) == null,
+                        "flagship amidships never grows vertical wall");
+                yes(model.get(new ShipHullVoxelLayout.Cell(0, 5, halfLength))
+                                == null,
+                        "flagship bow centerline remains passable");
+            }
         // Four independent masts and all three sail tiers must remain above
         // each LARGEST sterncastle variant, including the narrow third floor.
         int flagshipRigVariants = 0;
