@@ -145,7 +145,11 @@ public final class ShipHullVoxelLayout {
                                             : plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
-                int half = Math.max(0, halfBeam(plan, z) - 1);
+                // LARGEST's third deck is a narrower raised sterncastle, not
+                // another full-beam rectangular storey above the second deck.
+                int inset = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && plan.hullRevision() >= 2 && floor >= 3 ? 3 : 1;
+                int half = Math.max(0, halfBeam(plan, z) - inset);
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
@@ -174,14 +178,23 @@ public final class ShipHullVoxelLayout {
         for (int i = 0; i < masts.size(); i++) {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
             int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
+            // On three-deck flagships the lowest standard yards used to cut
+            // through the raised sterncastle. Raise the whole working rig
+            // above the highest deck without changing the purchased sail tier.
+            int upperDeck = 4 + (plan.decks() - 1) * 4;
+            boolean flagship = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && plan.hullRevision() >= 2;
+            if (flagship) top = Math.max(top, upperDeck + 5);
+            int lowerYard = flagship ? Math.max(7, upperDeck + 3) : 7;
             int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
                 put(blocks, x, top + 1, z, Part.YARD);
-                put(blocks, x, 7, z, Part.YARD);
+                put(blocks, x, lowerYard, z, Part.YARD);
             }
-            int sailBottom = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                    && plan.decks() >= 2 ? 10 : 8;
+            int sailBottom = flagship ? lowerYard + 1
+                    : plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                            && plan.decks() >= 2 ? 10 : 8;
             for (int y = sailBottom; y <= top; y++)
                 for (int x = -span; x <= span; x++)
                     if (x != 0 && !blocks.containsKey(new Cell(x, y, z + 1)))
