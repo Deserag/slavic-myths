@@ -53,9 +53,10 @@ public final class ShipHullVoxelLayout {
         int halfLength = plan.hullLength() / 2;
         if (Math.abs(z) > halfLength) return -1;
         int fromEnd = halfLength - Math.abs(z);
+        int maxBeam = plan.hullWidth() / 2;
         if (z == halfLength) return 0;
         if (z == -halfLength) return 1;
-        return Math.min(3, Math.max(1, fromEnd));
+        return Math.min(maxBeam, Math.max(1, fromEnd));
     }
 
     /** Pure-Java selectable layout: no Minecraft/NBT dependency in this class. */
@@ -90,16 +91,34 @@ public final class ShipHullVoxelLayout {
                 for (int x = -half; x <= half; x++)
                     put(blocks, x, 3, z, Part.SHEER_SLAB);
         }
-        // The deck stays open on both sides of the mast, including extensions.
-        for (int y = 3; y <= KHRABR_YARD_Y; y++)
-            put(blocks, 0, y, 1, Part.THIN_MAST);
-        for (int x = -3; x <= 3; x++)
-            put(blocks, x, KHRABR_YARD_Y, 1, Part.YARD_SLAB);
-        for (int y = KHRABR_SAIL_BOTTOM; y <= KHRABR_SAIL_TOP; y++)
-            for (int x = -KHRABR_SAIL_HALF_SPAN; x <= KHRABR_SAIL_HALF_SPAN; x++)
-                if (x != 0) put(blocks, x, y, 2, Part.SAIL);
+        // Every installed mast is physically represented, including added masts
+        // and higher sail tiers. The same stations drive moving sail rendering.
+        for (int i = 0; i < plan.sailTiers().size(); i++) {
+            int station = khrabrMastZ(plan, i);
+            int tier = plan.sailTiers().get(i);
+            int top = khrabrSailTop(tier), span = khrabrSailSpan(tier);
+            for (int y = 3; y <= top + 1; y++)
+                put(blocks, 0, y, station, Part.THIN_MAST);
+            for (int x = -span - 1; x <= span + 1; x++)
+                put(blocks, x, top + 1, station, Part.YARD_SLAB);
+            for (int y = KHRABR_SAIL_BOTTOM; y <= top; y++)
+                for (int x = -span; x <= span; x++)
+                    if (x != 0) put(blocks, x, y, station + 1, Part.SAIL);
+        }
         put(blocks, 0, 3, -1, Part.HELM);
         return Collections.unmodifiableMap(blocks);
+    }
+
+    public static int khrabrMastZ(ShipSuperstructurePlan plan, int index) {
+        return plan.sailTiers().size() == 1 ? 1 : plan.mastPositions().get(index);
+    }
+
+    public static int khrabrSailTop(int tier) {
+        return tier == 1 ? KHRABR_SAIL_TOP : tier == 2 ? 14 : 19;
+    }
+
+    public static int khrabrSailSpan(int tier) {
+        return tier == 1 ? KHRABR_SAIL_HALF_SPAN : tier == 2 ? 3 : 4;
     }
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
