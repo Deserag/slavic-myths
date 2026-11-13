@@ -566,7 +566,7 @@ public final class Ocean26GameTests {
     }
 
     @GameTest(template = "empty", timeoutTicks = 220, batch = "ocean_modular_wide_stern_cargo")
-    public static void wideV5V6SternCargoAndInteriorObstructions(GameTestHelper t) {
+    public static void wideV5ToV9SternCargoAndInteriorObstructions(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(25, 4, 25));
         for (int x = -18; x <= 18; x++)
@@ -578,13 +578,13 @@ public final class Ocean26GameTests {
                     level.setBlock(p.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         int cases = 0;
-        for (int geometry : new int[]{5, 6})
+        for (int geometry : new int[]{5, 6, 7, 8, 9})
             for (int turn = 0; turn < 4; turn++) {
                 var config = new org.slavicmyths.ships.ShipBuildConfiguration(
                         org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
                         0, 0, java.util.List.of(1), 2, false, false, geometry);
-                // The exact stern edge contains a physical perimeter rail;
-                // the next row is open deck within the V5/V6 wide transom.
+                // All V5-V9 share the wide transom, including purchased lighting;
+                // cargo at its edge must not be ignored during motion inspection.
                 int z = -config.length() / 2 + 1;
                 int x = 5;
                 t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
@@ -656,7 +656,7 @@ public final class Ocean26GameTests {
                 cases++;
             }
         System.out.println("OCEAN26_WIDE_STERN_CARGO_PASS configurations=" + cases
-                + " rotations=4 legacyV5=true stairsV6=true cargo=17");
+                + " rotations=4 V5toV9=true stairsV6=true lightingV7toV9=true cargo=17");
         t.succeed();
     }
 
