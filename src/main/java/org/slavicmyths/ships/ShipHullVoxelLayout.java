@@ -33,7 +33,18 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
-        return beam(plan.hullWidth(), plan.hullLength(), z);
+        if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
+            return beam(plan.hullWidth(), plan.hullLength(), z);
+        // The trading strug has a long, narrow bow and a fuller working
+        // midship, not the same four-row taper as every other ship class.
+        int halfLength = plan.hullLength() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int halfWidth = plan.hullWidth() / 2;
+        int taperLength = z >= 0 ? 7 : 5;
+        int taper = Math.max(0, Math.abs(z) - (halfLength - taperLength));
+        int reduction = (int)Math.ceil(taper * halfWidth / (double)taperLength);
+        return Math.max(z == halfLength ? 0 : z == -halfLength ? 1 : 0,
+                halfWidth - reduction);
     }
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
@@ -68,8 +79,12 @@ public final class ShipHullVoxelLayout {
         // Elevated deck floors are stepped, not full-height rectangular towers.
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int y = 4 + (floor - 1) * 4;
-            int front = halfLength - 3 * (floor - 1);
             int rear = -halfLength + 2;
+            // A medium trading strug carries a compact raised stern deck,
+            // not a second full-length rectangular slab over the cargo deck.
+            // Preserve the central ladder/hatch at z=0..1 for deck access.
+            int front = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM && floor == 2
+                    ? Math.min(1, halfLength - 3) : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
