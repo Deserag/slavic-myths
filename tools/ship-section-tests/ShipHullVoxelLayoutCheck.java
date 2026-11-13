@@ -212,8 +212,11 @@ public final class ShipHullVoxelLayoutCheck {
                                 int floorHalf = Math.max(keelHalf, beam - 2);
                                 for (int x = -beam; x <= beam; x++) {
                                     var bottom = geometry.get(new ShipHullVoxelLayout.Cell(x, 0, z));
-                                    yes((bottom != null) == (Math.abs(x) <= keelHalf),
-                                            "flagship narrow keel station " + z);
+                                    boolean liftedKeel = length / 2 - z <= 4
+                                            || length / 2 + z <= 3;
+                                    yes((bottom != null)
+                                                    == (!liftedKeel && Math.abs(x) <= keelHalf),
+                                            "flagship rising narrow keel station " + z);
                                     if (Math.abs(x) <= floorHalf) {
                                         // The vertical hold access intentionally cuts
                                         // a one-cell opening above the sealed y=0 keel.
