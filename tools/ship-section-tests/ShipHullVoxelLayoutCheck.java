@@ -320,6 +320,31 @@ public final class ShipHullVoxelLayoutCheck {
                             yes(oldCells.equals(ShipHullVoxelLayout.generate(oldLarge)),
                                     "LARGE legacy layout stable");
                         }
+        // Maximum three-mast LARGE rig and all sail tiers must stay clear of
+        // player headroom on upgraded second/third decks.
+        for (int length : new int[]{33, 37, 41, 45})
+            for (int width : new int[]{21, 23, 25})
+                for (int decks : new int[]{1, 2, 3})
+                    for (List<Integer> sailTiers : List.of(
+                            List.of(1, 1, 1), List.of(2, 2, 2), List.of(3, 3, 3))) {
+                        var rigged = new ShipSuperstructurePlan(
+                                ShipSectionPlan.ShipClass.LARGE, width, length,
+                                sailTiers, decks, false, false, 2);
+                        var geometry = ShipHullVoxelLayout.generate(rigged);
+                        int highest = 4 + (decks - 1) * 4;
+                        for (int mastZ : rigged.mastPositions()) {
+                            for (int y = highest + 1; y <= highest + 2; y++)
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y, mastZ + 1))
+                                        != ShipHullVoxelLayout.Part.SAIL,
+                                        "LARGE rig cloth clears player headroom");
+                            yes(geometry.get(new ShipHullVoxelLayout.Cell(0, highest + 3,
+                                    mastZ)) != ShipHullVoxelLayout.Part.YARD,
+                                    "LARGE yard not inside center mast travel");
+                        }
+                        yes(geometry.values().stream().filter(p ->
+                                p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                "three-mast LARGE retains one helm");
+                    }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
