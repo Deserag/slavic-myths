@@ -190,7 +190,9 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
             pose.translate(0D, 0D, plan.mastPositions().get(i));
-            sailPanel(ship, partialTick, pose, buffers, light, edging, 8D, top, span);
+            double bottom = plan.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM
+                    && plan.decks() >= 2 ? 10D : 8D;
+            sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
             pose.popPose();
         }
         pose.popPose();
