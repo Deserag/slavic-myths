@@ -679,6 +679,27 @@ public final class Ocean26GameTests {
                 t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, -2, 13, aft + 4)).is(Blocks.SPRUCE_FENCE),
                         "LARGEST bridge ladder exit cannot be blocked by railing");
+                // The new LARGEST upperworks must have real tapered fore
+                // termini. Verify that only the center is planked and that
+                // the final transverse rail guards the edge on both floors.
+                for (int floor = 2; floor <= maximum.decks(); floor++) {
+                    int deckY = 4 + 4 * (floor - 1);
+                    int upperFront = Math.min(maximum.length() / 2 - 5,
+                            aft + (floor == 2 ? maximum.length() * 2 / 3
+                                    : maximum.length() / 2));
+                    int halfBeam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                            maximum.structure(), upperFront);
+                    int outsideX = halfBeam - (floor == 2 ? 1 : 3);
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, 1, deckY, upperFront)).is(Blocks.SPRUCE_PLANKS),
+                            "LARGEST tapered upper deck loses central walkway");
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, outsideX, deckY, upperFront)).isAir(),
+                            "LARGEST upper deck still has squared-off full-beam front");
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, 1, deckY + 1, upperFront)).is(Blocks.SPRUCE_FENCE),
+                            "LARGEST raised deck fore end lacks real safety rail");
+                }
                 int beam = maximum.width() / 2;
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, beam, 0, 0)).is(Blocks.WATER),
