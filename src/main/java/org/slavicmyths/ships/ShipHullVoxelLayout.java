@@ -80,21 +80,33 @@ public final class ShipHullVoxelLayout {
         for (int floor = 2; floor <= plan.decks(); floor++) {
             int y = 4 + (floor - 1) * 4;
             int rear = -halfLength + 2;
-            // A medium trading strug carries a compact raised stern deck,
-            // not a second full-length rectangular slab over the cargo deck.
-            // Preserve the central ladder/hatch at z=0..1 for deck access.
-            int front = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM && floor == 2
-                    ? Math.min(1, halfLength - 3) : halfLength - 3 * (floor - 1);
+            // The medium ship gets a short, raised quarterdeck. A long
+            // full-width second floor made the vessel look like a two-storey
+            // rectangular building and interfered with the mast.
+            boolean mediumQuarterdeck = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                    && floor == 2;
+            int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
+                    : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
-                    boolean hatch = x == -2 && (z == 0 || z == 1);
+                    boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
                     if (Math.abs(x) == half && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
                             put(blocks, x, sy, z, Part.FRAME);
+                }
+            }
+            if (mediumQuarterdeck) {
+                // External access is separate from the hold hatch. Put the
+                // ladder immediately forward of the quarterdeck, never inside
+                // the captain's cabin or through an occupied mast station.
+                int accessZ = front + 1;
+                for (int y = 5; y <= 8; y++) {
+                    put(blocks, -3, y, accessZ, Part.FRAME);
+                    put(blocks, -2, y, accessZ, Part.LADDER);
                 }
             }
         }
@@ -180,6 +192,11 @@ public final class ShipHullVoxelLayout {
                 put(blocks, -side + 1, y, front + 1, Part.LADDER);
             }
             put(blocks, 0, 9, rear + 2, Part.HELM);
+        } else if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                && plan.decks() >= 2) {
+            // With a raised quarterdeck the wheel must be above it, not
+            // hidden underneath the floor at main-deck height.
+            put(blocks, 0, 9, -halfLength + 4, Part.HELM);
         } else {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
