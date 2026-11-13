@@ -47,8 +47,8 @@ public final class ShipDeckContact {
         int x = (int)Math.round(localX), z = (int)Math.round(localZ);
         if (Math.abs(localX - x) >= .50D || Math.abs(localZ - z) >= .50D)
             return false;
-        var material = layout(config).get(new ShipHullVoxelLayout.Cell(
-                x, (int)height(floor) - 1, z));
+        int supportY = config.isKhrabrV3() && floor == 1 ? 2 : (int)height(floor) - 1;
+        var material = layout(config).get(new ShipHullVoxelLayout.Cell(x, supportY, z));
         return floor == 0
                 ? material == ShipHullVoxelLayout.Part.HULL
                     || material == ShipHullVoxelLayout.Part.KEEL
@@ -64,7 +64,8 @@ public final class ShipDeckContact {
         int[] order = config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
-            double target = ship.getY() + height(floor);
+            double target = ship.getY() + (config != null && config.isKhrabrV3()
+                    && floor == 1 ? 3D : height(floor));
             if (absoluteFeetY >= target - .35D
                     && absoluteFeetY <= target + .55D
                     && supports(ship, x, z, floor)) return floor;
