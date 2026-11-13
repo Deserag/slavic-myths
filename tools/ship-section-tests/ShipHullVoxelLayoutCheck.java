@@ -137,6 +137,34 @@ public final class ShipHullVoxelLayoutCheck {
                                             == ShipHullVoxelLayout.Part.MAST,
                                             "mast survives upgrades: " + variant);
                             }
+        // Exercise the actual mast/sail upgrades independently of the hull
+        // dimensions. A rig upgrade must never reset geometry revision 2.
+        for (int count : new int[]{1, 2, 3})
+            for (int tier : new int[]{1, 2, 3})
+                for (int decksCount : new int[]{1, 2, 3}) {
+                    List<Integer> tiers = new java.util.ArrayList<>();
+                    for (int i = 0; i < count; i++) tiers.add(tier);
+                    var rig = new ShipSuperstructurePlan(
+                            ShipSectionPlan.ShipClass.LARGE, 25, 45,
+                            tiers, decksCount, true, true, 2);
+                    var voxels = ShipHullVoxelLayout.generate(rig);
+                    yes(voxels.values().stream().filter(p ->
+                            p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                            "LARGE rig has only one helm");
+                    for (int z : rig.mastPositions()) {
+                        yes(voxels.get(new ShipHullVoxelLayout.Cell(0, 6, z))
+                                == ShipHullVoxelLayout.Part.MAST,
+                                "LARGE upgraded mast stays anchored");
+                        yes(voxels.get(new ShipHullVoxelLayout.Cell(1, 8, z + 1))
+                                != ShipHullVoxelLayout.Part.SAIL,
+                                "LARGE sails cannot replace a walkable deck");
+                    }
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 4, 0)) == null,
+                            "LARGE main hatch stays open");
+                    yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 4, 1))
+                            == ShipHullVoxelLayout.Part.LADDER,
+                            "LARGE hold remains accessible");
+                }
         // LARGE V2 is opt-in: old blueprints retain exactly their legacy shape.
         for (int width : new int[]{21, 23, 25})
             for (int length : new int[]{33, 37, 41, 45})
