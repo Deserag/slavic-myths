@@ -185,12 +185,22 @@ public final class ShipHullVoxelLayout {
             int z = masts.get(i), tier = plan.sailTiers().get(i);
             int top = tier == 1 ? 12 : tier == 2 ? 15 : 19;
             int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            boolean raisedLargeRig = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && plan.hullRevision() >= 2;
+            int highestDeck = 4 + (plan.decks() - 1) * 4;
+            // An upper deck is walkable: neither sail cloth nor the low yard
+            // may intersect the player's two-block-high clearance envelope.
+            // Rig tier still raises height above the active deck elevation.
+            if (raisedLargeRig)
+                top = Math.max(top, highestDeck + 7 + (tier - 1) * 2);
+            int lowerYard = raisedLargeRig ? highestDeck + 3 : 7;
             for (int y = 5; y <= top + 1; y++) put(blocks, 0, y, z, Part.MAST);
             for (int x = -span; x <= span; x++) {
                 put(blocks, x, top + 1, z, Part.YARD);
-                put(blocks, x, 7, z, Part.YARD);
+                put(blocks, x, lowerYard, z, Part.YARD);
             }
-            int sailBottom = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+            int sailBottom = raisedLargeRig ? highestDeck + 4
+                    : plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                     && plan.decks() >= 2 ? 10 : 8;
             for (int y = sailBottom; y <= top; y++)
                 for (int x = -span; x <= span; x++)
