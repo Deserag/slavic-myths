@@ -33,6 +33,22 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2) {
+            // The flagship has a deep, broad merchant stern and a long
+            // asymmetric clipper stem: never copy LARGE's hull stations.
+            int halfLength = plan.hullLength() / 2;
+            if (Math.abs(z) > halfLength) return -1;
+            int halfWidth = plan.hullWidth() / 2;
+            int run = z >= 0 ? Math.min(15, halfLength) : Math.min(9, halfLength);
+            int distance = z >= 0 ? halfLength - z : halfLength + z;
+            if (distance >= run) return halfWidth;
+            double t = distance / (double)run;
+            double curve = z >= 0 ? Math.pow(t, 1.35D)
+                    : t * t * (3D - 2D * t);
+            int tip = z >= 0 ? 1 : Math.max(4, halfWidth / 2);
+            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve));
+        }
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() >= 2) {
             // A fine bow and a wide, comparatively full working stern.
@@ -88,7 +104,8 @@ public final class ShipHullVoxelLayout {
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
-                if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                if ((plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
                         && plan.hullRevision() >= 2 && edge
                         && Math.abs(x) == half && Math.abs(z) < halfLength - 2)
                     put(blocks, x, 2, z, Math.floorMod(z, 6) == 0
@@ -116,12 +133,16 @@ public final class ShipHullVoxelLayout {
             // rectangular building and interfered with the mast.
             boolean mediumQuarterdeck = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                     && floor == 2;
-            boolean largeAftDeck = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                    && plan.hullRevision() >= 2;
+            boolean modernAftDeck = plan.hullRevision() >= 2
+                    && (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                            || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST);
             int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
-                    : largeAftDeck ? Math.min(halfLength - 5,
-                            rear + (floor == 2 ? (plan.hullLength() * 3 / 5)
-                                    : (plan.hullLength() * 2 / 5)))
+                    : modernAftDeck ? Math.min(halfLength - 5,
+                            rear + (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    ? (floor == 2 ? plan.hullLength() * 2 / 3
+                                            : plan.hullLength() / 2)
+                                    : (floor == 2 ? plan.hullLength() * 3 / 5
+                                            : plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
                 int half = Math.max(0, halfBeam(plan, z) - 1);

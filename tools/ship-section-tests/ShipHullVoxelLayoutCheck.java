@@ -173,6 +173,41 @@ public final class ShipHullVoxelLayoutCheck {
                             yes(oldCells.equals(ShipHullVoxelLayout.generate(oldLarge)),
                                     "LARGE legacy layout stable");
                         }
+        // Flagship geometry and all dimensional, room and deck upgrades.
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int floors : new int[]{1, 2, 3})
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true}) {
+                            var oldFlagship = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGEST, width, length,
+                                    List.of(1, 2), floors, bridge, cabin, 1);
+                            var flagship = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGEST, width, length,
+                                    List.of(1, 2), floors, bridge, cabin, 2);
+                            var geometry = ShipHullVoxelLayout.generate(flagship);
+                            yes(!geometry.equals(ShipHullVoxelLayout.generate(oldFlagship)),
+                                    "flagship must differ from legacy");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, length / 2) == 1,
+                                    "flagship clipper stem");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, -length / 2) >= 4,
+                                    "flagship broad transom");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, length / 2 - 5)
+                                    < ShipHullVoxelLayout.halfBeam(flagship, 0),
+                                    "flagship bow shoulders taper");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, -length / 2 + 5)
+                                    < ShipHullVoxelLayout.halfBeam(flagship, 0),
+                                    "flagship stern shoulders taper");
+                            yes(geometry.values().stream().filter(p ->
+                                    p == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                    "flagship keeps one helm");
+                            yes(geometry.equals(ShipHullVoxelLayout.generate(flagship)),
+                                    "flagship deterministic geometry");
+                            if (floors >= 2)
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(2, 8,
+                                        length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
+                                        "flagship avoids full-length upper deck slab");
+                        }
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
