@@ -125,7 +125,8 @@ public final class ShipHullVoxelLayoutCheck {
                 int half = ShipHullVoxelLayout.halfBeam(selected, z, true);
                 yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 0, z))
                         == ShipHullVoxelLayout.Part.KEEL, "keel contacts water every section");
-                yes(!khrabr.containsKey(new ShipHullVoxelLayout.Cell(0, 4, z)),
+                yes(khrabr.get(new ShipHullVoxelLayout.Cell(0, 4, z))
+                        == (z == 1 ? ShipHullVoxelLayout.Part.THIN_MAST : null),
                         "no fake upper deck or enclosed hold");
                 for (int x = -Math.max(0, half - 1); x <= Math.max(0, half - 1); x++)
                     yes(khrabr.get(new ShipHullVoxelLayout.Cell(x, 2, z))
