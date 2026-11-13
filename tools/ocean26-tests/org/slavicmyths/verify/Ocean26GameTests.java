@@ -561,6 +561,18 @@ public final class Ocean26GameTests {
 
     @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_modular_third_deck")
     public static void thirdDeckWalkerFollowsLargeMovingShip(GameTestHelper t) {
+        thirdDeckWalkerFollowsMovingShip(t,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_largest_third_deck_motion")
+    public static void thirdDeckWalkerFollowsLargestMovingShip(GameTestHelper t) {
+        thirdDeckWalkerFollowsMovingShip(t,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST);
+    }
+
+    private static void thirdDeckWalkerFollowsMovingShip(GameTestHelper t,
+            org.slavicmyths.ships.ShipSectionPlan.ShipClass shipClass) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
         level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
@@ -573,8 +585,7 @@ public final class Ocean26GameTests {
                 for (int y = 1; y <= 24; y++)
                     level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
-        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(shipClass)
                 .resize(1, 1).withDecks(3).withBridge(true).withCabin(true);
         ServerPlayer builder = player(level, "ThirdDeckBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
@@ -592,6 +603,8 @@ public final class Ocean26GameTests {
         ServerPlayer walker = player(level, "ThirdDeckWalker",
                 new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ() - 8D));
         t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, 2D, -8D, 3),
+                shipClass + " third-deck walker has no actual support");
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),
