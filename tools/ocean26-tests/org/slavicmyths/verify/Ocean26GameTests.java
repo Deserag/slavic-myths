@@ -736,6 +736,26 @@ public final class Ocean26GameTests {
                     movedAnchor, 1, maximum), type + " maximum hull removal failed");
             t.assertTrue(level.getBlockState(turnedChest).isAir(),
                     type + " cargo remained in world after packing");
+            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+                // An unupgraded one-deck flagship with cabin uses its roof
+                // as the captain's platform; verify real fence/ladder blocks.
+                var roofOnly = config.withCabin(true);
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
+                        anchor, 0, roofOnly, new ListTag()),
+                        "Cabin-only flagship failed to place");
+                int rear = -roofOnly.length() / 2 + 2;
+                BlockPos rail = FirstShipBlockHull.world(anchor, 0, 3, 9, rear + 3);
+                BlockPos entry = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 6);
+                BlockPos ladder = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 7);
+                t.assertTrue(level.getBlockState(rail).is(Blocks.SPRUCE_FENCE),
+                        "Cabin-only flagship roof lacks real safety fence");
+                t.assertTrue(level.getBlockState(entry).isAir(),
+                        "Cabin-only flagship roof access is obstructed");
+                t.assertTrue(level.getBlockState(ladder).is(Blocks.LADDER),
+                        "Cabin-only flagship roof has no access ladder");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
+                        anchor, 0, roofOnly), "Cabin-only flagship cleanup failed");
+            }
         }
         menu.removed(builder);
         builder.discard();
