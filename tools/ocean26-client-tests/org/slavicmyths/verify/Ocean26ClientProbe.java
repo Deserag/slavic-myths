@@ -55,7 +55,7 @@ public final class Ocean26ClientProbe {
     private static volatile String benchError;
     private static boolean benchPreparing;
     private static UUID benchPrevious;
-    private static int benchCase = -1, benchWait;
+    private static int benchCase = -1, benchWait, benchVariant;
     private static volatile boolean benchBaselineReady;
     private static Integer benchOriginalFpsLimit;
     private static Boolean benchOriginalVsync;
@@ -63,10 +63,17 @@ public final class Ocean26ClientProbe {
     private static int benchRepeat, benchWarmup, benchSamples;
     private static long benchLastFrameNanos;
     private static final int FRAME_WARMUP = 60, FRAME_SAMPLES = 180, FRAME_REPEATS = 3;
-    private static final long[][] frameTimes = new long[5][FRAME_SAMPLES * FRAME_REPEATS];
+    private static final long[][] frameTimes = new long[9][FRAME_SAMPLES * FRAME_REPEATS];
     private static final String[] FRAME_SCENES = {
-            "SEA", "SMALL", "LARGE_UNLIT", "LARGE_LIT", "LARGEST_LIT"
+            "SEA", "SMALL_LEGACY", "SMALL_BATCH",
+            "LARGE_UNLIT_LEGACY", "LARGE_UNLIT_BATCH",
+            "LARGE_LIT_LEGACY", "LARGE_LIT_BATCH",
+            "LARGEST_LIT_LEGACY", "LARGEST_LIT_BATCH"
     };
+
+    private static int frameScenario() {
+        return benchCase < 0 ? 0 : 1 + 2 * benchCase + benchVariant;
+    }
     private static volatile boolean modularSetupRequested, modularReady;
     private static boolean turnMotionStarted;
     private static int phase;
@@ -108,7 +115,7 @@ public final class Ocean26ClientProbe {
             benchWarmup++;
             return;
         }
-        int scenario = benchCase + 1;
+        int scenario = frameScenario();
         frameTimes[scenario][benchRepeat * FRAME_SAMPLES + benchSamples++] = now - previous;
         if (benchSamples != FRAME_SAMPLES) return;
         double meanMs = frameMeanMs(frameTimes[scenario], benchRepeat * FRAME_SAMPLES, FRAME_SAMPLES);
@@ -156,9 +163,27 @@ public final class Ocean26ClientProbe {
     }
 
     private static void beginFrameCapture() {
+        if (benchCase >= 1) {
+            String label = FRAME_SCENES[frameScenario()];
+            Screenshot.grab(Minecraft.getInstance().gameDirectory,
+                    Minecraft.getInstance().getMainRenderTarget(),
+                    message -> System.out.println("OCEAN26_AB_VISUAL " + label
+                            + " screenshot=" + message.getString()));
+        }
         benchRepeat = benchSamples = benchWarmup = 0;
         benchLastFrameNanos = 0L;
         benchSampling = true;
+    }
+
+    private static void printAbFrameResult(int index) {
+        int legacy = 1 + 2 * index, batch = legacy + 1;
+        double oldMs = frameMeanMs(frameTimes[legacy], 0, frameTimes[legacy].length);
+        double newMs = frameMeanMs(frameTimes[batch], 0, frameTimes[batch].length);
+        System.out.println(String.format(java.util.Locale.ROOT,
+                "OCEAN26_AB_FRAME ship=%s oldFrameMs=%.4f newFrameMs=%.4f oldFps=%.3f newFps=%.3f deltaFpsPct=%+.2f",
+                FRAME_SCENES[legacy].replace("_LEGACY", ""),
+                oldMs, newMs, 1000D / oldMs, 1000D / newMs,
+                100D * (oldMs / newMs - 1D)));
     }
 
     @SubscribeEvent
@@ -738,6 +763,8 @@ public final class Ocean26ClientProbe {
                         if (RENDER_BENCH) {
                             phase = 6;
                             benchPrevious = shipId;
+                            benchVariant = 0;
+                            FirstShipRenderer.setExperimentalBatchEnabled(false);
                             benchOriginalVsync = mc.options.enableVsync().get();
                             benchOriginalFpsLimit = mc.options.framerateLimit().get();
                             mc.options.enableVsync().set(false);
@@ -1019,19 +1046,29 @@ public final class Ocean26ClientProbe {
                 if (ship == null || !ship.isMoving()
                         || !(mc.getEntityRenderDispatcher().getRenderer(ship) instanceof FirstShipRenderer renderer)
                         || !renderer.profileComplete(benchShipId)) {
-                    fail(mc, "ship was not visibly moving throughout frame case " + benchCase);
+                    fail(mc, "ship was not visibly moving throughout frame case " + benchCase
+                            + " variant=" + benchVariant);
                     return;
                 }
             }
-            printFrameResult(benchCase + 1);
+            printFrameResult(frameScenario());
             benchSceneDone = false;
+            if (benchCase >= 0 && benchVariant == 0) {
+                benchVariant = 1;
+                FirstShipRenderer.setExperimentalBatchEnabled(true);
+                System.out.println("OCEAN26_AB_SWITCH ship=" + benchCase + " mode=BATCH");
+                return;
+            }
+            if (benchCase >= 0) printAbFrameResult(benchCase);
+            benchVariant = 0;
+            FirstShipRenderer.setExperimentalBatchEnabled(false);
             benchPrevious = benchShipId;
             benchShipId = null;
             benchPreparing = false;
             benchWait = 0;
             benchCase++;
             if (benchCase == 4) {
-                System.out.println("OCEAN26_RENDER_BENCH_DONE cases=4 frameScenarios=5");
+                System.out.println("OCEAN26_RENDER_BENCH_DONE cases=8 frameScenarios=9");
                 finish(mc, true, "longForward");
             }
             return;
@@ -1158,6 +1195,7 @@ public final class Ocean26ClientProbe {
             throw new IllegalStateException("Cannot record client probe result", error);
         } finally {
             try {
+                FirstShipRenderer.setExperimentalBatchEnabled(false);
                 if (benchOriginalFpsLimit != null && benchOriginalVsync != null) {
                     mc.options.enableVsync().set(benchOriginalVsync);
                     mc.options.framerateLimit().set(benchOriginalFpsLimit);

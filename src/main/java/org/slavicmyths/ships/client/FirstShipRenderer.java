@@ -48,16 +48,26 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private static final boolean PROFILE = Boolean.getBoolean("ocean26.longForward")
             || Boolean.getBoolean("ocean26.renderProfile");
     private static final int PROFILE_WARMUP = 20, PROFILE_SAMPLES = 100;
+    private static volatile boolean experimentalBatch = Boolean.getBoolean("ocean26.batchShipBlocks");
+
+    /** Test-only switch; the production default remains the unchanged per-block path. */
+    public static void setExperimentalBatchEnabled(boolean enabled) {
+        experimentalBatch = enabled;
+    }
     private final long[] profileTimes = new long[PROFILE_SAMPLES];
     private long profileTotalNs, profilePaletteNs, profileBlocksNs, profileBuildNs, profileLightNs;
     private int profileFrames, profileCalls, profileHullCalls, profilePieceCalls;
     private int profileBlocks, profileLanterns, profileMisses;
+    private int profileBatched, profileFallback, profileVertices, profileMeshBuilds, profileRebuildsAfterWarmup;
+    private boolean profileBatchMode;
+    private final ShipMovingHullBatch movingBatch = new ShipMovingHullBatch();
     private java.util.UUID profileShipId;
 
     private void resetProfile(java.util.UUID shipId) {
         profileShipId = shipId;
         profileFrames = profileCalls = profileHullCalls = profilePieceCalls = 0;
         profileBlocks = profileLanterns = profileMisses = 0;
+        profileBatched = profileFallback = profileVertices = profileMeshBuilds = profileRebuildsAfterWarmup = 0;
         profileTotalNs = profilePaletteNs = profileBlocksNs = profileBuildNs = profileLightNs = 0L;
     }
 
@@ -69,7 +79,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private record PaletteKey(java.util.UUID shipId, org.slavicmyths.ships.ShipBuildConfiguration config,
             int geometry, int rig, int fabric, String cargo) {}
-    private record MovingPalette(Map<BlockPos, BlockState> blocks, Map<BlockPos, Integer> blockLight) {}
+    private record MovingPalette(PaletteKey key, Map<BlockPos, BlockState> blocks, Map<BlockPos, Integer> blockLight) {}
     private record SailPanel(int z, int bottom, int top, int span, BlockState cloth) {}
 
     private final Map<PaletteKey, MovingPalette> paletteCache = new LinkedHashMap<>(16, .75F, true) {
@@ -175,7 +185,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         long lightStart = PROFILE ? System.nanoTime() : 0L;
         Map<BlockPos, Integer> blockLight = localBlockLight(blocks, config);
         if (PROFILE) profileLightNs += System.nanoTime() - lightStart;
-        MovingPalette built = new MovingPalette(blocks, blockLight);
+        MovingPalette built = new MovingPalette(key, blocks, blockLight);
         paletteCache.put(key, built);
         if (PROFILE) {
             profileMisses++;
@@ -191,8 +201,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             return;
         }
         var config = ship.modularConfiguration();
-        if (PROFILE && ship.isMoving() && config != null && !ship.getUUID().equals(profileShipId))
+        if (PROFILE && ship.isMoving() && config != null
+                && (!ship.getUUID().equals(profileShipId) || profileBatchMode != experimentalBatch)) {
             resetProfile(ship.getUUID());
+            profileBatchMode = experimentalBatch;
+        }
         boolean measuring = PROFILE && ship.isMoving() && config != null
                 && profileFrames < PROFILE_WARMUP + PROFILE_SAMPLES;
         long renderStart = measuring ? System.nanoTime() : 0L;
@@ -212,7 +225,24 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             }
             Map<BlockPos, Integer> localLight = palette.blockLight();
             long blocksStart = measuring ? System.nanoTime() : 0L;
+            ShipMovingHullBatch.Geometry mesh = null;
+            if (experimentalBatch) {
+                ShipMovingHullBatch.Lookup lookup = movingBatch.get(
+                        palette.key(), palette.blocks(), ship.level());
+                mesh = lookup.geometry();
+                if (measuring) {
+                    profileBatched = mesh.batched.size();
+                    profileFallback = profileBlocks - profileBatched;
+                    profileVertices = mesh.vertexCount;
+                    if (lookup.built()) {
+                        profileMeshBuilds++;
+                        if (profileFrames >= PROFILE_WARMUP) profileRebuildsAfterWarmup++;
+                    }
+                }
+                ShipMovingHullBatch.render(mesh, pose, buffers, light, localLight);
+            }
             for (var entry : palette.blocks().entrySet()) {
+                if (mesh != null && mesh.batched.contains(entry.getKey())) continue;
                 BlockState state = entry.getValue();
                 if (state.isAir()) continue;
                 BlockPos p = entry.getKey();
@@ -292,11 +322,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         java.util.Arrays.sort(ordered);
         double unit = PROFILE_SAMPLES * 1_000_000D;
         System.out.println(String.format(java.util.Locale.ROOT,
-                "OCEAN26_RENDER_PROFILE class=%s geometry=%d size=%dx%d warmup=%d frames=%d blocks=%d hullCalls=%d extraCalls=%d singleBlockCalls=%d lanterns=%d avgCpuMs=%.5f p95CpuMs=%.5f avgPaletteMs=%.5f avgBlockLoopMs=%.5f cacheMisses=%d cacheBuildTotalMs=%.5f lightBuildTotalMs=%.5f",
+                "OCEAN26_RENDER_PROFILE class=%s geometry=%d size=%dx%d warmup=%d frames=%d mode=%s blocks=%d hullCalls=%d extraCalls=%d singleBlockCalls=%d lanterns=%d batchedBlocks=%d fallbackBlocks=%d cachedVertices=%d meshBuilds=%d meshBuildsAfterWarmup=%d avgCpuMs=%.5f p95CpuMs=%.5f avgPaletteMs=%.5f avgBlockLoopMs=%.5f cacheMisses=%d cacheBuildTotalMs=%.5f lightBuildTotalMs=%.5f",
                 ship.modularConfiguration().shipClass(), ship.modularConfiguration().hullGeometry(),
                 ship.modularConfiguration().width(), ship.modularConfiguration().length(),
-                PROFILE_WARMUP, PROFILE_SAMPLES,
+                PROFILE_WARMUP, PROFILE_SAMPLES, profileBatchMode ? "BATCH" : "LEGACY",
                 profileBlocks, profileHullCalls, profilePieceCalls, profileCalls, profileLanterns,
+                profileBatched, profileFallback, profileVertices, profileMeshBuilds, profileRebuildsAfterWarmup,
                 profileTotalNs / unit, ordered[(int)Math.ceil(.95D * PROFILE_SAMPLES) - 1] / 1_000_000D,
                 profilePaletteNs / unit, profileBlocksNs / unit,
                 profileMisses, profileBuildNs / 1_000_000D, profileLightNs / 1_000_000D));
