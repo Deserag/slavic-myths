@@ -208,6 +208,41 @@ public final class ShipHullVoxelLayoutCheck {
                                         length / 2 - 5)) != ShipHullVoxelLayout.Part.DECK,
                                         "flagship avoids full-length upper deck slab");
                         }
+        // Four independent masts and all three sail tiers must remain above
+        // each LARGEST sterncastle variant, including the narrow third floor.
+        int flagshipRigVariants = 0;
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int floors : new int[]{1, 2, 3})
+                    for (int tier : new int[]{1, 2, 3}) {
+                        var flagship = new ShipSuperstructurePlan(
+                                ShipSectionPlan.ShipClass.LARGEST, width, length,
+                                List.of(tier, tier, tier, tier), floors, true, true, 2);
+                        var voxels = ShipHullVoxelLayout.generate(flagship);
+                        flagshipRigVariants++;
+                        int highestDeck = 4 + 4 * (floors - 1);
+                        int lowerYard = Math.max(7, highestDeck + 3);
+                        for (int mastZ : flagship.mastPositions()) {
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(1, lowerYard, mastZ))
+                                            == ShipHullVoxelLayout.Part.YARD,
+                                    "LARGEST lower yard above raised deck " + flagship);
+                            for (int y = 8; y <= highestDeck + 2; y++)
+                                yes(voxels.get(new ShipHullVoxelLayout.Cell(1, y, mastZ + 1))
+                                                != ShipHullVoxelLayout.Part.SAIL,
+                                        "LARGEST sail clears occupied floors " + flagship);
+                        }
+                        if (floors == 3) {
+                            int station = -length / 2 + 12;
+                            int shoulder = ShipHullVoxelLayout.halfBeam(flagship, station) - 2;
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(shoulder, 8, station))
+                                            == ShipHullVoxelLayout.Part.DECK,
+                                    "flagship second deck remains wide");
+                            yes(voxels.get(new ShipHullVoxelLayout.Cell(shoulder, 12, station))
+                                            != ShipHullVoxelLayout.Part.DECK,
+                                    "flagship third deck tapers to sterncastle");
+                        }
+                    }
+        yes(flagshipRigVariants == 108, "LARGEST width/length/deck/sail matrix");
         var bare = plan(ShipSectionPlan.ShipClass.MEDIUM, 13, 21,
                 List.of(), 1, false, false);
         var withMast = bare.withSail(1);
