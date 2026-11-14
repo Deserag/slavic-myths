@@ -136,10 +136,9 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                         "Поместите модульный корабль в ячейку или оставьте одно неподвижное судно у верфи"), true);
                 return false;
             }
-            if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST) {
+            if (config.withdrawn()) {
                 player.displayClientMessage(Component.literal(
-                        "Модификации III–IV уровня сняты до нового проекта кораблей"), true);
+                        "Эта ревизия корпуса снята с разработки; модификация запрещена"), true);
                 return false;
             }
             try {
