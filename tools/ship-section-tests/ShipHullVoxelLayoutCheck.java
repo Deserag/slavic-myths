@@ -37,7 +37,7 @@ public final class ShipHullVoxelLayoutCheck {
         // Complete revision-3 tier III matrix: every supported change in
         // hull dimensions, heights, cabin, bridge and individual sail tiers.
         int brigantines = 0;
-        for (int width : new int[]{21, 23, 25})
+        for (int width : new int[]{15, 17, 19})
             for (int length : new int[]{33, 37, 41, 45})
                 for (int decks : new int[]{1, 2, 3})
                     for (boolean bridge : new boolean[]{false, true})
@@ -84,12 +84,14 @@ public final class ShipHullVoxelLayoutCheck {
                                 }
                                 if (highest >= 15)
                                     for (int y = 11; y <= 15; y++)
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(-4, y, rear + 10))
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                        -Math.min(5, width / 2 - 3) + 1, y, rear + 10))
                                                         == ShipHullVoxelLayout.Part.LADDER,
                                                 "main-to-quarterdeck ladder mismatch: " + p);
                                 if (highest >= 20)
                                     for (int y = 16; y <= 20; y++)
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(-2, y, rear + 7))
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                        -Math.min(3, width / 2 - 5) + 1, y, rear + 7))
                                                         == ShipHullVoxelLayout.Part.LADDER,
                                                 "quarterdeck-to-third-deck ladder mismatch: " + p);
                                 if (highest >= 15)
