@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN, TRIM, BOWSPRIT
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN, TRIM, BOWSPRIT, GUNPORT_SHUTTER
     }
 
     private static int beam(int width, int length, int z) {
@@ -122,21 +122,26 @@ public final class ShipHullVoxelLayout {
                 else if (abs <= beam - 3) put(out, x, 2, z, Part.HULL);
                 else if (abs <= beam - 2) put(out, x, 3, z, Part.HULL);
                 else if (abs == beam - 1) put(out, x, 4, z, Part.HULL);
-                // Wide gun floor below a narrower weather deck.
+                // The lower hull must have a continuous shell at each Y;
+                // a single diagonal staircase of blocks leaves huge slits.
+                if (abs == beam - 1)
+                    for (int y = 2; y <= 4; y++) put(out, x, y, z, Part.HULL);
+                if (abs == beam - 2)
+                    for (int y = 2; y <= 3; y++) put(out, x, y, z, Part.HULL);
+                // Gun deck spans a full enclosed storey. Closed timber
+                // shutters mark future artillery openings (no open holes).
                 if (abs < beam - 1 && !(x == -2 && z == 1))
                     put(out, x, 5, z, Part.DECK);
                 if (abs <= beam - 1 && !(x == -2 && z == 1))
                     put(out, x, 10, z, Part.DECK);
                 for (int y = 5; y <= 9; y++) {
-                    int skin = y == 7 || y == 8 ? beam : beam - 1;
-                    if (abs != skin) continue;
-                    boolean port = Math.abs(z) <= end - 5
+                    if (abs != beam - 1) continue;
+                    boolean gunport = Math.abs(z) <= end - 5
                             && Math.abs(z) >= 3 && Math.floorMod(z + end, 4) == 0
                             && (y == 7 || y == 8);
-                    if (!port) put(out, x, y, z,
-                            y == 6 || y == 9 ? Part.TRIM
-                                    : Math.floorMod(z, 5) == 0
-                                            ? Part.FRAME : Part.HULL);
+                    put(out, x, y, z, gunport ? Part.GUNPORT_SHUTTER
+                            : y == 6 || y == 9 ? Part.TRIM
+                            : Math.floorMod(z, 5) == 0 ? Part.FRAME : Part.HULL);
                 }
                 // Tumblehome: gunport shoulders are wider than the upper rail.
                 if (abs == beam - 1) {
@@ -168,10 +173,7 @@ public final class ShipHullVoxelLayout {
                 for (int y = 5; y <= 9; y++) {
                     // Side ports are exactly two blocks high and only at
                     // stations far from either extremity.
-                    boolean gunport = abs == beam && (y == 7 || y == 8)
-                            && Math.abs(z) <= end - 5 && Math.abs(z) >= 3
-                            && Math.floorMod(z + end, 4) == 0;
-                    if (!gunport) put(out, x, y, z,
+                    put(out, x, y, z,
                             y == 6 || y == 9 ? Part.TRIM : Part.HULL);
                 }
                 // Close the hold and deck seams at the very tips too:
@@ -196,6 +198,16 @@ public final class ShipHullVoxelLayout {
             int beam = brigantineBeam(p, z);
             for (int x : new int[]{-beam + 2, beam - 2}) {
                 put(out, x, 11, z, Part.LANTERN);
+                put(out, x, 6, z, Part.LANTERN);
+            }
+        }
+        // Actual light sources at both low interior levels, on five-block
+        // centers, not only two widely separated lantern pairs.
+        for (int z = -end + 7; z <= end - 7; z += 5) {
+            int beam = brigantineBeam(p, z);
+            if (beam < 6) continue;
+            for (int x : new int[]{-3, 3}) {
+                put(out, x, 2, z, Part.LANTERN);
                 put(out, x, 6, z, Part.LANTERN);
             }
         }
@@ -276,6 +288,15 @@ public final class ShipHullVoxelLayout {
                                         ? Part.WINDOW : Part.CABIN_WALL);
                     }
                 }
+        }
+        // A bridge upgrade must have visible geometry even when a raised
+        // deck already exists. Keep the captain's wheel accessible.
+        if (p.bridge()) {
+            for (int z = rear + 1; z <= rear + 5; z++)
+                for (int x : new int[]{-3, 3})
+                    put(out, x, top + 1, z, Part.RAIL);
+            for (int x : new int[]{-2, 2})
+                put(out, x, top + 2, rear + 4, Part.LANTERN);
         }
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
