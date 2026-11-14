@@ -32,20 +32,6 @@ public final class ShipDeckContact {
         };
     }
 
-    private static double height(ShipBuildConfiguration config, int floor) {
-        // Revision-2 flagship bilges have a raised solid hold floor at y=1.
-        // Matching this physical surface is essential for moving passengers.
-        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2) {
-            // The three-deck flagship bridge replaces the top sterncastle
-            // floor at y=12, not the lower bridge at y=9. Passengers must
-            // stand on its real y=12 blocks instead of a phantom y=9 floor.
-            if (floor == 4 && config.bridge() && config.decks() >= 3) return 13D;
-            if (floor == 0) return 2D;
-        }
-        return height(floor);
-    }
-
     public static boolean supports(FirstShipEntity ship,
             double localX, double localZ, int floor) {
         ShipBuildConfiguration config = ship.modularConfiguration();
@@ -54,9 +40,7 @@ public final class ShipDeckContact {
                     : floor == 1 && FirstShipHull.mainDeckSupports(localX, localZ);
         }
         boolean roof = config.cabin()
-                && (config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
-                        || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                                && config.hullRevision() >= 2);
+                && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
         if (floor < 0 || floor > (config.bridge() ? 4 : Math.max(config.decks(), roof ? 2 : 1))
                 || (floor == 4 && !config.bridge())
                 || (floor == 3 && config.decks() < 3)
@@ -66,7 +50,7 @@ public final class ShipDeckContact {
         if (Math.abs(localX - x) >= .50D || Math.abs(localZ - z) >= .50D)
             return false;
         var material = layout(config).get(new ShipHullVoxelLayout.Cell(
-                x, (int)height(config, floor) - 1, z));
+                x, (int)height(floor) - 1, z));
         return floor == 0
                 ? material == ShipHullVoxelLayout.Part.HULL
                     || material == ShipHullVoxelLayout.Part.KEEL
@@ -78,16 +62,10 @@ public final class ShipDeckContact {
     public static int contactFloor(FirstShipEntity ship,
             double x, double z, double absoluteFeetY) {
         ShipBuildConfiguration config = ship.modularConfiguration();
-        // A three-deck flagship's physical bridge shares the upper floor
-        // height. Prefer its bridge contact over the underlying sterncastle.
         int[] order = config != null && config.bridge()
-                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2 && config.decks() >= 3
-                ? new int[]{4, 3, 2, 1, 0}
-                : config != null && config.bridge()
-                        ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
+                ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
-            double target = ship.getY() + height(config, floor);
+            double target = ship.getY() + height(floor);
             if (absoluteFeetY >= target - .35D
                     && absoluteFeetY <= target + .55D
                     && supports(ship, x, z, floor)) return floor;
