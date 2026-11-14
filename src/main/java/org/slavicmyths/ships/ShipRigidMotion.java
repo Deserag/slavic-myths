@@ -70,6 +70,7 @@ public final class ShipRigidMotion {
     private Pose previous;
     private final double hullRadius;
     private final double forwardLimit;
+    private final double angularLimit;
     private double speed;
     private double angularVelocity;
 
@@ -90,6 +91,7 @@ public final class ShipRigidMotion {
         previous = start;
         this.hullRadius = hullRadius;
         this.forwardLimit = forwardLimit;
+        this.angularLimit = forwardLimit > MAX_FORWARD ? .85D : MAX_ANGULAR;
     }
 
     public Pose pose() { return pose; }
@@ -111,7 +113,7 @@ public final class ShipRigidMotion {
         speed *= LINEAR_DRAG;
         if (Math.abs(speed) < 1E-5D) speed = 0D;
         // A ship may rotate nearly on the spot, but does so with rudder inertia.
-        double desiredAngular = control.rudder * MAX_ANGULAR;
+        double desiredAngular = control.rudder * angularLimit;
         angularVelocity = approach(angularVelocity, desiredAngular, ANGULAR_ACCELERATION);
         angularVelocity *= control.rudder == 0D ? ANGULAR_DRAG : 0.96D;
         if (Math.abs(angularVelocity) < 1E-5D) angularVelocity = 0D;
@@ -162,7 +164,7 @@ public final class ShipRigidMotion {
         pose = saved;
         previous = saved;
         speed = clamp(savedSpeed, -MAX_REVERSE, forwardLimit);
-        angularVelocity = clamp(savedTurn, -MAX_ANGULAR, MAX_ANGULAR);
+        angularVelocity = clamp(savedTurn, -angularLimit, angularLimit);
     }
 
     private static double approach(double current, double target, double change) {
