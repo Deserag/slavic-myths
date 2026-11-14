@@ -250,6 +250,17 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, front))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "flagship forward raised deck has end guard " + flagship);
+                                // Previously the last rib was placed on a
+                                // four-block interval, leaving a tapered tip
+                                // unsupported for some hull lengths.
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(forwardHalf, y - 1, front))
+                                                == ShipHullVoxelLayout.Part.FRAME,
+                                        "flagship raised fore deck needs structural end posts " + flagship);
+                                int rearHalf = Math.max(3,
+                                        ShipHullVoxelLayout.halfBeam(flagship, rear) - inset - 2);
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(rearHalf, y - 1, rear))
+                                                == ShipHullVoxelLayout.Part.FRAME,
+                                        "flagship raised stern deck needs structural end posts " + flagship);
                                 if (upper == 3)
                                     yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, rear))
                                                     == ShipHullVoxelLayout.Part.RAIL,
