@@ -156,6 +156,7 @@ public final class ShipModularBlockHull {
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
+        if (config == null || config.withdrawn()) return null;
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
         for (var entry : source.entrySet()) {
             if (!level.hasChunkAt(entry.getKey())
@@ -400,6 +401,7 @@ public final class ShipModularBlockHull {
             ShipBuildConfiguration next) {
         if (previous == null || next == null
                 || previous.shipClass() != next.shipClass()) return false;
+        if (next == null || next.withdrawn()) return false;
         Snapshot source = inspect(level, oldAnchor, oldTurn, previous);
         if (source == null) return false;
         Map<BlockPos, BlockState> targetHull = worldPalette(next, target, nextTurn);
