@@ -180,7 +180,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() == 4) return -(config.length() / 2) + 7D;
+                && config.hullRevision() == 4) return -(config.length() / 2) + 6D;
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) return -(config.length() / 2) + 4D;
         return -config.length() / 2 + (config.bridge() ? 3D
@@ -673,7 +673,10 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         double beam = config == null ? 8D : config.width() / 2D + 3D;
         double length = config == null ? 8D : config.length() / 2D + 3D;
-        AABB area = getBoundingBox().inflate(Math.max(beam, length), 18D,
+        double vertical = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4 ? 50D : 18D;
+        AABB area = getBoundingBox().inflate(Math.max(beam, length), vertical,
                 Math.max(beam, length));
         for (Player player : level().getEntitiesOfClass(Player.class, area)) {
             if (player.isPassenger()) continue;
@@ -681,7 +684,9 @@ public final class FirstShipEntity extends Boat {
                     player.getX(), player.getZ(), getX(), getZ(), getYRot());
             if (withinShip(local.x(), local.z())
                     && player.getY() >= holdY() - .55D
-                    && player.getY() <= getY() + (config == null ? 7.2D : 16.2D))
+                    && player.getY() <= getY() + (config == null ? 7.2D
+                            : config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4 ? 28.2D : 16.2D))
                 return true;
         }
         return false;
@@ -700,7 +705,10 @@ public final class FirstShipEntity extends Boat {
             for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
                     getBoundingBox().inflate(
                             modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D,
-                            18D, modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D))) {
+                            modularConfiguration != null
+                                    && modularConfiguration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && modularConfiguration.hullRevision() == 4 ? 50D : 18D,
+                            modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D))) {
                 if (nearby.containerMenu != nearby.inventoryMenu) {
                     player.displayClientMessage(Component.literal(
                             "Перед упаковкой все грузовые окна должны быть закрыты"), true);
