@@ -762,3 +762,16 @@ if (project.hasProperty('ocean26ClientProbe')) {
         }
     }
 }
+
+// Offline IV frigate regression: real production Java geometry and motion,
+// no generated test code enters the release JAR or touches player saves.
+sourceSets {
+    shipIVCheck { java.srcDir 'tools/ship-iv-tests' }
+}
+sourceSets.shipIVCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+sourceSets.shipIVCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+tasks.register('verifyShipIVGeometry', JavaExec) {
+    dependsOn 'shipIVCheckClasses'
+    classpath = sourceSets.shipIVCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.ships.ShipIVGeometryHeadless'
+}
