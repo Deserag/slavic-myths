@@ -80,8 +80,9 @@ public final class ShipHullVoxelLayoutCheck {
                                     for (int side : new int[]{-1, 1})
                                         for (int y : new int[]{7, 8})
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                            side * beam, y, z)) == null,
-                                                    "gunport blocked: " + p);
+                                                            side * (beam - 1), y, z))
+                                                    == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER,
+                                                    "gunport shutter missing: " + p);
                                 }
                                 if (highest >= 15)
                                     for (int y = 11; y <= 15; y++)
