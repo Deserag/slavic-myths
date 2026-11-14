@@ -23,10 +23,11 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
 
     public ShipSuperstructurePlan {
-        if (hullRevision < 1 || hullRevision > 3
+        if (hullRevision < 1 || hullRevision > 4
                 || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
                         && shipClass != ShipSectionPlan.ShipClass.LARGEST)
-                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE))
+                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE)
+                || (hullRevision == 4 && shipClass != ShipSectionPlan.ShipClass.LARGEST))
             throw new IllegalArgumentException("Unsupported hull revision");
         if (shipClass == null || sailTiers == null || hullWidth < 7 || hullLength < 11
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
@@ -85,6 +86,15 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
+        if (shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision == 4) {
+            List<Integer> positions = new ArrayList<>();
+            int count = sailTiers.size();
+            int rear = -hullLength / 2 + 9;
+            int span = hullLength - 18;
+            for (int i = 0; i < count; i++)
+                positions.add(count == 1 ? 0 : rear + (int)Math.round(span * i / (double)(count - 1)));
+            return List.copyOf(positions);
+        }
         return mastPositionsFor(sailTiers.size(), hullLength, cabin,
                 shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3);
     }
@@ -126,6 +136,11 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      */
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
+        if (shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision == 4) {
+            double fabricPower = 0D;
+            for (int tier : sailTiers) fabricPower += tier - 1;
+            return Math.min(1D, .68D + .04D * fabricPower);
+        }
         if (shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3) {
             // Two basic sails give useful progress; better sail fabric must
             // still be materially faster despite additional upper decks.
