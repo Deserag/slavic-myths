@@ -14,7 +14,8 @@ public final class ShipRigidMotionProof {
             var frame=motion.advance(new ShipRigidMotion.Control(1,0),clear);
             ok(!frame.blocked(),"Open water forward unexpectedly blocked");
             ok(frame.after().z()>=last,"Forward reversed direction");
-            ok(frame.after().z()-last<.19D,"Discrete one-block jump remained");
+            ok(frame.after().z()-last<ShipRigidMotion.MAX_FORWARD + 1E-6D,
+                    "Discrete one-block jump remained");
             last=frame.after().z();
         }
         ok(motion.pose().z()>10D,"Acceleration did not move vessel continuously");
