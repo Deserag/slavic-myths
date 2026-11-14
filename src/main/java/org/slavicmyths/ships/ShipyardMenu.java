@@ -99,9 +99,9 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             int classId = value / 16, extraLength = (value % 16) / 4;
             int extraWidth = value % 4;
             if (classId < 0 || classId >= ShipSectionPlan.ShipClass.values().length) return false;
-            if (classId >= ShipSectionPlan.ShipClass.LARGEST.ordinal()) {
+            if (classId > ShipSectionPlan.ShipClass.LARGEST.ordinal()) {
                 player.displayClientMessage(Component.literal(
-                        "Корабли III–IV уровня сняты с разработки до полной замены проекта"), true);
+                        "Этот класс корабля недоступен"), true);
                 return false;
             }
             try {
