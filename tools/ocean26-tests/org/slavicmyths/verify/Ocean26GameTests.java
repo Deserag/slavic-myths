@@ -1707,7 +1707,7 @@ public final class Ocean26GameTests {
                                     .is(Blocks.SPRUCE_STAIRS),
                             "Missing physical hold-to-gun-deck stair");
             }
-            for (int[] route : new int[][]{{2, -11}, {-2, 3}})
+            for (int[] route : new int[][]{{3, -11}, {-3, 3}})
                 for (int i = 1; i <= 5; i++)
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                                     anchor, 0, route[0], 5 + i, route[1] + i))
