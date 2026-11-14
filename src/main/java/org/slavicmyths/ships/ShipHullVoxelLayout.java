@@ -683,8 +683,12 @@ public final class ShipHullVoxelLayout {
             throw new IllegalArgumentException("IV stairs must connect five-block decks");
         Part approach = blocks.get(new Cell(x, lower, startZ));
         Part landing = blocks.get(new Cell(x, upper, startZ + 6));
-        if (approach == null || landing == null)
-            throw new IllegalStateException("IV staircase has no lower approach or upper landing");
+        boolean safeApproach = approach == Part.DECK || approach == Part.BRIDGE
+                || lower == 1 && approach == Part.HULL;
+        boolean safeLanding = landing == Part.DECK || landing == Part.BRIDGE;
+        if (!safeApproach || !safeLanding)
+            throw new IllegalStateException("IV staircase requires actual walking floors at "
+                    + x + "," + startZ + " -> " + (startZ + 6));
         for (int i = 0; i <= 6; i++) {
             int z = startZ + i;
             int floor = i == 0 ? lower : i == 6 ? upper : lower + i;
@@ -751,6 +755,35 @@ public final class ShipHullVoxelLayout {
         return false;
     }
 
+    private static void validateFrigateStairLandings(Map<Cell, Part> blocks,
+            int x, int z, int lower, int upper) {
+        Part start = blocks.get(new Cell(x, lower, z));
+        Part finish = blocks.get(new Cell(x, upper, z + 6));
+        if (!(start == Part.DECK || start == Part.BRIDGE
+                || lower == 1 && start == Part.HULL)
+                || finish != Part.DECK && finish != Part.BRIDGE)
+            throw new IllegalStateException("IV stair is not connected to two walkable decks");
+        for (int i : new int[]{0, 6}) {
+            int floor = i == 0 ? lower : upper;
+            int atZ = z + i;
+            for (int head = 1; head <= 2; head++)
+                if (blocks.containsKey(new Cell(x, floor + head, atZ)))
+                    throw new IllegalStateException("IV stair landing head obstruction at "
+                            + x + "," + (floor + head) + "," + atZ);
+        }
+        // Recheck the complete flight AFTER all railings, lanterns,
+        // wheel and decorative pieces have been added.
+        for (int i = 1; i <= 5; i++) {
+            int y = lower + i, atZ = z + i;
+            if (blocks.get(new Cell(x, y, atZ)) != Part.STAIR)
+                throw new IllegalStateException("IV missing stair at " + x + "," + y + "," + atZ);
+            for (int head = 1; head <= 2; head++)
+                if (blocks.containsKey(new Cell(x, y + head, atZ)))
+                    throw new IllegalStateException("IV stair blocks player head at "
+                            + x + "," + (y + head) + "," + atZ);
+        }
+    }
+
     private static void validateFrigateIV(Map<Cell, Part> blocks,
             ShipSuperstructurePlan plan, int rear) {
         int end = plan.hullLength() / 2;
@@ -780,6 +813,15 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        for (int[] route : new int[][] {
+                {-3, -12, 1, 6}, {3, 6, 1, 6},
+                {-4, -8, 6, 11}, {4, 2, 6, 11},
+                {-5, rear + 8, 11, 16}, {5, rear + 8, 11, 16}
+        })
+            validateFrigateStairLandings(blocks, route[0], route[1], route[2], route[3]);
+        if (plan.decks() >= 2 || plan.bridge())
+            for (int x : new int[]{-3, 3})
+                validateFrigateStairLandings(blocks, x, rear + 2, 16, 21);
         for (int z : plan.mastPositions())
             if (blocks.get(new Cell(0, 12, z)) != Part.MAST)
                 throw new IllegalStateException("IV mast base missing at " + z);
