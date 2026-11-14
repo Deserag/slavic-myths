@@ -1719,8 +1719,8 @@ public final class Ocean26GameTests {
             for (int side : new int[]{-1, 1})
                 for (int y : new int[]{7, 8})
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                            anchor, 0, side * beam, y, portZ)).isAir(),
-                            "Future cannon port is blocked by a solid hull part");
+                            anchor, 0, side * (beam - 1), y, portZ)).is(Blocks.DARK_OAK_PLANKS),
+                            "Future cannon port shutter missing or open");
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, beam - 2, 11, portZ)).is(Blocks.LANTERN),
                     "Real gun-deck lighting or deck lantern missing");
