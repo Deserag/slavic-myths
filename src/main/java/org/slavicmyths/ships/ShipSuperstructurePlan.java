@@ -126,6 +126,11 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
      */
     public double propulsionFactor() {
         if (sailTiers.isEmpty()) return 0D;
+        if (shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3) {
+            // Two basic sails give useful progress; better sail fabric must
+            // still be materially faster despite additional upper decks.
+            return Math.min(1D, .52D + .48D * (rawThrust() / 5D) / loadFactor());
+        }
         if (shipClass == ShipSectionPlan.ShipClass.MEDIUM) {
             // Medium ships must not lose 28% of their sail thrust simply
             // for belonging to the trading class. The existing motion cap
