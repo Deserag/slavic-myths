@@ -51,7 +51,7 @@ public final class ShipDynamicCollision {
             return false;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(36D, 25D, 36D)))
+                region.inflate(46D, 50D, 46D)))
             if (!ship.isRemoved() && ship.isMoving()
                     && (carry == null || carry.player() != player || carry.ship() != ship))
                 return true;
@@ -62,6 +62,9 @@ public final class ShipDynamicCollision {
         var config = ship.modularConfiguration();
         if (config == null) return FirstShipHull.onLadder(x, z)
                 && y >= .9D && y <= 5.3D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return false; // IV uses only its real fixed stair flights.
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) {
             int rear = -(config.length() / 2) + 2;
@@ -92,7 +95,7 @@ public final class ShipDynamicCollision {
     public static boolean onMovingLadder(Player player) {
         if (!player.isAlive() || player.isPassenger() || player.isSpectator()) return false;
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(FirstShipEntity.class,
-                player.getBoundingBox().inflate(36D, 25D, 36D))) {
+                player.getBoundingBox().inflate(46D, 50D, 46D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
                     ship.getX(), ship.getZ(), ship.getYRot());
@@ -109,7 +112,7 @@ public final class ShipDynamicCollision {
                 || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                region.inflate(36D, 25D, 36D))) {
+                region.inflate(46D, 50D, 46D))) {
             if (ship.isRemoved() || !ship.isMoving()
                     || carry != null && carry.player() == player && carry.ship() == ship)
                 continue;
