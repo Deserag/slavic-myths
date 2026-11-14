@@ -112,6 +112,34 @@ public final class ShipModularBlockHull {
         return blocks;
     }
 
+    /**
+     * Archived geometry is only an ownership proof for a ship built by an
+     * earlier 2.6 revision. It cannot be selected for new construction.
+     */
+    private static Map<BlockPos, BlockState> archivedWorldPalette(
+            ShipBuildConfiguration config, BlockPos anchor, int turns, int archive) {
+        Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
+        for (var entry : ShipHullLegacyRevisionThree.generate(
+                config.structure(), archive).entrySet()) {
+            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
+            var c = entry.getKey();
+            blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
+                    state(entry.getValue(), turns, c.y()));
+        }
+        connectFenceRails(blocks);
+        return blocks;
+    }
+
+    private static boolean matchesPhysicalHull(ServerLevel level,
+            Map<BlockPos, BlockState> expected) {
+        for (var entry : expected.entrySet())
+            if (!level.hasChunkAt(entry.getKey())
+                    || level.getBlockState(entry.getKey()).getBlock()
+                            != entry.getValue().getBlock())
+                return false;
+        return true;
+    }
+
     private static void connectFenceRails(Map<BlockPos, BlockState> blocks) {
         for (var entry : blocks.entrySet()) {
             if (!entry.getValue().is(Blocks.SPRUCE_FENCE)) continue;
@@ -162,10 +190,25 @@ public final class ShipModularBlockHull {
             ShipBuildConfiguration config) {
         if (config == null || config.withdrawn()) return null;
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
-        for (var entry : source.entrySet()) {
-            if (!level.hasChunkAt(entry.getKey())
-                    || level.getBlockState(entry.getKey()).getBlock() != entry.getValue().getBlock())
-                return null;
+        if (!matchesPhysicalHull(level, source)) {
+            // A ship from an older commit still has real blocks in the world.
+            // Rebuilding it against today's template without identifying the
+            // OLD owned blocks would either fail or leave hull debris behind.
+            // Require an exact historic-template match; never guess ownership.
+            boolean matched = false;
+            if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && config.hullRevision() == 3) {
+                for (int archive = ShipHullLegacyRevisionThree.archives() - 1;
+                        archive >= 0; archive--) {
+                    Map<BlockPos, BlockState> candidate =
+                            archivedWorldPalette(config, anchor, turns, archive);
+                    if (!matchesPhysicalHull(level, candidate)) continue;
+                    source = candidate;
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) return null;
         }
         List<Cargo> cargo = new ArrayList<>();
         ShipSuperstructurePlan structure = config.structure();
