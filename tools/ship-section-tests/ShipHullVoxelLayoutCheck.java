@@ -260,6 +260,9 @@ public final class ShipHullVoxelLayoutCheck {
                             // a closed bottom; a full-width y=0 slab is banned.
                             for (int z = -length / 2; z <= length / 2; z++) {
                                 int beam = ShipHullVoxelLayout.halfBeam(flagship, z);
+                                if (z > -length / 2)
+                                    yes(Math.abs(beam - ShipHullVoxelLayout.halfBeam(flagship, z - 1)) <= 2,
+                                            "flagship hull side must not jump between stations " + z);
                                 int keelHalf = Math.max(1, beam - 3);
                                 int floorHalf = Math.max(keelHalf, beam - 2);
                                 for (int x = -beam; x <= beam; x++) {
