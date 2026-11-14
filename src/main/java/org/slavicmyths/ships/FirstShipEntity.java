@@ -1494,8 +1494,11 @@ public final class FirstShipEntity extends Boat {
         double radius = modularConfiguration == null ? 10D
                 : Math.hypot(modularConfiguration.width() / 2D,
                         modularConfiguration.length() / 2D) + 5D;
+        double vertical = modularConfiguration != null
+                && modularConfiguration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && modularConfiguration.hullRevision() == 4 ? 50D : 18D;
         for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
-                getBoundingBox().inflate(radius, 18D, radius)))
+                getBoundingBox().inflate(radius, vertical, radius)))
             if (player.containerMenu != player.inventoryMenu) return true;
         return false;
     }
