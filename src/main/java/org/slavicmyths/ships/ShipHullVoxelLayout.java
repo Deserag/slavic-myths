@@ -117,6 +117,13 @@ public final class ShipHullVoxelLayout {
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
+        // Tier III/IV designs were rejected and must not silently regenerate
+        // the old barge-shaped hull. Re-enable only after a new blueprint is
+        // explicitly approved and implemented; tiers I/II remain unchanged.
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
+            throw new UnsupportedOperationException(
+                    "LARGE/LARGEST hull designs withdrawn pending complete replacement");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
         int halfLength = plan.hullLength() / 2;
 
