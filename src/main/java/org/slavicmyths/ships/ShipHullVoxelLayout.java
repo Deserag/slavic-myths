@@ -925,8 +925,14 @@ public final class ShipHullVoxelLayout {
             int tier = p.sailTiers().get(i);
             int height = Math.min(46, (i == 1 || i == 2 ? 43 : 40)
                     + (tier - 1) * 2);
-            for (int y = 12; y <= height; y++)
-                put(out, 0, y, z, Part.MAST);
+            for (int y = 12; y <= height; y++) {
+                // Structural 3x3 lower trunk; the upper mast tapers to 1x1.
+                // Reinforced rigging extends the thick lower section upward.
+                int radius = y < (tier >= 2 ? 27 : 23) ? 1 : 0;
+                for (int dx = -radius; dx <= radius; dx++)
+                    for (int dz = -radius; dz <= radius; dz++)
+                        put(out, dx, y, z + dz, Part.MAST);
+            }
             int span = (i == 1 || i == 2 ? 8 : 6) + tier - 1;
             for (int yy : new int[]{21, 30, 39}) {
                 for (int x = -span; x <= span; x++)
