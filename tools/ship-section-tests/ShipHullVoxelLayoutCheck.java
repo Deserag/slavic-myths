@@ -150,6 +150,45 @@ public final class ShipHullVoxelLayoutCheck {
                                 }
                             }
         yes(brigantines == 1296, "exhaustive brigantine upgrade matrix");
+        // Metamorphic upgrades: height changes must move every mast, yard
+        // and sail together, including the unusual cabin/bridge combinations.
+        int elevationTransitions = 0;
+        for (int width : new int[]{15, 17, 19})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (boolean cabin : new boolean[]{false, true})
+                    for (boolean bridge : new boolean[]{false, true})
+                        for (int[] tiers : new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}}) {
+                            int lastHeight = -1, lastYard = -1;
+                            for (int decks = 1; decks <= 3; decks++) {
+                                var plan = new ShipSuperstructurePlan(
+                                        ShipSectionPlan.ShipClass.LARGE, width, length,
+                                        List.of(tiers[0], tiers[1]), decks, bridge, cabin, 3);
+                                var voxels = ShipHullVoxelLayout.generate(plan);
+                                int height = ShipHullVoxelLayout.brigantineTopDeck(plan);
+                                int yard = ShipHullVoxelLayout.sailLowerYard(plan);
+                                yes(yard == height + 4,
+                                        "mast foundation and sail elevation desynchronized: " + plan);
+                                if (lastHeight >= 0) {
+                                    yes(height >= lastHeight && yard >= lastYard,
+                                            "additional deck lowered mast or sail: " + plan);
+                                    yes(yard - lastYard == height - lastHeight,
+                                            "deck upgrade changed sail spacing: " + plan);
+                                }
+                                for (int mastZ : plan.mastPositions()) {
+                                    yes(voxels.get(new ShipHullVoxelLayout.Cell(0, height + 2, mastZ))
+                                                    == ShipHullVoxelLayout.Part.MAST,
+                                            "mast stops below upgraded deck: " + plan);
+                                    for (int tier : tiers)
+                                        yes(ShipHullVoxelLayout.sailTop(plan, tier) > yard,
+                                                "sail upper edge under raised floor: " + plan);
+                                }
+                                lastHeight = height;
+                                lastYard = yard;
+                                elevationTransitions++;
+                            }
+                        }
+        yes(elevationTransitions == 576, "brigantine staged height transitions");
+
 
         for (var config : List.of(small, medium)) {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxels =
