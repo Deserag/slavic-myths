@@ -201,8 +201,8 @@ public final class ShipHullVoxelLayoutCheck {
                                 // future gun carriage needs more room than a walker.
                                 for (int z : new int[]{-6, -1, 4, 9})
                                     for (int y = 6; y <= 9; y++)
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(2, y, z)) == null,
-                                                "gun-deck headroom obstructed: " + p);
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, y, z)) == null,
+                                                "central gun-deck passage obstructed: " + p);
                                 // Each height upgrade moves the highest helm
                                 // with its supporting floor, never below a roof.
                                 yes(model.get(new ShipHullVoxelLayout.Cell(0, highest, rear + 3))
