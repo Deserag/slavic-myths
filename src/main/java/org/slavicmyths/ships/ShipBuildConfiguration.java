@@ -30,7 +30,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
         sailTiers = List.copyOf(sailTiers);
-        new ShipSuperstructurePlan(shipClass, hullWidth(shipClass, extraWidth),
+        new ShipSuperstructurePlan(shipClass,
+                hullRevision == 3 && shipClass == ShipSectionPlan.ShipClass.LARGE
+                        ? 15 + extraWidth * 2 : hullWidth(shipClass, extraWidth),
                 hullLength(shipClass, extraLength), sailTiers, decks, bridge, cabin, hullRevision);
     }
 
@@ -58,7 +60,10 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
                 || shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision != 3;
     }
 
-    public int width() { return hullWidth(shipClass, extraWidth); }
+    public int width() {
+        return hullRevision == 3 && shipClass == ShipSectionPlan.ShipClass.LARGE
+                ? 15 + extraWidth * 2 : hullWidth(shipClass, extraWidth);
+    }
     public int length() { return hullLength(shipClass, extraLength); }
 
     public ShipSuperstructurePlan structure() {
