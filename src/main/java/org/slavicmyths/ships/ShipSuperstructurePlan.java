@@ -23,9 +23,10 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     public static final double[] SAIL_THRUST = {0D, 1D, 1.7D, 2.5D};
 
     public ShipSuperstructurePlan {
-        if (hullRevision < 1 || hullRevision > 2
+        if (hullRevision < 1 || hullRevision > 3
                 || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
-                        && shipClass != ShipSectionPlan.ShipClass.LARGEST))
+                        && shipClass != ShipSectionPlan.ShipClass.LARGEST)
+                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE))
             throw new IllegalArgumentException("Unsupported hull revision");
         if (shipClass == null || sailTiers == null || hullWidth < 7 || hullLength < 11
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
@@ -55,7 +56,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
         // The aft cabin occupies a seven-block deep protected stern region.
         // Reject any mast whose center or its one-block support touches it.
-        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin)) {
+        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin,
+                shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3)) {
             if (z - 1 <= -hullLength / 2 + 8 && cabin)
                 throw new IllegalArgumentException("Mast would intersect captain's cabin");
             if (z + 1 >= hullLength / 2)
@@ -64,10 +66,12 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     }
 
     /** Centered mast stations; the same result follows after hull enlargement. */
-    private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin) {
+    private static List<Integer> mastPositionsFor(int count, int hullLength, boolean cabin,
+            boolean brigantine) {
         List<Integer> positions = new ArrayList<>();
         for (int i = 0; i < count; i++)
-            positions.add((2 * i - (count - 1)) * 2);
+            positions.add(brigantine ? (i == 0 ? -3 : 6)
+                    : (2 * i - (count - 1)) * 2);
         if (cabin && !positions.isEmpty()) {
             int minMastZ = -hullLength / 2 + 10;
             int shift = Math.max(0, minMastZ - positions.get(0));
@@ -79,7 +83,8 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
-        return mastPositionsFor(sailTiers.size(), hullLength, cabin);
+        return mastPositionsFor(sailTiers.size(), hullLength, cabin,
+                shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3);
     }
 
     public double rawThrust() {
