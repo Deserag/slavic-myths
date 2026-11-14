@@ -158,6 +158,24 @@ public final class ShipModularBlockHull {
         return true;
     }
 
+    /**
+     * 0 = current block layout, 1 = exact historical layout, -1 = not
+     * identifiable (unloaded chunks, damaged structure, or unrelated blocks).
+     * Unknown structures must NEVER be rewritten automatically.
+     */
+    public static int historicalRefitStatus(ServerLevel level, BlockPos anchor,
+            int turns, ShipBuildConfiguration config) {
+        if (level == null || anchor == null || config == null
+                || config.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                || config.hullRevision() != 3 || config.withdrawn()) return 0;
+        if (matchesPhysicalHull(level, worldPalette(config, anchor, turns))) return 0;
+        for (int archive = ShipHullLegacyRevisionThree.archives() - 1;
+                archive >= 0; archive--)
+            if (matchesPhysicalHull(level,
+                    archivedWorldPalette(config, anchor, turns, archive))) return 1;
+        return -1;
+    }
+
     private static void connectFenceRails(Map<BlockPos, BlockState> blocks) {
         for (var entry : blocks.entrySet()) {
             if (!entry.getValue().is(Blocks.SPRUCE_FENCE)) continue;
