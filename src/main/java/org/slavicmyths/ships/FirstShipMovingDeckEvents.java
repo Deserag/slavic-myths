@@ -51,9 +51,15 @@ public final class FirstShipMovingDeckEvents {
                     feet.x, feet.z, oldX, oldZ, oldYaw);
             int floor = continuing ? last.floor()
                     : ShipDeckContact.contactFloor(ship, relative.x(), relative.z(), feet.y);
-            if (floor < 0 || !ShipDeckContact.supports(ship,
-                    relative.x(), relative.z(), floor)) continue;
-            double surface = ship.getY() + ShipDeckContact.height(ship.modularConfiguration(), floor);
+            double stairY = ShipDeckContact.stairSurfaceHeight(
+                    ship.modularConfiguration(), relative.x(), relative.z(),
+                    feet.y - ship.getY());
+            boolean deckSupported = floor >= 0 && floor != 5
+                    && ShipDeckContact.supports(ship, relative.x(), relative.z(), floor);
+            if (!deckSupported && Double.isFinite(stairY)) floor = 5;
+            else if (!deckSupported) continue;
+            double surface = ship.getY() + (floor == 5
+                    ? stairY : ShipDeckContact.height(ship.modularConfiguration(), floor));
             if (feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
 
             FirstShipHull.Point moved = FirstShipHull.transfer(feet.x, feet.z,
@@ -109,6 +115,7 @@ public final class FirstShipMovingDeckEvents {
             int floor = -1;
             Contact contact = LAST.get(player);
             if (contact != null && contact.shipId() == ship.getId()
+                    && contact.floor() != 5
                     && ShipDeckContact.supports(ship, local.x(), local.z(), contact.floor()))
                 floor = contact.floor();
             if (floor < 0) {
@@ -121,10 +128,15 @@ public final class FirstShipMovingDeckEvents {
                     }
                 }
             }
+            double stairY = ShipDeckContact.stairSurfaceHeight(
+                    ship.modularConfiguration(), local.x(), local.z(),
+                    feet.y - ship.getY());
+            if (floor < 0 && Double.isFinite(stairY)) floor = 5;
             if (floor < 0) continue;
             FirstShipHull.Point moved = FirstShipHull.toWorld(local.x(), local.z(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            double surface = ship.getY() + ShipDeckContact.height(ship.modularConfiguration(), floor);
+            double surface = ship.getY() + (floor == 5
+                    ? stairY : ShipDeckContact.height(ship.modularConfiguration(), floor));
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
