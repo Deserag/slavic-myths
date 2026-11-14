@@ -1762,4 +1762,47 @@ public final class Ocean26GameTests {
     }
 
 
+    @GameTest(template = "empty", timeoutTicks = 300, batch = "ocean_brigantine_rebuild_chain")
+    public static void brigantineRealWorldThirdMastAndBridgeUpgrade(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
+        for (int x = -18; x <= 18; x++)
+            for (int z = -25; z <= 25; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 42; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var start = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+        var third = start.withSail(2, 1);
+        var bridge = third.withBridge(true);
+        var raised = bridge.withDecks(3);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, start, new ListTag()),
+                "Could not place starting III-level brigantine");
+        var previous = start;
+        for (var next : java.util.List.of(third, bridge, raised)) {
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
+                    level, anchor, 0, previous, anchor, 0, next),
+                    "World rebuild rejected III upgrade: " + previous + " -> " + next);
+            var plan = next.structure();
+            int top = org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck(plan);
+            for (int mastZ : plan.mastPositions())
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, top + 2, mastZ)).is(Blocks.STRIPPED_SPRUCE_LOG),
+                        "III upgrade lost a real mast at " + mastZ);
+            BlockPos helm = FirstShipBlockHull.world(
+                    anchor, 0, 0, top + 1, -next.length() / 2 + 5);
+            t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
+                    "III upgrade lost the top captain control");
+            previous = next;
+        }
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                level, anchor, 0, raised), "Could not remove final upgraded III brigantine");
+        t.succeed();
+    }
+
+
 }
