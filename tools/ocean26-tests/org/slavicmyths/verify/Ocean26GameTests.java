@@ -800,12 +800,17 @@ public final class Ocean26GameTests {
                         anchor, 0, roofOnly, new ListTag()),
                         "Cabin-only flagship failed to place");
                 int rear = -roofOnly.length() / 2 + 2;
-                BlockPos rail = FirstShipBlockHull.world(anchor, 0, 3, 9, rear + 3);
+                int cabinSide = org.slavicmyths.ships.ShipHullVoxelLayout.cabinHalfWidth(
+                        roofOnly.structure());
+                BlockPos rail = FirstShipBlockHull.world(anchor, 0, cabinSide, 9, rear + 3);
+                BlockPos window = FirstShipBlockHull.world(anchor, 0, cabinSide, 6, rear + 3);
                 BlockPos rooftopHelm = FirstShipBlockHull.world(anchor, 0, 0, 9, rear + 3);
-                BlockPos entry = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 6);
-                BlockPos ladder = FirstShipBlockHull.world(anchor, 0, -2, 9, rear + 7);
+                BlockPos entry = FirstShipBlockHull.world(anchor, 0, -cabinSide + 1, 9, rear + 6);
+                BlockPos ladder = FirstShipBlockHull.world(anchor, 0, -cabinSide + 1, 9, rear + 7);
                 t.assertTrue(level.getBlockState(rail).is(Blocks.SPRUCE_FENCE),
                         "Cabin-only flagship roof lacks real safety fence");
+                t.assertTrue(level.getBlockState(window).is(Blocks.GLASS_PANE),
+                        "Widened flagship cabin must keep real glazed side windows");
                 t.assertTrue(level.getBlockState(rooftopHelm).is(Blocks.DARK_OAK_FENCE),
                         "Cabin-only flagship roof has no physical helm");
                 t.assertTrue(level.getBlockState(entry).isAir(),
