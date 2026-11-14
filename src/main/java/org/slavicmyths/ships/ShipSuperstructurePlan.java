@@ -57,8 +57,10 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
 
         // The aft cabin occupies a seven-block deep protected stern region.
         // Reject any mast whose center or its one-block support touches it.
-        for (int z : mastPositionsFor(sailTiers.size(), hullLength, cabin,
-                shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3)) {
+        for (int z : shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision == 4
+                ? frigateMasts(sailTiers.size(), hullLength)
+                : mastPositionsFor(sailTiers.size(), hullLength, cabin,
+                        shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3)) {
             if (z - 1 <= -hullLength / 2 + 8 && cabin)
                 throw new IllegalArgumentException("Mast would intersect captain's cabin");
             if (z + 1 >= hullLength / 2)
@@ -84,17 +86,20 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
         return List.copyOf(positions);
     }
 
+    private static List<Integer> frigateMasts(int count, int length) {
+        List<Integer> positions = new ArrayList<>();
+        int rear = -length / 2 + 13;
+        int span = length - 22;
+        for (int i = 0; i < count; i++)
+            positions.add(count == 1 ? 0
+                    : rear + (int)Math.round(span * i / (double)(count - 1)));
+        return List.copyOf(positions);
+    }
+
     /** Coordinates in local ship space, stern negative, bow positive. */
     public List<Integer> mastPositions() {
-        if (shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision == 4) {
-            List<Integer> positions = new ArrayList<>();
-            int count = sailTiers.size();
-            int rear = -hullLength / 2 + 9;
-            int span = hullLength - 18;
-            for (int i = 0; i < count; i++)
-                positions.add(count == 1 ? 0 : rear + (int)Math.round(span * i / (double)(count - 1)));
-            return List.copyOf(positions);
-        }
+        if (shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision == 4)
+            return frigateMasts(sailTiers.size(), hullLength);
         return mastPositionsFor(sailTiers.size(), hullLength, cabin,
                 shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision == 3);
     }
