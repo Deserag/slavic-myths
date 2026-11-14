@@ -301,6 +301,16 @@ public final class ShipHullVoxelLayout {
             // Outward opening door on the forward wall.
             put(blocks, 0, 5, front, Part.DOOR);
             put(blocks, 0, 6, front, Part.DOOR);
+            // The cabin's aft upper corners share the stern edge of the
+            // second deck. Keep structural timber posts at these corners:
+            // cabin walls are placed after the deck and would otherwise
+            // overwrite its final transverse ribs.
+            if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && plan.hullRevision() >= 2 && plan.decks() >= 2) {
+                int aftHalf = Math.max(3, halfBeam(plan, rear) - 3);
+                for (int x : new int[]{-aftHalf, aftHalf})
+                    put(blocks, x, 7, rear, Part.FRAME);
+            }
         }
 
         // The bridge is elevated over the stern; it uses the SAME HELM as the
