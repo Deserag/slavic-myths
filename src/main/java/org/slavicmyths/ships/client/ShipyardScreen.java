@@ -393,9 +393,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
-        if (action == 203 && current.sailTiers().size() >=
-                (kind == ShipSectionPlan.ShipClass.LARGE
-                        && current.hullRevision() == 3 ? 2 : kind.maxMasts))
+        if (action == 203 && current.sailTiers().size() >= kind.maxMasts)
             return "Все мачты этого класса установлены";
         if (action >= 207 && action <= 210) {
             int number = action - 207;
