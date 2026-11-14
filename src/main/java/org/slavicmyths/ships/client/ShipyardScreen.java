@@ -51,7 +51,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     private static final String[] MODULAR_CATEGORIES = {"Корпус", "Паруса и мачты", "Палубы", "Капитанские помещения"};
     private static final int[][] MODULAR_GROUPS = {{0, 1}, {6, 2, 3, 4, 5}, {7}, {8, 9}};
     private static final String[] CLASS_NAMES = {
-            "Малый", "Торговый струг II", "Большой", "Крупнейший"
+            "Малый", "Торговый струг II", "Большой", "Огромный IV"
     };
     private static final String[] RAFT_OPTIONS =
             {"Борта +", "Парус +", "Руль +", "Вёсла +", "Борта −",
@@ -96,7 +96,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration creationConfig() {
-        if (createRafts || chosen < 0 || chosen >= 3) return null;
+        if (createRafts || chosen < 0 || chosen >= 4) return null;
         try {
             return ShipBuildConfiguration.initial(
                     ShipSectionPlan.ShipClass.values()[chosen])
@@ -140,7 +140,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private void selectClass(int value) {
-        int maximum = createRafts ? VESSELS.length - 1 : 2;
+        int maximum = createRafts ? VESSELS.length - 1 : 3;
         chosen = Math.max(0, Math.min(maximum, value));
         if (!createRafts) {
             ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
