@@ -83,6 +83,27 @@ public final class ShipSuperstructureCheck {
                 "new brigantine has separated fore and aft mast stations");
         yes(brigantine.propulsionFactor() > 0D && brigantine.propulsionFactor() <= 1D,
                 "brigantine thrust remains usable");
+        var starterBrigantine = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                21, 33, List.of(1, 1), 1, false, false, 3);
+        var fastBrigantine = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                25, 45, List.of(3, 3), 3, true, true, 3);
+        yes(starterBrigantine.propulsionFactor() > .60D,
+                "base brigantine must not crawl");
+        yes(fastBrigantine.propulsionFactor() > starterBrigantine.propulsionFactor(),
+                "full rig upgrades must improve travel speed");
+        var slowSail = new org.slavicmyths.ships.ShipRigidMotion(
+                new org.slavicmyths.ships.ShipRigidMotion.Pose(0, 0, 0));
+        var fastSail = new org.slavicmyths.ships.ShipRigidMotion(
+                new org.slavicmyths.ships.ShipRigidMotion.Pose(0, 0, 0));
+        for (int tick = 0; tick < 100; tick++) {
+            slowSail.advance(new org.slavicmyths.ships.ShipRigidMotion.Control(
+                    starterBrigantine.propulsionFactor(), 0), pose -> true);
+            fastSail.advance(new org.slavicmyths.ships.ShipRigidMotion.Control(
+                    fastBrigantine.propulsionFactor(), 0), pose -> true);
+        }
+        yes(fastSail.pose().z() > slowSail.pose().z(),
+                "tier III speed upgrades must increase distance travelled");
+
 
         var largest = plan(ShipSectionPlan.ShipClass.LARGEST, 21, 33,
                 List.of(3, 3, 2, 1), 3, true, true);
