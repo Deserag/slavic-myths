@@ -240,7 +240,7 @@ public final class ShipHullVoxelLayout {
         // Stagger the upper flights to the OPPOSITE side. Using the same
         // X/Z column for stacked flights creates support beams directly
         // above lower stair treads, so players cannot finish climbing.
-        for (int[] route : new int[][]{{3, -11}, {-3, 3}})
+        for (int[] route : new int[][]{{3, -8}, {-3, 3}})
             brigantineStairs(out, route[0], route[1], 5, 10);
         // Upper deck only covers the stern, leaving the middle completely open.
         int top = brigantineTopDeck(p);
