@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -49,6 +50,13 @@ public final class ShipModularBlockHull {
                         case 1 -> Direction.SOUTH;
                         case 2 -> Direction.WEST;
                         default -> Direction.NORTH;
+                    });
+            case STAIR -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(
+                    StairBlock.FACING, switch (Math.floorMod(turns, 4)) {
+                        case 0 -> Direction.SOUTH;
+                        case 1 -> Direction.WEST;
+                        case 2 -> Direction.NORTH;
+                        default -> Direction.EAST;
                     });
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,
