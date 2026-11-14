@@ -713,7 +713,13 @@ public final class Ocean26GameTests {
                             0, 1, deckY + 1, upperFront)).is(Blocks.SPRUCE_FENCE),
                             "LARGEST raised deck fore end lacks real safety rail");
                 }
-                int beam = maximum.width() / 2;
+                int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                        maximum.structure(), 0);
+                t.assertTrue(beam <= maximum.width() / 2 - 2,
+                        "LARGEST midship beam did not taper toward an inward waist");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                        0, beam + 2, 4, 0)).isAir(),
+                        "LARGEST midship deck is still a full-width rectangle");
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, beam, 0, 0)).is(Blocks.WATER),
                         "LARGEST outer bottom must be water, not a flat planked slab");
