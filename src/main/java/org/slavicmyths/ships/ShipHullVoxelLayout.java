@@ -33,6 +33,9 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
+            throw new UnsupportedOperationException("Withdrawn hulls have no station profile");
         if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
             return beam(plan.hullWidth(), plan.hullLength(), z);
         // The trading strug has a long, narrow bow and a fuller working
