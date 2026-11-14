@@ -358,8 +358,9 @@ public final class ShipHullVoxelLayoutCheck {
                                         "LARGEST bridge ladder exit unblocked " + flagship);
                             }
                             if (cabin && !bridge && floors == 1)
-                                yes(voxels.get(new ShipHullVoxelLayout.Cell(-2, 9, rear + 7))
-                                                == ShipHullVoxelLayout.Part.LADDER,
+                                yes(voxels.get(new ShipHullVoxelLayout.Cell(
+                                        -ShipHullVoxelLayout.cabinHalfWidth(flagship) + 1,
+                                        9, rear + 7)) == ShipHullVoxelLayout.Part.LADDER,
                                         "LARGEST cabin-only roof remains accessible");
                         }
         yes(flagshipHelmVariants == 144, "all flagship captain station variants covered");
