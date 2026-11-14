@@ -96,7 +96,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration creationConfig() {
-        if (createRafts || chosen < 0 || chosen >= 4) return null;
+        if (createRafts || chosen < 0 || chosen >= 2) return null;
         try {
             return ShipBuildConfiguration.initial(
                     ShipSectionPlan.ShipClass.values()[chosen])
@@ -106,7 +106,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
 
     private ShipBuildConfiguration nextConfig() {
         ShipBuildConfiguration current = currentConfig();
-        if (current == null || chosen < 0 || chosen >= MODULAR_ACTIONS.length) return null;
+        if (current == null || current.withdrawn()
+                || chosen < 0 || chosen >= MODULAR_ACTIONS.length) return null;
         try {
             return switch (MODULAR_ACTIONS[chosen]) {
                 case 200 -> current.resize(current.extraLength() + 1, current.extraWidth());
@@ -139,7 +140,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private void selectClass(int value) {
-        int maximum = createRafts ? VESSELS.length - 1 : CLASS_NAMES.length - 1;
+        int maximum = createRafts ? VESSELS.length - 1 : 1;
         chosen = Math.max(0, Math.min(maximum, value));
         if (!createRafts) {
             ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
@@ -387,6 +388,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     /** Give a concrete explanation for an unavailable modular upgrade. */
     private String unavailableReason(ShipBuildConfiguration current) {
         if (current == null) return "Судно не выбрано";
+        if (current.withdrawn()) return "Корабли III–IV уровня сняты для полной переработки";
         int action = MODULAR_ACTIONS[chosen];
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
