@@ -115,6 +115,8 @@ public final class ShipHullVoxelLayout {
         for (int i = 1; i <= higherFloor - lowerFloor; i++) {
             int y = lowerFloor + i, z = startZ + i;
             blocks.remove(new Cell(x, y, z));
+            for (int supportY = lowerFloor + 1; supportY < y; supportY++)
+                put(blocks, x, supportY, z, Part.FRAME);
             blocks.remove(new Cell(x, y + 1, z));
             blocks.remove(new Cell(x, y + 2, z));
             put(blocks, x, y, z, Part.STAIR);
@@ -356,9 +358,7 @@ public final class ShipHullVoxelLayout {
                 brigantineStairs(out, x, rear + 3, 10, 15);
             // Real lanterns at the elevated cabin's working level.
             for (int z : new int[]{rear + 2, rear + 5})
-                for (int x : new int[]{-Math.min(5, p.hullWidth() / 2 - 3) + 1,
-                        Math.min(5, p.hullWidth() / 2 - 3) - 1})
-                    put(out, x, 11, z, Part.LANTERN);
+                put(out, 0, 11, z, Part.LANTERN);
         }
         if (top >= 20) {
             for (int x : new int[]{-1, 1})
@@ -369,7 +369,7 @@ public final class ShipHullVoxelLayout {
         // Real light next to the two staircase entrances (not painted glow).
         for (int z : new int[]{-9, -5, 5, 10})
             for (int y : new int[]{2, 6})
-                put(out, 4, y, z, Part.LANTERN);
+                put(out, 3, y, z, Part.LANTERN);
 
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
