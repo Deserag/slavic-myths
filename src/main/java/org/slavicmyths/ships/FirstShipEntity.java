@@ -892,7 +892,9 @@ public final class FirstShipEntity extends Boat {
             if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
                     || Math.abs(local.x()) < beam - 1D) return false;
             double xValue = FirstShipHull.clamp(local.x(), -beam + 1D, beam - 1D);
-            if (!ShipDeckContact.supports(this, xValue, zValue, 1)) return false;
+            int landingFloor = configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && configuration.hullRevision() == 3 ? 2 : 1;
+            if (!ShipDeckContact.supports(this, xValue, zValue, landingFloor)) return false;
             FirstShipHull.Point point = FirstShipHull.toWorld(xValue, zValue,
                     getX(), getZ(), getYRot());
             Vec3 target = new Vec3(point.x(), deckY() + .02D, point.z());
