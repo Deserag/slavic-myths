@@ -168,6 +168,22 @@ public final class ShipHullVoxelLayoutCheck {
                                                         == ShipHullVoxelLayout.Part.LANTERN,
                                                 "upper captain floor light missing: " + p);
                                 if (highest >= 15)
+                                    for (int x : new int[]{-2, 2})
+                                        for (int i = 1; i <= 5; i++)
+                                            for (int head = 1; head <= 2; head++)
+                                                yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                                x, 10 + i + head, rear + 3 + i))
+                                                                == null,
+                                                        "quarterdeck stair lacks headroom: " + p);
+                                if (highest >= 20)
+                                    for (int x : new int[]{-1, 1})
+                                        for (int i = 1; i <= 5; i++)
+                                            for (int head = 1; head <= 2; head++)
+                                                yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                                x, 15 + i + head, rear + i))
+                                                                == null,
+                                                        "captain stair lacks headroom: " + p);
+                                if (highest >= 15)
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 15, rear + 3))
                                                     == ShipHullVoxelLayout.Part.DECK,
                                             "raised captain deck missing: " + p);
