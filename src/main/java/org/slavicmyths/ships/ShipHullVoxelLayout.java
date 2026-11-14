@@ -83,6 +83,14 @@ public final class ShipHullVoxelLayout {
                 halfWidth - reduction);
     }
 
+    /** Flagship sternhouses span a useful part of the broad aft shoulders. */
+    public static int cabinHalfWidth(ShipSuperstructurePlan plan) {
+        return plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() >= 2
+                ? Math.min(5, plan.hullWidth() / 2 - 3)
+                : Math.min(3, plan.hullWidth() / 2 - 2);
+    }
+
     /** Shared server/client rig heights: never let the renderer invent another sail profile. */
     public static int sailLowerYard(ShipSuperstructurePlan plan) {
         return plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
@@ -283,7 +291,7 @@ public final class ShipHullVoxelLayout {
         // Closed stern cabin, with a two-block door aperture and real windows.
         if (plan.cabin()) {
             int rear = -halfLength + 2, front = rear + 6;
-            int side = Math.min(3, plan.hullWidth() / 2 - 2);
+            int side = cabinHalfWidth(plan);
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
                     boolean wall = Math.abs(x) == side || z == rear || z == front;
@@ -372,7 +380,7 @@ public final class ShipHullVoxelLayout {
                     : plan.decks() >= 2 || plan.cabin() ? 8 : 4;
             if (plan.cabin() && plan.decks() == 1) {
                 int roofFront = rear + 6;
-                int side = Math.min(3, plan.hullWidth() / 2 - 2);
+                int side = cabinHalfWidth(plan);
                 // The cabin roof is the captain's platform without bridge or
                 // upper-deck upgrades. It needs its own perimeter guard,
                 // with one gap aligned to the exterior access ladder.
