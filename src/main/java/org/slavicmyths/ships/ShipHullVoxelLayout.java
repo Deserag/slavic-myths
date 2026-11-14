@@ -238,7 +238,12 @@ public final class ShipHullVoxelLayout {
                             && plan.hullRevision() >= 2 && (z == rear || z == front);
                     if ((Math.abs(x) == half || flagshipEnd) && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
-                    if ((z - rear) % 4 == 0 && Math.abs(x) == half)
+                    // Besides the regularly spaced ribs, support both
+                    // exposed ends of the sculpted flagship platforms. The
+                    // forward tapered deck cannot hang in mid-air between
+                    // the last rib and its transverse safety rail.
+                    if (((z - rear) % 4 == 0 || flagshipEnd)
+                            && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
                             put(blocks, x, sy, z, Part.FRAME);
                 }
