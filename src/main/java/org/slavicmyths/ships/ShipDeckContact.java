@@ -15,6 +15,16 @@ public final class ShipDeckContact {
 
     /** True deck height for both renderer-independent contact and crew carrying. */
     public static double height(ShipBuildConfiguration config, int floor) {
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return switch (floor) {
+                case 0 -> 2D;
+                case 1 -> 7D;
+                case 2 -> 12D;
+                case 3 -> 17D;
+                case 4 -> 22D;
+                default -> -1000D;
+            };
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3)
             return switch (floor) {
@@ -53,6 +63,22 @@ public final class ShipDeckContact {
         if (config == null) {
             return floor == 0 ? FirstShipHull.holdSupports(localX, localZ)
                     : floor == 1 && FirstShipHull.mainDeckSupports(localX, localZ);
+        }
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4) {
+            if (!Double.isFinite(localX) || !Double.isFinite(localZ)) return false;
+            int x = (int)Math.round(localX), z = (int)Math.round(localZ);
+            if (Math.abs(localX - x) >= .50D || Math.abs(localZ - z) >= .50D)
+                return false;
+            int maximum = config.decks() >= 2 || config.bridge() ? 4 : 3;
+            if (floor < 0 || floor > maximum) return false;
+            int y = floor == 0 ? 1 : floor == 1 ? 6
+                    : floor == 2 ? 11 : floor == 3 ? 16 : 21;
+            var part = layout(config).get(new ShipHullVoxelLayout.Cell(x, y, z));
+            return floor == 0 ? part == ShipHullVoxelLayout.Part.HULL
+                    || part == ShipHullVoxelLayout.Part.KEEL
+                    : part == ShipHullVoxelLayout.Part.DECK
+                    || part == ShipHullVoxelLayout.Part.BRIDGE;
         }
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) {
@@ -97,7 +123,10 @@ public final class ShipDeckContact {
         boolean brigantine = config != null
                 && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3;
-        int[] order = brigantine ? new int[]{4, 3, 2, 1, 0}
+        boolean frigate = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4;
+        int[] order = brigantine || frigate ? new int[]{4, 3, 2, 1, 0}
                 : config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
