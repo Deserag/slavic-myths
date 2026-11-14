@@ -10,7 +10,7 @@ public final class ShipSectionPlanCheck {
     public static void main(String[] args) {
         int checked = 0;
         int[][] limits = {{1,0,1,1,1,1}, {2,1,2,2,2,2},
-                {3,2,3,2,2,3}, {3,2,3,4,4,3}};
+                {3,2,3,3,3,3}, {3,2,3,4,4,3}};
         for (ShipSectionPlan.ShipClass type : ShipSectionPlan.ShipClass.values()) {
             int[] expected = limits[type.ordinal()];
             check(type.maxLength == expected[0] && type.maxWidth == expected[1]
