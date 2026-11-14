@@ -96,7 +96,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private ShipBuildConfiguration creationConfig() {
-        if (createRafts || chosen < 0 || chosen >= 2) return null;
+        if (createRafts || chosen < 0 || chosen >= 3) return null;
         try {
             return ShipBuildConfiguration.initial(
                     ShipSectionPlan.ShipClass.values()[chosen])
@@ -140,7 +140,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
     }
 
     private void selectClass(int value) {
-        int maximum = createRafts ? VESSELS.length - 1 : 1;
+        int maximum = createRafts ? VESSELS.length - 1 : 2;
         chosen = Math.max(0, Math.min(maximum, value));
         if (!createRafts) {
             ShipSectionPlan.ShipClass kind = ShipSectionPlan.ShipClass.values()[chosen];
