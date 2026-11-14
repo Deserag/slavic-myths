@@ -116,6 +116,32 @@ public final class ShipDeckContact {
                     || material == ShipHullVoxelLayout.Part.BRIDGE;
     }
 
+    /**
+     * Real moving IV stair contact between named decks. The high half of
+     * every +Z flight is on the forward side of the stair block.
+     * Return NaN outside an actual physical stair voxel.
+     */
+    public static double stairSurfaceHeight(ShipBuildConfiguration config,
+            double localX, double localZ, double feetRelativeY) {
+        if (config == null || config.shipClass() != ShipSectionPlan.ShipClass.LARGEST
+                || config.hullRevision() != 4 || !Double.isFinite(localX)
+                || !Double.isFinite(localZ) || !Double.isFinite(feetRelativeY))
+            return Double.NaN;
+        int x = (int)Math.round(localX), z = (int)Math.round(localZ);
+        if (Math.abs(localX - x) >= .5D || Math.abs(localZ - z) >= .5D)
+            return Double.NaN;
+        var hull = layout(config);
+        for (int y = 2; y <= 21; y++) {
+            if (hull.get(new ShipHullVoxelLayout.Cell(x, y, z))
+                    != ShipHullVoxelLayout.Part.STAIR) continue;
+            double surface = y + (localZ >= z ? 1D : .5D);
+            if (feetRelativeY >= surface - .65D
+                    && feetRelativeY <= surface + .9D)
+                return surface;
+        }
+        return Double.NaN;
+    }
+
     /** Determine an available floor at this player's feet, highest first. */
     public static int contactFloor(FirstShipEntity ship,
             double x, double z, double absoluteFeetY) {
