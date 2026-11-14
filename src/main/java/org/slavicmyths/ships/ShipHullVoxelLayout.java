@@ -151,6 +151,37 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        // Seal the transverse end faces. The original blueprint only
+        // generated the left/right skin at each station: looking along Z
+        // exposed a full-height open mouth into the gun deck and hold.
+        // Fill the end caps and the exposed shoulders at every abrupt
+        // change in beam. Keep deliberate side gunports untouched.
+        for (int z = -end; z <= end; z++) {
+            int beam = brigantineBeam(p, z);
+            int outwardBeam = z >= 0 ? brigantineBeam(p, z + 1)
+                    : brigantineBeam(p, z - 1);
+            for (int x = -beam; x <= beam; x++) {
+                int abs = Math.abs(x);
+                boolean endFace = Math.abs(z) == end;
+                boolean exposedShoulder = outwardBeam >= 0 && abs > outwardBeam;
+                if (!endFace && !exposedShoulder) continue;
+                for (int y = 5; y <= 9; y++) {
+                    // Side ports are exactly two blocks high and only at
+                    // stations far from either extremity.
+                    boolean gunport = abs == beam && (y == 7 || y == 8)
+                            && Math.abs(z) <= end - 5 && Math.abs(z) >= 3
+                            && Math.floorMod(z + end, 4) == 0;
+                    if (!gunport) put(out, x, y, z,
+                            y == 6 || y == 9 ? Part.TRIM : Part.HULL);
+                }
+                // Close the bulwark above the end face as well, without
+                // growing a solid rectangular multi-storey stern tower.
+                if (endFace) {
+                    put(out, x, 11, z, Part.HULL);
+                    if (abs <= Math.max(0, beam - 1)) put(out, x, 12, z, Part.TRIM);
+                }
+            }
+        }
         // Short true bowsprit: part of the moving block palette, not a fake
         // mast or a detached decorative entity.
         for (int z = end; z <= end + 3; z++)
