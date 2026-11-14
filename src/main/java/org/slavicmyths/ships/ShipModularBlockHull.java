@@ -71,6 +71,7 @@ public final class ShipModularBlockHull {
     }
 
     public static Map<BlockPos, BlockState> localPalette(ShipBuildConfiguration config) {
+        if (config == null || config.withdrawn()) return Map.of();
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
@@ -84,7 +85,7 @@ public final class ShipModularBlockHull {
     /** Complete local collision/renderer palette, including attached containers. */
     public static Map<BlockPos, BlockState> localMotionPalette(
             ShipBuildConfiguration config, ListTag cargo) {
-        if (config == null) return Map.of();
+        if (config == null || config.withdrawn()) return Map.of();
         List<Cargo> unpacked = decode(config, cargo);
         if (unpacked == null) return Map.of();
         Map<BlockPos, BlockState> result = new LinkedHashMap<>(localPalette(config));
@@ -353,7 +354,8 @@ public final class ShipModularBlockHull {
 
     public static boolean place(ServerLevel level, BlockPos anchor,
             int turns, ShipBuildConfiguration config, ListTag packedCargo) {
-        if (level == null || anchor == null || config == null) return false;
+        if (level == null || anchor == null || config == null || config.withdrawn())
+            return false;
         List<Cargo> cargo = decode(config, packedCargo);
         if (cargo == null) return false;
         Map<BlockPos, BlockState> blocks = worldPalette(config, anchor, turns);
