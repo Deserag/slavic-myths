@@ -224,6 +224,13 @@ public final class ShipHullVoxelLayout {
                 put(out, -half + 1, y, front + 1, Part.LADDER);
             }
             out.remove(new Cell(-half + 1, 16, front));
+            // A raised deck needs a real aft bulkhead. Side pillars alone
+            // leave a giant through-hole when viewed from the stern.
+            for (int x = -half; x <= half; x++)
+                for (int y = 11; y <= 14; y++)
+                    put(out, x, y, rear,
+                            y == 12 && (x == -half + 2 || x == half - 2)
+                                    ? Part.WINDOW : Part.CABIN_WALL);
             put(out, half - 1, 16, rear + 3, Part.LANTERN);
             put(out, -half + 1, 16, rear + 3, Part.LANTERN);
         }
@@ -245,6 +252,12 @@ public final class ShipHullVoxelLayout {
                 put(out, -half + 1, y, front + 1, Part.LADDER);
             }
             out.remove(new Cell(-half + 1, 21, front));
+            // Third-level quarterdeck also closes across its entire aft face.
+            for (int x = -half; x <= half; x++)
+                for (int y = 16; y <= 19; y++)
+                    put(out, x, y, rear,
+                            y == 17 && Math.abs(x) == Math.max(1, half - 1)
+                                    ? Part.WINDOW : Part.CABIN_WALL);
             put(out, half - 1, 21, rear + 2, Part.LANTERN);
             put(out, -half + 1, 21, rear + 2, Part.LANTERN);
         }
