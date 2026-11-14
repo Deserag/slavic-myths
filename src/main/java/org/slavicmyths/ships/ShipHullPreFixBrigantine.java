@@ -10,37 +10,30 @@ import static org.slavicmyths.ships.ShipHullVoxelLayout.sailTop;
 import org.slavicmyths.ships.ShipHullVoxelLayout.Cell;
 import org.slavicmyths.ships.ShipHullVoxelLayout.Part;
 
-/** Frozen exact pre-fix brigantine layout for safe identification of existing ships.
- * Not used to create new ships.
- */
+/** Frozen exact pre-fix brigantine layout used only to identify old owned blocks. */
 final class ShipHullPreFixBrigantine {
     private ShipHullPreFixBrigantine() {}
-
     private static void put(Map<Cell, Part> blocks, int x, int y, int z, Part part) {
         blocks.put(new Cell(x, y, z), part);
     }
 
-                && plan.hullRevision() == 3) return brigantineBeam(plan, z);
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
-            throw new UnsupportedOperationException("Withdrawn hulls have no station profile");
-        if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
-            return beam(plan.hullWidth(), plan.hullLength(), z);
-        // The trading strug has a long, narrow bow and a fuller working
-        // midship, not the same four-row taper as every other ship class.
-        int halfLength = plan.hullLength() / 2;
-        if (Math.abs(z) > halfLength) return -1;
-        int halfWidth = plan.hullWidth() / 2;
-        int taperLength = z >= 0 ? 7 : 5;
-        int taper = Math.max(0, Math.abs(z) - (halfLength - taperLength));
-        int reduction = (int)Math.ceil(taper * halfWidth / (double)taperLength);
-        return Math.max(z == halfLength ? 0 : z == -halfLength ? 1 : 0,
-                halfWidth - reduction);
-    }
-
-    /** Cabin footprint for the retained SMALL/MEDIUM ships only. */
-    public static int cabinHalfWidth(ShipSuperstructurePlan plan) {
-        return Math.min(3, plan.hullWidth() / 2 - 2);
+    private static int brigantineBeam(ShipSuperstructurePlan plan, int z) {
+        int end = plan.hullLength() / 2;
+        if (Math.abs(z) > end) return -1;
+        int half = plan.hullWidth() / 2;
+        int bow = end - z, aft = end + z;
+        int bowRun = Math.min(12, end);
+        int aftRun = Math.min(8, end);
+        if (bow < bowRun) {
+            double t = Math.max(0D, bow / (double)bowRun);
+            return Math.max(1, (int)Math.round(1D + (half - 1D) * Math.sin(t * Math.PI / 2D)));
+        }
+        if (aft < aftRun) {
+            double t = Math.max(0D, aft / (double)aftRun);
+            return Math.max(3, (int)Math.round(3D + (half - 3D) * Math.sin(t * Math.PI / 2D)));
+        }
+        int waist = Math.abs(z) <= 3 ? 1 : 0;
+        return half - waist;
     }
 
     private static void brigantineStairs(Map<Cell, Part> blocks,
