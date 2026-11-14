@@ -265,6 +265,37 @@ public final class ShipHullVoxelLayout {
                     + x + "," + higherFloor + "," + (exit + 1));
     }
 
+    /** Only a deliberately routed stair may cut through a working floor. */
+    private static boolean brigantineStairHatch(int x, int floorY, int z) {
+        int[][] routes = floorY == 5
+                ? new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5}}
+                : new int[][]{{3, -8, 5, 10}, {-3, 3, 5, 10}};
+        for (int[] r : routes) {
+            if (x != r[0]) continue;
+            for (int step = 1; step <= r[3] - r[2]; step++) {
+                int treadY = r[2] + step;
+                if (z == r[1] + step && treadY <= floorY
+                        && floorY <= treadY + 2) return true;
+            }
+        }
+        return false;
+    }
+
+    private static void sealBrigantineWorkingFloors(Map<Cell, Part> blocks,
+            ShipSuperstructurePlan plan) {
+        int end = plan.hullLength() / 2;
+        for (int z = -end; z <= end; z++) {
+            int inside = brigantineBeam(plan, z) - 2;
+            for (int x = -inside; x <= inside; x++)
+                for (int floor : new int[]{5, 10}) {
+                    Cell cell = new Cell(x, floor, z);
+                    if (!blocks.containsKey(cell)
+                            && !brigantineStairHatch(x, floor, z))
+                        put(blocks, x, floor, z, Part.DECK);
+                }
+        }
+    }
+
     private static void validateBrigantineBilge(Map<Cell, Part> blocks,
             ShipSuperstructurePlan plan) {
         int end = plan.hullLength() / 2;
@@ -591,6 +622,7 @@ public final class ShipHullVoxelLayout {
         if (top >= 20)
             for (int x : new int[]{-1, 1})
                 guardBrigantineStair(out, x, rear, 15, 20);
+        sealBrigantineWorkingFloors(out, p);
         sanitizeBrigantineLanterns(out);
         validateBrigantineBilge(out, p);
         for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
