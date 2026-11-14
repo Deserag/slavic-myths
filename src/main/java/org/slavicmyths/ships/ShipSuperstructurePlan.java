@@ -98,6 +98,15 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
                     + .15D * (decks - 1)
                     + (bridge ? .08D : 0D) + (cabin ? .10D : 0D);
         }
+        if (shipClass == ShipSectionPlan.ShipClass.LARGE
+                || shipClass == ShipSectionPlan.ShipClass.LARGEST) {
+            // Tier III/IV hulls start at 21x33, not the 7x11 starter.
+            // Their mass must not reduce a fully rigged vessel to near-zero
+            // throttle. Extensions and upperworks still add resistance.
+            double footprint = (double)hullWidth * hullLength / (21D * 33D);
+            return 1D + .22D * (footprint - 1D) + .13D * (decks - 1)
+                    + (bridge ? .07D : 0D) + (cabin ? .09D : 0D);
+        }
         double footprint = (double)hullWidth * hullLength / (7D * 11D);
         double floors = 1D + (decks - 1) * .30D;
         double rooms = (bridge ? .12D : 0D) + (cabin ? .18D : 0D);
