@@ -511,6 +511,14 @@ public final class Ocean26GameTests {
                 "Three-deck flagship captain could not board physical wheel");
         t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship,
                 1D, ship.helmSeatZ(), 3), "Top flagship bridge lacks dismount floor support");
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship,
+                1D, ship.helmSeatZ(), 4), "Top flagship bridge is not a valid passenger floor");
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(ship,
+                1D, ship.helmSeatZ(), ship.getY() + 13D) == 4,
+                "Top flagship bridge passenger snapped to an incorrect floor");
+        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(ship,
+                1D, ship.helmSeatZ(), ship.getY() + 10D) != 4,
+                "Three-deck flagship exposes phantom lower bridge contact");
         captain.discard(); builder.discard(); ship.discard();
         t.succeed();
     }
