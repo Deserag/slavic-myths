@@ -35,6 +35,8 @@ public final class ShipHullVoxelLayout {
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() == 3) return brigantineBeam(plan, z);
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4) return frigateBeam(plan, z);
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
             throw new UnsupportedOperationException("Withdrawn hulls have no station profile");
@@ -58,12 +60,16 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int sailLowerYard(ShipSuperstructurePlan plan) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4) return 21;
         return plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() == 3 ? brigantineTopDeck(plan) + 4 : 7;
     }
 
     public static int sailTop(ShipSuperstructurePlan plan, int tier) {
         if (tier < 1 || tier > 3) throw new IllegalArgumentException("Unknown sail tier");
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4) return tier == 1 ? 32 : tier == 2 ? 36 : 40;
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() == 3)
             return sailLowerYard(plan) + (tier == 1 ? 5 : tier == 2 ? 8 : 12);
@@ -71,6 +77,8 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int sailBottom(ShipSuperstructurePlan plan) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4) return 22;
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() == 3) return sailLowerYard(plan) + 1;
         return plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
@@ -640,8 +648,211 @@ public final class ShipHullVoxelLayout {
         return Collections.unmodifiableMap(out);
     }
 
+
+    // IV is a separate four-masted frigate, never a scaled LARGE brigantine.
+    private static int frigateBeam(ShipSuperstructurePlan p, int z) {
+        int end = p.hullLength() / 2;
+        if (Math.abs(z) > end) return -1;
+        int half = p.hullWidth() / 2;
+        if (z >= end - 14) {
+            double t = Math.max(0D, (end - z) / 14D);
+            return Math.max(1, (int)Math.round(1D + (half - 1D)
+                    * Math.sin(t * Math.PI / 2D)));
+        }
+        if (z <= -end + 8) {
+            double t = Math.max(0D, (end + z) / 8D);
+            return Math.max(3, (int)Math.round(3D + (half - 3D)
+                    * Math.sin(t * Math.PI / 2D)));
+        }
+        return half;
+    }
+
+    private static void frigateStairs(Map<Cell, Part> blocks,
+            int x, int startZ, int lower, int upper) {
+        if (upper - lower != 5)
+            throw new IllegalArgumentException("IV stairs must connect five-block decks");
+        Part approach = blocks.get(new Cell(x, lower, startZ));
+        Part landing = blocks.get(new Cell(x, upper, startZ + 6));
+        if (approach == null || landing == null)
+            throw new IllegalStateException("IV staircase has no lower approach or upper landing");
+        for (int i = 0; i <= 6; i++) {
+            int z = startZ + i;
+            int floor = i == 0 ? lower : i == 6 ? upper : lower + i;
+            for (int y = floor + 1; y <= floor + 2; y++)
+                blocks.remove(new Cell(x, y, z));
+            if (i >= 1 && i <= 5) {
+                blocks.remove(new Cell(x, floor, z));
+                put(blocks, x, floor, z, Part.STAIR);
+                for (int y = lower + 1; y < floor; y++)
+                    if (!blocks.containsKey(new Cell(x, y, z)))
+                        put(blocks, x, y, z, Part.FRAME);
+            }
+        }
+        for (int i = 0; i <= 6; i++) {
+            int floor = i == 0 ? lower : i == 6 ? upper : lower + i;
+            if (blocks.containsKey(new Cell(x, floor + 1, startZ + i))
+                    || blocks.containsKey(new Cell(x, floor + 2, startZ + i)))
+                throw new IllegalStateException("IV blocked staircase at "
+                        + x + "," + floor + "," + (startZ + i));
+        }
+    }
+
+    private static void frigateLantern(Map<Cell, Part> blocks, int x, int y, int z) {
+        Cell cell = new Cell(x, y, z);
+        if (blocks.containsKey(cell)) return;
+        Part support = blocks.get(new Cell(x, y - 1, z));
+        if (support != Part.DECK && support != Part.BRIDGE
+                && support != Part.HULL && support != Part.FRAME) return;
+        for (int a = -1; a <= 1; a++)
+            for (int b = -1; b <= 1; b++)
+                if (blocks.get(new Cell(x + a, y, z + b)) == Part.STAIR)
+                    return;
+        blocks.put(cell, Part.LANTERN);
+    }
+
+    private static Map<Cell, Part> generateFrigateIV(ShipSuperstructurePlan p) {
+        Map<Cell, Part> out = new LinkedHashMap<>();
+        int end = p.hullLength() / 2;
+        int rear = -end + 3;
+        // The entire waterline bottom is face-connected and never an open
+        // diagonal lattice. The stern and bow have independent station curves.
+        for (int z = -end; z <= end; z++) {
+            int beam = frigateBeam(p, z);
+            int adjacentAft = frigateBeam(p, z - 1);
+            int adjacentBow = frigateBeam(p, z + 1);
+            for (int x = -beam; x <= beam; x++) {
+                int d = Math.abs(x);
+                put(out, x, 1, z, Part.HULL);
+                if (x == 0) put(out, x, 0, z, Part.KEEL);
+                boolean exterior = d >= beam - 1 || adjacentAft < 0
+                        || adjacentBow < 0 || d > adjacentAft
+                        || d > adjacentBow;
+                if (exterior) {
+                    for (int y = 2; y <= 11; y++)
+                        put(out, x, y, z, y == 8 && d >= beam - 1
+                                && Math.floorMod(z + end, 5) == 0
+                                && z > -end + 7 && z < end - 9
+                                ? Part.GUNPORT_SHUTTER : Part.HULL);
+                } else {
+                    if (d >= beam - 3)
+                        for (int y = 2; y <= 5; y++) put(out, x, y, z, Part.HULL);
+                    put(out, x, 6, z, Part.DECK);
+                    put(out, x, 11, z, Part.DECK);
+                }
+                if (d == beam && z > -end + 5 && z < end - 9)
+                    put(out, x, 12, z, Part.RAIL);
+            }
+        }
+        // Separate rising bow stem, never a vertical spike; the bowsprit
+        // continues the same diagonal in a restrained forward projection.
+        for (int z = end - 12; z <= end + 7; z++) {
+            int y = 12 + (int)Math.round((z - (end - 12)) * 11D / 19D);
+            put(out, 0, y, z, z <= end ? Part.FRAME : Part.BOWSPRIT);
+            if (z <= end && z >= end - 9)
+                put(out, 0, y - 1, z, Part.TRIM);
+        }
+        // Full stern gallery, with real windows and a transverse bulkhead.
+        int sternBeam = frigateBeam(p, -end + 2);
+        for (int z = -end + 1; z <= -end + 8; z++) {
+            int half = Math.min(7, Math.max(2, frigateBeam(p, z) - 2));
+            for (int x = -half; x <= half; x++) {
+                put(out, x, 15, z, Part.DECK);
+                if (Math.abs(x) == half) {
+                    for (int y = 12; y <= 14; y++)
+                        put(out, x, y, z, y == 13 && Math.floorMod(z, 3) == 0
+                                ? Part.WINDOW : Part.CABIN_WALL);
+                }
+            }
+        }
+        for (int x = -Math.min(7, sternBeam); x <= Math.min(7, sternBeam); x++)
+            for (int y = 12; y <= 14; y++)
+                if (Math.abs(x) >= 2)
+                    put(out, x, y, -end + 1, y == 13 && Math.abs(x) % 3 == 0
+                            ? Part.WINDOW : Part.CABIN_WALL);
+
+        boolean raised = p.decks() >= 2 || p.cabin() || p.bridge();
+        boolean captainDeck = p.decks() >= 3 || p.bridge();
+        if (raised) {
+            for (int z = rear; z <= rear + 15; z++) {
+                int half = Math.min(7, Math.max(2, frigateBeam(p, z) - 2));
+                for (int x = -half; x <= half; x++) {
+                    put(out, x, 16, z, Part.DECK);
+                    if (Math.abs(x) == half || z == rear || z == rear + 15)
+                        put(out, x, 17, z, Part.RAIL);
+                }
+            }
+        }
+        if (captainDeck) {
+            for (int z = rear; z <= rear + 9; z++) {
+                int half = Math.min(5, Math.max(2, frigateBeam(p, z) - 3));
+                for (int x = -half; x <= half; x++) {
+                    put(out, x, 21, z, Part.BRIDGE);
+                    if (Math.abs(x) == half || z == rear || z == rear + 9)
+                        put(out, x, 22, z, Part.RAIL);
+                }
+            }
+        }
+        if (p.cabin()) {
+            int wallHalf = 4;
+            for (int z = rear + 1; z <= rear + 7; z++)
+                for (int x = -wallHalf; x <= wallHalf; x++)
+                    if (Math.abs(x) == wallHalf || z == rear + 1 || z == rear + 7)
+                        for (int y = 12; y <= 15; y++) {
+                            if (z == rear + 7 && x == 0 && (y == 12 || y == 13))
+                                continue;
+                            put(out, x, y, z, y == 13 && Math.abs(x) == wallHalf
+                                    && Math.floorMod(z, 3) == 0
+                                    ? Part.WINDOW : Part.CABIN_WALL);
+                        }
+        }
+        // Four independent mast stations; wooden geometry remains server side,
+        // but all sail fabric is drawn only by the client renderer.
+        for (int i = 0; i < p.mastPositions().size(); i++) {
+            int z = p.mastPositions().get(i);
+            int tier = p.sailTiers().get(i);
+            int height = Math.min(46, (i == 1 ? 43 : i == 2 ? 41 : 36)
+                    + (tier - 1) * 2);
+            for (int y = 12; y <= height; y++)
+                put(out, 0, y, z, Part.MAST);
+            int span = (i == 1 || i == 2 ? 8 : 6) + tier - 1;
+            for (int yy : new int[]{21, 30, Math.min(height - 1, 39)}) {
+                for (int x = -span; x <= span; x++)
+                    if (x != 0) put(out, x, yy, z, Part.YARD);
+            }
+        }
+        // Fixed routes: two independently accessible stairways between
+        // the hold, gun deck and weather deck.
+        for (int[] route : new int[][]{{-3, -12}, {3, 6}})
+            frigateStairs(out, route[0], route[1], 1, 6);
+        for (int[] route : new int[][]{{-4, -8}, {4, 2}})
+            frigateStairs(out, route[0], route[1], 6, 11);
+        if (raised)
+            for (int x : new int[]{-5, 5})
+                frigateStairs(out, x, rear + 8, 11, 16);
+        if (captainDeck)
+            for (int x : new int[]{-3, 3})
+                frigateStairs(out, x, rear + 2, 16, 21);
+        // Lighting is deliberate, supported, and NEVER replaces wood.
+        for (int z = -end + 11; z <= end - 12; z += 7)
+            for (int x : new int[]{-6, 6}) {
+                frigateLantern(out, x, 2, z);
+                frigateLantern(out, x, 7, z);
+                frigateLantern(out, x, 12, z);
+            }
+        if (raised)
+            for (int z : new int[]{rear + 3, rear + 11})
+                frigateLantern(out, 0, 17, z);
+        if (captainDeck)
+            frigateLantern(out, 0, 22, rear + 7);
+        int wheelY = captainDeck ? 22 : raised ? 17 : 12;
+        put(out, 0, wheelY, rear + 4, Part.HELM);
+        return Collections.unmodifiableMap(out);
+    }
+
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4) return generateFrigateIV(plan);
         // Tier III/IV designs were rejected and must not silently regenerate
         // the old barge-shaped hull. Re-enable only after a new blueprint is
         // explicitly approved and implemented; tiers I/II remain unchanged.
