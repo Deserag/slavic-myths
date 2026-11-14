@@ -710,6 +710,86 @@ public final class ShipHullVoxelLayout {
         blocks.put(cell, Part.LANTERN);
     }
 
+    private static void guardFrigateStairs(Map<Cell, Part> blocks,
+            int x, int startZ, int upper) {
+        // Side rails only: neither the approach nor the landing is fenced off.
+        for (int i = 3; i <= 5; i++)
+            for (int dx : new int[]{-1, 1}) {
+                int z = startZ + i;
+                Cell floor = new Cell(x + dx, upper, z);
+                Cell rail = new Cell(x + dx, upper + 1, z);
+                Part below = blocks.get(floor);
+                if ((below == Part.DECK || below == Part.BRIDGE)
+                        && !blocks.containsKey(rail))
+                    blocks.put(rail, Part.RAIL);
+            }
+    }
+
+    private static boolean frigateStairHole(int x, int floor, int z, int rear) {
+        int[][] routes = floor == 6
+                ? new int[][]{{-3, -12}, {3, 6}}
+                : floor == 11
+                ? new int[][]{{-4, -8}, {4, 2}}
+                : floor == 16
+                ? new int[][]{{-5, rear + 8}, {5, rear + 8}}
+                : floor == 21
+                ? new int[][]{{-3, rear + 2}, {3, rear + 2}}
+                : new int[0][];
+        for (int[] r : routes)
+            if (x == r[0] && z >= r[1] + 3 && z <= r[1] + 5)
+                return true;
+        return false;
+    }
+
+    private static void validateFrigateIV(Map<Cell, Part> blocks,
+            ShipSuperstructurePlan plan, int rear) {
+        int end = plan.hullLength() / 2;
+        for (int z = -end; z <= end; z++) {
+            int width = frigateBeam(plan, z);
+            int prev = frigateBeam(plan, z - 1), next = frigateBeam(plan, z + 1);
+            for (int x = -width; x <= width; x++) {
+                if (blocks.get(new Cell(x, 1, z)) != Part.HULL)
+                    throw new IllegalStateException("IV open bottom at "
+                            + x + ",1," + z);
+                int d = Math.abs(x);
+                boolean exterior = d >= width - 1 || prev < 0 || next < 0
+                        || d > prev || d > next;
+                if (exterior) {
+                    for (int y = 2; y <= 5; y++)
+                        if (blocks.get(new Cell(x, y, z)) != Part.HULL)
+                            throw new IllegalStateException("IV bilge leak at "
+                                    + x + "," + y + "," + z);
+                } else {
+                    for (int y : new int[]{6, 11}) {
+                        Part actual = blocks.get(new Cell(x, y, z));
+                        if (actual != Part.DECK && actual != Part.STAIR
+                                && !frigateStairHole(x, y, z, rear))
+                            throw new IllegalStateException("IV unexpected deck hole at "
+                                    + x + "," + y + "," + z);
+                    }
+                }
+            }
+        }
+        for (int z : plan.mastPositions())
+            if (blocks.get(new Cell(0, 12, z)) != Part.MAST)
+                throw new IllegalStateException("IV mast base missing at " + z);
+        for (int[] flight : new int[][]{{-3, -12, 1}, {3, 6, 1},
+                {-4, -8, 6}, {4, 2, 6}, {-5, rear + 8, 11},
+                {5, rear + 8, 11}, {-3, rear + 2, 16}, {3, rear + 2, 16}}) {
+            if (flight[2] == 11 && !(plan.decks() >= 1)
+                    || flight[2] == 16 && !(plan.decks() >= 2 || plan.bridge()))
+                continue;
+            for (int i = 1; i <= 5; i++) {
+                int y = flight[2] + i, z = flight[1] + i;
+                if (blocks.get(new Cell(flight[0], y, z)) != Part.STAIR
+                        || blocks.containsKey(new Cell(flight[0], y + 1, z))
+                        || blocks.containsKey(new Cell(flight[0], y + 2, z)))
+                    throw new IllegalStateException("IV blocked step at "
+                            + flight[0] + "," + y + "," + z);
+            }
+        }
+    }
+
     private static Map<Cell, Part> generateFrigateIV(ShipSuperstructurePlan p) {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
@@ -845,6 +925,16 @@ public final class ShipHullVoxelLayout {
         if (captainDeck)
             for (int x : new int[]{-3, 3})
                 frigateStairs(out, x, rear + 2, 16, 21);
+        for (int[] route : new int[][]{{-3, -12}, {3, 6}})
+            guardFrigateStairs(out, route[0], route[1], 6);
+        for (int[] route : new int[][]{{-4, -8}, {4, 2}})
+            guardFrigateStairs(out, route[0], route[1], 11);
+        if (raised)
+            for (int x : new int[]{-5, 5})
+                guardFrigateStairs(out, x, rear + 8, 16);
+        if (captainDeck)
+            for (int x : new int[]{-3, 3})
+                guardFrigateStairs(out, x, rear + 2, 21);
         // Lighting is deliberate, supported, and NEVER replaces wood.
         for (int z = -end + 11; z <= end - 12; z += 7)
             for (int x : new int[]{-6, 6}) {
@@ -859,6 +949,7 @@ public final class ShipHullVoxelLayout {
             frigateLantern(out, 0, 22, rear + 7);
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
         put(out, 0, wheelY, rear + 4, Part.HELM);
+        validateFrigateIV(out, p, rear);
         return Collections.unmodifiableMap(out);
     }
 
