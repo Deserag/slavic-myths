@@ -712,6 +712,11 @@ public final class Ocean26GameTests {
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                             0, 1, deckY + 1, upperFront)).is(Blocks.SPRUCE_FENCE),
                             "LARGEST raised deck fore end lacks real safety rail");
+                    int sculptedHalf = Math.max(3, halfBeam - (floor == 2 ? 1 : 3) - 3);
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
+                            0, sculptedHalf, deckY - 1, upperFront))
+                                    .is(Blocks.STRIPPED_SPRUCE_LOG),
+                            "LARGEST raised deck tip is missing timber support");
                 }
                 int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
                         maximum.structure(), 0);
