@@ -336,6 +336,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         double radius = config == null ? 9D : Math.hypot(
                 config.width() / 2D + 1D, config.length() / 2D + 1D) + 2D;
         double height = config == null ? 22D : 24D;
+        if (config != null && config.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3)
+            for (int tier : config.sailTiers())
+                height = Math.max(height,
+                        org.slavicmyths.ships.ShipHullVoxelLayout.sailTop(
+                                config.structure(), tier) + 4D);
         return frustum.isVisible(ship.getBoundingBox().inflate(radius, height, radius));
     }
 
