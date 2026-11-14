@@ -52,11 +52,13 @@ public final class ShipModularBlockHull {
                         default -> Direction.NORTH;
                     });
             case STAIR -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(
+                    // Each generated flight ascends toward local +Z (north).
+                    // Rotate the actual stair rise with the hull orientation.
                     StairBlock.FACING, switch (Math.floorMod(turns, 4)) {
-                        case 0 -> Direction.SOUTH;
-                        case 1 -> Direction.WEST;
-                        case 2 -> Direction.NORTH;
-                        default -> Direction.EAST;
+                        case 0 -> Direction.NORTH;
+                        case 1 -> Direction.EAST;
+                        case 2 -> Direction.SOUTH;
+                        default -> Direction.WEST;
                     });
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,
