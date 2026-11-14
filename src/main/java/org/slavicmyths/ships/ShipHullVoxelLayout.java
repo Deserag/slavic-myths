@@ -294,6 +294,9 @@ public final class ShipHullVoxelLayout {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
         int rear = -end + 2;
+        // Fixed paired stair lanes: outside the captain's cabin and inside
+        // the raised deck's outer wall, regardless of the hull width.
+        int raisedStairX = Math.min(4, p.hullWidth() / 2 - 4);
         // Stepped bilge and keel, not a full-width flat underwater slab.
         for (int z = -end; z <= end; z++) {
             int beam = brigantineBeam(p, z);
@@ -491,7 +494,7 @@ public final class ShipHullVoxelLayout {
             placeBrigantineLantern(out, -half + 1, 21, rear + 2);
         }
         if (p.cabin()) {
-            int half = Math.min(4, p.hullWidth() / 2 - 4);
+            int half = Math.min(3, p.hullWidth() / 2 - 5);
             // Cabin is on the weather deck, beneath the actual stern deck.
             for (int z = rear + 1; z <= rear + 6; z++)
                 for (int x = -half; x <= half; x++) {
@@ -528,7 +531,7 @@ public final class ShipHullVoxelLayout {
         // Rebuild both raised access routes AFTER all cabin and stern walls.
         // This prevents a later upgrade from sealing an earlier passage.
         if (top >= 15) {
-            for (int x : new int[]{-2, 2})
+            for (int x : new int[]{-raisedStairX, raisedStairX})
                 brigantineStairs(out, x, rear + 1, 10, 15);
             // Light the elevated deck from supported side positions, not the
             // middle of the stair approach or inside the captain's cabin.
@@ -573,7 +576,7 @@ public final class ShipHullVoxelLayout {
                 {3, -8, 5, 10}, {-3, 3, 5, 10}})
             clearBrigantineStairHeadroom(out, route[0], route[1], route[2], route[3]);
         if (top >= 15)
-            for (int x : new int[]{-2, 2})
+            for (int x : new int[]{-raisedStairX, raisedStairX})
                 clearBrigantineStairHeadroom(out, x, rear + 1, 10, 15);
         if (top >= 20)
             for (int x : new int[]{-1, 1})
@@ -583,7 +586,7 @@ public final class ShipHullVoxelLayout {
                 {3, -8, 5, 10}, {-3, 3, 5, 10}})
             guardBrigantineStair(out, route[0], route[1], route[2], route[3]);
         if (top >= 15)
-            for (int x : new int[]{-2, 2})
+            for (int x : new int[]{-raisedStairX, raisedStairX})
                 guardBrigantineStair(out, x, rear + 1, 10, 15);
         if (top >= 20)
             for (int x : new int[]{-1, 1})
@@ -594,7 +597,7 @@ public final class ShipHullVoxelLayout {
                 {3, -8, 5, 10}, {-3, 3, 5, 10}})
             validateBrigantineStair(out, route[0], route[1], route[2], route[3]);
         if (top >= 15)
-            for (int x : new int[]{-2, 2})
+            for (int x : new int[]{-raisedStairX, raisedStairX})
                 validateBrigantineStair(out, x, rear + 1, 10, 15);
         if (top >= 20)
             for (int x : new int[]{-1, 1})
