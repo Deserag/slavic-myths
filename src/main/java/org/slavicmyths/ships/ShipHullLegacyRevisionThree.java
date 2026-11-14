@@ -27,11 +27,12 @@ final class ShipHullLegacyRevisionThree {
             case 2 -> historicHull2(p);
             case 3 -> historicHull3(p);
             case 4 -> historicHull4(p);
+            case 5 -> ShipHullPreFixBrigantine.generate(p);
             default -> throw new IllegalArgumentException("Unknown historic hull template");
         };
     }
 
-    static int archives() { return 5; }
+    static int archives() { return 6; }
 
     private static void put(Map<Cell, Part> out, int x, int y, int z, Part part) {
         out.put(new Cell(x, y, z), part);
