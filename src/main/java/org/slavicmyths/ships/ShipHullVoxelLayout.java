@@ -235,10 +235,13 @@ public final class ShipHullVoxelLayout {
         }
         // Two separated stairwells: aft / port and bow / starboard.
         // The two lower floors share safe routes without vertical ladders.
-        for (int[] route : new int[][]{{-2, -10}, {2, 4}}) {
+        for (int[] route : new int[][]{{-2, -10}, {2, 4}})
             brigantineStairs(out, route[0], route[1], 1, 5);
-            brigantineStairs(out, route[0], route[1] - 1, 5, 10);
-        }
+        // Stagger the upper flights to the OPPOSITE side. Using the same
+        // X/Z column for stacked flights creates support beams directly
+        // above lower stair treads, so players cannot finish climbing.
+        for (int[] route : new int[][]{{2, -11}, {-2, 3}})
+            brigantineStairs(out, route[0], route[1], 5, 10);
         // Upper deck only covers the stern, leaving the middle completely open.
         int top = brigantineTopDeck(p);
         if (top >= 15) {
