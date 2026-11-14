@@ -83,6 +83,16 @@ public final class ShipHullVoxelLayoutCheck {
                                                     "gunport blocked: " + p);
                                 }
                                 if (highest >= 15)
+                                    for (int y = 11; y <= 15; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(-4, y, rear + 10))
+                                                        == ShipHullVoxelLayout.Part.LADDER,
+                                                "main-to-quarterdeck ladder mismatch: " + p);
+                                if (highest >= 20)
+                                    for (int y = 16; y <= 20; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(-2, y, rear + 7))
+                                                        == ShipHullVoxelLayout.Part.LADDER,
+                                                "quarterdeck-to-third-deck ladder mismatch: " + p);
+                                if (highest >= 15)
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 15, rear + 3))
                                                     == ShipHullVoxelLayout.Part.DECK,
                                             "raised captain deck missing: " + p);
