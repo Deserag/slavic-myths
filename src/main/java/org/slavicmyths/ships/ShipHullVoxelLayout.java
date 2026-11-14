@@ -364,21 +364,6 @@ public final class ShipHullVoxelLayout {
             }
         }
         sealBrigantineBilge(out, p);
-        // Close the entire exposed bilge perimeter, including outward-facing
-        // beam transitions. Solid waterline layers cannot contain stair-step
-        // gaps even when the hull narrows by several blocks in one station.
-        for (int z = -end; z <= end; z++) {
-            int current = brigantineBeam(p, z);
-            int before = z == -end ? -1 : brigantineBeam(p, z - 1);
-            int after = z == end ? -1 : brigantineBeam(p, z + 1);
-            for (int x = -current; x <= current; x++) {
-                int distance = Math.abs(x);
-                if (distance >= current - 1 || before < 0 || after < 0
-                        || distance >= before - 1 || distance >= after - 1)
-                    for (int y = 2; y <= 4; y++)
-                        put(out, x, y, z, Part.HULL);
-            }
-        }
         // Short true bowsprit: part of the moving block palette, not a fake
         // mast or a detached decorative entity.
         for (int z = end; z <= end + 3; z++)
