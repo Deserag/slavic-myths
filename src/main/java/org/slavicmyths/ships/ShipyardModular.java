@@ -50,6 +50,7 @@ public final class ShipyardModular {
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.GUNPORT_SHUTTER, 0);
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.BRIDGE, 0);
+        int stairs = delta.getOrDefault(ShipHullVoxelLayout.Part.STAIR, 0);
         int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0);
         int sail = delta.getOrDefault(ShipHullVoxelLayout.Part.SAIL, 0);
         int ladders = delta.getOrDefault(ShipHullVoxelLayout.Part.LADDER, 0);
@@ -67,11 +68,11 @@ public final class ShipyardModular {
             }
         }
         return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
-                divRoundUp(hull + deck, 3),
+                divRoundUp(hull + deck + stairs, 3),
                 divRoundUp(keel + frame + mast + yard + windows + ladders
                         + delta.getOrDefault(ShipHullVoxelLayout.Part.LANTERN, 0), 15),
                 divRoundUp(sail, 4),
-                divRoundUp(deck, 24),
+                divRoundUp(deck + stairs, 24),
                 divRoundUp(railing, 16),
                 // Cabin/bridge upgrades move the MEDIUM's existing helm;
                 // do not demand a second helm module for the same wheel.
