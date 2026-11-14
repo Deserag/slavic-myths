@@ -258,9 +258,13 @@ public final class ShipHullVoxelLayoutCheck {
                                         "flagship raised fore deck needs structural end posts " + flagship);
                                 int rearHalf = Math.max(3,
                                         ShipHullVoxelLayout.halfBeam(flagship, rear) - inset - 2);
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(rearHalf, y - 1, rear))
-                                                == ShipHullVoxelLayout.Part.FRAME,
-                                        "flagship raised stern deck needs structural end posts " + flagship);
+                                var sternPost = geometry.get(new ShipHullVoxelLayout.Cell(rearHalf, y - 1, rear));
+                                // A purchased cabin can meet the aft deck at
+                                // this station. Its solid timber wall already
+                                // carries the deck and replaces the bare rib.
+                                yes(sternPost == ShipHullVoxelLayout.Part.FRAME
+                                                || sternPost == ShipHullVoxelLayout.Part.CABIN_WALL,
+                                        "flagship raised stern deck needs solid structural support " + flagship);
                                 if (upper == 3)
                                     yes(geometry.get(new ShipHullVoxelLayout.Cell(1, y + 1, rear))
                                                     == ShipHullVoxelLayout.Part.RAIL,
