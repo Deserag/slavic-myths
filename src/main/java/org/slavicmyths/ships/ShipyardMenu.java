@@ -162,11 +162,8 @@ public final class ShipyardMenu extends AbstractContainerMenu {
                 if (next.equals(config)) return false;
                 if (placed != null) {
                     if (!(player instanceof ServerPlayer customer)
-                            || !placed.upgradeModularInWorld(customer, next)) {
-                        player.displayClientMessage(Component.literal(
-                                "Модификация в мире отклонена: проверьте свободное пространство, экипаж и материалы"), true);
+                            || !placed.upgradeModularInWorld(customer, next))
                         return false;
-                    }
                     player.displayClientMessage(Component.literal(
                             "Размещённый корабль перестроен; груз и оснащение сохранены"), true);
                 } else {
