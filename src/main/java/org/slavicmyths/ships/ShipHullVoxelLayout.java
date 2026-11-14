@@ -33,42 +33,6 @@ public final class ShipHullVoxelLayout {
     }
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2) {
-            // The flagship has a deep, broad merchant stern and a long
-            // asymmetric clipper stem: never copy LARGE's hull stations.
-            int halfLength = plan.hullLength() / 2;
-            if (Math.abs(z) > halfLength) return -1;
-            int halfWidth = plan.hullWidth() / 2;
-            int run = z >= 0 ? Math.min(15, halfLength) : Math.min(9, halfLength);
-            int distance = z >= 0 ? halfLength - z : halfLength + z;
-            // A gently pinched waist interrupts the straight parallel sides
-            // of the former barge-shaped hull. The widest working shoulders
-            // remain aft of amidships and the stem/transom retain their own
-            // asymmetrical curves. Both sides use the same station width.
-            int waistInset = Math.abs(z) <= 3 ? 2 : Math.abs(z) <= 7 ? 1 : 0;
-            if (distance >= run) return Math.max(5, halfWidth - waistInset);
-            double t = distance / (double)run;
-            double curve = z >= 0 ? Math.pow(t, 1.35D)
-                    : t * t * (3D - 2D * t);
-            int tip = z >= 0 ? 1 : Math.max(4, halfWidth / 2);
-            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve)
-                    - waistInset);
-        }
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && plan.hullRevision() >= 2) {
-            // A fine bow and a wide, comparatively full working stern.
-            int halfLength = plan.hullLength() / 2;
-            if (Math.abs(z) > halfLength) return -1;
-            int halfWidth = plan.hullWidth() / 2;
-            int run = z >= 0 ? Math.min(12, halfLength) : Math.min(7, halfLength);
-            int distance = z >= 0 ? halfLength - z : halfLength + z;
-            if (distance >= run) return halfWidth;
-            double t = Math.max(0D, distance / (double)run);
-            double curve = t * t * (3D - 2D * t);
-            int tip = z >= 0 ? 0 : Math.max(2, halfWidth / 3);
-            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve));
-        }
         if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
             return beam(plan.hullWidth(), plan.hullLength(), z);
         // The trading strug has a long, narrow bow and a fuller working
@@ -83,34 +47,19 @@ public final class ShipHullVoxelLayout {
                 halfWidth - reduction);
     }
 
-    /** Flagship sternhouses span a useful part of the broad aft shoulders. */
+    /** Cabin footprint for the retained SMALL/MEDIUM ships only. */
     public static int cabinHalfWidth(ShipSuperstructurePlan plan) {
-        return plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2
-                ? Math.min(5, plan.hullWidth() / 2 - 3)
-                : Math.min(3, plan.hullWidth() / 2 - 2);
+        return Math.min(3, plan.hullWidth() / 2 - 2);
     }
 
-    /** Shared server/client rig heights: never let the renderer invent another sail profile. */
-    public static int sailLowerYard(ShipSuperstructurePlan plan) {
-        return plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2
-                ? Math.max(7, 4 + (plan.decks() - 1) * 4 + 3) : 7;
-    }
+    public static int sailLowerYard(ShipSuperstructurePlan plan) { return 7; }
 
     public static int sailTop(ShipSuperstructurePlan plan, int tier) {
         if (tier < 1 || tier > 3) throw new IllegalArgumentException("Unknown sail tier");
-        int base = tier == 1 ? 12 : tier == 2 ? 15 : 19;
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2)
-            return Math.max(base, sailLowerYard(plan)
-                    + (tier == 1 ? 5 : tier == 2 ? 8 : 12));
-        return base;
+        return tier == 1 ? 12 : tier == 2 ? 15 : 19;
     }
 
     public static int sailBottom(ShipSuperstructurePlan plan) {
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2) return sailLowerYard(plan) + 1;
         return plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                 && plan.decks() >= 2 ? 10 : 8;
     }
