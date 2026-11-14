@@ -393,7 +393,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         ShipSectionPlan.ShipClass kind = current.shipClass();
         if (action == 200 && current.extraLength() >= kind.maxLength) return "Предел длины корпуса";
         if (action == 201 && current.extraWidth() >= kind.maxWidth) return "Предел ширины корпуса";
-        if (action == 203 && current.sailTiers().size() >= kind.maxMasts)
+        if (action == 203 && current.sailTiers().size() >=
+                (kind == ShipSectionPlan.ShipClass.LARGE
+                        && current.hullRevision() == 3 ? 2 : kind.maxMasts))
             return "Все мачты этого класса установлены";
         if (action >= 207 && action <= 210) {
             int number = action - 207;
@@ -508,7 +510,8 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 graphics.drawString(font, "Ширина", 18, 152, 0xfff2dfbd, false);
                 graphics.drawString(font, shown.width() + "/" + maximumWidth,
                         61, 152, 0xfff2dfbd, false);
-                graphics.drawString(font, "Мачты: 1/" + type.maxMasts
+                graphics.drawString(font, "Мачты: " + shown.sailTiers().size() + "/" + (type == ShipSectionPlan.ShipClass.LARGE
+                        && shown.hullRevision() == 3 ? 2 : type.maxMasts)
                         + "  Палубы: 1/" + type.maxDecks, 18, 177, 0xffeacfa2, false);
                 graphics.drawString(font, "Шаг: длина +4, ширина +2", 18, 190, 0xffeacfa2, false);
             } else if (createRafts) {
