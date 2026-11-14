@@ -1719,10 +1719,23 @@ public final class Ocean26GameTests {
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                         anchor, 0, 0, 20, wheelZ)).is(Blocks.DARK_OAK_PLANKS),
                         "Third deck floor missing");
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
-                    level, anchor, 0, config) != null, "Brigantine packing failed");
+            BlockPos holdChest = FirstShipBlockHull.world(anchor, 0, 1, 6, 0);
+            t.assertTrue(level.setBlock(holdChest, Blocks.CHEST.defaultBlockState(), 2),
+                    "Gun-deck cargo chest could not be installed");
+            chest(level, holdChest, t).setItem(0, new ItemStack(Items.DIAMOND, 5));
+            ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, config);
+            t.assertTrue(cargo != null && cargo.size() == 1,
+                    "Brigantine gun-deck cargo was not packed");
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                     level, anchor, 0, config), "Brigantine removal failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                    level, anchor, 0, config, cargo),
+                    "Brigantine cargo did not restore after packing");
+            t.assertTrue(chest(level, holdChest, t).getItem(0).getCount() == 5,
+                    "Cargo contents were lost in brigantine gun deck");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                    level, anchor, 0, config), "Brigantine second removal failed");
         }
         t.succeed();
     }
