@@ -209,19 +209,31 @@ public final class ShipHullVoxelLayoutCheck {
                                     "flagship keeps one helm");
                             yes(geometry.equals(ShipHullVoxelLayout.generate(flagship)),
                                     "flagship deterministic geometry");
+                            if (cabin) {
+                                int rear = -length / 2 + 2;
+                                int cabinSide = ShipHullVoxelLayout.cabinHalfWidth(flagship);
+                                yes(cabinSide == 5, "LARGEST captain cabin spans eleven blocks");
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(cabinSide, 6, rear + 3))
+                                                == ShipHullVoxelLayout.Part.WINDOW,
+                                        "LARGEST widened cabin keeps outward windows");
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-cabinSide, 7, rear + 2))
+                                                == ShipHullVoxelLayout.Part.CABIN_WALL,
+                                        "LARGEST widened cabin has real side wall");
+                            }
                             if (floors == 1 && cabin && !bridge) {
                                 int rear = -length / 2 + 2;
+                                int cabinSide = ShipHullVoxelLayout.cabinHalfWidth(flagship);
                                 int flagshipRoofFront = rear + 6;
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(3, 9, rear + 3))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(cabinSide, 9, rear + 3))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "single-deck flagship cabin roof has side rail");
                                 yes(geometry.get(new ShipHullVoxelLayout.Cell(0, 9, flagshipRoofFront))
                                                 == ShipHullVoxelLayout.Part.RAIL,
                                         "single-deck flagship cabin roof has forward guard");
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, flagshipRoofFront))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-cabinSide + 1, 9, flagshipRoofFront))
                                                 == null,
                                         "cabin roof ladder entrance remains open");
-                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-2, 9, flagshipRoofFront + 1))
+                                yes(geometry.get(new ShipHullVoxelLayout.Cell(-cabinSide + 1, 9, flagshipRoofFront + 1))
                                                 == ShipHullVoxelLayout.Part.LADDER,
                                         "single-deck flagship cabin roof keeps accessible ladder");
                             }
