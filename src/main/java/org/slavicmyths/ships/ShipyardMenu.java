@@ -99,6 +99,11 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             int classId = value / 16, extraLength = (value % 16) / 4;
             int extraWidth = value % 4;
             if (classId < 0 || classId >= ShipSectionPlan.ShipClass.values().length) return false;
+            if (classId >= ShipSectionPlan.ShipClass.LARGE.ordinal()) {
+                player.displayClientMessage(Component.literal(
+                        "Корабли III–IV уровня сняты с разработки до полной замены проекта"), true);
+                return false;
+            }
             try {
                 ShipBuildConfiguration config = ShipBuildConfiguration.initial(
                         ShipSectionPlan.ShipClass.values()[classId])
@@ -129,6 +134,12 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             if (config == null) {
                 player.displayClientMessage(Component.literal(
                         "Поместите модульный корабль в ячейку или оставьте одно неподвижное судно у верфи"), true);
+                return false;
+            }
+            if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST) {
+                player.displayClientMessage(Component.literal(
+                        "Модификации III–IV уровня сняты до нового проекта кораблей"), true);
                 return false;
             }
             try {
