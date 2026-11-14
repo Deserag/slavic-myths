@@ -23,6 +23,16 @@ public final class ShipHullVoxelLayout {
         CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN, TRIM, BOWSPRIT, GUNPORT_SHUTTER
     }
 
+    // Bounded immutable IV blueprint cache: shipyard cost previews otherwise
+    // rebuild thousands of blocks repeatedly, often every rendered GUI frame.
+    private static final Map<ShipSuperstructurePlan, Map<Cell, Part>> FRIGATE_CACHE =
+            Collections.synchronizedMap(new LinkedHashMap<>(24, .75F, true) {
+                @Override protected boolean removeEldestEntry(
+                        Map.Entry<ShipSuperstructurePlan, Map<Cell, Part>> eldest) {
+                    return size() > 16;
+                }
+            });
+
     private static int beam(int width, int length, int z) {
         int halfWidth = width / 2, halfLength = length / 2;
         if (Math.abs(z) > halfLength) return -1;
@@ -956,7 +966,13 @@ public final class ShipHullVoxelLayout {
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
         if (plan == null) throw new IllegalArgumentException("Missing ship plan");
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() == 4) return generateFrigateIV(plan);
+                && plan.hullRevision() == 4) {
+            Map<Cell, Part> cached = FRIGATE_CACHE.get(plan);
+            if (cached != null) return cached;
+            Map<Cell, Part> generated = generateFrigateIV(plan);
+            FRIGATE_CACHE.put(plan, generated);
+            return generated;
+        }
         // Tier III/IV designs were rejected and must not silently regenerate
         // the old barge-shaped hull. Re-enable only after a new blueprint is
         // explicitly approved and implemented; tiers I/II remain unchanged.
