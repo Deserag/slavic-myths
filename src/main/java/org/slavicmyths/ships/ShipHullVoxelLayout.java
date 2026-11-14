@@ -770,8 +770,8 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, -end + 1, y == 13 && Math.abs(x) % 3 == 0
                             ? Part.WINDOW : Part.CABIN_WALL);
 
-        boolean raised = p.decks() >= 2 || p.cabin() || p.bridge();
-        boolean captainDeck = p.decks() >= 3 || p.bridge();
+        boolean raised = true; // IV always includes a functional stern quarterdeck.
+        boolean captainDeck = p.decks() >= 2 || p.bridge();
         if (raised) {
             for (int z = rear; z <= rear + 15; z++) {
                 int half = Math.min(7, Math.max(2, frigateBeam(p, z) - 2));
@@ -790,6 +790,16 @@ public final class ShipHullVoxelLayout {
                     if (Math.abs(x) == half || z == rear || z == rear + 9)
                         put(out, x, 22, z, Part.RAIL);
                 }
+            }
+        }
+        if (p.decks() >= 3) {
+            // Third-deck upgrade: a real wheelhouse canopy on the captain platform.
+            for (int z = rear + 1; z <= rear + 4; z++) {
+                for (int x = -3; x <= 3; x++)
+                    put(out, x, 26, z, Part.BRIDGE);
+                for (int x : new int[]{-3, 3})
+                    for (int y = 22; y <= 25; y++)
+                        put(out, x, y, z, Part.FRAME);
             }
         }
         if (p.cabin()) {
