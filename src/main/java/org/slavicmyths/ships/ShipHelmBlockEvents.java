@@ -30,7 +30,7 @@ public final class ShipHelmBlockEvents {
         BlockPos hit = event.getPos();
         if (!level.getBlockState(hit).is(Blocks.DARK_OAK_FENCE)) return;
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
-                new AABB(hit).inflate(32D, 18D, 32D))) {
+                new AABB(hit).inflate(32D, 44D, 32D))) {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (config == null || !ship.isNativeHull() || ship.isMoving() || ship.isRemoved()) continue;
             int y = (int)ship.helmSeatHeight();
