@@ -54,10 +54,10 @@ public final class ShipModularBlockHull {
             case STAIR -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(
                     // Local +Z is south before ship rotation.
                     StairBlock.FACING, switch (Math.floorMod(turns, 4)) {
-                        case 0 -> Direction.SOUTH;
-                        case 1 -> Direction.WEST;
-                        case 2 -> Direction.NORTH;
-                        default -> Direction.EAST;
+                        case 0 -> Direction.NORTH;
+                        case 1 -> Direction.EAST;
+                        case 2 -> Direction.SOUTH;
+                        default -> Direction.WEST;
                     });
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,
@@ -260,7 +260,9 @@ public final class ShipModularBlockHull {
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
                 ShipHullVoxelLayout.generate(structure);
         int halfWidth = config.width() / 2, halfLength = config.length() / 2;
-        int maxY = Math.max(24, 4 + config.decks() * 4);
+        int maxY = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4 ? 48
+                : Math.max(24, 4 + config.decks() * 4);
         for (int z = -halfLength; z <= halfLength; z++)
             for (int x = -halfWidth; x <= halfWidth; x++)
                 for (int y = 1; y <= maxY; y++) {
@@ -390,7 +392,9 @@ public final class ShipModularBlockHull {
         // Check interior AIR too. A hollow ship must never engulf terrain,
         // existing buildings or unloaded chunks between its timber supports.
         int half = config.length() / 2;
-        int maxY = Math.max(24, 4 + config.decks() * 4);
+        int maxY = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4 ? 48
+                : Math.max(24, 4 + config.decks() * 4);
         for (int z = -half; z <= half; z++)
             for (int x = -ShipHullVoxelLayout.halfBeam(config.structure(), z);
                  x <= ShipHullVoxelLayout.halfBeam(config.structure(), z); x++)
