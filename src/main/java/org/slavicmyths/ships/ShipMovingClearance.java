@@ -41,22 +41,22 @@ public final class ShipMovingClearance {
                 int worldX = (int)Math.floor(pose.x() + x * cos - z * sin);
                 int worldY = surfaceY + relativeY;
                 int worldZ = (int)Math.floor(pose.z() + x * sin + z * cos);
-                // Most neighboring source voxels map to the same target cell.
-                // Probe the primitive packed coordinate before allocating a BlockPos.
-                if (visited.add(BlockPos.asLong(worldX, worldY, worldZ))) {
+                // Collision probes can be deduplicated, but water support
+                // cannot: a cell first visited by an upper plank may later be
+                // visited by a bilge voxel that requires water underneath.
+                long packed = BlockPos.asLong(worldX, worldY, worldZ);
+                if (visited.add(packed)) {
                     BlockPos target = new BlockPos(worldX, worldY, worldZ);
                     if (!level.hasChunkAt(target)) return false;
                     BlockState obstacle = level.getBlockState(target);
                     if (!harmless(level, target, obstacle)
                             || level.getBlockEntity(target) != null) return false;
-                    // Once per unique sample, not four times for every
-                    // overlapping bottom voxel; protect the whole bilge.
-                    if (waterline) {
-                        BlockPos below = target.below();
-                        if (!level.hasChunkAt(below)
-                                || !level.getFluidState(below).is(FluidTags.WATER))
-                            return false;
-                    }
+                }
+                if (waterline) {
+                    BlockPos below = new BlockPos(worldX, worldY - 1, worldZ);
+                    if (!level.hasChunkAt(below)
+                            || !level.getFluidState(below).is(FluidTags.WATER))
+                        return false;
                 }
             }
         return true;
