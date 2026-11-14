@@ -119,7 +119,7 @@ public final class FirstShipEntity extends Boat {
         clientMotionZ = z;
         clientMotionYaw = yaw;
         clientMotionSpeed = Math.max(-ShipRigidMotion.MAX_REVERSE,
-                Math.min(ShipRigidMotion.MAX_FORWARD, speed));
+                Math.min(ShipRigidMotion.MAX_IV_FORWARD, speed));
         clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
                 Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
         clientMotionSteps = 1;
@@ -175,6 +175,8 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4) return -(config.length() / 2) + 7D;
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) return -(config.length() / 2) + 4D;
         return -config.length() / 2 + (config.bridge() ? 3D
@@ -189,6 +191,10 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return config.bridge() || config.decks() >= 3 ? 22D
+                    : config.decks() >= 2 || config.cabin() ? 17D : 12D;
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3)
             return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) + 1D;
@@ -200,6 +206,10 @@ public final class FirstShipEntity extends Boat {
 
     private int helmFloorIndex() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return config.bridge() || config.decks() >= 3 ? 4
+                    : config.decks() >= 2 || config.cabin() ? 3 : 2;
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) {
             int top = ShipHullVoxelLayout.brigantineTopDeck(config.structure());
