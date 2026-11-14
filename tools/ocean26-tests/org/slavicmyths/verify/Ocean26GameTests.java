@@ -1682,7 +1682,12 @@ public final class Ocean26GameTests {
         t.assertTrue(full.equals(org.slavicmyths.ships.ShipBuildConfiguration.load(full.save()))
                         && full.equals(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(full.wire())),
                 "Brigantine upgrades or hull revision lost on NBT/wire roundtrip");
-        for (var config : java.util.List.of(base, full)) {
+        var threeMasts = full.withSail(2, 3);
+        t.assertTrue(threeMasts.sailTiers().size() == 3
+                        && threeMasts.equals(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
+                                threeMasts.wire())),
+                "Third mast upgrade is not saved in the blueprint");
+        for (var config : java.util.List.of(base, full, threeMasts)) {
             var layout = config.structure();
             int highest = org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck(layout);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
@@ -1694,6 +1699,21 @@ public final class Ocean26GameTests {
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, 0, 10, 0)).is(Blocks.SPRUCE_PLANKS),
                     "Brigantine main deck missing");
+            // Check ACTUAL world blocks, not just the voxel planning map.
+            // Former builds left a wide open bow and stern at the gun deck.
+            for (int endZ : new int[]{-config.length() / 2, config.length() / 2}) {
+                int half = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(layout, endZ);
+                for (int x = -half; x <= half; x++)
+                    for (int y = 2; y <= 11; y++)
+                        t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(
+                                anchor, 0, x, y, endZ)).isAir(),
+                                "Tier III still has an open bow/stern end "
+                                        + x + "/" + y + "/" + endZ);
+            }
+            for (int mastZ : layout.mastPositions())
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, highest + 2, mastZ)).is(Blocks.STRIPPED_SPRUCE_LOG),
+                        "Installed third mast not present above captain deck");
             int portZ = -config.length() / 2 + 8;
             int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(layout, portZ);
             for (int side : new int[]{-1, 1})
