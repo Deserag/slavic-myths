@@ -74,10 +74,15 @@ public final class ShipSuperstructureCheck {
                 List.of(1), 2, true, true), "bridge cabin minimum footprint");
 
         var large = plan(ShipSectionPlan.ShipClass.LARGE, 21, 33,
-                List.of(1, 2, 3), 3, true, true);
-        yes(large.mastPositions().equals(List.of(-4, 0, 4)), "three masts");
-        yes(Math.abs(large.rawThrust() - 5.2D) < 1E-9D, "all three sail tiers");
-        yes(large.propulsionFactor() <= 1D, "forward thrust is bounded");
+                List.of(1, 2), 3, true, true);
+        yes(large.mastPositions().equals(List.of(-2, 2)), "legacy planning unchanged");
+        yes(Math.abs(large.rawThrust() - 2.7D) < 1E-9D, "two-mast rig");
+        var brigantine = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
+                21, 33, List.of(1, 2), 3, true, true, 3);
+        yes(brigantine.mastPositions().equals(List.of(-3, 6)),
+                "new brigantine has separated fore and aft mast stations");
+        yes(brigantine.propulsionFactor() > 0D && brigantine.propulsionFactor() <= 1D,
+                "brigantine thrust remains usable");
 
         var largest = plan(ShipSectionPlan.ShipClass.LARGEST, 21, 33,
                 List.of(3, 3, 2, 1), 3, true, true);
