@@ -835,11 +835,19 @@ public final class ShipHullVoxelLayout {
         }
         // Separate rising bow stem, never a vertical spike; the bowsprit
         // continues the same diagonal in a restrained forward projection.
+        int lastStemY = 12;
         for (int z = end - 12; z <= end + 7; z++) {
             int y = 12 + (int)Math.round((z - (end - 12)) * 11D / 19D);
-            put(out, 0, y, z, z <= end ? Part.FRAME : Part.BOWSPRIT);
-            if (z <= end && z >= end - 9)
+            Part timber = z <= end ? Part.FRAME : Part.BOWSPRIT;
+            // A diagonal jump of one X/Z station and one Y level touches
+            // only at an edge. Put a connecting voxel at the previous Y
+            // so every segment shares a complete block face with its neighbor.
+            if (z > end - 12 && y > lastStemY)
+                put(out, 0, lastStemY, z, timber);
+            put(out, 0, y, z, timber);
+            if (z <= end && z >= end - 9 && y > 13)
                 put(out, 0, y - 1, z, Part.TRIM);
+            lastStemY = y;
         }
         // Full stern gallery, with real windows and a transverse bulkhead.
         int sternBeam = frigateBeam(p, -end + 2);
