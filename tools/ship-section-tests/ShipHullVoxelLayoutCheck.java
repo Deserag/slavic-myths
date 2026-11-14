@@ -146,6 +146,33 @@ public final class ShipHullVoxelLayoutCheck {
                                         yes(model.get(new ShipHullVoxelLayout.Cell(0, y, rear))
                                                         == ShipHullVoxelLayout.Part.CABIN_WALL,
                                                 "open sterncastle below third deck: " + p);
+                                if (highest >= 15) {
+                                    int half = Math.min(5, width / 2 - 3);
+                                    for (int z = rear + 1; z <= rear + 8; z++)
+                                        for (int y = 11; y <= 14; y++) {
+                                            var sideWall = model.get(
+                                                    new ShipHullVoxelLayout.Cell(half, y, z));
+                                            yes(sideWall == ShipHullVoxelLayout.Part.CABIN_WALL
+                                                            || sideWall == ShipHullVoxelLayout.Part.WINDOW,
+                                                    "raised stern has open side wall: " + p);
+                                        }
+                                }
+                                if (highest >= 20) {
+                                    int half = Math.min(3, width / 2 - 5);
+                                    for (int z = rear + 1; z <= rear + 5; z++)
+                                        for (int y = 16; y <= 19; y++) {
+                                            var sideWall = model.get(
+                                                    new ShipHullVoxelLayout.Cell(half, y, z));
+                                            yes(sideWall == ShipHullVoxelLayout.Part.CABIN_WALL
+                                                            || sideWall == ShipHullVoxelLayout.Part.WINDOW,
+                                                    "third deck has open side wall: " + p);
+                                        }
+                                }
+                                if (bridge)
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                    0, highest + 4, rear + 1))
+                                                    == ShipHullVoxelLayout.Part.BRIDGE,
+                                            "bridge upgrade missing physical canopy: " + p);
                                 // Main corridor must stay at least four blocks high
                                 // between the gun floor and the weather deck. A
                                 // future gun carriage needs more room than a walker.
