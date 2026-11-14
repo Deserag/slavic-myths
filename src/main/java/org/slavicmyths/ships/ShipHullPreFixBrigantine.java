@@ -1,0 +1,365 @@
+package org.slavicmyths.ships;
+
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import static org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck;
+import static org.slavicmyths.ships.ShipHullVoxelLayout.sailBottom;
+import static org.slavicmyths.ships.ShipHullVoxelLayout.sailLowerYard;
+import static org.slavicmyths.ships.ShipHullVoxelLayout.sailTop;
+import org.slavicmyths.ships.ShipHullVoxelLayout.Cell;
+import org.slavicmyths.ships.ShipHullVoxelLayout.Part;
+
+/** Frozen exact pre-fix brigantine layout for safe identification of existing ships.
+ * Not used to create new ships.
+ */
+final class ShipHullPreFixBrigantine {
+    private ShipHullPreFixBrigantine() {}
+
+    private static void put(Map<Cell, Part> blocks, int x, int y, int z, Part part) {
+        blocks.put(new Cell(x, y, z), part);
+    }
+
+                && plan.hullRevision() == 3) return brigantineBeam(plan, z);
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
+            throw new UnsupportedOperationException("Withdrawn hulls have no station profile");
+        if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
+            return beam(plan.hullWidth(), plan.hullLength(), z);
+        // The trading strug has a long, narrow bow and a fuller working
+        // midship, not the same four-row taper as every other ship class.
+        int halfLength = plan.hullLength() / 2;
+        if (Math.abs(z) > halfLength) return -1;
+        int halfWidth = plan.hullWidth() / 2;
+        int taperLength = z >= 0 ? 7 : 5;
+        int taper = Math.max(0, Math.abs(z) - (halfLength - taperLength));
+        int reduction = (int)Math.ceil(taper * halfWidth / (double)taperLength);
+        return Math.max(z == halfLength ? 0 : z == -halfLength ? 1 : 0,
+                halfWidth - reduction);
+    }
+
+    /** Cabin footprint for the retained SMALL/MEDIUM ships only. */
+    public static int cabinHalfWidth(ShipSuperstructurePlan plan) {
+        return Math.min(3, plan.hullWidth() / 2 - 2);
+    }
+
+    private static void brigantineStairs(Map<Cell, Part> blocks,
+            int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int i = 1; i <= higherFloor - lowerFloor; i++) {
+            int y = lowerFloor + i, z = startZ + i;
+            blocks.remove(new Cell(x, y, z));
+            for (int supportY = lowerFloor + 1; supportY < y; supportY++)
+                put(blocks, x, supportY, z, Part.FRAME);
+            blocks.remove(new Cell(x, y + 1, z));
+            blocks.remove(new Cell(x, y + 2, z));
+            put(blocks, x, y, z, Part.STAIR);
+        }
+        // Two-block clear landing; neither level may trap the player.
+        int exit = startZ + higherFloor - lowerFloor + 1;
+        blocks.remove(new Cell(x, higherFloor + 1, exit));
+        blocks.remove(new Cell(x, higherFloor + 2, exit));
+    }
+
+    private static void clearBrigantineStairHeadroom(Map<Cell, Part> blocks,
+            int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int i = 1; i <= higherFloor - lowerFloor; i++) {
+            int y = lowerFloor + i, z = startZ + i;
+            for (int head = y + 1; head <= y + 2; head++)
+                blocks.remove(new Cell(x, head, z));
+            put(blocks, x, y, z, Part.STAIR);
+        }
+        int landingZ = startZ + higherFloor - lowerFloor + 1;
+        blocks.remove(new Cell(x, higherFloor + 1, landingZ));
+        blocks.remove(new Cell(x, higherFloor + 2, landingZ));
+    }
+
+    static Map<Cell, Part> generate(ShipSuperstructurePlan p) {
+        Map<Cell, Part> out = new LinkedHashMap<>();
+        int end = p.hullLength() / 2;
+        int rear = -end + 2;
+        // Stepped bilge and keel, not a full-width flat underwater slab.
+        for (int z = -end; z <= end; z++) {
+            int beam = brigantineBeam(p, z);
+            for (int x = -beam; x <= beam; x++) {
+                int abs = Math.abs(x);
+                if (x == 0 && Math.abs(z) < end - 1) put(out, x, 0, z, Part.KEEL);
+                // The true bilge narrows toward the keel and flares toward
+                // the gunports. Only rings, not a solid full-width box, rise
+                // around the three-block-high hold interior.
+                if (abs <= Math.max(1, beam - 4)) put(out, x, 1, z, Part.HULL);
+                else if (abs <= beam - 3) put(out, x, 2, z, Part.HULL);
+                else if (abs <= beam - 2) put(out, x, 3, z, Part.HULL);
+                else if (abs == beam - 1) put(out, x, 4, z, Part.HULL);
+                // The lower hull must have a continuous shell at each Y;
+                // a single diagonal staircase of blocks leaves huge slits.
+                if (abs == beam - 1)
+                    for (int y = 2; y <= 4; y++) put(out, x, y, z, Part.HULL);
+                if (abs == beam - 2)
+                    for (int y = 2; y <= 3; y++) put(out, x, y, z, Part.HULL);
+                // Gun deck spans a full enclosed storey. Closed timber
+                // shutters mark future artillery openings (no open holes).
+                if (abs < beam - 1)
+                    put(out, x, 5, z, Part.DECK);
+                if (abs <= beam - 1)
+                    put(out, x, 10, z, Part.DECK);
+                for (int y = 5; y <= 9; y++) {
+                    if (abs != beam - 1) continue;
+                    boolean gunport = Math.abs(z) <= end - 5
+                            && Math.abs(z) >= 3 && Math.floorMod(z + end, 4) == 0
+                            && (y == 7 || y == 8);
+                    put(out, x, y, z, gunport ? Part.GUNPORT_SHUTTER
+                            : y == 6 || y == 9 ? Part.TRIM
+                            : Math.floorMod(z, 5) == 0 ? Part.FRAME : Part.HULL);
+                }
+                // Tumblehome: gunport shoulders are wider than the upper rail.
+                if (abs == beam - 1) {
+                    put(out, x, 11, z,
+                            Math.floorMod(z, 5) == 0 ? Part.FRAME : Part.HULL);
+                    int bow = end - z, stern = end + z;
+                    int lift = bow <= 2 ? 2 : bow <= 6 ? 1
+                            : stern <= 3 ? 2 : stern <= 6 ? 1 : 0;
+                    for (int y = 12; y <= 11 + lift; y++)
+                        put(out, x, y, z,
+                                y == 11 + lift ? Part.TRIM : Part.FRAME);
+                }
+            }
+        }
+        // Seal the transverse end faces. The original blueprint only
+        // generated the left/right skin at each station: looking along Z
+        // exposed a full-height open mouth into the gun deck and hold.
+        // Fill the end caps and the exposed shoulders at every abrupt
+        // change in beam. Keep deliberate side gunports untouched.
+        for (int z = -end; z <= end; z++) {
+            int beam = brigantineBeam(p, z);
+            int outwardBeam = z >= 0 ? brigantineBeam(p, z + 1)
+                    : brigantineBeam(p, z - 1);
+            for (int x = -beam; x <= beam; x++) {
+                int abs = Math.abs(x);
+                boolean endFace = Math.abs(z) == end;
+                boolean exposedShoulder = outwardBeam >= 0 && abs > outwardBeam;
+                if (!endFace && !exposedShoulder) continue;
+                for (int y = 5; y <= 9; y++) {
+                    // Side ports are exactly two blocks high and only at
+                    // stations far from either extremity.
+                    put(out, x, y, z,
+                            y == 6 || y == 9 ? Part.TRIM : Part.HULL);
+                }
+                // A narrowing section exposes its side-facing lower bilge.
+                // Seal that face too, rather than only the top gun-deck wall.
+                if (exposedShoulder)
+                    for (int y = 2; y <= 4; y++)
+                        put(out, x, y, z, Part.HULL);
+                // Close the hold and deck seams at the very tips too:
+                // otherwise the end still exposes a two-to-four-block slot
+                // when viewed straight down the ship axis.
+                if (endFace) {
+                    for (int y = 2; y <= 4; y++)
+                        put(out, x, y, z, y == 4 ? Part.TRIM : Part.HULL);
+                    put(out, x, 10, z, Part.DECK);
+                    put(out, x, 11, z, Part.HULL);
+                    if (abs <= Math.max(0, beam - 1)) put(out, x, 12, z, Part.TRIM);
+                }
+            }
+        }
+        // Short true bowsprit: part of the moving block palette, not a fake
+        // mast or a detached decorative entity.
+        for (int z = end; z <= end + 3; z++)
+            put(out, 0, 12, z, Part.BOWSPRIT);
+        // Permanent functional lighting, not glowing cosmetic textures.
+        // Posts stand inside the bulwark without blocking the central aisle.
+        for (int z : new int[]{-end + 8, end - 8}) {
+            int beam = brigantineBeam(p, z);
+            for (int x : new int[]{-beam + 2, beam - 2}) {
+                put(out, x, 11, z, Part.LANTERN);
+                put(out, x, 6, z, Part.LANTERN);
+            }
+        }
+        // Actual light sources at both low interior levels, on five-block
+        // centers, not only two widely separated lantern pairs.
+        for (int z = -end + 7; z <= end - 7; z += 5) {
+            int beam = brigantineBeam(p, z);
+            if (beam < 6) continue;
+            // Keep the central corridor free: attach light blocks near the
+            // inner side walls instead of placing them in walking lanes.
+            for (int x : new int[]{-beam + 2, beam - 2}) {
+                put(out, x, 2, z, Part.LANTERN);
+                put(out, x, 6, z, Part.LANTERN);
+            }
+        }
+        // Two separated stairwells: aft / port and bow / starboard.
+        // The two lower floors share safe routes without vertical ladders.
+        for (int[] route : new int[][]{{-2, -10}, {2, 4}})
+            brigantineStairs(out, route[0], route[1], 1, 5);
+        // Stagger the upper flights to the OPPOSITE side. Using the same
+        // X/Z column for stacked flights creates support beams directly
+        // above lower stair treads, so players cannot finish climbing.
+        for (int[] route : new int[][]{{3, -8}, {-3, 3}})
+            brigantineStairs(out, route[0], route[1], 5, 10);
+        // Upper deck only covers the stern, leaving the middle completely open.
+        int top = brigantineTopDeck(p);
+        if (top >= 15) {
+            int front = rear + 9;
+            int half = Math.min(5, p.hullWidth() / 2 - 3);
+            for (int z = rear; z <= front; z++)
+                for (int x = -half; x <= half; x++) {
+                    put(out, x, 15, z, Part.DECK);
+                    if (Math.abs(x) == half || z == rear || z == front)
+                        put(out, x, 16, z, Part.HULL);
+                    if (Math.abs(x) == half && Math.floorMod(z, 3) == 0)
+                        for (int y = 11; y <= 14; y++)
+                            put(out, x, y, z, Part.FRAME);
+                }
+            // Two accessible stairwells will join the weather deck to this
+            // raised deck after the cabin walls have been constructed.
+            // A raised deck needs a real aft bulkhead. Side pillars alone
+            // leave a giant through-hole when viewed from the stern.
+            for (int x = -half; x <= half; x++)
+                for (int y = 11; y <= 14; y++)
+                    put(out, x, y, rear,
+                            y == 12 && (x == -half + 2 || x == half - 2)
+                                    ? Part.WINDOW : Part.CABIN_WALL);
+            // Enclose the side of the raised stern deck with real timber
+            // and framed windows. Columns alone exposed the entire storey.
+            for (int z = rear + 1; z <= front; z++)
+                for (int side : new int[]{-half, half})
+                    for (int y = 11; y <= 14; y++)
+                        put(out, side, y, z,
+                                y == 12 && Math.floorMod(z - rear, 4) == 2
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+            // Two-block access door in the forward wall.
+            for (int x = -half + 1; x < half; x++)
+                for (int y = 11; y <= 14; y++) {
+                    if (x == 0 && (y == 11 || y == 12))
+                        out.remove(new Cell(x, y, front));
+                    else put(out, x, y, front, Part.CABIN_WALL);
+                }
+            put(out, half - 1, 16, rear + 3, Part.LANTERN);
+            put(out, -half + 1, 16, rear + 3, Part.LANTERN);
+        }
+        if (top >= 20) {
+            int front = rear + 6;
+            int half = Math.min(3, p.hullWidth() / 2 - 5);
+            for (int z = rear; z <= front; z++)
+                for (int x = -half; x <= half; x++) {
+                    put(out, x, 20, z, Part.BRIDGE);
+                    if (Math.abs(x) == half || z == rear || z == front)
+                        put(out, x, 21, z, Part.HULL);
+                    if (Math.abs(x) == half && Math.floorMod(z, 3) == 0)
+                        for (int y = 17; y <= 19; y++)
+                            put(out, x, y, z, Part.FRAME);
+                }
+            // Twin stairwells above this level are carved after all walls.
+            // Third-level quarterdeck also closes across its entire aft face.
+            for (int x = -half; x <= half; x++)
+                for (int y = 16; y <= 19; y++)
+                    put(out, x, y, rear,
+                            y == 17 && Math.abs(x) == Math.max(1, half - 1)
+                                    ? Part.WINDOW : Part.CABIN_WALL);
+            for (int z = rear + 1; z <= front; z++)
+                for (int side : new int[]{-half, half})
+                    for (int y = 16; y <= 19; y++)
+                        put(out, side, y, z,
+                                y == 17 && Math.floorMod(z - rear, 3) == 1
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+            for (int x = -half + 1; x < half; x++)
+                for (int y = 16; y <= 19; y++) {
+                    if (x == 0 && (y == 16 || y == 17))
+                        out.remove(new Cell(x, y, front));
+                    else put(out, x, y, front, Part.CABIN_WALL);
+                }
+            put(out, half - 1, 21, rear + 2, Part.LANTERN);
+            put(out, -half + 1, 21, rear + 2, Part.LANTERN);
+        }
+        if (p.cabin()) {
+            int half = Math.min(4, p.hullWidth() / 2 - 4);
+            // Cabin is on the weather deck, beneath the actual stern deck.
+            for (int z = rear + 1; z <= rear + 6; z++)
+                for (int x = -half; x <= half; x++) {
+                    boolean wall = Math.abs(x) == half || z == rear + 1 || z == rear + 6;
+                    if (!wall) continue;
+                    for (int y = 11; y <= 14; y++) {
+                        if (z == rear + 6 && x == 0 && (y == 11 || y == 12))
+                            put(out, x, y, z, Part.DOOR);
+                        else put(out, x, y, z,
+                                Math.abs(x) == half && y == 12 && z == rear + 3
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+                    }
+                }
+        }
+        // A bridge upgrade must have visible geometry even when a raised
+        // deck already exists. Keep the captain's wheel accessible.
+        if (p.bridge()) {
+            for (int z = rear + 1; z <= rear + 5; z++)
+                for (int x : new int[]{-3, 3})
+                    put(out, x, top + 1, z, Part.RAIL);
+            // A small sheltered command canopy distinguishes the actual
+            // captain bridge from a basic exposed steering position. It sits
+            // BEHIND the wheel, so the player and wheel remain accessible.
+            for (int z = rear + 1; z <= rear + 2; z++) {
+                for (int x = -2; x <= 2; x++)
+                    put(out, x, top + 4, z, Part.BRIDGE);
+                for (int x : new int[]{-2, 2})
+                    for (int y = top + 1; y <= top + 3; y++)
+                        put(out, x, y, z, Part.FRAME);
+            }
+            for (int x : new int[]{-2, 2})
+                put(out, x, top + 2, rear + 4, Part.LANTERN);
+        }
+        // Rebuild both raised access routes AFTER all cabin and stern walls.
+        // This prevents a later upgrade from sealing an earlier passage.
+        if (top >= 15) {
+            for (int x : new int[]{-2, 2})
+                brigantineStairs(out, x, rear + 3, 10, 15);
+            // Real lanterns at the elevated cabin's working level.
+            for (int z : new int[]{rear + 2, rear + 5})
+                put(out, 0, 11, z, Part.LANTERN);
+        }
+        if (top >= 20) {
+            for (int x : new int[]{-1, 1})
+                brigantineStairs(out, x, rear, 15, 20);
+            for (int z : new int[]{rear + 2, rear + 5})
+                put(out, 0, 16, z, Part.LANTERN);
+        }
+        // Stair approaches must remain walkable; deck lights are placed away
+        // from the centerline on already-supported side posts.
+        for (int z : new int[]{-9, -5, 5, 10}) {
+            int side = brigantineBeam(p, z) - 2;
+            if (side > 3)
+                for (int y : new int[]{6, 11})
+                    put(out, side, y, z, Part.LANTERN);
+        }
+
+        // Every installed mast is rooted in the main deck; the complete
+        // visible rig begins above the highest raised floor, never below it.
+        for (int i = 0; i < p.mastPositions().size(); i++) {
+            int z = p.mastPositions().get(i), tier = p.sailTiers().get(i);
+            int upper = sailTop(p, tier), yard = sailLowerYard(p);
+            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            for (int y = 11; y <= upper + 1; y++) put(out, 0, y, z, Part.MAST);
+            for (int x = -span; x <= span; x++) {
+                put(out, x, yard, z, Part.YARD);
+                put(out, x, upper + 1, z, Part.YARD);
+            }
+            for (int y = sailBottom(p); y <= upper; y++)
+                for (int x = -span; x <= span; x++)
+                    if (x != 0 && !out.containsKey(new Cell(x, y, z + 1)))
+                        put(out, x, y, z + 1, Part.SAIL);
+        }
+        // Run this after every wall, mast, lantern and cabin placement: no
+        // later decorative block may obstruct either flight or its landing.
+        for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
+                {3, -8, 5, 10}, {-3, 3, 5, 10}})
+            clearBrigantineStairHeadroom(out, route[0], route[1], route[2], route[3]);
+        if (top >= 15)
+            for (int x : new int[]{-2, 2})
+                clearBrigantineStairHeadroom(out, x, rear + 3, 10, 15);
+        if (top >= 20)
+            for (int x : new int[]{-1, 1})
+                clearBrigantineStairHeadroom(out, x, rear, 15, 20);
+
+        // One physical wheel on the highest accessible captain's platform.
+        int wheelZ = rear + 3;
+        put(out, 0, top + 1, wheelZ, Part.HELM);
+        return Collections.unmodifiableMap(out);
+    }
+}
