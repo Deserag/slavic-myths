@@ -150,6 +150,72 @@ public final class ShipHullVoxelLayoutCheck {
                                 }
                             }
         yes(brigantines == 1296, "exhaustive brigantine upgrade matrix");
+        // Visual-shell regression: no open transverse end or stair-step
+        // gaps along the bow/stern. Only two-block SIDE gunports may remain.
+        int sealedProfiles = 0;
+        for (int width : new int[]{15, 17, 19})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int decks = 1; decks <= 3; decks++) {
+                    var p = new ShipSuperstructurePlan(
+                            ShipSectionPlan.ShipClass.LARGE, width, length,
+                            List.of(1, 1), decks, false, false, 3);
+                    var voxels = ShipHullVoxelLayout.generate(p);
+                    int end = length / 2;
+                    for (int z = -end; z <= end; z++) {
+                        int beam = ShipHullVoxelLayout.halfBeam(p, z);
+                        int outwardBeam = Math.abs(z) == end ? -1
+                                : ShipHullVoxelLayout.halfBeam(p, z + (z >= 0 ? 1 : -1));
+                        for (int x = -beam; x <= beam; x++) {
+                            if (Math.abs(z) != end && Math.abs(x) <= outwardBeam) continue;
+                            for (int y = 5; y <= 9; y++) {
+                                boolean port = Math.abs(x) == beam && (y == 7 || y == 8)
+                                        && Math.abs(z) <= end - 5 && Math.abs(z) >= 3
+                                        && Math.floorMod(z + end, 4) == 0;
+                                if (port) continue;
+                                var material = voxels.get(new ShipHullVoxelLayout.Cell(x, y, z));
+                                yes(material == ShipHullVoxelLayout.Part.HULL
+                                                || material == ShipHullVoxelLayout.Part.TRIM,
+                                        "open bow/stern end or exposed hull step: " + p
+                                                + " @ " + x + "," + y + "," + z);
+                            }
+                        }
+                    }
+                    sealedProfiles++;
+                }
+        yes(sealedProfiles == 36, "tier III sealed silhouette matrix");
+
+        // Adding the third mast must be possible in every legal hull/height
+        // configuration, and all three masts/cloth panels stay above the
+        // highest deck when cabin, bridge and sail upgrades are combined.
+        int threeMastProfiles = 0;
+        for (int width : new int[]{15, 17, 19})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int decks = 1; decks <= 3; decks++)
+                    for (boolean cabin : new boolean[]{false, true})
+                        for (boolean bridge : new boolean[]{false, true})
+                            for (int tier : new int[]{1, 2, 3}) {
+                                var p = new ShipSuperstructurePlan(
+                                        ShipSectionPlan.ShipClass.LARGE, width, length,
+                                        List.of(1, 2, tier), decks, bridge, cabin, 3);
+                                var voxels = ShipHullVoxelLayout.generate(p);
+                                yes(p.mastPositions().size() == 3
+                                                && new java.util.HashSet<>(p.mastPositions()).size() == 3,
+                                        "third mast missing or overlapping: " + p);
+                                int topDeck = ShipHullVoxelLayout.brigantineTopDeck(p);
+                                for (int i = 0; i < 3; i++) {
+                                    int z = p.mastPositions().get(i);
+                                    int sailTop = ShipHullVoxelLayout.sailTop(p, p.sailTiers().get(i));
+                                    yes(voxels.get(new ShipHullVoxelLayout.Cell(0, topDeck + 2, z))
+                                                    == ShipHullVoxelLayout.Part.MAST,
+                                            "third mast cannot clear upper deck: " + p);
+                                    yes(voxels.get(new ShipHullVoxelLayout.Cell(1, sailTop, z + 1))
+                                                    == ShipHullVoxelLayout.Part.SAIL,
+                                            "third mast missing its upgraded sail: " + p);
+                                }
+                                threeMastProfiles++;
+                            }
+        yes(threeMastProfiles == 432, "three mast full modification matrix");
+
         // Metamorphic upgrades: height changes must move every mast, yard
         // and sail together, including the unusual cabin/bridge combinations.
         int elevationTransitions = 0;
