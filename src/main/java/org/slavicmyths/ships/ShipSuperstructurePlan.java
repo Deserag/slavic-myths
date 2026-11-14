@@ -32,7 +32,9 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
             throw new IllegalArgumentException("Invalid ship dimensions or class");
         sailTiers = List.copyOf(sailTiers);
-        if (sailTiers.size() > shipClass.maxMasts || sailTiers.size() > shipClass.maxSails)
+        if (sailTiers.size() > shipClass.maxMasts || sailTiers.size() > shipClass.maxSails
+                || shipClass == ShipSectionPlan.ShipClass.LARGE
+                        && hullRevision == 3 && sailTiers.size() > 2)
             throw new IllegalArgumentException("Too many masts or primary sails");
         for (Integer tier : sailTiers)
             if (tier == null || tier < 1 || tier > shipClass.maxSailTier)
