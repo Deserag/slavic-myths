@@ -259,8 +259,10 @@ public final class ShipHullVoxelLayout {
                 // The true bilge narrows toward the keel and flares toward
                 // the gunports. Only rings, not a solid full-width box, rise
                 // around the three-block-high hold interior.
-                if (abs <= Math.max(1, beam - 4)) put(out, x, 1, z, Part.HULL);
-                else if (abs <= beam - 3) put(out, x, 2, z, Part.HULL);
+                // A continuous timber floor covers the entire lower bilge.
+                // The previous stepped-only floor left water-visible slots.
+                put(out, x, 1, z, Part.HULL);
+                if (abs <= beam - 3) put(out, x, 2, z, Part.HULL);
                 else if (abs <= beam - 2) put(out, x, 3, z, Part.HULL);
                 else if (abs == beam - 1) put(out, x, 4, z, Part.HULL);
                 // The lower hull must have a continuous shell at each Y;
@@ -271,7 +273,7 @@ public final class ShipHullVoxelLayout {
                     for (int y = 2; y <= 3; y++) put(out, x, y, z, Part.HULL);
                 // Gun deck spans a full enclosed storey. Closed timber
                 // shutters mark future artillery openings (no open holes).
-                if (abs < beam - 1)
+                if (abs <= beam - 1)
                     put(out, x, 5, z, Part.DECK);
                 if (abs <= beam - 1)
                     put(out, x, 10, z, Part.DECK);
