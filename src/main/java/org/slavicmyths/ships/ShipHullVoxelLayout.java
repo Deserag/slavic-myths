@@ -42,12 +42,18 @@ public final class ShipHullVoxelLayout {
             int halfWidth = plan.hullWidth() / 2;
             int run = z >= 0 ? Math.min(15, halfLength) : Math.min(9, halfLength);
             int distance = z >= 0 ? halfLength - z : halfLength + z;
-            if (distance >= run) return halfWidth;
+            // A gently pinched waist interrupts the straight parallel sides
+            // of the former barge-shaped hull. The widest working shoulders
+            // remain aft of amidships and the stem/transom retain their own
+            // asymmetrical curves. Both sides use the same station width.
+            int waistInset = Math.abs(z) <= 3 ? 2 : Math.abs(z) <= 7 ? 1 : 0;
+            if (distance >= run) return Math.max(5, halfWidth - waistInset);
             double t = distance / (double)run;
             double curve = z >= 0 ? Math.pow(t, 1.35D)
                     : t * t * (3D - 2D * t);
             int tip = z >= 0 ? 1 : Math.max(4, halfWidth / 2);
-            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve));
+            return Math.max(tip, (int)Math.round(tip + (halfWidth - tip) * curve)
+                    - waistInset);
         }
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && plan.hullRevision() >= 2) {
