@@ -68,14 +68,25 @@ public final class ShipIVHeadless {
         }
         // A real plank must cover every station of the under-waterline keel.
         // No diagonal-only seam may connect the sea to the hold.
-        for (int z = -end; z <= end; z++)
-            for (int x = -width / 2; x <= width / 2; x++) {
-                var base = at(blocks, x, 1, z);
-                if (base != null)
-                    require(base == ShipHullVoxelLayout.Part.HULL,
-                            key + ": bottom replaced at x=" + x + " z=" + z);
+        for (int z = -end; z <= end; z++) {
+            int beam = ShipHullVoxelLayout.halfBeam(plan, z);
+            int before = ShipHullVoxelLayout.halfBeam(plan, z - 1);
+            int after = ShipHullVoxelLayout.halfBeam(plan, z + 1);
+            require(beam >= 1, key + ": negative station beam");
+            for (int x = -beam; x <= beam; x++) {
+                require(at(blocks, x, 1, z) == ShipHullVoxelLayout.Part.HULL,
+                        key + ": absent bottom at " + x + ",1," + z);
+                int distance = Math.abs(x);
+                boolean exterior = distance >= beam - 1
+                        || before < 0 || after < 0
+                        || distance > before || distance > after;
+                if (exterior)
+                    for (int y = 2; y <= 5; y++)
+                        require(at(blocks, x, y, z) == ShipHullVoxelLayout.Part.HULL,
+                                key + ": exposed bilge at " + x + "," + y + "," + z);
                 checkedHullCells++;
             }
+        }
         for (int[] route : new int[][] {
                 {-3, -12, 1, 6}, {3, 6, 1, 6},
                 {-4, -8, 6, 11}, {4, 2, 6, 11},
