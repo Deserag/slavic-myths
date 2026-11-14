@@ -73,11 +73,25 @@ public final class ShipHullVoxelLayoutCheck {
                                                         route[0], 1 + i, route[1] + i))
                                                         == ShipHullVoxelLayout.Part.STAIR,
                                                 "hold staircase missing: " + p);
-                                    for (int i = 1; i <= 5; i++)
+                                    for (int i = 1; i <= 4; i++)
+                                        for (int head = 1; head <= 2; head++)
+                                            yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                            route[0], 1 + i + head,
+                                                            route[1] + i)) == null,
+                                                    "lower stair tread has no headroom: " + p);
+                                }
+                                for (int[] route : new int[][]{{2, -11}, {-2, 3}}) {
+                                    for (int i = 1; i <= 5; i++) {
                                         yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                        route[0], 5 + i, route[1] - 1 + i))
+                                                        route[0], 5 + i, route[1] + i))
                                                         == ShipHullVoxelLayout.Part.STAIR,
                                                 "gun staircase missing: " + p);
+                                        for (int head = 1; head <= 2; head++)
+                                            yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                            route[0], 5 + i + head,
+                                                            route[1] + i)) == null,
+                                                    "gun stair tread has no headroom: " + p);
+                                    }
                                 }
                                 yes(ShipHullVoxelLayout.halfBeam(p, length / 2)
                                                 < ShipHullVoxelLayout.halfBeam(p, 0),
