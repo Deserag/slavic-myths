@@ -65,8 +65,9 @@ public final class ShipSuperstructureCheck {
         for (int tick = 0; tick < 100; tick++)
             movement.advance(new org.slavicmyths.ships.ShipRigidMotion.Control(
                     fullMedium.propulsionFactor(), 0D), pose -> true);
-        yes(Math.abs(movement.speed() - .1773D) < .00001D,
-                "MEDIUM propulsion is usable by the actual motion kernel");
+        yes(movement.speed() > .27D
+                        && movement.speed() <= org.slavicmyths.ships.ShipRigidMotion.MAX_FORWARD,
+                "MEDIUM propulsion must reach practical sailing speed");
         invalid(() -> medium.withSail(2), "medium mast limit");
         invalid(() -> medium.withDecks(3), "medium deck limit");
         invalid(() -> plan(ShipSectionPlan.ShipClass.MEDIUM, 9, 13,
