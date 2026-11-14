@@ -73,7 +73,7 @@ public final class ShipDynamicCollision {
                     && Math.abs(z - (rear + 10D)) < .49D
                     && y >= 10.9D && y <= 15.9D) return true;
             return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) >= 20
-                    && Math.abs(x + 1D) < .49D
+                    && Math.abs(x + 2D) < .49D
                     && Math.abs(z - (rear + 7D)) < .49D
                     && y >= 15.9D && y <= 20.9D;
         }
