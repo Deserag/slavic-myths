@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN, TRIM, BOWSPRIT
     }
 
     private static int beam(int width, int length, int z) {
@@ -115,29 +115,46 @@ public final class ShipHullVoxelLayout {
             for (int x = -beam; x <= beam; x++) {
                 int abs = Math.abs(x);
                 if (x == 0 && Math.abs(z) < end - 1) put(out, x, 0, z, Part.KEEL);
-                if (abs <= Math.max(1, beam - 3)) put(out, x, 1, z, Part.HULL);
-                else if (abs <= beam - 1) put(out, x, 2, z, Part.HULL);
-                else put(out, x, 3, z, Part.HULL);
-                // Separate hold and gun deck with at least three clear blocks.
+                // The true bilge narrows toward the keel and flares toward
+                // the gunports. Only rings, not a solid full-width box, rise
+                // around the three-block-high hold interior.
+                if (abs <= Math.max(1, beam - 4)) put(out, x, 1, z, Part.HULL);
+                else if (abs <= beam - 3) put(out, x, 2, z, Part.HULL);
+                else if (abs <= beam - 2) put(out, x, 3, z, Part.HULL);
+                else if (abs == beam - 1) put(out, x, 4, z, Part.HULL);
+                // Wide gun floor below a narrower weather deck.
                 if (abs < beam - 1 && !(x == -2 && z == 1))
                     put(out, x, 5, z, Part.DECK);
-                if (!(x == -2 && z == 1)) put(out, x, 10, z, Part.DECK);
-                boolean edge = abs == beam;
-                if (edge) {
-                    for (int y = 4; y <= 9; y++) {
-                        boolean port = Math.abs(z) <= end - 5
-                                && Math.abs(z) >= 3 && Math.floorMod(z + end, 4) == 0
-                                && (y == 7 || y == 8);
-                        if (!port) put(out, x, y, z,
-                                y == 6 || Math.floorMod(z, 5) == 0
-                                        ? Part.FRAME : Part.HULL);
-                    }
-                    put(out, x, 10, z, Part.HULL);
+                if (abs <= beam - 1 && !(x == -2 && z == 1))
+                    put(out, x, 10, z, Part.DECK);
+                for (int y = 5; y <= 9; y++) {
+                    int skin = y == 7 || y == 8 ? beam : beam - 1;
+                    if (abs != skin) continue;
+                    boolean port = Math.abs(z) <= end - 5
+                            && Math.abs(z) >= 3 && Math.floorMod(z + end, 4) == 0
+                            && (y == 7 || y == 8);
+                    if (!port) put(out, x, y, z,
+                            y == 6 || y == 9 ? Part.TRIM
+                                    : Math.floorMod(z, 5) == 0
+                                            ? Part.FRAME : Part.HULL);
+                }
+                // Tumblehome: gunport shoulders are wider than the upper rail.
+                if (abs == beam - 1) {
                     put(out, x, 11, z,
-                            Math.floorMod(z, 4) == 0 ? Part.FRAME : Part.HULL);
+                            Math.floorMod(z, 5) == 0 ? Part.FRAME : Part.HULL);
+                    int bow = end - z, stern = end + z;
+                    int lift = bow <= 2 ? 2 : bow <= 6 ? 1
+                            : stern <= 3 ? 2 : stern <= 6 ? 1 : 0;
+                    for (int y = 12; y <= 11 + lift; y++)
+                        put(out, x, y, z,
+                                y == 11 + lift ? Part.TRIM : Part.FRAME);
                 }
             }
         }
+        // Short true bowsprit: part of the moving block palette, not a fake
+        // mast or a detached decorative entity.
+        for (int z = end; z <= end + 3; z++)
+            put(out, 0, 12, z, Part.BOWSPRIT);
         // Permanent functional lighting, not glowing cosmetic textures.
         // Posts stand inside the bulwark without blocking the central aisle.
         for (int z : new int[]{-end + 8, end - 8}) {
