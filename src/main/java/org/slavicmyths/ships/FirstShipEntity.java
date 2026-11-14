@@ -174,12 +174,6 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
-        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2)
-            // Hull stations use integer half-length; double division shifts
-            // every odd-length wheel and dismount half a block off the deck.
-            return -(config.length() / 2) + (config.bridge() ? 3D
-                    : config.cabin() ? 4D : 5D);
         return -config.length() / 2 + (config.bridge() ? 3D
                 : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 3D
@@ -192,11 +186,6 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
-        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2)
-            return config.decks() >= 3 ? 13D
-                    : config.bridge() ? 10D
-                    : config.decks() >= 2 || config.cabin() ? 9D : 5D;
         return config != null && config.bridge() ? 10D
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2)
@@ -205,11 +194,6 @@ public final class FirstShipEntity extends Boat {
 
     private int helmFloorIndex() {
         ShipBuildConfiguration config = modularConfiguration();
-        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2)
-            return config.decks() >= 3 ? 3
-                    : config.bridge() ? 4
-                    : config.decks() >= 2 || config.cabin() ? 2 : 1;
         return config != null && config.bridge() ? 4
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 2 : 1;
