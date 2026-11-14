@@ -624,12 +624,30 @@ public final class FirstShipEntity extends Boat {
                 || modularConfiguration == null || next == null
                 || !ShipyardModular.compatibleUpgrade(modularConfiguration, next)
                 || next.equals(modularConfiguration) || isRemoved() || !isNativeHull()
-                || isMoving() || isVehicle() || packing || hasWalkers()
-                || quarantinedModules != null || movingBody != null) return false;
+                || isMoving() || isVehicle() || packing
+                || quarantinedModules != null || movingBody != null) {
+            if (customer != null)
+                customer.displayClientMessage(Component.literal(
+                        "Нельзя улучшить корабль: судно движется, занято или недоступно"), true);
+            return false;
+        }
+        if (hasWalkers()) {
+            customer.displayClientMessage(Component.literal(
+                    "Нельзя перестроить корабль, пока на палубах или внутри находятся игроки"), true);
+            return false;
+        }
         ShipyardModular.Materials bill = ShipyardModular.costs(modularConfiguration, next);
-        if (!ShipyardModular.canPay(customer, bill)) return false;
+        if (!ShipyardModular.canPay(customer, bill)) {
+            customer.displayClientMessage(Component.literal(
+                    "Недостаточно материалов для модификации корабля"), true);
+            return false;
+        }
         if (!ShipModularBlockHull.rebuild(server, blockAnchor, quarterTurns,
-                modularConfiguration, blockAnchor, quarterTurns, next)) return false;
+                modularConfiguration, blockAnchor, quarterTurns, next)) {
+            customer.displayClientMessage(Component.literal(
+                    "Перестройка отклонена: корпус не совпадает с сохранённой схемой или место занято"), true);
+            return false;
+        }
         setModularConfiguration(next);
         ShipyardModular.pay(customer, bill);
         return true;
