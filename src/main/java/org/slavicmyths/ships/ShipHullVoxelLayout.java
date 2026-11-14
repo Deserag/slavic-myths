@@ -19,7 +19,7 @@ import java.util.Map;
 public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
-        KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
+        KEEL, HULL, FRAME, DECK, RAIL, LADDER, STAIR, MAST, YARD, SAIL,
         CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN, TRIM, BOWSPRIT, GUNPORT_SHUTTER
     }
 
@@ -103,6 +103,26 @@ public final class ShipHullVoxelLayout {
         }
         int waist = Math.abs(z) <= 3 ? 1 : 0;
         return half - waist;
+    }
+
+    /**
+     * A real walkable five-block flight, climbing toward +Z.
+     * Replace the occupied floor cells above each tread and clear two
+     * headroom blocks; the fifth step joins the next existing deck.
+     */
+    private static void brigantineStairs(Map<Cell, Part> blocks,
+            int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int i = 1; i <= higherFloor - lowerFloor; i++) {
+            int y = lowerFloor + i, z = startZ + i;
+            blocks.remove(new Cell(x, y, z));
+            blocks.remove(new Cell(x, y + 1, z));
+            blocks.remove(new Cell(x, y + 2, z));
+            put(blocks, x, y, z, Part.STAIR);
+        }
+        // Two-block clear landing; neither level may trap the player.
+        int exit = startZ + higherFloor - lowerFloor + 1;
+        blocks.remove(new Cell(x, higherFloor + 1, exit));
+        blocks.remove(new Cell(x, higherFloor + 2, exit));
     }
 
     private static Map<Cell, Part> generateBrigantine(ShipSuperstructurePlan p) {
@@ -211,10 +231,11 @@ public final class ShipHullVoxelLayout {
                 put(out, x, 6, z, Part.LANTERN);
             }
         }
-        // Real hatch between hold, gun deck and weather deck.
-        for (int y = 2; y <= 10; y++) {
-            put(out, -3, y, 1, Part.FRAME);
-            put(out, -2, y, 1, Part.LADDER);
+        // Two separated stairwells: aft / port and bow / starboard.
+        // The two lower floors share safe routes without vertical ladders.
+        for (int[] route : new int[][]{{-2, -10}, {2, 4}}) {
+            brigantineStairs(out, route[0], route[1], 1, 5);
+            brigantineStairs(out, route[0], route[1] - 1, 5, 10);
         }
         // Upper deck only covers the stern, leaving the middle completely open.
         int top = brigantineTopDeck(p);
@@ -231,11 +252,8 @@ public final class ShipHullVoxelLayout {
                         for (int y = 11; y <= 14; y++)
                             put(out, x, y, z, Part.FRAME);
                 }
-            for (int y = 11; y <= 15; y++) {
-                put(out, -half, y, front + 1, Part.FRAME);
-                put(out, -half + 1, y, front + 1, Part.LADDER);
-            }
-            out.remove(new Cell(-half + 1, 16, front));
+            // Two accessible stairwells will join the weather deck to this
+            // raised deck after the cabin walls have been constructed.
             // A raised deck needs a real aft bulkhead. Side pillars alone
             // leave a giant through-hole when viewed from the stern.
             for (int x = -half; x <= half; x++)
@@ -274,11 +292,7 @@ public final class ShipHullVoxelLayout {
                         for (int y = 17; y <= 19; y++)
                             put(out, x, y, z, Part.FRAME);
                 }
-            for (int y = 16; y <= 20; y++) {
-                put(out, -half, y, front + 1, Part.FRAME);
-                put(out, -half + 1, y, front + 1, Part.LADDER);
-            }
-            out.remove(new Cell(-half + 1, 21, front));
+            // Twin stairwells above this level are carved after all walls.
             // Third-level quarterdeck also closes across its entire aft face.
             for (int x = -half; x <= half; x++)
                 for (int y = 16; y <= 19; y++)
@@ -335,6 +349,28 @@ public final class ShipHullVoxelLayout {
             for (int x : new int[]{-2, 2})
                 put(out, x, top + 2, rear + 4, Part.LANTERN);
         }
+        // Rebuild both raised access routes AFTER all cabin and stern walls.
+        // This prevents a later upgrade from sealing an earlier passage.
+        if (top >= 15) {
+            for (int x : new int[]{-2, 2})
+                brigantineStairs(out, x, rear + 3, 10, 15);
+            // Real lanterns at the elevated cabin's working level.
+            for (int z : new int[]{rear + 2, rear + 5})
+                for (int x : new int[]{-Math.min(5, p.hullWidth() / 2 - 3) + 1,
+                        Math.min(5, p.hullWidth() / 2 - 3) - 1})
+                    put(out, x, 11, z, Part.LANTERN);
+        }
+        if (top >= 20) {
+            for (int x : new int[]{-1, 1})
+                brigantineStairs(out, x, rear, 15, 20);
+            for (int z : new int[]{rear + 2, rear + 5})
+                put(out, 0, 16, z, Part.LANTERN);
+        }
+        // Real light next to the two staircase entrances (not painted glow).
+        for (int z : new int[]{-9, -5, 5, 10})
+            for (int y : new int[]{2, 6})
+                put(out, 4, y, z, Part.LANTERN);
+
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
         for (int i = 0; i < p.mastPositions().size(); i++) {
