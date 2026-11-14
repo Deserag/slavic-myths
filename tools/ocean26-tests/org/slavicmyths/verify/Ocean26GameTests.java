@@ -1699,6 +1699,53 @@ public final class Ocean26GameTests {
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, 0, 10, 0)).is(Blocks.SPRUCE_PLANKS),
                     "Brigantine main deck missing");
+            // Real spruce stairs, two separately accessible routes per floor.
+            for (int[] route : new int[][]{{-2, -10}, {2, 4}}) {
+                for (int i = 1; i <= 4; i++)
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, 0, route[0], 1 + i, route[1] + i))
+                                    .is(Blocks.SPRUCE_STAIRS),
+                            "Missing physical hold-to-gun-deck stair");
+                for (int i = 1; i <= 5; i++)
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                    anchor, 0, route[0], 5 + i, route[1] - 1 + i))
+                                    .is(Blocks.SPRUCE_STAIRS),
+                            "Missing physical gun-to-weather stair");
+            }
+            if (highest >= 15)
+                for (int x : new int[]{-2, 2})
+                    for (int i = 1; i <= 5; i++)
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                        anchor, 0, x, 10 + i,
+                                        -config.length() / 2 + 5 + i))
+                                        .is(Blocks.SPRUCE_STAIRS),
+                                "Raised quarterdeck stair missing in world");
+            if (highest >= 20)
+                for (int x : new int[]{-1, 1})
+                    for (int i = 1; i <= 5; i++)
+                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                                        anchor, 0, x, 15 + i,
+                                        -config.length() / 2 + 2 + i))
+                                        .is(Blocks.SPRUCE_STAIRS),
+                                "Upper captain deck stair missing in world");
+            for (int z : new int[]{-config.length() / 2 + 7, -config.length() / 2 + 12}) {
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 3, 2, z)).is(Blocks.LANTERN),
+                        "Lower hold does not contain physical interior lanterns");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 3, 6, z)).is(Blocks.LANTERN),
+                        "Gun deck does not contain physical interior lanterns");
+            }
+            if (highest >= 15)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, 11, -config.length() / 2 + 4))
+                                .is(Blocks.LANTERN),
+                        "Elevated cabin lacks a physical light source");
+            if (highest >= 20)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, 16, -config.length() / 2 + 4))
+                                .is(Blocks.LANTERN),
+                        "Top captain level lacks a physical light source");
             // Check ACTUAL world blocks, not just the voxel planning map.
             // Former builds left a wide open bow and stern at the gun deck.
             for (int endZ : new int[]{-config.length() / 2, config.length() / 2}) {
