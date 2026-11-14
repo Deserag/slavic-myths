@@ -32,9 +32,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
                 || hullWidth % 2 == 0 || hullLength % 2 == 0)
             throw new IllegalArgumentException("Invalid ship dimensions or class");
         sailTiers = List.copyOf(sailTiers);
-        if (sailTiers.size() > shipClass.maxMasts || sailTiers.size() > shipClass.maxSails
-                || shipClass == ShipSectionPlan.ShipClass.LARGE
-                        && hullRevision == 3 && sailTiers.size() > 2)
+        if (sailTiers.size() > shipClass.maxMasts || sailTiers.size() > shipClass.maxSails)
             throw new IllegalArgumentException("Too many masts or primary sails");
         for (Integer tier : sailTiers)
             if (tier == null || tier < 1 || tier > shipClass.maxSailTier)
@@ -72,7 +70,9 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
             boolean brigantine) {
         List<Integer> positions = new ArrayList<>();
         for (int i = 0; i < count; i++)
-            positions.add(brigantine ? (i == 0 ? -3 : 6)
+            positions.add(brigantine ? (count == 1 ? 0
+                    : count == 2 ? (i == 0 ? -3 : 6)
+                    : -7 + i * 8)
                     : (2 * i - (count - 1)) * 2);
         if (cabin && !positions.isEmpty()) {
             int minMastZ = -hullLength / 2 + 10;
