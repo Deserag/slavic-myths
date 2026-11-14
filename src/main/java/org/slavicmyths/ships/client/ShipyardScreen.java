@@ -510,8 +510,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
                 graphics.drawString(font, "Ширина", 18, 152, 0xfff2dfbd, false);
                 graphics.drawString(font, shown.width() + "/" + maximumWidth,
                         61, 152, 0xfff2dfbd, false);
-                graphics.drawString(font, "Мачты: " + shown.sailTiers().size() + "/" + (type == ShipSectionPlan.ShipClass.LARGE
-                        && shown.hullRevision() == 3 ? 2 : type.maxMasts)
+                graphics.drawString(font, "Мачты: " + shown.sailTiers().size() + "/" + type.maxMasts
                         + "  Палубы: 1/" + type.maxDecks, 18, 177, 0xffeacfa2, false);
                 graphics.drawString(font, "Шаг: длина +4, ширина +2", 18, 190, 0xffeacfa2, false);
             } else if (createRafts) {
