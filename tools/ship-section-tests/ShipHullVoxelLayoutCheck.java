@@ -34,6 +34,96 @@ public final class ShipHullVoxelLayoutCheck {
             yes(rejected, "Withdrawn tier III/IV hull must not generate");
         }
 
+        // Complete revision-3 tier III matrix: every supported change in
+        // hull dimensions, heights, cabin, bridge and individual sail tiers.
+        int brigantines = 0;
+        for (int width : new int[]{21, 23, 25})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (int decks : new int[]{1, 2, 3})
+                    for (boolean bridge : new boolean[]{false, true})
+                        for (boolean cabin : new boolean[]{false, true})
+                            for (List<Integer> sails : List.of(
+                                    List.of(1, 1), List.of(1, 3),
+                                    List.of(3, 1), List.of(3, 3))) {
+                                var p = new ShipSuperstructurePlan(
+                                        ShipSectionPlan.ShipClass.LARGE, width, length,
+                                        sails, decks, bridge, cabin, 3);
+                                var model = ShipHullVoxelLayout.generate(p);
+                                brigantines++;
+                                int highest = ShipHullVoxelLayout.brigantineTopDeck(p);
+                                int rear = -length / 2 + 2;
+                                yes(model.get(new ShipHullVoxelLayout.Cell(0, highest + 1, rear + 3))
+                                                == ShipHullVoxelLayout.Part.HELM,
+                                        "top wheel misplaced: " + p);
+                                yes(model.values().stream().filter(part ->
+                                        part == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                                        "duplicate wheel: " + p);
+                                yes(model.get(new ShipHullVoxelLayout.Cell(0, 5, 0))
+                                                == ShipHullVoxelLayout.Part.DECK,
+                                        "missing separate gun floor: " + p);
+                                yes(model.get(new ShipHullVoxelLayout.Cell(0, 10, 0))
+                                                == ShipHullVoxelLayout.Part.DECK,
+                                        "missing main weather deck: " + p);
+                                for (int y = 2; y <= 10; y++)
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, y, 1))
+                                                    == ShipHullVoxelLayout.Part.LADDER,
+                                            "hatch ladder interrupted: " + p);
+                                yes(ShipHullVoxelLayout.halfBeam(p, length / 2)
+                                                < ShipHullVoxelLayout.halfBeam(p, 0),
+                                        "brigantine lost sharp bow: " + p);
+                                for (int z = -length / 2 + 5; z <= length / 2 - 5; z++) {
+                                    if (Math.abs(z) < 3
+                                            || Math.floorMod(z + length / 2, 4) != 0)
+                                        continue;
+                                    int beam = ShipHullVoxelLayout.halfBeam(p, z);
+                                    for (int side : new int[]{-1, 1})
+                                        for (int y : new int[]{7, 8})
+                                            yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                            side * beam, y, z)) == null,
+                                                    "gunport blocked: " + p);
+                                }
+                                if (highest >= 15)
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 15, rear + 3))
+                                                    == ShipHullVoxelLayout.Part.DECK,
+                                            "raised captain deck missing: " + p);
+                                if (highest >= 20)
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 20, rear + 3))
+                                                    == ShipHullVoxelLayout.Part.BRIDGE,
+                                            "third captain deck missing: " + p);
+                                if (cabin) {
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 11, rear + 6))
+                                                    == ShipHullVoxelLayout.Part.DOOR,
+                                            "cabin lower doorway missing: " + p);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 12, rear + 6))
+                                                    == ShipHullVoxelLayout.Part.DOOR,
+                                            "cabin upper doorway missing: " + p);
+                                }
+                                for (int mast = 0; mast < p.mastPositions().size(); mast++) {
+                                    int z = p.mastPositions().get(mast);
+                                    int topY = ShipHullVoxelLayout.sailTop(p, sails.get(mast));
+                                    int yardY = ShipHullVoxelLayout.sailLowerYard(p);
+                                    yes(yardY > highest, "mast yard buried below top deck: " + p);
+                                    yes(topY > yardY, "sail flattened by deck upgrade: " + p);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, highest + 2, z))
+                                                    == ShipHullVoxelLayout.Part.MAST,
+                                            "mast does not continue above upper deck: " + p);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(1, yardY, z))
+                                                    == ShipHullVoxelLayout.Part.YARD,
+                                            "lower yard missing: " + p);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(1, topY + 1, z))
+                                                    == ShipHullVoxelLayout.Part.YARD,
+                                            "upper yard missing: " + p);
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(1, topY, z + 1))
+                                                    == ShipHullVoxelLayout.Part.SAIL,
+                                            "sail panel missing: " + p);
+                                    for (int y = 11; y <= highest + 3; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(1, y, z + 1))
+                                                        != ShipHullVoxelLayout.Part.SAIL,
+                                                "sail intersects occupied level: " + p);
+                                }
+                            }
+        yes(brigantines == 576, "exhaustive brigantine upgrade matrix");
+
         for (var config : List.of(small, medium)) {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxels =
                     ShipHullVoxelLayout.generate(config);
