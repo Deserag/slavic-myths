@@ -86,7 +86,7 @@ public final class ShipSuperstructureCheck {
         var starterBrigantine = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
                 21, 33, List.of(1, 1), 1, false, false, 3);
         var fastBrigantine = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
-                25, 45, List.of(3, 3), 3, true, true, 3);
+                19, 45, List.of(3, 3), 3, true, true, 3);
         yes(starterBrigantine.propulsionFactor() > .60D,
                 "base brigantine must not crawl");
         yes(fastBrigantine.propulsionFactor() > starterBrigantine.propulsionFactor(),
