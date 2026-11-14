@@ -52,12 +52,14 @@ public final class ShipModularBlockHull {
                         default -> Direction.NORTH;
                     });
             case STAIR -> Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(
-                    // Local +Z is south before ship rotation.
+                    // The full-height (upper) half points up the flight.
+                    // Every generated route climbs local +Z, which maps to
+                    // SOUTH at turn 0, then WEST/NORTH/EAST after rotation.
                     StairBlock.FACING, switch (Math.floorMod(turns, 4)) {
-                        case 0 -> Direction.NORTH;
-                        case 1 -> Direction.EAST;
-                        case 2 -> Direction.SOUTH;
-                        default -> Direction.WEST;
+                        case 0 -> Direction.SOUTH;
+                        case 1 -> Direction.WEST;
+                        case 2 -> Direction.NORTH;
+                        default -> Direction.EAST;
                     });
             case YARD -> Blocks.DARK_OAK_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS,
