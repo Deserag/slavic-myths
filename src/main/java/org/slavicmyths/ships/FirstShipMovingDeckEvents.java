@@ -35,7 +35,7 @@ public final class FirstShipMovingDeckEvents {
         }
         Contact last = LAST.get(player);
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(
-                FirstShipEntity.class, player.getBoundingBox().inflate(36D, 44D, 36D))) {
+                FirstShipEntity.class, player.getBoundingBox().inflate(46D, 50D, 46D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             boolean continuing = last != null && last.shipId() == ship.getId();
             // A newly dismounted player has already been placed at the
@@ -95,9 +95,12 @@ public final class FirstShipMovingDeckEvents {
     public static void carryServerCrew(FirstShipEntity ship, double oldX, double oldZ,
                                        float oldYaw) {
         if (!(ship.level() instanceof net.minecraft.server.level.ServerLevel server)) return;
+        double reach = ship.modularConfiguration() != null
+                && ship.modularConfiguration().shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && ship.modularConfiguration().hullRevision() == 4 ? 46D : 30D;
         for (Player player : server.getEntitiesOfClass(Player.class,
-                new net.minecraft.world.phys.AABB(oldX - 30D, ship.getY() - 1D, oldZ - 30D,
-                        oldX + 30D, ship.getY() + 28D, oldZ + 30D))) {
+                new net.minecraft.world.phys.AABB(oldX - reach, ship.getY() - 1D, oldZ - reach,
+                        oldX + reach, ship.getY() + 30D, oldZ + reach))) {
             if (!player.isAlive() || player.isPassenger() || player.isSpectator()
                     || player.getAbilities().flying || player.isFallFlying()) continue;
             Vec3 feet = player.position();
