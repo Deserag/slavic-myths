@@ -13,6 +13,21 @@ public final class ShipDeckContact {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part>> CACHE =
             Collections.synchronizedMap(new WeakHashMap<>());
 
+    /** True deck height for both renderer-independent contact and crew carrying. */
+    public static double height(ShipBuildConfiguration config, int floor) {
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3)
+            return switch (floor) {
+                case 0 -> 2D;
+                case 1 -> 6D;
+                case 2 -> 11D;
+                case 3 -> 16D;
+                case 4 -> 21D;
+                default -> -1000D;
+            };
+        return height(floor);
+    }
+
     private static Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> layout(
             ShipBuildConfiguration config) {
         synchronized (CACHE) {
@@ -86,10 +101,7 @@ public final class ShipDeckContact {
                 : config != null && config.bridge()
                 ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
-            double target = ship.getY() + (brigantine
-                    ? floor == 0 ? 2D : floor == 1 ? 6D
-                    : floor == 2 ? 11D : floor == 3 ? 16D : 21D
-                    : height(floor));
+            double target = ship.getY() + height(config, floor);
             if (absoluteFeetY >= target - .35D
                     && absoluteFeetY <= target + .55D
                     && supports(ship, x, z, floor)) return floor;
