@@ -992,6 +992,19 @@ public final class ShipHullVoxelLayout {
                 for (int x = -Math.max(3, span - 3); x <= Math.max(3, span - 3); x++)
                     if (x != 0) put(out, x, Math.min(45, height - 1), z, Part.YARD);
         }
+        // Install side guards before cutting the staircase corridors.
+        // A lower flight's guard can otherwise obstruct the headroom of
+        // another flight (notably -4,7,-8), crashing the shipyard preview.
+        for (int[] route : new int[][]{{-3, -12}, {3, 6}})
+            guardFrigateStairs(out, route[0], route[1], 6);
+        for (int[] route : new int[][]{{-4, -8}, {4, 2}})
+            guardFrigateStairs(out, route[0], route[1], 11);
+        if (raised)
+            for (int x : new int[]{-5, 5})
+                guardFrigateStairs(out, x, rear + 8, 16);
+        if (captainDeck)
+            for (int x : new int[]{-3, 3})
+                guardFrigateStairs(out, x, rear + 2, 21);
         // Fixed routes: two independently accessible stairways between
         // the hold, gun deck and weather deck.
         for (int[] route : new int[][]{{-3, -12}, {3, 6}})
@@ -1004,16 +1017,6 @@ public final class ShipHullVoxelLayout {
         if (captainDeck)
             for (int x : new int[]{-3, 3})
                 frigateStairs(out, x, rear + 2, 16, 21);
-        for (int[] route : new int[][]{{-3, -12}, {3, 6}})
-            guardFrigateStairs(out, route[0], route[1], 6);
-        for (int[] route : new int[][]{{-4, -8}, {4, 2}})
-            guardFrigateStairs(out, route[0], route[1], 11);
-        if (raised)
-            for (int x : new int[]{-5, 5})
-                guardFrigateStairs(out, x, rear + 8, 16);
-        if (captainDeck)
-            for (int x : new int[]{-3, 3})
-                guardFrigateStairs(out, x, rear + 2, 21);
         // Lighting is deliberate, supported, and NEVER replaces wood.
         for (int z = -end + 11; z <= end - 12; z += 7)
             for (int x : new int[]{-6, 6}) {
