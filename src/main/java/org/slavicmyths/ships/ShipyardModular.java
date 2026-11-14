@@ -31,7 +31,8 @@ public final class ShipyardModular {
 
     public static Materials costs(ShipBuildConfiguration original,
             ShipBuildConfiguration next) {
-        if (next == null) throw new IllegalArgumentException("Missing destination ship");
+        if (next == null || next.withdrawn() || original != null && original.withdrawn())
+            throw new IllegalArgumentException("Ship hull design has been withdrawn");
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
                 ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
@@ -152,7 +153,7 @@ public final class ShipyardModular {
     }
 
     public static ItemStack build(Player player, ShipBuildConfiguration config) {
-        if (player.level().isClientSide || config == null) return ItemStack.EMPTY;
+        if (player.level().isClientSide || config == null || config.withdrawn()) return ItemStack.EMPTY;
         Materials price = costs(null, config);
         if (!canPay(player, price)) return ItemStack.EMPTY;
         ItemStack item = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
@@ -188,8 +189,8 @@ public final class ShipyardModular {
 
     public static ItemStack modify(Player player, ItemStack original,
             ShipBuildConfiguration next) {
-        if (player.level().isClientSide || original.isEmpty() || next == null)
-            return ItemStack.EMPTY;
+        if (player.level().isClientSide || original.isEmpty() || next == null
+                || next.withdrawn()) return ItemStack.EMPTY;
         ShipBuildConfiguration old = configuration(original);
         if (!compatibleUpgrade(old, next)) return ItemStack.EMPTY;
         CompoundTag root = original.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
