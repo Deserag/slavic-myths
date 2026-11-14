@@ -35,9 +35,15 @@ public final class ShipDeckContact {
     private static double height(ShipBuildConfiguration config, int floor) {
         // Revision-2 flagship bilges have a raised solid hold floor at y=1.
         // Matching this physical surface is essential for moving passengers.
-        return floor == 0 && config != null
-                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && config.hullRevision() >= 2 ? 2D : height(floor);
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2) {
+            // The three-deck flagship bridge replaces the top sterncastle
+            // floor at y=12, not the lower bridge at y=9. Passengers must
+            // stand on its real y=12 blocks instead of a phantom y=9 floor.
+            if (floor == 4 && config.bridge() && config.decks() >= 3) return 13D;
+            if (floor == 0) return 2D;
+        }
+        return height(floor);
     }
 
     public static boolean supports(FirstShipEntity ship,
