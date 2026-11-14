@@ -22,10 +22,11 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public static final String NBT_KEY = "ShipBlueprint";
 
     public ShipBuildConfiguration {
-        if (hullRevision < 1 || hullRevision > 3
+        if (hullRevision < 1 || hullRevision > 4
                 || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
                         && shipClass != ShipSectionPlan.ShipClass.LARGEST)
-                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE))
+                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE)
+                || (hullRevision == 4 && shipClass != ShipSectionPlan.ShipClass.LARGEST))
             throw new IllegalArgumentException("Unsupported hull revision");
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
@@ -49,14 +50,15 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         int base = switch (type) {
             case SMALL -> 11;
             case MEDIUM -> 21;
-            case LARGE, LARGEST -> 33;
+            case LARGE -> 33;
+            case LARGEST -> 51;
         };
         return Math.addExact(base, Math.multiplyExact(extraLength, 4));
     }
 
     /** Keep legacy class IDs readable without allowing rejected hulls to be built. */
     public boolean withdrawn() {
-        return shipClass == ShipSectionPlan.ShipClass.LARGEST
+        return shipClass == ShipSectionPlan.ShipClass.LARGEST && hullRevision != 4
                 || shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision != 3;
     }
 
@@ -72,11 +74,12 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     }
 
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
-        if (type == ShipSectionPlan.ShipClass.LARGEST)
-            throw new IllegalArgumentException("Rejected tier IV ship has no starting blueprint");
+        
         return new ShipBuildConfiguration(type, 0, 0,
-                type == ShipSectionPlan.ShipClass.LARGE ? List.of(1, 1) : List.of(1),
-                1, false, false, type == ShipSectionPlan.ShipClass.LARGE ? 3 : 1);
+                type == ShipSectionPlan.ShipClass.LARGEST ? List.of(1, 1, 1, 1)
+                        : type == ShipSectionPlan.ShipClass.LARGE ? List.of(1, 1) : List.of(1),
+                1, false, false, type == ShipSectionPlan.ShipClass.LARGEST ? 4
+                        : type == ShipSectionPlan.ShipClass.LARGE ? 3 : 1);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
