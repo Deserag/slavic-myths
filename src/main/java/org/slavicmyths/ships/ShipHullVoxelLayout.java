@@ -892,6 +892,19 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, z, Part.FRAME);
             }
         }
+        if (p.bridge()) {
+            // The captain bridge upgrade is a physical change even when the
+            // third deck was already installed; it is not a no-op flag.
+            for (int z = rear + 5; z <= rear + 8; z++)
+                for (int x : new int[]{-4, 4}) {
+                    put(out, x, 22, z, Part.RAIL);
+                    if (z == rear + 5 || z == rear + 8)
+                        for (int y = 23; y <= 25; y++)
+                            put(out, x, y, z, Part.FRAME);
+                }
+            for (int x = -4; x <= 4; x++)
+                put(out, x, 26, rear + 5, Part.BRIDGE);
+        }
         if (p.cabin()) {
             int wallHalf = 4;
             for (int z = rear + 1; z <= rear + 7; z++)
