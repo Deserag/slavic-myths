@@ -413,7 +413,8 @@ public final class Ocean26GameTests {
         level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
                 new ChunkPos(anchor), 3, anchor.asLong());
         for (int x = -20; x <= 20; x++)
-            for (int z = -27; z <= 27; z++) {
+            for (int z = fullyUpgraded ? -36 : -27;
+                 z <= (fullyUpgraded ? 36 : 27); z++) {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
