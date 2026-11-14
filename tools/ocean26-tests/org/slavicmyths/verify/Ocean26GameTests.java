@@ -391,8 +391,23 @@ public final class Ocean26GameTests {
 
 
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_brigantine_base_voyage")
+    public static void brigantineBaseVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_brigantine_full_voyage")
+    public static void brigantineFullyUpgradedVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE, true);
+    }
+
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
+        modularClassVoyage(t, type, false);
+    }
+
+    private static void modularClassVoyage(GameTestHelper t,
+            org.slavicmyths.ships.ShipSectionPlan.ShipClass type, boolean fullyUpgraded) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
         level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
@@ -402,10 +417,13 @@ public final class Ocean26GameTests {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= 24; y++)
+                for (int y = 1; y <= (fullyUpgraded ? 40 : 24); y++)
                     level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+        if (fullyUpgraded)
+            config = config.resize(3, 2).withDecks(3).withBridge(true)
+                    .withCabin(true).withSail(0, 3).withSail(1, 3);
         ServerPlayer builder = player(level, type + "VoyageBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
         builder.getAbilities().instabuild = true;
@@ -437,9 +455,9 @@ public final class Ocean26GameTests {
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),
                 type + " helm did not start motion"));
-        for (int tick = 6; tick <= 48; tick++)
+        for (int tick = 6; tick <= (fullyUpgraded ? 16 : 48); tick++)
             t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
-        t.runAtTickTime(51L, () -> {
+        t.runAtTickTime(fullyUpgraded ? 19L : 51L, () -> {
             t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D
                     && captain.getVehicle() == ship
                     && ship.serverMovingPalette() != null,
