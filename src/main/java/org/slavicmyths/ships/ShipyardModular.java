@@ -20,6 +20,21 @@ import net.minecraft.world.item.component.CustomData;
  * constant number of "ship sections" per click.
  */
 public final class ShipyardModular {
+    // UI cost previews can request the same large voxel diff every tick.
+    // Bounded LRU retains only 48 computed pairs, including initial builds.
+    // No inventory mutation or player data is stored in this cache.
+    private record CostKey(ShipBuildConfiguration original,
+            ShipBuildConfiguration next) {}
+    private static final int COST_CACHE_LIMIT = 48;
+    private static final java.util.Map<CostKey, Materials> COST_CACHE =
+            java.util.Collections.synchronizedMap(
+                    new java.util.LinkedHashMap<CostKey, Materials>(64, .75F, true) {
+                        @Override protected boolean removeEldestEntry(
+                                java.util.Map.Entry<CostKey, Materials> eldest) {
+                            return size() > COST_CACHE_LIMIT;
+                        }
+                    });
+
     public record Materials(int logs, int planks, int iron, int string,
             int deckSections, int railKits, int helms,
             int basicSails, int linenSails, int reinforcedSails) {
@@ -33,6 +48,16 @@ public final class ShipyardModular {
             ShipBuildConfiguration next) {
         if (next == null || next.withdrawn() || original != null && original.withdrawn())
             throw new IllegalArgumentException("Ship hull design has been withdrawn");
+        CostKey key = new CostKey(original, next);
+        Materials cached = COST_CACHE.get(key);
+        if (cached != null) return cached;
+        Materials computed = computeCosts(original, next);
+        COST_CACHE.put(key, computed);
+        return computed;
+    }
+
+    private static Materials computeCosts(ShipBuildConfiguration original,
+            ShipBuildConfiguration next) {
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> before = original == null
                 ? Map.of() : ShipHullVoxelLayout.generate(original.structure());
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> after =
