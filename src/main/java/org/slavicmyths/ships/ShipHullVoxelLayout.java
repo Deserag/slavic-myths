@@ -820,15 +820,18 @@ public final class ShipHullVoxelLayout {
         for (int i = 0; i < p.mastPositions().size(); i++) {
             int z = p.mastPositions().get(i);
             int tier = p.sailTiers().get(i);
-            int height = Math.min(46, (i == 1 ? 43 : i == 2 ? 41 : 36)
+            int height = Math.min(46, (i == 1 || i == 2 ? 43 : 40)
                     + (tier - 1) * 2);
             for (int y = 12; y <= height; y++)
                 put(out, 0, y, z, Part.MAST);
             int span = (i == 1 || i == 2 ? 8 : 6) + tier - 1;
-            for (int yy : new int[]{21, 30, Math.min(height - 1, 39)}) {
+            for (int yy : new int[]{21, 30, 39}) {
                 for (int x = -span; x <= span; x++)
                     if (x != 0) put(out, x, yy, z, Part.YARD);
             }
+            if (tier >= 3)
+                for (int x = -Math.max(3, span - 3); x <= Math.max(3, span - 3); x++)
+                    if (x != 0) put(out, x, Math.min(45, height - 1), z, Part.YARD);
         }
         // Fixed routes: two independently accessible stairways between
         // the hold, gun deck and weather deck.
