@@ -22,9 +22,10 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     public static final String NBT_KEY = "ShipBlueprint";
 
     public ShipBuildConfiguration {
-        if (hullRevision < 1 || hullRevision > 2
+        if (hullRevision < 1 || hullRevision > 3
                 || (hullRevision == 2 && shipClass != ShipSectionPlan.ShipClass.LARGE
-                        && shipClass != ShipSectionPlan.ShipClass.LARGEST))
+                        && shipClass != ShipSectionPlan.ShipClass.LARGEST)
+                || (hullRevision == 3 && shipClass != ShipSectionPlan.ShipClass.LARGE))
             throw new IllegalArgumentException("Unsupported hull revision");
         ShipSectionPlan.validate(shipClass, extraLength, extraWidth);
         if (sailTiers == null) throw new IllegalArgumentException("Missing sails");
@@ -53,8 +54,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
 
     /** Keep legacy class IDs readable without allowing rejected hulls to be built. */
     public boolean withdrawn() {
-        return shipClass == ShipSectionPlan.ShipClass.LARGE
-                || shipClass == ShipSectionPlan.ShipClass.LARGEST;
+        return shipClass == ShipSectionPlan.ShipClass.LARGEST
+                || shipClass == ShipSectionPlan.ShipClass.LARGE && hullRevision != 3;
     }
 
     public int width() { return hullWidth(shipClass, extraWidth); }
@@ -66,12 +67,11 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     }
 
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
-        if (type == ShipSectionPlan.ShipClass.LARGE
-                || type == ShipSectionPlan.ShipClass.LARGEST)
-            throw new IllegalArgumentException("Rejected tier III/IV ships have no starting blueprint");
-        return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
-                type == ShipSectionPlan.ShipClass.LARGE
-                        || type == ShipSectionPlan.ShipClass.LARGEST ? 2 : 1);
+        if (type == ShipSectionPlan.ShipClass.LARGEST)
+            throw new IllegalArgumentException("Rejected tier IV ship has no starting blueprint");
+        return new ShipBuildConfiguration(type, 0, 0,
+                type == ShipSectionPlan.ShipClass.LARGE ? List.of(1, 1) : List.of(1),
+                1, false, false, type == ShipSectionPlan.ShipClass.LARGE ? 3 : 1);
     }
 
     public ShipBuildConfiguration resize(int lengthSections, int widthSections) {
