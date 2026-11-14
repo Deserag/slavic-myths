@@ -38,11 +38,13 @@ public final class ShipMovingClearance {
         for (double sampleX : SAMPLES)
             for (double sampleZ : SAMPLES) {
                 double x = localX + sampleX, z = localZ + sampleZ;
-                BlockPos target = BlockPos.containing(
-                        pose.x() + x * cos - z * sin,
-                        surfaceY + relativeY + 0.5D,
-                        pose.z() + x * sin + z * cos);
-                if (visited.add(target.asLong())) {
+                int worldX = (int)Math.floor(pose.x() + x * cos - z * sin);
+                int worldY = surfaceY + relativeY;
+                int worldZ = (int)Math.floor(pose.z() + x * sin + z * cos);
+                // Most neighboring source voxels map to the same target cell.
+                // Probe the primitive packed coordinate before allocating a BlockPos.
+                if (visited.add(BlockPos.asLong(worldX, worldY, worldZ))) {
+                    BlockPos target = new BlockPos(worldX, worldY, worldZ);
                     if (!level.hasChunkAt(target)) return false;
                     BlockState obstacle = level.getBlockState(target);
                     if (!harmless(level, target, obstacle)
@@ -92,11 +94,12 @@ public final class ShipMovingClearance {
             LongSet visited, double cos, double sin) {
         for (double sx : SAMPLES) for (double sz : SAMPLES) {
             double x = localX + sx, z = localZ + sz;
-            BlockPos target = BlockPos.containing(
-                    pose.x() + x * cos - z * sin,
-                    waterlineY + relativeY + .5D,
-                    pose.z() + x * sin + z * cos);
-            if (!visited.add(target.asLong()) || !level.hasChunkAt(target)) continue;
+            int worldX = (int)Math.floor(pose.x() + x * cos - z * sin);
+            int worldY = waterlineY + relativeY;
+            int worldZ = (int)Math.floor(pose.z() + x * sin + z * cos);
+            if (!visited.add(BlockPos.asLong(worldX, worldY, worldZ))) continue;
+            BlockPos target = new BlockPos(worldX, worldY, worldZ);
+            if (!level.hasChunkAt(target)) continue;
             BlockState state = level.getBlockState(target);
             if (!FirstShipBlockHull.softWaterObstacle(level, target, state)) continue;
             BlockState replacement = target.getY() <= waterlineY
