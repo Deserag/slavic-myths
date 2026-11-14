@@ -46,7 +46,8 @@ public final class ShipyardModular {
         int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0);
         int walls = delta.getOrDefault(ShipHullVoxelLayout.Part.CABIN_WALL, 0);
         int hull = delta.getOrDefault(ShipHullVoxelLayout.Part.HULL, 0)
-                + delta.getOrDefault(ShipHullVoxelLayout.Part.TRIM, 0);
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.TRIM, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.GUNPORT_SHUTTER, 0);
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.BRIDGE, 0);
         int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0);
