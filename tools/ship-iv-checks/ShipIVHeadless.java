@@ -71,6 +71,20 @@ public final class ShipIVHeadless {
             require(at(blocks, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     key + ": mast missing near deck z=" + z);
         }
+        // Stern stays broad and the bow narrows monotonically over its
+        // last fourteen stations. Both port and starboard are symmetric.
+        require(ShipHullVoxelLayout.halfBeam(plan, -end)
+                > ShipHullVoxelLayout.halfBeam(plan, end),
+                key + ": stern should be fuller than the bow tip");
+        for (int z = end - 13; z <= end; z++)
+            require(ShipHullVoxelLayout.halfBeam(plan, z)
+                    <= ShipHullVoxelLayout.halfBeam(plan, z - 1),
+                    key + ": bow has a reverse flare at station " + z);
+        for (int z = -end; z <= end; z++) {
+            int beam = ShipHullVoxelLayout.halfBeam(plan, z);
+            require(at(blocks, -beam, 1, z) == at(blocks, beam, 1, z),
+                    key + ": asymmetric bottom at station " + z);
+        }
         // A real plank must cover every station of the under-waterline keel.
         // No diagonal-only seam may connect the sea to the hold.
         for (int z = -end; z <= end; z++) {
@@ -199,6 +213,30 @@ public final class ShipIVHeadless {
                 "IV sail upgrades do not improve actual distance travelled");
     }
 
+    private static void collisionAndRestore() {
+        var motion = new ShipRigidMotion(new ShipRigidMotion.Pose(0D, 0D, 0D),
+                35D, ShipRigidMotion.MAX_IV_FORWARD);
+        for (int i = 0; i < 25; i++)
+            motion.advance(new ShipRigidMotion.Control(1D, 1D), pose -> true);
+        var before = motion.pose();
+        var impact = motion.advance(new ShipRigidMotion.Control(1D, 1D),
+                pose -> false);
+        require(impact.blocked(), "IV hull passed an impassable obstacle");
+        require(motion.pose().equals(before), "Blocked collision changed ship position");
+        require(motion.speed() == 0D && motion.angularVelocity() == 0D,
+                "Blocked collision retained dangerous momentum");
+        var savedPose = new ShipRigidMotion.Pose(10D, -8D, 73D);
+        motion.restore(savedPose, .65D, .3D);
+        require(motion.pose().equals(savedPose), "Restore changed saved pose");
+        require(Math.abs(motion.speed() - .65D) < 1E-9,
+                "Restore lost valid IV speed");
+        motion.restore(savedPose, 200D, 200D);
+        require(motion.speed() <= ShipRigidMotion.MAX_IV_FORWARD,
+                "Corrupt save bypassed IV speed limit");
+        require(Math.abs(motion.angularVelocity()) <= .85D,
+                "Corrupt save bypassed IV rudder limit");
+    }
+
     public static void main(String[] args) {
         for (int length : new int[]{51, 55, 59, 63})
             for (int width : new int[]{21, 23, 25})
@@ -209,6 +247,7 @@ public final class ShipIVHeadless {
                                 geometry(length, width, decks, bridge, cabin, tier);
         upgrades();
         motion();
+        collisionAndRestore();
         System.out.println("PASS: " + configurations + " IV configurations; "
                 + checkedSteps + " stair stations; "
                 + checkedHullCells + " bottom station probes; IV vs legacy motion");
