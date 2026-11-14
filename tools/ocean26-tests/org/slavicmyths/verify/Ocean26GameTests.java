@@ -1642,4 +1642,72 @@ public final class Ocean26GameTests {
             t.succeed();
         });
     }
+    @GameTest(template = "empty", timeoutTicks = 280, batch = "ocean_brigantine_v3")
+    public static void brigantineGunDeckMastsAndUpperDecksUseActualBlocks(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
+        for (int x = -17; x <= 17; x++)
+            for (int z = -26; z <= 26; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 40; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var base = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+        var full = base.resize(3, 2).withDecks(3).withBridge(true)
+                .withCabin(true).withSail(0, 3).withSail(1, 3);
+        t.assertTrue(base.hullRevision() == 3 && !base.withdrawn(),
+                "Tier III must use new brigantine geometry only");
+        t.assertTrue(full.equals(org.slavicmyths.ships.ShipBuildConfiguration.load(full.save()))
+                        && full.equals(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(full.wire())),
+                "Brigantine upgrades or hull revision lost on NBT/wire roundtrip");
+        for (var config : java.util.List.of(base, full)) {
+            var layout = config.structure();
+            int highest = org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck(layout);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                    level, anchor, 0, config, new ListTag()),
+                    "Brigantine world placement failed " + config);
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, 0, 5, 0)).is(Blocks.SPRUCE_PLANKS),
+                    "Brigantine gun floor missing");
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, 0, 10, 0)).is(Blocks.SPRUCE_PLANKS),
+                    "Brigantine main deck missing");
+            int portZ = -config.length() / 2 + 8;
+            int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(layout, portZ);
+            for (int side : new int[]{-1, 1})
+                for (int y : new int[]{7, 8})
+                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                            anchor, 0, side * beam, y, portZ)).isAir(),
+                            "Future cannon port is blocked by a solid hull part");
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, beam - 2, 11, portZ)).is(Blocks.LANTERN),
+                    "Real gun-deck lighting or deck lantern missing");
+            int wheelZ = -config.length() / 2 + 5;
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, 0, highest + 1, wheelZ)).is(Blocks.DARK_OAK_FENCE),
+                    "Wheel is below another captain deck");
+            int mastZ = layout.mastPositions().get(0);
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, 0, highest + 2, mastZ)).is(Blocks.STRIPPED_SPRUCE_LOG),
+                    "Installed mast does not extend above uppermost deck");
+            if (highest >= 15)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, 15, wheelZ)).is(Blocks.SPRUCE_PLANKS),
+                        "Second deck floor missing");
+            if (highest >= 20)
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, 20, wheelZ)).is(Blocks.DARK_OAK_PLANKS),
+                        "Third deck floor missing");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, config) != null, "Brigantine packing failed");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                    level, anchor, 0, config), "Brigantine removal failed");
+        }
+        t.succeed();
+    }
+
+
 }
