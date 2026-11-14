@@ -60,7 +60,9 @@ public final class ShipMovingContraption {
     /** Include the real protruding bowsprit in turning sweep radius. */
     private static double collisionRadius(ShipBuildConfiguration configuration) {
         double bowReach = configuration.length() / 2D
-                + (configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                + (configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && configuration.hullRevision() == 4 ? 8D
+                        : configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
                         && configuration.hullRevision() == 3 ? 4D : 1D);
         return Math.hypot(configuration.width() / 2D + 1D, bowReach);
     }
@@ -71,7 +73,10 @@ public final class ShipMovingContraption {
         if (cargo == null) return null;
         double radius = collisionRadius(configuration);
         ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
-                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius);
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius,
+                configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && configuration.hullRevision() == 4
+                        ? ShipRigidMotion.MAX_IV_FORWARD : ShipRigidMotion.MAX_FORWARD);
         return new ShipMovingContraption(configuration, cargo, turns,
                 anchor.getY(), motion, false);
     }
@@ -215,7 +220,10 @@ public final class ShipMovingContraption {
                 ShipBuildConfiguration config = ShipBuildConfiguration.load(
                         tag.getCompound(ShipBuildConfiguration.NBT_KEY));
                 double radius = collisionRadius(config);
-                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius);
+                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius,
+                        config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                && config.hullRevision() == 4
+                                ? ShipRigidMotion.MAX_IV_FORWARD : ShipRigidMotion.MAX_FORWARD);
                 modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
                 return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
                         tag.getInt("OriginalTurn"), tag.getInt("Waterline"), modularMotion, detached);
