@@ -31,10 +31,15 @@ public final class ShipIVHeadless {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> blocks,
             int x, int startZ, int lower, int upper, String label) {
         require(upper - lower == 5, "Unexpected IV stair height");
-        require(at(blocks, x, lower, startZ) != null,
-                label + " has no lower support");
-        require(at(blocks, x, upper, startZ + 6) != null,
-                label + " has no upper landing");
+        var start = at(blocks, x, lower, startZ);
+        var finish = at(blocks, x, upper, startZ + 6);
+        require(start == ShipHullVoxelLayout.Part.DECK
+                || start == ShipHullVoxelLayout.Part.BRIDGE
+                || lower == 1 && start == ShipHullVoxelLayout.Part.HULL,
+                label + " has no walkable lower support");
+        require(finish == ShipHullVoxelLayout.Part.DECK
+                || finish == ShipHullVoxelLayout.Part.BRIDGE,
+                label + " has no walkable upper landing");
         for (int i = 0; i <= 6; i++) {
             int z = startZ + i;
             int y = i == 0 ? lower : i == 6 ? upper : lower + i;
@@ -120,6 +125,39 @@ public final class ShipIVHeadless {
         configurations++;
     }
 
+    private static void upgrades() {
+        // A deterministic path through all nine requested development phases.
+        // Layout changes must be measurable, while propulsion improvements
+        // must not reduce performance of a four-masted ship.
+        int[][] phases = {
+                {51, 21, 1, 0, 0, 1}, {55, 21, 1, 0, 0, 1},
+                {55, 23, 1, 0, 0, 1}, {59, 23, 1, 0, 0, 1},
+                {59, 23, 1, 0, 0, 2}, {59, 23, 2, 0, 0, 2},
+                {59, 23, 2, 0, 1, 2}, {59, 23, 2, 1, 1, 2},
+                {63, 25, 3, 1, 1, 3}
+        };
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> previous = null;
+        double previousThrust = 0D;
+        for (int i = 0; i < phases.length; i++) {
+            int[] phase = phases[i];
+            var plan = new ShipSuperstructurePlan(TYPE, phase[1], phase[0],
+                    List.of(phase[5], phase[5], phase[5], phase[5]),
+                    phase[2], phase[3] == 1, phase[4] == 1, 4);
+            var next = ShipHullVoxelLayout.generate(plan);
+            require(previous == null || !previous.equals(next),
+                    "IV upgrade phase " + (i + 1) + " has no geometry change");
+            double thrust = plan.propulsionFactor();
+            require(thrust >= previousThrust, "IV propulsion regresses at phase " + (i + 1));
+            previousThrust = thrust;
+            previous = next;
+        }
+        double basic = new ShipSuperstructurePlan(TYPE, 21, 51,
+                List.of(1, 1, 1, 1), 1, false, false, 4).propulsionFactor();
+        double full = new ShipSuperstructurePlan(TYPE, 25, 63,
+                List.of(3, 3, 3, 3), 3, true, true, 4).propulsionFactor();
+        require(full > basic * 1.25D, "IV upgraded sails do not deliver a clear speed increase");
+    }
+
     private static void motion() {
         var fast = new ShipRigidMotion(new ShipRigidMotion.Pose(0D, 0D, 0D),
                 35D, ShipRigidMotion.MAX_IV_FORWARD);
@@ -146,6 +184,7 @@ public final class ShipIVHeadless {
                         for (boolean cabin : new boolean[]{false, true})
                             for (int tier : new int[]{1, 2, 3})
                                 geometry(length, width, decks, bridge, cabin, tier);
+        upgrades();
         motion();
         System.out.println("PASS: " + configurations + " IV configurations; "
                 + checkedSteps + " stair stations; "
