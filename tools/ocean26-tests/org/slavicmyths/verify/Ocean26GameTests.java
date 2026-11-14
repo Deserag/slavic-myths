@@ -1734,7 +1734,7 @@ public final class Ocean26GameTests {
                         anchor, 0, 3, 2, z)).is(Blocks.LANTERN),
                         "Lower hold does not contain physical interior lanterns");
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, 3, 6, z)).is(Blocks.LANTERN),
+                        anchor, 0, -3, 6, z)).is(Blocks.LANTERN),
                         "Gun deck does not contain physical interior lanterns");
             }
             if (highest >= 15)
