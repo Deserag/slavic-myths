@@ -174,6 +174,29 @@ public final class ShipIVHeadless {
                 "Legacy ship speed exceeds its bound");
         require(fast.pose().z() > normal.pose().z(),
                 "IV hull does not travel farther under identical input");
+
+        // Exercise the same throttle scaling used by FirstShipEntity rather
+        // than checking only a theoretical sail factor in isolation.
+        var basicPlan = new ShipSuperstructurePlan(TYPE, 21, 51,
+                List.of(1, 1, 1, 1), 1, false, false, 4);
+        var upgradedPlan = new ShipSuperstructurePlan(TYPE, 25, 63,
+                List.of(3, 3, 3, 3), 3, true, true, 4);
+        var basicMotion = new ShipRigidMotion(new ShipRigidMotion.Pose(0D, 0D, 0D),
+                35D, ShipRigidMotion.MAX_IV_FORWARD);
+        var upgradedMotion = new ShipRigidMotion(new ShipRigidMotion.Pose(0D, 0D, 0D),
+                35D, ShipRigidMotion.MAX_IV_FORWARD);
+        for (int i = 0; i < 200; i++) {
+            basicMotion.advance(new ShipRigidMotion.Control(
+                    Math.max(.16D, basicPlan.propulsionFactor()), 0D), pose -> true);
+            upgradedMotion.advance(new ShipRigidMotion.Control(
+                    Math.max(.16D, upgradedPlan.propulsionFactor()), 0D), pose -> true);
+        }
+        require(basicMotion.speed() > normal.speed(),
+                "Unmodified IV is slower than the legacy full-speed vessel");
+        require(upgradedMotion.speed() > basicMotion.speed() * 1.35D,
+                "Upgraded IV sails do not produce a meaningful real speed increase");
+        require(upgradedMotion.pose().z() > basicMotion.pose().z() * 1.2D,
+                "IV sail upgrades do not improve actual distance travelled");
     }
 
     public static void main(String[] args) {
