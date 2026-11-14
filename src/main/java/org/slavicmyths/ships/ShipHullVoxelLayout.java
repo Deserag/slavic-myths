@@ -34,6 +34,8 @@ public final class ShipHullVoxelLayout {
 
     public static int halfBeam(ShipSuperstructurePlan plan, int z) {
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3) return brigantineBeam(plan, z);
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
             throw new UnsupportedOperationException("Withdrawn hulls have no station profile");
         if (plan.shipClass() != ShipSectionPlan.ShipClass.MEDIUM)
@@ -55,16 +57,168 @@ public final class ShipHullVoxelLayout {
         return Math.min(3, plan.hullWidth() / 2 - 2);
     }
 
-    public static int sailLowerYard(ShipSuperstructurePlan plan) { return 7; }
+    public static int sailLowerYard(ShipSuperstructurePlan plan) {
+        return plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3 ? brigantineTopDeck(plan) + 4 : 7;
+    }
 
     public static int sailTop(ShipSuperstructurePlan plan, int tier) {
         if (tier < 1 || tier > 3) throw new IllegalArgumentException("Unknown sail tier");
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3)
+            return sailLowerYard(plan) + (tier == 1 ? 5 : tier == 2 ? 8 : 12);
         return tier == 1 ? 12 : tier == 2 ? 15 : 19;
     }
 
     public static int sailBottom(ShipSuperstructurePlan plan) {
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3) return sailLowerYard(plan) + 1;
         return plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                 && plan.decks() >= 2 ? 10 : 8;
+    }
+
+
+    /** Revision 3: every vertical element uses one actual top working deck.
+     * Lower hold y=1, gun deck y=5, weather deck y=10, raised decks y=15/20.
+     * The mast, yards and rendered cloth all rise with each deck modification. */
+    public static int brigantineTopDeck(ShipSuperstructurePlan plan) {
+        return plan.decks() >= 3 ? 20
+                : plan.decks() >= 2 || plan.bridge() || plan.cabin() ? 15 : 10;
+    }
+
+    private static int brigantineBeam(ShipSuperstructurePlan plan, int z) {
+        int end = plan.hullLength() / 2;
+        if (Math.abs(z) > end) return -1;
+        int half = plan.hullWidth() / 2;
+        int bow = end - z, aft = end + z;
+        int bowRun = Math.min(12, end);
+        int aftRun = Math.min(8, end);
+        if (bow < bowRun) {
+            double t = Math.max(0D, bow / (double)bowRun);
+            return Math.max(1, (int)Math.round(1D + (half - 1D) * Math.sin(t * Math.PI / 2D)));
+        }
+        if (aft < aftRun) {
+            double t = Math.max(0D, aft / (double)aftRun);
+            return Math.max(3, (int)Math.round(3D + (half - 3D) * Math.sin(t * Math.PI / 2D)));
+        }
+        int waist = Math.abs(z) <= 3 ? 1 : 0;
+        return half - waist;
+    }
+
+    private static Map<Cell, Part> generateBrigantine(ShipSuperstructurePlan p) {
+        Map<Cell, Part> out = new LinkedHashMap<>();
+        int end = p.hullLength() / 2;
+        int rear = -end + 2;
+        // Stepped bilge and keel, not a full-width flat underwater slab.
+        for (int z = -end; z <= end; z++) {
+            int beam = brigantineBeam(p, z);
+            for (int x = -beam; x <= beam; x++) {
+                int abs = Math.abs(x);
+                if (x == 0 && Math.abs(z) < end - 1) put(out, x, 0, z, Part.KEEL);
+                if (abs <= Math.max(1, beam - 3)) put(out, x, 1, z, Part.HULL);
+                else if (abs <= beam - 1) put(out, x, 2, z, Part.HULL);
+                else put(out, x, 3, z, Part.HULL);
+                // Separate hold and gun deck with at least three clear blocks.
+                if (abs < beam - 1 && !(x == -2 && z == 1))
+                    put(out, x, 5, z, Part.DECK);
+                if (!(x == -2 && z == 1)) put(out, x, 10, z, Part.DECK);
+                boolean edge = abs == beam;
+                if (edge) {
+                    for (int y = 4; y <= 9; y++) {
+                        boolean port = Math.abs(z) <= end - 5
+                                && Math.abs(z) >= 3 && Math.floorMod(z + end, 4) == 0
+                                && (y == 7 || y == 8);
+                        if (!port) put(out, x, y, z,
+                                y == 6 || Math.floorMod(z, 5) == 0
+                                        ? Part.FRAME : Part.HULL);
+                    }
+                    put(out, x, 10, z, Part.HULL);
+                    put(out, x, 11, z,
+                            Math.floorMod(z, 4) == 0 ? Part.FRAME : Part.HULL);
+                }
+            }
+        }
+        // Real hatch between hold, gun deck and weather deck.
+        for (int y = 2; y <= 10; y++) {
+            put(out, -3, y, 1, Part.FRAME);
+            put(out, -2, y, 1, Part.LADDER);
+        }
+        // Upper deck only covers the stern, leaving the middle completely open.
+        int top = brigantineTopDeck(p);
+        if (top >= 15) {
+            int front = rear + 9;
+            int half = Math.min(5, p.hullWidth() / 2 - 3);
+            for (int z = rear; z <= front; z++)
+                for (int x = -half; x <= half; x++) {
+                    if (x == -half + 1 && z == front) continue;
+                    put(out, x, 15, z, Part.DECK);
+                    if (Math.abs(x) == half || z == rear || z == front)
+                        put(out, x, 16, z, Part.HULL);
+                    if (Math.abs(x) == half && Math.floorMod(z, 3) == 0)
+                        for (int y = 11; y <= 14; y++)
+                            put(out, x, y, z, Part.FRAME);
+                }
+            for (int y = 11; y <= 15; y++) {
+                put(out, -half, y, front + 1, Part.FRAME);
+                put(out, -half + 1, y, front + 1, Part.LADDER);
+            }
+            out.remove(new Cell(-half + 1, 16, front));
+        }
+        if (top >= 20) {
+            int front = rear + 6;
+            int half = Math.min(3, p.hullWidth() / 2 - 5);
+            for (int z = rear; z <= front; z++)
+                for (int x = -half; x <= half; x++) {
+                    if (x == -half + 1 && z == front) continue;
+                    put(out, x, 20, z, Part.BRIDGE);
+                    if (Math.abs(x) == half || z == rear || z == front)
+                        put(out, x, 21, z, Part.HULL);
+                    if (Math.abs(x) == half && Math.floorMod(z, 3) == 0)
+                        for (int y = 17; y <= 19; y++)
+                            put(out, x, y, z, Part.FRAME);
+                }
+            for (int y = 16; y <= 20; y++) {
+                put(out, -half, y, front + 1, Part.FRAME);
+                put(out, -half + 1, y, front + 1, Part.LADDER);
+            }
+            out.remove(new Cell(-half + 1, 21, front));
+        }
+        if (p.cabin()) {
+            int half = Math.min(4, p.hullWidth() / 2 - 4);
+            // Cabin is on the weather deck, beneath the actual stern deck.
+            for (int z = rear + 1; z <= rear + 6; z++)
+                for (int x = -half; x <= half; x++) {
+                    boolean wall = Math.abs(x) == half || z == rear + 1 || z == rear + 6;
+                    if (!wall) continue;
+                    for (int y = 11; y <= 14; y++) {
+                        if (z == rear + 6 && x == 0 && (y == 11 || y == 12))
+                            put(out, x, y, z, Part.DOOR);
+                        else put(out, x, y, z,
+                                Math.abs(x) == half && y == 12 && z == rear + 3
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+                    }
+                }
+        }
+        // Every installed mast is rooted in the main deck; the complete
+        // visible rig begins above the highest raised floor, never below it.
+        for (int i = 0; i < p.mastPositions().size(); i++) {
+            int z = p.mastPositions().get(i), tier = p.sailTiers().get(i);
+            int upper = sailTop(p, tier), yard = sailLowerYard(p);
+            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            for (int y = 11; y <= upper + 1; y++) put(out, 0, y, z, Part.MAST);
+            for (int x = -span; x <= span; x++) {
+                put(out, x, yard, z, Part.YARD);
+                put(out, x, upper + 1, z, Part.YARD);
+            }
+            for (int y = sailBottom(p); y <= upper; y++)
+                for (int x = -span; x <= span; x++)
+                    if (x != 0 && !out.containsKey(new Cell(x, y, z + 1)))
+                        put(out, x, y, z + 1, Part.SAIL);
+        }
+        // One physical wheel on the highest accessible captain's platform.
+        int wheelZ = rear + 3;
+        put(out, 0, top + 1, wheelZ, Part.HELM);
+        return Collections.unmodifiableMap(out);
     }
 
     public static Map<Cell, Part> generate(ShipSuperstructurePlan plan) {
@@ -73,9 +227,11 @@ public final class ShipHullVoxelLayout {
         // the old barge-shaped hull. Re-enable only after a new blueprint is
         // explicitly approved and implemented; tiers I/II remain unchanged.
         if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3) return generateBrigantine(plan);
+        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
             throw new UnsupportedOperationException(
-                    "LARGE/LARGEST hull designs withdrawn pending complete replacement");
+                    "Old LARGE/LARGEST hull designs withdrawn");
         Map<Cell, Part> blocks = new LinkedHashMap<>();
         int halfLength = plan.hullLength() / 2;
 
@@ -249,7 +405,7 @@ public final class ShipHullVoxelLayout {
     }
 
     private static void put(Map<Cell, Part> blocks, int x, int y, int z, Part part) {
-        if (y < 0 || y > 32) throw new IllegalArgumentException("Ship part outside vertical bounds");
+        if (y < 0 || y > 48) throw new IllegalArgumentException("Ship part outside vertical bounds");
         blocks.put(new Cell(x, y, z), part);
     }
 
