@@ -80,7 +80,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                             route[1] + i)) == null,
                                                     "lower stair tread has no headroom: " + p);
                                 }
-                                for (int[] route : new int[][]{{3, -11}, {-3, 3}}) {
+                                for (int[] route : new int[][]{{3, -8}, {-3, 3}}) {
                                     for (int i = 1; i <= 5; i++) {
                                         yes(model.get(new ShipHullVoxelLayout.Cell(
                                                         route[0], 5 + i, route[1] + i))
