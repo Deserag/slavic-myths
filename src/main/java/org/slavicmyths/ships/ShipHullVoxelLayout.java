@@ -214,6 +214,23 @@ public final class ShipHullVoxelLayout {
         }
     }
 
+    /** Mark the necessary stair hatch with a solid-side safety rail.
+     * Rails only attach to existing upper-deck blocks and never overwrite
+     * stairs, a player's landing, walls, lights, or the center aisle. */
+    private static void guardBrigantineStair(Map<Cell, Part> blocks,
+            int x, int startZ, int low, int high) {
+        int outside = x + Integer.signum(x);
+        for (int step = 1; step <= high - low; step++) {
+            int z = startZ + step;
+            Cell support = new Cell(outside, high, z);
+            Cell railing = new Cell(outside, high + 1, z);
+            Part floor = blocks.get(support);
+            if ((floor == Part.DECK || floor == Part.BRIDGE)
+                    && !blocks.containsKey(railing))
+                put(blocks, outside, high + 1, z, Part.RAIL);
+        }
+    }
+
     private static void validateBrigantineStair(Map<Cell, Part> blocks,
             int x, int startZ, int lowerFloor, int higherFloor) {
         Part approach = blocks.get(new Cell(x, lowerFloor, startZ));
@@ -562,6 +579,15 @@ public final class ShipHullVoxelLayout {
             for (int x : new int[]{-1, 1})
                 clearBrigantineStairHeadroom(out, x, rear, 15, 20);
 
+        for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
+                {3, -8, 5, 10}, {-3, 3, 5, 10}})
+            guardBrigantineStair(out, route[0], route[1], route[2], route[3]);
+        if (top >= 15)
+            for (int x : new int[]{-2, 2})
+                guardBrigantineStair(out, x, rear + 1, 10, 15);
+        if (top >= 20)
+            for (int x : new int[]{-1, 1})
+                guardBrigantineStair(out, x, rear, 15, 20);
         sanitizeBrigantineLanterns(out);
         validateBrigantineBilge(out, p);
         for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
