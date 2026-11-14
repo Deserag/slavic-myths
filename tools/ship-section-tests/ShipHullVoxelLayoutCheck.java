@@ -65,10 +65,20 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(model.get(new ShipHullVoxelLayout.Cell(0, 10, 0))
                                                 == ShipHullVoxelLayout.Part.DECK,
                                         "missing main weather deck: " + p);
-                                for (int y = 2; y <= 10; y++)
-                                    yes(model.get(new ShipHullVoxelLayout.Cell(-2, y, 1))
-                                                    == ShipHullVoxelLayout.Part.LADDER,
-                                            "hatch ladder interrupted: " + p);
+                                // Two separated and walkable access routes
+                                // must connect hold -> gun deck -> weather deck.
+                                for (int[] route : new int[][]{{-2, -10}, {2, 4}}) {
+                                    for (int i = 1; i <= 4; i++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                        route[0], 1 + i, route[1] + i))
+                                                        == ShipHullVoxelLayout.Part.STAIR,
+                                                "hold staircase missing: " + p);
+                                    for (int i = 1; i <= 5; i++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                        route[0], 5 + i, route[1] - 1 + i))
+                                                        == ShipHullVoxelLayout.Part.STAIR,
+                                                "gun staircase missing: " + p);
+                                }
                                 yes(ShipHullVoxelLayout.halfBeam(p, length / 2)
                                                 < ShipHullVoxelLayout.halfBeam(p, 0),
                                         "brigantine lost sharp bow: " + p);
@@ -114,17 +124,30 @@ public final class ShipHullVoxelLayoutCheck {
                                                     "gunport shutter missing: " + p);
                                 }
                                 if (highest >= 15)
-                                    for (int y = 11; y <= 15; y++)
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                        -Math.min(5, width / 2 - 3) + 1, y, rear + 10))
-                                                        == ShipHullVoxelLayout.Part.LADDER,
-                                                "main-to-quarterdeck ladder mismatch: " + p);
+                                    for (int x : new int[]{-2, 2})
+                                        for (int i = 1; i <= 5; i++)
+                                            yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                            x, 10 + i, rear + 3 + i))
+                                                            == ShipHullVoxelLayout.Part.STAIR,
+                                                    "quarterdeck twin staircase missing: " + p);
                                 if (highest >= 20)
-                                    for (int y = 16; y <= 20; y++)
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                        -Math.min(3, width / 2 - 5) + 1, y, rear + 7))
-                                                        == ShipHullVoxelLayout.Part.LADDER,
-                                                "quarterdeck-to-third-deck ladder mismatch: " + p);
+                                    for (int x : new int[]{-1, 1})
+                                        for (int i = 1; i <= 5; i++)
+                                            yes(model.get(new ShipHullVoxelLayout.Cell(
+                                                            x, 15 + i, rear + i))
+                                                            == ShipHullVoxelLayout.Part.STAIR,
+                                                    "third-deck twin staircase missing: " + p);
+                                if (highest >= 15) {
+                                    for (int z : new int[]{rear + 2, rear + 5})
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, 11, z))
+                                                        == ShipHullVoxelLayout.Part.LANTERN,
+                                                "quarterdeck interior light missing: " + p);
+                                }
+                                if (highest >= 20)
+                                    for (int z : new int[]{rear + 2, rear + 5})
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, 16, z))
+                                                        == ShipHullVoxelLayout.Part.LANTERN,
+                                                "upper captain floor light missing: " + p);
                                 if (highest >= 15)
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 15, rear + 3))
                                                     == ShipHullVoxelLayout.Part.DECK,
