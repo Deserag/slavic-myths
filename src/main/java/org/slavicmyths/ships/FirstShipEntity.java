@@ -285,15 +285,19 @@ public final class FirstShipEntity extends Boat {
 
     public double deckY() {
         ShipBuildConfiguration c = modularConfiguration();
-        return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && c.hullRevision() == 3 || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && c.hullRevision() == 4 ? 12D : FirstShipHull.MAIN_DECK);
+        if (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && c.hullRevision() == 4) return getY() + 12D;
+        if (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && c.hullRevision() == 3) return getY() + 11D;
+        return getY() + FirstShipHull.MAIN_DECK;
     }
     public double holdY() {
         ShipBuildConfiguration c = modularConfiguration();
-        return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && c.hullRevision() == 3 || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && c.hullRevision() == 4 ? 2D : FirstShipHull.HOLD_FLOOR);
+        return getY() + (c != null
+                && (c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && c.hullRevision() == 3
+                    || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && c.hullRevision() == 4) ? 2D : FirstShipHull.HOLD_FLOOR);
     }
     public int moduleKind(int floor, int x, int z) {
         int tile = tileId(floor, x, z);
