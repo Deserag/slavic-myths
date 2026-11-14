@@ -66,6 +66,7 @@ public final class ShipDynamicCollision {
                 && config.hullRevision() == 3) {
             int rear = -(config.length() / 2) + 2;
             int side = Math.min(5, config.width() / 2 - 3);
+            int upperSide = Math.min(3, config.width() / 2 - 5);
             if (Math.abs(x + 2D) < .49D && Math.abs(z - 1D) < .49D
                     && y >= 1.9D && y <= 10.9D) return true;
             if (ShipHullVoxelLayout.brigantineTopDeck(config.structure()) >= 15
@@ -73,7 +74,7 @@ public final class ShipDynamicCollision {
                     && Math.abs(z - (rear + 10D)) < .49D
                     && y >= 10.9D && y <= 15.9D) return true;
             return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) >= 20
-                    && Math.abs(x + 2D) < .49D
+                    && Math.abs(x - (-upperSide + 1D)) < .49D
                     && Math.abs(z - (rear + 7D)) < .49D
                     && y >= 15.9D && y <= 20.9D;
         }
