@@ -144,6 +144,10 @@ public final class FirstShipEntity extends Boat {
     public double serverMovingSpeed() {
         return movingBody == null ? 0D : movingBody.motion().speed();
     }
+    /** Visual-only interpolation input for client rigging. */
+    public double visualMotionSpeed() {
+        return level().isClientSide ? clientMotionSpeed : serverMovingSpeed();
+    }
     public double serverMovingTurn() {
         return movingBody == null ? 0D : movingBody.motion().angularVelocity();
     }
