@@ -243,6 +243,21 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, rear,
                             y == 12 && (x == -half + 2 || x == half - 2)
                                     ? Part.WINDOW : Part.CABIN_WALL);
+            // Enclose the side of the raised stern deck with real timber
+            // and framed windows. Columns alone exposed the entire storey.
+            for (int z = rear + 1; z <= front; z++)
+                for (int side : new int[]{-half, half})
+                    for (int y = 11; y <= 14; y++)
+                        put(out, side, y, z,
+                                y == 12 && Math.floorMod(z - rear, 4) == 2
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+            // Two-block access door in the forward wall.
+            for (int x = -half + 1; x < half; x++)
+                for (int y = 11; y <= 14; y++) {
+                    if (x == 0 && (y == 11 || y == 12))
+                        out.remove(new Cell(x, y, front));
+                    else put(out, x, y, front, Part.CABIN_WALL);
+                }
             put(out, half - 1, 16, rear + 3, Part.LANTERN);
             put(out, -half + 1, 16, rear + 3, Part.LANTERN);
         }
@@ -270,6 +285,18 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, rear,
                             y == 17 && Math.abs(x) == Math.max(1, half - 1)
                                     ? Part.WINDOW : Part.CABIN_WALL);
+            for (int z = rear + 1; z <= front; z++)
+                for (int side : new int[]{-half, half})
+                    for (int y = 16; y <= 19; y++)
+                        put(out, side, y, z,
+                                y == 17 && Math.floorMod(z - rear, 3) == 1
+                                        ? Part.WINDOW : Part.CABIN_WALL);
+            for (int x = -half + 1; x < half; x++)
+                for (int y = 16; y <= 19; y++) {
+                    if (x == 0 && (y == 16 || y == 17))
+                        out.remove(new Cell(x, y, front));
+                    else put(out, x, y, front, Part.CABIN_WALL);
+                }
             put(out, half - 1, 21, rear + 2, Part.LANTERN);
             put(out, -half + 1, 21, rear + 2, Part.LANTERN);
         }
@@ -295,6 +322,16 @@ public final class ShipHullVoxelLayout {
             for (int z = rear + 1; z <= rear + 5; z++)
                 for (int x : new int[]{-3, 3})
                     put(out, x, top + 1, z, Part.RAIL);
+            // A small sheltered command canopy distinguishes the actual
+            // captain bridge from a basic exposed steering position. It sits
+            // BEHIND the wheel, so the player and wheel remain accessible.
+            for (int z = rear + 1; z <= rear + 2; z++) {
+                for (int x = -2; x <= 2; x++)
+                    put(out, x, top + 4, z, Part.BRIDGE);
+                for (int x : new int[]{-2, 2})
+                    for (int y = top + 1; y <= top + 3; y++)
+                        put(out, x, y, z, Part.FRAME);
+            }
             for (int x : new int[]{-2, 2})
                 put(out, x, top + 2, rear + 4, Part.LANTERN);
         }
