@@ -1849,4 +1849,44 @@ public final class Ocean26GameTests {
     }
 
 
+    @GameTest(template = "empty", timeoutTicks = 140, batch = "ocean_brigantine_shipyard_actions")
+    public static void brigantineShipyardButtonsInstallThirdMastAndBridge(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos bench = t.absolutePos(new BlockPos(2, 2, 2));
+        level.setBlock(bench,
+                RaftContent.SHIPYARD_BENCH.get().defaultBlockState(), 2);
+        ServerPlayer shipwright = player(level, "BrigantineShipyardActionTester",
+                Vec3.atCenterOf(bench.above()));
+        shipwright.getAbilities().instabuild = true;
+        var initial = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+        ItemStack packed = org.slavicmyths.ships.ShipyardModular.build(shipwright, initial);
+        t.assertTrue(!packed.isEmpty(), "Shipyard cannot prepare basic brigantine");
+        var menu = new org.slavicmyths.ships.ShipyardMenu(
+                91, shipwright.getInventory(), bench);
+        menu.getSlot(0).set(packed);
+        t.assertTrue(menu.clickMenuButton(shipwright, 203),
+                "Real shipyard action 203 refused third mast");
+        var threeMasts = org.slavicmyths.ships.ShipyardModular.configuration(
+                menu.inspected());
+        t.assertTrue(threeMasts != null && threeMasts.sailTiers().size() == 3,
+                "UI third mast click did not change saved item");
+        t.assertTrue(menu.clickMenuButton(shipwright, 205),
+                "Real shipyard action 205 refused command bridge");
+        var bridge = org.slavicmyths.ships.ShipyardModular.configuration(menu.inspected());
+        t.assertTrue(bridge != null && bridge.bridge()
+                        && bridge.sailTiers().size() == 3,
+                "UI bridge click discarded third mast or failed");
+        t.assertTrue(menu.clickMenuButton(shipwright, 204),
+                "Real shipyard action 204 refused raised deck");
+        var result = org.slavicmyths.ships.ShipyardModular.configuration(menu.inspected());
+        t.assertTrue(result != null && result.decks() == 2
+                        && result.bridge() && result.sailTiers().size() == 3,
+                "Shipyard action sequence did not persist all modifications");
+        menu.getSlot(0).set(ItemStack.EMPTY);
+        shipwright.discard();
+        t.succeed();
+    }
+
+
 }
