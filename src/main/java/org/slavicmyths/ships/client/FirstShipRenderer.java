@@ -222,13 +222,28 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         for (int i = 0; i < plan.sailTiers().size(); i++) {
             int tier = plan.sailTiers().get(i);
             int top = org.slavicmyths.ships.ShipHullVoxelLayout.sailTop(plan, tier);
-            int span = tier == 1 ? 2 : tier == 2 ? 3 : 4;
+            boolean iv = plan.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                    && plan.hullRevision() == 4;
+            int span = iv ? (i == 1 || i == 2 ? 8 : 6) + tier - 1
+                    : tier == 1 ? 2 : tier == 2 ? 3 : 4;
             BlockState edging = (tier == 1 ? Blocks.RED_WOOL
                     : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
             pose.pushPose();
             pose.translate(0D, 0D, plan.mastPositions().get(i));
-            double bottom = org.slavicmyths.ships.ShipHullVoxelLayout.sailBottom(plan);
-            sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
+            if (iv) {
+                // Two separate courses per mast at tier I; an upper topgallant
+                // is fitted at tier III. Each panel is a client-only mesh.
+                sailPanel(ship, partialTick, pose, buffers, light, edging,
+                        22D, 29D, span);
+                sailPanel(ship, partialTick, pose, buffers, light, edging,
+                        31D, 37D, Math.max(3, span - 2));
+                if (tier >= 3)
+                    sailPanel(ship, partialTick, pose, buffers, light, edging,
+                            40D, Math.min(43D, top + 3D), Math.max(3, span - 3));
+            } else {
+                double bottom = org.slavicmyths.ships.ShipHullVoxelLayout.sailBottom(plan);
+                sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
+            }
             pose.popPose();
         }
         pose.popPose();
@@ -303,7 +318,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         double y = bottom + height * v;
         double widthShape = 1D - (x * x) / (span * span);
         double heightShape = Math.sin(Math.PI * v);
-        double belly = .10D + .70D * widthShape * heightShape;
+        double motion = ship.isMoving()
+                ? Math.min(1D, Math.abs(ship.visualMotionSpeed())
+                        / org.slavicmyths.ships.ShipRigidMotion.MAX_IV_FORWARD) : 0D;
+        double belly = .10D + (.22D + 1.55D * motion) * widthShape * heightShape;
         double wind = Math.sin((ship.tickCount + partialTick) * .075D + x * .6D) * .045D
                 * heightShape;
         float slopeX = (float)(-.95D * 2D * x / (span * span) * heightShape);
