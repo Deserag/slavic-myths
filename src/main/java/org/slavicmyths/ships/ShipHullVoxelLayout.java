@@ -127,6 +127,19 @@ public final class ShipHullVoxelLayout {
         blocks.remove(new Cell(x, higherFloor + 2, exit));
     }
 
+    private static void clearBrigantineStairHeadroom(Map<Cell, Part> blocks,
+            int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int i = 1; i <= higherFloor - lowerFloor; i++) {
+            int y = lowerFloor + i, z = startZ + i;
+            for (int head = y + 1; head <= y + 2; head++)
+                blocks.remove(new Cell(x, head, z));
+            put(blocks, x, y, z, Part.STAIR);
+        }
+        int landingZ = startZ + higherFloor - lowerFloor + 1;
+        blocks.remove(new Cell(x, higherFloor + 1, landingZ));
+        blocks.remove(new Cell(x, higherFloor + 2, landingZ));
+    }
+
     private static Map<Cell, Part> generateBrigantine(ShipSuperstructurePlan p) {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
@@ -152,9 +165,9 @@ public final class ShipHullVoxelLayout {
                     for (int y = 2; y <= 3; y++) put(out, x, y, z, Part.HULL);
                 // Gun deck spans a full enclosed storey. Closed timber
                 // shutters mark future artillery openings (no open holes).
-                if (abs < beam - 1 && !(x == -2 && z == 1))
+                if (abs < beam - 1)
                     put(out, x, 5, z, Part.DECK);
-                if (abs <= beam - 1 && !(x == -2 && z == 1))
+                if (abs <= beam - 1)
                     put(out, x, 10, z, Part.DECK);
                 for (int y = 5; y <= 9; y++) {
                     if (abs != beam - 1) continue;
@@ -249,7 +262,6 @@ public final class ShipHullVoxelLayout {
             int half = Math.min(5, p.hullWidth() / 2 - 3);
             for (int z = rear; z <= front; z++)
                 for (int x = -half; x <= half; x++) {
-                    if (x == -half + 1 && z == front) continue;
                     put(out, x, 15, z, Part.DECK);
                     if (Math.abs(x) == half || z == rear || z == front)
                         put(out, x, 16, z, Part.HULL);
@@ -289,7 +301,6 @@ public final class ShipHullVoxelLayout {
             int half = Math.min(3, p.hullWidth() / 2 - 5);
             for (int z = rear; z <= front; z++)
                 for (int x = -half; x <= half; x++) {
-                    if (x == -half + 1 && z == front) continue;
                     put(out, x, 20, z, Part.BRIDGE);
                     if (Math.abs(x) == half || z == rear || z == front)
                         put(out, x, 21, z, Part.HULL);
@@ -369,10 +380,14 @@ public final class ShipHullVoxelLayout {
             for (int z : new int[]{rear + 2, rear + 5})
                 put(out, 0, 16, z, Part.LANTERN);
         }
-        // Real light next to the two staircase entrances (not painted glow).
-        for (int z : new int[]{-9, -5, 5, 10})
-            for (int y : new int[]{2, 6})
-                put(out, 3, y, z, Part.LANTERN);
+        // Stair approaches must remain walkable; deck lights are placed away
+        // from the centerline on already-supported side posts.
+        for (int z : new int[]{-9, -5, 5, 10}) {
+            int side = brigantineBeam(p, z) - 2;
+            if (side > 3)
+                for (int y : new int[]{6, 11})
+                    put(out, side, y, z, Part.LANTERN);
+        }
 
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
@@ -390,6 +405,18 @@ public final class ShipHullVoxelLayout {
                     if (x != 0 && !out.containsKey(new Cell(x, y, z + 1)))
                         put(out, x, y, z + 1, Part.SAIL);
         }
+        // Run this after every wall, mast, lantern and cabin placement: no
+        // later decorative block may obstruct either flight or its landing.
+        for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
+                {3, -8, 5, 10}, {-3, 3, 5, 10}})
+            clearBrigantineStairHeadroom(out, route[0], route[1], route[2], route[3]);
+        if (top >= 15)
+            for (int x : new int[]{-2, 2})
+                clearBrigantineStairHeadroom(out, x, rear + 3, 10, 15);
+        if (top >= 20)
+            for (int x : new int[]{-1, 1})
+                clearBrigantineStairHeadroom(out, x, rear, 15, 20);
+
         // One physical wheel on the highest accessible captain's platform.
         int wheelZ = rear + 3;
         put(out, 0, top + 1, wheelZ, Part.HELM);
