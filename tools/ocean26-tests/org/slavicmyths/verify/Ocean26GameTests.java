@@ -1826,6 +1826,17 @@ public final class Ocean26GameTests {
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.placeArchivedForGameTest(
                     level, anchor, 0, original, archive),
                     "Could not place historic tier III block layout " + archive);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.historicalRefitStatus(
+                    level, anchor, 0, original) == 1,
+                    "Old hull was not recognized as eligible for automatic refit: " + archive);
+            if (archive % 2 == 0) {
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
+                        level, anchor, 0, original, anchor, 0, original),
+                        "Automatic same-config layout refit failed: " + archive);
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.historicalRefitStatus(
+                        level, anchor, 0, original) == 0,
+                        "Auto-refitted hull still classified as obsolete");
+            }
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
                     level, anchor, 0, original, anchor, 0, upgraded),
                     "Historic tier III hull refused mast and bridge upgrades: " + archive);
