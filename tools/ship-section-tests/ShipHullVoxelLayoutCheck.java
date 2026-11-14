@@ -27,6 +27,25 @@ public final class ShipHullVoxelLayoutCheck {
         var largest = plan(ShipSectionPlan.ShipClass.LARGEST, 21, 33,
                 List.of(3, 3, 2, 1), 3, true, true);
 
+        // A full-size hull is not nine times heavier simply because the
+        // starter ship was 7x11. All supported III/IV upgrades must remain
+        // responsive when at least one sail is installed.
+        for (var type : List.of(ShipSectionPlan.ShipClass.LARGE,
+                ShipSectionPlan.ShipClass.LARGEST)) {
+            for (int width : new int[]{21, 23, 25})
+                for (int length : new int[]{33, 37, 41, 45})
+                    for (int floors : new int[]{1, 2, 3})
+                        for (boolean cabin : new boolean[]{false, true})
+                            for (boolean bridge : new boolean[]{false, true}) {
+                                var rig = new ShipSuperstructurePlan(type, width, length,
+                                        List.of(1), floors, bridge, cabin, 2);
+                                yes(rig.propulsionFactor() >= .50D,
+                                        "LARGE/LARGEST rig throttled to crawl: " + rig);
+                                yes(rig.propulsionFactor() <= 1D,
+                                        "LARGE/LARGEST exceeded propulsion cap: " + rig);
+                            }
+        }
+
         for (var config : List.of(small, medium, large, largest)) {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxels =
                     ShipHullVoxelLayout.generate(config);
