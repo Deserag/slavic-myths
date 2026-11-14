@@ -1805,4 +1805,48 @@ public final class Ocean26GameTests {
     }
 
 
+    @GameTest(template = "empty", timeoutTicks = 480, batch = "ocean_brigantine_legacy_refit")
+    public static void brigantineHistoricWorldRefitPreservesUpgradePath(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
+        for (int x = -18; x <= 18; x++)
+            for (int z = -25; z <= 25; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 42; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var original = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+        var upgraded = original.withSail(2, 1).withBridge(true).withDecks(2);
+        // Five exact historical block generations of this same saved
+        // revision must all migrate rather than silently reject upgrades.
+        for (int archive = 0; archive < 5; archive++) {
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.placeArchivedForGameTest(
+                    level, anchor, 0, original, archive),
+                    "Could not place historic tier III block layout " + archive);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
+                    level, anchor, 0, original, anchor, 0, upgraded),
+                    "Historic tier III hull refused mast and bridge upgrades: " + archive);
+            var plan = upgraded.structure();
+            int top = org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck(plan);
+            t.assertTrue(plan.mastPositions().size() == 3,
+                    "Historical hull refit lost third mast: " + archive);
+            for (int mastZ : plan.mastPositions())
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, top + 2, mastZ)).is(Blocks.STRIPPED_SPRUCE_LOG),
+                        "Historic refit did not physically install mast " + mastZ);
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, 0, top + 4, -upgraded.length() / 2 + 3))
+                            .is(Blocks.DARK_OAK_PLANKS),
+                    "Historic refit did not install elevated command bridge canopy");
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                    level, anchor, 0, upgraded),
+                    "Could not clean upgraded historic hull " + archive);
+        }
+        t.succeed();
+    }
+
+
 }
