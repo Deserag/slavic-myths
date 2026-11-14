@@ -20,7 +20,7 @@ public final class ShipHullVoxelLayout {
     public record Cell(int x, int y, int z) {}
     public enum Part {
         KEEL, HULL, FRAME, DECK, RAIL, LADDER, MAST, YARD, SAIL,
-        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM
+        CABIN_WALL, WINDOW, DOOR, BRIDGE, HELM, LANTERN
     }
 
     private static int beam(int width, int length, int z) {
@@ -138,6 +138,15 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        // Permanent functional lighting, not glowing cosmetic textures.
+        // Posts stand inside the bulwark without blocking the central aisle.
+        for (int z : new int[]{-end + 8, end - 8}) {
+            int beam = brigantineBeam(p, z);
+            for (int x : new int[]{-beam + 2, beam - 2}) {
+                put(out, x, 11, z, Part.LANTERN);
+                put(out, x, 6, z, Part.LANTERN);
+            }
+        }
         // Real hatch between hold, gun deck and weather deck.
         for (int y = 2; y <= 10; y++) {
             put(out, -3, y, 1, Part.FRAME);
@@ -163,6 +172,8 @@ public final class ShipHullVoxelLayout {
                 put(out, -half + 1, y, front + 1, Part.LADDER);
             }
             out.remove(new Cell(-half + 1, 16, front));
+            put(out, half - 1, 16, rear + 3, Part.LANTERN);
+            put(out, -half + 1, 16, rear + 3, Part.LANTERN);
         }
         if (top >= 20) {
             int front = rear + 6;
@@ -182,6 +193,8 @@ public final class ShipHullVoxelLayout {
                 put(out, -half + 1, y, front + 1, Part.LADDER);
             }
             out.remove(new Cell(-half + 1, 21, front));
+            put(out, half - 1, 21, rear + 2, Part.LANTERN);
+            put(out, -half + 1, 21, rear + 2, Part.LANTERN);
         }
         if (p.cabin()) {
             int half = Math.min(4, p.hullWidth() / 2 - 4);
