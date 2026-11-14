@@ -503,7 +503,9 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             if (!createRafts && shown != null) {
                 ShipSectionPlan.ShipClass type = shown.shipClass();
                 int maximumLength = ShipBuildConfiguration.hullLength(type, type.maxLength);
-                int maximumWidth = ShipBuildConfiguration.hullWidth(type, type.maxWidth);
+                int maximumWidth = type == ShipSectionPlan.ShipClass.LARGE
+                        && shown.hullRevision() == 3 ? 19
+                        : ShipBuildConfiguration.hullWidth(type, type.maxWidth);
                 graphics.drawString(font, "Длина", 18, 126, 0xfff2dfbd, false);
                 graphics.drawString(font, shown.length() + "/" + maximumLength,
                         61, 126, 0xfff2dfbd, false);
