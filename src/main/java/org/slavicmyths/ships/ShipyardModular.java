@@ -39,12 +39,14 @@ public final class ShipyardModular {
                 ShipHullVoxelLayout.generate(next.structure());
         Map<ShipHullVoxelLayout.Part, Integer> delta =
                 ShipHullVoxelLayout.additions(before, after);
-        int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0);
+        int keel = delta.getOrDefault(ShipHullVoxelLayout.Part.KEEL, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.BOWSPRIT, 0);
         int frame = delta.getOrDefault(ShipHullVoxelLayout.Part.FRAME, 0);
         int mast = delta.getOrDefault(ShipHullVoxelLayout.Part.MAST, 0);
         int yard = delta.getOrDefault(ShipHullVoxelLayout.Part.YARD, 0);
         int walls = delta.getOrDefault(ShipHullVoxelLayout.Part.CABIN_WALL, 0);
-        int hull = delta.getOrDefault(ShipHullVoxelLayout.Part.HULL, 0);
+        int hull = delta.getOrDefault(ShipHullVoxelLayout.Part.HULL, 0)
+                + delta.getOrDefault(ShipHullVoxelLayout.Part.TRIM, 0);
         int deck = delta.getOrDefault(ShipHullVoxelLayout.Part.DECK, 0)
                 + delta.getOrDefault(ShipHullVoxelLayout.Part.BRIDGE, 0);
         int railing = delta.getOrDefault(ShipHullVoxelLayout.Part.RAIL, 0);
@@ -65,7 +67,8 @@ public final class ShipyardModular {
         }
         return new Materials(divRoundUp(keel + frame + mast + yard + walls, 4),
                 divRoundUp(hull + deck, 3),
-                divRoundUp(keel + frame + mast + yard + windows + ladders, 15),
+                divRoundUp(keel + frame + mast + yard + windows + ladders
+                        + delta.getOrDefault(ShipHullVoxelLayout.Part.LANTERN, 0), 15),
                 divRoundUp(sail, 4),
                 divRoundUp(deck, 24),
                 divRoundUp(railing, 16),
