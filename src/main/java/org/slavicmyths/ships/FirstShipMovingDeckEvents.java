@@ -53,7 +53,7 @@ public final class FirstShipMovingDeckEvents {
                     : ShipDeckContact.contactFloor(ship, relative.x(), relative.z(), feet.y);
             if (floor < 0 || !ShipDeckContact.supports(ship,
                     relative.x(), relative.z(), floor)) continue;
-            double surface = ship.getY() + ShipDeckContact.height(floor);
+            double surface = ship.getY() + ShipDeckContact.height(ship.modularConfiguration(), floor);
             if (feet.y < surface - .56D || feet.y > surface + 2.6D) continue;
 
             FirstShipHull.Point moved = FirstShipHull.transfer(feet.x, feet.z,
@@ -97,7 +97,7 @@ public final class FirstShipMovingDeckEvents {
         if (!(ship.level() instanceof net.minecraft.server.level.ServerLevel server)) return;
         for (Player player : server.getEntitiesOfClass(Player.class,
                 new net.minecraft.world.phys.AABB(oldX - 30D, ship.getY() - 1D, oldZ - 30D,
-                        oldX + 30D, ship.getY() + 18D, oldZ + 30D))) {
+                        oldX + 30D, ship.getY() + 28D, oldZ + 30D))) {
             if (!player.isAlive() || player.isPassenger() || player.isSpectator()
                     || player.getAbilities().flying || player.isFallFlying()) continue;
             Vec3 feet = player.position();
@@ -110,7 +110,7 @@ public final class FirstShipMovingDeckEvents {
                 floor = contact.floor();
             if (floor < 0) {
                 for (int candidate = 4; candidate >= 0; candidate--) {
-                    double candidateY = ship.getY() + ShipDeckContact.height(candidate);
+                    double candidateY = ship.getY() + ShipDeckContact.height(ship.modularConfiguration(), candidate);
                     if (feet.y >= candidateY - .56D && feet.y <= candidateY + 2.6D
                             && ShipDeckContact.supports(ship, local.x(), local.z(), candidate)) {
                         floor = candidate;
