@@ -89,7 +89,7 @@ public record ShipSuperstructurePlan(ShipSectionPlan.ShipClass shipClass,
     private static List<Integer> frigateMasts(int count, int length) {
         List<Integer> positions = new ArrayList<>();
         int rear = -length / 2 + 13;
-        int span = length - 27;
+        int span = length - 22;
         for (int i = 0; i < count; i++)
             positions.add(count == 1 ? 0
                     : rear + (int)Math.round(span * i / (double)(count - 1)));
