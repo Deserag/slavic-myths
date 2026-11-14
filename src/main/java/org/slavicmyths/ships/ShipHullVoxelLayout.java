@@ -177,6 +177,22 @@ public final class ShipHullVoxelLayout {
      * Lamps never replace floors, hull planking, stairs or supports.
      * A fixture must rest on a solid block and cannot obstruct a stairwell.
      */
+    private static void placeBrigantineLantern(Map<Cell, Part> blocks,
+            int x, int y, int z) {
+        Cell location = new Cell(x, y, z);
+        if (blocks.containsKey(location)) return;
+        Part foundation = blocks.get(new Cell(x, y - 1, z));
+        if (foundation != Part.DECK && foundation != Part.BRIDGE
+                && foundation != Part.HULL && foundation != Part.FRAME
+                && foundation != Part.TRIM) return;
+        // Do not place a fixture inside the two-block space needed to walk.
+        for (int dx = -1; dx <= 1; dx++)
+            for (int dz = -1; dz <= 1; dz++)
+                if (blocks.get(new Cell(x + dx, y, z + dz)) == Part.STAIR)
+                    return;
+        blocks.put(location, Part.LANTERN);
+    }
+
     private static void sanitizeBrigantineLanterns(Map<Cell, Part> blocks) {
         java.util.List<Cell> lamps = new java.util.ArrayList<>();
         for (var entry : blocks.entrySet())
@@ -372,8 +388,8 @@ public final class ShipHullVoxelLayout {
         for (int z : new int[]{-end + 8, end - 8}) {
             int beam = brigantineBeam(p, z);
             for (int x : new int[]{-beam + 2, beam - 2}) {
-                put(out, x, 11, z, Part.LANTERN);
-                put(out, x, 6, z, Part.LANTERN);
+                placeBrigantineLantern(out, x, 11, z);
+                placeBrigantineLantern(out, x, 6, z);
             }
         }
         // Actual light sources at both low interior levels, on five-block
@@ -384,8 +400,8 @@ public final class ShipHullVoxelLayout {
             // Keep the central corridor free: attach light blocks near the
             // inner side walls instead of placing them in walking lanes.
             for (int x : new int[]{-beam + 2, beam - 2}) {
-                put(out, x, 2, z, Part.LANTERN);
-                put(out, x, 6, z, Part.LANTERN);
+                placeBrigantineLantern(out, x, 2, z);
+                placeBrigantineLantern(out, x, 6, z);
             }
         }
         // Two separated stairwells: aft / port and bow / starboard.
@@ -435,8 +451,8 @@ public final class ShipHullVoxelLayout {
                         out.remove(new Cell(x, y, front));
                     else put(out, x, y, front, Part.CABIN_WALL);
                 }
-            put(out, half - 1, 16, rear + 3, Part.LANTERN);
-            put(out, -half + 1, 16, rear + 3, Part.LANTERN);
+            placeBrigantineLantern(out, half - 1, 16, rear + 3);
+            placeBrigantineLantern(out, -half + 1, 16, rear + 3);
         }
         if (top >= 20) {
             int front = rear + 8;
@@ -469,8 +485,8 @@ public final class ShipHullVoxelLayout {
                         out.remove(new Cell(x, y, front));
                     else put(out, x, y, front, Part.CABIN_WALL);
                 }
-            put(out, half - 1, 21, rear + 2, Part.LANTERN);
-            put(out, -half + 1, 21, rear + 2, Part.LANTERN);
+            placeBrigantineLantern(out, half - 1, 21, rear + 2);
+            placeBrigantineLantern(out, -half + 1, 21, rear + 2);
         }
         if (p.cabin()) {
             int half = Math.min(4, p.hullWidth() / 2 - 4);
@@ -505,7 +521,7 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, z, Part.FRAME);
             }
             for (int x : new int[]{-2, 2})
-                put(out, x, top + 2, rear + 4, Part.LANTERN);
+                placeBrigantineLantern(out, x, top + 2, rear + 4);
         }
         // Rebuild both raised access routes AFTER all cabin and stern walls.
         // This prevents a later upgrade from sealing an earlier passage.
@@ -516,13 +532,13 @@ public final class ShipHullVoxelLayout {
             // middle of the stair approach or inside the captain's cabin.
             for (int z : new int[]{rear + 2, rear + 5})
                 for (int x : new int[]{-3, 3})
-                    put(out, x, 16, z, Part.LANTERN);
+                    placeBrigantineLantern(out, x, 16, z);
         }
         if (top >= 20) {
             for (int x : new int[]{-1, 1})
                 brigantineStairs(out, x, rear, 15, 20);
             for (int z : new int[]{rear + 2, rear + 5})
-                put(out, 0, 21, z, Part.LANTERN);
+                placeBrigantineLantern(out, 0, 21, z);
         }
         // Stair approaches must remain walkable; deck lights are placed away
         // from the centerline on already-supported side posts.
@@ -530,7 +546,7 @@ public final class ShipHullVoxelLayout {
             int side = brigantineBeam(p, z) - 2;
             if (side > 3)
                 for (int y : new int[]{6, 11})
-                    put(out, side, y, z, Part.LANTERN);
+                    placeBrigantineLantern(out, side, y, z);
         }
 
         // Every installed mast is rooted in the main deck; the complete
