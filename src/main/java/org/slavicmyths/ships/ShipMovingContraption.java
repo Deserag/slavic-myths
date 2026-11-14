@@ -57,12 +57,19 @@ public final class ShipMovingContraption {
         this.detached = detached;
     }
 
+    /** Include the real protruding bowsprit in turning sweep radius. */
+    private static double collisionRadius(ShipBuildConfiguration configuration) {
+        double bowReach = configuration.length() / 2D
+                + (configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && configuration.hullRevision() == 3 ? 4D : 1D);
+        return Math.hypot(configuration.width() / 2D + 1D, bowReach);
+    }
+
     public static ShipMovingContraption prepare(ServerLevel level, BlockPos anchor,
             int turns, ShipBuildConfiguration configuration) {
         ListTag cargo = ShipModularBlockHull.pack(level, anchor, turns, configuration);
         if (cargo == null) return null;
-        double radius = Math.hypot(configuration.width() / 2D + 1D,
-                configuration.length() / 2D + 1D);
+        double radius = collisionRadius(configuration);
         ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
                 anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius);
         return new ShipMovingContraption(configuration, cargo, turns,
@@ -207,8 +214,7 @@ public final class ShipMovingContraption {
             if (tag.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
                 ShipBuildConfiguration config = ShipBuildConfiguration.load(
                         tag.getCompound(ShipBuildConfiguration.NBT_KEY));
-                double radius = Math.hypot(config.width() / 2D + 1D,
-                        config.length() / 2D + 1D);
+                double radius = collisionRadius(config);
                 ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius);
                 modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
                 return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
