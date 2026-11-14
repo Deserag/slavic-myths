@@ -130,6 +130,24 @@ public final class ShipModularBlockHull {
         return blocks;
     }
 
+    /**
+     * GameTest fixture only: place an exact historical layout so the refit
+     * path can be exercised against real old blocks, not a fake new palette.
+     * This is not called by gameplay or shipyard code.
+     */
+    public static boolean placeArchivedForGameTest(ServerLevel level,
+            BlockPos anchor, int turns, ShipBuildConfiguration config, int archive) {
+        if (config == null || config.withdrawn()
+                || config.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                || config.hullRevision() != 3
+                || archive < 0 || archive >= ShipHullLegacyRevisionThree.archives())
+            return false;
+        Map<BlockPos, BlockState> oldBlocks =
+                archivedWorldPalette(config, anchor, turns, archive);
+        if (!clearSpace(level, anchor, oldBlocks, Set.of(), config, turns)) return false;
+        return placeBlocks(level, oldBlocks, List.of(), anchor, turns);
+    }
+
     private static boolean matchesPhysicalHull(ServerLevel level,
             Map<BlockPos, BlockState> expected) {
         for (var entry : expected.entrySet())
