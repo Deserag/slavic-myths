@@ -211,6 +211,11 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, z,
                             y == 6 || y == 9 ? Part.TRIM : Part.HULL);
                 }
+                // A narrowing section exposes its side-facing lower bilge.
+                // Seal that face too, rather than only the top gun-deck wall.
+                if (exposedShoulder)
+                    for (int y = 2; y <= 4; y++)
+                        put(out, x, y, z, Part.HULL);
                 // Close the hold and deck seams at the very tips too:
                 // otherwise the end still exposes a two-to-four-block slot
                 // when viewed straight down the ship axis.
@@ -241,7 +246,9 @@ public final class ShipHullVoxelLayout {
         for (int z = -end + 7; z <= end - 7; z += 5) {
             int beam = brigantineBeam(p, z);
             if (beam < 6) continue;
-            for (int x : new int[]{-3, 3}) {
+            // Keep the central corridor free: attach light blocks near the
+            // inner side walls instead of placing them in walking lanes.
+            for (int x : new int[]{-beam + 2, beam - 2}) {
                 put(out, x, 2, z, Part.LANTERN);
                 put(out, x, 6, z, Part.LANTERN);
             }
