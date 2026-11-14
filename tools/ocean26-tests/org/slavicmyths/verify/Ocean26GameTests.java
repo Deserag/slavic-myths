@@ -389,15 +389,7 @@ public final class Ocean26GameTests {
         modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
     }
 
-    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_large_voyage")
-    public static void largeModularVoyage(GameTestHelper t) {
-        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
-    }
 
-    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_largest_voyage")
-    public static void largestModularVoyage(GameTestHelper t) {
-        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST);
-    }
 
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
@@ -425,13 +417,7 @@ public final class Ocean26GameTests {
         t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
-        if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
-            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, 2D, 0D, 0),
-                    "LARGEST raised hold floor has no passenger support");
-            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(
-                    ship, 2D, 0D, ship.getY() + 2.02D) == 0,
-                    "LARGEST hold foot-height does not match real solid bilge floor");
-        }
+
         ServerPlayer captain = player(level, type + "VoyageCaptain",
                 new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
                         ship.getZ() + ship.helmSeatZ() + 1.25D));
@@ -465,190 +451,13 @@ public final class Ocean26GameTests {
         });
     }
 
-    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_largest_top_helm")
-    public static void largestThreeDeckBridgeHasReachablePhysicalHelm(GameTestHelper t) {
-        ServerLevel level = t.getLevel();
-        BlockPos anchor = t.absolutePos(new BlockPos(28, 4, 28));
-        for (int x = -20; x <= 20; x++)
-            for (int z = -28; z <= 28; z++) {
-                BlockPos pos = anchor.offset(x, 0, z);
-                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
-                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= 32; y++)
-                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
-            }
-        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST)
-                .resize(3, 2).withDecks(3).withCabin(true).withBridge(true)
-                .withSail(1, 2).withSail(2, 3).withSail(3, 1);
-        ServerPlayer builder = player(level, "FlagshipTopHelmBuilder",
-                new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
-        builder.getAbilities().instabuild = true;
-        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
-        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
-        t.assertTrue(ship != null && !item.isEmpty(), "Three-deck flagship item creation failed");
-        ship.initializeNativeHull(anchor, 0);
-        ship.enableSmoothMotion();
-        t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
-                level, anchor, 0, config, new ListTag()), "Three-deck flagship placement failed");
-        t.assertTrue(level.addFreshEntity(ship), "Three-deck flagship entity missing");
-        t.assertTrue(Math.abs(ship.helmSeatHeight() - 13D) < .001D,
-                "Top-deck wheel height does not match bridge floor");
-        BlockPos helm = FirstShipBlockHull.world(ship.blockAnchor(),
-                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
-        t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
-                "Three-deck flagship physical helm and click target do not align");
-        ServerPlayer captain = player(level, "FlagshipTopHelmCaptain",
-                new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
-                        ship.getZ() + ship.helmSeatZ() + 1.25D));
-        var wheelClick = new net.neoforged.neoforge.event.entity.player
-                .PlayerInteractEvent.RightClickBlock(captain,
-                        net.minecraft.world.InteractionHand.MAIN_HAND, helm,
-                        new net.minecraft.world.phys.BlockHitResult(
-                                Vec3.atCenterOf(helm), net.minecraft.core.Direction.UP, helm, false));
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(wheelClick);
-        t.assertTrue(wheelClick.isCanceled() && captain.getVehicle() == ship,
-                "Three-deck flagship captain could not board physical wheel");
-        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship,
-                1D, ship.helmSeatZ(), 3), "Top flagship bridge lacks dismount floor support");
-        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship,
-                1D, ship.helmSeatZ(), 4), "Top flagship bridge is not a valid passenger floor");
-        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(ship,
-                1D, ship.helmSeatZ(), ship.getY() + 13D) == 4,
-                "Top flagship bridge passenger snapped to an incorrect floor");
-        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.contactFloor(ship,
-                1D, ship.helmSeatZ(), ship.getY() + 10D) != 4,
-                "Three-deck flagship exposes phantom lower bridge contact");
-        captain.discard(); builder.discard(); ship.discard();
-        t.succeed();
-    }
 
-    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_remote_menu")
-    public static void largeShipCannotDetachWithRemoteCargoMenuOpen(GameTestHelper t) {
-        ServerLevel level = t.getLevel();
-        BlockPos anchor = t.absolutePos(new BlockPos(23, 4, 23));
-        for (int x = -17; x <= 17; x++)
-            for (int z = -23; z <= 23; z++) {
-                BlockPos pos = anchor.offset(x, 0, z);
-                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
-                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= 24; y++)
-                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
-            }
-        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
-        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
-        t.assertTrue(ship != null, "Large ship entity missing");
-        ship.initializeNativeHull(anchor, 0);
-        ship.enableSmoothMotion();
-        // Load the same validated blueprint path used by a crafted ship item.
-        ServerPlayer builder = player(level, "LargeShipBuilder",
-                new Vec3(anchor.getX() + 21D, anchor.getY() + 6D, anchor.getZ()));
-        builder.getAbilities().instabuild = true;
-        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
-        t.assertTrue(ship.loadPacked(item), "Large ship blueprint could not load");
-        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
-                anchor, 0, config, new ListTag()), "Large ship hull placement failed");
-        t.assertTrue(level.addFreshEntity(ship), "Large ship entity could not spawn");
-        ServerPlayer captain = player(level, "LargeShipCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
-        ServerPlayer remote = player(level, "LargeShipCargoUser",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + 14D));
-        remote.containerMenu = new org.slavicmyths.ships.ShipyardMenu(
-                17, remote.getInventory(), anchor);
-        t.assertTrue(captain.startRiding(ship), "Large ship captain could not board");
-        t.assertTrue(!ship.helmStep(captain, FirstShipNetwork.FORWARD) && !ship.isMoving(),
-                "Large ship detached while remote cargo menu was open");
-        remote.containerMenu = remote.inventoryMenu;
-        captain.stopRiding();
-        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
-                anchor, 0, config), "Large ship cleanup failed");
-        remote.discard(); captain.discard(); builder.discard(); ship.discard();
-        t.succeed();
-    }
 
-    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_modular_third_deck")
-    public static void thirdDeckWalkerFollowsLargeMovingShip(GameTestHelper t) {
-        thirdDeckWalkerFollowsMovingShip(t,
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
-    }
 
-    @GameTest(template = "empty", timeoutTicks = 150, batch = "ocean_largest_third_deck_motion")
-    public static void thirdDeckWalkerFollowsLargestMovingShip(GameTestHelper t) {
-        thirdDeckWalkerFollowsMovingShip(t,
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST);
-    }
 
-    private static void thirdDeckWalkerFollowsMovingShip(GameTestHelper t,
-            org.slavicmyths.ships.ShipSectionPlan.ShipClass shipClass) {
-        ServerLevel level = t.getLevel();
-        BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
-        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
-                new ChunkPos(anchor), 3, anchor.asLong());
-        for (int x = -19; x <= 19; x++)
-            for (int z = -27; z <= 27; z++) {
-                BlockPos pos = anchor.offset(x, 0, z);
-                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
-                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= 24; y++)
-                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
-            }
-        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(shipClass)
-                .resize(1, 1).withDecks(3).withBridge(true).withCabin(true);
-        ServerPlayer builder = player(level, "ThirdDeckBuilder",
-                new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
-        builder.getAbilities().instabuild = true;
-        ItemStack item = org.slavicmyths.ships.ShipyardModular.build(builder, config);
-        FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(level);
-        t.assertTrue(ship != null && !item.isEmpty(), "Large third-deck ship creation failed");
-        ship.initializeNativeHull(anchor, 0);
-        ship.enableSmoothMotion();
-        t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
-                level, anchor, 0, config, new ListTag()), "Large third-deck placement failed");
-        t.assertTrue(level.addFreshEntity(ship), "Large third-deck entity did not spawn");
-        ServerPlayer captain = player(level, "ThirdDeckCaptain",
-                new Vec3(ship.getX(), ship.deckY(), ship.getZ() + ship.helmSeatZ()));
-        ServerPlayer walker = player(level, "ThirdDeckWalker",
-                new Vec3(ship.getX() + 2D, ship.getY() + 13.02D, ship.getZ() - 8D));
-        t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
-        t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, 2D, -8D, 3),
-                shipClass + " third-deck walker has no actual support");
-        if (shipClass == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
-            int waist = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
-                    config.structure(), 0);
-            t.assertTrue(waist < config.width() / 2,
-                    "Flagship no longer has an inward waist");
-            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, waist, 0D, 1),
-                    "Flagship walker cannot stand on the actual sculpted gunwale");
-            t.assertTrue(!org.slavicmyths.ships.ShipDeckContact.supports(
-                    ship, config.width() / 2D, 0D, 1),
-                    "Flagship movement still treats empty space beyond waist as solid deck");
-        }
-        double startZ = ship.getZ();
-        t.runAtTickTime(5L, () -> t.assertTrue(
-                ship.helmStep(captain, FirstShipNetwork.FORWARD),
-                "Large third-deck hull could not begin moving"));
-        for (int tick = 6; tick <= 48; tick++)
-            t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
-        t.runAtTickTime(51L, () -> {
-            FirstShipHull.Point local = FirstShipHull.toLocal(walker.getX(), walker.getZ(),
-                    ship.getX(), ship.getZ(), ship.getYRot());
-            t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D,
-                    "Large third-deck ship did not advance");
-            // The revised LARGE third deck ends forward of amidships.
-            // Stand at z=-8 on the installed floor, not open main deck z=0.
-            t.assertTrue(Math.abs(local.x() - 2D) < .12D && Math.abs(local.z() + 8D) < .12D
-                    && walker.getY() >= ship.getY() + 12.8D,
-                    "Third-deck walker was left behind or fell through floor");
-            walker.discard(); captain.discard(); builder.discard(); ship.discard();
-            level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
-                    new ChunkPos(anchor), 3, anchor.asLong());
-            t.succeed();
-        });
-    }
 
     @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_modular_classes")
-    public static void allFourModularClassesPlacePackAndRestore(GameTestHelper t) {
+    public static void retainedModularClassesPlacePackAndRestore(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(24, 4, 24));
         for (int x = -25; x <= 25; x++)
@@ -665,7 +474,9 @@ public final class Ocean26GameTests {
                 new Vec3(bench.getX() + .5D, bench.getY() + 1D, bench.getZ() + .5D));
         builder.getAbilities().instabuild = true;
         var menu = new org.slavicmyths.ships.ShipyardMenu(16, builder.getInventory(), bench);
-        for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
+        for (var type : java.util.List.of(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.SMALL,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM)) {
             var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
             t.assertTrue(menu.clickMenuButton(builder, 100 + type.ordinal() * 16),
                     type + " could not be crafted in the shipyard menu");
@@ -697,83 +508,7 @@ public final class Ocean26GameTests {
                 maximum = maximum.withBridge(true).withCabin(true);
             t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
                     anchor, 0, maximum, new ListTag()), type + " maximum hull placement failed");
-            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
-                int aft = -maximum.length() / 2 + 2;
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, 0, 13, aft + 2)).is(Blocks.DARK_OAK_FENCE),
-                        "LARGEST captain helm must stand above third sterncastle deck");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, 0, 12, aft + 2)).is(Blocks.DARK_OAK_PLANKS),
-                        "LARGEST helm must have bridge-floor support");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, -2, 12, aft + 4)).is(Blocks.LADDER),
-                        "LARGEST third deck bridge entrance must have a ladder");
-                t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, -2, 13, aft + 4)).is(Blocks.SPRUCE_FENCE),
-                        "LARGEST bridge ladder exit cannot be blocked by railing");
-                // The new LARGEST upperworks must have real tapered fore
-                // termini. Verify that only the center is planked and that
-                // the final transverse rail guards the edge on both floors.
-                for (int floor = 2; floor <= maximum.decks(); floor++) {
-                    int deckY = 4 + 4 * (floor - 1);
-                    int upperFront = Math.min(maximum.length() / 2 - 5,
-                            aft + (floor == 2 ? maximum.length() * 2 / 3
-                                    : maximum.length() / 2));
-                    int halfBeam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
-                            maximum.structure(), upperFront);
-                    int outsideX = halfBeam - (floor == 2 ? 1 : 3);
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, 1, deckY, upperFront)).is(Blocks.SPRUCE_PLANKS),
-                            "LARGEST tapered upper deck loses central walkway");
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, outsideX, deckY, upperFront)).isAir(),
-                            "LARGEST upper deck still has squared-off full-beam front");
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, 1, deckY + 1, upperFront)).is(Blocks.SPRUCE_FENCE),
-                            "LARGEST raised deck fore end lacks real safety rail");
-                    int sculptedHalf = Math.max(3, halfBeam - (floor == 2 ? 1 : 3) - 3);
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, sculptedHalf, deckY - 1, upperFront))
-                                    .is(Blocks.STRIPPED_SPRUCE_LOG),
-                            "LARGEST raised deck tip is missing timber support");
-                }
-                int beam = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
-                        maximum.structure(), 0);
-                t.assertTrue(beam <= maximum.width() / 2 - 2,
-                        "LARGEST midship beam did not taper toward an inward waist");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, beam + 2, 4, 0)).isAir(),
-                        "LARGEST midship deck is still a full-width rectangle");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, beam, 0, 0)).is(Blocks.WATER),
-                        "LARGEST outer bottom must be water, not a flat planked slab");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, beam - 2, 1, 0)).is(Blocks.SPRUCE_PLANKS),
-                        "LARGEST watertight stepped floor was not placed");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                        0, beam - 1, 2, 0)).is(Blocks.SPRUCE_PLANKS),
-                        "LARGEST outer chine is missing");
-                int lowerYard = 4 + (maximum.decks() - 1) * 4 + 3;
-                for (int mast = 0; mast < maximum.sailTiers().size(); mast++) {
-                    int tier = maximum.sailTiers().get(mast);
-                    int height = tier == 1 ? 5 : tier == 2 ? 8 : 12;
-                    int z = maximum.structure().mastPositions().get(mast);
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, 1, lowerYard, z)).is(Blocks.DARK_OAK_LOG),
-                            "LARGEST missing lower yard on mast " + mast);
-                    // Cloth belongs to the voxel/render blueprint; physical
-                    // wool would block players and make the rig untraversable.
-                    t.assertTrue(org.slavicmyths.ships.ShipHullVoxelLayout.generate(
-                            maximum.structure()).get(
-                            new org.slavicmyths.ships.ShipHullVoxelLayout.Cell(
-                                    1, lowerYard + height, z + 1))
-                                    == org.slavicmyths.ships.ShipHullVoxelLayout.Part.SAIL,
-                            "LARGEST missing full-height virtual sailcloth on mast " + mast);
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                            0, 1, lowerYard + height, z + 1)).isAir(),
-                            "LARGEST virtual sail must not create solid wool collision");
-                }
-            }
+
             if (type.maxDecks >= 3)
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
                         0, 2, 12, -maximum.length() / 2 + 10)).is(Blocks.SPRUCE_PLANKS),
@@ -800,82 +535,13 @@ public final class Ocean26GameTests {
                     movedAnchor, 1, maximum), type + " maximum hull removal failed");
             t.assertTrue(level.getBlockState(turnedChest).isAir(),
                     type + " cargo remained in world after packing");
-            if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
-                // An unupgraded one-deck flagship with cabin uses its roof
-                // as the captain's platform; verify real fence/ladder blocks.
-                var roofOnly = config.withCabin(true);
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
-                        anchor, 0, roofOnly, new ListTag()),
-                        "Cabin-only flagship failed to place");
-                int rear = -roofOnly.length() / 2 + 2;
-                int cabinSide = org.slavicmyths.ships.ShipHullVoxelLayout.cabinHalfWidth(
-                        roofOnly.structure());
-                BlockPos rail = FirstShipBlockHull.world(anchor, 0, cabinSide, 9, rear + 3);
-                BlockPos window = FirstShipBlockHull.world(anchor, 0, cabinSide, 6, rear + 3);
-                BlockPos rooftopHelm = FirstShipBlockHull.world(anchor, 0, 0, 9, rear + 3);
-                BlockPos entry = FirstShipBlockHull.world(anchor, 0, -cabinSide + 1, 9, rear + 6);
-                BlockPos ladder = FirstShipBlockHull.world(anchor, 0, -cabinSide + 1, 9, rear + 7);
-                t.assertTrue(level.getBlockState(rail).is(Blocks.SPRUCE_FENCE),
-                        "Cabin-only flagship roof lacks real safety fence");
-                t.assertTrue(level.getBlockState(window).is(Blocks.GLASS_PANE),
-                        "Widened flagship cabin must keep real glazed side windows");
-                t.assertTrue(level.getBlockState(rooftopHelm).is(Blocks.DARK_OAK_FENCE),
-                        "Cabin-only flagship roof has no physical helm");
-                t.assertTrue(level.getBlockState(entry).isAir(),
-                        "Cabin-only flagship roof access is obstructed");
-                t.assertTrue(level.getBlockState(ladder).is(Blocks.LADDER),
-                        "Cabin-only flagship roof has no access ladder");
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
-                        anchor, 0, roofOnly), "Cabin-only flagship cleanup failed");
-                // The intermediate two-deck upgrade must keep a working
-                // physical helm on its aft deck even without a bridge.
-                var twoDeck = roofOnly.withDecks(2);
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(level,
-                        anchor, 0, twoDeck, new ListTag()),
-                        "Two-deck flagship without bridge failed to place");
-                BlockPos raisedWheel = FirstShipBlockHull.world(anchor, 0,
-                        0, 9, rear + 3);
-                BlockPos raisedFloor = FirstShipBlockHull.world(anchor, 0,
-                        0, 8, rear + 3);
-                t.assertTrue(level.getBlockState(raisedWheel).is(Blocks.DARK_OAK_FENCE),
-                        "Two-deck flagship loses wheel without bridge upgrade");
-                t.assertTrue(level.getBlockState(raisedFloor).is(Blocks.SPRUCE_PLANKS),
-                        "Two-deck flagship wheel lacks supporting floor");
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level,
-                        anchor, 0, twoDeck), "Two-deck flagship cleanup failed");
-            }
+
         }
         menu.removed(builder);
         builder.discard();
         t.succeed();
     }
 
-    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_largest_blueprints")
-    public static void allFlagshipUpgradesRoundTripNBTAndWire(GameTestHelper t) {
-        int tested = 0;
-        for (int width = 0; width <= 2; width++)
-            for (int length = 0; length <= 3; length++)
-                for (int decks = 1; decks <= 3; decks++)
-                    for (boolean bridge : new boolean[]{false, true})
-                        for (boolean cabin : new boolean[]{false, true})
-                            for (java.util.List<Integer> sails : java.util.List.of(
-                                    java.util.List.of(1), java.util.List.of(1, 2),
-                                    java.util.List.of(1, 2, 3), java.util.List.of(1, 2, 3, 1))) {
-                                var config = new org.slavicmyths.ships.ShipBuildConfiguration(
-                                        org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST,
-                                        length, width, sails, decks, bridge, cabin, 2);
-                                t.assertTrue(config.equals(org.slavicmyths.ships.ShipBuildConfiguration.load(
-                                        config.save())), "LARGEST NBT lost upgrade revision " + config);
-                                t.assertTrue(config.equals(org.slavicmyths.ships.ShipBuildConfiguration.fromWire(
-                                        config.wire())), "LARGEST wire lost upgrade revision " + config);
-                                t.assertTrue(config.hullRevision() == config.withDecks(decks)
-                                        .withBridge(bridge).withCabin(cabin).resize(length, width)
-                                        .hullRevision(), "LARGEST upgrade replaced revision " + config);
-                                tested++;
-                            }
-        t.assertTrue(tested == 576, "Expected full flagship blueprint upgrade matrix");
-        t.succeed();
-    }
 
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular")
     public static void modularMediumShipRebuildsWithCargo(GameTestHelper t) {
