@@ -605,6 +605,17 @@ public final class Ocean26GameTests {
         t.assertTrue(captain.startRiding(ship), "Third-deck captain could not board");
         t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, 2D, -8D, 3),
                 shipClass + " third-deck walker has no actual support");
+        if (shipClass == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+            int waist = org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                    config.structure(), 0);
+            t.assertTrue(waist < config.width() / 2,
+                    "Flagship no longer has an inward waist");
+            t.assertTrue(org.slavicmyths.ships.ShipDeckContact.supports(ship, waist, 0D, 1),
+                    "Flagship walker cannot stand on the actual sculpted gunwale");
+            t.assertTrue(!org.slavicmyths.ships.ShipDeckContact.supports(
+                    ship, config.width() / 2D, 0D, 1),
+                    "Flagship movement still treats empty space beyond waist as solid deck");
+        }
         double startZ = ship.getZ();
         t.runAtTickTime(5L, () -> t.assertTrue(
                 ship.helmStep(captain, FirstShipNetwork.FORWARD),
