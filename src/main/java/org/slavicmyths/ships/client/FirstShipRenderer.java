@@ -353,7 +353,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         var config = ship.modularConfiguration();
         double radius = config == null ? 9D : Math.hypot(
                 config.width() / 2D + 1D, config.length() / 2D + 1D) + 2D;
-        double height = config == null ? 22D : 24D;
+        boolean iv = config != null
+                && config.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4;
+        if (iv) radius += 8D; // Long diagonal bowsprit and raised stern.
+        double height = iv ? 52D : config == null ? 22D : 24D;
         if (config != null && config.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3)
             for (int tier : config.sailTiers())
