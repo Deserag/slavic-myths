@@ -45,12 +45,16 @@ public final class ShipMovingClearance {
                 if (visited.add(target.asLong())) {
                     if (!level.hasChunkAt(target)) return false;
                     BlockState obstacle = level.getBlockState(target);
-                    if (!harmless(level, target, obstacle) || level.getBlockEntity(target) != null) return false;
-                }
-                if (waterline) {
-                    BlockPos below = target.below();
-                    if (!level.hasChunkAt(below)
-                            || !level.getFluidState(below).is(FluidTags.WATER)) return false;
+                    if (!harmless(level, target, obstacle)
+                            || level.getBlockEntity(target) != null) return false;
+                    // Once per unique sample, not four times for every
+                    // overlapping bottom voxel; protect the whole bilge.
+                    if (waterline) {
+                        BlockPos below = target.below();
+                        if (!level.hasChunkAt(below)
+                                || !level.getFluidState(below).is(FluidTags.WATER))
+                            return false;
+                    }
                 }
             }
         return true;
@@ -65,7 +69,7 @@ public final class ShipMovingClearance {
         // Full hull, sails, mast, stern rudder and optional chest blocks.
         for (BlockPos p : palette.keySet())
             if (!check(level, pose, waterlineY, p.getX(), p.getY(), p.getZ(),
-                    visited, p.getY() == 0, cos, sin)) return false;
+                    visited, p.getY() == 0 || p.getY() == 1, cos, sin)) return false;
         // Unoccupied air within the cabin is part of the ship's swept
         // collision volume too; never phase a person through a cliff.
         for (BlockPos floor : palette.keySet()) {
