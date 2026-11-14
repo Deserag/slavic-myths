@@ -90,7 +90,12 @@ public final class ShipHullVoxelLayoutCheck {
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
                                                             route[0], 5 + i + head,
                                                             route[1] + i)) == null,
-                                                    "gun stair tread has no headroom: " + p);
+                                                    "gun stair tread has no headroom at x=" + route[0]
+                                                            + " y=" + (5 + i + head)
+                                                            + " z=" + (route[1] + i)
+                                                            + " block=" + model.get(new ShipHullVoxelLayout.Cell(
+                                                                    route[0], 5 + i + head, route[1] + i))
+                                                            + " config=" + p);
                                     }
                                 }
                                 yes(ShipHullVoxelLayout.halfBeam(p, length / 2)
