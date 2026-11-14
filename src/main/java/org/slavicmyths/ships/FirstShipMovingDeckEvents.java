@@ -121,7 +121,7 @@ public final class FirstShipMovingDeckEvents {
             if (floor < 0) continue;
             FirstShipHull.Point moved = FirstShipHull.toWorld(local.x(), local.z(),
                     ship.getX(), ship.getZ(), ship.getYRot());
-            double surface = ship.getY() + ShipDeckContact.height(floor);
+            double surface = ship.getY() + ShipDeckContact.height(ship.modularConfiguration(), floor);
             boolean grounded = feet.y <= surface + .19D
                     && player.getDeltaMovement().y <= .09D;
             double targetY = grounded ? surface + .02D : feet.y;
