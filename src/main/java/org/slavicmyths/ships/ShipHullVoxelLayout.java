@@ -80,28 +80,11 @@ public final class ShipHullVoxelLayout {
         for (int z = -halfLength; z <= halfLength; z++) {
             int half = halfBeam(plan, z);
             for (int x = -half; x <= half; x++) {
-                // The flagship bilge must NOT be a full-beam flat slab.
-                // A narrower solid keel steps out into a watertight floor at
-                // y=1, then rises into the wider chines at y=2.
-                boolean flagshipBilge = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        && plan.hullRevision() >= 2;
-                int keelHalf = Math.max(1, half - 3);
-                int floorHalf = Math.max(keelHalf, half - 2);
-                // Rise the keel above the waterline at both ends while the
-                // sealed hold-floor at y=1 stays intact. This removes the
-                // ruler-straight underwater rectangle in side elevation.
-                boolean liftedKeel = flagshipBilge
-                        && (halfLength - z <= 4 || halfLength + z <= 3);
-                if (!liftedKeel && (!flagshipBilge || Math.abs(x) <= keelHalf))
-                    put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
-                if (flagshipBilge) {
-                    if (Math.abs(x) <= floorHalf) put(blocks, x, 1, z, Part.HULL);
-                    else put(blocks, x, 2, z, Part.HULL);
-                }
+                put(blocks, x, 0, z, x == 0 ? Part.KEEL : Part.HULL);
                 boolean edge = Math.abs(x) == half
                         || Math.abs(x) > halfBeam(plan, z - 1)
                         || Math.abs(x) > halfBeam(plan, z + 1);
-                if (edge) for (int y = flagshipBilge ? 2 : 1; y <= 3; y++) {
+                if (edge) for (int y = 1; y <= 3; y++) {
                     // Timber sheer band and spaced upright ribs break up the
                     // untextured full-height slab without opening the dry hold.
                     // All replacement cells remain solid structural blocks.
@@ -115,31 +98,6 @@ public final class ShipHullVoxelLayout {
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
                 if (edge) put(blocks, x, 5, z, Part.RAIL);
-                if ((plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                        || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
-                        && plan.hullRevision() >= 2 && edge
-                        && Math.abs(x) == half && Math.abs(z) < halfLength - 2)
-                    put(blocks, x, 2, z, Math.floorMod(z, 6) == 0
-                            ? Part.FRAME : Part.KEEL);
-            }
-        }
-        // Revision-2 flagship sheer: the long bow rises three steps and the
-        // broad transom two. These perimeter bulwarks leave the central deck
-        // and its two-block walking headroom untouched, but break the old
-        // flat side elevation that made the vessel resemble an iron.
-        if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2) {
-            for (int z = -halfLength; z <= halfLength; z++) {
-                int bowRun = halfLength - z, sternRun = halfLength + z;
-                int lift = bowRun <= 2 ? 3 : bowRun <= 5 ? 2
-                        : bowRun <= 8 ? 1
-                        : sternRun <= 2 ? 2 : sternRun <= 5 ? 1 : 0;
-                if (lift == 0) continue;
-                int half = halfBeam(plan, z);
-                for (int x : new int[]{-half, half})
-                    for (int y = 6; y <= 5 + lift; y++)
-                        put(blocks, x, y, z,
-                                y == 5 + lift ? Part.RAIL : Part.FRAME);
             }
         }
         // The hold shaft stops at the main deck on medium ships. Their
@@ -163,51 +121,16 @@ public final class ShipHullVoxelLayout {
             // rectangular building and interfered with the mast.
             boolean mediumQuarterdeck = plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                     && floor == 2;
-            boolean modernAftDeck = plan.hullRevision() >= 2
-                    && (plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                            || plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST);
             int front = mediumQuarterdeck ? rear + (plan.cabin() ? 6 : 5)
-                    : modernAftDeck ? Math.min(halfLength - 5,
-                            rear + (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                                    ? (floor == 2 ? plan.hullLength() * 2 / 3
-                                            : plan.hullLength() / 2)
-                                    : (floor == 2 ? plan.hullLength() * 3 / 5
-                                            : plan.hullLength() * 2 / 5)))
                     : halfLength - 3 * (floor - 1);
             for (int z = rear; z <= front; z++) {
-                // LARGEST's third deck is a narrower raised sterncastle, not
-                // another full-beam rectangular storey above the second deck.
-                int inset = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        && plan.hullRevision() >= 2 && floor >= 3 ? 3 : 1;
-                // A straight transverse cut across the bow of each raised
-                // deck made the upperworks look like stacked rectangular boxes.
-                // Narrow the last few stations without changing the mast,
-                // central ladder shaft or accessible helm walkway.
-                boolean flagship = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        && plan.hullRevision() >= 2;
-                int forwardRun = front - z;
-                int aftRun = z - rear;
-                int endInset = flagship ? forwardRun <= 1 ? 3
-                        : forwardRun <= 3 ? 2 : forwardRun <= 5 ? 1
-                        : aftRun == 0 ? 2 : aftRun == 1 ? 1 : 0 : 0;
-                int half = Math.max(flagship ? 3 : 0,
-                        halfBeam(plan, z) - inset - endInset);
+                int half = Math.max(0, halfBeam(plan, z) - 1);
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
-                    // Aft and forward ends of the raised flagship decks need
-                    // actual cross-rails. Side rails alone leave full-width
-                    // unguarded drops on the short upper-deck footprints.
-                    boolean flagshipEnd = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                            && plan.hullRevision() >= 2 && (z == rear || z == front);
-                    if ((Math.abs(x) == half || flagshipEnd) && !hatch)
+                    if (Math.abs(x) == half && !hatch)
                         put(blocks, x, y + 1, z, Part.RAIL);
-                    // Besides the regularly spaced ribs, support both
-                    // exposed ends of the sculpted flagship platforms. The
-                    // forward tapered deck cannot hang in mid-air between
-                    // the last rib and its transverse safety rail.
-                    if (((z - rear) % 4 == 0 || flagshipEnd)
-                            && Math.abs(x) == half)
+                    if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
                             put(blocks, x, sy, z, Part.FRAME);
                 }
@@ -265,26 +188,12 @@ public final class ShipHullVoxelLayout {
             // Outward opening door on the forward wall.
             put(blocks, 0, 5, front, Part.DOOR);
             put(blocks, 0, 6, front, Part.DOOR);
-            // The cabin's aft upper corners share the stern edge of the
-            // second deck. Keep structural timber posts at these corners:
-            // cabin walls are placed after the deck and would otherwise
-            // overwrite its final transverse ribs.
-            if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                    && plan.hullRevision() >= 2 && plan.decks() >= 2) {
-                int aftHalf = Math.max(3, halfBeam(plan, rear) - 3);
-                for (int x : new int[]{-aftHalf, aftHalf})
-                    put(blocks, x, 7, rear, Part.FRAME);
-            }
         }
 
         // The bridge is elevated over the stern; it uses the SAME HELM as the
         // rest of the vessel. Only one helm control position is generated.
         if (plan.bridge()) {
-            // LARGEST's bridge belongs on the highest aft deck: a fixed
-            // y=9 wheel is buried under a three-deck sterncastle.
-            boolean flagshipBridge = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                    && plan.hullRevision() >= 2;
-            int bridgeFloor = flagshipBridge && plan.decks() >= 3 ? 12 : 9;
+            int bridgeFloor = 9;
             int rear = -halfLength + 2, front = rear + 4;
             int side = Math.min(3, plan.hullWidth() / 2 - 2);
             int ladderX = -side + 1;
@@ -292,15 +201,13 @@ public final class ShipHullVoxelLayout {
                 for (int x = -side; x <= side; x++) {
                     put(blocks, x, bridgeFloor, z, Part.BRIDGE);
                     boolean entrance = z == front && x == ladderX
-                            && (flagshipBridge || plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM);
+                            && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
                     if ((Math.abs(x) == side || z == rear || z == front) && !entrance)
                         put(blocks, x, bridgeFloor + 1, z, Part.RAIL);
                 }
             for (int y = 5; y <= bridgeFloor; y++) {
                 if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && !plan.cabin() && y < bridgeFloor)
-                    put(blocks, -side, y, front, Part.FRAME);
-                if (flagshipBridge && y < bridgeFloor)
                     put(blocks, -side, y, front, Part.FRAME);
                 put(blocks, ladderX, y, front, Part.LADDER);
             }
@@ -327,30 +234,6 @@ public final class ShipHullVoxelLayout {
             // With a raised quarterdeck the wheel must be above it, not
             // hidden underneath the floor at main-deck height.
             put(blocks, 0, 9, -halfLength + 4, Part.HELM);
-        } else if (plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                && plan.hullRevision() >= 2) {
-            // Without a purchased bridge, use the highest accessible stern
-            // deck, or the cabin roof on an otherwise single-deck flagship.
-            int rear = -halfLength + 2;
-            int helmFloor = plan.decks() >= 3 ? 12
-                    : plan.decks() >= 2 || plan.cabin() ? 8 : 4;
-            if (plan.cabin() && plan.decks() == 1) {
-                int roofFront = rear + 6;
-                int side = cabinHalfWidth(plan);
-                // The cabin roof is the captain's platform without bridge or
-                // upper-deck upgrades. It needs its own perimeter guard,
-                // with one gap aligned to the exterior access ladder.
-                for (int z = rear; z <= roofFront; z++)
-                    for (int x = -side; x <= side; x++)
-                        if ((Math.abs(x) == side || z == rear || z == roofFront)
-                                && !(x == -side + 1 && z == roofFront))
-                            put(blocks, x, 9, z, Part.RAIL);
-                for (int y = 5; y <= 9; y++) {
-                    put(blocks, -side, y, roofFront + 1, Part.FRAME);
-                    put(blocks, -side + 1, y, roofFront + 1, Part.LADDER);
-                }
-            }
-            put(blocks, 0, helmFloor + 1, rear + (plan.cabin() ? 3 : 4), Part.HELM);
         } else {
             put(blocks, 0, 5, -halfLength + (plan.cabin() ? 9 : 3), Part.HELM);
         }
