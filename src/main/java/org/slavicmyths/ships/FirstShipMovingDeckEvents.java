@@ -35,7 +35,7 @@ public final class FirstShipMovingDeckEvents {
         }
         Contact last = LAST.get(player);
         for (FirstShipEntity ship : player.level().getEntitiesOfClass(
-                FirstShipEntity.class, player.getBoundingBox().inflate(36D, 20D, 36D))) {
+                FirstShipEntity.class, player.getBoundingBox().inflate(36D, 44D, 36D))) {
             if (ship.isRemoved() || !ship.isMoving()) continue;
             boolean continuing = last != null && last.shipId() == ship.getId();
             // A newly dismounted player has already been placed at the
