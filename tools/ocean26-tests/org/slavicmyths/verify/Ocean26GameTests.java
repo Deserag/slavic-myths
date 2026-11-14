@@ -1706,12 +1706,13 @@ public final class Ocean26GameTests {
                                     anchor, 0, route[0], 1 + i, route[1] + i))
                                     .is(Blocks.SPRUCE_STAIRS),
                             "Missing physical hold-to-gun-deck stair");
+            }
+            for (int[] route : new int[][]{{2, -11}, {-2, 3}})
                 for (int i = 1; i <= 5; i++)
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                    anchor, 0, route[0], 5 + i, route[1] - 1 + i))
+                                    anchor, 0, route[0], 5 + i, route[1] + i))
                                     .is(Blocks.SPRUCE_STAIRS),
                             "Missing physical gun-to-weather stair");
-            }
             if (highest >= 15)
                 for (int x : new int[]{-2, 2})
                     for (int i = 1; i <= 5; i++)
