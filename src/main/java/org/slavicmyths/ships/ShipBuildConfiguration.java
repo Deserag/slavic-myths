@@ -66,6 +66,9 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
     }
 
     public static ShipBuildConfiguration initial(ShipSectionPlan.ShipClass type) {
+        if (type == ShipSectionPlan.ShipClass.LARGE
+                || type == ShipSectionPlan.ShipClass.LARGEST)
+            throw new IllegalArgumentException("Rejected tier III/IV ships have no starting blueprint");
         return new ShipBuildConfiguration(type, 0, 0, List.of(1), 1, false, false,
                 type == ShipSectionPlan.ShipClass.LARGE
                         || type == ShipSectionPlan.ShipClass.LARGEST ? 2 : 1);
