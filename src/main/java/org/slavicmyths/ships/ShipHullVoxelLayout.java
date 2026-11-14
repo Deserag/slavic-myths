@@ -112,6 +112,10 @@ public final class ShipHullVoxelLayout {
      */
     private static void brigantineStairs(Map<Cell, Part> blocks,
             int x, int startZ, int lowerFloor, int higherFloor) {
+        // Fixed stairwell: a clear lower approach, a complete flight and
+        // a clear upper landing. Never scatter single steps at random.
+        for (int y = lowerFloor + 1; y <= lowerFloor + 2; y++)
+            blocks.remove(new Cell(x, y, startZ));
         for (int i = 1; i <= higherFloor - lowerFloor; i++) {
             int y = lowerFloor + i, z = startZ + i;
             blocks.remove(new Cell(x, y, z));
@@ -123,12 +127,15 @@ public final class ShipHullVoxelLayout {
         }
         // Two-block clear landing; neither level may trap the player.
         int exit = startZ + higherFloor - lowerFloor + 1;
+        // Preserve the actual floor at the landing, remove only head blockers.
         blocks.remove(new Cell(x, higherFloor + 1, exit));
         blocks.remove(new Cell(x, higherFloor + 2, exit));
     }
 
     private static void clearBrigantineStairHeadroom(Map<Cell, Part> blocks,
             int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int y = lowerFloor + 1; y <= lowerFloor + 2; y++)
+            blocks.remove(new Cell(x, y, startZ));
         for (int i = 1; i <= higherFloor - lowerFloor; i++) {
             int y = lowerFloor + i, z = startZ + i;
             for (int head = y + 1; head <= y + 2; head++)
@@ -138,6 +145,57 @@ public final class ShipHullVoxelLayout {
         int landingZ = startZ + higherFloor - lowerFloor + 1;
         blocks.remove(new Cell(x, higherFloor + 1, landingZ));
         blocks.remove(new Cell(x, higherFloor + 2, landingZ));
+    }
+
+    /**
+     * A stepped bilge must be FACE-CLOSED, not merely diagonally touching.
+     * Complete the solid floor and the side/shoulder seams before creating
+     * the intentional stair openings on the higher decks.
+     */
+    private static void sealBrigantineBilge(Map<Cell, Part> blocks,
+            ShipSuperstructurePlan plan) {
+        int end = plan.hullLength() / 2;
+        for (int z = -end; z <= end; z++) {
+            int width = brigantineBeam(plan, z);
+            int previous = z == -end ? -1 : brigantineBeam(plan, z - 1);
+            int next = z == end ? -1 : brigantineBeam(plan, z + 1);
+            for (int x = -width; x <= width; x++) {
+                int distance = Math.abs(x);
+                if (distance <= width - 1)
+                    put(blocks, x, 1, z, Part.HULL);
+                boolean rim = distance >= width - 1
+                        || previous < 0 || next < 0
+                        || distance >= previous - 1 || distance >= next - 1;
+                if (rim)
+                    for (int y = 2; y <= 4; y++)
+                        put(blocks, x, y, z, Part.HULL);
+            }
+        }
+    }
+
+    /**
+     * Lamps never replace floors, hull planking, stairs or supports.
+     * A fixture must rest on a solid block and cannot obstruct a stairwell.
+     */
+    private static void sanitizeBrigantineLanterns(Map<Cell, Part> blocks) {
+        java.util.List<Cell> lamps = new java.util.ArrayList<>();
+        for (var entry : blocks.entrySet())
+            if (entry.getValue() == Part.LANTERN) lamps.add(entry.getKey());
+        for (Cell lamp : lamps) {
+            Part below = blocks.get(new Cell(lamp.x(), lamp.y() - 1, lamp.z()));
+            boolean supported = below == Part.DECK || below == Part.BRIDGE
+                    || below == Part.HULL || below == Part.TRIM
+                    || below == Part.FRAME;
+            boolean closeToStair = false;
+            for (int dx = -1; dx <= 1 && !closeToStair; dx++)
+                for (int dz = -1; dz <= 1 && !closeToStair; dz++) {
+                    Part at = blocks.get(new Cell(lamp.x() + dx, lamp.y(),
+                            lamp.z() + dz));
+                    closeToStair = at == Part.STAIR;
+                }
+            if (!supported || closeToStair)
+                blocks.remove(lamp);
+        }
     }
 
     private static Map<Cell, Part> generateBrigantine(ShipSuperstructurePlan p) {
@@ -228,6 +286,7 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        sealBrigantineBilge(out, p);
         // Short true bowsprit: part of the moving block palette, not a fake
         // mast or a detached decorative entity.
         for (int z = end; z <= end + 3; z++)
@@ -377,15 +436,17 @@ public final class ShipHullVoxelLayout {
         if (top >= 15) {
             for (int x : new int[]{-2, 2})
                 brigantineStairs(out, x, rear + 3, 10, 15);
-            // Real lanterns at the elevated cabin's working level.
+            // Light the elevated deck from supported side positions, not the
+            // middle of the stair approach or inside the captain's cabin.
             for (int z : new int[]{rear + 2, rear + 5})
-                put(out, 0, 11, z, Part.LANTERN);
+                for (int x : new int[]{-3, 3})
+                    put(out, x, 16, z, Part.LANTERN);
         }
         if (top >= 20) {
             for (int x : new int[]{-1, 1})
                 brigantineStairs(out, x, rear, 15, 20);
             for (int z : new int[]{rear + 2, rear + 5})
-                put(out, 0, 16, z, Part.LANTERN);
+                put(out, 0, 21, z, Part.LANTERN);
         }
         // Stair approaches must remain walkable; deck lights are placed away
         // from the centerline on already-supported side posts.
@@ -424,6 +485,7 @@ public final class ShipHullVoxelLayout {
             for (int x : new int[]{-1, 1})
                 clearBrigantineStairHeadroom(out, x, rear, 15, 20);
 
+        sanitizeBrigantineLanterns(out);
         // One physical wheel on the highest accessible captain's platform.
         int wheelZ = rear + 3;
         put(out, 0, top + 1, wheelZ, Part.HELM);
