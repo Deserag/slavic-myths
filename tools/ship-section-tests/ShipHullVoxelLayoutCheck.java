@@ -189,6 +189,51 @@ public final class ShipHullVoxelLayoutCheck {
                         }
         yes(elevationTransitions == 576, "brigantine staged height transitions");
 
+        // Room and bridge upgrades are independently allowed on a one-deck
+        // brigantine. They must raise the helm and ALL rigging, not leave
+        // cloth behind the newly added roof or silently create a dead wheel.
+        int superstructureTransitions = 0;
+        for (int width : new int[]{15, 17, 19})
+            for (int length : new int[]{33, 37, 41, 45})
+                for (List<Integer> tiers : List.of(
+                        List.of(1, 1), List.of(1, 3), List.of(3, 1), List.of(3, 3))) {
+                    var bare = new ShipSuperstructurePlan(
+                            ShipSectionPlan.ShipClass.LARGE, width, length,
+                            tiers, 1, false, false, 3);
+                    var base = ShipHullVoxelLayout.generate(bare);
+                    yes(ShipHullVoxelLayout.brigantineTopDeck(bare) == 10,
+                            "unmodified brigantine top platform");
+                    for (boolean bridge : new boolean[]{false, true})
+                        for (boolean cabin : new boolean[]{false, true}) {
+                            var upgrade = new ShipSuperstructurePlan(
+                                    ShipSectionPlan.ShipClass.LARGE, width, length,
+                                    tiers, 1, bridge, cabin, 3);
+                            var palette = ShipHullVoxelLayout.generate(upgrade);
+                            int top = ShipHullVoxelLayout.brigantineTopDeck(upgrade);
+                            int delta = top - ShipHullVoxelLayout.brigantineTopDeck(bare);
+                            yes(delta == (bridge || cabin ? 5 : 0),
+                                    "cabin/bridge changes wrong captain level");
+                            yes(ShipHullVoxelLayout.sailLowerYard(upgrade)
+                                            - ShipHullVoxelLayout.sailLowerYard(bare) == delta,
+                                    "cabin/bridge did not move lower sail yard");
+                            for (int mast = 0; mast < tiers.size(); mast++)
+                                yes(ShipHullVoxelLayout.sailTop(upgrade, tiers.get(mast))
+                                                - ShipHullVoxelLayout.sailTop(bare, tiers.get(mast)) == delta,
+                                        "cabin/bridge did not move upper sail panel");
+                            int wheelZ = -length / 2 + 5;
+                            yes(palette.get(new ShipHullVoxelLayout.Cell(0, top + 1, wheelZ))
+                                            == ShipHullVoxelLayout.Part.HELM,
+                                    "cabin/bridge cannot expose buried helm");
+                            yes(base.get(new ShipHullVoxelLayout.Cell(0, 11, wheelZ))
+                                            == ShipHullVoxelLayout.Part.HELM,
+                                    "initial wheel unexpectedly changed");
+                            superstructureTransitions++;
+                        }
+                }
+        yes(superstructureTransitions == 192,
+                "all cabin and bridge height transitions across hull sizes");
+
+
 
         for (var config : List.of(small, medium)) {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxels =
