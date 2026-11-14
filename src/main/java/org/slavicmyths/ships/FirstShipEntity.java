@@ -174,6 +174,8 @@ public final class FirstShipEntity extends Boat {
     public double helmSeatZ() {
         ShipBuildConfiguration config = modularConfiguration();
         if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3) return -(config.length() / 2) + 4D;
         return -config.length() / 2 + (config.bridge() ? 3D
                 : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 3D
@@ -186,6 +188,9 @@ public final class FirstShipEntity extends Boat {
 
     public double helmSeatHeight() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3)
+            return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) + 1D;
         return config != null && config.bridge() ? 10D
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2)
@@ -194,6 +199,11 @@ public final class FirstShipEntity extends Boat {
 
     private int helmFloorIndex() {
         ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3) {
+            int top = ShipHullVoxelLayout.brigantineTopDeck(config.structure());
+            return top == 20 ? 4 : top == 15 ? 3 : 2;
+        }
         return config != null && config.bridge() ? 4
                 : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
                         && (config.cabin() || config.decks() >= 2) ? 2 : 1;
@@ -260,8 +270,16 @@ public final class FirstShipEntity extends Boat {
         builder.define(MOTION_CARGO_VIEW, "");
     }
 
-    public double deckY() { return getY() + FirstShipHull.MAIN_DECK; }
-    public double holdY() { return getY() + FirstShipHull.HOLD_FLOOR; }
+    public double deckY() {
+        ShipBuildConfiguration c = modularConfiguration();
+        return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && c.hullRevision() == 3 ? 11D : FirstShipHull.MAIN_DECK);
+    }
+    public double holdY() {
+        ShipBuildConfiguration c = modularConfiguration();
+        return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && c.hullRevision() == 3 ? 2D : FirstShipHull.HOLD_FLOOR);
+    }
     public int moduleKind(int floor, int x, int z) {
         int tile = tileId(floor, x, z);
         if (tile < 0) return 0;
