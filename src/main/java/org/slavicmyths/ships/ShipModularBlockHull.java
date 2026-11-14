@@ -58,7 +58,7 @@ public final class ShipModularBlockHull {
             case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
                     .setValue(DoorBlock.HALF,
-                            y == 6 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
+                            y == 6 || y == 12 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
                     .setValue(DoorBlock.FACING, switch (Math.floorMod(turns, 4)) {
                         case 0 -> Direction.SOUTH;
                         case 1 -> Direction.WEST;
