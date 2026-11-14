@@ -103,6 +103,19 @@ public final class ShipHullVoxelLayoutCheck {
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 20, rear + 3))
                                                     == ShipHullVoxelLayout.Part.BRIDGE,
                                             "third captain deck missing: " + p);
+                                // Closed stern faces must survive EVERY
+                                // cabin/bridge/deck combination, including
+                                // a raised deck added before the cabin.
+                                if (highest >= 15)
+                                    for (int y = 11; y <= 14; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, y, rear))
+                                                        == ShipHullVoxelLayout.Part.CABIN_WALL,
+                                                "open sterncastle below second deck: " + p);
+                                if (highest >= 20)
+                                    for (int y = 16; y <= 19; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, y, rear))
+                                                        == ShipHullVoxelLayout.Part.CABIN_WALL,
+                                                "open sterncastle below third deck: " + p);
                                 // Main corridor must stay at least four blocks high
                                 // between the gun floor and the weather deck. A
                                 // future gun carriage needs more room than a walker.
