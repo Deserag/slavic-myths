@@ -43,8 +43,9 @@ public final class ShipHullVoxelLayoutCheck {
                     for (boolean bridge : new boolean[]{false, true})
                         for (boolean cabin : new boolean[]{false, true})
                             for (List<Integer> sails : List.of(
-                                    List.of(1, 1), List.of(1, 3),
-                                    List.of(3, 1), List.of(3, 3))) {
+                                    List.of(1, 1), List.of(1, 2), List.of(1, 3),
+                                    List.of(2, 1), List.of(2, 2), List.of(2, 3),
+                                    List.of(3, 1), List.of(3, 2), List.of(3, 3))) {
                                 var p = new ShipSuperstructurePlan(
                                         ShipSectionPlan.ShipClass.LARGE, width, length,
                                         sails, decks, bridge, cabin, 3);
@@ -102,6 +103,20 @@ public final class ShipHullVoxelLayoutCheck {
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 20, rear + 3))
                                                     == ShipHullVoxelLayout.Part.BRIDGE,
                                             "third captain deck missing: " + p);
+                                // Main corridor must stay at least four blocks high
+                                // between the gun floor and the weather deck. A
+                                // future gun carriage needs more room than a walker.
+                                for (int z : new int[]{-6, -1, 4, 9})
+                                    for (int y = 6; y <= 9; y++)
+                                        yes(model.get(new ShipHullVoxelLayout.Cell(2, y, z)) == null,
+                                                "gun-deck headroom obstructed: " + p);
+                                // Each height upgrade moves the highest helm
+                                // with its supporting floor, never below a roof.
+                                yes(model.get(new ShipHullVoxelLayout.Cell(0, highest, rear + 3))
+                                                == (highest == 20
+                                                        ? ShipHullVoxelLayout.Part.BRIDGE
+                                                        : ShipHullVoxelLayout.Part.DECK),
+                                        "top wheel has no structural support: " + p);
                                 if (cabin) {
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 11, rear + 6))
                                                     == ShipHullVoxelLayout.Part.DOOR,
@@ -134,7 +149,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                 "sail intersects occupied level: " + p);
                                 }
                             }
-        yes(brigantines == 576, "exhaustive brigantine upgrade matrix");
+        yes(brigantines == 1296, "exhaustive brigantine upgrade matrix");
 
         for (var config : List.of(small, medium)) {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> voxels =
