@@ -193,8 +193,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                 && config.hullRevision() == 4)
-            return config.bridge() || config.decks() >= 3 ? 22D
-                    : config.decks() >= 2 || config.cabin() ? 17D : 12D;
+            return config.bridge() || config.decks() >= 2 ? 22D : 17D;
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3)
             return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) + 1D;
@@ -208,8 +207,7 @@ public final class FirstShipEntity extends Boat {
         ShipBuildConfiguration config = modularConfiguration();
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                 && config.hullRevision() == 4)
-            return config.bridge() || config.decks() >= 3 ? 4
-                    : config.decks() >= 2 || config.cabin() ? 3 : 2;
+            return config.bridge() || config.decks() >= 2 ? 4 : 3;
         if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                 && config.hullRevision() == 3) {
             int top = ShipHullVoxelLayout.brigantineTopDeck(config.structure());
@@ -284,12 +282,14 @@ public final class FirstShipEntity extends Boat {
     public double deckY() {
         ShipBuildConfiguration c = modularConfiguration();
         return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && c.hullRevision() == 3 ? 11D : FirstShipHull.MAIN_DECK);
+                && c.hullRevision() == 3 || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && c.hullRevision() == 4 ? 12D : FirstShipHull.MAIN_DECK);
     }
     public double holdY() {
         ShipBuildConfiguration c = modularConfiguration();
         return getY() + (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && c.hullRevision() == 3 ? 2D : FirstShipHull.HOLD_FLOOR);
+                && c.hullRevision() == 3 || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && c.hullRevision() == 4 ? 2D : FirstShipHull.HOLD_FLOOR);
     }
     public int moduleKind(int floor, int x, int z) {
         int tile = tileId(floor, x, z);
