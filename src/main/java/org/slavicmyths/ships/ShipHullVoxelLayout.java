@@ -174,9 +174,13 @@ public final class ShipHullVoxelLayout {
                     if (!gunport) put(out, x, y, z,
                             y == 6 || y == 9 ? Part.TRIM : Part.HULL);
                 }
-                // Close the bulwark above the end face as well, without
-                // growing a solid rectangular multi-storey stern tower.
+                // Close the hold and deck seams at the very tips too:
+                // otherwise the end still exposes a two-to-four-block slot
+                // when viewed straight down the ship axis.
                 if (endFace) {
+                    for (int y = 2; y <= 4; y++)
+                        put(out, x, y, z, y == 4 ? Part.TRIM : Part.HULL);
+                    put(out, x, 10, z, Part.DECK);
                     put(out, x, 11, z, Part.HULL);
                     if (abs <= Math.max(0, beam - 1)) put(out, x, 12, z, Part.TRIM);
                 }
