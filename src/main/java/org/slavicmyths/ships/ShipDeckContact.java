@@ -78,8 +78,14 @@ public final class ShipDeckContact {
     public static int contactFloor(FirstShipEntity ship,
             double x, double z, double absoluteFeetY) {
         ShipBuildConfiguration config = ship.modularConfiguration();
+        // A three-deck flagship's physical bridge shares the upper floor
+        // height. Prefer its bridge contact over the underlying sterncastle.
         int[] order = config != null && config.bridge()
-                ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() >= 2 && config.decks() >= 3
+                ? new int[]{4, 3, 2, 1, 0}
+                : config != null && config.bridge()
+                        ? new int[]{3, 4, 2, 1, 0} : new int[]{3, 2, 1, 0};
         for (int floor : order) {
             double target = ship.getY() + height(config, floor);
             if (absoluteFeetY >= target - .35D
