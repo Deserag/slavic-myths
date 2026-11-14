@@ -51,6 +51,12 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         return Math.addExact(base, Math.multiplyExact(extraLength, 4));
     }
 
+    /** Keep legacy class IDs readable without allowing rejected hulls to be built. */
+    public boolean withdrawn() {
+        return shipClass == ShipSectionPlan.ShipClass.LARGE
+                || shipClass == ShipSectionPlan.ShipClass.LARGEST;
+    }
+
     public int width() { return hullWidth(shipClass, extraWidth); }
     public int length() { return hullLength(shipClass, extraLength); }
 
