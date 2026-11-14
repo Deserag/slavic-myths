@@ -198,6 +198,54 @@ public final class ShipHullVoxelLayout {
         }
     }
 
+    private static void validateBrigantineStair(Map<Cell, Part> blocks,
+            int x, int startZ, int lowerFloor, int higherFloor) {
+        for (int i = 1; i <= higherFloor - lowerFloor; i++) {
+            int y = lowerFloor + i, z = startZ + i;
+            if (blocks.get(new Cell(x, y, z)) != Part.STAIR
+                    || blocks.containsKey(new Cell(x, y + 1, z))
+                    || blocks.containsKey(new Cell(x, y + 2, z)))
+                throw new IllegalStateException(
+                        "Blocked brigantine stair at " + x + "," + y + "," + z);
+        }
+        int exit = startZ + higherFloor - lowerFloor + 1;
+        Part landing = blocks.get(new Cell(x, higherFloor, exit));
+        if (landing != Part.DECK && landing != Part.BRIDGE
+                || blocks.containsKey(new Cell(x, higherFloor + 1, exit))
+                || blocks.containsKey(new Cell(x, higherFloor + 2, exit)))
+            throw new IllegalStateException("Missing safe stair landing at "
+                    + x + "," + higherFloor + "," + exit);
+        if (blocks.containsKey(new Cell(x, lowerFloor + 1, startZ))
+                || blocks.containsKey(new Cell(x, lowerFloor + 2, startZ)))
+            throw new IllegalStateException("Blocked stair approach at "
+                    + x + "," + lowerFloor + "," + startZ);
+    }
+
+    private static void validateBrigantineBilge(Map<Cell, Part> blocks,
+            ShipSuperstructurePlan plan) {
+        int end = plan.hullLength() / 2;
+        for (int z = -end; z <= end; z++) {
+            int beam = brigantineBeam(plan, z);
+            int previous = z == -end ? -1 : brigantineBeam(plan, z - 1);
+            int next = z == end ? -1 : brigantineBeam(plan, z + 1);
+            for (int x = -beam; x <= beam; x++) {
+                int distance = Math.abs(x);
+                if (distance <= beam - 1
+                        && blocks.get(new Cell(x, 1, z)) != Part.HULL)
+                    throw new IllegalStateException("Open brigantine bottom at "
+                            + x + ",1," + z);
+                boolean exterior = distance >= beam - 1
+                        || previous < 0 || next < 0
+                        || distance >= previous - 1 || distance >= next - 1;
+                if (exterior)
+                    for (int y = 2; y <= 4; y++)
+                        if (blocks.get(new Cell(x, y, z)) != Part.HULL)
+                            throw new IllegalStateException("Open brigantine bilge at "
+                                    + x + "," + y + "," + z);
+            }
+        }
+    }
+
     private static Map<Cell, Part> generateBrigantine(ShipSuperstructurePlan p) {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
@@ -486,6 +534,16 @@ public final class ShipHullVoxelLayout {
                 clearBrigantineStairHeadroom(out, x, rear, 15, 20);
 
         sanitizeBrigantineLanterns(out);
+        validateBrigantineBilge(out, p);
+        for (int[] route : new int[][]{{-2, -10, 1, 5}, {2, 4, 1, 5},
+                {3, -8, 5, 10}, {-3, 3, 5, 10}})
+            validateBrigantineStair(out, route[0], route[1], route[2], route[3]);
+        if (top >= 15)
+            for (int x : new int[]{-2, 2})
+                validateBrigantineStair(out, x, rear + 3, 10, 15);
+        if (top >= 20)
+            for (int x : new int[]{-1, 1})
+                validateBrigantineStair(out, x, rear, 15, 20);
         // One physical wheel on the highest accessible captain's platform.
         int wheelZ = rear + 3;
         put(out, 0, top + 1, wheelZ, Part.HELM);
