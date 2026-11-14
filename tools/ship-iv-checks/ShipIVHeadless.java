@@ -62,7 +62,7 @@ public final class ShipIVHeadless {
         int cabinFront = -end + 10;
         for (int z : plan.mastPositions()) {
             require(z > cabinFront, key + ": mast intersects stern cabin z=" + z);
-            require(z < end - 2, key + ": mast too near bow z=" + z);
+            require(z < end - 12, key + ": mast overlaps rising bow stem z=" + z);
             require(at(blocks, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     key + ": mast missing near deck z=" + z);
         }
@@ -86,6 +86,18 @@ public final class ShipIVHeadless {
                                 key + ": exposed bilge at " + x + "," + y + "," + z);
                 checkedHullCells++;
             }
+        }
+        // The rising bow and bowsprit must connect by shared faces,
+        // not merely touch diagonally at a corner.
+        int priorStemY = 12;
+        for (int z = end - 12; z <= end + 7; z++) {
+            int y = 12 + (int)Math.round((z - (end - 12)) * 11D / 19D);
+            require(at(blocks, 0, y, z) != null,
+                    key + ": missing rising bow member at z=" + z);
+            if (z > end - 12 && y > priorStemY)
+                require(at(blocks, 0, priorStemY, z) != null,
+                        key + ": diagonal bow has an edge-only joint at z=" + z);
+            priorStemY = y;
         }
         for (int[] route : new int[][] {
                 {-3, -12, 1, 6}, {3, 6, 1, 6},
