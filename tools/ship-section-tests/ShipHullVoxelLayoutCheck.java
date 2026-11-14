@@ -195,9 +195,15 @@ public final class ShipHullVoxelLayoutCheck {
                             yes(ShipHullVoxelLayout.halfBeam(flagship, length / 2 - 5)
                                     < ShipHullVoxelLayout.halfBeam(flagship, 0),
                                     "flagship bow shoulders taper");
-                            yes(ShipHullVoxelLayout.halfBeam(flagship, -length / 2 + 5)
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, -length / 2 + 3)
                                     < ShipHullVoxelLayout.halfBeam(flagship, 0),
                                     "flagship stern shoulders taper");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, 0)
+                                            <= width / 2 - 2,
+                                    "flagship amidships has sculpted inward waist");
+                            yes(ShipHullVoxelLayout.halfBeam(flagship, -8)
+                                            > ShipHullVoxelLayout.halfBeam(flagship, 0),
+                                    "flagship aft shoulders remain fuller than pinched waist");
                             yes(geometry.values().stream().filter(p ->
                                     p == ShipHullVoxelLayout.Part.HELM).count() == 1,
                                     "flagship keeps one helm");
