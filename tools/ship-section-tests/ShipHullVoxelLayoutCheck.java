@@ -72,6 +72,35 @@ public final class ShipHullVoxelLayoutCheck {
                                 yes(ShipHullVoxelLayout.halfBeam(p, length / 2)
                                                 < ShipHullVoxelLayout.halfBeam(p, 0),
                                         "brigantine lost sharp bow: " + p);
+                                // Every broadside skin level is solid, including
+                                // the gun deck and the previously gaping lower hull.
+                                // Gunports must be CLOSED, never empty air.
+                                for (int z = -length / 2 + 1; z < length / 2; z++) {
+                                    int beam = ShipHullVoxelLayout.halfBeam(p, z);
+                                    if (beam < 4) continue;
+                                    for (int side : new int[]{-1, 1})
+                                        for (int y = 2; y <= 9; y++)
+                                            yes(model.containsKey(new ShipHullVoxelLayout.Cell(
+                                                            side * (beam - 1), y, z)),
+                                                    "missing continuous broadside shell: "
+                                                            + p + " z=" + z + " y=" + y);
+                                }
+                                // Lantern coverage on BOTH lower floors; a
+                                // pair of distant lights is insufficient.
+                                int lowerLights = 0, gunLights = 0;
+                                for (var entry : model.entrySet()) {
+                                    if (entry.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+                                    if (entry.getKey().y() == 2) lowerLights++;
+                                    if (entry.getKey().y() == 6) gunLights++;
+                                }
+                                yes(lowerLights >= 4 && gunLights >= 4,
+                                        "hold or gun deck still unlit: " + p);
+                                if (bridge) {
+                                    int rearX = -length / 2 + 2;
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(3, highest + 1,
+                                                    rearX + 4)) == ShipHullVoxelLayout.Part.RAIL,
+                                            "bridge upgrade adds no visible geometry: " + p);
+                                }
                                 for (int z = -length / 2 + 5; z <= length / 2 - 5; z++) {
                                     if (Math.abs(z) < 3
                                             || Math.floorMod(z + length / 2, 4) != 0)
