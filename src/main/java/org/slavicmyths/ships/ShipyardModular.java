@@ -181,6 +181,7 @@ public final class ShipyardModular {
     public static boolean compatibleUpgrade(ShipBuildConfiguration old,
             ShipBuildConfiguration next) {
         if (old == null || next == null || old.shipClass() != next.shipClass()
+                || old.hullRevision() != next.hullRevision()
                 || next.extraLength() < old.extraLength()
                 || next.extraWidth() < old.extraWidth()
                 || next.decks() < old.decks()
