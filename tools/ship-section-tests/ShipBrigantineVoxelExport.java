@@ -25,9 +25,9 @@ public final class ShipBrigantineVoxelExport {
         Path destination = Path.of(args[0]);
         Files.createDirectories(destination);
         var base = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
-                15, 33, List.of(1, 1), 1, false, false, 3);
+                15, 55, List.of(1, 1), 1, false, false, 3);
         var full = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGE,
-                19, 45, List.of(3, 3), 3, true, true, 3);
+                19, 69, List.of(3, 3), 3, true, true, 3);
         write(destination.resolve("brigantine_v3_base.csv"), base);
         write(destination.resolve("brigantine_v3_full.csv"), full);
     }
