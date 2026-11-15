@@ -66,12 +66,13 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             for (String item : types.split(";")) {
                 try {
                     String[] parts = item.split(",");
-                    if (parts.length != 4) continue;
+                    if (parts.length != 4 && parts.length != 5) continue;
                     CompoundTag entry = new CompoundTag();
                     entry.putInt("X", Integer.parseInt(parts[0]));
                     entry.putInt("Y", Integer.parseInt(parts[1]));
                     entry.putInt("Z", Integer.parseInt(parts[2]));
                     entry.putInt("Kind", Integer.parseInt(parts[3]));
+                    if (parts.length == 5) entry.putString("BlockId", parts[4]);
                     entry.put("BlockEntity", new CompoundTag());
                     cargo.add(entry);
                 } catch (NumberFormatException invalid) {
@@ -86,8 +87,12 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 for (int i = 0; i < cargo.size(); i++) {
                     CompoundTag entry = cargo.getCompound(i);
                     int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
-                    if (Math.abs(x) > config.width() / 2 || y < 1 || y > 24
+                    if (Math.abs(x) > config.width() / 2 || y < 1 || y > 48
                             || Math.abs(z) > config.length() / 2) continue;
+                    if (entry.getInt("Kind") == 5) {
+                        visual.remove(new BlockPos(x, y, z));
+                        continue;
+                    }
                     BlockState state = switch (entry.getInt("Kind")) {
                         case 1 -> Blocks.CHEST.defaultBlockState();
                         case 2 -> Blocks.BARREL.defaultBlockState();

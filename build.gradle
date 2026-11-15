@@ -719,7 +719,13 @@ if (project.hasProperty('ocean26Check')) {
         ocean26Checks {
             type = 'gameTestServer'
             gameDirectory = file('run-ocean26-20261108')
-            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_ocean26'
+            systemProperty 'neoforge.enabledGameTestNamespaces',
+                    project.hasProperty('shipPersistenceStage')
+                            ? 'slavicmyths_ship_persist'
+                            : project.hasProperty('shipIVDamageCheck')
+                            ? 'slavicmyths_ship_iv_damage' : 'slavicmyths_ocean26'
+            systemProperty 'shipPersistenceStage',
+                    project.findProperty('shipPersistenceStage') ?: 'off'
         }
     }
 }

@@ -17,10 +17,8 @@ public final class ShipIVGeometryHeadless {
 
     private static ShipSuperstructurePlan plan(int lengthExtra, int widthExtra,
             int decks, boolean bridge, boolean cabin, List<Integer> tiers) {
-        int length = 51 + lengthExtra * 4;
-        int width = 21 + widthExtra * 2;
-        return new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.LARGEST,
-                width, length, tiers, decks, bridge, cabin, 4);
+        return new ShipBuildConfiguration(ShipSectionPlan.ShipClass.LARGEST,
+                lengthExtra, widthExtra, tiers, decks, bridge, cabin, 4).structure();
     }
 
     private static ShipHullVoxelLayout.Part at(Map<ShipHullVoxelLayout.Cell,
@@ -36,6 +34,13 @@ public final class ShipIVGeometryHeadless {
 
     private static void flight(Map<ShipHullVoxelLayout.Cell,
             ShipHullVoxelLayout.Part> blocks, int x, int start, int lower) {
+        flightLane(blocks, x, start, lower);
+        int paired = x - Integer.signum(x);
+        flightLane(blocks, paired, start, lower);
+    }
+
+    private static void flightLane(Map<ShipHullVoxelLayout.Cell,
+            ShipHullVoxelLayout.Part> blocks, int x, int start, int lower) {
         int upper = lower + 5;
         require(isWalkable(at(blocks, x, lower, start)),
                 "Missing lower approach " + x + "," + lower + "," + start);
@@ -45,7 +50,8 @@ public final class ShipIVGeometryHeadless {
             int y = i == 0 ? lower : i == 6 ? upper : lower + i;
             int z = start + i;
             require(at(blocks, x, y + 1, z) == null
-                    && at(blocks, x, y + 2, z) == null,
+                    && at(blocks, x, y + 2, z) == null
+                    && at(blocks, x, y + 3, z) == null,
                     "Head collision " + x + "," + y + "," + z);
             if (i > 0 && i < 6)
                 require(at(blocks, x, y, z) == ShipHullVoxelLayout.Part.STAIR,
@@ -54,24 +60,46 @@ public final class ShipIVGeometryHeadless {
     }
 
     private static void validate(ShipSuperstructurePlan config) {
+        double ratio = config.hullLength() / (double)config.hullWidth();
+        require(ratio >= 3.5D && ratio <= 4.5D,
+                "IV hull proportions outside ship profile: " + ratio);
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cells =
                 ShipHullVoxelLayout.generate(config);
         require(!cells.isEmpty(), "Empty IV layout");
         int end = config.hullLength() / 2;
-        int rear = -end + 3;
+        int rear = -end + 4;
         for (int z = -end; z <= end; z++) {
             int beam = ShipHullVoxelLayout.halfBeam(config, z);
             for (int x = -beam; x <= beam; x++)
                 require(at(cells, x, 1, z) == ShipHullVoxelLayout.Part.HULL,
                         "Unsealed floor " + x + ",1," + z);
         }
+        for (int y : new int[]{12, 14, 15})
+            require(at(cells, 0, y, rear) == ShipHullVoxelLayout.Part.CABIN_WALL,
+                    "Open stern cabin at height " + y);
+        int sternHalf = Math.min(7, Math.max(2,
+                ShipHullVoxelLayout.halfBeam(config, rear) - 2));
+        for (int x = -sternHalf + 1; x < sternHalf; x++)
+            require(at(cells, x, 13, rear) == ShipHullVoxelLayout.Part.WINDOW,
+                    "Stern window row has a gap at " + x);
         for (var cell : cells.entrySet()) {
-            if (cell.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+            if (cell.getValue() != ShipHullVoxelLayout.Part.LANTERN
+                    && cell.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
             var pos = cell.getKey();
-            require(isWalkable(at(cells, pos.x(), pos.y() - 1, pos.z()))
-                    || at(cells, pos.x(), pos.y() - 1, pos.z())
+            int support = cell.getValue() == ShipHullVoxelLayout.Part.HANGING_LANTERN
+                    ? pos.y() + 1 : pos.y() - 1;
+            require(isWalkable(at(cells, pos.x(), support, pos.z()))
+                    || at(cells, pos.x(), support, pos.z())
                             == ShipHullVoxelLayout.Part.FRAME,
                     "Unsupported lantern at " + pos);
+            for (var other : cells.entrySet()) {
+                if (other == cell || other.getValue() != ShipHullVoxelLayout.Part.LANTERN
+                        && other.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
+                var p = other.getKey();
+                int dx = p.x() - pos.x(), dy = p.y() - pos.y(), dz = p.z() - pos.z();
+                require(dx * dx + dy * dy + dz * dz >= 25,
+                        "Lanterns are too close: " + pos + " / " + p);
+            }
         }
         require(config.mastPositions().size() == 4, "Not four mast stations");
         for (int z : config.mastPositions())
@@ -79,10 +107,10 @@ public final class ShipIVGeometryHeadless {
                     "Missing physical mast " + z);
         flight(cells, -3, -12, 1);
         flight(cells, 3, 6, 1);
-        flight(cells, -4, -8, 6);
-        flight(cells, 4, 2, 6);
-        flight(cells, -5, rear + 8, 11);
-        flight(cells, 5, rear + 8, 11);
+        flight(cells, -3, -4, 6);
+        flight(cells, 3, 14, 6);
+        flight(cells, -3, rear + 8, 11);
+        flight(cells, 3, rear + 8, 11);
         if (config.decks() >= 2 || config.bridge()) {
             flight(cells, -3, rear + 2, 16);
             flight(cells, 3, rear + 2, 16);

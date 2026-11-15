@@ -71,6 +71,7 @@ public final class FirstShipInteractionClient {
                         int x = Integer.parseInt(fields[0]);
                         int y = Integer.parseInt(fields[1]);
                         int z = Integer.parseInt(fields[2]);
+                        if (Integer.parseInt(fields[3]) == 5) continue;
                         var hit = new net.minecraft.world.phys.AABB(x - .5D, y, z - .5D,
                                 x + .5D, y + 1D, z + .5D).clip(localEye, localEnd);
                         if (hit.isPresent()) {

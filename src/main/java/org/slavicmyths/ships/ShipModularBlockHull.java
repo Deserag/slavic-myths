@@ -10,14 +10,26 @@ import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.CraftingTableBlock;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.Rotation;
@@ -25,6 +37,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.Container;
 
 /**
  * Server-only, versioned full-block construction of modular wooden vessels.
@@ -34,10 +47,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 public final class ShipModularBlockHull {
     private static final int UPDATE = 2 | 16;
     private static final int MAX_BLOCKS = 50000;
+    private static final int MISSING_HULL = 5;
+    private static final int GENERAL_CARGO = 6;
     private record Cargo(int x, int y, int z, int kind, BlockState state, CompoundTag data) {}
     private record Snapshot(Map<BlockPos, BlockState> hull, List<Cargo> cargo) {}
 
-    private static BlockState state(ShipHullVoxelLayout.Part part, int turns, int y) {
+    private static BlockState state(ShipHullVoxelLayout.Part part,
+            int turns, int y, int x, ShipBuildConfiguration config) {
         return switch (part) {
             case KEEL -> Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS, turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X);
@@ -69,7 +85,9 @@ public final class ShipModularBlockHull {
             case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
                     .setValue(DoorBlock.HALF,
-                            y == 6 || y == 12 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
+                            y == 6 || y == 12 && config.hullRevision() != 4
+                                    || y == 13 && config.hullRevision() == 4
+                                    ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
                     .setValue(DoorBlock.FACING, switch (Math.floorMod(turns, 4)) {
                         case 0 -> Direction.SOUTH;
                         case 1 -> Direction.WEST;
@@ -79,7 +97,10 @@ public final class ShipModularBlockHull {
             case BRIDGE -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
             case HELM -> Blocks.DARK_OAK_FENCE.defaultBlockState();
             case LANTERN -> Blocks.LANTERN.defaultBlockState();
-            case TRIM, GUNPORT_SHUTTER -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
+            case HANGING_LANTERN -> Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING, true);
+            case TRIM -> Blocks.DARK_OAK_PLANKS.defaultBlockState();
+            case GUNPORT_SHUTTER -> Blocks.AIR.defaultBlockState();
             case BOWSPRIT -> Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState().setValue(
                     RotatedPillarBlock.AXIS, turns % 2 == 0 ? Direction.Axis.Z : Direction.Axis.X);
         };
@@ -89,11 +110,14 @@ public final class ShipModularBlockHull {
         if (config == null || config.withdrawn()) return Map.of();
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
+            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL
+                    || entry.getValue() == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER) continue;
             var c = entry.getKey();
-            blocks.put(new BlockPos(c.x(), c.y(), c.z()), state(entry.getValue(), 0, c.y()));
+            blocks.put(new BlockPos(c.x(), c.y(), c.z()),
+                    state(entry.getValue(), 0, c.y(), c.x(), config));
         }
         connectFenceRails(blocks);
+        connectGlassPanes(blocks);
         return java.util.Collections.unmodifiableMap(blocks);
     }
 
@@ -104,8 +128,35 @@ public final class ShipModularBlockHull {
         List<Cargo> unpacked = decode(config, cargo);
         if (unpacked == null) return Map.of();
         Map<BlockPos, BlockState> result = new LinkedHashMap<>(localPalette(config));
-        for (Cargo entry : unpacked)
-            result.put(new BlockPos(entry.x(), entry.y(), entry.z()), entry.state());
+        for (Cargo entry : unpacked) {
+            BlockPos local = new BlockPos(entry.x(), entry.y(), entry.z());
+            if (entry.kind() == MISSING_HULL) result.remove(local);
+            else result.put(local, entry.state());
+        }
+        return java.util.Collections.unmodifiableMap(result);
+    }
+
+    /** Client collision uses public block types, never private inventory NBT. */
+    public static Map<BlockPos, BlockState> localVisualPalette(
+            ShipBuildConfiguration config, ListTag visibleCargo) {
+        if (config == null || config.withdrawn()) return Map.of();
+        Map<BlockPos, BlockState> result = new LinkedHashMap<>(localPalette(config));
+        for (int i = 0; i < visibleCargo.size(); i++) {
+            CompoundTag row = visibleCargo.getCompound(i);
+            int x = row.getInt("X"), y = row.getInt("Y"), z = row.getInt("Z");
+            if (Math.abs(x) > config.width() / 2 || Math.abs(z) > config.length() / 2
+                    || y < 1 || y > 48) continue;
+            BlockPos local = new BlockPos(x, y, z);
+            int type = row.getInt("Kind");
+            if (type == MISSING_HULL) result.remove(local);
+            else if (type >= 1 && type <= 4) result.putIfAbsent(local, kindState(type));
+            else if (type == GENERAL_CARGO) {
+                ResourceLocation id = ResourceLocation.tryParse(row.getString("BlockId"));
+                if (id != null && BuiltInRegistries.BLOCK.containsKey(id))
+                    result.putIfAbsent(local,
+                            BuiltInRegistries.BLOCK.get(id).defaultBlockState());
+            }
+        }
         return java.util.Collections.unmodifiableMap(result);
     }
 
@@ -113,50 +164,16 @@ public final class ShipModularBlockHull {
             BlockPos anchor, int turns) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
+            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL
+                    || entry.getValue() == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER) continue;
             var c = entry.getKey();
             blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
-                    state(entry.getValue(), turns, c.y()));
+                    state(entry.getValue(), turns, c.y(), c.x(), config));
         }
         if (blocks.size() > MAX_BLOCKS) throw new IllegalArgumentException("Oversized ship hull");
         connectFenceRails(blocks);
+        connectGlassPanes(blocks);
         return blocks;
-    }
-
-    /**
-     * Archived geometry is only an ownership proof for a ship built by an
-     * earlier 2.6 revision. It cannot be selected for new construction.
-     */
-    private static Map<BlockPos, BlockState> archivedWorldPalette(
-            ShipBuildConfiguration config, BlockPos anchor, int turns, int archive) {
-        Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullLegacyRevisionThree.generate(
-                config.structure(), archive).entrySet()) {
-            if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL) continue;
-            var c = entry.getKey();
-            blocks.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
-                    state(entry.getValue(), turns, c.y()));
-        }
-        connectFenceRails(blocks);
-        return blocks;
-    }
-
-    /**
-     * GameTest fixture only: place an exact historical layout so the refit
-     * path can be exercised against real old blocks, not a fake new palette.
-     * This is not called by gameplay or shipyard code.
-     */
-    public static boolean placeArchivedForGameTest(ServerLevel level,
-            BlockPos anchor, int turns, ShipBuildConfiguration config, int archive) {
-        if (config == null || config.withdrawn()
-                || config.shipClass() != ShipSectionPlan.ShipClass.LARGE
-                || config.hullRevision() != 3
-                || archive < 0 || archive >= ShipHullLegacyRevisionThree.archives())
-            return false;
-        Map<BlockPos, BlockState> oldBlocks =
-                archivedWorldPalette(config, anchor, turns, archive);
-        if (!clearSpace(level, anchor, oldBlocks, Set.of(), config, turns)) return false;
-        return placeBlocks(level, oldBlocks, List.of(), anchor, turns);
     }
 
     private static boolean matchesPhysicalHull(ServerLevel level,
@@ -164,27 +181,8 @@ public final class ShipModularBlockHull {
         for (var entry : expected.entrySet())
             if (!level.hasChunkAt(entry.getKey())
                     || level.getBlockState(entry.getKey()).getBlock()
-                            != entry.getValue().getBlock())
-                return false;
+                            != entry.getValue().getBlock()) return false;
         return true;
-    }
-
-    /**
-     * 0 = current block layout, 1 = exact historical layout, -1 = not
-     * identifiable (unloaded chunks, damaged structure, or unrelated blocks).
-     * Unknown structures must NEVER be rewritten automatically.
-     */
-    public static int historicalRefitStatus(ServerLevel level, BlockPos anchor,
-            int turns, ShipBuildConfiguration config) {
-        if (level == null || anchor == null || config == null
-                || config.shipClass() != ShipSectionPlan.ShipClass.LARGE
-                || config.hullRevision() != 3 || config.withdrawn()) return 0;
-        if (matchesPhysicalHull(level, worldPalette(config, anchor, turns))) return 0;
-        for (int archive = ShipHullLegacyRevisionThree.archives() - 1;
-                archive >= 0; archive--)
-            if (matchesPhysicalHull(level,
-                    archivedWorldPalette(config, anchor, turns, archive))) return 1;
-        return -1;
     }
 
     private static void connectFenceRails(Map<BlockPos, BlockState> blocks) {
@@ -204,11 +202,36 @@ public final class ShipModularBlockHull {
         }
     }
 
-    private static int kind(BlockState state) {
+    private static void connectGlassPanes(Map<BlockPos, BlockState> blocks) {
+        for (var entry : blocks.entrySet()) {
+            if (!entry.getValue().is(Blocks.GLASS_PANE)) continue;
+            BlockPos p = entry.getKey();
+            BlockState state = entry.getValue()
+                    .setValue(IronBarsBlock.NORTH, blocks.containsKey(p.north()))
+                    .setValue(IronBarsBlock.SOUTH, blocks.containsKey(p.south()))
+                    .setValue(IronBarsBlock.EAST, blocks.containsKey(p.east()))
+                    .setValue(IronBarsBlock.WEST, blocks.containsKey(p.west()));
+            entry.setValue(state);
+        }
+    }
+
+    private static boolean allowedSimple(BlockState state) {
+        Block block = state.getBlock();
+        if (!state.getFluidState().isEmpty() || block instanceof BushBlock
+                || block instanceof FarmBlock || block instanceof LiquidBlock)
+            return false;
+        return block instanceof BedBlock || block instanceof CraftingTableBlock
+                || block instanceof SlabBlock || block instanceof StairBlock
+                || block instanceof FenceBlock || block.getClass() == Block.class;
+    }
+
+    private static int kind(BlockState state, BlockEntity blockEntity) {
         if (state.is(Blocks.CHEST)) return 1;
         if (state.is(Blocks.BARREL)) return 2;
         if (state.is(Blocks.CRAFTING_TABLE)) return 3;
         if (state.is(Blocks.FURNACE)) return 4;
+        if (blockEntity instanceof Container) return GENERAL_CARGO;
+        if (allowedSimple(state)) return GENERAL_CARGO;
         return 0;
     }
 
@@ -218,6 +241,7 @@ public final class ShipModularBlockHull {
             case 2 -> Blocks.BARREL.defaultBlockState();
             case 3 -> Blocks.CRAFTING_TABLE.defaultBlockState();
             case 4 -> Blocks.FURNACE.defaultBlockState();
+            case MISSING_HULL -> Blocks.AIR.defaultBlockState();
             default -> throw new IllegalArgumentException("Invalid attached block kind");
         };
     }
@@ -230,34 +254,49 @@ public final class ShipModularBlockHull {
         if (plan.containsKey(cell)) return false;
         var below = plan.get(new ShipHullVoxelLayout.Cell(x, y - 1, z));
         return below == ShipHullVoxelLayout.Part.DECK
-                || below == ShipHullVoxelLayout.Part.BRIDGE;
+                || below == ShipHullVoxelLayout.Part.BRIDGE
+                || below == ShipHullVoxelLayout.Part.HULL;
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
         if (config == null || config.withdrawn()) return null;
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
+        ShipHullVoxelLayout.Cell missingCell = null;
         if (!matchesPhysicalHull(level, source)) {
-            // A ship from an older commit still has real blocks in the world.
-            // Rebuilding it against today's template without identifying the
-            // OLD owned blocks would either fail or leave hull debris behind.
-            // Require an exact historic-template match; never guess ownership.
-            boolean matched = false;
-            if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                    && config.hullRevision() == 3) {
-                for (int archive = ShipHullLegacyRevisionThree.archives() - 1;
-                        archive >= 0; archive--) {
-                    Map<BlockPos, BlockState> candidate =
-                            archivedWorldPalette(config, anchor, turns, archive);
-                    if (!matchesPhysicalHull(level, candidate)) continue;
-                    source = candidate;
-                    matched = true;
-                    break;
+            boolean invalidDamage = false;
+            // A single mined block is recorded as damage, never recreated as
+            // free timber when the vessel moves or is parked again.
+            if ((config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
+                    && (config.hullRevision() == 3 || config.hullRevision() == 4)) {
+                for (var part : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+                    if (part.getValue() == ShipHullVoxelLayout.Part.SAIL
+                            || part.getValue() == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER) continue;
+                    var c = part.getKey();
+                    BlockPos pos = FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z());
+                    if (!level.hasChunkAt(pos)) return null;
+                    if (level.getBlockState(pos).getBlock() == source.get(pos).getBlock()) continue;
+                    boolean empty = level.getBlockState(pos).isAir()
+                            || level.getFluidState(pos).is(FluidTags.WATER);
+                    if (missingCell != null || !empty) {
+                        invalidDamage = true;
+                        break;
+                    }
+                    missingCell = c;
                 }
             }
-            if (!matched) return null;
+            if (missingCell != null && !invalidDamage) {
+                BlockPos missingWorld = FirstShipBlockHull.world(anchor, turns,
+                        missingCell.x(), missingCell.y(), missingCell.z());
+                source = new LinkedHashMap<>(source);
+                source.remove(missingWorld);
+            } else return null;
         }
         List<Cargo> cargo = new ArrayList<>();
+        if (missingCell != null)
+            cargo.add(new Cargo(missingCell.x(), missingCell.y(), missingCell.z(),
+                    MISSING_HULL, Blocks.AIR.defaultBlockState(), new CompoundTag()));
         ShipSuperstructurePlan structure = config.structure();
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
                 ShipHullVoxelLayout.generate(structure);
@@ -272,13 +311,15 @@ public final class ShipModularBlockHull {
                         continue;
                     BlockPos world = FirstShipBlockHull.world(anchor, turns, x, y, z);
                     if (!level.hasChunkAt(world)) return null;
+                    if (missingCell != null && missingCell.x() == x
+                            && missingCell.y() == y && missingCell.z() == z) continue;
                     if (source.containsKey(world)) continue;
                     BlockState state = level.getBlockState(world);
                     if (state.isAir()) continue;
-                    int type = kind(state);
-                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) return null;
                     BlockEntity blockEntity = level.getBlockEntity(world);
-                    if (type != 3 && blockEntity == null) return null;
+                    int type = kind(state, blockEntity);
+                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) return null;
+                    if (state.hasBlockEntity() && blockEntity == null) return null;
                     CompoundTag data = blockEntity == null ? new CompoundTag()
                             : blockEntity.saveWithFullMetadata(level.registryAccess());
                     cargo.add(new Cargo(x, y, z, type, state, data));
@@ -293,16 +334,30 @@ public final class ShipModularBlockHull {
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
                 ShipHullVoxelLayout.generate(config.structure());
         Set<String> occupied = new HashSet<>();
+        int missing = 0;
         for (int i = 0; i < entries.size(); i++) {
             CompoundTag entry = entries.getCompound(i);
             int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
             int kind = entry.getInt("Kind");
-            if (kind < 1 || kind > 4 || !cargoCell(cargoPlan, x, y, z)
+            boolean damage = kind == MISSING_HULL;
+            if (kind < 1 || kind > GENERAL_CARGO
+                    || (damage && config.shipClass() != ShipSectionPlan.ShipClass.LARGE
+                            && config.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
+                    || (damage && (++missing > 1 || !cargoPlan.containsKey(
+                            new ShipHullVoxelLayout.Cell(x, y, z))))
+                    || (!damage && !cargoCell(cargoPlan, x, y, z))
                     || !occupied.add(x + ":" + y + ":" + z)
                     || !entry.contains("State", Tag.TAG_COMPOUND)
-                    || (kind != 3 && !(entry.contains("BlockEntity", Tag.TAG_COMPOUND) || entry.contains("Data", Tag.TAG_COMPOUND))))
+                    || (kind != 3 && !damage && !(entry.contains("BlockEntity", Tag.TAG_COMPOUND)
+                            || entry.contains("Data", Tag.TAG_COMPOUND))))
                 return null;
-            BlockState state = kindState(kind);
+            BlockState state;
+            if (kind == GENERAL_CARGO) {
+                if (!entry.contains("BlockId", Tag.TAG_STRING)) return null;
+                ResourceLocation id = ResourceLocation.tryParse(entry.getString("BlockId"));
+                if (id == null || !BuiltInRegistries.BLOCK.containsKey(id)) return null;
+                state = BuiltInRegistries.BLOCK.get(id).defaultBlockState();
+            } else state = kindState(kind);
             if (entry.contains("State", Tag.TAG_COMPOUND)) {
                 CompoundTag properties = entry.getCompound("State");
                 for (Property<?> property : state.getProperties()) {
@@ -312,6 +367,8 @@ public final class ShipModularBlockHull {
                     } catch (RuntimeException invalid) { return null; }
                 }
             }
+            if (kind == GENERAL_CARGO && !state.hasBlockEntity()
+                    && !allowedSimple(state)) return null;
             result.add(new Cargo(x, y, z, kind, state,
                     entry.getCompound(entry.contains("BlockEntity", Tag.TAG_COMPOUND) ? "BlockEntity" : "Data").copy()));
         }
@@ -338,6 +395,9 @@ public final class ShipModularBlockHull {
             row.putInt("Y", entry.y());
             row.putInt("Z", entry.z());
             row.putInt("Kind", entry.kind());
+            if (entry.kind() == GENERAL_CARGO)
+                row.putString("BlockId", BuiltInRegistries.BLOCK.getKey(
+                        entry.state().getBlock()).toString());
             CompoundTag properties = new CompoundTag();
             for (Property<?> property : entry.state().getProperties())
                 properties.putString(property.getName(), stateProperty(entry.state(), property));
@@ -367,13 +427,16 @@ public final class ShipModularBlockHull {
     private static boolean validateRestore(ServerLevel level, BlockPos anchor, int turns,
             List<Cargo> cargo, Map<BlockPos, BlockState> target) {
         for (Cargo entry : cargo) {
+            if (entry.kind() == MISSING_HULL) continue;
             if (target.containsKey(FirstShipBlockHull.world(
                     anchor, turns, entry.x(), entry.y(), entry.z()))) return false;
-            if (entry.kind() == 3) continue;
+            if (!entry.state().hasBlockEntity()) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
-            if (BlockEntity.loadStatic(pos, entry.state(),
-                    entry.data(), level.registryAccess()) == null) return false;
+            BlockEntity loaded = BlockEntity.loadStatic(pos, entry.state(),
+                    entry.data(), level.registryAccess());
+            if (loaded == null || entry.kind() == GENERAL_CARGO
+                    && !(loaded instanceof Container)) return false;
         }
         return true;
     }
@@ -417,10 +480,11 @@ public final class ShipModularBlockHull {
         for (var entry : ordered)
             if (!level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
         for (Cargo entry : cargo) {
+            if (entry.kind() == MISSING_HULL) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
             if (!level.setBlock(pos, entry.state(), UPDATE)) return false;
-            if (entry.kind() != 3) {
+            if (entry.state().hasBlockEntity()) {
                 BlockEntity be = BlockEntity.loadStatic(
                         pos, entry.state(), entry.data(), level.registryAccess());
                 if (be == null) return false;
@@ -431,10 +495,19 @@ public final class ShipModularBlockHull {
         return true;
     }
 
+    private static void removeDamage(Map<BlockPos, BlockState> blocks,
+            List<Cargo> cargo, BlockPos anchor, int turns) {
+        for (Cargo entry : cargo)
+            if (entry.kind() == MISSING_HULL)
+                blocks.remove(FirstShipBlockHull.world(anchor, turns,
+                        entry.x(), entry.y(), entry.z()));
+    }
+
     private static boolean clearBlocks(ServerLevel level, BlockPos anchor,
             Map<BlockPos, BlockState> owned, List<Cargo> cargo, int turns) {
         Set<BlockPos> positions = new HashSet<>(owned.keySet());
         for (Cargo entry : cargo) {
+            if (entry.kind() == MISSING_HULL) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
             level.removeBlockEntity(pos);
@@ -461,11 +534,13 @@ public final class ShipModularBlockHull {
         if (!validateRestore(level, anchor, turns, cargo, blocks)
                 || !clearSpace(level, anchor, blocks, Set.of(), config, turns)) return false;
         for (Cargo entry : cargo) {
+            if (entry.kind() == MISSING_HULL) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
             if (!level.getBlockState(pos).isAir() || level.getBlockEntity(pos) != null)
                 return false;
         }
+        removeDamage(blocks, cargo, anchor, turns);
         if (placeBlocks(level, blocks, cargo, anchor, turns)) return true;
         // All target positions were water/air before this operation.
         clearBlocks(level, anchor, blocks, cargo, turns);
@@ -511,7 +586,10 @@ public final class ShipModularBlockHull {
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> cargoPlan =
                 ShipHullVoxelLayout.generate(next.structure());
         for (Cargo entry : source.cargo()) {
-            if (!cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
+            if (entry.kind() == MISSING_HULL && !cargoPlan.containsKey(
+                    new ShipHullVoxelLayout.Cell(entry.x(), entry.y(), entry.z()))) return false;
+            if (entry.kind() != MISSING_HULL
+                    && !cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
             BlockState state = entry.state();
             for (int n = 0; n < rotation; n++) state = state.rotate(Rotation.CLOCKWISE_90);
             transported.add(new Cargo(entry.x(), entry.y(), entry.z(),
@@ -520,6 +598,7 @@ public final class ShipModularBlockHull {
         if (!validateRestore(level, target, nextTurn, transported, targetHull)
                 || !clearSpace(level, target, targetHull, owned, next, nextTurn)) return false;
         for (Cargo entry : transported) {
+            if (entry.kind() == MISSING_HULL) continue;
             BlockPos p = FirstShipBlockHull.world(target, nextTurn,
                     entry.x(), entry.y(), entry.z());
             if (!owned.contains(p) && !level.getBlockState(p).isAir()) return false;
@@ -529,6 +608,7 @@ public final class ShipModularBlockHull {
                 throw new IllegalStateException("Failed to restore modular hull after failed clear");
             return false;
         }
+        removeDamage(targetHull, transported, target, nextTurn);
         if (placeBlocks(level, targetHull, transported, target, nextTurn)) return true;
         clearBlocks(level, target, targetHull, transported, nextTurn);
         if (!placeBlocks(level, source.hull(), source.cargo(), oldAnchor, oldTurn))

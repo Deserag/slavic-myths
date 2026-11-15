@@ -34,7 +34,8 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         new ShipSuperstructurePlan(shipClass,
                 hullRevision == 3 && shipClass == ShipSectionPlan.ShipClass.LARGE
                         ? 15 + extraWidth * 2 : hullWidth(shipClass, extraWidth),
-                hullLength(shipClass, extraLength), sailTiers, decks, bridge, cabin, hullRevision);
+                profileLength(shipClass, extraLength, extraWidth, hullRevision),
+                sailTiers, decks, bridge, cabin, hullRevision);
     }
 
     public static int hullWidth(ShipSectionPlan.ShipClass type, int extraWidth) {
@@ -66,7 +67,19 @@ public record ShipBuildConfiguration(ShipSectionPlan.ShipClass shipClass,
         return hullRevision == 3 && shipClass == ShipSectionPlan.ShipClass.LARGE
                 ? 15 + extraWidth * 2 : hullWidth(shipClass, extraWidth);
     }
-    public int length() { return hullLength(shipClass, extraLength); }
+    private static int profileLength(ShipSectionPlan.ShipClass type,
+            int extraLength, int extraWidth, int revision) {
+        int base = hullLength(type, extraLength);
+        if (revision != 3 && revision != 4) return base;
+        int width = revision == 3 ? 15 + extraWidth * 2 : hullWidth(type, extraWidth);
+        int minimum = (int)Math.ceil(width * 3.6D);
+        if ((minimum & 1) == 0) minimum++;
+        return Math.max(base, minimum);
+    }
+
+    public int length() {
+        return profileLength(shipClass, extraLength, extraWidth, hullRevision);
+    }
 
     public ShipSuperstructurePlan structure() {
         return new ShipSuperstructurePlan(shipClass, width(), length(),

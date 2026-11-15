@@ -206,13 +206,14 @@ public final class ShipDynamicCollision {
                 String types = ship.movingCargoView();
                 if (!types.isBlank()) for (String token : types.split(";")) {
                     String[] fields = token.split(",");
-                    if (fields.length != 4) continue;
+                    if (fields.length != 4 && fields.length != 5) continue;
                     try {
                         CompoundTag entry = new CompoundTag();
                         entry.putInt("X", Integer.parseInt(fields[0]));
                         entry.putInt("Y", Integer.parseInt(fields[1]));
                         entry.putInt("Z", Integer.parseInt(fields[2]));
                         entry.putInt("Kind", Integer.parseInt(fields[3]));
+                        if (fields.length == 5) entry.putString("BlockId", fields[4]);
                         entry.put("BlockEntity", new CompoundTag());
                         cargo.add(entry);
                     } catch (NumberFormatException invalid) {
@@ -225,7 +226,7 @@ public final class ShipDynamicCollision {
                                 new FirstShipBlockHull.MotionSnapshot(cargo,
                                         ship.geometryVersion(), ship.rigLevel(),
                                         ship.fabricQuality(), 0))
-                            : ShipModularBlockHull.localMotionPalette(configuration, cargo);
+                            : ShipModularBlockHull.localVisualPalette(configuration, cargo);
                 } catch (RuntimeException invalid) {
                     palette = Map.of();
                 }

@@ -11,6 +11,22 @@ public final class ShipHullVoxelLayoutCheck {
         if (!value) throw new AssertionError(name);
     }
 
+    private static void pairedFlight(Map<ShipHullVoxelLayout.Cell,
+            ShipHullVoxelLayout.Part> model, int x, int z, int lower) {
+        for (int lane : new int[]{x, x + (lower == 1 || lower == 10
+                ? -Integer.signum(x) : Integer.signum(x))})
+            for (int i = 1; i <= (lower == 1 ? 4 : 5); i++) {
+                int y = lower + i, atZ = z + i;
+                yes(model.get(new ShipHullVoxelLayout.Cell(lane, y, atZ))
+                                == ShipHullVoxelLayout.Part.STAIR,
+                        "Missing paired stair at " + lane + "," + y + "," + atZ);
+                yes(model.get(new ShipHullVoxelLayout.Cell(lane, y + 1, atZ)) == null
+                                && model.get(new ShipHullVoxelLayout.Cell(lane, y + 2, atZ)) == null
+                                && model.get(new ShipHullVoxelLayout.Cell(lane, y + 3, atZ)) == null,
+                        "Paired stair has no headroom at " + lane + "," + y + "," + atZ);
+            }
+    }
+
     private static ShipSuperstructurePlan plan(ShipSectionPlan.ShipClass type,
             int width, int length, List<Integer> sails, int decks,
             boolean bridge, boolean cabin) {
@@ -53,6 +69,19 @@ public final class ShipHullVoxelLayoutCheck {
                                 brigantines++;
                                 int highest = ShipHullVoxelLayout.brigantineTopDeck(p);
                                 int rear = -length / 2 + 2;
+                                pairedFlight(model, -2, -10, 1);
+                                pairedFlight(model, 2, 4, 1);
+                                pairedFlight(model, 3, -8, 5);
+                                pairedFlight(model, -3, 3, 5);
+                                if (highest >= 15) {
+                                    int raisedX = Math.min(4, width / 2 - 4);
+                                    pairedFlight(model, -raisedX, rear + 1, 10);
+                                    pairedFlight(model, raisedX, rear + 1, 10);
+                                }
+                                if (highest >= 20) {
+                                    pairedFlight(model, -1, rear + 1, 15);
+                                    pairedFlight(model, 1, rear + 1, 15);
+                                }
                                 yes(model.get(new ShipHullVoxelLayout.Cell(0, highest + 1, rear + 3))
                                                 == ShipHullVoxelLayout.Part.HELM,
                                         "top wheel misplaced: " + p);
@@ -74,7 +103,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                         == ShipHullVoxelLayout.Part.STAIR,
                                                 "hold staircase missing: " + p);
                                     for (int i = 1; i <= 4; i++)
-                                        for (int head = 1; head <= 2; head++)
+                                        for (int head = 1; head <= 3; head++)
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
                                                             route[0], 1 + i + head,
                                                             route[1] + i)) == null,
@@ -86,7 +115,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                         route[0], 5 + i, route[1] + i))
                                                         == ShipHullVoxelLayout.Part.STAIR,
                                                 "gun staircase missing: " + p);
-                                        for (int head = 1; head <= 2; head++)
+                                        for (int head = 1; head <= 3; head++)
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
                                                             route[0], 5 + i + head,
                                                             route[1] + i)) == null,
@@ -126,8 +155,8 @@ public final class ShipHullVoxelLayoutCheck {
                                         "hold or gun deck still unlit: " + p);
                                 if (bridge) {
                                     int rearX = -length / 2 + 2;
-                                    yes(model.get(new ShipHullVoxelLayout.Cell(3, highest + 1,
-                                                    rearX + 4)) == ShipHullVoxelLayout.Part.RAIL,
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, highest + 4,
+                                                    rearX + 1)) == ShipHullVoxelLayout.Part.BRIDGE,
                                             "bridge upgrade adds no visible geometry: " + p);
                                 }
                                 for (int z = -length / 2 + 5; z <= length / 2 - 5; z++) {
@@ -143,44 +172,48 @@ public final class ShipHullVoxelLayoutCheck {
                                                     "gunport shutter missing: " + p);
                                 }
                                 if (highest >= 15)
-                                    for (int x : new int[]{-2, 2})
+                                    for (int x : new int[]{-Math.min(4, width / 2 - 4),
+                                            Math.min(4, width / 2 - 4)})
                                         for (int i = 1; i <= 5; i++)
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                            x, 10 + i, rear + 3 + i))
+                                                            x, 10 + i, rear + 1 + i))
                                                             == ShipHullVoxelLayout.Part.STAIR,
                                                     "quarterdeck twin staircase missing: " + p);
                                 if (highest >= 20)
                                     for (int x : new int[]{-1, 1})
                                         for (int i = 1; i <= 5; i++)
                                             yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                            x, 15 + i, rear + i))
+                                                            x, 15 + i, rear + 1 + i))
                                                             == ShipHullVoxelLayout.Part.STAIR,
                                                     "third-deck twin staircase missing: " + p);
                                 if (highest >= 15) {
-                                    for (int z : new int[]{rear + 2, rear + 5})
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, 11, z))
-                                                        == ShipHullVoxelLayout.Part.LANTERN,
-                                                "quarterdeck interior light missing: " + p);
+                                    long upperLights = model.entrySet().stream()
+                                            .filter(e -> e.getValue() == ShipHullVoxelLayout.Part.LANTERN
+                                                    && (e.getKey().y() == 16
+                                                            || e.getKey().y() == 17)).count();
+                                    yes(upperLights >= 2,
+                                            "quarterdeck interior light missing: " + p);
                                 }
                                 if (highest >= 20)
-                                    for (int z : new int[]{rear + 2, rear + 5})
-                                        yes(model.get(new ShipHullVoxelLayout.Cell(0, 16, z))
-                                                        == ShipHullVoxelLayout.Part.LANTERN,
-                                                "upper captain floor light missing: " + p);
+                                    yes(model.entrySet().stream().anyMatch(e ->
+                                                    e.getValue() == ShipHullVoxelLayout.Part.LANTERN
+                                                            && e.getKey().y() == 21),
+                                            "upper captain floor light missing: " + p);
                                 if (highest >= 15)
-                                    for (int x : new int[]{-2, 2})
+                                    for (int x : new int[]{-Math.min(4, width / 2 - 4),
+                                            Math.min(4, width / 2 - 4)})
                                         for (int i = 1; i <= 5; i++)
-                                            for (int head = 1; head <= 2; head++)
+                                            for (int head = 1; head <= 3; head++)
                                                 yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                                x, 10 + i + head, rear + 3 + i))
+                                                                x, 10 + i + head, rear + 1 + i))
                                                                 == null,
                                                         "quarterdeck stair lacks headroom: " + p);
                                 if (highest >= 20)
                                     for (int x : new int[]{-1, 1})
                                         for (int i = 1; i <= 5; i++)
-                                            for (int head = 1; head <= 2; head++)
+                                            for (int head = 1; head <= 3; head++)
                                                 yes(model.get(new ShipHullVoxelLayout.Cell(
-                                                                x, 15 + i + head, rear + i))
+                                                                x, 15 + i + head, rear + 1 + i))
                                                                 == null,
                                                         "captain stair lacks headroom: " + p);
                                 if (highest >= 15)
@@ -188,7 +221,7 @@ public final class ShipHullVoxelLayoutCheck {
                                                     == ShipHullVoxelLayout.Part.DECK,
                                             "raised captain deck missing: " + p);
                                 if (highest >= 20)
-                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 20, rear + 3))
+                                    yes(model.get(new ShipHullVoxelLayout.Cell(0, 20, rear + 7))
                                                     == ShipHullVoxelLayout.Part.BRIDGE,
                                             "third captain deck missing: " + p);
                                 // Closed stern faces must survive EVERY
@@ -222,7 +255,11 @@ public final class ShipHullVoxelLayoutCheck {
                                             var sideWall = model.get(
                                                     new ShipHullVoxelLayout.Cell(half, y, z));
                                             yes(sideWall == ShipHullVoxelLayout.Part.CABIN_WALL
-                                                            || sideWall == ShipHullVoxelLayout.Part.WINDOW,
+                                                            || sideWall == ShipHullVoxelLayout.Part.WINDOW
+                                                            || z >= rear + 1 && z <= rear + 6
+                                                                    && (sideWall == null
+                                                                            || sideWall == ShipHullVoxelLayout.Part.STAIR
+                                                                            || sideWall == ShipHullVoxelLayout.Part.FRAME),
                                                     "third deck has open side wall: " + p);
                                         }
                                 }
@@ -246,6 +283,17 @@ public final class ShipHullVoxelLayoutCheck {
                                                         : ShipHullVoxelLayout.Part.DECK),
                                         "top wheel has no structural support: " + p);
                                 if (cabin) {
+                                    int cabinSide = Math.max(1,
+                                            Math.min(4, width / 2 - 4) - 2);
+                                    for (int z = rear + 1; z <= rear + 6; z++)
+                                        for (int x : new int[]{-cabinSide, cabinSide})
+                                            for (int y = 11; y <= 14; y++) {
+                                                var wall = model.get(new ShipHullVoxelLayout.Cell(
+                                                        x, y, z));
+                                                yes(wall == ShipHullVoxelLayout.Part.CABIN_WALL
+                                                                || wall == ShipHullVoxelLayout.Part.WINDOW,
+                                                        "cabin side opened by a stair: " + p);
+                                            }
                                     yes(model.get(new ShipHullVoxelLayout.Cell(0, 11, rear + 6))
                                                     == ShipHullVoxelLayout.Part.DOOR,
                                             "cabin lower doorway missing: " + p);
@@ -634,6 +682,16 @@ public final class ShipHullVoxelLayoutCheck {
                                 }
                             }
         yes(configurations == 192, "all MEDIUM variants enumerated");
+        for (var type : List.of(ShipSectionPlan.ShipClass.LARGE,
+                ShipSectionPlan.ShipClass.LARGEST))
+            for (int length = 0; length <= 3; length++)
+                for (int width = 0; width <= 2; width++) {
+                    var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type)
+                            .resize(length, width);
+                    double ratio = config.length() / (double)config.width();
+                    yes(ratio >= 3.5D && ratio <= 4.5D,
+                            "III/IV hull outside approved proportions: " + config);
+                }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
 }

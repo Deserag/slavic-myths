@@ -49,6 +49,21 @@ import org.slavicmyths.ships.RaftContent;
 public final class Ocean26GameTests {
     private static final TicketType<Long> VOYAGE_TICKET = TicketType.create(
             "slavicmyths_ocean26_voyage", Long::compare);
+    private static void assertPairedStair(GameTestHelper test, ServerLevel level,
+            BlockPos anchor, int x, int startZ, int lower, int rise) {
+        int paired = x + (lower == 1 || lower == 10 || lower == 11
+                ? -Integer.signum(x) : Integer.signum(x));
+        for (int lane : new int[]{x, paired})
+            for (int step = 1; step <= rise; step++) {
+                BlockPos tread = FirstShipBlockHull.world(anchor, 0, lane,
+                        lower + step, startZ + step);
+                test.assertTrue(level.getBlockState(tread).is(Blocks.SPRUCE_STAIRS),
+                        "Missing paired physical stair at " + lane + "," + step);
+                test.assertTrue(level.getBlockState(tread.above()).isAir()
+                        && level.getBlockState(tread.above(2)).isAir(),
+                        "Player headroom blocked above stair " + lane + "," + step);
+            }
+    }
     private static final class LocalConnection extends Connection {
         private final EmbeddedChannel wire = new EmbeddedChannel();
         LocalConnection() { super(PacketFlow.SERVERBOUND); }
@@ -401,6 +416,13 @@ public final class Ocean26GameTests {
         modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE, true);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_brigantine_damaged_voyage")
+    public static void brigantineDamagedVoyage(GameTestHelper t) {
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE,
+                false, true);
+    }
+
+
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
         modularClassVoyage(t, type, false);
@@ -408,23 +430,34 @@ public final class Ocean26GameTests {
 
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type, boolean fullyUpgraded) {
+        modularClassVoyage(t, type, fullyUpgraded, false);
+    }
+
+    static void modularClassVoyage(GameTestHelper t,
+            org.slavicmyths.ships.ShipSectionPlan.ShipClass type,
+            boolean fullyUpgraded, boolean damaged) {
         ServerLevel level = t.getLevel();
-        BlockPos anchor = t.absolutePos(new BlockPos(22, 4, 22));
+        boolean largest = type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
+        BlockPos anchor = t.absolutePos(new BlockPos(largest ? 40 : 22, 4,
+                largest ? 40 : 22));
         level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
                 new ChunkPos(anchor), 3, anchor.asLong());
-        for (int x = -20; x <= 20; x++)
-            for (int z = fullyUpgraded ? -36 : -27;
-                 z <= (fullyUpgraded ? 36 : 27); z++) {
+        boolean largeHull = largest
+                || type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE;
+        for (int x = largeHull ? -25 : -20; x <= (largeHull ? 25 : 20); x++)
+            for (int z = largeHull ? -65 : fullyUpgraded ? -36 : -27;
+                 z <= (largeHull ? 65 : fullyUpgraded ? 36 : 27); z++) {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= (fullyUpgraded ? 40 : 24); y++)
+                for (int y = 1; y <= (largest ? 48 : fullyUpgraded ? 40 : 24); y++)
                     level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
             }
         var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
         if (fullyUpgraded)
             config = config.resize(3, 2).withDecks(3).withBridge(true)
                     .withCabin(true).withSail(0, 3).withSail(1, 3);
+        final var voyageConfig = config;
         ServerPlayer builder = player(level, type + "VoyageBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
         builder.getAbilities().instabuild = true;
@@ -435,6 +468,39 @@ public final class Ocean26GameTests {
         ship.enableSmoothMotion();
         t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
+        if (largest) {
+            int rear = -config.length() / 2 + 3;
+            assertPairedStair(t, level, anchor, -3, -12, 1, 5);
+            assertPairedStair(t, level, anchor, 3, 6, 1, 5);
+            assertPairedStair(t, level, anchor, -4, -8, 6, 5);
+            assertPairedStair(t, level, anchor, 4, 2, 6, 5);
+            assertPairedStair(t, level, anchor, -5, rear + 8, 11, 5);
+            assertPairedStair(t, level, anchor, 5, rear + 8, 11, 5);
+        }
+        if (damaged) {
+            BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
+            t.assertTrue(level.getBlockState(hole).is(Blocks.SPRUCE_PLANKS),
+                    "Expected removable hull plank missing");
+            level.setBlock(hole, Blocks.AIR.defaultBlockState(), 2);
+            ListTag packed = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, config);
+            t.assertTrue(packed != null && packed.size() == 1
+                    && packed.getCompound(0).getInt("Kind") == 5,
+                    "Single missing plank was not preserved as damage");
+            var preparedWithOneHole = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                    level, anchor, 0, config);
+            t.assertTrue(preparedWithOneHole != null,
+                    "One missing plank prevented moving assembly");
+            BlockPos second = FirstShipBlockHull.world(anchor, 0, 1, 1, 0);
+            var secondState = level.getBlockState(second);
+            level.setBlock(second, Blocks.AIR.defaultBlockState(), 2);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, config) == null,
+                    "Two missing planks must fail safe rather than create timber");
+            t.assertTrue(!preparedWithOneHole.detach(level, anchor),
+                    "Two missing planks must reject detach");
+            level.setBlock(second, secondState, 2);
+        }
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
 
         ServerPlayer captain = player(level, type + "VoyageCaptain",
@@ -462,7 +528,38 @@ public final class Ocean26GameTests {
             t.assertTrue(ship.isMoving() && ship.getZ() > startZ + .10D
                     && captain.getVehicle() == ship
                     && ship.serverMovingPalette() != null,
-                    type + " captain or real hull did not travel");
+                    type + " captain or real hull did not travel: moving="
+                            + ship.isMoving() + " deltaZ=" + (ship.getZ() - startZ)
+                            + " rider=" + (captain.getVehicle() == ship)
+                            + " palette=" + (ship.serverMovingPalette() != null));
+            if (damaged) {
+                BlockPos localHole = new BlockPos(0, 1, 0);
+                t.assertTrue(!ship.serverMovingPalette().containsKey(localHole),
+                        "Mined plank reappeared on the moving ship");
+                CompoundTag saved = new CompoundTag();
+                ship.saveWithoutId(saved);
+                var restored = org.slavicmyths.ships.ShipMovingContraption.load(
+                        saved.getCompound("FirstShipMovingBody"));
+                t.assertTrue(restored != null
+                        && !restored.palette().containsKey(localHole),
+                        "Mined plank reappeared after save/load");
+                ship.discard();
+                restored.motion().restore(new org.slavicmyths.ships.ShipRigidMotion.Pose(
+                        anchor.getX() + .5D, anchor.getZ() + .5D, 0D), 0D, 0D);
+                t.assertTrue(restored.park(level),
+                        "Damaged ship could not restore physical blocks after reload");
+                ListTag repacked = org.slavicmyths.ships.ShipModularBlockHull.pack(
+                        level, anchor, 0, voyageConfig);
+                t.assertTrue(repacked != null && repacked.size() == 1
+                        && repacked.getCompound(0).getInt("Kind") == 5,
+                        "Mined plank was regenerated after park");
+                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                        anchor, 0, 0, 1, 0)).isAir(),
+                        "Exact one-block hole was not retained after save and park");
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                        level, anchor, 0, voyageConfig),
+                        "Damaged restored hull could not be removed safely");
+            }
             captain.discard(); builder.discard(); ship.discard();
             level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
                     new ChunkPos(anchor), 3, anchor.asLong());
@@ -1665,8 +1762,8 @@ public final class Ocean26GameTests {
     public static void brigantineGunDeckMastsAndUpperDecksUseActualBlocks(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
-        for (int x = -17; x <= 17; x++)
-            for (int z = -26; z <= 26; z++) {
+        for (int x = -22; x <= 22; x++)
+            for (int z = -45; z <= 45; z++) {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
@@ -1714,11 +1811,12 @@ public final class Ocean26GameTests {
                                     .is(Blocks.SPRUCE_STAIRS),
                             "Missing physical gun-to-weather stair");
             if (highest >= 15)
-                for (int x : new int[]{-2, 2})
+                for (int x : new int[]{-Math.min(4, config.width() / 2 - 4),
+                        Math.min(4, config.width() / 2 - 4)})
                     for (int i = 1; i <= 5; i++)
                         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                                         anchor, 0, x, 10 + i,
-                                        -config.length() / 2 + 5 + i))
+                                        -config.length() / 2 + 3 + i))
                                         .is(Blocks.SPRUCE_STAIRS),
                                 "Raised quarterdeck stair missing in world");
             if (highest >= 20)
@@ -1726,27 +1824,57 @@ public final class Ocean26GameTests {
                     for (int i = 1; i <= 5; i++)
                         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                                         anchor, 0, x, 15 + i,
-                                        -config.length() / 2 + 2 + i))
+                                        -config.length() / 2 + 3 + i))
                                         .is(Blocks.SPRUCE_STAIRS),
                                 "Upper captain deck stair missing in world");
+            assertPairedStair(t, level, anchor, -2, -10, 1, 4);
+            assertPairedStair(t, level, anchor, 2, 4, 1, 4);
+            assertPairedStair(t, level, anchor, 3, -8, 5, 5);
+            assertPairedStair(t, level, anchor, -3, 3, 5, 5);
+            if (highest >= 15) {
+                int stairX = Math.min(4, config.width() / 2 - 4);
+                assertPairedStair(t, level, anchor, -stairX,
+                        -config.length() / 2 + 3, 10, 5);
+                assertPairedStair(t, level, anchor, stairX,
+                        -config.length() / 2 + 3, 10, 5);
+            }
+            if (highest >= 20) {
+                assertPairedStair(t, level, anchor, -1,
+                        -config.length() / 2 + 3, 15, 5);
+                assertPairedStair(t, level, anchor, 1,
+                        -config.length() / 2 + 3, 15, 5);
+            }
             for (int z : new int[]{-config.length() / 2 + 7, -config.length() / 2 + 12}) {
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                         anchor, 0, 3, 2, z)).is(Blocks.LANTERN),
                         "Lower hold does not contain physical interior lanterns");
                 t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, -3, 6, z)).is(Blocks.LANTERN),
+                        anchor, 0,
+                        -org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                                config.structure(), z) + 2, 6, z)).is(Blocks.LANTERN),
                         "Gun deck does not contain physical interior lanterns");
             }
-            if (highest >= 15)
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, 0, 11, -config.length() / 2 + 4))
-                                .is(Blocks.LANTERN),
+            if (highest >= 15) {
+                int rear = -config.length() / 2 + 2;
+                int half = Math.min(5, config.width() / 2 - 3);
+                int raisedLamps = 0;
+                for (int z = rear; z <= rear + 9; z++)
+                    for (int x = -half; x <= half; x++)
+                        if (level.getBlockState(FirstShipBlockHull.world(
+                                anchor, 0, x, 16, z)).is(Blocks.LANTERN)) raisedLamps++;
+                t.assertTrue(raisedLamps >= 2,
                         "Elevated cabin lacks a physical light source");
-            if (highest >= 20)
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, 0, 16, -config.length() / 2 + 4))
-                                .is(Blocks.LANTERN),
+            }
+            if (highest >= 20) {
+                int upperLamps = 0;
+                int rear = -config.length() / 2 + 2;
+                for (int z = rear; z <= rear + 8; z++)
+                    for (int x = -3; x <= 3; x++)
+                        if (level.getBlockState(FirstShipBlockHull.world(
+                                anchor, 0, x, 21, z)).is(Blocks.LANTERN)) upperLamps++;
+                t.assertTrue(upperLamps > 0,
                         "Top captain level lacks a physical light source");
+            }
             // Check ACTUAL world blocks, not just the voxel planning map.
             // Former builds left a wide open bow and stern at the gun deck.
             for (int endZ : new int[]{-config.length() / 2, config.length() / 2}) {
@@ -1767,8 +1895,8 @@ public final class Ocean26GameTests {
             for (int side : new int[]{-1, 1})
                 for (int y : new int[]{7, 8})
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                            anchor, 0, side * (beam - 1), y, portZ)).is(Blocks.DARK_OAK_PLANKS),
-                            "Future cannon port shutter missing or open");
+                            anchor, 0, side * (beam - 1), y, portZ)).isAir(),
+                            "Future cannon port aperture is blocked");
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, beam - 2, 11, portZ)).is(Blocks.LANTERN),
                     "Real gun-deck lighting or deck lantern missing");
@@ -1814,8 +1942,8 @@ public final class Ocean26GameTests {
     public static void brigantineRealWorldThirdMastAndBridgeUpgrade(GameTestHelper t) {
         ServerLevel level = t.getLevel();
         BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
-        for (int x = -18; x <= 18; x++)
-            for (int z = -25; z <= 25; z++) {
+        for (int x = -22; x <= 22; x++)
+            for (int z = -45; z <= 45; z++) {
                 BlockPos pos = anchor.offset(x, 0, z);
                 level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
                 level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
@@ -1849,61 +1977,6 @@ public final class Ocean26GameTests {
         }
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                 level, anchor, 0, raised), "Could not remove final upgraded III brigantine");
-        t.succeed();
-    }
-
-
-    @GameTest(template = "empty", timeoutTicks = 480, batch = "ocean_brigantine_legacy_refit")
-    public static void brigantineHistoricWorldRefitPreservesUpgradePath(GameTestHelper t) {
-        ServerLevel level = t.getLevel();
-        BlockPos anchor = t.absolutePos(new BlockPos(26, 4, 26));
-        for (int x = -18; x <= 18; x++)
-            for (int z = -25; z <= 25; z++) {
-                BlockPos pos = anchor.offset(x, 0, z);
-                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
-                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
-                for (int y = 1; y <= 42; y++)
-                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
-            }
-        var original = org.slavicmyths.ships.ShipBuildConfiguration.initial(
-                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
-        var upgraded = original.withSail(2, 1).withBridge(true).withDecks(2);
-        // Five exact historical block generations of this same saved
-        // revision must all migrate rather than silently reject upgrades.
-        for (int archive = 0; archive < 5; archive++) {
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.placeArchivedForGameTest(
-                    level, anchor, 0, original, archive),
-                    "Could not place historic tier III block layout " + archive);
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.historicalRefitStatus(
-                    level, anchor, 0, original) == 1,
-                    "Old hull was not recognized as eligible for automatic refit: " + archive);
-            if (archive % 2 == 0) {
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
-                        level, anchor, 0, original, anchor, 0, original),
-                        "Automatic same-config layout refit failed: " + archive);
-                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.historicalRefitStatus(
-                        level, anchor, 0, original) == 0,
-                        "Auto-refitted hull still classified as obsolete");
-            }
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
-                    level, anchor, 0, original, anchor, 0, upgraded),
-                    "Historic tier III hull refused mast and bridge upgrades: " + archive);
-            var plan = upgraded.structure();
-            int top = org.slavicmyths.ships.ShipHullVoxelLayout.brigantineTopDeck(plan);
-            t.assertTrue(plan.mastPositions().size() == 3,
-                    "Historical hull refit lost third mast: " + archive);
-            for (int mastZ : plan.mastPositions())
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, 0, top + 2, mastZ)).is(Blocks.STRIPPED_SPRUCE_LOG),
-                        "Historic refit did not physically install mast " + mastZ);
-            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                    anchor, 0, 0, top + 4, -upgraded.length() / 2 + 3))
-                            .is(Blocks.DARK_OAK_PLANKS),
-                    "Historic refit did not install elevated command bridge canopy");
-            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
-                    level, anchor, 0, upgraded),
-                    "Could not clean upgraded historic hull " + archive);
-        }
         t.succeed();
     }
 

@@ -82,7 +82,6 @@ public final class FirstShipEntity extends Boat {
     private ShipBuildConfiguration modularConfiguration;
     private double nextHelmAllowedTick = -100D;
     private boolean legacyConversionTried;
-    private boolean historicBrigantineRefitChecked;
     private boolean legacySailUpgradePending;
     private boolean visualSailUpgradeTried;
     /** New ships opt into the new body; older worlds stay in their proven mode. */
@@ -1329,32 +1328,6 @@ public final class FirstShipEntity extends Boat {
                 && FirstShipBlockHull.migrateGeometryToV10(server, blockAnchor,
                         quarterTurns, rigLevel, fabricQuality, geometryVersion))
             setGeometryVersion(10);
-        // Ships already built in older 2.6 worlds retain the ORIGINAL
-        // physical hull after updating the mod. Refit only when the old
-        // block palette is identified exactly and the ship is unoccupied.
-        // Recheck unknown/unloaded layouts later; never guess or delete them.
-        if (!level().isClientSide && nativeHull && modularConfiguration != null
-                && modularConfiguration.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && modularConfiguration.hullRevision() == 3
-                && !historicBrigantineRefitChecked && tickCount % 80 == 0
-                && !isMoving() && !isVehicle() && !packing && !hasWalkers()
-                && quarantinedModules == null && movingBody == null
-                && level() instanceof net.minecraft.server.level.ServerLevel server
-                && !hasOpenShipMenus(server)) {
-            int status = ShipModularBlockHull.historicalRefitStatus(
-                    server, blockAnchor, quarterTurns, modularConfiguration);
-            if (status == 0) {
-                historicBrigantineRefitChecked = true;
-            } else if (status == 1) {
-                // Rebuild to the SAME saved configuration: only the obsolete
-                // physical geometry changes; masts, cargo and purchases stay.
-                if (ShipModularBlockHull.rebuild(server, blockAnchor, quarterTurns,
-                        modularConfiguration, blockAnchor, quarterTurns,
-                        modularConfiguration)) {
-                    historicBrigantineRefitChecked = true;
-                }
-            }
-        }
         if (isMoving()) {
             // The body is a rigid palette entity; do not spawn any chunk blocks
             // during travel. Only the authoritative server advances physics.
@@ -1486,6 +1459,7 @@ public final class FirstShipEntity extends Boat {
             if (view.length() > 0) view.append(';');
             view.append(c.getInt("X")).append(',').append(c.getInt("Y")).append(',')
                     .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
+            if (c.getInt("Kind") == 6) view.append(',').append(c.getString("BlockId"));
         }
         entityData.set(MOTION_CARGO_VIEW, view.toString());
     }
