@@ -90,10 +90,12 @@ public final class ShipIVGeometryHeadless {
                     ? pos.y() + 1 : pos.y() - 1;
             require(isWalkable(at(cells, pos.x(), support, pos.z()))
                     || at(cells, pos.x(), support, pos.z())
-                            == ShipHullVoxelLayout.Part.FRAME,
+                            == ShipHullVoxelLayout.Part.FRAME
+                    || at(cells, pos.x(), support, pos.z())
+                            == ShipHullVoxelLayout.Part.TRIM,
                     "Unsupported lantern at " + pos);
             for (var other : cells.entrySet()) {
-                if (other == cell || other.getValue() != ShipHullVoxelLayout.Part.LANTERN
+                if (other.getKey().equals(cell.getKey()) || other.getValue() != ShipHullVoxelLayout.Part.LANTERN
                         && other.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
                 var p = other.getKey();
                 int dx = p.x() - pos.x(), dy = p.y() - pos.y(), dz = p.z() - pos.z();
@@ -105,16 +107,11 @@ public final class ShipIVGeometryHeadless {
         for (int z : config.mastPositions())
             require(at(cells, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     "Missing physical mast " + z);
-        flight(cells, -3, -12, 1);
-        flight(cells, 3, 6, 1);
-        flight(cells, -3, -4, 6);
-        flight(cells, 3, 14, 6);
-        flight(cells, -3, rear + 8, 11);
-        flight(cells, 3, rear + 8, 11);
-        if (config.decks() >= 2 || config.bridge()) {
-            flight(cells, -3, rear + 2, 16);
+        flight(cells, -3, rear + 2, 1);
+        flight(cells, 3, rear + 2, 6);
+        flight(cells, -3, rear + 2, 11);
+        if (config.decks() >= 2 || config.bridge())
             flight(cells, 3, rear + 2, 16);
-        }
         checked++;
     }
 
