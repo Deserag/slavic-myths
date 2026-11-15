@@ -106,26 +106,23 @@ public final class ShipIVHeadless {
                 checkedHullCells++;
             }
         }
-        // The rising bow and bowsprit must connect by shared faces,
-        // not merely touch diagonally at a corner.
-        int priorStemY = 12;
-        for (int z = end - 12; z <= end + 7; z++) {
-            int y = 12 + (int)Math.round((z - (end - 12)) * 11D / 19D);
-            require(at(blocks, 0, y, z) != null,
-                    key + ": missing rising bow member at z=" + z);
-            if (z > end - 12 && y > priorStemY)
-                require(at(blocks, 0, priorStemY, z) != null,
-                        key + ": diagonal bow has an edge-only joint at z=" + z);
-            priorStemY = y;
+        // The approved IV design uses a horizontal, face-connected bowsprit
+        // rooted in the lower bow stem rather than the withdrawn rising spar.
+        for (int z = end - 8; z <= end + 7; z++) {
+            require(at(blocks, 0, 9, z) != null
+                    && at(blocks, 0, 10, z) != null,
+                    key + ": disconnected bowsprit at z=" + z);
+            if (z > end)
+                require(at(blocks, 0, 9, z) == ShipHullVoxelLayout.Part.BOWSPRIT,
+                        key + ": external bowsprit missing at z=" + z);
         }
+        int shaftZ = -end + 2;
         for (int[] route : new int[][] {
-                {-3, -12, 1, 6}, {3, 6, 1, 6},
-                {-4, -8, 6, 11}, {4, 2, 6, 11},
-                {-5, -end + 11, 11, 16}, {5, -end + 11, 11, 16}
+                {-3, shaftZ, 1, 6}, {3, shaftZ, 6, 11},
+                {-3, shaftZ, 11, 16}
         }) stair(blocks, route[0], route[1], route[2], route[3], key);
         if (decks >= 2 || bridge)
-            for (int x : new int[] {-3, 3})
-                stair(blocks, x, -end + 5, 16, 21, key);
+            stair(blocks, 3, shaftZ, 16, 21, key);
         for (var entry : blocks.entrySet()) {
             if (entry.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
             var cell = entry.getKey();
