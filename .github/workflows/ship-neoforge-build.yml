@@ -44,6 +44,17 @@ jobs:
         shell: bash
         run: |
           ./gradlew --no-daemon -Pocean26Check runOcean26Checks
+      - name: Verify IV geometry across all upgrade combinations
+        shell: bash
+        run: ./gradlew --no-daemon verifyShipIVGeometry
+      - name: Run dedicated damaged-ship III/IV GameTests
+        shell: bash
+        run: ./gradlew --no-daemon -Pocean26Check -PshipIVDamageCheck runOcean26Checks
+      - name: Test ship save/restart persistence for both ship classes
+        shell: bash
+        run: |
+          ./gradlew --no-daemon -Pocean26Check -PshipPersistenceStage=write runOcean26Checks
+          ./gradlew --no-daemon -Pocean26Check -PshipPersistenceStage=read runOcean26Checks
       - name: Show built files and SHA256
         if: success()
         shell: bash
