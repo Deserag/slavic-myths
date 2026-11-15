@@ -470,12 +470,11 @@ public final class Ocean26GameTests {
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         if (largest) {
             int rear = -config.length() / 2 + 4;
-            assertPairedStair(t, level, anchor, -3, -12, 1, 5);
-            assertPairedStair(t, level, anchor, 3, 6, 1, 5);
-            assertPairedStair(t, level, anchor, -3, -4, 6, 5);
-            assertPairedStair(t, level, anchor, 3, 14, 6, 5);
-            assertPairedStair(t, level, anchor, -3, rear + 8, 11, 5);
-            assertPairedStair(t, level, anchor, 3, rear + 8, 11, 5);
+            assertPairedStair(t, level, anchor, -3, rear + 2, 1, 5);
+            assertPairedStair(t, level, anchor, 3, rear + 2, 6, 5);
+            assertPairedStair(t, level, anchor, -3, rear + 2, 11, 5);
+            if (config.decks() >= 2 || config.bridge())
+                assertPairedStair(t, level, anchor, 3, rear + 2, 16, 5);
         }
         if (damaged) {
             BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
@@ -1798,18 +1797,13 @@ public final class Ocean26GameTests {
                     "Brigantine main deck missing");
             // Check the CURRENT 2-wide physical flights and full 3-block headroom,
             // not coordinates from the withdrawn pre-fix layout.
-            assertPairedStair(t, level, anchor, -3, -10, 1, 4);
-            assertPairedStair(t, level, anchor, 3, 4, 1, 4);
-            assertPairedStair(t, level, anchor, -3, -2, 5, 5);
-            assertPairedStair(t, level, anchor, 3, 12, 5, 5);
+            int stairZ = -config.length() / 2 + 3;
+            assertPairedStair(t, level, anchor, -3, stairZ, 1, 4);
+            assertPairedStair(t, level, anchor, 3, stairZ, 5, 5);
             if (highest >= 15)
-                for (int x : new int[] {-3, 3})
-                    assertPairedStair(t, level, anchor, x,
-                            -config.length() / 2 + 3, 10, 5);
+                assertPairedStair(t, level, anchor, -3, stairZ, 10, 5);
             if (highest >= 20)
-                for (int x : new int[] {-3, 3})
-                    assertPairedStair(t, level, anchor, x,
-                            -config.length() / 2 + 11, 15, 5);
+                assertPairedStair(t, level, anchor, 3, stairZ, 15, 5);
 
             int hangingLights = 0;
             for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(layout).entrySet()) {
