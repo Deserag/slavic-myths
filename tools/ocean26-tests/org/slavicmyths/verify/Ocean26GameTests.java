@@ -1976,7 +1976,8 @@ public final class Ocean26GameTests {
 
     private static void verifyPortableCargoAndFarmBan(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
-        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type)
+                .withCabin(true);
         ServerLevel level = t.getLevel();
         boolean iv = type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
         BlockPos anchor = t.absolutePos(new BlockPos(iv ? 65 : 45, 4, iv ? 70 : 50));
@@ -1995,6 +1996,64 @@ public final class Ocean26GameTests {
         t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()),
                 type + " cannot place initial physical ship");
+
+        // Inspect actual world-facing door halves, usable opening, and a
+        // gapless stern window wall; one-block walls preserve usable cabin room.
+        int rear = -config.length() / 2 + (iv ? 4 : 2);
+        int front = rear + (iv ? 15 : 9);
+        int doorY = iv ? 12 : 11;
+        BlockPos door = FirstShipBlockHull.world(anchor, 0, 0, doorY, front);
+        BlockPos doorTop = door.above();
+        var state = level.getBlockState(door);
+        t.assertTrue(state.is(Blocks.OAK_DOOR)
+                        && state.getValue(net.minecraft.world.level.block.DoorBlock.FACING)
+                                == net.minecraft.core.Direction.SOUTH
+                        && level.getBlockState(doorTop).is(Blocks.OAK_DOOR)
+                        && level.getBlockState(doorTop).getValue(
+                                net.minecraft.world.level.block.DoorBlock.HALF)
+                                == net.minecraft.world.level.block.state.properties
+                                        .DoubleBlockHalf.UPPER,
+                type + " cabin door does not face the wall normal");
+        ((net.minecraft.world.level.block.DoorBlock)state.getBlock()).setOpen(
+                null, level, state, door, true);
+        t.assertTrue(level.getBlockState(door).getValue(
+                        net.minecraft.world.level.block.DoorBlock.OPEN)
+                        && level.getBlockState(doorTop).getValue(
+                                net.minecraft.world.level.block.DoorBlock.OPEN),
+                type + " cabin door fails to open as a paired doorway");
+        ((net.minecraft.world.level.block.DoorBlock)state.getBlock()).setOpen(
+                null, level, level.getBlockState(door), door, false);
+
+        int cabinHalf = iv ? Math.min(7, Math.max(2,
+                org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                        config.structure(), rear) - 2))
+                : Math.min(5, config.width() / 2 - 3);
+        int windowY = iv ? 13 : 12;
+        for (int x = -cabinHalf + 1; x < cabinHalf; x++)
+            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
+                            anchor, 0, x, windowY, rear)).is(Blocks.GLASS_PANE),
+                    type + " stern cabin has non-contiguous glass at x=" + x);
+        for (int x : new int[] {-cabinHalf + 1, cabinHalf - 1})
+            t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(
+                            anchor, 0, x, windowY, rear + 3))
+                            .is(Blocks.STRIPPED_DARK_OAK_LOG),
+                    type + " cabin has an unnecessary inner wall layer");
+
+        int physicalLanterns = 0;
+        for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                config.structure()).entrySet()) {
+            if (piece.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part
+                    .HANGING_LANTERN) continue;
+            var cell = piece.getKey();
+            var lamp = level.getBlockState(FirstShipBlockHull.world(
+                    anchor, 0, cell.x(), cell.y(), cell.z()));
+            t.assertTrue(lamp.is(Blocks.LANTERN)
+                            && lamp.getValue(net.minecraft.world.level.block
+                                    .LanternBlock.HANGING),
+                    type + " interior light is not suspended from a ceiling");
+            physicalLanterns++;
+        }
+        t.assertTrue(physicalLanterns > 1, type + " requires spaced interior lighting");
         int cargoY = iv ? 7 : 6;
         BlockPos chestPos = FirstShipBlockHull.world(anchor, 0, 2, cargoY, 0);
         BlockPos furnacePos = FirstShipBlockHull.world(anchor, 0, 3, cargoY, 0);
