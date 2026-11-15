@@ -459,7 +459,9 @@ public final class ShipHullVoxelLayout {
         }
         if (top >= 20) {
             int front = rear + 16;
-            int half = Math.min(3, p.hullWidth() / 2 - 5);
+            // The top stair uses x=+/-3 and its paired lane at +/-2.
+            // Keep the full landing and an outer one-block cabin wall.
+            int half = Math.min(4, p.hullWidth() / 2 - 3);
             for (int z = rear; z <= front; z++)
                 for (int x = -half; x <= half; x++) {
                     put(out, x, 20, z, Part.BRIDGE);
