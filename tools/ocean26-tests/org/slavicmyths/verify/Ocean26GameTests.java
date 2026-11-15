@@ -1962,4 +1962,139 @@ public final class Ocean26GameTests {
     }
 
 
+    @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_ship_cargo_iii")
+    public static void shipIIIInventoryWrenchRoundTrip(GameTestHelper test) {
+        verifyPortableCargoAndFarmBan(test,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 350, batch = "ocean_ship_cargo_iv")
+    public static void shipIVInventoryWrenchRoundTrip(GameTestHelper test) {
+        verifyPortableCargoAndFarmBan(test,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST);
+    }
+
+    private static void verifyPortableCargoAndFarmBan(GameTestHelper t,
+            org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+        ServerLevel level = t.getLevel();
+        boolean iv = type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
+        BlockPos anchor = t.absolutePos(new BlockPos(iv ? 65 : 45, 4, iv ? 70 : 50));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        for (int x = -config.width() / 2 - 9; x <= config.width() / 2 + 9; x++)
+            for (int z = -config.length() / 2 - 9; z <= config.length() / 2 + 9; z++) {
+                BlockPos water = anchor.offset(x, 0, z);
+                level.setBlock(water.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(water, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 48; y++)
+                    if (!level.getBlockState(water.above(y)).isAir())
+                        level.setBlock(water.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()),
+                type + " cannot place initial physical ship");
+        int cargoY = iv ? 7 : 6;
+        BlockPos chestPos = FirstShipBlockHull.world(anchor, 0, 2, cargoY, 0);
+        BlockPos furnacePos = FirstShipBlockHull.world(anchor, 0, 3, cargoY, 0);
+        BlockPos bedFoot = FirstShipBlockHull.world(anchor, 0, 4, cargoY, 1);
+        BlockPos bedHead = FirstShipBlockHull.world(anchor, 0, 4, cargoY, 2);
+        t.assertTrue(level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 2)
+                        && level.setBlock(furnacePos, Blocks.FURNACE.defaultBlockState(), 2),
+                type + " cannot install vanilla chest/furnace");
+        chest(level, chestPos, t).setItem(0, new ItemStack(Items.DIAMOND, 17));
+        ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
+                .setItem(1, new ItemStack(Items.COAL, 8));
+        var footState = Blocks.RED_BED.defaultBlockState()
+                .setValue(net.minecraft.world.level.block.BedBlock.FACING,
+                        net.minecraft.core.Direction.SOUTH)
+                .setValue(net.minecraft.world.level.block.BedBlock.PART,
+                        net.minecraft.world.level.block.state.properties.BedPart.FOOT);
+        var headState = footState.setValue(net.minecraft.world.level.block.BedBlock.PART,
+                net.minecraft.world.level.block.state.properties.BedPart.HEAD);
+        t.assertTrue(level.setBlock(bedHead, headState, 2)
+                        && level.setBlock(bedFoot, footState, 2),
+                type + " cannot install bed halves");
+
+        BlockPos forbidden = FirstShipBlockHull.world(anchor, 0, 5, cargoY, 8);
+        t.assertTrue(org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                        Blocks.FARMLAND.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.WHEAT.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.SEAGRASS.defaultBlockState()),
+                "Farming whitelist unexpectedly accepts farmland/crops/water plants");
+        t.assertTrue(level.setBlock(forbidden, Blocks.FARMLAND.defaultBlockState(), 2)
+                        && org.slavicmyths.ships.ShipModularBlockHull.pack(
+                                level, anchor, 0, config) == null,
+                type + " must reject ship packing with farmland");
+        level.setBlock(forbidden, Blocks.AIR.defaultBlockState(), 2);
+
+        var moving = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, 0, config);
+        t.assertTrue(moving != null && moving.cargoCount() == 4,
+                type + " must serialize chest, furnace and both bed halves");
+        t.assertTrue(moving.detach(level, anchor)
+                        && level.getBlockState(chestPos).isAir(),
+                type + " detached ship still contains breakable world blocks");
+        var persisted = org.slavicmyths.ships.ShipMovingContraption.load(moving.save());
+        t.assertTrue(persisted != null && persisted.detached()
+                        && persisted.cargoCount() == 4 && persisted.park(level),
+                type + " moving ship NBT did not survive save/load and parking");
+        t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 17
+                        && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
+                                .getItem(1).getCount() == 8
+                        && level.getBlockState(bedFoot).is(Blocks.RED_BED)
+                        && level.getBlockState(bedHead).is(Blocks.RED_BED),
+                type + " cargo items or bed lost while detaching and parking");
+
+        ServerPlayer builder = player(level, (iv ? "IV" : "III") + "WrenchOwner",
+                new Vec3(anchor.getX() + config.width() / 2D + 16D,
+                        anchor.getY() + 3D, anchor.getZ()));
+        builder.getAbilities().instabuild = true;
+        var kit = org.slavicmyths.ships.ShipyardModular.build(builder, config);
+        FirstShipEntity vessel = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(vessel != null && !kit.isEmpty(), "Cannot create ship item");
+        vessel.initializeNativeHull(anchor, 0);
+        t.assertTrue(vessel.loadPacked(kit) && level.addFreshEntity(vessel),
+                type + " parked ship entity failed to initialize");
+        t.assertTrue(org.slavicmyths.ships.ShipCargoPlacementGuard.onParkedShip(
+                        level, forbidden),
+                type + " farm placement guard cannot detect parked ship");
+        t.assertTrue(vessel.packWithKey(builder) == InteractionResult.CONSUME,
+                type + " ship wrench cannot pick up attached real cargo");
+
+        ItemStack packed = ItemStack.EMPTY;
+        for (int slot = 0; slot < builder.getInventory().getContainerSize(); slot++) {
+            ItemStack candidate = builder.getInventory().getItem(slot);
+            if (candidate.is(RaftContent.FIRST_SHIP_ITEM.get())
+                    && candidate.getOrDefault(DataComponents.CUSTOM_DATA,
+                            net.minecraft.world.item.component.CustomData.EMPTY)
+                            .copyTag().getCompound("FirstShipPack")
+                            .contains("BlockCargo")) {
+                packed = candidate.copy();
+                break;
+            }
+        }
+        t.assertTrue(!packed.isEmpty() && level.getBlockState(chestPos).isAir(),
+                type + " wrench item lost BlockCargo NBT or left blocks in world");
+        FirstShipEntity unpacked = RaftContent.FIRST_SHIP.get().create(level);
+        t.assertTrue(unpacked != null && unpacked.loadPacked(packed)
+                        && unpacked.pendingBlockCargo().size() == 4
+                        && org.slavicmyths.ships.ShipModularBlockHull.place(
+                                level, anchor, 0, config, unpacked.pendingBlockCargo()),
+                type + " packed ship item cannot re-place saved NBT cargo");
+        t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 17
+                        && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
+                                .getItem(1).getCount() == 8
+                        && level.getBlockState(bedFoot).is(Blocks.RED_BED)
+                        && level.getBlockState(bedHead).is(Blocks.RED_BED),
+                type + " wrench re-placement changed inventories or bed");
+        builder.discard();
+        level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        t.succeed();
+    }
+
 }
