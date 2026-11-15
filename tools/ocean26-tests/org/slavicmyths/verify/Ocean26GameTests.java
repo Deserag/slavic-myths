@@ -505,8 +505,12 @@ public final class Ocean26GameTests {
         ServerPlayer captain = player(level, type + "VoyageCaptain",
                 new Vec3(ship.getX(), ship.getY() + ship.helmSeatHeight(),
                         ship.getZ() + ship.helmSeatZ() + 1.25D));
+        // In the IV revision the helm is on the aft bridge at rear+4,
+        // while helmWheelZ is the visual aiming target one block forward.
+        int helmZ = largest ? -config.length() / 2 + 8
+                : (int)ship.helmWheelZ();
         BlockPos helm = FirstShipBlockHull.world(ship.blockAnchor(),
-                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), (int)ship.helmWheelZ());
+                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), helmZ);
         t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
                 type + " expected physical helm block not found");
         var wheelClick = new net.neoforged.neoforge.event.entity.player
