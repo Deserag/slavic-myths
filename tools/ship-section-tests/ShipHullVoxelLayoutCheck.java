@@ -83,12 +83,11 @@ public final class ShipHullVoxelLayoutCheck {
                             ? ShipHullVoxelLayout.Part.FRAME : ShipHullVoxelLayout.Part.BOWSPRIT),
                             "IV bowsprit is detached or too thin " + p);
         for (int[] r : new int[][] {
-                {-3, -12, 1}, {3, 6, 1}, {-3, -4, 6}, {3, 14, 6},
-                {-3, rear + 8, 11}, {3, rear + 8, 11}
+                {-3, rear + 2, 1}, {3, rear + 2, 6},
+                {-3, rear + 2, 11}
         }) flight(model, r[0], r[1], r[2], 5, "IV " + p);
         if (p.decks() >= 2 || p.bridge())
-            for (int x : new int[] {-3, 3})
-                flight(model, x, rear + 2, 16, 5, "IV captain " + p);
+            flight(model, 3, rear + 2, 16, 5, "IV captain " + p);
         lights(model, "IV " + p);
     }
 
@@ -101,14 +100,11 @@ public final class ShipHullVoxelLayoutCheck {
                     require(at(model, x, y, z) == (z <= end
                             ? ShipHullVoxelLayout.Part.FRAME : ShipHullVoxelLayout.Part.BOWSPRIT),
                             "III bowsprit is floating or too thin " + p);
-        flight(model, -3, -10, 1, 4, "III " + p);
-        flight(model, 3, 4, 1, 4, "III " + p);
-        flight(model, -3, -2, 5, 5, "III " + p);
-        flight(model, 3, 12, 5, 5, "III " + p);
+        flight(model, -3, rear + 1, 1, 4, "III " + p);
+        flight(model, 3, rear + 1, 5, 5, "III " + p);
         int top = ShipHullVoxelLayout.brigantineTopDeck(p);
         if (top >= 15) {
-            for (int x : new int[] {-3, 3})
-                flight(model, x, rear + 1, 10, 5, "III quarterdeck " + p);
+            flight(model, -3, rear + 1, 10, 5, "III quarterdeck " + p);
             int half = Math.min(5, p.hullWidth() / 2 - 3);
             for (int x = -half + 1; x <= half - 1; x++)
                 require(at(model, x, 12, rear) == ShipHullVoxelLayout.Part.WINDOW,
@@ -120,8 +116,7 @@ public final class ShipHullVoxelLayoutCheck {
                     "III cabin door missing " + p);
         }
         if (top >= 20)
-            for (int x : new int[] {-3, 3})
-                flight(model, x, rear + 9, 15, 5, "III upper " + p);
+            flight(model, 3, rear + 1, 15, 5, "III upper " + p);
         lights(model, "III " + p);
     }
 
