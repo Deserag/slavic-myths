@@ -252,10 +252,12 @@ public final class ShipHullVoxelLayout {
     }
 
     /** Only a deliberately routed stair may cut through a working floor. */
-    private static boolean brigantineStairHatch(int x, int floorY, int z) {
+    private static boolean brigantineStairHatch(int x, int floorY, int z, int rear) {
+        // One compact stairwell, two adjacent two-block-wide lanes.
+        // Alternate port and starboard flights between successive decks.
         int[][] routes = floorY == 5
-                ? new int[][]{{-3, -10, 1, 5}, {3, 4, 1, 5}}
-                : new int[][]{{-3, -2, 5, 10}, {3, 12, 5, 10}};
+                ? new int[][]{{-3, rear + 1, 1, 5}}
+                : new int[][]{{3, rear + 1, 5, 10}};
         for (int[] r : routes) {
             if (x != r[0] && x != stairPairX(r[0], r[2])) continue;
             for (int step = 1; step <= r[3] - r[2]; step++) {
@@ -270,13 +272,14 @@ public final class ShipHullVoxelLayout {
     private static void sealBrigantineWorkingFloors(Map<Cell, Part> blocks,
             ShipSuperstructurePlan plan) {
         int end = plan.hullLength() / 2;
+        int rear = -end + 2;
         for (int z = -end; z <= end; z++) {
             int inside = brigantineBeam(plan, z) - 2;
             for (int x = -inside; x <= inside; x++)
                 for (int floor : new int[]{5, 10}) {
                     Cell cell = new Cell(x, floor, z);
                     if (!blocks.containsKey(cell)
-                            && !brigantineStairHatch(x, floor, z))
+                            && !brigantineStairHatch(x, floor, z, rear))
                         put(blocks, x, floor, z, Part.DECK);
                 }
         }
@@ -311,9 +314,7 @@ public final class ShipHullVoxelLayout {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
         int rear = -end + 2;
-        // Fixed paired stair lanes: outside the captain's cabin and inside
-        // the raised deck's outer wall, regardless of the hull width.
-        int raisedStairX = 3;
+        // Compact, permanently aligned aft stairwell; alternate sides at each deck.
         // Stepped bilge and keel, not a full-width flat underwater slab.
         for (int z = -end; z <= end; z++) {
             int beam = brigantineBeam(p, z);
@@ -408,15 +409,12 @@ public final class ShipHullVoxelLayout {
             for (int x = -radius; x <= radius; x++)
                 for (int y = 8; y <= 9; y++) put(out, x, y, z, timber);
         }
-        // Two separated stairwells: aft / port and bow / starboard.
-        // The two lower floors share safe routes without vertical ladders.
-        for (int[] route : new int[][]{{-3, -10}, {3, 4}})
-            brigantineStairs(out, route[0], route[1], 1, 5);
-        // Stagger the upper flights to the OPPOSITE side. Using the same
-        // X/Z column for stacked flights creates support beams directly
-        // above lower stair treads, so players cannot finish climbing.
-        for (int[] route : new int[][]{{-3, -2}, {3, 12}})
-            brigantineStairs(out, route[0], route[1], 5, 10);
+        // Port lane rises to the gun deck; starboard lane rises to the
+        // weather deck. Both stay in the same aft 7-block-deep shaft.
+        // Alternating lanes prevents successive flights blocking headroom.
+        int stairZ = rear + 1;
+        brigantineStairs(out, -3, stairZ, 1, 5);
+        brigantineStairs(out, 3, stairZ, 5, 10);
         // Upper deck only covers the stern, leaving the middle completely open.
         int top = brigantineTopDeck(p);
         if (top >= 15) {
@@ -508,16 +506,9 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, z, Part.FRAME);
             }
         }
-        // Rebuild both raised access routes AFTER all cabin and stern walls.
-        // This prevents a later upgrade from sealing an earlier passage.
-        if (top >= 15) {
-            for (int x : new int[]{-raisedStairX, raisedStairX})
-                brigantineStairs(out, x, rear + 1, 10, 15);
-        }
-        if (top >= 20) {
-            for (int x : new int[]{-3, 3})
-                brigantineStairs(out, x, rear + 9, 15, 20);
-        }
+        // Continue the SAME two-wide stairwell through the raised decks.
+        if (top >= 15) brigantineStairs(out, -3, stairZ, 10, 15);
+        if (top >= 20) brigantineStairs(out, 3, stairZ, 15, 20);
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
         for (int i = 0; i < p.mastPositions().size(); i++) {
@@ -536,28 +527,18 @@ public final class ShipHullVoxelLayout {
         }
         // Run this after every wall, mast, lantern and cabin placement: no
         // later decorative block may obstruct either flight or its landing.
-        for (int[] route : new int[][]{{-3, -10, 1, 5}, {3, 4, 1, 5},
-                {-3, -2, 5, 10}, {3, 12, 5, 10}})
-            clearBrigantineStairHeadroom(out, route[0], route[1], route[2], route[3]);
-        if (top >= 15)
-            for (int x : new int[]{-raisedStairX, raisedStairX})
-                clearBrigantineStairHeadroom(out, x, rear + 1, 10, 15);
-        if (top >= 20)
-            for (int x : new int[]{-3, 3})
-                clearBrigantineStairHeadroom(out, x, rear + 9, 15, 20);
+        clearBrigantineStairHeadroom(out, -3, stairZ, 1, 5);
+        clearBrigantineStairHeadroom(out, 3, stairZ, 5, 10);
+        if (top >= 15) clearBrigantineStairHeadroom(out, -3, stairZ, 10, 15);
+        if (top >= 20) clearBrigantineStairHeadroom(out, 3, stairZ, 15, 20);
 
         sealBrigantineWorkingFloors(out, p);
         placeShipLighting(out, p, false);
         validateBrigantineBilge(out, p);
-        for (int[] route : new int[][]{{-3, -10, 1, 5}, {3, 4, 1, 5},
-                {-3, -2, 5, 10}, {3, 12, 5, 10}})
-            validateBrigantineStair(out, route[0], route[1], route[2], route[3]);
-        if (top >= 15)
-            for (int x : new int[]{-raisedStairX, raisedStairX})
-                validateBrigantineStair(out, x, rear + 1, 10, 15);
-        if (top >= 20)
-            for (int x : new int[]{-3, 3})
-                validateBrigantineStair(out, x, rear + 9, 15, 20);
+        validateBrigantineStair(out, -3, stairZ, 1, 5);
+        validateBrigantineStair(out, 3, stairZ, 5, 10);
+        if (top >= 15) validateBrigantineStair(out, -3, stairZ, 10, 15);
+        if (top >= 20) validateBrigantineStair(out, 3, stairZ, 15, 20);
         // One physical wheel on the highest accessible captain's platform.
         int wheelZ = rear + 3;
         put(out, 0, top + 1, wheelZ, Part.HELM);
@@ -670,13 +651,13 @@ public final class ShipHullVoxelLayout {
 
     private static boolean frigateStairHole(int x, int floor, int z, int rear) {
         int[][] routes = floor == 6
-                ? new int[][]{{-3, -12}, {3, 6}}
+                ? new int[][]{{-3, rear + 2}}
                 : floor == 11
-                ? new int[][]{{-3, -4}, {3, 14}}
+                ? new int[][]{{3, rear + 2}}
                 : floor == 16
-                ? new int[][]{{-3, rear + 8}, {3, rear + 8}}
+                ? new int[][]{{-3, rear + 2}}
                 : floor == 21
-                ? new int[][]{{-3, rear + 2}, {3, rear + 2}}
+                ? new int[][]{{3, rear + 2}}
                 : new int[0][];
         for (int[] r : routes) {
             int lower = floor == 6 ? 1 : floor == 11 ? 6 : floor == 16 ? 11 : 16;
@@ -762,20 +743,18 @@ public final class ShipHullVoxelLayout {
             }
         }
         for (int[] route : new int[][] {
-                {-3, -12, 1, 6}, {3, 6, 1, 6},
-                {-3, -4, 6, 11}, {3, 14, 6, 11},
-                {-3, rear + 8, 11, 16}, {3, rear + 8, 11, 16}
+                {-3, rear + 2, 1, 6}, {3, rear + 2, 6, 11},
+                {-3, rear + 2, 11, 16}
         })
             validateFrigateStairLandings(blocks, route[0], route[1], route[2], route[3]);
         if (plan.decks() >= 2 || plan.bridge())
-            for (int x : new int[]{-3, 3})
-                validateFrigateStairLandings(blocks, x, rear + 2, 16, 21);
+            validateFrigateStairLandings(blocks, 3, rear + 2, 16, 21);
         for (int z : plan.mastPositions())
             if (blocks.get(new Cell(0, 12, z)) != Part.MAST)
                 throw new IllegalStateException("IV mast base missing at " + z);
-        for (int[] flight : new int[][]{{-3, -12, 1}, {3, 6, 1},
-                {-3, -4, 6}, {3, 14, 6}, {-3, rear + 8, 11},
-                {3, rear + 8, 11}, {-3, rear + 2, 16}, {3, rear + 2, 16}}) {
+        for (int[] flight : new int[][]{{-3, rear + 2, 1},
+                {3, rear + 2, 6}, {-3, rear + 2, 11},
+                {3, rear + 2, 16}}) {
             if (flight[2] == 11 && !(plan.decks() >= 1)
                     || flight[2] == 16 && !(plan.decks() >= 2 || plan.bridge()))
                 continue;
@@ -920,18 +899,13 @@ public final class ShipHullVoxelLayout {
                 for (int x = -Math.max(3, span - 3); x <= Math.max(3, span - 3); x++)
                     if (x != 0) put(out, x, Math.min(45, height - 1), z, Part.YARD);
         }
-        // Fixed routes: two independently accessible stairways between
-        // the hold, gun deck and weather deck.
-        for (int[] route : new int[][]{{-3, -12}, {3, 6}})
-            frigateStairs(out, route[0], route[1], 1, 6);
-        for (int[] route : new int[][]{{-3, -4}, {3, 14}})
-            frigateStairs(out, route[0], route[1], 6, 11);
-        if (raised)
-            for (int x : new int[]{-3, 3})
-                frigateStairs(out, x, rear + 8, 11, 16);
-        if (captainDeck)
-            for (int x : new int[]{-3, 3})
-                frigateStairs(out, x, rear + 2, 16, 21);
+        // One fixed port/starboard switchback shaft throughout the ship.
+        // Every flight remains 2 blocks wide, with 3 empty headroom blocks.
+        int stairZ = rear + 2;
+        frigateStairs(out, -3, stairZ, 1, 6);
+        frigateStairs(out, 3, stairZ, 6, 11);
+        frigateStairs(out, -3, stairZ, 11, 16);
+        if (captainDeck) frigateStairs(out, 3, stairZ, 16, 21);
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
         put(out, 0, wheelY, rear + 4, Part.HELM);
         placeShipLighting(out, p, true);
