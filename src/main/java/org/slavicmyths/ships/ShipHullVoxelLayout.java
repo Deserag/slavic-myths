@@ -654,11 +654,11 @@ public final class ShipHullVoxelLayout {
                 if (beam < 4) continue;
                 int side = Math.min(beam - 2, frigate ? 6 : 4);
                 int ceiling = floor == 1 && !frigate ? 5 : floor + 5;
-                for (int x : new int[]{-side, side}) {
+                // A deck is a walking surface, never a lantern stand.
+                // Only secure lights to the underside of a ceiling beam.
+                for (int x : new int[]{-side, side})
                     if (lightSupport(blocks.get(new Cell(x, ceiling, z))))
                         placeSpacedLight(blocks, x, ceiling - 1, z, true);
-                    else placeSpacedLight(blocks, x, floor + 1, z, false);
-                }
                 int centerZ = z + (frigate ? 0 : 3);
                 if (centerZ <= end - 4
                         && lightSupport(blocks.get(new Cell(0, ceiling, centerZ))))
