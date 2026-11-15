@@ -72,10 +72,21 @@ public final class ShipHullVoxelLayoutCheck {
         for (int x = -half + 1; x <= half - 1; x++)
             require(at(model, x, 13, rear) == ShipHullVoxelLayout.Part.WINDOW,
                     "IV stern window row has a gap " + p + " x=" + x);
-        for (int z = rear + 1; z < rear + 15; z++)
-            for (int y = 12; y <= 15; y++)
-                require(at(model, 0, y, z) != ShipHullVoxelLayout.Part.CABIN_WALL,
-                        "IV has nested inner cabin bulkhead " + p);
+        // Exactly one room boundary: no second, nested inner wall or door.
+        // The interior may contain masts, but no extra cabin bulkheads.
+        for (int z = rear + 1; z < rear + 15; z++) {
+            int side = Math.min(7, Math.max(2, ShipHullVoxelLayout.halfBeam(p, z) - 2));
+            for (int x = -side + 1; x < side; x++)
+                for (int y = 12; y <= 15; y++)
+                    require(at(model, x, y, z) != ShipHullVoxelLayout.Part.CABIN_WALL
+                                    && at(model, x, y, z) != ShipHullVoxelLayout.Part.DOOR,
+                            "IV has nested inner cabin at " + x + "," + y + "," + z + " " + p);
+            for (int x : new int[] {-side, side})
+                for (int y = 12; y <= 15; y++)
+                    require(at(model, x, y, z) == ShipHullVoxelLayout.Part.CABIN_WALL
+                                    || at(model, x, y, z) == ShipHullVoxelLayout.Part.WINDOW,
+                            "IV outer cabin wall is missing at " + x + "," + y + "," + z);
+        }
         for (int z = end - 8; z <= end + 5; z++)
             for (int x = -1; x <= 1; x++)
                 for (int y = 9; y <= 10; y++)
