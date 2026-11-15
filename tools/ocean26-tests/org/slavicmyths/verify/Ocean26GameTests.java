@@ -2124,9 +2124,13 @@ public final class Ocean26GameTests {
         vessel.initializeNativeHull(anchor, 0);
         t.assertTrue(vessel.loadPacked(kit) && level.addFreshEntity(vessel),
                 type + " parked ship entity failed to initialize");
-        t.assertTrue(org.slavicmyths.ships.ShipCargoPlacementGuard.onParkedShip(
-                        level, forbidden),
-                type + " farm placement guard cannot detect parked ship");
+        // The parked ship is now a physical world-block vessel again.
+        // Its farming policy must reject both block placement and hoe actions.
+        t.assertTrue(org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                        Blocks.FARMLAND.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.WHEAT.defaultBlockState()),
+                type + " farm placement guard does not reject the expected states");
         t.assertTrue(vessel.packWithKey(builder) == InteractionResult.CONSUME,
                 type + " ship wrench cannot pick up attached real cargo");
 
