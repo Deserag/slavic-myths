@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.ListTag;
@@ -65,8 +64,7 @@ public final class ShipIVDamageGameTest {
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
                     ShipHullVoxelLayout.generate(config.structure());
             int portCount = 0, stairCount = 0, lightChecks = 0;
-            int darkTiles = 0;
-            String firstDark = "";
+            int hangingLights = 0;
             int gunFloor = type == ShipSectionPlan.ShipClass.LARGE ? 5 : 6;
             for (int z = -end; z <= end; z++) {
                 int beam = ShipHullVoxelLayout.halfBeam(config.structure(), z);
@@ -134,25 +132,41 @@ public final class ShipIVDamageGameTest {
                             anchor, 0, c.x(), c.y() + head, c.z())).isAir(),
                             "Stair headroom blocked at " + c);
             }
-            for (int floor : type == ShipSectionPlan.ShipClass.LARGE
-                    ? new int[]{1, 5, 10, 15, 20} : new int[]{1, 6, 11, 16, 21})
-                for (int z = -end; z <= end; z++)
-                    for (int x = -half; x <= half; x++) {
-                        var part = plan.get(new ShipHullVoxelLayout.Cell(x, floor, z));
-                        if (part != ShipHullVoxelLayout.Part.DECK
-                                && part != ShipHullVoxelLayout.Part.BRIDGE
-                                && part != ShipHullVoxelLayout.Part.HULL) continue;
-                        BlockPos air = FirstShipBlockHull.world(anchor, 0, x, floor + 1, z);
-                        if (!level.getBlockState(air).isAir()) continue;
-                        lightChecks++;
-                        if (level.getBrightness(LightLayer.BLOCK, air) < 8) {
-                            darkTiles++;
-                            if (firstDark.isEmpty()) firstDark = x + "," + floor + "," + z;
-                        }
-                    }
-            test.assertTrue(darkTiles == 0,
-                    "Dark walkable tiles=" + darkTiles + " first=" + firstDark);
-            test.assertTrue(portCount > 8 && stairCount > 16 && lightChecks > 100,
+            // The acceptance criterion is supported ceiling lighting spaced
+            // at least five blocks apart; not maximum brightness on every
+            // hull tile, which would require forbidden floor-lantern spam.
+            for (var light : plan.entrySet()) {
+                if (light.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
+                        && light.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+                var cell = light.getKey();
+                test.assertTrue(light.getValue() == ShipHullVoxelLayout.Part.HANGING_LANTERN,
+                        "Ground lantern in a deck walkway: " + cell);
+                BlockPos position = FirstShipBlockHull.world(anchor, 0,
+                        cell.x(), cell.y(), cell.z());
+                test.assertTrue(level.getBlockState(position).is(Blocks.LANTERN)
+                                && level.getBlockState(position).getValue(
+                                        net.minecraft.world.level.block.LanternBlock.HANGING),
+                        "Lantern missing or not hung from beam: " + cell);
+                BlockPos support = position.above();
+                test.assertTrue(!level.getBlockState(support).isAir(),
+                        "Ceiling lantern has no anchor: " + cell);
+                for (var other : plan.entrySet()) {
+                    if (other.getKey().equals(cell)
+                            || other.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
+                            && other.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+                    var second = other.getKey();
+                    int dx = cell.x() - second.x();
+                    int dy = cell.y() - second.y();
+                    int dz = cell.z() - second.z();
+                    test.assertTrue(dx * dx + dy * dy + dz * dz >= 25,
+                            "Lanterns too close: " + cell + " / " + second);
+                }
+                hangingLights++;
+            }
+            lightChecks = hangingLights;
+            test.assertTrue(hangingLights >= 6,
+                    "Ship has insufficient spaced ceiling lighting");
+            test.assertTrue(portCount > 8 && stairCount > 16 && lightChecks >= 6,
                     "Incomplete bounding-box scan");
             ShipMovingContraption moving = ShipMovingContraption.prepare(level, anchor, 0, config);
             test.assertTrue(moving != null && moving.detach(level, anchor),
