@@ -66,12 +66,15 @@ public final class FirstShipInteractionClient {
                 String[] cargo = ship.movingCargoView().split(";");
                 for (int i = 0; i < cargo.length; i++) {
                     String[] fields = cargo[i].split(",");
-                    if (fields.length != 4) continue;
+                    if (fields.length != 4 && fields.length != 5) continue;
                     try {
                         int x = Integer.parseInt(fields[0]);
                         int y = Integer.parseInt(fields[1]);
                         int z = Integer.parseInt(fields[2]);
-                        if (Integer.parseInt(fields[3]) == 5) continue;
+                        int cargoKind = Integer.parseInt(fields[3]);
+                        // Only the four built-in portable menus are implemented.
+                        // Generic saved storage still travels with the hull.
+                        if (cargoKind < 1 || cargoKind > 4) continue;
                         var hit = new net.minecraft.world.phys.AABB(x - .5D, y, z - .5D,
                                 x + .5D, y + 1D, z + .5D).clip(localEye, localEnd);
                         if (hit.isPresent()) {
