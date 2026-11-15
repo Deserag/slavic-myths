@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/2.6-largest-hull-overhaul-20261113
+      - fix/ships-3-4-wip
   pull_request:
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
