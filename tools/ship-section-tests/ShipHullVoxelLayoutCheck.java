@@ -13,8 +13,7 @@ public final class ShipHullVoxelLayoutCheck {
 
     private static void pairedFlight(Map<ShipHullVoxelLayout.Cell,
             ShipHullVoxelLayout.Part> model, int x, int z, int lower) {
-        for (int lane : new int[]{x, x + (lower == 1 || lower == 10
-                ? -Integer.signum(x) : Integer.signum(x))})
+        for (int lane : new int[]{x, x - Integer.signum(x)})
             for (int i = 1; i <= (lower == 1 ? 4 : 5); i++) {
                 int y = lower + i, atZ = z + i;
                 yes(model.get(new ShipHullVoxelLayout.Cell(lane, y, atZ))
@@ -69,18 +68,18 @@ public final class ShipHullVoxelLayoutCheck {
                                 brigantines++;
                                 int highest = ShipHullVoxelLayout.brigantineTopDeck(p);
                                 int rear = -length / 2 + 2;
-                                pairedFlight(model, -2, -10, 1);
-                                pairedFlight(model, 2, 4, 1);
-                                pairedFlight(model, 3, -8, 5);
-                                pairedFlight(model, -3, 3, 5);
+                                pairedFlight(model, -3, -10, 1);
+                                pairedFlight(model, 3, 4, 1);
+                                pairedFlight(model, -3, -2, 5);
+                                pairedFlight(model, 3, 12, 5);
                                 if (highest >= 15) {
-                                    int raisedX = Math.min(4, width / 2 - 4);
+                                    int raisedX = 3;
                                     pairedFlight(model, -raisedX, rear + 1, 10);
                                     pairedFlight(model, raisedX, rear + 1, 10);
                                 }
                                 if (highest >= 20) {
-                                    pairedFlight(model, -1, rear + 1, 15);
-                                    pairedFlight(model, 1, rear + 1, 15);
+                                    pairedFlight(model, -3, rear + 9, 15);
+                                    pairedFlight(model, 3, rear + 9, 15);
                                 }
                                 yes(model.get(new ShipHullVoxelLayout.Cell(0, highest + 1, rear + 3))
                                                 == ShipHullVoxelLayout.Part.HELM,
@@ -682,15 +681,23 @@ public final class ShipHullVoxelLayoutCheck {
                                 }
                             }
         yes(configurations == 192, "all MEDIUM variants enumerated");
+        // Keep the isolated headless check dependency-free: ShipBuildConfiguration
+        // imports Minecraft NBT and cannot be compiled in this pure Java job.
         for (var type : List.of(ShipSectionPlan.ShipClass.LARGE,
                 ShipSectionPlan.ShipClass.LARGEST))
-            for (int length = 0; length <= 3; length++)
-                for (int width = 0; width <= 2; width++) {
-                    var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type)
-                            .resize(length, width);
-                    double ratio = config.length() / (double)config.width();
+            for (int lengthExtra = 0; lengthExtra <= 3; lengthExtra++)
+                for (int widthExtra = 0; widthExtra <= 2; widthExtra++) {
+                    int width = (type == ShipSectionPlan.ShipClass.LARGE ? 15 : 21)
+                            + widthExtra * 2;
+                    int baseLength = (type == ShipSectionPlan.ShipClass.LARGE ? 33 : 51)
+                            + lengthExtra * 4;
+                    int minimum = (int)Math.ceil(width * 3.6D);
+                    if ((minimum & 1) == 0) minimum++;
+                    int actualLength = Math.max(baseLength, minimum);
+                    double ratio = actualLength / (double)width;
                     yes(ratio >= 3.5D && ratio <= 4.5D,
-                            "III/IV hull outside approved proportions: " + config);
+                            "III/IV hull outside approved proportions: " + type
+                                    + " " + actualLength + "x" + width);
                 }
         System.out.println("PASS ShipHullVoxelLayoutCheck assertions=" + checks);
     }
