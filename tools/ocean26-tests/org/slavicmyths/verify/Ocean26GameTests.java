@@ -2166,4 +2166,53 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
+    public static void modularBedAndFarmingPolicy(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(20, 4, 20));
+        for (int x = -12; x <= 12; x++)
+            for (int z = -20; z <= 20; z++) {
+                BlockPos pos = anchor.offset(x, 0, z);
+                level.setBlock(pos.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 26; y++)
+                    level.setBlock(pos.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, new ListTag()), "Bed fixture hull placement failed");
+        BlockPos foot = FirstShipBlockHull.world(anchor, 0, 2, 5, 2);
+        BlockPos head = FirstShipBlockHull.world(anchor, 0, 2, 5, 3);
+        var bed = Blocks.RED_BED.defaultBlockState()
+                .setValue(net.minecraft.world.level.block.BedBlock.FACING,
+                        net.minecraft.core.Direction.SOUTH);
+        level.setBlock(foot, bed.setValue(net.minecraft.world.level.block.BedBlock.PART,
+                net.minecraft.world.level.block.state.properties.BedPart.FOOT), 2);
+        level.setBlock(head, bed.setValue(net.minecraft.world.level.block.BedBlock.PART,
+                net.minecraft.world.level.block.state.properties.BedPart.HEAD), 2);
+        ListTag cargo = org.slavicmyths.ships.ShipModularBlockHull.pack(level, anchor, 0, config);
+        t.assertTrue(cargo != null && cargo.size() == 2,
+                "Both bed halves must be captured as cargo");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(level, anchor, 0, config),
+                "Hull with bed could not be removed");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                level, anchor, 0, config, cargo), "Bed cargo could not be restored");
+        t.assertTrue(level.getBlockState(foot).is(Blocks.RED_BED)
+                && level.getBlockState(head).is(Blocks.RED_BED)
+                && level.getBlockState(foot).getValue(
+                        net.minecraft.world.level.block.BedBlock.PART)
+                        == net.minecraft.world.level.block.state.properties.BedPart.FOOT
+                && level.getBlockState(head).getValue(
+                        net.minecraft.world.level.block.BedBlock.PART)
+                        == net.minecraft.world.level.block.state.properties.BedPart.HEAD,
+                "Restored bed halves lost their identity");
+        BlockPos farmland = FirstShipBlockHull.world(anchor, 0, -2, 5, 2);
+        level.setBlock(farmland, Blocks.FARMLAND.defaultBlockState(), 2);
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.pack(
+                level, anchor, 0, config) == null,
+                "Farmland must prevent packing rather than be transported");
+        t.succeed();
+    }
 }

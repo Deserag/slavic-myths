@@ -34,7 +34,10 @@ public final class ShipHelmBlockEvents {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (config == null || !ship.isNativeHull() || ship.isMoving() || ship.isRemoved()) continue;
             int y = (int)ship.helmSeatHeight();
-            int z = (int)ship.helmWheelZ();
+            int z = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && config.hullRevision() == 4
+                    ? -config.length() / 2 + 8
+                    : (int)ship.helmWheelZ();
             BlockPos helm = FirstShipBlockHull.world(
                     ship.blockAnchor(), ship.quarterTurns(), 0, y, z);
             if (!hit.equals(helm)) continue;
