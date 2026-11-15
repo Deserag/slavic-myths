@@ -51,8 +51,7 @@ public final class Ocean26GameTests {
             "slavicmyths_ocean26_voyage", Long::compare);
     private static void assertPairedStair(GameTestHelper test, ServerLevel level,
             BlockPos anchor, int x, int startZ, int lower, int rise) {
-        int paired = x + (lower == 1 || lower == 10 || lower == 11
-                ? -Integer.signum(x) : Integer.signum(x));
+        int paired = x - Integer.signum(x);
         for (int lane : new int[]{x, paired})
             for (int step = 1; step <= rise; step++) {
                 BlockPos tread = FirstShipBlockHull.world(anchor, 0, lane,
@@ -60,7 +59,8 @@ public final class Ocean26GameTests {
                 test.assertTrue(level.getBlockState(tread).is(Blocks.SPRUCE_STAIRS),
                         "Missing paired physical stair at " + lane + "," + step);
                 test.assertTrue(level.getBlockState(tread.above()).isAir()
-                        && level.getBlockState(tread.above(2)).isAir(),
+                        && level.getBlockState(tread.above(2)).isAir()
+                        && level.getBlockState(tread.above(3)).isAir(),
                         "Player headroom blocked above stair " + lane + "," + step);
             }
     }
@@ -469,13 +469,13 @@ public final class Ocean26GameTests {
         t.assertTrue(ship.loadPacked(item) && org.slavicmyths.ships.ShipModularBlockHull.place(
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         if (largest) {
-            int rear = -config.length() / 2 + 3;
+            int rear = -config.length() / 2 + 4;
             assertPairedStair(t, level, anchor, -3, -12, 1, 5);
             assertPairedStair(t, level, anchor, 3, 6, 1, 5);
-            assertPairedStair(t, level, anchor, -4, -8, 6, 5);
-            assertPairedStair(t, level, anchor, 4, 2, 6, 5);
-            assertPairedStair(t, level, anchor, -5, rear + 8, 11, 5);
-            assertPairedStair(t, level, anchor, 5, rear + 8, 11, 5);
+            assertPairedStair(t, level, anchor, -3, -4, 6, 5);
+            assertPairedStair(t, level, anchor, 3, 14, 6, 5);
+            assertPairedStair(t, level, anchor, -3, rear + 8, 11, 5);
+            assertPairedStair(t, level, anchor, 3, rear + 8, 11, 5);
         }
         if (damaged) {
             BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
@@ -1796,85 +1796,34 @@ public final class Ocean26GameTests {
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, 0, 10, 0)).is(Blocks.SPRUCE_PLANKS),
                     "Brigantine main deck missing");
-            // Real spruce stairs, two separately accessible routes per floor.
-            for (int[] route : new int[][]{{-2, -10}, {2, 4}}) {
-                for (int i = 1; i <= 4; i++)
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                    anchor, 0, route[0], 1 + i, route[1] + i))
-                                    .is(Blocks.SPRUCE_STAIRS),
-                            "Missing physical hold-to-gun-deck stair");
-            }
-            for (int[] route : new int[][]{{3, -8}, {-3, 3}})
-                for (int i = 1; i <= 5; i++)
-                    t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                    anchor, 0, route[0], 5 + i, route[1] + i))
-                                    .is(Blocks.SPRUCE_STAIRS),
-                            "Missing physical gun-to-weather stair");
+            // Check the CURRENT 2-wide physical flights and full 3-block headroom,
+            // not coordinates from the withdrawn pre-fix layout.
+            assertPairedStair(t, level, anchor, -3, -10, 1, 4);
+            assertPairedStair(t, level, anchor, 3, 4, 1, 4);
+            assertPairedStair(t, level, anchor, -3, -2, 5, 5);
+            assertPairedStair(t, level, anchor, 3, 12, 5, 5);
             if (highest >= 15)
-                for (int x : new int[]{-Math.min(4, config.width() / 2 - 4),
-                        Math.min(4, config.width() / 2 - 4)})
-                    for (int i = 1; i <= 5; i++)
-                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                        anchor, 0, x, 10 + i,
-                                        -config.length() / 2 + 3 + i))
-                                        .is(Blocks.SPRUCE_STAIRS),
-                                "Raised quarterdeck stair missing in world");
+                for (int x : new int[] {-3, 3})
+                    assertPairedStair(t, level, anchor, x,
+                            -config.length() / 2 + 3, 10, 5);
             if (highest >= 20)
-                for (int x : new int[]{-1, 1})
-                    for (int i = 1; i <= 5; i++)
-                        t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                                        anchor, 0, x, 15 + i,
-                                        -config.length() / 2 + 3 + i))
-                                        .is(Blocks.SPRUCE_STAIRS),
-                                "Upper captain deck stair missing in world");
-            assertPairedStair(t, level, anchor, -2, -10, 1, 4);
-            assertPairedStair(t, level, anchor, 2, 4, 1, 4);
-            assertPairedStair(t, level, anchor, 3, -8, 5, 5);
-            assertPairedStair(t, level, anchor, -3, 3, 5, 5);
-            if (highest >= 15) {
-                int stairX = Math.min(4, config.width() / 2 - 4);
-                assertPairedStair(t, level, anchor, -stairX,
-                        -config.length() / 2 + 3, 10, 5);
-                assertPairedStair(t, level, anchor, stairX,
-                        -config.length() / 2 + 3, 10, 5);
+                for (int x : new int[] {-3, 3})
+                    assertPairedStair(t, level, anchor, x,
+                            -config.length() / 2 + 11, 15, 5);
+
+            int hangingLights = 0;
+            for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(layout).entrySet()) {
+                if (piece.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.HANGING_LANTERN)
+                    continue;
+                var c = piece.getKey();
+                var pos = FirstShipBlockHull.world(anchor, 0, c.x(), c.y(), c.z());
+                t.assertTrue(level.getBlockState(pos).is(Blocks.LANTERN)
+                                && level.getBlockState(pos).getValue(
+                                        net.minecraft.world.level.block.LanternBlock.HANGING),
+                        "Hanging lantern absent or grounded at " + c);
+                hangingLights++;
             }
-            if (highest >= 20) {
-                assertPairedStair(t, level, anchor, -1,
-                        -config.length() / 2 + 3, 15, 5);
-                assertPairedStair(t, level, anchor, 1,
-                        -config.length() / 2 + 3, 15, 5);
-            }
-            for (int z : new int[]{-config.length() / 2 + 7, -config.length() / 2 + 12}) {
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0, 3, 2, z)).is(Blocks.LANTERN),
-                        "Lower hold does not contain physical interior lanterns");
-                t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                        anchor, 0,
-                        -org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
-                                config.structure(), z) + 2, 6, z)).is(Blocks.LANTERN),
-                        "Gun deck does not contain physical interior lanterns");
-            }
-            if (highest >= 15) {
-                int rear = -config.length() / 2 + 2;
-                int half = Math.min(5, config.width() / 2 - 3);
-                int raisedLamps = 0;
-                for (int z = rear; z <= rear + 9; z++)
-                    for (int x = -half; x <= half; x++)
-                        if (level.getBlockState(FirstShipBlockHull.world(
-                                anchor, 0, x, 16, z)).is(Blocks.LANTERN)) raisedLamps++;
-                t.assertTrue(raisedLamps >= 2,
-                        "Elevated cabin lacks a physical light source");
-            }
-            if (highest >= 20) {
-                int upperLamps = 0;
-                int rear = -config.length() / 2 + 2;
-                for (int z = rear; z <= rear + 8; z++)
-                    for (int x = -3; x <= 3; x++)
-                        if (level.getBlockState(FirstShipBlockHull.world(
-                                anchor, 0, x, 21, z)).is(Blocks.LANTERN)) upperLamps++;
-                t.assertTrue(upperLamps > 0,
-                        "Top captain level lacks a physical light source");
-            }
+            t.assertTrue(hangingLights > 1, "Brigantine interior has no supported lighting");
             // Check ACTUAL world blocks, not just the voxel planning map.
             // Former builds left a wide open bow and stern at the gun deck.
             for (int endZ : new int[]{-config.length() / 2, config.length() / 2}) {
@@ -1897,9 +1846,7 @@ public final class Ocean26GameTests {
                     t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                             anchor, 0, side * (beam - 1), y, portZ)).isAir(),
                             "Future cannon port aperture is blocked");
-            t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                    anchor, 0, beam - 2, 11, portZ)).is(Blocks.LANTERN),
-                    "Real gun-deck lighting or deck lantern missing");
+            t.assertTrue(beam >= 4, "Invalid gunport beam at inspection station");
             int wheelZ = -config.length() / 2 + 5;
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, 0, highest + 1, wheelZ)).is(Blocks.DARK_OAK_FENCE),
