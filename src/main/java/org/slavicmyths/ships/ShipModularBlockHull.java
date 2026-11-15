@@ -226,6 +226,9 @@ public final class ShipModularBlockHull {
     }
 
     private static int kind(BlockState state, BlockEntity blockEntity) {
+        if (!state.getFluidState().isEmpty() || state.getBlock() instanceof FarmBlock
+                || state.getBlock() instanceof BushBlock
+                || state.getBlock() instanceof LiquidBlock) return 0;
         if (state.is(Blocks.CHEST)) return 1;
         if (state.is(Blocks.BARREL)) return 2;
         if (state.is(Blocks.CRAFTING_TABLE)) return 3;
@@ -436,7 +439,8 @@ public final class ShipModularBlockHull {
             BlockEntity loaded = BlockEntity.loadStatic(pos, entry.state(),
                     entry.data(), level.registryAccess());
             if (loaded == null || entry.kind() == GENERAL_CARGO
-                    && !(loaded instanceof Container)) return false;
+                    && !(loaded instanceof Container)
+                    && !allowedSimple(entry.state())) return false;
         }
         return true;
     }
