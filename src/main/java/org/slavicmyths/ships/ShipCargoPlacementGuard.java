@@ -58,6 +58,16 @@ public final class ShipCargoPlacementGuard {
     }
 
     @SubscribeEvent
+    public static void onToolModification(BlockEvent.BlockToolModificationEvent event) {
+        BlockState finalState = event.getFinalState();
+        if (!event.isSimulated() && finalState != null
+                && event.getLevel() instanceof ServerLevel server
+                && forbidden(finalState)
+                && onParkedShip(server, event.getPos()))
+            event.setCanceled(true);
+    }
+
+    @SubscribeEvent
     public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
         if (event.getLevel() instanceof ServerLevel server
                 && forbidden(event.getPlacedBlock())
