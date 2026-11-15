@@ -509,8 +509,10 @@ public final class Ocean26GameTests {
         // while helmWheelZ is the visual aiming target one block forward.
         int helmZ = largest ? -config.length() / 2 + 8
                 : (int)ship.helmWheelZ();
+        int physicalHelmY = largest ? (config.decks() >= 2 || config.bridge() ? 22 : 17)
+                : (int)ship.helmSeatHeight();
         BlockPos helm = FirstShipBlockHull.world(ship.blockAnchor(),
-                ship.quarterTurns(), 0, (int)ship.helmSeatHeight(), helmZ);
+                ship.quarterTurns(), 0, physicalHelmY, helmZ);
         t.assertTrue(level.getBlockState(helm).is(Blocks.DARK_OAK_FENCE),
                 type + " expected physical helm block not found");
         var wheelClick = new net.neoforged.neoforge.event.entity.player
