@@ -33,7 +33,10 @@ public final class ShipHelmBlockEvents {
                 new AABB(hit).inflate(32D, 44D, 32D))) {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (config == null || !ship.isNativeHull() || ship.isMoving() || ship.isRemoved()) continue;
-            int y = (int)ship.helmSeatHeight();
+            int y = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && config.hullRevision() == 4
+                    ? (config.bridge() || config.decks() >= 2 ? 22 : 17)
+                    : (int)ship.helmSeatHeight();
             int z = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                     && config.hullRevision() == 4
                     ? -config.length() / 2 + 8
