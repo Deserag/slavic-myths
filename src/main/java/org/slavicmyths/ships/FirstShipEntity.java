@@ -752,8 +752,18 @@ public final class FirstShipEntity extends Boat {
                 || modularConfiguration() == null || isVehicle()
                 || player.isPassenger() || player.isSpectator()
                 || player.isSecondaryUseActive()) return false;
+        ShipBuildConfiguration config = modularConfiguration();
+        int physicalZ = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4
+                ? -config.length() / 2 + 8 : (int)helmWheelZ();
+        int physicalY = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4
+                ? (config.bridge() || config.decks() >= 2 ? 22 : 17)
+                : (int)helmSeatHeight();
         BlockPos expected = FirstShipBlockHull.world(blockAnchor(), quarterTurns(),
-                0, (int)helmSeatHeight(), (int)helmWheelZ());
+                0, physicalY, physicalZ);
         if (!expected.equals(clicked)
                 || !level().getBlockState(expected).is(Blocks.DARK_OAK_FENCE)
                 || player.distanceToSqr(Vec3.atCenterOf(expected)) > 36D
