@@ -49,7 +49,7 @@ public final class ShipHullVoxelLayoutCheck {
                     || overhead == ShipHullVoxelLayout.Part.TRIM,
                     name + " lantern not supported by ceiling");
             for (var b : model.entrySet()) {
-                if (b == a || b.getValue() != ShipHullVoxelLayout.Part.LANTERN
+                if (b.getKey().equals(a.getKey()) || b.getValue() != ShipHullVoxelLayout.Part.LANTERN
                         && b.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
                 var d = b.getKey();
                 int dx = c.x() - d.x(), dy = c.y() - d.y(), dz = c.z() - d.z();
