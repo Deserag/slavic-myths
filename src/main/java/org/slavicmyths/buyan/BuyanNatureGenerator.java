@@ -50,7 +50,7 @@ public final class BuyanNatureGenerator {
         BuyanNatureState state = BuyanNatureState.get(world);
         if (state.active || state.finishedAt(site)) return false;
         double cutoff = BuyanNature.forestCutoff(world.getSeed(),
-            site.x(), site.z(), site.radius(), world.getSeaLevel());
+            site.x(), site.z(), site.radius(), site.waterLevel());
         if (!Double.isFinite(cutoff)) {
             throw new IllegalStateException("Not enough eligible dry land for Buyan forest");
         }
@@ -165,7 +165,8 @@ public final class BuyanNatureGenerator {
         ServerLevel world = source.getLevel();
         BuyanNatureState state = BuyanNatureState.get(world);
         if (!state.active) return status(source);
-        if (!state.compatible || !Double.isFinite(state.forestCutoff)
+        if (!state.compatible || state.waterLevel + 2 >= world.getMaxBuildHeight() - 15
+            || !Double.isFinite(state.forestCutoff)
             || !Double.isFinite(state.sandCutoff) || !Double.isFinite(state.gravelCutoff)
             || state.sandCutoff > state.gravelCutoff
             || state.phase < 0 || state.phase > 1 || BuyanState.get(world).active) {
@@ -192,7 +193,7 @@ public final class BuyanNatureGenerator {
     private static boolean terrainColumn(ServerLevel world, BuyanNatureState state,
                                          int x, int z, BlockState[] original) {
         long seed = world.getSeed();
-        int sea = world.getSeaLevel();
+        int sea = state.waterLevel;
         int foundation = BuyanTerrain.top(seed, state.centerX, state.centerZ,
             state.radius, x, z, sea);
         if (foundation == Integer.MIN_VALUE) return true;
@@ -309,7 +310,7 @@ public final class BuyanNatureGenerator {
         if (lx != anchorX || lz != anchorZ) return false;
         if (BuyanTerrain.value(seed ^ 0xB22A0603L, x, z, 0) > 0.55) return false;
 
-        int sea = world.getSeaLevel();
+        int sea = state.waterLevel;
         if (!BuyanNature.forest(seed, state.centerX, state.centerZ, state.radius,
             x, z, sea, state.forestCutoff)
             || BuyanNature.shoreDistance(seed, state.centerX, state.centerZ, x, z) < 6.0) {
@@ -350,7 +351,7 @@ public final class BuyanNatureGenerator {
 
     private static void undergrowth(ServerLevel world, BuyanNatureState state, int x, int z) {
         long seed = world.getSeed();
-        int sea = world.getSeaLevel();
+        int sea = state.waterLevel;
         int y = BuyanNature.top(seed, state.centerX, state.centerZ,
             state.radius, x, z, sea);
         if (y == Integer.MIN_VALUE) return;
