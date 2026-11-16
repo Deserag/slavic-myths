@@ -19,6 +19,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -246,9 +248,17 @@ public final class ShipModularBlockHull {
         var cell = new ShipHullVoxelLayout.Cell(x, y, z);
         if (plan.containsKey(cell)) return false;
         var below = plan.get(new ShipHullVoxelLayout.Cell(x, y - 1, z));
-        return below == ShipHullVoxelLayout.Part.DECK
+        boolean supported = below == ShipHullVoxelLayout.Part.DECK
                 || below == ShipHullVoxelLayout.Part.BRIDGE
                 || below == ShipHullVoxelLayout.Part.HULL;
+        if (!supported) return false;
+        // Keep the whole approach, stair, and one-cell landing available,
+        // including the player's headroom. No cargo may seal the new path.
+        for (int dz = -1; dz <= 1; dz++)
+            for (int dy = y - 3; dy <= y + 2; dy++)
+                if (plan.get(new ShipHullVoxelLayout.Cell(x, dy, z + dz))
+                        == ShipHullVoxelLayout.Part.STAIR) return false;
+        return true;
     }
 
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
@@ -402,6 +412,55 @@ public final class ShipModularBlockHull {
             result.add(row);
         }
         return result;
+    }
+
+    /**
+     * Append real block cargo to a detached modular hull without touching
+     * world chunks. This is the same validated NBT format as ordinary
+     * on-deck cargo, so rotation, parking, saves and chest inventory all use
+     * the existing restore path. A bed is placed atomically as two blocks.
+     */
+    public static ListTag withAddedMovingCargo(ServerLevel level,
+            ShipBuildConfiguration config, ListTag entries,
+            BlockPos local, BlockState requested) {
+        if (level == null || config == null || config.withdrawn()
+                || entries == null || requested == null
+                || requested.isAir() || ShipCargoPlacementGuard.forbidden(requested))
+            return null;
+        List<Cargo> old = decode(config, entries);
+        if (old == null) return null;
+        Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
+                ShipHullVoxelLayout.generate(config.structure());
+        List<Map.Entry<BlockPos, BlockState>> pieces = new ArrayList<>();
+        if (requested.getBlock() instanceof BedBlock) {
+            BlockState foot = requested.setValue(BedBlock.PART, BedPart.FOOT);
+            Direction facing = foot.getValue(BedBlock.FACING);
+            pieces.add(Map.entry(local, foot));
+            pieces.add(Map.entry(local.relative(facing),
+                    foot.setValue(BedBlock.PART, BedPart.HEAD)));
+        } else pieces.add(Map.entry(local, requested));
+        if (old.size() + pieces.size()
+                > config.width() * config.length() * config.decks()) return null;
+        List<Cargo> next = new ArrayList<>(old);
+        for (var piece : pieces) {
+            BlockPos p = piece.getKey();
+            BlockState state = piece.getValue();
+            if (p.getY() < 1 || p.getY() > 48
+                    || !cargoCell(plan, p.getX(), p.getY(), p.getZ())
+                    || next.stream().anyMatch(c -> c.x() == p.getX()
+                            && c.y() == p.getY() && c.z() == p.getZ()))
+                return null;
+            BlockEntity blockEntity = state.getBlock() instanceof EntityBlock entity
+                    ? entity.newBlockEntity(p, state) : null;
+            if (state.hasBlockEntity() && blockEntity == null) return null;
+            int type = kind(state, blockEntity);
+            if (type == 0) return null;
+            CompoundTag data = blockEntity == null ? new CompoundTag()
+                    : blockEntity.saveWithFullMetadata(level.registryAccess());
+            next.add(new Cargo(p.getX(), p.getY(), p.getZ(), type, state, data));
+        }
+        ListTag encoded = encode(next);
+        return decode(config, encoded) == null ? null : encoded;
     }
 
     /** Rotate saved cargo states when a moving hull parks on a new heading. */
