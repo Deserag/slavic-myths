@@ -165,7 +165,7 @@ public final class ShipHullVoxelLayoutCheck {
         boolean captainDeck = p.decks() >= 2 || p.bridge();
         stairRoute(model, rear + 12, new int[]{1, 6, 11}, "IV " + p,
                 10 + (captainDeck ? 10 : 0));
-        for (int x : new int[]{3, 4}) {
+        for (int x : new int[]{6, 7}) {
             for (int i = 1; i <= 5; i++)
                 require(at(model, x, 11 + i, rear + 21 - i)
                         == ShipHullVoxelLayout.Part.STAIR,
