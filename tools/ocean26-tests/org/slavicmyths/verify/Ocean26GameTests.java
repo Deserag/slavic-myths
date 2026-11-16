@@ -629,9 +629,24 @@ public final class Ocean26GameTests {
             level.setBlock(hole, Blocks.AIR.defaultBlockState(), 2);
             ListTag packed = org.slavicmyths.ships.ShipModularBlockHull.pack(
                     level, anchor, 0, config);
+            int mismatches = 0;
+            String firstMismatch = "none";
+            for (var expected : org.slavicmyths.ships.ShipModularBlockHull
+                    .localPalette(config).entrySet()) {
+                BlockPos local = expected.getKey();
+                BlockPos where = FirstShipBlockHull.world(anchor, 0,
+                        local.getX(), local.getY(), local.getZ());
+                if (where.equals(hole) || level.getBlockState(where).getBlock()
+                        == expected.getValue().getBlock()) continue;
+                if (mismatches++ == 0)
+                    firstMismatch = local + " expected=" + expected.getValue()
+                            + " actual=" + level.getBlockState(where);
+            }
             t.assertTrue(packed != null && packed.size() == 1
                     && packed.getCompound(0).getInt("Kind") == 5,
-                    "Single missing plank was not preserved as damage");
+                    "Single missing plank was not preserved as damage: pack="
+                            + (packed == null ? "null" : packed.toString())
+                            + " mismatches=" + mismatches + " first=" + firstMismatch);
             var preparedWithOneHole = org.slavicmyths.ships.ShipMovingContraption.prepare(
                     level, anchor, 0, config);
             t.assertTrue(preparedWithOneHole != null,
