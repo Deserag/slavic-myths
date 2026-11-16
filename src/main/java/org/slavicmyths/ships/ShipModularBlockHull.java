@@ -84,6 +84,8 @@ public final class ShipModularBlockHull {
                     .setValue(DoorBlock.HALF,
                             y == 6 || y == 12 && config.hullRevision() != 4
                                     || y == 13 && config.hullRevision() == 4
+                                    || y == 17 && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                                            && config.hullRevision() == 3
                                     ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
                     .setValue(DoorBlock.FACING, switch (Math.floorMod(turns, 4)) {
                         case 0 -> Direction.SOUTH;
