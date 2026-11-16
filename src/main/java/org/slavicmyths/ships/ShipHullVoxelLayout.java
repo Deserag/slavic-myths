@@ -959,7 +959,9 @@ public final class ShipHullVoxelLayout {
                     right = Math.max(right, x);
                 }
             if (left > right) continue;
-            frigateDeckRail(blocks, left, 21, z);
+            // Port-side stair arrives here: never fence in its headroom or
+            // landing, including the paired x=-4 walking lane.
+            if (z != rear + 4) frigateDeckRail(blocks, left, 21, z);
             frigateDeckRail(blocks, right, 21, z);
             if (z == rear || z == rear + 9)
                 for (int x = left; x <= right; x++)
