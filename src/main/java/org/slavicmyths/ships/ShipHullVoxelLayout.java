@@ -824,35 +824,25 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, z, y == 11 + rise ? Part.TRIM : Part.HULL);
             }
         }
-        // The knyavdiged is an extension of the lower keel, not a short
-        // vertical appendage or a spar emerging from the mast/deck.
-        // The lower timber sweeps forward by eighteen whole blocks; the
-        // cosine keeps its rise to eight blocks over thirty longitudinal
-        // stations. A narrowing scarf ties it continuously into the
-        // full-height bow plating without an air gap at the forefoot.
-        int rootZ = end - 12;
-        int tipZ = end + 18;
-        int previousY = 0;
-        for (int z = rootZ; z <= tipZ; z++) {
-            double progress = (z - rootZ) / (double)(tipZ - rootZ);
-            int keelY = (int)Math.round(4D * (1D - Math.cos(progress * Math.PI)));
-            if (z <= end) {
-                // Existing y=0 keel carries the root inside the hull. Never
-                // replace the watertight y=1 bottom or the interior decks.
-                previousY = keelY;
-                continue;
-            }
-            int lowerY = z <= end + 3 ? 0
-                    : Math.max(0, Math.min(previousY, keelY) - 1);
-            int upperY = Math.max(keelY + 1, 15 - (int)Math.round(6D
-                    * Math.sin((z - end) / 18D * Math.PI / 2D)));
-            int radius = z <= end + 3 ? 2 : z <= end + 12 ? 1 : 0;
-            for (int y = lowerY; y <= upperY; y++) {
-                int layerRadius = y < 2 ? 0 : radius;
-                for (int x = -layerRadius; x <= layerRadius; x++)
-                    put(out, x, y, z, x == 0 ? Part.KEEL : Part.FRAME);
-            }
-            previousY = keelY;
+        // The knyavdiged must follow the owner's wedge-shaped bow profile:
+        // a nearly level upper edge extending forward from the existing
+        // raised prow, and a curved underside rising TOWARD that edge.
+        // Do not make a descending keel extension or a vertical appendage.
+        // The thick heel joins the real bow plating at +Z; its underside
+        // keeps rising until the final, still solid, three-block-wide tip.
+        for (int z = end + 1; z <= end + 18; z++) {
+            double t = (z - end) / 18D;
+            double eased = t * t * (3D - 2D * t);
+            int underside = 5 + (int)Math.round(8D * eased);
+            int upper = z >= end + 13 ? 16 : 15;
+            int halfStem = z <= end + 7 ? 2 : 1;
+            for (int x = -halfStem; x <= halfStem; x++)
+                for (int y = underside; y <= upper; y++) {
+                    Part part = x == 0 && y <= underside + 1 ? Part.KEEL
+                            : y == upper ? Part.TRIM
+                            : Math.abs(x) == halfStem ? Part.FRAME : Part.HULL;
+                    put(out, x, y, z, part);
+                }
         }
         boolean raised = true; // IV always includes a functional stern quarterdeck.
         boolean captainDeck = p.decks() >= 2 || p.bridge();
