@@ -1,6 +1,9 @@
 allprojects { afterEvaluate {
   sourceSets {
-    shipSailVisual { java.srcDir 'tools/ship-sail-visual' }
+    shipSailVisual {
+      java.srcDir 'tools/ship-sail-visual'
+      resources.srcDir 'tools/ship-sail-visual-resources'
+    }
   }
   sourceSets.shipSailVisual.compileClasspath +=
       sourceSets.main.output + sourceSets.main.compileClasspath
