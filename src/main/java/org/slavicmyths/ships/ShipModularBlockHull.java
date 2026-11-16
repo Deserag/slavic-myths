@@ -217,8 +217,15 @@ public final class ShipModularBlockHull {
 
     private static Map<BlockPos, BlockState> worldPalette(ShipBuildConfiguration config,
             BlockPos anchor, int turns) {
+        return worldPaletteFromLayout(config, anchor, turns,
+                ShipHullVoxelLayout.generate(config.structure()));
+    }
+
+    private static Map<BlockPos, BlockState> worldPaletteFromLayout(
+            ShipBuildConfiguration config, BlockPos anchor, int turns,
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> layout) {
         Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
-        for (var entry : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+        for (var entry : layout.entrySet()) {
             if (entry.getValue() == ShipHullVoxelLayout.Part.SAIL
                     || entry.getValue() == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER) continue;
             var c = entry.getKey();
@@ -236,6 +243,10 @@ public final class ShipModularBlockHull {
      * the next pack/restore or rebuild installs full glass blocks instead.
      */
     private static boolean matchesHullBlock(BlockState existing, BlockState expected) {
+        if (expected.getBlock() instanceof DoorBlock)
+            return existing.getBlock() == expected.getBlock()
+                    && existing.getValue(DoorBlock.HALF) == expected.getValue(DoorBlock.HALF)
+                    && existing.getValue(DoorBlock.FACING) == expected.getValue(DoorBlock.FACING);
         return existing.getBlock() == expected.getBlock()
                 || expected.is(Blocks.GLASS) && existing.is(Blocks.GLASS_PANE);
     }
@@ -357,6 +368,13 @@ public final class ShipModularBlockHull {
         return result;
     }
 
+    private static Map<BlockPos, BlockState> previousIVWorldPalette(
+            ShipBuildConfiguration config, BlockPos anchor, int turns,
+            boolean previousLighting) {
+        return worldPaletteFromLayout(config, anchor, turns,
+                ShipHullVoxelLayout.previousFrigateIVLayout(config.structure(), previousLighting));
+    }
+
     private static ShipHullVoxelLayout.Cell missingHullCell(ServerLevel level,
             BlockPos anchor, int turns, Map<BlockPos, BlockState> expected) {
         ShipHullVoxelLayout.Cell missing = null;
@@ -390,24 +408,44 @@ public final class ShipModularBlockHull {
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
         ShipHullVoxelLayout.Cell missingCell = null;
         if (!matchesPhysicalHull(level, source)) {
-            boolean modular = config.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                    && config.hullRevision() == 3
-                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+            boolean frigateIV = config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
                     && config.hullRevision() == 4;
+            boolean modular = frigateIV
+                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                            && config.hullRevision() == 3;
             if (!modular) return null;
-            Map<BlockPos, BlockState> previous =
-                    previousLightingWorldPalette(config, anchor, turns);
-            if (matchesPhysicalHull(level, previous)) source = previous;
-            else {
-                missingCell = missingHullCell(level, anchor, turns, previous);
-                if (missingCell != null) source = previous;
-                else missingCell = missingHullCell(level, anchor, turns, source);
-                if (missingCell == null) return null;
-                BlockPos missingWorld = FirstShipBlockHull.world(anchor, turns,
-                        missingCell.x(), missingCell.y(), missingCell.z());
-                source = new LinkedHashMap<>(source);
-                source.remove(missingWorld);
+            List<Map<BlockPos, BlockState>> candidates = new ArrayList<>();
+            candidates.add(previousLightingWorldPalette(config, anchor, turns));
+            if (frigateIV) {
+                // Ships built before deck/bridge separation have no safety
+                // rails and use the old final captain-bridge stair flight.
+                candidates.add(previousIVWorldPalette(config, anchor, turns, false));
+                candidates.add(previousIVWorldPalette(config, anchor, turns, true));
             }
+            candidates.add(source);
+            boolean found = false;
+            for (var candidate : candidates) {
+                if (!matchesPhysicalHull(level, candidate)) continue;
+                source = candidate;
+                found = true;
+                break;
+            }
+            if (!found) {
+                // Also support exactly one damaged hull block in either
+                // historical layout, without treating missing new rails as damage.
+                for (var candidate : candidates) {
+                    ShipHullVoxelLayout.Cell missing =
+                            missingHullCell(level, anchor, turns, candidate);
+                    if (missing == null) continue;
+                    missingCell = missing;
+                    source = new LinkedHashMap<>(candidate);
+                    source.remove(FirstShipBlockHull.world(anchor, turns,
+                            missing.x(), missing.y(), missing.z()));
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return null;
         }
         List<Cargo> cargo = new ArrayList<>();
         if (missingCell != null)
@@ -610,6 +648,34 @@ public final class ShipModularBlockHull {
         return true;
     }
 
+    private static boolean finalizeDoorPairs(ServerLevel level,
+            Map<BlockPos, BlockState> blocks) {
+        for (var entry : blocks.entrySet()) {
+            BlockState expected = entry.getValue();
+            if (!(expected.getBlock() instanceof DoorBlock)
+                    || expected.getValue(DoorBlock.HALF) != DoubleBlockHalf.LOWER) continue;
+            BlockPos lowerPos = entry.getKey();
+            BlockPos upperPos = lowerPos.above();
+            BlockState lower = level.getBlockState(lowerPos);
+            BlockState upper = level.getBlockState(upperPos);
+            if (!(lower.getBlock() instanceof DoorBlock)
+                    || upper.getBlock() != lower.getBlock()
+                    || lower.getValue(DoorBlock.HALF) != DoubleBlockHalf.LOWER
+                    || upper.getValue(DoorBlock.HALF) != DoubleBlockHalf.UPPER
+                    || lower.getValue(DoorBlock.FACING) != upper.getValue(DoorBlock.FACING))
+                return false;
+            // The bulk restoration deliberately skips immediate shape updates.
+            // Notify both halves only after the complete door and its supporting
+            // deck exist, so vanilla open/close and neighbor synchronization work.
+            level.updateNeighborsAt(lowerPos, lower.getBlock());
+            level.updateNeighborsAt(upperPos, upper.getBlock());
+            if (!matchesHullBlock(level.getBlockState(lowerPos), expected)
+                    || !matchesHullBlock(level.getBlockState(upperPos),
+                            blocks.get(upperPos))) return false;
+        }
+        return true;
+    }
+
     private static boolean clearSpace(ServerLevel level, BlockPos anchor,
             Map<BlockPos, BlockState> planned, Set<BlockPos> owned,
             ShipBuildConfiguration config, int turns) {
@@ -646,8 +712,14 @@ public final class ShipModularBlockHull {
             BlockPos anchor, int turns) {
         List<Map.Entry<BlockPos, BlockState>> ordered = new ArrayList<>(blocks.entrySet());
         ordered.sort(Comparator.comparingInt(x -> x.getKey().getY()));
+        // Place the supporting hull first, then BOTH door halves together.
+        // This avoids an orphaned door after unpack, sailing, rotation or load.
         for (var entry : ordered)
-            if (!level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
+            if (!(entry.getValue().getBlock() instanceof DoorBlock)
+                    && !level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
+        for (var entry : ordered)
+            if (entry.getValue().getBlock() instanceof DoorBlock
+                    && !level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
         for (Cargo entry : cargo) {
             if (entry.kind() == MISSING_HULL) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
@@ -661,7 +733,7 @@ public final class ShipModularBlockHull {
                 be.setChanged();
             }
         }
-        return true;
+        return finalizeDoorPairs(level, blocks);
     }
 
     private static void removeDamage(Map<BlockPos, BlockState> blocks,
