@@ -284,6 +284,14 @@ public final class ShipIVHeadless {
                         == ShipHullVoxelLayout.Part.LANTERN,
                         key + ": roof-top corner light missing");
         }
+        var preDeckRefit = ShipHullVoxelLayout.previousDeckRefitFrigateIVLayout(plan);
+        for (int x : new int[]{3, 4})
+            stair(preDeckRefit, x, rear + 21, 11, 16,
+                    key + " old outboard access");
+        require(at(preDeckRefit, quarterRim, 17, rear + 8) == null,
+                key + ": old inboard quarterdeck rail was not preserved");
+        require(!preDeckRefit.equals(blocks),
+                key + ": pre-refit IV must remain identifiable for packing");
         var preRefinement = ShipHullVoxelLayout.previousRecentFrigateIVLayout(plan);
         require(at(preRefinement, -3, 2, rear + 23)
                     == ShipHullVoxelLayout.Part.STAIR,
