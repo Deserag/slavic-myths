@@ -137,7 +137,9 @@ public final class BuyanState extends SavedData {
         for (Tag value : tag.getList("Completed", 10)) {
             CompoundTag site = (CompoundTag) value;
             int radius = site.getInt("Radius");
-            if (radius >= BuyanTerrain.MIN_RADIUS && radius <= BuyanTerrain.MAX_RADIUS) {
+            // Keep records for previously generated large islands (500–1200),
+            // even though NEW builds are limited to 300–400 blocks.
+            if (radius >= BuyanTerrain.MIN_RADIUS && radius <= 1200) {
                 data.completed.add(new Site(site.getInt("X"), site.getInt("Z"), radius));
             }
         }
@@ -154,7 +156,8 @@ public final class BuyanState extends SavedData {
         if (data.active && (data.radius < BuyanTerrain.MIN_RADIUS
             || data.radius > BuyanTerrain.MAX_RADIUS)) {
             data.paused = true;
-            data.lastError = "Invalid saved radius";
+            data.lastError = "Сохранено старое задание радиуса " + data.radius
+                + ". Новый диапазон 300–400. Не продолжайте старый остров после смены геометрии; используйте новый тестовый мир.";
         }
         return data;
     }
