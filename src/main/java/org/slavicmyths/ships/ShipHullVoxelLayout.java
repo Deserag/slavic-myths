@@ -491,6 +491,12 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, front, Part.DOOR);
                     else put(out, x, y, front, Part.CABIN_WALL);
                 }
+            // The upper wall is one station ahead of the y=15 quarterdeck.
+            // Without these planks its newly installed lower door is
+            // suspended over empty air and cannot be approached on foot.
+            for (int z = front; z <= front + 1; z++)
+                for (int x = -1; x <= 1; x++)
+                    put(out, x, 15, z, Part.DECK);
         }
         // A bridge upgrade must have visible geometry even when a raised
         // deck already exists. Keep the captain's wheel accessible.
