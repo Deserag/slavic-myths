@@ -15,6 +15,7 @@ public final class ShipIVHeadless {
             ShipSectionPlan.ShipClass.LARGEST;
     private static int configurations;
     private static int checkedSteps;
+    private static int checkedBrigantineSteps;
     private static int checkedHullCells;
 
     private static void require(boolean pass, String message) {
@@ -213,6 +214,54 @@ public final class ShipIVHeadless {
         configurations++;
     }
 
+    private static void brigantineGeometry(int length, int width, int decks,
+            boolean bridge, boolean cabin) {
+        ShipSuperstructurePlan plan = new ShipSuperstructurePlan(
+                ShipSectionPlan.ShipClass.LARGE, width, length,
+                List.of(1, 1, 1), decks, bridge, cabin, 3);
+        var blocks = ShipHullVoxelLayout.generate(plan);
+        String label = "III " + length + "x" + width + " decks=" + decks
+                + " bridge=" + bridge + " cabin=" + cabin;
+        int top = ShipHullVoxelLayout.brigantineTopDeck(plan);
+        int[][] heights = top == 20 ? new int[][]{{1, 5}, {5, 10}, {10, 15}, {15, 20}}
+                : top == 15 ? new int[][]{{1, 5}, {5, 10}, {10, 15}}
+                : new int[][]{{1, 5}, {5, 10}};
+        int start = -length / 2 + 2 + 6
+                + 5 + 6 + (top >= 15 ? 6 : 0) + (top >= 20 ? 6 : 0);
+        require(blocks.values().stream().noneMatch(p -> p == ShipHullVoxelLayout.Part.RAIL),
+                label + ": unwanted deck fences");
+        for (int[] flight : heights) {
+            int lower = flight[0], upper = flight[1];
+            int exit = start - (upper - lower + 1);
+            for (int x : new int[]{-3, -2}) {
+                var approach = at(blocks, x, lower, start);
+                require(approach == ShipHullVoxelLayout.Part.HULL
+                                || approach == ShipHullVoxelLayout.Part.DECK
+                                || approach == ShipHullVoxelLayout.Part.BRIDGE,
+                        label + ": no supported stair approach at z=" + start);
+                for (int i = 1; i <= upper - lower; i++) {
+                    int y = lower + i, z = start - i;
+                    require(at(blocks, x, y, z) == ShipHullVoxelLayout.Part.STAIR,
+                            label + ": missing continuous stair at " + x + "," + y + "," + z);
+                    for (int h = 1; h <= 3; h++)
+                        require(at(blocks, x, y + h, z) == null,
+                                label + ": stair head blocked at " + x + "," + (y + h) + "," + z);
+                    checkedBrigantineSteps++;
+                }
+                var landing = at(blocks, x, upper, exit);
+                require(landing == ShipHullVoxelLayout.Part.DECK
+                                || landing == ShipHullVoxelLayout.Part.BRIDGE,
+                        label + ": no landing at " + x + "," + upper + "," + exit);
+                require(at(blocks, 3, lower + 1, start - 1)
+                                != ShipHullVoxelLayout.Part.STAIR,
+                        label + ": stairs jumped to the opposite side");
+            }
+            start = exit; // next flight starts on the previous landing
+        }
+        require(start == -length / 2 + 2 + 6,
+                label + ": uppermost flight does not terminate inside the stern deck");
+    }
+
     private static void upgrades() {
         // A deterministic path through all nine requested development phases.
         // Layout changes must be measurable, while propulsion improvements
@@ -319,11 +368,17 @@ public final class ShipIVHeadless {
                         for (boolean cabin : new boolean[]{false, true})
                             for (int tier : new int[]{1, 2, 3})
                                 geometry(length, width, decks, bridge, cabin, tier);
+        for (int[] dims : new int[][]{{55, 15}, {63, 17}, {69, 19}})
+            for (int decks = 1; decks <= 3; decks++)
+                for (boolean bridge : new boolean[]{false, true})
+                    for (boolean cabin : new boolean[]{false, true})
+                        brigantineGeometry(dims[0], dims[1], decks, bridge, cabin);
         upgrades();
         motion();
         collisionAndRestore();
         System.out.println("PASS: " + configurations + " IV configurations; "
-                + checkedSteps + " stair stations; "
+                + checkedSteps + " IV stair stations; "
+                + checkedBrigantineSteps + " III stair treads; "
                 + checkedHullCells + " bottom station probes; IV vs legacy motion");
     }
 
