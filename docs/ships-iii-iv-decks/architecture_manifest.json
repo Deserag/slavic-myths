@@ -1,0 +1,282 @@
+{
+  "schema_version": "2026-11-16.1",
+  "source_repository": "Deserag/slavic-myths",
+  "source_branch": "fix/ships-3-4-wip",
+  "source_commit": "59f470678012aa83fa19d0d49d24a7bd4999da26",
+  "provenance": "verified formulas + PROPOSED architecture; not an executable Java export",
+  "coordinate_frame": {
+    "x": "transverse, origin centerline",
+    "y": "vertical, block grid",
+    "z": "+bow, -stern",
+    "units": "Minecraft blocks"
+  },
+  "verified_dimensions": {
+    "formula": "baseRawLength=(III?33:51)+4*extraLength; width=(III?15:21)+2*extraWidth; minOdd=ceil(width*3.6), add 1 if even; actualLength=max(baseRawLength,minOdd); extraLength 0..3, extraWidth 0..2",
+    "III": {
+      "revision": 3,
+      "base": {
+        "width": 15,
+        "length": 55,
+        "masts": [
+          -3,
+          6
+        ]
+      },
+      "fully_expanded": {
+        "width": 19,
+        "length": 69
+      },
+      "floors_base": [
+        1,
+        5,
+        10
+      ],
+      "raised_floors_conditionally": [
+        15,
+        20
+      ],
+      "mast_count_max": 3
+    },
+    "IV": {
+      "revision": 4,
+      "base": {
+        "width": 21,
+        "length": 77,
+        "masts": [
+          -25,
+          -8,
+          8,
+          25
+        ]
+      },
+      "fully_expanded": {
+        "width": 25,
+        "length": 91
+      },
+      "structural_floors": [
+        1,
+        6,
+        11,
+        16
+      ],
+      "captain_platform_21": "when decks>=2 or bridge",
+      "roof_26": "when decks>=3; bridge additionally extends canopy",
+      "mast_count_max": 4
+    }
+  },
+  "verified_IV": {
+    "halfBeam": "z∈[-L/2,L/2], half=W/2; z>=end-12: max(2,round(2+(half-2)*sin(pi/2*max(0,(end-z)/12)))); z<=-end+8: max(3,round(3+(half-3)*sin(pi/2*max(0,(end+z)/8)))); otherwise half",
+    "base_rear": -34,
+    "base_quarterdeck_z": [
+      -34,
+      -19
+    ],
+    "base_captain_platform_z": [
+      -34,
+      -25
+    ],
+    "base_cabin_front_door": {
+      "x": 0,
+      "z": -19,
+      "y": [
+        12,
+        13
+      ]
+    },
+    "base_helm": {
+      "x": 0,
+      "z": -30,
+      "y_when_captain": 22,
+      "y_without_captain": 17
+    },
+    "interior_stair_route": {
+      "lanes_x": [
+        -3,
+        -2
+      ],
+      "flight1": {
+        "lower": 1,
+        "upper": 6,
+        "startZ": -4,
+        "landingZ": -10
+      },
+      "flight2": {
+        "lower": 6,
+        "upper": 11,
+        "startZ": -10,
+        "landingZ": -16
+      },
+      "each_step_height": 1,
+      "each_run_z": -1,
+      "headroom": 3
+    },
+    "upper_stairs": {
+      "starboard": {
+        "lanes_x": [
+          7,
+          6
+        ],
+        "lower": 11,
+        "upper": 16,
+        "startZ": -13,
+        "landingZ": -19
+      },
+      "port_if_captain": {
+        "lanes_x": [
+          -5,
+          -4
+        ],
+        "lower": 16,
+        "upper": 21,
+        "startZ": -24,
+        "landingZ": -30
+      }
+    },
+    "gunport_markers": {
+      "y": 8,
+      "filter": "(z+end)%5==0 && z > -end+7 && z < end-9; |x|>=halfBeam(z)-1; exterior only",
+      "base_z_stations": [
+        -28,
+        -23,
+        -18,
+        -13,
+        -8,
+        -3,
+        2,
+        7,
+        12,
+        17,
+        22,
+        27
+      ],
+      "critical_bug": "GUNPORT_SHUTTER is mapped to AIR and omitted in localPalette"
+    },
+    "selected_palette": {
+      "HULL": "minecraft:spruce_planks",
+      "DECK": "minecraft:spruce_planks",
+      "FRAME": "minecraft:stripped_spruce_log",
+      "CABIN_WALL": "minecraft:stripped_dark_oak_log",
+      "BRIDGE": "minecraft:dark_oak_planks",
+      "WINDOW": "minecraft:glass",
+      "DOOR": "minecraft:oak_door",
+      "STAIR": "minecraft:spruce_stairs",
+      "LANTERN": "minecraft:lantern",
+      "RAIL": "minecraft:spruce_fence",
+      "HELM": "minecraft:dark_oak_fence",
+      "GUNPORT_SHUTTER": "currently minecraft:air/omitted; requires fix"
+    }
+  },
+  "verified_III": {
+    "base_end": 27,
+    "stern_structure_rear": -25,
+    "lower_stair_x": [
+      -3,
+      -2
+    ],
+    "floors_base": [
+      1,
+      5,
+      10
+    ],
+    "gunport_marker": "|x|==halfBeam-1 && |z|<=end-5 && |z|>=3 && (z+end)%4==0 && y∈{7,8}",
+    "raised_floor": "y=15 when decks>=2, bridge, or cabin; y=20 when decks>=3"
+  },
+  "proposal": {
+    "guns": "no weapon entities, no cannon mechanics; solid timber shutters as actual tracked wood blocks, preferably using existing dark_oak_planks material with compatibility protection; retain current marker station series unless a validated structural reason requires change",
+    "hybrid_level": {
+      "floorY": 6,
+      "ceilingY": 11,
+      "free_body_cells_y": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "valid_station_condition": "halfBeam(z)>=7; avoid tips, mast/stair/hatch and trim",
+      "center_corridor_x": [
+        -1,
+        0,
+        1
+      ],
+      "width": 3,
+      "clearance_policy": "no obstructive cargo in x=-1..1 at y=7..9; require vertical clearance>=2 for every player-accessible step and landing (3 over stairs)",
+      "gun_footprint": "for each existing marker station Zp where halfBeam>=7: reserve both sides, z=Zp-1..Zp+1 and |x| in [halfBeam-3,halfBeam-2] on y=7..9; hard exclude occupied hull/stair/door cells",
+      "cargo_candidate": "on y=7, 2<=|x|<=halfBeam-4, only if ShipModularBlockHull.movingCargoCell approves AND cell not within corridor/stair/door/helm/mast/gun clearance; never clear existing cargo on upgrade",
+      "fixtures": "use existing lantern palette suspended from actual y=11 ceiling support, avoid intersections with 2-block player bounding volume and stairs"
+    },
+    "floor_spec": [
+      {
+        "zone": "lower_hold",
+        "III": [
+          1,
+          5
+        ],
+        "IV": [
+          1,
+          6
+        ],
+        "rule": "accessible and watertight, navigable to permitted containers"
+      },
+      {
+        "zone": "hybrid_gun_cargo",
+        "IV": [
+          6,
+          11
+        ],
+        "rule": "solid shutters, clear central corridor, mirrored gun reserves, legal cargo bays"
+      },
+      {
+        "zone": "weather_deck",
+        "III": 10,
+        "IV": 11,
+        "rule": "continuous accessible deck, preserve mast anchoring"
+      },
+      {
+        "zone": "quarterdeck",
+        "IV": 16,
+        "rule": "stern-only, z from rear to rear+15, safe exterior connection"
+      },
+      {
+        "zone": "captain_platform",
+        "IV": 21,
+        "rule": "stern-only when decks>=2 or bridge, route from y16"
+      },
+      {
+        "zone": "captain_cabin",
+        "IV": [
+          11,
+          16
+        ],
+        "rule": "stern enclosure, real door/window, 4-block internal height"
+      },
+      {
+        "zone": "optional_canopy",
+        "IV": 26,
+        "rule": "roof not an independent full-length floor"
+      }
+    ]
+  },
+  "change_risks": [
+    "existing palette silently skips GUNPORT_SHUTTER -> holes",
+    "historical palette match and one missing hull block support",
+    "third-level `decks` not equal to three full-length floors",
+    "mast/rigging issue #507 concurrent changes",
+    "cargo validity differs from purely geometric free cells"
+  ],
+  "verification_policy": {
+    "build": "gradlew clean build before game",
+    "game_relaunch_interval_minutes": 10,
+    "final_isolated_test_world_allowed": true,
+    "tests": [
+      "connected 2-wide stairs + headroom",
+      "3-wide corridor where full beam available",
+      "watertight closed shutters on both sides",
+      "cargo packing, NBT and no dupes",
+      "rotations and movement",
+      "old hull palette compatibility",
+      "multiple players if supported",
+      "no breakage in III",
+      "ship upgrade variants and sails integration"
+    ]
+  }
+}
