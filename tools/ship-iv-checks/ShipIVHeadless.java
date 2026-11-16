@@ -270,6 +270,18 @@ public final class ShipIVHeadless {
                 stair(blocks, x, rear + 10, 16, 21, key + " captain bridge");
         require(at(blocks, -2, 17, rear + 11) != ShipHullVoxelLayout.Part.STAIR,
                 key + ": old internal bridge staircase remains");
+        if (decks >= 3)
+            require(at(blocks, -3, 27, rear + 2) == ShipHullVoxelLayout.Part.TRIM,
+                    key + ": wheelhouse roof has no perimeter trim");
+        var preRefinement = ShipHullVoxelLayout.previousRecentFrigateIVLayout(plan);
+        require(at(preRefinement, -3, 2, rear + 23)
+                    == ShipHullVoxelLayout.Part.STAIR,
+                key + ": prior IV stair geometry was not preserved");
+        require(at(preRefinement, ShipHullVoxelLayout.halfBeam(plan, rear + 20) - 2,
+                        12, rear + 20) == ShipHullVoxelLayout.Part.RAIL,
+                key + ": older IV weather-deck rail geometry was not preserved");
+        require(!preRefinement.equals(blocks),
+                key + ": current and prior IV revisions unexpectedly identical");
         var legacy = ShipHullVoxelLayout.previousFrigateIVLayout(plan, false);
         require(legacy.values().stream().noneMatch(part ->
                 part == ShipHullVoxelLayout.Part.RAIL),
