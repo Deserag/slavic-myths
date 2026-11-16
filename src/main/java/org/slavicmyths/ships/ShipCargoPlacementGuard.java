@@ -71,6 +71,42 @@ public final class ShipCargoPlacementGuard {
         return false;
     }
 
+    /**
+     * Apply the same deck/approach policy to vanilla BlockItem placements on
+     * an attached physical ship, before the block becomes un-packable cargo.
+     */
+    private static boolean invalidParkedPlacement(ServerLevel world,
+            BlockPos placed, BlockState state) {
+        for (FirstShipEntity ship : world.getEntitiesOfClass(FirstShipEntity.class,
+                new AABB(placed).inflate(95D, 55D, 95D))) {
+            if (!ship.isNativeHull() || ship.isMoving()) continue;
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (config == null || config.withdrawn()) continue;
+            BlockPos anchor = ship.blockAnchor();
+            int y = placed.getY() - anchor.getY();
+            if (y < 1 || y > 48) continue;
+            int worldX = placed.getX() - anchor.getX();
+            int worldZ = placed.getZ() - anchor.getZ();
+            int turn = Math.floorMod(ship.quarterTurns(), 4);
+            int x = switch (turn) {
+                case 0 -> worldX;
+                case 1 -> worldZ;
+                case 2 -> -worldX;
+                default -> -worldZ;
+            };
+            int z = switch (turn) {
+                case 0 -> worldZ;
+                case 1 -> -worldX;
+                case 2 -> -worldZ;
+                default -> worldX;
+            };
+            if (ship.withinShip(x, z))
+                return forbidden(state) || !ShipModularBlockHull.movingCargoCell(
+                        config, new BlockPos(x, y, z));
+        }
+        return false;
+    }
+
     @SubscribeEvent
     public static void onToolModification(BlockEvent.BlockToolModificationEvent event) {
         BlockState finalState = event.getFinalState();
@@ -84,8 +120,7 @@ public final class ShipCargoPlacementGuard {
     @SubscribeEvent
     public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
         if (event.getLevel() instanceof ServerLevel server
-                && forbidden(event.getPlacedBlock())
-                && onParkedShip(server, event.getPos()))
+                && invalidParkedPlacement(server, event.getPos(), event.getPlacedBlock()))
             event.setCanceled(true);
     }
 }
