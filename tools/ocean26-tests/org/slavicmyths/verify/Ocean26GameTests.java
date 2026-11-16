@@ -736,7 +736,7 @@ public final class Ocean26GameTests {
                         == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER,
                 "Captain's cabin door halves are invalid");
         t.assertTrue(level.getBlockState(FirstShipBlockHull.world(anchor,
-                0, 3, 6, cabinRear + 3)).is(Blocks.GLASS_PANE),
+                0, 3, 6, cabinRear + 3)).is(Blocks.GLASS),
                 "Captain's cabin window is absent");
         var cabinDoor = (net.minecraft.world.level.block.DoorBlock)
                 level.getBlockState(lowerDoor).getBlock();
@@ -2037,7 +2037,7 @@ public final class Ocean26GameTests {
         int windowY = iv ? 13 : 12;
         for (int x = -cabinHalf + 1; x < cabinHalf; x++)
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
-                            anchor, 0, x, windowY, rear)).is(Blocks.GLASS_PANE),
+                            anchor, 0, x, windowY, rear)).is(Blocks.GLASS),
                     type + " stern cabin has non-contiguous glass at x=" + x);
         for (int x : new int[] {-cabinHalf + 1, cabinHalf - 1})
             t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(
@@ -2301,6 +2301,69 @@ public final class Ocean26GameTests {
      * The dark-oak helm is a functional steering control, not a deck railing.
      * The legacy fixed 7x11 vessel is deliberately unaffected.
      */
+    /**
+     * Full window blocks have no connection bits to go stale when the stern
+     * and side cabin walls are generated after the glass. Check the actual
+     * palette for every generated window and the entire stern glazing run.
+     */
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_windows")
+    public static void modularWindowsAreFullBlocks(GameTestHelper t) {
+        for (var type : new org.slavicmyths.ships.ShipSectionPlan.ShipClass[]{
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST}) {
+            var initial = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            for (int decks = 1; decks <= type.maxDecks; decks++)
+                for (boolean cabin : new boolean[]{false, true})
+                    for (boolean bridge : new boolean[]{false, true}) {
+                        var config = initial.withDecks(decks)
+                                .withCabin(cabin).withBridge(bridge);
+                        var plan = config.structure();
+                        var parts = org.slavicmyths.ships.ShipHullVoxelLayout.generate(plan);
+                        var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
+                        long windowCount = 0;
+                        for (var entry : parts.entrySet()) {
+                            if (entry.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.WINDOW)
+                                continue;
+                            var cell = entry.getKey();
+                            var state = palette.get(new BlockPos(cell.x(), cell.y(), cell.z()));
+                            t.assertTrue(state != null && state.is(Blocks.GLASS),
+                                    "Window not a full glass block at " + cell + ": " + config);
+                            windowCount++;
+                        }
+                        t.assertTrue(palette.values().stream().noneMatch(
+                                        state -> state.is(Blocks.GLASS_PANE)),
+                                "Old connected glass panes remain in palette: " + config);
+                        if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE
+                                && (decks >= 2 || cabin || bridge)
+                                || type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                                || type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM
+                                        && cabin)
+                            t.assertTrue(windowCount > 0, "Cabin glass missing: " + config);
+                        if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE
+                                && (decks >= 2 || cabin || bridge)
+                                || type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST) {
+                            int rear = -config.length() / 2
+                                    + (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                                            ? 4 : 2);
+                            int half = type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                                    ? Math.min(7, Math.max(2,
+                                            org.slavicmyths.ships.ShipHullVoxelLayout.halfBeam(
+                                                    plan, rear) - 2))
+                                    : Math.min(5, config.width() / 2 - 3);
+                            int y = type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                                    ? 13 : 12;
+                            for (int x = -half + 1; x < half; x++) {
+                                var glass = palette.get(new BlockPos(x, y, rear));
+                                t.assertTrue(glass != null && glass.is(Blocks.GLASS),
+                                        "Stern glazing is interrupted at x=" + x + ": " + config);
+                            }
+                        }
+                    }
+        }
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_no_fences")
     public static void modularDecksHaveNoFenceRailings(GameTestHelper t) {
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
