@@ -16,6 +16,7 @@ public final class BuyanNatureState extends SavedData {
 
     private final List<BuyanState.Site> completed = new ArrayList<>();
     public boolean active;
+    public boolean compatible = true;
     public boolean paused;
     public int centerX;
     public int centerZ;
@@ -150,13 +151,14 @@ public final class BuyanNatureState extends SavedData {
         state.skippedColumns = Math.max(0, tag.getInt("SkippedColumns"));
         state.plantedTrees = Math.max(0, tag.getInt("Trees"));
         state.forestCutoff = tag.getDouble("ForestCutoff");
+        state.compatible = tag.getInt("Schema") == SCHEMA;
         state.lastError = tag.getString("Error");
         for (Tag entry : tag.getList("Completed", 10)) {
             CompoundTag site = (CompoundTag) entry;
             state.completed.add(new BuyanState.Site(site.getInt("X"),
                 site.getInt("Z"), site.getInt("Radius")));
         }
-        if (state.active && (tag.getInt("Schema") != SCHEMA
+        if (state.active && (!state.compatible
             || state.phase < 0 || state.phase > 1
             || !Double.isFinite(state.forestCutoff))) {
             state.pause("Unsupported nature generation state; cannot safely resume");
