@@ -117,15 +117,18 @@ public final class ShipDeckContact {
     }
 
     /**
-     * Real moving IV stair contact between named decks. The high half of
-     * every +Z flight is on the forward side of the stair block.
-     * Return NaN outside an actual physical stair voxel.
+     * Moving III and IV stair contact, using the same ascending -Z geometry
+     * and physical NORTH-facing upper stair halves as the voxel blueprint.
+     * Return NaN outside an actual two-wide stair tread.
      */
     public static double stairSurfaceHeight(ShipBuildConfiguration config,
             double localX, double localZ, double feetRelativeY) {
-        if (config == null || config.shipClass() != ShipSectionPlan.ShipClass.LARGEST
-                || config.hullRevision() != 4 || !Double.isFinite(localX)
-                || !Double.isFinite(localZ) || !Double.isFinite(feetRelativeY))
+        if (config == null || !(config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && config.hullRevision() == 4
+                        || config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && config.hullRevision() == 3)
+                || !Double.isFinite(localX) || !Double.isFinite(localZ)
+                || !Double.isFinite(feetRelativeY))
             return Double.NaN;
         int x = (int)Math.round(localX), z = (int)Math.round(localZ);
         if (Math.abs(localX - x) >= .5D || Math.abs(localZ - z) >= .5D)
@@ -134,7 +137,7 @@ public final class ShipDeckContact {
         for (int y = 2; y <= 21; y++) {
             if (hull.get(new ShipHullVoxelLayout.Cell(x, y, z))
                     != ShipHullVoxelLayout.Part.STAIR) continue;
-            double surface = y + (localZ >= z ? 1D : .5D);
+            double surface = y + (localZ <= z ? 1D : .5D);
             if (feetRelativeY >= surface - .65D
                     && feetRelativeY <= surface + .9D)
                 return surface;
