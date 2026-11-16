@@ -258,9 +258,13 @@ public final class ShipModularBlockHull {
             for (int dy = y - 3; dy <= y + 2; dy++)
                 if (plan.get(new ShipHullVoxelLayout.Cell(x, dy, z + dz))
                         == ShipHullVoxelLayout.Part.STAIR) return false;
+        // A cargo block must not obstruct an active door, ladder or helm
+        // on its own floor. Fixtures BELOW the supporting deck cannot be
+        // blocked by a crate ABOVE that deck; rejecting them also broke
+        // previously valid medium-ship cargo during rebuild.
         for (int dx = -1; dx <= 1; dx++)
             for (int dz = -1; dz <= 1; dz++)
-                for (int dy = y - 2; dy <= y + 2; dy++) {
+                for (int dy = y; dy <= y + 2; dy++) {
                     var fixture = plan.get(new ShipHullVoxelLayout.Cell(
                             x + dx, dy, z + dz));
                     if (fixture == ShipHullVoxelLayout.Part.DOOR
