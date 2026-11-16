@@ -195,6 +195,10 @@ public final class Ocean26GameTests {
                                 level, anchor, turns, config, new ListTag()),
                         "Could not build " + type + " with heading " + turns);
                 assertRotatedStairRoute(t, level, anchor, turns, config);
+                if (type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST)
+                    ShipPersistenceGameTest.verifyIVDoor(
+                            t, level, anchor, turns, config,
+                            "IV all cardinal headings " + turns);
                 t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
                                 level, anchor, turns, config),
                         "Could not remove " + type + " with heading " + turns);
