@@ -338,6 +338,12 @@ public final class ShipModularBlockHull {
             for (int dy = y - 3; dy <= y + 2; dy++)
                 if (plan.get(new ShipHullVoxelLayout.Cell(x, dy, z))
                         == ShipHullVoxelLayout.Part.STAIR) return false;
+            // Block the exact lower approaches and upper landings of each
+            // flight, without declaring nearby decorative deck cells illegal.
+            if (plan.get(new ShipHullVoxelLayout.Cell(x, y, z - 1))
+                            == ShipHullVoxelLayout.Part.STAIR
+                    || plan.get(new ShipHullVoxelLayout.Cell(x, y - 1, z + 1))
+                            == ShipHullVoxelLayout.Part.STAIR) return false;
             for (int dz = -1; dz <= 1; dz++)
                 for (int dy = y; dy <= y + 1; dy++) {
                     var fixture = plan.get(new ShipHullVoxelLayout.Cell(x, dy, z + dz));
