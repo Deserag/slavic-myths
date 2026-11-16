@@ -97,8 +97,7 @@ public final class ShipSailRigGeometry {
                 }
             }
         } else {
-            boolean central = mast > 0 && mast < plan.sailTiers().size() - 1
-                    && plan.sailTiers().size() >= 3;
+            boolean central = mast == 1 || mast == 2;
             double span = (central ? 8D : 6D) + tier - 1D;
             panels.add(new Panel(mast, tier, z, 22D, 29D, span));
             panels.add(new Panel(mast, tier, z, 31D, 38D, span - 2D));
