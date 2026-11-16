@@ -140,6 +140,8 @@ public final class BuyanNatureGenerator {
             (50L * (state.phase * (long) count + state.chunkIndex)) / (2L * count));
         source.sendSuccess(() -> Component.literal(
             "Буян: " + (state.phase == 0 ? "природный рельеф и грунты (2/3)" : "леса и подлесок (3/3)")
+            + "; уровень воды Y=" + state.waterLevel
+            + "; самая низкая суша Y=" + (state.waterLevel + 2)
             + "; общий прогресс по чанкам ~" + percent + "%; чанк " + state.chunkIndex + "/" + count
             + "; пропуски: чанки " + state.skippedChunks
             + ", колонки " + state.skippedColumns
