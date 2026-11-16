@@ -11,8 +11,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 
 /** Operator-only trial buildings. All interiors are placed before roofs are assembled. */
 public final class BuyanPort {
-    private static final String[] TYPES = {"house", "market", "warehouse", "main_pier", "small_pier"};
-    private record Cell(BlockPos pos, BlockState state) {}
     private static final class Plan {
         final Map<BlockPos, BlockState> cells = new LinkedHashMap<>();
         void put(int x,int y,int z,BlockState b){cells.put(new BlockPos(x,y,z),b);}
@@ -55,9 +53,6 @@ public final class BuyanPort {
         // Two-block-high entrance: front of every building, always openable.
         int mid=width/2;
         p.fill(mid-1,1,0,mid,3,0,AIR);
-        for(int z=0;z<depth;z++)for(int y=2;y<=3;y++){
-            p.put(0,y,z==depth/2?z:z,p.cells.getOrDefault(new BlockPos(0,y,z),WALL));
-        }
         for(int x:new int[]{2,width-4}){
             p.fill(x,3,0,x+1,4,0,Blocks.GLASS_PANE.defaultBlockState());
             p.fill(x,3,depth-1,x+1,4,depth-1,Blocks.GLASS_PANE.defaultBlockState());
@@ -68,6 +63,10 @@ public final class BuyanPort {
                 p.put(-1+i,wallHeight+1+i,z,ROOF);
                 p.put(width-i,wallHeight+1+i,z,ROOF);
             }
+        }
+        for(int i=0;i<=width/2;i++)for(int x=i;x<width-i;x++){
+            p.put(x,wallHeight+1+i,0,WALL);
+            p.put(x,wallHeight+1+i,depth-1,WALL);
         }
         p.fill(0,-1,0,width-1,-1,depth-1,Blocks.COBBLESTONE.defaultBlockState());
         p.fill(mid-1,0,-1,mid,0,-1,Blocks.SPRUCE_SLAB.defaultBlockState());
@@ -80,7 +79,8 @@ public final class BuyanPort {
         p.put(2,1,depth-3,Blocks.BARREL.defaultBlockState());
         p.put(3,1,depth-3,Blocks.CHEST.defaultBlockState());
         if(type.equals("house")){
-            p.put(width-3,1,depth-3,Blocks.WHITE_BED.defaultBlockState());
+            p.put(width-3,1,depth-3,Blocks.WHITE_BED.defaultBlockState().setValue(net.minecraft.world.level.block.BedBlock.PART,net.minecraft.world.level.block.state.properties.BedPart.FOOT));
+            p.put(width-3,1,depth-4,Blocks.WHITE_BED.defaultBlockState().setValue(net.minecraft.world.level.block.BedBlock.PART,net.minecraft.world.level.block.state.properties.BedPart.HEAD));
             p.put(width-3,1,depth-4,Blocks.SPRUCE_STAIRS.defaultBlockState());
             p.put(width-5,1,depth-5,Blocks.SPRUCE_FENCE.defaultBlockState());
             p.put(width-5,2,depth-5,Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
@@ -99,7 +99,7 @@ public final class BuyanPort {
             p.put(width-3,1,2,Blocks.CRAFTING_TABLE.defaultBlockState());
         }
         // Wall torches away from door, keeping the center passage clear.
-        p.put(width-2,2,depth-2,Blocks.LANTERN.defaultBlockState());
+        p.put(width-2,1,depth-2,Blocks.LANTERN.defaultBlockState());
     }
 
     private static Plan building(String type){
