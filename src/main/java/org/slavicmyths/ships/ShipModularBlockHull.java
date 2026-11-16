@@ -164,6 +164,9 @@ public final class ShipModularBlockHull {
                     }
                     row.put("State", props);
                 }
+                // Legacy moving hulls require a present compound to display
+                // their four native cargo kinds. No actual inventory is sent.
+                row.put("BlockEntity", new CompoundTag());
                 cargo.add(row);
             } catch (NumberFormatException invalid) {
                 // Ignore client metadata tokens with invalid coordinates.
