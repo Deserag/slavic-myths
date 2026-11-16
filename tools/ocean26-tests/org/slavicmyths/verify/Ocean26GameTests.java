@@ -2205,6 +2205,62 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_cabin_doors")
+    public static void thirdDeckCaptainDoorOpensInRealWorld(GameTestHelper t) {
+        var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+                .withCabin(true).withDecks(3);
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(45, 4, 50));
+        level.getChunkSource().addRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        for (int x = -config.width() / 2 - 9; x <= config.width() / 2 + 9; x++)
+            for (int z = -config.length() / 2 - 9; z <= config.length() / 2 + 9; z++) {
+                BlockPos water = anchor.offset(x, 0, z);
+                level.setBlock(water.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(water, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 32; y++)
+                    if (!level.getBlockState(water.above(y)).isAir())
+                        level.setBlock(water.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                        level, anchor, 0, config, new ListTag()),
+                "Third-deck ship placement failed");
+        int front = -config.length() / 2 + 2 + 16;
+        BlockPos lower = FirstShipBlockHull.world(anchor, 0, 0, 16, front);
+        BlockPos upper = lower.above();
+        var lowerState = level.getBlockState(lower);
+        t.assertTrue(lowerState.is(Blocks.OAK_DOOR)
+                        && lowerState.getValue(net.minecraft.world.level.block.DoorBlock.FACING)
+                                == net.minecraft.core.Direction.SOUTH
+                        && lowerState.getValue(net.minecraft.world.level.block.DoorBlock.HALF)
+                                == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER
+                        && level.getBlockState(upper).is(Blocks.OAK_DOOR)
+                        && level.getBlockState(upper).getValue(
+                                net.minecraft.world.level.block.DoorBlock.HALF)
+                                == net.minecraft.world.level.block.state.properties
+                                        .DoubleBlockHalf.UPPER
+                        && level.getBlockState(lower.south()).isAir()
+                        && level.getBlockState(upper.south()).isAir(),
+                "Third-deck cabin door is wrongly oriented or landing is blocked");
+        var door = (net.minecraft.world.level.block.DoorBlock) lowerState.getBlock();
+        door.setOpen(null, level, lowerState, lower, true);
+        t.assertTrue(level.getBlockState(lower).getValue(
+                        net.minecraft.world.level.block.DoorBlock.OPEN)
+                        && level.getBlockState(upper).getValue(
+                                net.minecraft.world.level.block.DoorBlock.OPEN),
+                "Third-deck cabin door halves do not open together");
+        door.setOpen(null, level, level.getBlockState(lower), lower, false);
+        t.assertTrue(!level.getBlockState(lower).getValue(
+                        net.minecraft.world.level.block.DoorBlock.OPEN)
+                        && !level.getBlockState(upper).getValue(
+                                net.minecraft.world.level.block.DoorBlock.OPEN),
+                "Third-deck cabin door halves do not close together");
+        level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
+                new ChunkPos(anchor), 4, anchor.asLong());
+        t.succeed();
+    }
+
     private static void assertCaptainCabinDoor(GameTestHelper t,
             org.slavicmyths.ships.ShipBuildConfiguration config,
             int front, int lowerY, String label) {
