@@ -76,6 +76,7 @@ public final class ShipSailCapture {
     private static int motionAge;
     private static double motionStartZ;
     private static double motionRestartZ;
+    private static double motionRestartX;
     private static volatile double serverMotionSpeed;
     private static volatile int acceptedHelmSteps;
     private static volatile int cameraStandId = -1;
@@ -319,10 +320,15 @@ public final class ShipSailCapture {
             row.addProperty("server_speed", serverMotionSpeed);
             row.addProperty("accepted_helm_steps", acceptedHelmSteps);
             MOTION_FRAMES.add(row);
-            if (motionAge == 150) motionRestartZ = visible.getZ();
-            if (motionAge == 225 && visible.getZ() <= motionRestartZ + .1D)
+            if (motionAge == 150) {
+                motionRestartX = visible.getX();
+                motionRestartZ = visible.getZ();
+            }
+            if (motionAge == 225 && Math.hypot(visible.getX() - motionRestartX,
+                    visible.getZ() - motionRestartZ) <= .1D)
                 throw new AssertionError("IV failed to restart after idle: "
-                        + motionRestartZ + " -> " + visible.getZ());
+                        + motionRestartX + "," + motionRestartZ + " -> "
+                        + visible.getX() + "," + visible.getZ());
         }
         if (motionAge == 235) {
             if (MOTION_FRAMES.size() != 3)
