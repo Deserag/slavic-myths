@@ -128,7 +128,8 @@ public final class ShipIVHeadless {
                 key + ": the long forward tip is missing");
         require(at(blocks, 0, 15, end + 8) == null,
                 key + ": the old upward appendix was left in place");
-        int previousRise = 0;
+        int previousRise = (int)Math.round(4D * (1D
+                - Math.cos(12D / 30D * Math.PI)));
         for (int z = end + 1; z <= end + 18; z++) {
             double progress = (z - (end - 12)) / 30D;
             int rise = (int)Math.round(4D * (1D - Math.cos(progress * Math.PI)));
