@@ -80,7 +80,7 @@ public final class BuyanNature {
         double transverse = Math.abs(side - bend);
         double feather = smooth((width * 0.5 + 5.0 - transverse) / 5.0);
         double endpoints = smooth((radial - 32.0) / 9.0)
-            * smooth((end - radial) / 6.0);
+            * smooth((end - radial) / 16.0);
         return feather * endpoints;
     }
 
@@ -127,6 +127,7 @@ public final class BuyanNature {
         if (corridor > 0.0) {
             double radial = Math.hypot(dx, dz);
             double destination = blend(10.0, 3.0, smooth((radial - 35.0) / 125.0));
+            destination = blend(coast, destination, smooth(edge / 22.0));
             height = blend(height, destination, corridor);
         }
         return sea + (int) Math.round(Math.clamp(height, 2.0, 60.0));
