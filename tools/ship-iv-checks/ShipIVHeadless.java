@@ -116,16 +116,49 @@ public final class ShipIVHeadless {
                 checkedHullCells++;
             }
         }
-        // The approved IV design uses a horizontal, face-connected bowsprit
-        // rooted in the lower bow stem rather than the withdrawn rising spar.
-        for (int z = end - 8; z <= end + 7; z++) {
-            require(at(blocks, 0, 9, z) != null
-                    && at(blocks, 0, 10, z) != null,
-                    key + ": disconnected bowsprit at z=" + z);
-            if (z > end)
-                require(at(blocks, 0, 9, z) == ShipHullVoxelLayout.Part.BOWSPRIT,
-                        key + ": external bowsprit missing at z=" + z);
+        // The load-bearing knyavdiged starts in the underwater keel, not
+        // on a mast or at the weather deck. Its forward tip bends upward.
+        require(at(blocks, 0, 0, end - 10) == ShipHullVoxelLayout.Part.KEEL,
+                key + ": knyavdiged does not begin at the keel");
+        require(at(blocks, 0, 15, end + 8) == ShipHullVoxelLayout.Part.KEEL,
+                key + ": upper forward stem is missing");
+        require(at(blocks, 0, 9, end + 7) == null,
+                key + ": withdrawn horizontal mast-height spar still exists");
+        int lastTipZ = end - 10;
+        for (int y = 1; y <= 15; y++) {
+            int tipZ = Integer.MIN_VALUE;
+            for (int z = end - 10; z <= end + 8; z++)
+                if (at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL)
+                    tipZ = z;
+            require(tipZ >= lastTipZ,
+                    key + ": knyavdiged does not rise forward at y=" + y);
+            lastTipZ = tipZ;
         }
+        // Face-connected path along the centerline from the actual keel to
+        // the prow. Physical deck plank at y=6 remains a solid connector.
+        var visited = new java.util.HashSet<ShipHullVoxelLayout.Cell>();
+        var queue = new java.util.ArrayDeque<ShipHullVoxelLayout.Cell>();
+        var root = new ShipHullVoxelLayout.Cell(0, 0, end - 10);
+        var tip = new ShipHullVoxelLayout.Cell(0, 15, end + 8);
+        visited.add(root);
+        queue.add(root);
+        while (!queue.isEmpty() && !visited.contains(tip)) {
+            var pos = queue.removeFirst();
+            for (int[] delta : new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}) {
+                int y = pos.y() + delta[0], z = pos.z() + delta[1];
+                if (y < 0 || y > 15 || z < end - 10 || z > end + 8)
+                    continue;
+                var next = new ShipHullVoxelLayout.Cell(0, y, z);
+                var part = at(blocks, 0, y, z);
+                if (part == null || part == ShipHullVoxelLayout.Part.SAIL
+                        || part == ShipHullVoxelLayout.Part.LANTERN
+                        || part == ShipHullVoxelLayout.Part.HANGING_LANTERN
+                        || !visited.add(next)) continue;
+                queue.addLast(next);
+            }
+        }
+        require(visited.contains(tip),
+                key + ": knyavdiged is not connected to the keel by block faces");
         int shaftZ = -end + 2;
         for (int[] route : new int[][] {
                 {-3, shaftZ, 1, 6}, {3, shaftZ, 6, 11},
