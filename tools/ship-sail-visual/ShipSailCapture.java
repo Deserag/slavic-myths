@@ -254,6 +254,15 @@ public final class ShipSailCapture {
             motionStartZ = serverShip.getZ();
             if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
                 throw new AssertionError("IV motion assembly rejected");
+            // Detachment can expose air at the old waterline where the keel
+            // occupied source blocks. Refill only those empty basin cells so
+            // the next swept pose has the same water support as open sea.
+            for (int x = -27; x <= 27; x++)
+                for (int z = -38; z <= 60; z++) {
+                    BlockPos surface = ANCHOR.offset(x, 0, z);
+                    if (world.getBlockState(surface).isAir())
+                        world.setBlock(surface, Blocks.WATER.defaultBlockState(), 2);
+                }
             cameraStand = EntityType.ARMOR_STAND.create(world);
             if (cameraStand == null) throw new AssertionError("Cannot create camera stand");
             cameraStand.setNoGravity(true);
