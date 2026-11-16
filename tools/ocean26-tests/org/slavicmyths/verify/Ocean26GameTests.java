@@ -2039,6 +2039,13 @@ public final class Ocean26GameTests {
             t.assertTrue(level.getBlockState(FirstShipBlockHull.world(
                             anchor, 0, x, windowY, rear)).is(Blocks.GLASS),
                     type + " stern cabin has non-contiguous glass at x=" + x);
+        // Simulate a vessel built with the old glass-pane blueprint. It must
+        // still pack and move without falsely reporting a missing hull block.
+        BlockPos legacyWindow = FirstShipBlockHull.world(anchor, 0, 0, windowY, rear);
+        t.assertTrue(level.setBlock(legacyWindow, Blocks.GLASS_PANE.defaultBlockState(), 2)
+                        && org.slavicmyths.ships.ShipModularBlockHull.pack(
+                                level, anchor, 0, config) != null,
+                type + " legacy pane windows prevent existing ships from packing");
         for (int x : new int[] {-cabinHalf + 1, cabinHalf - 1})
             t.assertTrue(!level.getBlockState(FirstShipBlockHull.world(
                             anchor, 0, x, windowY, rear + 3))
@@ -2127,6 +2134,8 @@ public final class Ocean26GameTests {
                         && level.getBlockState(bedFoot).is(Blocks.RED_BED)
                         && level.getBlockState(bedHead).is(Blocks.RED_BED),
                 type + " cargo items or bed lost while detaching and parking");
+        t.assertTrue(level.getBlockState(legacyWindow).is(Blocks.GLASS),
+                type + " legacy window did not upgrade to full glass after docking");
 
         ServerPlayer builder = player(level, (iv ? "IV" : "III") + "WrenchOwner",
                 new Vec3(anchor.getX() + config.width() / 2D + 16D,
@@ -2297,11 +2306,6 @@ public final class Ocean26GameTests {
     }
 
     /**
-     * All generated modular decks and bridges are free of fence railings.
-     * The dark-oak helm is a functional steering control, not a deck railing.
-     * The legacy fixed 7x11 vessel is deliberately unaffected.
-     */
-    /**
      * Full window blocks have no connection bits to go stale when the stern
      * and side cabin walls are generated after the glass. Check the actual
      * palette for every generated window and the entire stern glazing run.
@@ -2364,6 +2368,11 @@ public final class Ocean26GameTests {
         t.succeed();
     }
 
+    /**
+     * All generated modular decks and bridges are free of fence railings.
+     * The dark-oak helm is a functional steering control, not a deck railing.
+     * The legacy fixed 7x11 vessel is deliberately unaffected.
+     */
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_no_fences")
     public static void modularDecksHaveNoFenceRailings(GameTestHelper t) {
         for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
