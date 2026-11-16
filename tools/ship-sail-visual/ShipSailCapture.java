@@ -29,6 +29,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
@@ -76,6 +78,8 @@ public final class ShipSailCapture {
     private static double motionRestartZ;
     private static volatile double serverMotionSpeed;
     private static volatile int acceptedHelmSteps;
+    private static volatile int cameraStandId = -1;
+    private static ArmorStand cameraStand;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -250,6 +254,18 @@ public final class ShipSailCapture {
             motionStartZ = serverShip.getZ();
             if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
                 throw new AssertionError("IV motion assembly rejected");
+            cameraStand = EntityType.ARMOR_STAND.create(world);
+            if (cameraStand == null) throw new AssertionError("Cannot create camera stand");
+            cameraStand.setNoGravity(true);
+            cameraStand.setInvisible(true);
+            cameraStand.setPos(serverShip.getX() + 55D,
+                    serverShip.getY() + 27D, serverShip.getZ());
+            cameraStand.setYRot(90F);
+            cameraStand.setYHeadRot(90F);
+            cameraStand.setXRot(8F);
+            if (!world.addFreshEntity(cameraStand))
+                throw new AssertionError("Cannot spawn camera stand");
+            cameraStandId = cameraStand.getId();
             motionReady = true;
         });
     }
@@ -257,8 +273,11 @@ public final class ShipSailCapture {
     private static void motionTick(Minecraft mc) throws Exception {
         if (!motionReady) return;
         motionAge++;
-        int action = motionAge < 70 ? FirstShipNetwork.FORWARD_RIGHT
-                : motionAge < 105 ? FirstShipNetwork.HELM_IDLE
+        if (mc.level.getEntity(cameraStandId) instanceof ArmorStand stand
+                && mc.getCameraEntity() != stand)
+            mc.setCameraEntity(stand);
+        int action = motionAge < 105 ? FirstShipNetwork.FORWARD_RIGHT
+                : motionAge < 155 ? FirstShipNetwork.HELM_IDLE
                 : FirstShipNetwork.FORWARD;
         mc.getSingleplayerServer().execute(() -> {
             ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
@@ -266,15 +285,17 @@ public final class ShipSailCapture {
                 throw new AssertionError("IV helm rejected at motion tick " + motionAge);
             acceptedHelmSteps++;
             serverMotionSpeed = serverShip.serverMovingSpeed();
+            cameraStand.setPos(serverShip.getX() + 55D,
+                    serverShip.getY() + 27D, serverShip.getZ());
         });
-        if (motionAge == 60 || motionAge == 100 || motionAge == 140) {
+        if (motionAge == 90 || motionAge == 150 || motionAge == 225) {
             FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
                     ? ship : null;
             if (visible == null || !visible.isMoving()
                     || Math.hypot(visible.getX() - ANCHOR.getX() - .5D,
                             visible.getZ() - motionStartZ) < .1D)
                 throw new AssertionError("Moving IV hull not synchronized at tick " + motionAge);
-            String state = motionAge == 60 ? "turn" : motionAge == 100 ? "idle" : "restart";
+            String state = motionAge == 90 ? "turn" : motionAge == 150 ? "idle" : "restart";
             String file = "motion-iv-tier-3-" + state + ".png";
             try (var image = Screenshot.takeScreenshot(mc.getMainRenderTarget())) {
                 image.writeToFile(OUT.resolve(file));
@@ -289,12 +310,12 @@ public final class ShipSailCapture {
             row.addProperty("server_speed", serverMotionSpeed);
             row.addProperty("accepted_helm_steps", acceptedHelmSteps);
             MOTION_FRAMES.add(row);
-            if (motionAge == 100) motionRestartZ = visible.getZ();
-            if (motionAge == 140 && visible.getZ() <= motionRestartZ + .1D)
+            if (motionAge == 150) motionRestartZ = visible.getZ();
+            if (motionAge == 225 && visible.getZ() <= motionRestartZ + .1D)
                 throw new AssertionError("IV failed to restart after idle: "
                         + motionRestartZ + " -> " + visible.getZ());
         }
-        if (motionAge == 150) {
+        if (motionAge == 235) {
             if (MOTION_FRAMES.size() != 3)
                 throw new AssertionError("Missing moving IV captures");
             finish(mc);
