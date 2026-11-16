@@ -79,14 +79,17 @@ public final class BuyanTerrain {
         double phase = (seed & 8191L) * 0.00018;
 
         // Promontories, two sheltered coves, and irregular erosion at different scales.
-        double shore = radius * (0.94
-            + 0.092 * Math.sin(3.0 * angle + phase)
-            + 0.056 * Math.cos(5.0 * angle - 0.6)
-            + 0.031 * Math.sin(8.0 * angle + 1.2 + phase)
-            + 0.036 * noise(seed ^ 0x153L, dx, dz, 83.0)
+        double shore = radius * (0.87
+            + 0.083 * Math.sin(3.0 * angle + phase)
+            + 0.052 * Math.cos(5.0 * angle - 0.6)
+            + 0.028 * Math.sin(8.0 * angle + 1.2 + phase)
+            + 0.030 * noise(seed ^ 0x153L, dx, dz, 83.0)
             + 0.012 * noise(seed ^ 0x162L, dx, dz, 27.0));
         shore -= radius * 0.115 * Math.exp(-Math.pow(angleDistance(angle, -0.80) / 0.27, 2));
         shore -= radius * 0.080 * Math.exp(-Math.pow(angleDistance(angle, 1.75) / 0.23, 2));
+        // The command radius is the actual maximum shoreline distance.
+        // Keep all underwater transitions inside radius + margin as well.
+        shore = clamp(shore, radius * 0.67, radius);
 
         double outside = distance - shore;
         if (outside >= margin(radius)) return Integer.MIN_VALUE;
