@@ -12,7 +12,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 /** Independent progress: never changes or replays the accepted foundation job. */
 public final class BuyanNatureState extends SavedData {
     private static final String ID = "slavicmyths_buyan_2622_nature";
-    private static final int SCHEMA = 2;
+    private static final int SCHEMA = 3;
 
     private final List<BuyanState.Site> completed = new ArrayList<>();
     public boolean active;
@@ -21,6 +21,8 @@ public final class BuyanNatureState extends SavedData {
     public int centerX;
     public int centerZ;
     public int radius;
+    /** Immutable height of the ocean water surface for this island. */
+    public int waterLevel = 63;
     public int phase;             // 0 terrain and soils, 1 trees and understory
     public int chunkIndex;
     public int columnIndex;
@@ -60,6 +62,7 @@ public final class BuyanNatureState extends SavedData {
         centerX = site.x();
         centerZ = site.z();
         radius = site.radius();
+        waterLevel = site.waterLevel();
         forestCutoff = cutoff;
         sandCutoff = sandLimit;
         gravelCutoff = gravelLimit;
@@ -115,7 +118,7 @@ public final class BuyanNatureState extends SavedData {
     }
 
     public void finish() {
-        completed.add(new BuyanState.Site(centerX, centerZ, radius));
+        completed.add(new BuyanState.Site(centerX, centerZ, radius, waterLevel));
         active = false;
         paused = false;
         lastError = "";
@@ -130,6 +133,7 @@ public final class BuyanNatureState extends SavedData {
         tag.putInt("CenterX", centerX);
         tag.putInt("CenterZ", centerZ);
         tag.putInt("Radius", radius);
+        tag.putInt("WaterLevel", waterLevel);
         tag.putInt("Phase", phase);
         tag.putInt("Chunk", chunkIndex);
         tag.putInt("Column", columnIndex);
@@ -146,6 +150,7 @@ public final class BuyanNatureState extends SavedData {
             entry.putInt("X", site.x());
             entry.putInt("Z", site.z());
             entry.putInt("Radius", site.radius());
+            entry.putInt("WaterLevel", site.waterLevel());
             sites.add(entry);
         }
         tag.put("Completed", sites);
@@ -159,6 +164,7 @@ public final class BuyanNatureState extends SavedData {
         state.centerX = tag.getInt("CenterX");
         state.centerZ = tag.getInt("CenterZ");
         state.radius = tag.getInt("Radius");
+        state.waterLevel = tag.contains("WaterLevel") ? tag.getInt("WaterLevel") : 63;
         state.phase = tag.getInt("Phase");
         state.chunkIndex = Math.max(0, tag.getInt("Chunk"));
         state.columnIndex = Math.clamp(tag.getInt("Column"), 0, 255);
@@ -173,7 +179,8 @@ public final class BuyanNatureState extends SavedData {
         for (Tag entry : tag.getList("Completed", 10)) {
             CompoundTag site = (CompoundTag) entry;
             state.completed.add(new BuyanState.Site(site.getInt("X"),
-                site.getInt("Z"), site.getInt("Radius")));
+                site.getInt("Z"), site.getInt("Radius"),
+                site.contains("WaterLevel") ? site.getInt("WaterLevel") : 63));
         }
         if (state.active && (!state.compatible
             || state.phase < 0 || state.phase > 1
