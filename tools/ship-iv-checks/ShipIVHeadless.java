@@ -57,6 +57,48 @@ public final class ShipIVHeadless {
         }
     }
 
+    /**
+     * Every floor has its own ceiling-height lighting row. Along that row
+     * successive lantern stations leave at least four unoccupied Z cells,
+     * even if a different lateral track was selected.
+     */
+    private static void lanternRows(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> blocks,
+            String label, boolean frigate) {
+        Map<Integer, List<ShipHullVoxelLayout.Cell>> rows = new java.util.HashMap<>();
+        int count = 0;
+        for (var entry : blocks.entrySet()) {
+            var part = entry.getValue();
+            if (part != ShipHullVoxelLayout.Part.HANGING_LANTERN
+                    && part != ShipHullVoxelLayout.Part.LANTERN) continue;
+            var cell = entry.getKey();
+            require(part == ShipHullVoxelLayout.Part.HANGING_LANTERN,
+                    label + ": unexpected floor-standing lantern " + cell);
+            boolean correctHeight = false;
+            for (int floor : frigate
+                    ? new int[]{1, 6, 11, 16, 21}
+                    : new int[]{1, 5, 10, 15, 20})
+                if (cell.y() == (floor == 1 && !frigate ? 4 : floor + 4))
+                    correctHeight = true;
+            require(correctHeight, label + ": lantern at inconsistent Y " + cell);
+            var support = at(blocks, cell.x(), cell.y() + 1, cell.z());
+            require(support == ShipHullVoxelLayout.Part.DECK
+                    || support == ShipHullVoxelLayout.Part.BRIDGE
+                    || support == ShipHullVoxelLayout.Part.HULL
+                    || support == ShipHullVoxelLayout.Part.FRAME
+                    || support == ShipHullVoxelLayout.Part.TRIM,
+                    label + ": lantern has no ceiling anchor " + cell);
+            var row = rows.computeIfAbsent(cell.y(),
+                    unused -> new java.util.ArrayList<>());
+            for (var other : row)
+                require(Math.abs(cell.z() - other.z()) >= 5,
+                        label + ": lanterns too close at " + cell + " and " + other);
+            row.add(cell);
+            count++;
+        }
+        require(count >= 2, label + ": missing interior lanterns");
+    }
+
     private static void geometry(int length, int width, int decks,
             boolean bridge, boolean cabin, int tier) {
         List<Integer> rig = List.of(tier, tier, tier, tier);
@@ -203,16 +245,7 @@ public final class ShipIVHeadless {
             require(flights[i - 1][1] - 6 == flights[i][1]
                     && flights[i - 1][3] == flights[i][2],
                     key + ": stair flights have a disconnected landing");
-        for (var entry : blocks.entrySet()) {
-            if (entry.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
-            var cell = entry.getKey();
-            var support = at(blocks, cell.x(), cell.y() - 1, cell.z());
-            require(support == ShipHullVoxelLayout.Part.HULL
-                    || support == ShipHullVoxelLayout.Part.FRAME
-                    || support == ShipHullVoxelLayout.Part.DECK
-                    || support == ShipHullVoxelLayout.Part.BRIDGE,
-                    key + ": floating lantern " + cell);
-        }
+        lanternRows(blocks, key, true);
         configurations++;
     }
 
@@ -262,6 +295,7 @@ public final class ShipIVHeadless {
         }
         require(start == -length / 2 + 2 + 6,
                 label + ": uppermost flight does not terminate inside the stern deck");
+        lanternRows(blocks, label, false);
     }
 
     private static void upgrades() {
