@@ -2130,6 +2130,13 @@ public final class Ocean26GameTests {
         t.assertTrue(!moving.placeMovingCargo(level, added,
                         Blocks.FARMLAND.defaultBlockState()),
                 type + " placed a forbidden farm block while sailing");
+        // The first step is adjacent to the deck approach. Its free
+        // standing area must remain protected after sailing begins.
+        int firstStairZ = rear + (iv ? 24 : 23);
+        BlockPos stairApproach = new BlockPos(-3, 2, firstStairZ);
+        t.assertTrue(!moving.placeMovingCargo(level, stairApproach,
+                        Blocks.CHEST.defaultBlockState()),
+                type + " cargo can block the continuous staircase approach");
         t.assertTrue(moving.placeMovingCargo(level, added,
                         Blocks.BARREL.defaultBlockState())
                         && moving.cargoCount() == 5
