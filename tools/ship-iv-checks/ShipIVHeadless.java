@@ -116,57 +116,54 @@ public final class ShipIVHeadless {
                 checkedHullCells++;
             }
         }
-        // IV knyavdiged is a single load-bearing continuation of the keel:
-        // +18 blocks of forward run with at most eight blocks of center rise.
-        require(at(blocks, 0, 0, end - 12) == ShipHullVoxelLayout.Part.KEEL
-                && at(blocks, 0, 0, end) == ShipHullVoxelLayout.Part.KEEL
-                && at(blocks, 0, 0, end + 1) == ShipHullVoxelLayout.Part.KEEL,
-                key + ": lower knyavdiged is not rooted in the keel");
-        require(at(blocks, 0, 1, end) == ShipHullVoxelLayout.Part.HULL,
-                key + ": stem displaced the sealed bow bottom");
-        require(at(blocks, 0, 9, end + 18) == ShipHullVoxelLayout.Part.KEEL,
-                key + ": the long forward tip is missing");
-        require(at(blocks, 0, 15, end + 8) == null,
-                key + ": the old upward appendix was left in place");
-        int previousRise = (int)Math.round(4D * (1D
-                - Math.cos(12D / 30D * Math.PI)));
+        // The sketch specifies a forward-projecting wedge: almost level
+        // on top, with the underside gradually rising toward the top edge.
+        require(at(blocks, 0, 0, end) == ShipHullVoxelLayout.Part.KEEL
+                && at(blocks, 0, 1, end) == ShipHullVoxelLayout.Part.HULL,
+                key + ": forward heel lost its keel and sealed bottom");
+        int previousUnderside = 5;
         for (int z = end + 1; z <= end + 18; z++) {
-            double progress = (z - (end - 12)) / 30D;
-            int rise = (int)Math.round(4D * (1D - Math.cos(progress * Math.PI)));
-            require(rise >= previousRise && rise <= previousRise + 1,
-                    key + ": kink in the forward keel curve at " + z);
-            int lowerY = z <= end + 3 ? 0
-                    : Math.max(0, Math.min(previousRise, rise) - 1);
-            int upperY = Math.max(rise + 1, 15 - (int)Math.round(6D
-                    * Math.sin((z - end) / 18D * Math.PI / 2D)));
-            int radius = z <= end + 3 ? 2 : z <= end + 12 ? 1 : 0;
-            for (int y = lowerY; y <= upperY; y++) {
-                require(at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL,
-                        key + ": empty gap through the knyavdiged at z=" + z
-                                + " y=" + y);
-                if (y >= 2)
-                    for (int x : new int[]{-radius, radius})
-                        require(at(blocks, x, y, z) == (x == 0
-                                        ? ShipHullVoxelLayout.Part.KEEL
-                                        : ShipHullVoxelLayout.Part.FRAME),
-                                key + ": detached bow scarf at x=" + x + " z=" + z
-                                        + " y=" + y);
-            }
-            previousRise = rise;
+            double t = (z - end) / 18D;
+            int underside = 5 + (int)Math.round(8D * t * t * (3D - 2D * t));
+            int upper = z >= end + 13 ? 16 : 15;
+            int halfStem = z <= end + 7 ? 2 : 1;
+            require(underside >= previousUnderside
+                    && underside <= previousUnderside + 1,
+                    key + ": lower bow curve kinks at z=" + z);
+            require(at(blocks, 0, underside - 1, z) == null,
+                    key + ": bow hangs BELOW the intended rising underside at z=" + z);
+            require(at(blocks, 0, upper + 1, z) == null,
+                    key + ": bow goes above the level upper profile at z=" + z);
+            for (int x = -halfStem; x <= halfStem; x++)
+                for (int y = underside; y <= upper; y++) {
+                    var expected = x == 0 && y <= underside + 1
+                            ? ShipHullVoxelLayout.Part.KEEL
+                            : y == upper ? ShipHullVoxelLayout.Part.TRIM
+                            : Math.abs(x) == halfStem
+                                    ? ShipHullVoxelLayout.Part.FRAME
+                                    : ShipHullVoxelLayout.Part.HULL;
+                    require(at(blocks, x, y, z) == expected,
+                            key + ": gap in triangular bow wedge at "
+                                    + x + "," + y + "," + z);
+                }
+            previousUnderside = underside;
         }
-        // Only real KEEL cells can prove continuity; unrelated hull plates
-        // and decks must not conceal a disconnected decorative appendage.
+        require(previousUnderside == 13
+                && at(blocks, 0, 16, end + 18) == ShipHullVoxelLayout.Part.TRIM,
+                key + ": raised forward tip lacks proper thickness");
+        // The two-layer wooden spine must be connected by block FACES,
+        // never diagonally separated like isolated floating steps.
         var visited = new java.util.HashSet<ShipHullVoxelLayout.Cell>();
         var queue = new java.util.ArrayDeque<ShipHullVoxelLayout.Cell>();
-        var root = new ShipHullVoxelLayout.Cell(0, 0, end);
-        var tip = new ShipHullVoxelLayout.Cell(0, 9, end + 18);
+        var root = new ShipHullVoxelLayout.Cell(0, 5, end + 1);
+        var tip = new ShipHullVoxelLayout.Cell(0, 13, end + 18);
         visited.add(root);
         queue.add(root);
         while (!queue.isEmpty() && !visited.contains(tip)) {
             var pos = queue.removeFirst();
             for (int[] delta : new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}) {
                 int y = pos.y() + delta[0], z = pos.z() + delta[1];
-                if (y < 0 || y > 15 || z < end || z > end + 18)
+                if (y < 0 || y > 16 || z < end + 1 || z > end + 18)
                     continue;
                 var next = new ShipHullVoxelLayout.Cell(0, y, z);
                 if (at(blocks, 0, y, z) != ShipHullVoxelLayout.Part.KEEL
@@ -175,7 +172,7 @@ public final class ShipIVHeadless {
             }
         }
         require(visited.contains(tip),
-                key + ": forward stem is not connected to the keel by block faces");
+                key + ": knyavdiged spine is disconnected by block faces");
         int shaftZ = -end + 2;
         for (int[] route : new int[][] {
                 {-3, shaftZ, 1, 6}, {3, shaftZ, 6, 11},
