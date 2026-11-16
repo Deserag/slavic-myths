@@ -87,7 +87,7 @@ public final class ShipIVRegression {
         }
         // The captain's station is reached from the quarterdeck via its
         // own port-side exterior access; it cannot hijack the main route.
-        for (int x : new int[]{3, 4})
+        for (int x : new int[]{6, 7})
             assertFlight(hull, x, rear + 21, 11);
         if (p.decks() >= 2 || p.bridge())
             for (int x : new int[]{-5, -4})
@@ -95,6 +95,12 @@ public final class ShipIVRegression {
         require(hull.get(new ShipHullVoxelLayout.Cell(0,
                 p.decks() >= 2 || p.bridge() ? 22 : 17, rear + 4))
                 == ShipHullVoxelLayout.Part.HELM, "Missing wheel at captain station");
+        int rim = ShipHullVoxelLayout.halfBeam(p, rear + 8);
+        require(hull.get(new ShipHullVoxelLayout.Cell(rim, 16, rear + 8))
+                    == ShipHullVoxelLayout.Part.DECK
+                && hull.get(new ShipHullVoxelLayout.Cell(rim, 17, rear + 8))
+                    == ShipHullVoxelLayout.Part.RAIL,
+                "Quarterdeck rail does not follow the outboard rim");
         int station = rear + 20;
         int beam = ShipHullVoxelLayout.halfBeam(p, station);
         for (int edge : new int[]{-beam, beam}) {
