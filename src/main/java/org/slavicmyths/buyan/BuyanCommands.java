@@ -13,7 +13,7 @@ public final class BuyanCommands {
             .then(Commands.literal("dev").requires(source -> source.hasPermission(2))
                 .then(Commands.literal("generate")
                     .then(Commands.literal("buyan")
-                        .executes(ctx -> BuyanGenerator.generate(ctx.getSource(), 700))
+                        .executes(ctx -> BuyanGenerator.generate(ctx.getSource(), BuyanTerrain.DEFAULT_RADIUS))
                         .then(Commands.argument("radius",
                             IntegerArgumentType.integer(BuyanTerrain.MIN_RADIUS, BuyanTerrain.MAX_RADIUS))
                             .executes(ctx -> BuyanGenerator.generate(ctx.getSource(),
