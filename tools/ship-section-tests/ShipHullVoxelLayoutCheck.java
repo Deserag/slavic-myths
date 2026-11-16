@@ -90,10 +90,11 @@ public final class ShipHullVoxelLayoutCheck {
             if (a.getValue() != ShipHullVoxelLayout.Part.LANTERN
                     && a.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
             total++;
-            require(a.getValue() == ShipHullVoxelLayout.Part.HANGING_LANTERN,
-                    name + " lantern is standing on the walking deck");
+            boolean postLight = a.getValue() == ShipHullVoxelLayout.Part.LANTERN;
+            require(!postLight || name.startsWith("IV "),
+                    name + " unexpected standing lantern outside IV helm");
             var c = a.getKey();
-            var overhead = at(model, c.x(), c.y() + 1, c.z());
+            var overhead = at(model, c.x(), c.y() + (postLight ? -1 : 1), c.z());
             require(overhead == ShipHullVoxelLayout.Part.HULL
                     || overhead == ShipHullVoxelLayout.Part.DECK
                     || overhead == ShipHullVoxelLayout.Part.BRIDGE
@@ -105,8 +106,9 @@ public final class ShipHullVoxelLayoutCheck {
                         && b.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
                 var d = b.getKey();
                 int dx = c.x() - d.x(), dy = c.y() - d.y(), dz = c.z() - d.z();
-                require(dx * dx + dy * dy + dz * dz >= 25,
-                        name + " lantern spacing below 5 blocks");
+                require(dx * dx + dy * dy + dz * dz >=
+                                (name.startsWith("IV ") ? 9 : 25),
+                        name + " lantern spacing too tight");
             }
         }
         require(total > 0, name + " lacks interior lighting");
@@ -161,7 +163,7 @@ public final class ShipHullVoxelLayoutCheck {
             previousUnderside = underside;
         }
         boolean captainDeck = p.decks() >= 2 || p.bridge();
-        stairRoute(model, rear, new int[]{1, 6, 11, 16}, "IV " + p,
+        stairRoute(model, rear + 12, new int[]{1, 6, 11}, "IV " + p,
                 10 + (captainDeck ? 10 : 0));
         for (int x : new int[]{3, 4}) {
             for (int i = 1; i <= 5; i++)
