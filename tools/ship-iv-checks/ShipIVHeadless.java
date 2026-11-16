@@ -32,7 +32,7 @@ public final class ShipIVHeadless {
             int x, int startZ, int lower, int upper, String label) {
         require(upper - lower == 5, "Unexpected IV stair height");
         var start = at(blocks, x, lower, startZ);
-        var finish = at(blocks, x, upper, startZ + 6);
+        var finish = at(blocks, x, upper, startZ - 6);
         require(start == ShipHullVoxelLayout.Part.DECK
                 || start == ShipHullVoxelLayout.Part.BRIDGE
                 || lower == 1 && start == ShipHullVoxelLayout.Part.HULL,
@@ -41,7 +41,7 @@ public final class ShipIVHeadless {
                 || finish == ShipHullVoxelLayout.Part.BRIDGE,
                 label + " has no walkable upper landing");
         for (int i = 0; i <= 6; i++) {
-            int z = startZ + i;
+            int z = startZ - i;
             int y = i == 0 ? lower : i == 6 ? upper : lower + i;
             if (i > 0 && i < 6)
                 require(at(blocks, x, y, z) == ShipHullVoxelLayout.Part.STAIR,
@@ -179,13 +179,27 @@ public final class ShipIVHeadless {
         }
         require(visited.contains(tip),
                 key + ": knyavdiged spine is disconnected by block faces");
-        int shaftZ = -end + 2;
-        for (int[] route : new int[][] {
-                {-3, shaftZ, 1, 6}, {3, shaftZ, 6, 11},
-                {-3, shaftZ, 11, 16}
-        }) stair(blocks, route[0], route[1], route[2], route[3], key);
-        if (decks >= 2 || bridge)
-            stair(blocks, 3, shaftZ, 16, 21, key);
+        int rear = -end + 4;
+        int shaftZ = rear + 6 + (decks >= 2 || bridge ? 24 : 18);
+        int[][] flights = decks >= 2 || bridge
+                ? new int[][]{{-3, shaftZ, 1, 6},
+                        {-3, shaftZ - 6, 6, 11},
+                        {-3, shaftZ - 12, 11, 16},
+                        {-3, shaftZ - 18, 16, 21}}
+                : new int[][]{{-3, shaftZ, 1, 6},
+                        {-3, shaftZ - 6, 6, 11},
+                        {-3, shaftZ - 12, 11, 16}};
+        for (int[] flight : flights) {
+            for (int x : new int[]{flight[0], flight[0] + 1})
+                stair(blocks, x, flight[1], flight[2], flight[3], key);
+            require(at(blocks, 3, flight[2] + 1, flight[1] - 1)
+                    != ShipHullVoxelLayout.Part.STAIR,
+                    key + ": staircase shifted to opposite side of hull");
+        }
+        for (int i = 1; i < flights.length; i++)
+            require(flights[i - 1][1] - 6 == flights[i][1]
+                    && flights[i - 1][3] == flights[i][2],
+                    key + ": stair flights have a disconnected landing");
         for (var entry : blocks.entrySet()) {
             if (entry.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
             var cell = entry.getKey();
