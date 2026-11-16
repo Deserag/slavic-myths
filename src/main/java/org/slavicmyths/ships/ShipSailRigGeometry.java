@@ -109,6 +109,29 @@ public final class ShipSailRigGeometry {
         return List.copyOf(panels);
     }
 
+    /**
+     * Animated sail vertex with pinned edges (u/v = 0 or 1).
+     * Pressure ranges from calm (0) to full fill (1); the phase only adds
+     * small interior flutter and can be tested without Minecraft classes.
+     */
+    public static Point clothSurface(Panel panel, double pressure,
+            double u, double v, double phase) {
+        if (panel == null || !Double.isFinite(pressure)
+                || !Double.isFinite(u) || !Double.isFinite(v)
+                || !Double.isFinite(phase) || u < 0D || u > 1D
+                || v < 0D || v > 1D)
+            throw new IllegalArgumentException("Invalid cloth parameters");
+        double fill = Math.max(0D, Math.min(1D, pressure));
+        double profile = .86D + .14D * Math.sin(Math.PI * v);
+        double x = panel.halfWidth() * (u * 2D - 1D) * profile;
+        double y = panel.bottom() + (panel.top() - panel.bottom()) * v;
+        double pinned = Math.sin(Math.PI * u) * Math.sin(Math.PI * v);
+        double swell = (.12D + 1.65D * fill) * pinned;
+        double flutter = .045D * Math.sin(phase * .085D
+                + u * 12D + v * 5D) * pinned;
+        return new Point(x, y, .20D + swell + flutter);
+    }
+
     private static int mastHead(ShipSuperstructurePlan plan, int mast) {
         int tier = plan.sailTiers().get(mast);
         if (isBrigantine(plan))
