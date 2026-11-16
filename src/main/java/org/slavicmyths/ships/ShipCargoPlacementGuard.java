@@ -2,6 +2,8 @@ package org.slavicmyths.ships;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -19,11 +21,23 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 public final class ShipCargoPlacementGuard {
     private ShipCargoPlacementGuard() {}
 
+    /** No agricultural soil, planted crops or harvestable growing plants aboard. */
     public static boolean forbidden(BlockState state) {
         return state.getBlock() instanceof FarmBlock
                 || state.getBlock() instanceof BushBlock
                 || state.getBlock() instanceof LiquidBlock
-                || !state.getFluidState().isEmpty();
+                || !state.getFluidState().isEmpty()
+                || state.is(BlockTags.CROPS)
+                || state.is(Blocks.SUGAR_CANE)
+                || state.is(Blocks.CACTUS)
+                || state.is(Blocks.COCOA)
+                || state.is(Blocks.BAMBOO)
+                || state.is(Blocks.BAMBOO_SAPLING)
+                || state.is(Blocks.NETHER_WART)
+                || state.is(Blocks.MELON_STEM)
+                || state.is(Blocks.PUMPKIN_STEM)
+                || state.is(Blocks.ATTACHED_MELON_STEM)
+                || state.is(Blocks.ATTACHED_PUMPKIN_STEM);
     }
 
     public static boolean onParkedShip(ServerLevel world, BlockPos placed) {
