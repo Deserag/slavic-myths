@@ -57,6 +57,12 @@ public final class ShipHullVoxelLayoutCheck {
     private static void stairRoute(
             Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> model,
             int rear, int[] floors, String name) {
+        stairRoute(model, rear, floors, name, 0);
+    }
+
+    private static void stairRoute(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> model,
+            int rear, int[] floors, String name, int exteriorTreads) {
         int start = rear + 6;
         int expectedTreads = 0;
         for (int i = 0; i + 1 < floors.length; i++) {
@@ -66,9 +72,9 @@ public final class ShipHullVoxelLayoutCheck {
         }
         long actualTreads = model.values().stream()
                 .filter(part -> part == ShipHullVoxelLayout.Part.STAIR).count();
-        require(actualTreads == expectedTreads,
+        require(actualTreads == expectedTreads + exteriorTreads,
                 name + " has missing, duplicated or disconnected stairs: "
-                        + actualTreads + " expected " + expectedTreads);
+                        + actualTreads + " expected " + (expectedTreads + exteriorTreads));
         for (int i = 0; i + 1 < floors.length; i++) {
             flight(model, start, floors[i], floors[i + 1], name);
             // Each upper landing is the next flight's lower approach.
@@ -154,9 +160,24 @@ public final class ShipHullVoxelLayoutCheck {
                             "IV bow skin disconnected " + p + " x=" + side + " z=" + z);
             previousUnderside = underside;
         }
-        stairRoute(model, rear, p.decks() >= 2 || p.bridge()
-                        ? new int[]{1, 6, 11, 16, 21}
-                        : new int[]{1, 6, 11, 16}, "IV " + p);
+        boolean captainDeck = p.decks() >= 2 || p.bridge();
+        stairRoute(model, rear, new int[]{1, 6, 11, 16}, "IV " + p,
+                10 + (captainDeck ? 10 : 0));
+        for (int x : new int[]{3, 4}) {
+            for (int i = 1; i <= 5; i++)
+                require(at(model, x, 11 + i, rear + 21 - i)
+                        == ShipHullVoxelLayout.Part.STAIR,
+                        "IV weather-deck external stair missing " + p);
+        }
+        if (captainDeck)
+            for (int x : new int[]{-4, -3})
+                for (int i = 1; i <= 5; i++)
+                    require(at(model, x, 16 + i, rear + 15 - i)
+                            == ShipHullVoxelLayout.Part.STAIR,
+                            "IV captain access missing " + p);
+        require(model.values().stream().filter(part ->
+                part == ShipHullVoxelLayout.Part.RAIL).count() >= 30,
+                "IV open-deck rails missing " + p);
         lights(model, "IV " + p);
     }
 
