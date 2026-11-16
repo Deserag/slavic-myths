@@ -402,6 +402,12 @@ public final class ShipModularBlockHull {
         return result;
     }
 
+    private static Map<BlockPos, BlockState> previousDeckRefitIVWorldPalette(
+            ShipBuildConfiguration config, BlockPos anchor, int turns) {
+        return worldPaletteFromLayout(config, anchor, turns,
+                ShipHullVoxelLayout.previousDeckRefitFrigateIVLayout(config.structure()));
+    }
+
     private static Map<BlockPos, BlockState> previousRecentIVWorldPalette(
             ShipBuildConfiguration config, BlockPos anchor, int turns) {
         return worldPaletteFromLayout(config, anchor, turns,
@@ -462,6 +468,7 @@ public final class ShipModularBlockHull {
             candidates.add(source);
             candidates.add(previousLightingWorldPalette(config, anchor, turns));
             if (frigateIV) {
+                candidates.add(previousDeckRefitIVWorldPalette(config, anchor, turns));
                 candidates.add(previousRecentIVWorldPalette(config, anchor, turns));
                 candidates.add(previousIVWorldPalette(config, anchor, turns, false));
                 candidates.add(previousIVWorldPalette(config, anchor, turns, true));
