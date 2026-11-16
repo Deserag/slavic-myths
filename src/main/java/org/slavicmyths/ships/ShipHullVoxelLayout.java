@@ -703,6 +703,56 @@ public final class ShipHullVoxelLayout {
         }
     }
 
+    /**
+     * Only for recognizing III/IV hulls built before the lighting update.
+     * Do not generate new ships with this older, crowded lantern layout.
+     */
+    public static Map<Cell, Part> previousLightingLayout(ShipSuperstructurePlan plan) {
+        boolean frigate = plan.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && plan.hullRevision() == 4;
+        boolean brigantine = plan.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && plan.hullRevision() == 3;
+        if (!frigate && !brigantine) return generate(plan);
+        Map<Cell, Part> blocks = new LinkedHashMap<>(generate(plan));
+        blocks.entrySet().removeIf(entry -> entry.getValue() == Part.LANTERN
+                || entry.getValue() == Part.HANGING_LANTERN);
+        int end = plan.hullLength() / 2;
+        int[] floors = frigate ? new int[]{1, 6, 11, 16, 21}
+                : new int[]{1, 5, 10, 15, 20};
+        for (int floor : floors)
+            for (int z = -end + 4; z <= end - 4; z += 7) {
+                int beam = frigate ? frigateBeam(plan, z) : brigantineBeam(plan, z);
+                if (beam < 4) continue;
+                int side = Math.min(beam - 2, frigate ? 6 : 4);
+                int ceiling = floor == 1 && !frigate ? 5 : floor + 5;
+                for (int x : new int[]{-side, side})
+                    if (lightSupport(blocks.get(new Cell(x, ceiling, z))))
+                        putPreviousLantern(blocks, x, ceiling - 1, z);
+                int centerZ = z + (frigate ? 0 : 3);
+                if (centerZ <= end - 4
+                        && lightSupport(blocks.get(new Cell(0, ceiling, centerZ))))
+                    putPreviousLantern(blocks, 0, ceiling - 1, centerZ);
+            }
+        return Collections.unmodifiableMap(blocks);
+    }
+
+    private static void putPreviousLantern(Map<Cell, Part> blocks,
+            int x, int y, int z) {
+        Cell cell = new Cell(x, y, z);
+        if (blocks.containsKey(cell)
+                || !lightSupport(blocks.get(new Cell(x, y + 1, z)))) return;
+        for (int clearance = 0; clearance <= 3; clearance++)
+            if (blocks.get(new Cell(x, y - clearance, z)) == Part.STAIR) return;
+        for (var entry : blocks.entrySet()) {
+            if (entry.getValue() != Part.LANTERN
+                    && entry.getValue() != Part.HANGING_LANTERN) continue;
+            Cell other = entry.getKey();
+            int dx = x - other.x(), dy = y - other.y(), dz = z - other.z();
+            if (dx * dx + dy * dy + dz * dz < 25) return;
+        }
+        blocks.put(cell, Part.HANGING_LANTERN);
+    }
+
     private static boolean frigateStairHole(int x, int floor, int z,
             int rear, boolean captainDeck) {
         if (x != -3 && x != -2 || floor != 6 && floor != 11
