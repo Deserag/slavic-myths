@@ -174,12 +174,22 @@ public final class ShipModularBlockHull {
         return blocks;
     }
 
+    /**
+     * Ships placed before full-glass windows used GLASS_PANE. Accept those
+     * legacy panes only where the current blueprint expects a glass window;
+     * the next pack/restore or rebuild installs full glass blocks instead.
+     */
+    private static boolean matchesHullBlock(BlockState existing, BlockState expected) {
+        return existing.getBlock() == expected.getBlock()
+                || expected.is(Blocks.GLASS) && existing.is(Blocks.GLASS_PANE);
+    }
+
     private static boolean matchesPhysicalHull(ServerLevel level,
             Map<BlockPos, BlockState> expected) {
         for (var entry : expected.entrySet())
             if (!level.hasChunkAt(entry.getKey())
-                    || level.getBlockState(entry.getKey()).getBlock()
-                            != entry.getValue().getBlock()) return false;
+                    || !matchesHullBlock(level.getBlockState(entry.getKey()),
+                            entry.getValue())) return false;
         return true;
     }
 
@@ -260,7 +270,7 @@ public final class ShipModularBlockHull {
                     var c = part.getKey();
                     BlockPos pos = FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z());
                     if (!level.hasChunkAt(pos)) return null;
-                    if (level.getBlockState(pos).getBlock() == source.get(pos).getBlock()) continue;
+                    if (matchesHullBlock(level.getBlockState(pos), source.get(pos))) continue;
                     boolean empty = level.getBlockState(pos).isAir()
                             || level.getFluidState(pos).is(FluidTags.WATER);
                     if (missingCell != null || !empty) {
