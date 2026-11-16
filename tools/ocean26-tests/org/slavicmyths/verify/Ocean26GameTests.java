@@ -2124,10 +2124,26 @@ public final class Ocean26GameTests {
         t.assertTrue(moving.detach(level, anchor)
                         && level.getBlockState(chestPos).isAir(),
                 type + " detached ship still contains breakable world blocks");
+        BlockPos added = new BlockPos(2, cargoY, 6);
+        t.assertTrue(!moving.placeMovingCargo(level, added,
+                        Blocks.FARMLAND.defaultBlockState()),
+                type + " placed a forbidden farm block while sailing");
+        t.assertTrue(moving.placeMovingCargo(level, added,
+                        Blocks.BARREL.defaultBlockState())
+                        && moving.cargoCount() == 5
+                        && moving.palette().get(added).is(Blocks.BARREL),
+                type + " cannot add a new cargo barrel during motion");
+        t.assertTrue(!moving.placeMovingCargo(level, added,
+                        Blocks.CHEST.defaultBlockState()),
+                type + " cargo placement can overwrite an occupied slot");
         var persisted = org.slavicmyths.ships.ShipMovingContraption.load(moving.save());
         t.assertTrue(persisted != null && persisted.detached()
-                        && persisted.cargoCount() == 4 && persisted.park(level),
+                        && persisted.cargoCount() == 5 && persisted.park(level),
                 type + " moving ship NBT did not survive save/load and parking");
+        BlockPos addedWorld = FirstShipBlockHull.world(anchor, 0,
+                added.getX(), added.getY(), added.getZ());
+        t.assertTrue(level.getBlockState(addedWorld).is(Blocks.BARREL),
+                type + " cargo added after departure was lost during docking");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 17
                         && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
                                 .getItem(1).getCount() == 8
@@ -2173,7 +2189,7 @@ public final class Ocean26GameTests {
                 type + " wrench item lost BlockCargo NBT or left blocks in world");
         FirstShipEntity unpacked = RaftContent.FIRST_SHIP.get().create(level);
         t.assertTrue(unpacked != null && unpacked.loadPacked(packed)
-                        && unpacked.pendingBlockCargo().size() == 4
+                        && unpacked.pendingBlockCargo().size() == 5
                         && org.slavicmyths.ships.ShipModularBlockHull.place(
                                 level, anchor, 0, config, unpacked.pendingBlockCargo()),
                 type + " packed ship item cannot re-place saved NBT cargo");
@@ -2183,6 +2199,8 @@ public final class Ocean26GameTests {
                         && level.getBlockState(bedFoot).is(Blocks.RED_BED)
                         && level.getBlockState(bedHead).is(Blocks.RED_BED),
                 type + " wrench re-placement changed inventories or bed");
+        t.assertTrue(level.getBlockState(addedWorld).is(Blocks.BARREL),
+                type + " wrench re-placement lost the mid-voyage barrel");
         builder.discard();
         level.getChunkSource().removeRegionTicket(VOYAGE_TICKET,
                 new ChunkPos(anchor), 4, anchor.asLong());
