@@ -15,6 +15,7 @@ public final class SlavicCommands {
   var tree=new CommandTree();
   org.slavicmyths.bandit.CampCommands.register(tree);
   org.slavicmyths.bayun.BayunCommands.register(tree);
+  org.slavicmyths.buyan.BuyanPort.register(tree);
   org.slavicmyths.bogatyr.BogatyrCommands.register(tree);
   org.slavicmyths.chud.AbandonedCommands.register(tree);
   org.slavicmyths.chud.ChudCommands.register(tree);
