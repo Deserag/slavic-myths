@@ -2181,6 +2181,55 @@ public final class Ocean26GameTests {
     }
 
 
+    /**
+     * The III third-deck forward bulkhead used to contain a bare two-block
+     * opening. Check that every captain-cabin entrance has a correctly faced
+     * lower/upper door and a clear path through its forward wall.
+     */
+    @GameTest(template = "empty", timeoutTicks = 100, batch = "ocean_modular_cabin_doors")
+    public static void modularCaptainCabinDoorsFaceTheBow(GameTestHelper t) {
+        var medium = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.MEDIUM).withCabin(true);
+        var large = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE).withCabin(true);
+        var largest = org.slavicmyths.ships.ShipBuildConfiguration.initial(
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST).withCabin(true);
+        assertCaptainCabinDoor(t, medium, -medium.length() / 2 + 8, 5, "II");
+        int largeRear = -large.length() / 2 + 2;
+        assertCaptainCabinDoor(t, large, largeRear + 9, 11, "III standard");
+        var threeDeck = large.withDecks(3);
+        assertCaptainCabinDoor(t, threeDeck, largeRear + 15, 11, "III lower");
+        assertCaptainCabinDoor(t, threeDeck, largeRear + 16, 16, "III upper");
+        assertCaptainCabinDoor(t, largest,
+                -largest.length() / 2 + 4 + 15, 12, "IV");
+        t.succeed();
+    }
+
+    private static void assertCaptainCabinDoor(GameTestHelper t,
+            org.slavicmyths.ships.ShipBuildConfiguration config,
+            int front, int lowerY, String label) {
+        var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
+        var lower = palette.get(new BlockPos(0, lowerY, front));
+        var upper = palette.get(new BlockPos(0, lowerY + 1, front));
+        t.assertTrue(lower != null && upper != null
+                        && lower.is(Blocks.OAK_DOOR) && upper.is(Blocks.OAK_DOOR)
+                        && lower.getValue(net.minecraft.world.level.block.DoorBlock.HALF)
+                                == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER
+                        && upper.getValue(net.minecraft.world.level.block.DoorBlock.HALF)
+                                == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER
+                        && lower.getValue(net.minecraft.world.level.block.DoorBlock.FACING)
+                                == net.minecraft.core.Direction.SOUTH
+                        && upper.getValue(net.minecraft.world.level.block.DoorBlock.FACING)
+                                == net.minecraft.core.Direction.SOUTH
+                        && lower.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)
+                                == upper.getValue(net.minecraft.world.level.block.DoorBlock.HINGE)
+                        && !lower.getValue(net.minecraft.world.level.block.DoorBlock.OPEN),
+                label + " captain cabin door has wrong halves or faces away from the bow");
+        t.assertTrue(!palette.containsKey(new BlockPos(0, lowerY, front + 1))
+                        && !palette.containsKey(new BlockPos(0, lowerY + 1, front + 1)),
+                label + " outside landing is obstructed");
+    }
+
     @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
     public static void modularBedAndFarmingPolicy(GameTestHelper t) {
         ServerLevel level = t.getLevel();
