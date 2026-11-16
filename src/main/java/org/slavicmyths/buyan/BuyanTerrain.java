@@ -50,6 +50,21 @@ public final class BuyanTerrain {
         return t * t * (3.0 - 2.0 * t);
     }
 
+    private static double noise(long seed, double x, double z, double scale) {
+        double gx = x / scale;
+        double gz = z / scale;
+        int ix = (int) Math.floor(gx);
+        int iz = (int) Math.floor(gz);
+        double u = smooth(gx - ix);
+        double v = smooth(gz - iz);
+        double a = value(seed, ix, iz, 0);
+        double b = value(seed, ix + 1, iz, 0);
+        double c = value(seed, ix, iz + 1, 0);
+        double d = value(seed, ix + 1, iz + 1, 0);
+        return ((a + (b - a) * u) * (1.0 - v)
+            + (c + (d - c) * u) * v) * 2.0 - 1.0;
+    }
+
     /** A deterministic control point for one of the 16 curved shoreline sectors. */
     private static double shorelineKnot(long seed, int cx, int cz, int index) {
         int minIndex = (int) Math.floorMod(hash(seed ^ 0xB11A0L, cx, cz, 0), SHORE_SECTORS);
@@ -100,14 +115,12 @@ public final class BuyanTerrain {
 
     /** Large coherent patches rather than random per-block speckling. */
     public static double surfaceCover(long seed, int x, int z) {
-        int bx = Math.floorDiv(x, 16);
-        int bz = Math.floorDiv(z, 16);
-        return value(seed ^ 0x4B7L, bx, bz, 0) * 2.0 - 1.0;
+        return noise(seed ^ 0x4B7L, x, z, 42.0);
     }
 
     public static int surfaceRockRoll(long seed, int x, int z) {
-        return (int) (value(seed ^ 0x621L, Math.floorDiv(x, 24),
-            Math.floorDiv(z, 24), 0) * 100.0);
+        return (int) Math.clamp(50.0 + 110.0 * noise(seed ^ 0x621L, x, z, 48.0),
+            0.0, 99.0);
     }
 
     public static BlockState block(long seed, int x, int y, int z, int height,
