@@ -8,6 +8,8 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import org.slavicmyths.ships.FirstShipBlockHull;
@@ -27,6 +29,29 @@ public final class ShipPersistenceGameTest {
     @GameTest(template = "empty", timeoutTicks = 300, batch = "persist_iv")
     public static void frigate(GameTestHelper test) {
         verify(test, ShipSectionPlan.ShipClass.LARGEST);
+    }
+
+    static void verifyIVDoor(GameTestHelper test, ServerLevel level,
+            BlockPos anchor, int turns, ShipBuildConfiguration config, String stage) {
+        if (config.shipClass() != ShipSectionPlan.ShipClass.LARGEST
+                || config.hullRevision() != 4) return;
+        int front = -config.length() / 2 + 19;
+        BlockPos bottom = FirstShipBlockHull.world(anchor, turns, 0, 12, front);
+        BlockPos top = bottom.above();
+        var lower = level.getBlockState(bottom);
+        var upper = level.getBlockState(top);
+        test.assertTrue(lower.is(Blocks.OAK_DOOR) && upper.is(Blocks.OAK_DOOR)
+                        && lower.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER
+                        && upper.getValue(DoorBlock.HALF) == DoubleBlockHalf.UPPER
+                        && lower.getValue(DoorBlock.FACING) == upper.getValue(DoorBlock.FACING),
+                stage + ": orphaned or reversed captain door halves");
+        for (boolean open : new boolean[]{true, false, true, false}) {
+            var current = level.getBlockState(bottom);
+            ((DoorBlock)current.getBlock()).setOpen(null, level, current, bottom, open);
+            test.assertTrue(level.getBlockState(bottom).getValue(DoorBlock.OPEN) == open
+                            && level.getBlockState(top).getValue(DoorBlock.OPEN) == open,
+                    stage + ": both door halves failed to " + (open ? "open" : "close"));
+        }
     }
 
     private static void verify(GameTestHelper test, ShipSectionPlan.ShipClass type) {
@@ -53,6 +78,15 @@ public final class ShipPersistenceGameTest {
                     }
                 test.assertTrue(ShipModularBlockHull.place(level, anchor, 0,
                         config, new ListTag()), "Could not place persistent hull");
+                verifyIVDoor(test, level, anchor, 0, config, "initial build");
+                if (type == ShipSectionPlan.ShipClass.LARGEST) {
+                    ListTag cargo = ShipModularBlockHull.pack(level, anchor, 0, config);
+                    test.assertTrue(cargo != null && ShipModularBlockHull.remove(
+                            level, anchor, 0, config), "Pack/unpack failed before save");
+                    test.assertTrue(ShipModularBlockHull.place(level, anchor, 0,
+                            config, cargo), "Packed IV could not be unpacked");
+                    verifyIVDoor(test, level, anchor, 0, config, "after pack/unpack");
+                }
                 BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
                 level.setBlock(hole, Blocks.AIR.defaultBlockState(), 2);
                 test.assertTrue(ShipModularBlockHull.pack(level, anchor, 0, config) != null,
@@ -74,6 +108,7 @@ public final class ShipPersistenceGameTest {
                 test.assertTrue(level.getBlockState(hole).isAir()
                         && !level.getBlockState(hole.north()).isAir(),
                         "Saved world did not retain exact hole and adjacent planking");
+                verifyIVDoor(test, level, anchor, 0, config, "after world restart");
                 ShipMovingContraption moving = ShipMovingContraption.prepare(
                         level, anchor, 0, config);
                 String firstMismatch = "none";
@@ -94,6 +129,7 @@ public final class ShipPersistenceGameTest {
                                 + " first=" + firstMismatch);
                 test.assertTrue(moving.park(level) && level.getBlockState(hole).isAir(),
                         "Saved damaged hull did not retain hole after park");
+                verifyIVDoor(test, level, anchor, 0, config, "after resumed voyage/park");
                 test.succeed();
             } else test.fail("Specify shipPersistenceStage=write or read");
         } catch (Exception failure) {
