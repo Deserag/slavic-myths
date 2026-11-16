@@ -19,16 +19,62 @@ public final class ShipHullVoxelLayoutCheck {
     }
 
     private static void flight(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> model,
-            int x, int z, int lower, int rise, String name) {
-        for (int lane : new int[] {x, x - Integer.signum(x)})
-            for (int i = 1; i <= rise; i++) {
-                int yy = lower + i, zz = z + i;
-                require(at(model, lane, yy, zz) == ShipHullVoxelLayout.Part.STAIR,
-                        name + " missing paired step " + lane + "," + yy + "," + zz);
+            int startZ, int lower, int upper, String name) {
+        for (int lane : new int[]{-3, -2}) {
+            var approach = at(model, lane, lower, startZ);
+            require(approach == ShipHullVoxelLayout.Part.DECK
+                    || approach == ShipHullVoxelLayout.Part.BRIDGE
+                    || lower == 1 && approach == ShipHullVoxelLayout.Part.HULL,
+                    name + " missing lower stair approach at " + lane + "," + lower + "," + startZ);
+            for (int head = 1; head <= 2; head++)
+                require(at(model, lane, lower + head, startZ) == null,
+                        name + " blocked lower approach " + lane + "," + startZ);
+            for (int step = 1; step <= upper - lower; step++) {
+                int y = lower + step, z = startZ - step;
+                require(at(model, lane, y, z) == ShipHullVoxelLayout.Part.STAIR,
+                        name + " missing paired tread at " + lane + "," + y + "," + z);
                 for (int head = 1; head <= 3; head++)
-                    require(at(model, lane, yy + head, zz) == null,
-                            name + " blocked headroom " + lane + "," + yy + "," + zz);
+                    require(at(model, lane, y + head, z) == null,
+                            name + " blocked three-block headroom at " + lane + "," + y + "," + z);
+                require(at(model, 3, y, z) != ShipHullVoxelLayout.Part.STAIR,
+                        name + " staircase jumps to starboard at Y=" + y + " Z=" + z);
             }
+            int exit = startZ - (upper - lower + 1);
+            var landing = at(model, lane, upper, exit);
+            var onward = at(model, lane, upper, exit - 1);
+            require(landing == ShipHullVoxelLayout.Part.DECK
+                    || landing == ShipHullVoxelLayout.Part.BRIDGE,
+                    name + " missing upper landing at " + lane + "," + upper + "," + exit);
+            require(onward == ShipHullVoxelLayout.Part.DECK
+                    || onward == ShipHullVoxelLayout.Part.BRIDGE,
+                    name + " upper landing drops into a hole at " + lane + "," + upper + "," + (exit - 1));
+            for (int head = 1; head <= 3; head++)
+                require(at(model, lane, upper + head, exit) == null,
+                        name + " landing headroom blocked at " + lane + "," + upper + "," + exit);
+        }
+    }
+
+    private static void stairRoute(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> model,
+            int rear, int[] floors, String name) {
+        int start = rear + 6;
+        int expectedTreads = 0;
+        for (int i = 0; i + 1 < floors.length; i++) {
+            int rise = floors[i + 1] - floors[i];
+            start += rise + 1;
+            expectedTreads += rise * 2;
+        }
+        long actualTreads = model.values().stream()
+                .filter(part -> part == ShipHullVoxelLayout.Part.STAIR).count();
+        require(actualTreads == expectedTreads,
+                name + " has missing, duplicated or disconnected stairs: "
+                        + actualTreads + " expected " + expectedTreads);
+        for (int i = 0; i + 1 < floors.length; i++) {
+            flight(model, start, floors[i], floors[i + 1], name);
+            // Each upper landing is the next flight's lower approach.
+            start -= floors[i + 1] - floors[i] + 1;
+        }
+        require(start == rear + 6, name + " disconnected final landing");
     }
 
     private static void lights(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> model,
@@ -87,18 +133,30 @@ public final class ShipHullVoxelLayoutCheck {
                                     || at(model, x, y, z) == ShipHullVoxelLayout.Part.WINDOW,
                             "IV outer cabin wall is missing at " + x + "," + y + "," + z);
         }
-        for (int z = end - 8; z <= end + 5; z++)
-            for (int x = -1; x <= 1; x++)
-                for (int y = 9; y <= 10; y++)
-                    require(at(model, x, y, z) == (z <= end
-                            ? ShipHullVoxelLayout.Part.FRAME : ShipHullVoxelLayout.Part.BOWSPRIT),
-                            "IV bowsprit is detached or too thin " + p);
-        for (int[] r : new int[][] {
-                {-3, rear + 2, 1}, {3, rear + 2, 6},
-                {-3, rear + 2, 11}
-        }) flight(model, r[0], r[1], r[2], 5, "IV " + p);
-        if (p.decks() >= 2 || p.bridge())
-            flight(model, 3, rear + 2, 16, 5, "IV captain " + p);
+        // The approved IV bow is an eighteen-station wedge whose underside
+        // rises to a nearly level upper edge; do not revive the old bowsprit.
+        int previousUnderside = 5;
+        for (int z = end + 1; z <= end + 18; z++) {
+            double t = (z - end) / 18D;
+            int underside = 5 + (int)Math.round(8D * t * t * (3D - 2D * t));
+            int upper = z >= end + 13 ? 16 : 15;
+            int halfStem = z <= end + 7 ? 2 : 1;
+            require(underside >= previousUnderside
+                            && at(model, 0, underside - 1, z) == null
+                            && at(model, 0, upper + 1, z) == null,
+                    "IV bow deviated from the approved rising wedge " + p + " z=" + z);
+            require(at(model, 0, underside, z) == ShipHullVoxelLayout.Part.KEEL
+                            && at(model, 0, upper, z) == ShipHullVoxelLayout.Part.TRIM,
+                    "IV bow spine disconnected " + p + " z=" + z);
+            for (int side : new int[]{-halfStem, halfStem})
+                for (int y = underside; y < upper; y++)
+                    require(at(model, side, y, z) == ShipHullVoxelLayout.Part.FRAME,
+                            "IV bow skin disconnected " + p + " x=" + side + " z=" + z);
+            previousUnderside = underside;
+        }
+        stairRoute(model, rear, p.decks() >= 2 || p.bridge()
+                        ? new int[]{1, 6, 11, 16, 21}
+                        : new int[]{1, 6, 11, 16}, "IV " + p);
         lights(model, "IV " + p);
     }
 
@@ -111,9 +169,11 @@ public final class ShipHullVoxelLayoutCheck {
                     require(at(model, x, y, z) == (z <= end
                             ? ShipHullVoxelLayout.Part.FRAME : ShipHullVoxelLayout.Part.BOWSPRIT),
                             "III bowsprit is floating or too thin " + p);
-        flight(model, -3, rear + 1, 1, 4, "III " + p);
-        flight(model, 3, rear + 1, 5, 5, "III " + p);
         int top = ShipHullVoxelLayout.brigantineTopDeck(p);
+        stairRoute(model, rear, top >= 20
+                        ? new int[]{1, 5, 10, 15, 20}
+                        : top >= 15 ? new int[]{1, 5, 10, 15}
+                        : new int[]{1, 5, 10}, "III " + p);
         if (top >= 15) {
             flight(model, -3, rear + 1, 10, 5, "III quarterdeck " + p);
             int half = Math.min(5, p.hullWidth() / 2 - 3);
@@ -126,8 +186,6 @@ public final class ShipHullVoxelLayoutCheck {
                             == ShipHullVoxelLayout.Part.DOOR,
                     "III cabin door missing " + p);
         }
-        if (top >= 20)
-            flight(model, 3, rear + 1, 15, 5, "III upper " + p);
         lights(model, "III " + p);
     }
 
