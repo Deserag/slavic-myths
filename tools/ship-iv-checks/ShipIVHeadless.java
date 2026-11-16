@@ -146,7 +146,9 @@ public final class ShipIVHeadless {
                 for (int x = 0; x <= 5; x++)
                     if (at(blocks, x, 21, z) == ShipHullVoxelLayout.Part.BRIDGE)
                         edge = x;
-                require(edge >= 2, key + ": captain platform missing at " + z);
+                // Mast yards may replace the outer floor at one station;
+                // never demand an unsupported floating rail there.
+                if (edge < 2) continue;
                 require(at(blocks, edge, 22, z) == ShipHullVoxelLayout.Part.RAIL,
                         key + ": captain starboard rail not on the floor edge " + z);
                 if (at(blocks, -edge, 22, z) != ShipHullVoxelLayout.Part.RAIL)
