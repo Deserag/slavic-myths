@@ -64,8 +64,9 @@ public final class BuyanGenerator {
         }
         state.begin(cx, cz, radius);
         source.sendSuccess(() -> Component.literal(
-            "Буян: начата поэтапная генерация центра X=" + cx + " Z=" + cz
-            + ", радиус=" + radius + ". Естественные блоки подстраиваются под остров."
+            "Буян: центр X=" + cx + " Z=" + cz + ", радиус=" + radius
+            + ". Генерация начинается здесь и расширяется к берегам."
+            + " Природный рельеф заменяется, защищённые строения пропускаются."
             + " Прогресс: /slavicmyths dev buyan status."), true);
         return 1;
     }
@@ -81,7 +82,9 @@ public final class BuyanGenerator {
         source.sendSuccess(() -> Component.literal(
             "Буян: центр " + state.centerX + "," + state.centerZ + "; радиус "
             + state.radius + "; чанки " + state.chunkIndex + "/" + count
-            + "; " + progress + "%; " + (state.paused ? "ПАУЗА" : "СТРОИТСЯ")
+            + "; " + progress + "%; обход от центра; защищённые чанки "
+            + state.skippedChunks + ", пропущенные колонки " + state.skippedColumns
+            + "; " + (state.paused ? "ПАУЗА" : "СТРОИТСЯ")
             + (state.lastError.isEmpty() ? "" : "; причина: " + state.lastError)), false);
         return 1;
     }
@@ -107,32 +110,42 @@ public final class BuyanGenerator {
         return 1;
     }
 
-    private static int minChunk(BuyanState state) {
-        return (state.centerX - state.radius - BuyanTerrain.margin(state.radius)) >> 4;
-    }
-
-    private static int minChunkZ(BuyanState state) {
-        return (state.centerZ - state.radius - BuyanTerrain.margin(state.radius)) >> 4;
-    }
-
-    private static int width(BuyanState state) {
+    /** Square spiral; chunk zero contains the player's requested island center. */
+    private static int rings(BuyanState state) {
         int extent = state.radius + BuyanTerrain.margin(state.radius);
-        return ((state.centerX + extent) >> 4) - minChunk(state) + 1;
-    }
-
-    private static int height(BuyanState state) {
-        int extent = state.radius + BuyanTerrain.margin(state.radius);
-        return ((state.centerZ + extent) >> 4) - minChunkZ(state) + 1;
+        int centerChunkX = state.centerX >> 4;
+        int centerChunkZ = state.centerZ >> 4;
+        return Math.max(
+            Math.max(centerChunkX - ((state.centerX - extent) >> 4),
+                     ((state.centerX + extent) >> 4) - centerChunkX),
+            Math.max(centerChunkZ - ((state.centerZ - extent) >> 4),
+                     ((state.centerZ + extent) >> 4) - centerChunkZ));
     }
 
     private static int totalChunks(BuyanState state) {
-        return width(state) * height(state);
+        int side = rings(state) * 2 + 1;
+        return side * side;
     }
 
     private static ChunkPos chunk(BuyanState state) {
-        int span = width(state);
-        return new ChunkPos(minChunk(state) + state.chunkIndex % span,
-            minChunkZ(state) + state.chunkIndex / span);
+        int index = state.chunkIndex;
+        int cx = state.centerX >> 4;
+        int cz = state.centerZ >> 4;
+        if (index == 0) return new ChunkPos(cx, cz);
+        int ring = (int) Math.ceil((Math.sqrt(index + 1.0) - 1.0) / 2.0);
+        int side = 2 * ring;
+        int first = (2 * ring - 1) * (2 * ring - 1);
+        int offset = index - first;
+        if (offset < side) {
+            return new ChunkPos(cx + ring, cz - ring + 1 + offset);
+        }
+        if (offset < 2 * side) {
+            return new ChunkPos(cx + ring - 1 - (offset - side), cz + ring);
+        }
+        if (offset < 3 * side) {
+            return new ChunkPos(cx - ring, cz + ring - 1 - (offset - 2 * side));
+        }
+        return new ChunkPos(cx - ring + 1 + (offset - 3 * side), cz - ring);
     }
 
     private static boolean withinFootprint(BuyanState state, int x, int z) {
@@ -149,15 +162,51 @@ public final class BuyanGenerator {
     }
 
     /**
+     * Native structure references, when available, are conservative protection:
+     * a structure does not stop the entire island job, only its occupied chunk.
+     * Never force-load a referenced start chunk merely to inspect it.
+     */
+    private static boolean protectedStructure(ServerLevel world, ChunkPos pos) {
+        var loaded = world.getChunkSource().getChunkNow(pos.x, pos.z);
+        if (loaded == null) return true;
+        int x0 = pos.getMinBlockX();
+        int z0 = pos.getMinBlockZ();
+        int x1 = pos.getMaxBlockX();
+        int z1 = pos.getMaxBlockZ();
+        for (var start : loaded.getAllStarts().values()) {
+            if (start.isValid() && intersects(start.getBoundingBox(), x0, z0, x1, z1)) return true;
+        }
+        for (var entry : loaded.getAllReferences().entrySet()) {
+            for (long ref : entry.getValue()) {
+                ChunkPos origin = new ChunkPos(ref);
+                var source = world.getChunkSource().getChunkNow(origin.x, origin.z);
+                if (source == null) return true;
+                var start = source.getStartForStructure(entry.getKey());
+                if (start != null && start.isValid()
+                    && intersects(start.getBoundingBox(), x0, z0, x1, z1)) return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean intersects(net.minecraft.world.level.levelgen.structure.BoundingBox box,
+                                      int minX, int minZ, int maxX, int maxZ) {
+        return box.maxX() >= minX && box.minX() <= maxX
+            && box.maxZ() >= minZ && box.minZ() <= maxZ;
+    }
+
+    /**
      * Preserve block entities, portals, bedrock and non-natural construction.
      * Naturally generated stone, ores, sand, logs, vegetation and water may be
-     * replaced deliberately; we cannot reliably detect a player-placed log.
+     * replaced deliberately. Player-placed natural blocks cannot be
+     * distinguished from naturally generated blocks in existing saves.
      */
     private static boolean canReplace(BlockState old) {
         if (old.hasBlockEntity()
             || old.is(Blocks.BEDROCK) || old.is(Blocks.NETHER_PORTAL)
             || old.is(Blocks.END_PORTAL) || old.is(Blocks.END_PORTAL_FRAME)) return false;
         return old.isAir() || old.getFluidState().is(FluidTags.WATER)
+            || old.getFluidState().is(FluidTags.LAVA)
             || old.is(BlockTags.BASE_STONE_OVERWORLD)
             || old.is(BlockTags.DIRT) || old.is(BlockTags.SAND)
             || old.is(BlockTags.LOGS) || old.is(BlockTags.LEAVES)
@@ -172,6 +221,12 @@ public final class BuyanGenerator {
             || old.is(Blocks.SEA_PICKLE) || old.is(Blocks.MAGMA_BLOCK)
             || old.is(Blocks.SANDSTONE) || old.is(Blocks.RED_SANDSTONE)
             || old.is(Blocks.CALCITE) || old.is(Blocks.MOSS_BLOCK)
+            || old.is(Blocks.MOSS_CARPET) || old.is(Blocks.ROOTED_DIRT)
+            || old.is(Blocks.MUD) || old.is(Blocks.MUDDY_MANGROVE_ROOTS)
+            || old.is(Blocks.MANGROVE_ROOTS) || old.is(Blocks.DRIPSTONE_BLOCK)
+            || old.is(Blocks.POINTED_DRIPSTONE) || old.is(Blocks.TERRACOTTA)
+            || old.is(Blocks.OBSIDIAN) || old.is(Blocks.BASALT) 
+            || old.is(Blocks.SMOOTH_BASALT)
             || old.is(Blocks.GRAVEL) || old.is(Blocks.CLAY)
             || old.is(Blocks.TUFF) || old.is(Blocks.DEEPSLATE)
             || old.is(Blocks.ICE) || old.is(Blocks.PACKED_ICE)
@@ -194,12 +249,12 @@ public final class BuyanGenerator {
         world.setBlock(pos, target, 2);
     }
 
-    private static void column(ServerLevel world, BuyanState state, int x, int z) {
-        if (!withinFootprint(state, x, z)) return;
+    private static boolean column(ServerLevel world, BuyanState state, int x, int z) {
+        if (!withinFootprint(state, x, z)) return true;
         int sea = world.getSeaLevel();
         int top = BuyanTerrain.top(world.getSeed(), state.centerX, state.centerZ,
             state.radius, x, z, sea);
-        if (top == Integer.MIN_VALUE) return;
+        if (top == Integer.MIN_VALUE) return true;
 
         // Existing ocean floor remains the base of the newly raised geological mass.
         int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
@@ -212,22 +267,16 @@ public final class BuyanGenerator {
         // Preflight the entire column before writing any blocks to this column.
         for (int y = first; y <= surface; y++) {
             cursor.set(x, y, z);
-            if (!canReplace(world.getBlockState(cursor))) {
-                throw new IllegalStateException("Нельзя заменить защищённый блок "
-                    + cursor.toShortString());
-            }
+            if (!canReplace(world.getBlockState(cursor))) return false;
         }
         // A natural island may absorb grass, coastal trees and dirt overhangs.
         // It must not erase player structures or existing block entities.
         int above = Math.min(world.getMaxBuildHeight() - 1,
-            world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) - 1);
+            world.getHeight(Heightmap.Types.WORLD_SURFACE, x, z) - 1);
         if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
                 cursor.set(x, y, z);
-                if (!canReplace(world.getBlockState(cursor))) {
-                    throw new IllegalStateException("Препятствие над островом: "
-                        + cursor.toShortString());
-                }
+                if (!canReplace(world.getBlockState(cursor))) return false;
             }
         }
 
@@ -242,6 +291,7 @@ public final class BuyanGenerator {
                     ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState());
             }
         }
+        return true;
     }
 
     private static final class Work implements AutoCloseable {
@@ -273,10 +323,19 @@ public final class BuyanGenerator {
                     continue;
                 }
                 if (!ticket.ready(pos)) return;
+                // Leave vanilla/mod structures alone, but continue sculpting the
+                // remaining natural landscape instead of aborting the whole job.
+                if (state.columnIndex == 0 && protectedStructure(level, pos)) {
+                    state.skipChunk();
+                    state.progress(state.chunkIndex + 1, 0);
+                    ticket.close();
+                    ticket = new SiteChunks(level);
+                    continue;
+                }
                 int local = state.columnIndex;
                 int x = pos.getMinBlockX() + (local & 15);
                 int z = pos.getMinBlockZ() + (local >>> 4);
-                column(level, state, x, z);
+                if (!column(level, state, x, z)) state.skipColumn();
                 ++columns;
                 if (local == 255) {
                     state.progress(state.chunkIndex + 1, 0);
