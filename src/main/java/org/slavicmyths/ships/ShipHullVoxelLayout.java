@@ -825,18 +825,18 @@ public final class ShipHullVoxelLayout {
             }
         }
         // Княвдигед: lower structural bow timber, continuing the REAL KEEL.
-        // It begins at y=0 inside the bow bottom, bends forward through the
-        // lower stem, then rises at the far +Z prow. It is not a horizontal
+        // It begins at y=0 at the forward keel tip, visibly emerges from
+        // the hull foundation, then bends upward at the far +Z prow. It is not a horizontal
         // spar attached at mast/deck height. A sine arc gives a smooth sweep
         // without disconnected diagonal-only voxel steps.
-        int stemBaseZ = end - 10;
+        int stemBaseZ = end;
         int stemTipZ = end + 8;
         int lastZ = stemBaseZ;
         for (int y = 1; y <= 15; y++) {
             double progress = y / 15D;
             int nextZ = stemBaseZ + (int)Math.round((stemTipZ - stemBaseZ)
                     * Math.sin(progress * Math.PI / 2D));
-            int radius = y >= 6 && y <= 12 ? 1 : 0;
+            int radius = y >= 2 && y <= 12 ? 1 : 0;
             for (int z = lastZ; z <= nextZ; z++)
                 for (int x = -radius; x <= radius; x++) {
                     Cell cell = new Cell(x, y, z);
@@ -845,7 +845,7 @@ public final class ShipHullVoxelLayout {
                     // of replacing it with a colliding log.
                     Part existing = out.get(cell);
                     if (existing == Part.DECK || existing == Part.BRIDGE
-                            || existing == Part.STAIR || y == 1
+                            || existing == Part.STAIR
                             || y <= 5 && existing == Part.HULL) continue;
                     put(out, x, y, z, x == 0 ? Part.KEEL : Part.FRAME);
                 }
