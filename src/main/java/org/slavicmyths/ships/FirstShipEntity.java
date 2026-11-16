@@ -31,6 +31,7 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
@@ -1040,6 +1041,50 @@ public final class FirstShipEntity extends Boat {
                     ChestMenu.threeRows(id, inv, slots), label));
         }
         return InteractionResult.CONSUME;
+    }
+
+    /**
+     * Server-authoritative placement on the active, non-physical modular hull.
+     * The client only selects a local cell. Item type, distance, permissions,
+     * support, stair clearance, collision and cargo serialization are checked
+     * here before a single item can be consumed.
+     */
+    public boolean placeMovingCargo(ServerPlayer player, BlockPos local,
+            InteractionHand hand) {
+        if (!isMoving() || movingBody == null || modularConfiguration == null
+                || player == null || local == null || player.isPassenger()
+                || player.isSpectator() || !player.isAlive()
+                || player.containerMenu != player.inventoryMenu
+                || !(level() instanceof net.minecraft.server.level.ServerLevel world))
+            return false;
+        ItemStack stack = player.getItemInHand(hand);
+        if (!(stack.getItem() instanceof BlockItem blockItem)
+                || stack.isEmpty()) return false;
+        var state = blockItem.getBlock().defaultBlockState();
+        if (ShipCargoPlacementGuard.forbidden(state)) return false;
+        if (Math.abs(local.getX()) > modularConfiguration.width() / 2
+                || Math.abs(local.getZ()) > modularConfiguration.length() / 2
+                || local.getY() < 1 || local.getY() > 48) return false;
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 target = new Vec3(point.x(), getY() + local.getY() + .5D, point.z());
+        if (player.getEyePosition().distanceToSqr(target) > 36D) return false;
+        var hit = world.clip(new net.minecraft.world.level.ClipContext(
+                player.getEyePosition(), target,
+                net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                net.minecraft.world.level.ClipContext.Fluid.NONE, player));
+        if (hit.getType() == net.minecraft.world.phys.HitResult.Type.BLOCK
+                && player.getEyePosition().distanceToSqr(hit.getLocation())
+                        + .5D < player.getEyePosition().distanceToSqr(target))
+            return false;
+        if (player.getBoundingBox().intersects(new AABB(
+                point.x() - .48D, getY() + local.getY(), point.z() - .48D,
+                point.x() + .48D, getY() + local.getY() + 1D, point.z() + .48D)))
+            return false;
+        if (!movingBody.placeMovingCargo(world, local, state)) return false;
+        if (!player.getAbilities().instabuild) stack.shrink(1);
+        syncMovingCargo();
+        return true;
     }
 
     /** Open a detached palette container; writes go back into the saved body. */
