@@ -40,6 +40,52 @@ public final class ShipIVDamageGameTest {
         scanHull(test, ShipSectionPlan.ShipClass.LARGEST);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 300, batch = "iv_upgraded_doors")
+    public static void frigateUpgradedDoorAfterSailing(GameTestHelper test) {
+        ShipBuildConfiguration config = ShipBuildConfiguration.initial(
+                ShipSectionPlan.ShipClass.LARGEST)
+                .withCabin(true).withBridge(true).withDecks(3);
+        ServerLevel level = test.getLevel();
+        BlockPos anchor = test.absolutePos(new BlockPos(70, 4, 70));
+        int edge = config.length() / 2 + 22;
+        level.getChunkSource().addRegionTicket(net.minecraft.server.level.TicketType.FORCED,
+                new ChunkPos(anchor), 5, new ChunkPos(anchor));
+        for (int x = -config.width() / 2 - 9; x <= config.width() / 2 + 9; x++)
+            for (int z = -edge; z <= edge; z++) {
+                BlockPos column = anchor.offset(x, 0, z);
+                level.setBlock(column.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(column, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 48; y++)
+                    level.setBlock(column.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        test.assertTrue(ShipModularBlockHull.place(level, anchor, 0, config, new ListTag()),
+                "IV upgraded ship failed initial construction");
+        ShipPersistenceGameTest.verifyIVDoor(
+                test, level, anchor, 0, config, "upgraded before sailing");
+        var initial = ShipModularBlockHull.pack(level, anchor, 0, config);
+        test.assertTrue(initial != null, "IV upgraded ship cannot pack");
+        test.assertTrue(ShipModularBlockHull.remove(level, anchor, 0, config)
+                        && ShipModularBlockHull.place(level, anchor, 0, config, initial),
+                "IV upgraded ship cannot unpack");
+        ShipPersistenceGameTest.verifyIVDoor(
+                test, level, anchor, 0, config, "upgraded after pack/unpack");
+        ShipMovingContraption moving = ShipMovingContraption.prepare(level, anchor, 0, config);
+        test.assertTrue(moving != null && moving.detach(level, anchor),
+                "IV upgraded ship cannot begin sailing");
+        var saved = moving.save();
+        var loaded = ShipMovingContraption.load(saved);
+        test.assertTrue(loaded != null && loaded.detached()
+                        && loaded.modularConfiguration() != null,
+                "IV upgraded sailing payload failed save/load");
+        loaded.motion().restore(new ShipRigidMotion.Pose(
+                anchor.getX() + .5D, anchor.getZ() + .5D, 0D), 0D, 0D);
+        test.assertTrue(loaded.park(level),
+                "IV upgraded ship could not park after a moving save/load");
+        ShipPersistenceGameTest.verifyIVDoor(
+                test, level, anchor, 0, config, "upgraded after moving save/load/park");
+        test.succeed();
+    }
+
     private static void scanHull(GameTestHelper test, ShipSectionPlan.ShipClass type) {
         ShipBuildConfiguration config = ShipBuildConfiguration.initial(type);
         ServerLevel level = test.getLevel();
@@ -179,6 +225,9 @@ public final class ShipIVDamageGameTest {
             moving.motion().restore(new ShipRigidMotion.Pose(
                     anchor.getX() + .5D, anchor.getZ() + .5D, 0D), 0D, 0D);
             test.assertTrue(moving.park(level), "Intact hull did not park");
+            if (type == ShipSectionPlan.ShipClass.LARGEST)
+                ShipPersistenceGameTest.verifyIVDoor(
+                        test, level, anchor, 0, config, "IV intact voyage/park");
             test.succeed();
         });
     }
