@@ -2286,12 +2286,14 @@ public final class Ocean26GameTests {
         t.assertTrue(!palette.containsKey(new BlockPos(0, lowerY, front + 1))
                         && !palette.containsKey(new BlockPos(0, lowerY + 1, front + 1)),
                 label + " outside landing is obstructed");
-        if (lowerY == 16)
-            t.assertTrue(Blocks.SPRUCE_PLANKS.equals(palette.get(
-                            new BlockPos(0, lowerY - 1, front)).getBlock())
-                            && Blocks.SPRUCE_PLANKS.equals(palette.get(
-                                    new BlockPos(0, lowerY - 1, front + 1)).getBlock()),
+        if (lowerY == 16) {
+            var support = palette.get(new BlockPos(0, lowerY - 1, front));
+            var landing = palette.get(new BlockPos(0, lowerY - 1, front + 1));
+            t.assertTrue(support != null && landing != null
+                            && support.is(Blocks.SPRUCE_PLANKS)
+                            && landing.is(Blocks.SPRUCE_PLANKS),
                     "III upper cabin door lacks supporting deck and exterior landing");
+        }
     }
 
     @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
