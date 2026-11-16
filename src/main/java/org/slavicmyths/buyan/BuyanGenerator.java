@@ -94,6 +94,21 @@ public final class BuyanGenerator {
             source.sendFailure(Component.literal("Центр Буяна должен находиться в ванильном океанском биоме."));
             return 0;
         }
+        // Read the actual water surface from the live ocean column.
+        // Flat custom worlds can have a different sea level from their generator.
+        int waterSurface = world.getHeight(Heightmap.Types.WORLD_SURFACE, cx, cz) - 1;
+        if (waterSurface < world.getMinBuildHeight()
+            || !world.getFluidState(new BlockPos(cx, waterSurface, cz)).is(FluidTags.WATER)) {
+            source.sendFailure(Component.literal(
+                "Центр Буяна должен быть на поверхности воды, а не на суше."));
+            return 0;
+        }
+        int waterLevel = Math.max(sea, waterSurface);
+        if (waterLevel + 2 >= world.getMaxBuildHeight() - 15) {
+            source.sendFailure(Component.literal(
+                "Поверхность воды слишком высока для безопасного создания острова."));
+            return 0;
+        }
         int extent = radius + BuyanTerrain.margin(radius);
         if (!world.getWorldBorder().isWithinBounds(new BlockPos(cx - extent, sea, cz - extent))
             || !world.getWorldBorder().isWithinBounds(new BlockPos(cx + extent, sea, cz + extent))) {
@@ -104,10 +119,12 @@ public final class BuyanGenerator {
             source.sendFailure(Component.literal("В этой акватории уже есть завершённое основание Буяна."));
             return 0;
         }
-        state.begin(cx, cz, radius);
+        state.begin(cx, cz, radius, waterLevel);
         source.sendSuccess(() -> Component.literal(
             "Буян: запущена ПОЛНАЯ генерация. Центр X=" + cx + " Z=" + cz
-            + ", берег 100–350 блоков. Очередь: 1/3 основание → 2/3 рельеф и грунты"
+            + ", берег 100–350 блоков, вода Y=" + waterLevel
+            + ", самая низкая суша Y=" + (waterLevel + 2)
+            + ". Очередь: 1/3 основание → 2/3 рельеф и грунты"
             + " → 3/3 леса и подлесок. Все этапы запускаются автоматически."
             + " Прогресс: /slavicmyths dev buyan status."), true);
         return 1;
@@ -122,7 +139,9 @@ public final class BuyanGenerator {
             / Math.max(1L, count * 256L));
         source.sendSuccess(() -> Component.literal(
             "Буян: центр " + state.centerX + "," + state.centerZ + "; радиус "
-            + " (берег 100–350); этап 1/3: ОСНОВАНИЕ; чанки " + state.chunkIndex + "/" + count
+            + " (берег 100–350), уровень воды Y=" + state.waterLevel
+            + ", минимальная суша Y=" + (state.waterLevel + 2)
+            + "; этап 1/3: ОСНОВАНИЕ; чанки " + state.chunkIndex + "/" + count
             + "; общий прогресс по чанкам ~" + progress + "%; защищённые чанки "
             + state.skippedChunks + ", пропущенные колонки " + state.skippedColumns
             + "; " + (state.paused ? "ПАУЗА" : "СТРОИТСЯ")
@@ -146,7 +165,7 @@ public final class BuyanGenerator {
         ServerLevel world = source.getLevel();
         BuyanState state = BuyanState.get(world);
         if (!state.active) return BuyanNatureGenerator.resume(source);
-        if (state.traversalVersion != 3) {
+        if (state.traversalVersion != 4) {
             source.sendFailure(Component.literal(
                 "Старое задание несовместимо с новым основанием Буяна. "
                 + "Нужен новый тестовый мир; старая территория не должна перезаписываться."));
@@ -322,7 +341,9 @@ public final class BuyanGenerator {
     private static boolean column(ServerLevel world, BuyanState state, int x, int z,
                                   BlockState[] original) {
         if (!withinFootprint(state, x, z)) return true;
-        int sea = world.getSeaLevel();
+        // Always use the fixed observed waterline from the start of this job.
+        // It must not change when the island modifies world heightmaps.
+        int sea = state.waterLevel;
         // Check the shoreline BEFORE querying the expensive ocean-floor heightmap.
         int top = BuyanTerrain.top(world.getSeed(), state.centerX, state.centerZ,
             state.radius, x, z, sea);
@@ -426,7 +447,7 @@ public final class BuyanGenerator {
             while (System.nanoTime() < end && columns < limit) {
                 if (state.chunkIndex >= totalChunks(state)) {
                     BuyanState.Site completed = new BuyanState.Site(
-                        state.centerX, state.centerZ, state.radius);
+                        state.centerX, state.centerZ, state.radius, state.waterLevel);
                     state.finish();
                     LogUtils.getLogger().info("Buyan island foundation generated at {},{} radius {}",
                         completed.x(), completed.z(), completed.radius());
