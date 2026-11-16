@@ -74,7 +74,8 @@ public final class ShipIVHeadless {
             var cell = entry.getKey();
             // IV helm posts deliberately carry standing lanterns, while
             // interiors remain suspended from their ceiling.
-            boolean correctHeight = false;
+            boolean correctHeight = frigate
+                    && part == ShipHullVoxelLayout.Part.LANTERN && cell.y() == 29;
             for (int floor : frigate
                     ? new int[]{1, 6, 11, 16, 21}
                     : new int[]{1, 5, 10, 15, 20})
@@ -270,9 +271,14 @@ public final class ShipIVHeadless {
                 stair(blocks, x, rear + 10, 16, 21, key + " captain bridge");
         require(at(blocks, -2, 17, rear + 11) != ShipHullVoxelLayout.Part.STAIR,
                 key + ": old internal bridge staircase remains");
-        if (decks >= 3)
+        if (decks >= 3) {
             require(at(blocks, -3, 27, rear + 2) == ShipHullVoxelLayout.Part.TRIM,
                     key + ": wheelhouse roof has no perimeter trim");
+            for (int x : new int[]{-3, 3})
+                require(at(blocks, x, 29, rear + 1)
+                        == ShipHullVoxelLayout.Part.LANTERN,
+                        key + ": roof-top corner light missing");
+        }
         var preRefinement = ShipHullVoxelLayout.previousRecentFrigateIVLayout(plan);
         require(at(preRefinement, -3, 2, rear + 23)
                     == ShipHullVoxelLayout.Part.STAIR,
