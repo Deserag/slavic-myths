@@ -162,6 +162,10 @@ public final class BuyanGenerator {
             || old.is(BlockTags.DIRT) || old.is(BlockTags.SAND)
             || old.is(BlockTags.LOGS) || old.is(BlockTags.LEAVES)
             || old.is(BlockTags.REPLACEABLE) || old.is(BlockTags.FLOWERS)
+            || old.is(BlockTags.CORALS) || old.is(BlockTags.CORAL_BLOCKS)
+            || old.is(Blocks.SEA_PICKLE) || old.is(Blocks.MAGMA_BLOCK)
+            || old.is(Blocks.SANDSTONE) || old.is(Blocks.RED_SANDSTONE)
+            || old.is(Blocks.CALCITE) || old.is(Blocks.MOSS_BLOCK)
             || old.is(Blocks.GRAVEL) || old.is(Blocks.CLAY)
             || old.is(Blocks.TUFF) || old.is(Blocks.DEEPSLATE)
             || old.is(Blocks.ICE) || old.is(Blocks.PACKED_ICE)
@@ -193,8 +197,10 @@ public final class BuyanGenerator {
 
         // Existing ocean floor remains the base of the newly raised geological mass.
         int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
-        int first = Math.max(world.getMinBuildHeight() + 1, oceanFloor + 1);
         int surface = Math.min(world.getMaxBuildHeight() - 8, top);
+        // Natural pre-existing ground is adapted as well as empty ocean water.
+        int first = Math.max(world.getMinBuildHeight() + 1,
+            Math.min(oceanFloor + 1, surface - 3));
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
 
         // Preflight the entire column before writing any blocks to this column.
@@ -209,7 +215,7 @@ public final class BuyanGenerator {
         // It must not erase player structures or existing block entities.
         int above = Math.min(world.getMaxBuildHeight() - 1,
             world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z) - 1);
-        if (surface > sea && above > surface) {
+        if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
                 cursor.set(x, y, z);
                 if (!canReplace(world.getBlockState(cursor))) {
@@ -223,10 +229,11 @@ public final class BuyanGenerator {
             cursor.set(x, y, z);
             setNatural(world, cursor, BuyanTerrain.block(world.getSeed(), x, y, z, surface, sea));
         }
-        if (surface > sea && above > surface) {
+        if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
                 cursor.set(x, y, z);
-                setNatural(world, cursor, Blocks.AIR.defaultBlockState());
+                setNatural(world, cursor, y <= sea
+                    ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState());
             }
         }
     }
