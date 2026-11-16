@@ -256,8 +256,8 @@ public final class ShipIVHeadless {
         for (int x : new int[]{3, 4})
             stair(blocks, x, rear + 21, 11, 16, key + " weather deck");
         if (decks >= 2 || bridge)
-            for (int x : new int[]{-4, -3})
-                stair(blocks, x, rear + 15, 16, 21, key + " captain bridge");
+            for (int x : new int[]{-5, -4})
+                stair(blocks, x, rear + 10, 16, 21, key + " captain bridge");
         require(at(blocks, -2, 17, rear + 11) != ShipHullVoxelLayout.Part.STAIR,
                 key + ": old internal bridge staircase remains");
         var legacy = ShipHullVoxelLayout.previousFrigateIVLayout(plan, false);
