@@ -906,19 +906,18 @@ public final class ShipHullVoxelLayout {
             frigateDeckRail(blocks, x, 16, rear);
         int frontSide = Math.min(7, Math.max(2, frigateBeam(plan, rear + 15) - 2));
         for (int x = -frontSide; x <= frontSide; x++)
-            if (x != -4 && x != -3 && x != 3 && x != 4)
+            if (x != 3 && x != 4)
                 frigateDeckRail(blocks, x, 16, rear + 15);
         if (!captainDeck) return;
         for (int z = rear; z <= rear + 9; z++) {
             int side = Math.min(5, Math.max(2, frigateBeam(plan, z) - 3));
-            frigateDeckRail(blocks, -side, 21, z);
+            if (z != rear + 4) frigateDeckRail(blocks, -side, 21, z);
             frigateDeckRail(blocks, side, 21, z);
         }
         for (int x = -5; x <= 5; x++)
             frigateDeckRail(blocks, x, 21, rear);
         for (int x = -5; x <= 5; x++)
-            if (x != -4 && x != -3)
-                frigateDeckRail(blocks, x, 21, rear + 9);
+            frigateDeckRail(blocks, x, 21, rear + 9);
     }
 
     private static void frigateHelmDetail(Map<Cell, Part> blocks, int rear, int floor) {
@@ -1093,7 +1092,7 @@ public final class ShipHullVoxelLayout {
             // Separated exterior entrances, clear of the internal stairwell.
             // Starboard: weather deck -> quarterdeck. Port: captain access.
             frigateStairs(out, 4, rear + 21, 11, 16);
-            if (captainDeck) frigateStairs(out, -4, rear + 15, 16, 21);
+            if (captainDeck) frigateStairs(out, -5, rear + 10, 16, 21);
             frigateSafetyRails(out, p, rear, captainDeck);
             frigateHelmDetail(out, rear, captainDeck ? 21 : 16);
         }
