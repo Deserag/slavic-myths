@@ -9,6 +9,9 @@ on:
     paths:
       - 'src/main/java/org/slavicmyths/ships/**'
       - 'tools/ship-iv-checks/**'
+      - 'tools/ship-iv-tests/**'
+      - 'tools/ship-section-tests/**'
+      - 'tools/ocean26-tests/**'
       - '.github/workflows/ship-iv-headless.yml'
   workflow_dispatch:
 
@@ -32,9 +35,12 @@ jobs:
             src/main/java/org/slavicmyths/ships/ShipSuperstructurePlan.java \
             src/main/java/org/slavicmyths/ships/ShipHullVoxelLayout.java \
             src/main/java/org/slavicmyths/ships/ShipRigidMotion.java \
-            tools/ship-iv-checks/ShipIVHeadless.java
+            tools/ship-iv-checks/ShipIVHeadless.java \
+            tools/ship-iv-tests/ShipIVRegression.java
       - name: Geometry and motion regression (432 configurations)
-        run: java -cp .ship-iv-checks org.slavicmyths.ships.ShipIVHeadless
+        run: |
+          java -cp .ship-iv-checks org.slavicmyths.ships.ShipIVHeadless
+          java -cp .ship-iv-checks ShipIVRegression
 
   ship-mod-java:
     runs-on: ubuntu-latest
