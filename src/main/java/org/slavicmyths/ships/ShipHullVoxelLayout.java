@@ -845,7 +845,8 @@ public final class ShipHullVoxelLayout {
                     // of replacing it with a colliding log.
                     Part existing = out.get(cell);
                     if (existing == Part.DECK || existing == Part.BRIDGE
-                            || existing == Part.STAIR) continue;
+                            || existing == Part.STAIR || y == 1
+                            || y <= 5 && existing == Part.HULL) continue;
                     put(out, x, y, z, x == 0 ? Part.KEEL : Part.FRAME);
                 }
             lastZ = nextZ;
