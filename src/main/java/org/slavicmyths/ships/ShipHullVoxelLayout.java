@@ -501,9 +501,6 @@ public final class ShipHullVoxelLayout {
         // A bridge upgrade must have visible geometry even when a raised
         // deck already exists. Keep the captain's wheel accessible.
         if (p.bridge()) {
-            for (int z = rear + 1; z <= rear + 5; z++)
-                for (int x : new int[]{-3, 3})
-                    put(out, x, top + 1, z, Part.RAIL);
             // A small sheltered command canopy distinguishes the actual
             // captain bridge from a basic exposed steering position. It sits
             // BEHIND the wheel, so the player and wheel remain accessible.
@@ -813,8 +810,6 @@ public final class ShipHullVoxelLayout {
                     put(out, x, 6, z, Part.DECK);
                     put(out, x, 11, z, Part.DECK);
                 }
-                if (d == beam && z > -end + 5 && z < end - 9)
-                    put(out, x, 12, z, Part.RAIL);
             }
         }
         // The forecastle's forward sheer rises above the weather deck:
@@ -860,8 +855,6 @@ public final class ShipHullVoxelLayout {
                 int half = Math.min(7, Math.max(2, frigateBeam(p, z) - 2));
                 for (int x = -half; x <= half; x++) {
                     put(out, x, 16, z, Part.DECK);
-                    if (Math.abs(x) == half || z == rear || z == rear + 15)
-                        put(out, x, 17, z, Part.RAIL);
                     if (z == rear && Math.abs(x) < half)
                         put(out, x, 13, z, Part.WINDOW);
                     if (Math.abs(x) == half)
@@ -889,8 +882,6 @@ public final class ShipHullVoxelLayout {
                 int half = Math.min(5, Math.max(2, frigateBeam(p, z) - 3));
                 for (int x = -half; x <= half; x++) {
                     put(out, x, 21, z, Part.BRIDGE);
-                    if (Math.abs(x) == half || z == rear || z == rear + 9)
-                        put(out, x, 22, z, Part.RAIL);
                 }
             }
         }
@@ -908,12 +899,10 @@ public final class ShipHullVoxelLayout {
             // The captain bridge upgrade is a physical change even when the
             // third deck was already installed; it is not a no-op flag.
             for (int z = rear + 5; z <= rear + 8; z++)
-                for (int x : new int[]{-4, 4}) {
-                    put(out, x, 22, z, Part.RAIL);
+                for (int x : new int[]{-4, 4})
                     if (z == rear + 5 || z == rear + 8)
                         for (int y = 23; y <= 25; y++)
                             put(out, x, y, z, Part.FRAME);
-                }
             for (int x = -4; x <= 4; x++)
                 put(out, x, 26, rear + 5, Part.BRIDGE);
         }
@@ -998,7 +987,6 @@ public final class ShipHullVoxelLayout {
                 } else if (Math.floorMod(z, 3) == 0)
                     put(blocks, x, 3, z, Part.FRAME);
                 if (!mainHatch(x, z)) put(blocks, x, 4, z, Part.DECK);
-                if (edge) put(blocks, x, 5, z, Part.RAIL);
             }
         }
         // The hold shaft stops at the main deck on medium ships. Their
@@ -1029,8 +1017,6 @@ public final class ShipHullVoxelLayout {
                 for (int x = -half; x <= half; x++) {
                     boolean hatch = !mediumQuarterdeck && x == -2 && (z == 0 || z == 1);
                     if (!hatch) put(blocks, x, y, z, Part.DECK);
-                    if (Math.abs(x) == half && !hatch)
-                        put(blocks, x, y + 1, z, Part.RAIL);
                     if ((z - rear) % 4 == 0 && Math.abs(x) == half)
                         for (int sy = y - 3; sy < y; sy++)
                             put(blocks, x, sy, z, Part.FRAME);
@@ -1101,10 +1087,6 @@ public final class ShipHullVoxelLayout {
             for (int z = rear; z <= front; z++)
                 for (int x = -side; x <= side; x++) {
                     put(blocks, x, bridgeFloor, z, Part.BRIDGE);
-                    boolean entrance = z == front && x == ladderX
-                            && plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM;
-                    if ((Math.abs(x) == side || z == rear || z == front) && !entrance)
-                        put(blocks, x, bridgeFloor + 1, z, Part.RAIL);
                 }
             for (int y = 5; y <= bridgeFloor; y++) {
                 if (plan.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
@@ -1118,11 +1100,6 @@ public final class ShipHullVoxelLayout {
             // bridge was purchased. Keep the only helm above the room.
             int rear = -halfLength + 2, front = rear + 6;
             int side = Math.min(3, plan.hullWidth() / 2 - 2);
-            for (int z = rear; z <= front; z++)
-                for (int x = -side; x <= side; x++)
-                    if ((Math.abs(x) == side || z == rear || z == front)
-                            && !(z == front && x == -side + 1))
-                        put(blocks, x, 9, z, Part.RAIL);
             // Support the external ladder against a real post. Leave its
             // opening clear through an optional second-deck floor.
             for (int y = 5; y <= 9; y++) {
