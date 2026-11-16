@@ -113,7 +113,7 @@ public final class ShipIVGeometryHeadless {
         flight(cells, -3, stairZ - 12, 11);
         flight(cells, 4, rear + 21, 11);
         if (config.decks() >= 2 || config.bridge())
-            flight(cells, -4, rear + 15, 16);
+            flight(cells, -5, rear + 10, 16);
         require(cells.values().stream().filter(p ->
                 p == ShipHullVoxelLayout.Part.RAIL).count() >= 30,
                 "IV open decks have no safety rails");
