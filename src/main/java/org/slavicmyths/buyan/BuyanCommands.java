@@ -22,6 +22,15 @@ public final class BuyanCommands {
                     .then(Commands.literal("pause")
                         .executes(ctx -> BuyanGenerator.pause(ctx.getSource())))
                     .then(Commands.literal("resume")
-                        .executes(ctx -> BuyanGenerator.resume(ctx.getSource()))))));
+                        .executes(ctx -> BuyanGenerator.resume(ctx.getSource())))
+                    .then(Commands.literal("nature")
+                        .then(Commands.literal("start")
+                            .executes(ctx -> BuyanNatureGenerator.start(ctx.getSource())))
+                        .then(Commands.literal("status")
+                            .executes(ctx -> BuyanNatureGenerator.status(ctx.getSource())))
+                        .then(Commands.literal("pause")
+                            .executes(ctx -> BuyanNatureGenerator.pause(ctx.getSource())))
+                        .then(Commands.literal("resume")
+                            .executes(ctx -> BuyanNatureGenerator.resume(ctx.getSource())))))));
     }
 }
