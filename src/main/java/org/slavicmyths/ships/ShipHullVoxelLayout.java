@@ -738,8 +738,10 @@ public final class ShipHullVoxelLayout {
     private static Map<Cell, Part> previousLightingLayoutFrom(
             ShipSuperstructurePlan plan, Map<Cell, Part> initial, boolean frigate) {
         Map<Cell, Part> blocks = new LinkedHashMap<>(initial);
-        blocks.entrySet().removeIf(entry -> entry.getValue() == Part.LANTERN
-                || entry.getValue() == Part.HANGING_LANTERN);
+        // The IV helm's standing lanterns are architectural fixtures.
+        // Only the interior CEILING rows changed between light revisions.
+        blocks.entrySet().removeIf(entry ->
+                entry.getValue() == Part.HANGING_LANTERN);
         int end = plan.hullLength() / 2;
         int[] floors = frigate ? new int[]{1, 6, 11, 16, 21}
                 : new int[]{1, 5, 10, 15, 20};
