@@ -2088,8 +2088,22 @@ public final class Ocean26GameTests {
                         && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
                                 Blocks.WHEAT.defaultBlockState())
                         && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
-                                Blocks.SEAGRASS.defaultBlockState()),
-                "Farming whitelist unexpectedly accepts farmland/crops/water plants");
+                                Blocks.SEAGRASS.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.SUGAR_CANE.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.CACTUS.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.BAMBOO.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.COCOA.defaultBlockState())
+                        && org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.ATTACHED_MELON_STEM.defaultBlockState())
+                        && !org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.CHEST.defaultBlockState())
+                        && !org.slavicmyths.ships.ShipCargoPlacementGuard.forbidden(
+                                Blocks.CRAFTING_TABLE.defaultBlockState()),
+                "Ship farm policy must reject all growing plants but permit functional blocks");
         t.assertTrue(level.setBlock(forbidden, Blocks.FARMLAND.defaultBlockState(), 2)
                         && org.slavicmyths.ships.ShipModularBlockHull.pack(
                                 level, anchor, 0, config) == null,
