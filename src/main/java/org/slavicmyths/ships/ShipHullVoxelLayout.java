@@ -966,7 +966,7 @@ public final class ShipHullVoxelLayout {
         }
     }
 
-    private static void frigateRoofParapet(Map<Cell, Part> blocks) {
+    private static void frigateRoofParapet(Map<Cell, Part> blocks, int rear) {
         // Follow the actual wheelhouse roof footprint, not a rectangle.
         List<Cell> outline = new ArrayList<>();
         for (var entry : blocks.entrySet()) {
@@ -981,6 +981,13 @@ public final class ShipHullVoxelLayout {
         for (Cell c : outline)
             if (!blocks.containsKey(new Cell(c.x(), 27, c.z())))
                 put(blocks, c.x(), 27, c.z(), Part.TRIM);
+        // Illuminated raised corners like the enclosed timber screen below.
+        // They sit on actual roof framing, not in the walking/helm lanes.
+        for (int x : new int[]{-3, 3}) {
+            if (blocks.get(new Cell(x, 27, rear + 1)) != Part.TRIM) continue;
+            put(blocks, x, 28, rear + 1, Part.FRAME);
+            put(blocks, x, 29, rear + 1, Part.LANTERN);
+        }
     }
 
     private static Map<Cell, Part> generateFrigateIV(
@@ -1164,7 +1171,7 @@ public final class ShipHullVoxelLayout {
                     frigateDeckRail(out, x, floor, rear + 2);
             } else {
                 frigateHelmDetail(out, rear, captainDeck ? 21 : 16);
-                if (p.decks() >= 3) frigateRoofParapet(out);
+                if (p.decks() >= 3) frigateRoofParapet(out, rear);
             }
         }
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
