@@ -44,11 +44,11 @@ public final class ShipIVGeometryHeadless {
         int upper = lower + 5;
         require(isWalkable(at(blocks, x, lower, start)),
                 "Missing lower approach " + x + "," + lower + "," + start);
-        require(isWalkable(at(blocks, x, upper, start + 6)),
-                "Missing upper landing " + x + "," + upper + "," + (start + 6));
+        require(isWalkable(at(blocks, x, upper, start - 6)),
+                "Missing upper landing " + x + "," + upper + "," + (start - 6));
         for (int i = 0; i <= 6; i++) {
             int y = i == 0 ? lower : i == 6 ? upper : lower + i;
-            int z = start + i;
+            int z = start - i;
             require(at(blocks, x, y + 1, z) == null
                     && at(blocks, x, y + 2, z) == null
                     && at(blocks, x, y + 3, z) == null,
@@ -107,11 +107,14 @@ public final class ShipIVGeometryHeadless {
         for (int z : config.mastPositions())
             require(at(cells, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     "Missing physical mast " + z);
-        flight(cells, -3, rear + 2, 1);
-        flight(cells, 3, rear + 2, 6);
-        flight(cells, -3, rear + 2, 11);
+        int stairZ = rear + 6 + (config.decks() >= 2 || config.bridge() ? 24 : 18);
+        flight(cells, -3, stairZ, 1);
+        flight(cells, -3, stairZ - 6, 6);
+        flight(cells, -3, stairZ - 12, 11);
         if (config.decks() >= 2 || config.bridge())
-            flight(cells, 3, rear + 2, 16);
+            flight(cells, -3, stairZ - 18, 16);
+        require(cells.values().stream().noneMatch(p -> p == ShipHullVoxelLayout.Part.RAIL),
+                "IV deck fences returned");
         checked++;
     }
 
