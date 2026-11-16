@@ -717,6 +717,14 @@ public final class Ocean26GameTests {
                         type + " moving deck failed to catch falling crew: y="
                                 + fallingCrew.getY() + " deck=" + ship.deckY());
                 fallingCrew.discard();
+                CompoundTag savedMovingShip = new CompoundTag();
+                ship.saveWithoutId(savedMovingShip);
+                var loadedMovingBody = org.slavicmyths.ships.ShipMovingContraption.load(
+                        savedMovingShip.getCompound("FirstShipMovingBody"));
+                t.assertTrue(loadedMovingBody != null
+                                && loadedMovingBody.palette().size()
+                                == ship.serverMovingPalette().size(),
+                        type + " moving mixed-tier hull palette changed in NBT roundtrip");
             }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);
