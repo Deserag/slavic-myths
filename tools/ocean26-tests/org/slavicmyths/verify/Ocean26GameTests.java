@@ -138,7 +138,7 @@ public final class Ocean26GameTests {
                 "Final stair landing detached from intended deck");
         if (iv) {
             assertRotatedExteriorFlight(t, level, motion.palette(),
-                    anchor, turns, 4, rear + 21, 11, facing);
+                    anchor, turns, 7, rear + 21, 11, facing);
             assertRotatedExteriorFlight(t, level, motion.palette(),
                     anchor, turns, -5, rear + 10, 16, facing);
         }
@@ -619,7 +619,7 @@ public final class Ocean26GameTests {
             int stairZ = rear + 30;
             assertPairedStair(t, level, anchor, -3, stairZ, 1, 5);
             assertPairedStair(t, level, anchor, -3, stairZ - 6, 6, 5);
-            assertPairedStair(t, level, anchor, 4, rear + 21, 11, 5);
+            assertPairedStair(t, level, anchor, 7, rear + 21, 11, 5);
             if (config.decks() >= 2 || config.bridge())
                 assertPairedStair(t, level, anchor, -5, rear + 10, 16, 5);
         }
