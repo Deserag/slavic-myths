@@ -414,15 +414,17 @@ public final class ShipModularBlockHull {
                     || config.shipClass() == ShipSectionPlan.ShipClass.LARGE
                             && config.hullRevision() == 3;
             if (!modular) return null;
+            // Prefer the CURRENT topology before legacy subsets. A pre-rail
+            // IV palette can match most of a new physical ship while omitting
+            // all of its new stair/railing cells; selecting it first incorrectly
+            // classifies those extra fixtures as illegal cargo after one damage.
             List<Map<BlockPos, BlockState>> candidates = new ArrayList<>();
+            candidates.add(source);
             candidates.add(previousLightingWorldPalette(config, anchor, turns));
             if (frigateIV) {
-                // Ships built before deck/bridge separation have no safety
-                // rails and use the old final captain-bridge stair flight.
                 candidates.add(previousIVWorldPalette(config, anchor, turns, false));
                 candidates.add(previousIVWorldPalette(config, anchor, turns, true));
             }
-            candidates.add(source);
             boolean found = false;
             for (var candidate : candidates) {
                 if (!matchesPhysicalHull(level, candidate)) continue;
