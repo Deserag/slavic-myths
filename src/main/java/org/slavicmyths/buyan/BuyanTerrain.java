@@ -36,13 +36,13 @@ public final class BuyanTerrain {
         return h ^ (h >>> 31);
     }
 
-    private static long hash(long seed, int x, int z, int y) {
+    static long hash(long seed, int x, int z, int y) {
         return mix(seed ^ ((long) x * 0x9E3779B97F4A7C15L)
             ^ ((long) z * 0xC2B2AE3D27D4EB4FL)
             ^ ((long) y * 0x165667B19E3779F9L));
     }
 
-    private static double value(long seed, int x, int z, int y) {
+    static double value(long seed, int x, int z, int y) {
         return (hash(seed, x, z, y) >>> 11) / (double) (1L << 53);
     }
 
@@ -50,7 +50,7 @@ public final class BuyanTerrain {
         return t * t * (3.0 - 2.0 * t);
     }
 
-    private static double noise(long seed, double x, double z, double scale) {
+    static double noise(long seed, double x, double z, double scale) {
         double gx = x / scale;
         double gz = z / scale;
         int ix = (int) Math.floor(gx);
