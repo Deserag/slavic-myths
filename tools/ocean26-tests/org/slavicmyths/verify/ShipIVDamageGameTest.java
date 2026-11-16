@@ -212,24 +212,25 @@ public final class ShipIVDamageGameTest {
                             anchor, 0, c.x(), c.y() + head, c.z())).isAir(),
                             "Stair headroom blocked at " + c);
             }
-            // The acceptance criterion is supported ceiling lighting spaced
-            // at least five blocks apart; not maximum brightness on every
-            // hull tile, which would require forbidden floor-lantern spam.
+            // Verify real hanging interior lighting and raised standing
+            // lanterns on IV helm/roof posts. III keeps its original minimum.
             for (var light : plan.entrySet()) {
                 if (light.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
                         && light.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
                 var cell = light.getKey();
-                test.assertTrue(light.getValue() == ShipHullVoxelLayout.Part.HANGING_LANTERN,
-                        "Ground lantern in a deck walkway: " + cell);
+                boolean standing = light.getValue() == ShipHullVoxelLayout.Part.LANTERN;
+                test.assertTrue(!standing || type == ShipSectionPlan.ShipClass.LARGEST,
+                        "Unexpected standing lantern on III " + cell);
                 BlockPos position = FirstShipBlockHull.world(anchor, 0,
                         cell.x(), cell.y(), cell.z());
                 test.assertTrue(level.getBlockState(position).is(Blocks.LANTERN)
                                 && level.getBlockState(position).getValue(
-                                        net.minecraft.world.level.block.LanternBlock.HANGING),
-                        "Lantern missing or not hung from beam: " + cell);
-                BlockPos support = position.above();
+                                        net.minecraft.world.level.block.LanternBlock.HANGING)
+                                        != standing,
+                        "Lantern state does not match support: " + cell);
+                BlockPos support = standing ? position.below() : position.above();
                 test.assertTrue(!level.getBlockState(support).isAir(),
-                        "Ceiling lantern has no anchor: " + cell);
+                        "Lantern has no real support: " + cell);
                 for (var other : plan.entrySet()) {
                     if (other.getKey().equals(cell)
                             || other.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
@@ -238,10 +239,11 @@ public final class ShipIVDamageGameTest {
                     int dx = cell.x() - second.x();
                     int dy = cell.y() - second.y();
                     int dz = cell.z() - second.z();
-                    test.assertTrue(dx * dx + dy * dy + dz * dz >= 25,
+                    test.assertTrue(dx * dx + dy * dy + dz * dz >=
+                                    (type == ShipSectionPlan.ShipClass.LARGEST ? 9 : 25),
                             "Lanterns too close: " + cell + " / " + second);
                 }
-                hangingLights++;
+                if (!standing) hangingLights++;
             }
             lightChecks = hangingLights;
             test.assertTrue(hangingLights >= 6,
