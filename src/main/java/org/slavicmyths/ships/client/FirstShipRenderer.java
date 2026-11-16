@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -27,6 +28,7 @@ import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.RaftContent;
+import org.slavicmyths.ships.ShipSailRigGeometry;
 
 /**
  * Stationary hull: actual vanilla chunk blocks. Moving hull: local vanilla
@@ -45,6 +47,7 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private final ItemStack helm;
     private String paletteKey = "";
     private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private final Map<FirstShipEntity, Double> sailPressure = new WeakHashMap<>();
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -179,40 +182,258 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             renderFabricSail(ship, yaw, partialTick, pose, buffers, deckLight);
     }
 
-    /** Separate thin wind-shaped sailcloth per mast; tier controls real size. */
+
+    /**
+     * Each installed mast gets its own sail tiers, anchored standing rigging
+     * and non-colliding running rigging. The server block palette remains the
+     * authoritative physical hull; this layer draws only decorative fabric
+     * and fine ropes in the same ship-local pose as the moving hull.
+     */
     private void renderModularSails(FirstShipEntity ship, float yaw, float partialTick,
             PoseStack pose, MultiBufferSource buffers, int light) {
         var plan = ship.modularConfiguration().structure();
+        var geometry = ShipSailRigGeometry.forPlan(plan);
+        if (geometry.panels().isEmpty()) return;
+        double cap = ShipSailRigGeometry.isFrigate(plan)
+                ? org.slavicmyths.ships.ShipRigidMotion.MAX_IV_FORWARD
+                : org.slavicmyths.ships.ShipRigidMotion.MAX_FORWARD;
+        double target = ship.isMoving()
+                ? Math.min(1D, Math.abs(ship.visualMotionSpeed()) / cap) : 0D;
+        double previous = sailPressure.getOrDefault(ship, target);
+        // Damp network jitter without touching the server-authoritative physics.
+        double pressure = previous + .18D * (target - previous);
+        sailPressure.put(ship, pressure);
+
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(-(ship.isMoving() ? yaw : ship.shipYaw())));
-        for (int i = 0; i < plan.sailTiers().size(); i++) {
-            int tier = plan.sailTiers().get(i);
-            int top = org.slavicmyths.ships.ShipHullVoxelLayout.sailTop(plan, tier);
-            boolean iv = plan.shipClass() == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
-                    && plan.hullRevision() == 4;
-            int span = iv ? (i == 1 || i == 2 ? 8 : 6) + tier - 1
-                    : tier == 1 ? 2 : tier == 2 ? 3 : 4;
-            BlockState edging = (tier == 1 ? Blocks.RED_WOOL
-                    : tier == 2 ? Blocks.BLUE_WOOL : Blocks.BROWN_WOOL).defaultBlockState();
+        VertexConsumer cloth = buffers.getBuffer(RenderType.entityCutoutNoCull(SAIL_TEXTURE));
+        for (var panel : geometry.panels()) {
             pose.pushPose();
-            pose.translate(0D, 0D, plan.mastPositions().get(i));
-            if (iv) {
-                // Two separate courses per mast at tier I; an upper topgallant
-                // is fitted at tier III. Each panel is a client-only mesh.
-                sailPanel(ship, partialTick, pose, buffers, light, edging,
-                        22D, 29D, span);
-                sailPanel(ship, partialTick, pose, buffers, light, edging,
-                        31D, 37D, Math.max(3, span - 2));
-                if (tier >= 3)
-                    sailPanel(ship, partialTick, pose, buffers, light, edging,
-                            40D, Math.min(43D, top + 3D), Math.max(3, span - 3));
-            } else {
-                double bottom = org.slavicmyths.ships.ShipHullVoxelLayout.sailBottom(plan);
-                sailPanel(ship, partialTick, pose, buffers, light, edging, bottom, top, span);
-            }
+            pose.translate(0D, 0D, panel.mastZ());
+            renderRigPanel(ship, partialTick, cloth, pose, light, panel, pressure);
             pose.popPose();
         }
+        for (var triangle : geometry.staysails())
+            renderStaysail(cloth, pose, light, triangle, pressure);
+        for (var rope : geometry.ropes())
+            renderRope(cloth, pose, light, rope.start(), rope.end(), rope.kind());
+        // Intermediate tiers require extra light yards between the two
+        // physical wooden yards on III. They are purely cosmetic.
+        if (ShipSailRigGeometry.isBrigantine(plan)) {
+            double base = org.slavicmyths.ships.ShipHullVoxelLayout.sailLowerYard(plan);
+            for (int i = 0; i < plan.sailTiers().size(); i++) {
+                int tier = plan.sailTiers().get(i);
+                double z = plan.mastPositions().get(i);
+                if (tier >= 2)
+                    renderLightYard(cloth, pose, light, base + 5.5D,
+                            z, tier == 2 ? 2.3D : 3D);
+                if (tier >= 3)
+                    renderLightYard(cloth, pose, light, base + 9.5D, z, 2.2D);
+            }
+        } else if (ShipSailRigGeometry.isFrigate(plan)) {
+            for (int i = 0; i < plan.sailTiers().size(); i++) {
+                // Tier-II central masts carry an extra upper sail without a
+                // collision-bearing top yard; draw a lightweight support.
+                if (plan.sailTiers().get(i) == 2 && (i == 1 || i == 2))
+                    renderLightYard(cloth, pose, light, 43D,
+                            plan.mastPositions().get(i), 4.5D);
+            }
+        }
         pose.popPose();
+    }
+
+    private void renderLightYard(VertexConsumer out, PoseStack pose, int light,
+            double y, double z, double halfWidth) {
+        renderRibbon(out, pose, light,
+                new ShipSailRigGeometry.Point(-halfWidth, y, z),
+                new ShipSailRigGeometry.Point(halfWidth, y, z),
+                .14D, .44F, .27F, .12F);
+    }
+
+    private ShipSailRigGeometry.Point clothPoint(FirstShipEntity ship,
+            float partialTick, ShipSailRigGeometry.Panel p,
+            double pressure, double u, double v) {
+        double profile = .86D + .14D * Math.sin(Math.PI * v);
+        double x = p.halfWidth() * (u * 2D - 1D) * profile;
+        double y = p.bottom() + (p.top() - p.bottom()) * v;
+        double pinned = Math.sin(Math.PI * u) * Math.sin(Math.PI * v);
+        double swell = (.12D + 1.65D * pressure) * pinned;
+        double flutter = .045D * Math.sin((ship.tickCount + partialTick) * .085D
+                + u * 12D + v * 5D) * pinned;
+        return new ShipSailRigGeometry.Point(x, y, .20D + swell + flutter);
+    }
+
+    private void renderRigPanel(FirstShipEntity ship, float partialTick,
+            VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Panel panel, double pressure) {
+        final int columns = 10, rows = 8;
+        float red = panel.tier() == 2 ? .91F : 1F;
+        float green = panel.tier() == 3 ? .91F : 1F;
+        float blue = panel.tier() == 3 ? .82F : 1F;
+        for (int row = 0; row < rows; row++) {
+            double v0 = row / (double) rows, v1 = (row + 1D) / rows;
+            for (int column = 0; column < columns; column++) {
+                double u0 = column / (double) columns, u1 = (column + 1D) / columns;
+                var a = clothPoint(ship, partialTick, panel, pressure, u0, v0);
+                var b = clothPoint(ship, partialTick, panel, pressure, u1, v0);
+                var c = clothPoint(ship, partialTick, panel, pressure, u1, v1);
+                var d = clothPoint(ship, partialTick, panel, pressure, u0, v1);
+                renderQuad(out, pose, light, a, b, c, d,
+                        (float) u0, (float) u1, (float) v0, (float) v1,
+                        red, green, blue);
+            }
+        }
+        // Boltrope follows the animated cloth boundary exactly. Subtle seam
+        // lines run between independent panels instead of being solid blocks.
+        for (int edge = 0; edge < 2; edge++) {
+            double u = edge;
+            for (int row = 0; row < rows; row++)
+                renderRope(out, pose, light,
+                        clothPoint(ship, partialTick, panel, pressure, u, row / (double) rows),
+                        clothPoint(ship, partialTick, panel, pressure, u, (row + 1D) / rows),
+                        ShipSailRigGeometry.RopeKind.LIFT);
+        }
+        for (int edge = 0; edge < 2; edge++) {
+            double v = edge;
+            for (int column = 0; column < columns; column++)
+                renderRope(out, pose, light,
+                        clothPoint(ship, partialTick, panel, pressure,
+                                column / (double) columns, v),
+                        clothPoint(ship, partialTick, panel, pressure,
+                                (column + 1D) / columns, v),
+                        ShipSailRigGeometry.RopeKind.LIFT);
+        }
+        for (double seamV : new double[]{.34D, .67D})
+            for (int column = 0; column < columns; column++)
+                renderRibbon(out, pose, light,
+                        clothPoint(ship, partialTick, panel, pressure,
+                                column / (double) columns, seamV),
+                        clothPoint(ship, partialTick, panel, pressure,
+                                (column + 1D) / columns, seamV),
+                        .018D, .72F, .65F, .51F);
+    }
+
+    private void renderStaysail(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Staysail sail, double pressure) {
+        var a = sail.a();
+        var b = sail.b();
+        var c = sail.c();
+        var middle = new ShipSailRigGeometry.Point(
+                (a.x() + b.x() + c.x()) / 3D + .22D + .52D * pressure,
+                (a.y() + b.y() + c.y()) / 3D,
+                (a.z() + b.z() + c.z()) / 3D);
+        renderTriangle(out, pose, light, a, b, middle, .96F, .94F, .87F);
+        renderTriangle(out, pose, light, b, c, middle, .96F, .94F, .87F);
+        renderTriangle(out, pose, light, c, a, middle, .96F, .94F, .87F);
+        renderRope(out, pose, light, a, b, ShipSailRigGeometry.RopeKind.LIFT);
+        renderRope(out, pose, light, b, c, ShipSailRigGeometry.RopeKind.LIFT);
+        renderRope(out, pose, light, c, a, ShipSailRigGeometry.RopeKind.LIFT);
+    }
+
+    private void renderTriangle(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point a, ShipSailRigGeometry.Point b,
+            ShipSailRigGeometry.Point c, float red, float green, float blue) {
+        float[] normal = surfaceNormal(a, b, c);
+        fabricVertex(out, pose, light, a, red, green, blue, 0F, 0F, normal, 1F);
+        fabricVertex(out, pose, light, b, red, green, blue, 0F, 1F, normal, 1F);
+        fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, 1F);
+        fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, 1F);
+        fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, -1F);
+        fabricVertex(out, pose, light, b, red, green, blue, 0F, 1F, normal, -1F);
+        fabricVertex(out, pose, light, a, red, green, blue, 0F, 0F, normal, -1F);
+        fabricVertex(out, pose, light, a, red, green, blue, 0F, 0F, normal, -1F);
+    }
+
+    private void renderQuad(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point a, ShipSailRigGeometry.Point b,
+            ShipSailRigGeometry.Point c, ShipSailRigGeometry.Point d,
+            float u0, float u1, float v0, float v1,
+            float red, float green, float blue) {
+        float[] normal = surfaceNormal(a, b, d);
+        fabricVertex(out, pose, light, a, red, green, blue, u0, v0, normal, 1F);
+        fabricVertex(out, pose, light, b, red, green, blue, u1, v0, normal, 1F);
+        fabricVertex(out, pose, light, c, red, green, blue, u1, v1, normal, 1F);
+        fabricVertex(out, pose, light, d, red, green, blue, u0, v1, normal, 1F);
+        fabricVertex(out, pose, light, d, red, green, blue, u0, v1, normal, -1F);
+        fabricVertex(out, pose, light, c, red, green, blue, u1, v1, normal, -1F);
+        fabricVertex(out, pose, light, b, red, green, blue, u1, v0, normal, -1F);
+        fabricVertex(out, pose, light, a, red, green, blue, u0, v0, normal, -1F);
+    }
+
+    private static float[] surfaceNormal(ShipSailRigGeometry.Point a,
+            ShipSailRigGeometry.Point b, ShipSailRigGeometry.Point c) {
+        double abx = b.x() - a.x(), aby = b.y() - a.y(), abz = b.z() - a.z();
+        double acx = c.x() - a.x(), acy = c.y() - a.y(), acz = c.z() - a.z();
+        double x = aby * acz - abz * acy;
+        double y = abz * acx - abx * acz;
+        double z = abx * acy - aby * acx;
+        double length = Math.max(1E-7D, Math.sqrt(x * x + y * y + z * z));
+        return new float[]{(float) (x / length), (float) (y / length),
+                (float) (z / length)};
+    }
+
+    private void fabricVertex(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point p, float red, float green, float blue,
+            float u, float v, float[] normal, float facing) {
+        out.addVertex(pose.last().pose(), (float) p.x(), (float) p.y(), (float) p.z())
+                .setColor(red, green, blue, 1F).setUv(u, v)
+                .setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
+                .setNormal(pose.last(), normal[0] * facing, normal[1] * facing,
+                        normal[2] * facing);
+    }
+
+    private void renderRope(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point a, ShipSailRigGeometry.Point b,
+            ShipSailRigGeometry.RopeKind kind) {
+        double width = kind == ShipSailRigGeometry.RopeKind.SHROUD
+                || kind == ShipSailRigGeometry.RopeKind.STAY
+                || kind == ShipSailRigGeometry.RopeKind.BACKSTAY ? .055D
+                : kind == ShipSailRigGeometry.RopeKind.RATLINE ? .025D : .035D;
+        float r = kind == ShipSailRigGeometry.RopeKind.RATLINE ? .51F : .43F;
+        float g = kind == ShipSailRigGeometry.RopeKind.RATLINE ? .38F : .30F;
+        float bl = kind == ShipSailRigGeometry.RopeKind.RATLINE ? .23F : .18F;
+        renderRibbon(out, pose, light, a, b, width, r, g, bl);
+    }
+
+    private void renderRibbon(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point a, ShipSailRigGeometry.Point b,
+            double width, float r, float g, float blue) {
+        double dx = b.x() - a.x(), dy = b.y() - a.y(), dz = b.z() - a.z();
+        double length = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        if (length < 1E-5D) return;
+        dx /= length;
+        dy /= length;
+        dz /= length;
+        double sx = -dz, sy = 0D, sz = dx;
+        double horizontal = Math.hypot(sx, sz);
+        if (horizontal < 1E-5D) {
+            sx = 1D;
+            sz = 0D;
+        } else {
+            sx /= horizontal;
+            sz /= horizontal;
+        }
+        renderRibbonStrip(out, pose, light, a, b, sx, sy, sz, width, r, g, blue);
+        renderRibbonStrip(out, pose, light, a, b,
+                dy * sz - dz * sy, dz * sx - dx * sz,
+                dx * sy - dy * sx, width, r, g, blue);
+    }
+
+    private void renderRibbonStrip(VertexConsumer out, PoseStack pose, int light,
+            ShipSailRigGeometry.Point a, ShipSailRigGeometry.Point b,
+            double sx, double sy, double sz, double width,
+            float r, float g, float blue) {
+        double half = width / 2D;
+        var a0 = new ShipSailRigGeometry.Point(
+                a.x() - sx * half, a.y() - sy * half, a.z() - sz * half);
+        var a1 = new ShipSailRigGeometry.Point(
+                a.x() + sx * half, a.y() + sy * half, a.z() + sz * half);
+        var b0 = new ShipSailRigGeometry.Point(
+                b.x() - sx * half, b.y() - sy * half, b.z() - sz * half);
+        var b1 = new ShipSailRigGeometry.Point(
+                b.x() + sx * half, b.y() + sy * half, b.z() + sz * half);
+        renderQuad(out, pose, light, a0, b0, b1, a1,
+                0F, 1F, 0F, 1F, r, g, blue);
     }
 
     /** Thin, bowed cloth panels. The V7 layout retains physical mast and yards. */
