@@ -100,7 +100,7 @@ public final class ShipIVDamageGameTest {
                             stairCount++;
                             test.assertTrue(level.getBlockState(pos).is(Blocks.SPRUCE_STAIRS)
                                     && level.getBlockState(pos).getValue(StairBlock.FACING)
-                                            == Direction.SOUTH,
+                                            == Direction.NORTH,
                                     "Stair faces away from the climb");
                             var left = plan.get(new ShipHullVoxelLayout.Cell(x - 1, y, z));
                             var right = plan.get(new ShipHullVoxelLayout.Cell(x + 1, y, z));
