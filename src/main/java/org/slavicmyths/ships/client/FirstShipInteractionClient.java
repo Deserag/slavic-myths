@@ -1,6 +1,13 @@
 package org.slavicmyths.ships.client;
 
+import java.util.Map;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
@@ -11,6 +18,9 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.FirstShipNetwork;
+import org.slavicmyths.ships.ShipBuildConfiguration;
+import org.slavicmyths.ships.ShipModularBlockHull;
+import org.slavicmyths.ships.ShipMovingCargoTarget;
 import org.slavicmyths.ships.RaftContent;
 
 /**
@@ -26,6 +36,7 @@ public final class FirstShipInteractionClient {
         if (mc.player == null || mc.level == null || mc.screen != null || mc.player.isPassenger()) return;
         boolean key = mc.player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
                 || mc.player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get());
+        if (!key && placeOnMovingShip(mc, event)) return;
         if (mc.player.isShiftKeyDown() && !key) return;
 
         Vec3 eye = mc.player.getEyePosition(), direction = mc.player.getLookAngle();
@@ -130,6 +141,73 @@ public final class FirstShipInteractionClient {
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(selected.getId(), action));
         event.setSwingHand(false);
         event.setCanceled(true);
+    }
+
+    /**
+     * A detached hull no longer has vanilla world-block hitboxes.
+     * Select a local palette face and let the server authorize item placement.
+     */
+    private static boolean placeOnMovingShip(Minecraft mc,
+            InputEvent.InteractionKeyMappingTriggered event) {
+        InteractionHand hand = event.getHand();
+        ItemStack stack = mc.player.getItemInHand(hand);
+        if (!(stack.getItem() instanceof BlockItem)) {
+            if (hand != InteractionHand.MAIN_HAND
+                    || !(mc.player.getOffhandItem().getItem() instanceof BlockItem))
+                return false;
+            hand = InteractionHand.OFF_HAND;
+        }
+        Vec3 eye = mc.player.getEyePosition();
+        Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
+        FirstShipEntity nearestShip = null;
+        BlockPos selectedCell = null;
+        double nearestDistance = Double.POSITIVE_INFINITY;
+        for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (ship.isRemoved() || !ship.isMoving() || config == null) continue;
+            ListTag cargo = new ListTag();
+            if (!ship.movingCargoView().isBlank())
+                for (String token : ship.movingCargoView().split(";")) {
+                    String[] fields = token.split(",");
+                    if (fields.length != 4 && fields.length != 5) continue;
+                    try {
+                        CompoundTag entry = new CompoundTag();
+                        entry.putInt("X", Integer.parseInt(fields[0]));
+                        entry.putInt("Y", Integer.parseInt(fields[1]));
+                        entry.putInt("Z", Integer.parseInt(fields[2]));
+                        entry.putInt("Kind", Integer.parseInt(fields[3]));
+                        if (fields.length == 5) entry.putString("BlockId", fields[4]);
+                        cargo.add(entry);
+                    } catch (NumberFormatException ignored) {
+                        // Invalid client-only metadata cannot authorize a placement.
+                    }
+                }
+            Map<BlockPos, BlockState> palette =
+                    ShipModularBlockHull.localVisualPalette(config, cargo);
+            BlockPos cell = ShipMovingCargoTarget.target(ship, eye, end, palette);
+            if (cell == null) continue;
+            FirstShipHull.Point world = FirstShipHull.toWorld(
+                    cell.getX(), cell.getZ(), ship.getX(), ship.getZ(), ship.shipYaw());
+            double distance = eye.distanceToSqr(new Vec3(
+                    world.x(), ship.getY() + cell.getY() + .5D, world.z()));
+            if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearestShip = ship;
+                selectedCell = cell;
+            }
+        }
+        if (nearestShip == null) return false;
+        if (selectedCell != null
+                && ShipModularBlockHull.movingCargoCell(
+                        nearestShip.modularConfiguration(), selectedCell)) {
+            PacketDistributor.sendToServer(new FirstShipNetwork.PlaceCargo(
+                    nearestShip.getId(), selectedCell.getX(), selectedCell.getY(),
+                    selectedCell.getZ(), hand == InteractionHand.MAIN_HAND ? 0 : 1));
+        }
+        event.setSwingHand(false);
+        event.setCanceled(true);
+        return true;
     }
 
     private FirstShipInteractionClient() {}
