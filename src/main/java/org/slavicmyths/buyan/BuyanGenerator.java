@@ -377,6 +377,7 @@ public final class BuyanGenerator {
     }
 
     private static final class Work implements AutoCloseable {
+        private int announcedDecile = -1;
         private final ServerLevel level;
         private SiteChunks ticket;
         private ChunkPos inspectedChunk;
@@ -387,6 +388,22 @@ public final class BuyanGenerator {
             this.level = level;
             this.ticket = new SiteChunks(level);
             this.original = new BlockState[level.getMaxBuildHeight() - level.getMinBuildHeight()];
+        }
+
+        private void announceProgress(BuyanState state) {
+            int count = totalChunks(state);
+            long completedColumns = state.chunkIndex * 256L + state.columnIndex;
+            int percent = (int) Math.min(50L,
+                completedColumns * 50L / Math.max(1L, count * 256L));
+            int decile = percent / 10;
+            if (decile > announcedDecile) {
+                announcedDecile = decile;
+                if (decile > 0) {
+                    level.getServer().getPlayerList().broadcastSystemMessage(
+                        Component.literal("[Буян] Основание: общий прогресс ~"
+                            + percent + "% (обработанные чанки/колонки)."), false);
+                }
+            }
         }
 
         private void step() {
@@ -416,7 +433,11 @@ public final class BuyanGenerator {
                     close();
                     ACTIVE.remove(level);
                     try {
-                        if (!BuyanNatureGenerator.startCompleted(level, completed)) {
+                        if (BuyanNatureGenerator.startCompleted(level, completed)) {
+                            level.getServer().getPlayerList().broadcastSystemMessage(
+                                Component.literal("[Буян] Основание готово! Автоматически начат природный рельеф (2/3)."),
+                                false);
+                        } else {
                             LogUtils.getLogger().warn(
                                 "Buyan nature handoff not started at {},{}; retry with generate buyan",
                                 completed.x(), completed.z());
@@ -433,6 +454,7 @@ public final class BuyanGenerator {
                 ChunkPos pos = chunk(state);
                 if (outsideFootprint(state, pos)) {
                     state.progress(state.chunkIndex + 1, 0);
+                    announceProgress(state);
                     continue;
                 }
                 if (!ticket.ready(pos)) return;
@@ -464,6 +486,7 @@ public final class BuyanGenerator {
                 } else {
                     state.progress(state.chunkIndex, local + 1);
                 }
+                announceProgress(state);
             }
         }
 
