@@ -62,6 +62,12 @@ public final class ShipIVHeadless {
         var blocks = ShipHullVoxelLayout.generate(plan);
         String key = length + "x" + width + " decks=" + decks
                 + " bridge=" + bridge + " cabin=" + cabin + " tier=" + tier;
+        require(blocks.values().stream().noneMatch(part ->
+                        part == ShipHullVoxelLayout.Part.RAIL),
+                key + ": unwanted fence on a deck or upper floor");
+        require(blocks.values().stream().filter(part ->
+                        part == ShipHullVoxelLayout.Part.HELM).count() == 1,
+                key + ": captain helm must remain after deleting fences");
         require(plan.mastPositions().size() == 4, key + ": mast count");
         int end = length / 2;
         int cabinFront = -end + 10;
