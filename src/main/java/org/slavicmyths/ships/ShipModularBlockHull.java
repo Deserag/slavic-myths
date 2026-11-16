@@ -136,6 +136,42 @@ public final class ShipModularBlockHull {
         return java.util.Collections.unmodifiableMap(result);
     }
 
+    /**
+     * Public cosmetic moving-cargo data only. Compatibility: older saves and
+     * tracked ships may still send four- or five-field rows without properties.
+     * The sixth field carries public state properties, never inventory NBT.
+     */
+    public static ListTag decodeVisibleCargo(String view) {
+        ListTag cargo = new ListTag();
+        if (view == null || view.isBlank()) return cargo;
+        for (String token : view.split(";")) {
+            String[] fields = token.split(",", -1);
+            if (fields.length < 4 || fields.length > 6) continue;
+            try {
+                CompoundTag row = new CompoundTag();
+                row.putInt("X", Integer.parseInt(fields[0]));
+                row.putInt("Y", Integer.parseInt(fields[1]));
+                row.putInt("Z", Integer.parseInt(fields[2]));
+                row.putInt("Kind", Integer.parseInt(fields[3]));
+                if (fields.length >= 5 && !fields[4].isEmpty())
+                    row.putString("BlockId", fields[4]);
+                if (fields.length == 6) {
+                    CompoundTag props = new CompoundTag();
+                    for (String pair : fields[5].split("\\|")) {
+                        int equals = pair.indexOf('=');
+                        if (equals <= 0 || equals == pair.length() - 1) continue;
+                        props.putString(pair.substring(0, equals), pair.substring(equals + 1));
+                    }
+                    row.put("State", props);
+                }
+                cargo.add(row);
+            } catch (NumberFormatException invalid) {
+                // Ignore client metadata tokens with invalid coordinates.
+            }
+        }
+        return cargo;
+    }
+
     /** Client collision uses public block types, never private inventory NBT. */
     public static Map<BlockPos, BlockState> localVisualPalette(
             ShipBuildConfiguration config, ListTag visibleCargo) {
@@ -148,14 +184,30 @@ public final class ShipModularBlockHull {
                     || y < 1 || y > 48) continue;
             BlockPos local = new BlockPos(x, y, z);
             int type = row.getInt("Kind");
-            if (type == MISSING_HULL) result.remove(local);
-            else if (type >= 1 && type <= 4) result.putIfAbsent(local, kindState(type));
+            if (type == MISSING_HULL) {
+                result.remove(local);
+                continue;
+            }
+            BlockState state;
+            if (type >= 1 && type <= 4) state = kindState(type);
             else if (type == GENERAL_CARGO) {
                 ResourceLocation id = ResourceLocation.tryParse(row.getString("BlockId"));
-                if (id != null && BuiltInRegistries.BLOCK.containsKey(id))
-                    result.putIfAbsent(local,
-                            BuiltInRegistries.BLOCK.get(id).defaultBlockState());
+                if (id == null || !BuiltInRegistries.BLOCK.containsKey(id)) continue;
+                state = BuiltInRegistries.BLOCK.get(id).defaultBlockState();
+            } else continue;
+            if (row.contains("State", Tag.TAG_COMPOUND)) {
+                CompoundTag props = row.getCompound("State");
+                for (Property<?> property : state.getProperties())
+                    if (props.contains(property.getName(), Tag.TAG_STRING)) {
+                        try {
+                            state = withProperty(state, property,
+                                    props.getString(property.getName()));
+                        } catch (RuntimeException invalid) {
+                            // Leave the unaffected vanilla state intact.
+                        }
+                    }
             }
+            result.putIfAbsent(local, state);
         }
         return java.util.Collections.unmodifiableMap(result);
     }
