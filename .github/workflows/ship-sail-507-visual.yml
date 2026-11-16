@@ -40,20 +40,20 @@ jobs:
         run: |
           set -o pipefail
           xvfb-run -a -s '-screen 0 1600x1000x24' timeout 22m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/client.log
-      - name: Verify all 54 genuine framebuffer captures
+      - name: Verify all 72 genuine framebuffer captures
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
           root=Path('build/ship-sail-visual/frames')
           receipt=json.loads((root/'finished.json').read_text())
-          assert receipt['captured'] == 54
+          assert receipt['captured'] == 72
           assert receipt['status']=='CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'
-          assert len(receipt['frames'])==54
+          assert len(receipt['frames'])==72
           assert all((root/frame['file']).is_file() for frame in receipt['frames'])
           assert all(frame['pressure_source']=='SIMULATED_PRESSURE_VISUAL_ONLY'
                      for frame in receipt['frames'])
-          print('All 54 actual-client screenshots exist. Pressure is simulated.')
+          print('All 72 actual-client screenshots exist. Pressure is simulated.')
           PY
       - uses: actions/upload-artifact@v4
         if: always()

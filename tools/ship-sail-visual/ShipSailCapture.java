@@ -54,7 +54,7 @@ public final class ShipSailCapture {
     private static final Path OUT = Path.of(
             System.getProperty("shipsailvisual.output", "build/ship-sail-visual/frames"));
     private static final BlockPos ANCHOR = new BlockPos(0, 81, 0);
-    private static final int FRAMES_PER_CONFIG = 9; // 3 views x 3 fill states.
+    private static final int FRAMES_PER_CONFIG = 12; // 4 views x 3 fill states.
     private static final int EXPECTED_FRAMES = 6 * FRAMES_PER_CONFIG;
     private static final JsonArray FRAMES = new JsonArray();
     private static Map<BlockPos, BlockState> lastPalette = Map.of();
@@ -77,7 +77,7 @@ public final class ShipSailCapture {
 
     private static String name(Case c, int angle, int fill) {
         return "ship-" + c.shipLevel() + "-tier-" + c.tier()
-                + "-" + new String[]{"bow", "starboard", "stern"}[angle]
+                + "-" + new String[]{"bow", "starboard", "stern", "deck"}[angle]
                 + "-" + new String[]{"weak", "medium", "strong"}[fill];
     }
 
@@ -139,8 +139,13 @@ public final class ShipSailCapture {
         double distance = c.shipLevel() == 4 ? 69D : 51D;
         double targetY = ANCHOR.getY() + (c.shipLevel() == 4 ? 28D : 23D);
         double eyeY = ANCHOR.getY() + (c.shipLevel() == 4 ? 35D : 31D);
-        double x = angle == 1 ? distance : 0D;
-        double z = angle == 0 ? distance : angle == 2 ? -distance : 0D;
+        double x = angle == 1 ? distance : angle == 3 ? 2D : 0D;
+        double z = angle == 0 ? distance : angle == 2 ? -distance
+                : angle == 3 ? (c.shipLevel() == 4 ? -14D : -9D) : 0D;
+        if (angle == 3) {
+            eyeY = ANCHOR.getY() + (c.shipLevel() == 4 ? 15D : 15D);
+            targetY = ANCHOR.getY() + (c.shipLevel() == 4 ? 31D : 30D);
+        }
         double dx = -x, dy = targetY - eyeY, dz = -z;
         float yaw = (float) Math.toDegrees(Math.atan2(-dx, dz));
         float pitch = (float) -Math.toDegrees(
@@ -180,7 +185,7 @@ public final class ShipSailCapture {
         row.addProperty("file", file);
         row.addProperty("ship_level", c.shipLevel());
         row.addProperty("sail_tier", c.tier());
-        row.addProperty("view", new String[]{"bow", "starboard", "stern"}[angle]);
+        row.addProperty("view", new String[]{"bow", "starboard", "stern", "deck"}[angle]);
         row.addProperty("pressure_preview",
                 new double[]{.13D, .52D, 1D}[fill]);
         row.addProperty("pressure_source", "SIMULATED_PRESSURE_VISUAL_ONLY");
