@@ -935,15 +935,36 @@ public final class ShipHullVoxelLayout {
                     && x != (deckRefit ? 7 : 4))
                 frigateDeckRail(blocks, x, 16, rear + 15);
         if (!captainDeck) return;
-        for (int z = rear; z <= rear + 9; z++) {
-            int side = Math.min(5, Math.max(2, frigateBeam(plan, z) - 3));
-            if (z != rear + 4) frigateDeckRail(blocks, -side, 21, z);
-            frigateDeckRail(blocks, side, 21, z);
+        if (preRefinement) {
+            // Preserve the physical outline of older ships for pack/unpack.
+            for (int z = rear; z <= rear + 9; z++) {
+                int side = Math.min(5, Math.max(2, frigateBeam(plan, z) - 3));
+                if (z != rear + 4) frigateDeckRail(blocks, -side, 21, z);
+                frigateDeckRail(blocks, side, 21, z);
+            }
+            for (int x = -5; x <= 5; x++) {
+                frigateDeckRail(blocks, x, 21, rear);
+                frigateDeckRail(blocks, x, 21, rear + 9);
+            }
+            return;
         }
-        for (int x = -5; x <= 5; x++)
-            frigateDeckRail(blocks, x, 21, rear);
-        for (int x = -5; x <= 5; x++)
-            frigateDeckRail(blocks, x, 21, rear + 9);
+        // The captain platform may narrow with the hull. Fence the actual
+        // walking-floor boundary, not a fixed x=+/-5 rectangle that can be
+        // two blocks inboard or leave floating crosspieces on narrower hulls.
+        for (int z = rear; z <= rear + 9; z++) {
+            int left = Integer.MAX_VALUE, right = Integer.MIN_VALUE;
+            for (int x = -5; x <= 5; x++)
+                if (blocks.get(new Cell(x, 21, z)) == Part.BRIDGE) {
+                    left = Math.min(left, x);
+                    right = Math.max(right, x);
+                }
+            if (left > right) continue;
+            frigateDeckRail(blocks, left, 21, z);
+            frigateDeckRail(blocks, right, 21, z);
+            if (z == rear || z == rear + 9)
+                for (int x = left; x <= right; x++)
+                    frigateDeckRail(blocks, x, 21, z);
+        }
     }
 
     private static void frigateHelmDetail(Map<Cell, Part> blocks, int rear, int floor) {
