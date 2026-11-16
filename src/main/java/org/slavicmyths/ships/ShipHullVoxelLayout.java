@@ -485,7 +485,10 @@ public final class ShipHullVoxelLayout {
             for (int x = -half + 1; x < half; x++)
                 for (int y = 16; y <= 19; y++) {
                     if (x == 0 && (y == 16 || y == 17))
-                        out.remove(new Cell(x, y, front));
+                        // An open hole on the third deck was never fitted
+                        // with a usable door: give the forward cabin a
+                        // complete paired door facing the ship's bow.
+                        put(out, x, y, front, Part.DOOR);
                     else put(out, x, y, front, Part.CABIN_WALL);
                 }
         }
