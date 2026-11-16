@@ -410,6 +410,7 @@ public final class BuyanNatureGenerator {
     }
 
     private static final class Work implements AutoCloseable {
+        private int announcedDecile = -1;
         private final ServerLevel world;
         private final BlockState[] original;
         private SiteChunks ticket;
@@ -426,6 +427,25 @@ public final class BuyanNatureGenerator {
             ticket.close();
             ticket = new SiteChunks(world);
             inspectedChunk = null;
+        }
+
+        private void announceProgress(BuyanNatureState state) {
+            int count = BuyanGenerator.totalChunks(
+                state.centerX, state.centerZ, state.radius);
+            long processed = (state.phase * (long) count + state.chunkIndex) * 256L
+                + state.columnIndex;
+            int percent = 50 + (int) Math.min(50L,
+                processed * 50L / Math.max(1L, 2L * count * 256L));
+            int decile = percent / 10;
+            if (decile > announcedDecile) {
+                announcedDecile = decile;
+                if (decile >= 6) {
+                    world.getServer().getPlayerList().broadcastSystemMessage(
+                        Component.literal("[Буян] "
+                            + (state.phase == 0 ? "Природный рельеф" : "Леса и подлесок")
+                            + ": общий прогресс ~" + percent + "% (по чанкам)."), false);
+                }
+            }
         }
 
         private void step() {
@@ -445,9 +465,15 @@ public final class BuyanNatureGenerator {
                     if (state.phase == 0) {
                         state.nextPhase();
                         releaseChunk();
+                        world.getServer().getPlayerList().broadcastSystemMessage(
+                            Component.literal("[Буян] Рельеф завершён! Автоматически начаты леса и подлесок (3/3)."),
+                            false);
                         return;
                     }
                     state.finish();
+                    world.getServer().getPlayerList().broadcastSystemMessage(
+                        Component.literal("[Буян] Готово: основание, природный рельеф и растительность — 100%."),
+                        false);
                     LogUtils.getLogger().info(
                         "Buyan nature finished at {},{} with {} trees, {} skipped columns",
                         state.centerX, state.centerZ, state.plantedTrees, state.skippedColumns);
@@ -459,6 +485,7 @@ public final class BuyanNatureGenerator {
                     state.centerX, state.centerZ, state.chunkIndex);
                 if (outside(state, chunk)) {
                     state.progress(state.chunkIndex + 1, 0);
+                    announceProgress(state);
                     continue;
                 }
                 if (!ticket.ready(chunk)) return;
@@ -491,6 +518,7 @@ public final class BuyanNatureGenerator {
                 } else {
                     state.progress(state.chunkIndex, column + 1);
                 }
+                announceProgress(state);
             }
         }
 
