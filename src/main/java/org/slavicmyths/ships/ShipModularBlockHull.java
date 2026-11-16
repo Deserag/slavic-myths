@@ -261,6 +261,13 @@ public final class ShipModularBlockHull {
         return true;
     }
 
+    /** Preview of the same supported, clear stair-safe cargo cell rule. */
+    public static boolean movingCargoCell(ShipBuildConfiguration config, BlockPos local) {
+        return config != null && !config.withdrawn() && local != null
+                && cargoCell(ShipHullVoxelLayout.generate(config.structure()),
+                        local.getX(), local.getY(), local.getZ());
+    }
+
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
         if (config == null || config.withdrawn()) return null;
