@@ -124,8 +124,12 @@ public final class ShipIVHeadless {
                 key + ": upper forward stem is missing");
         require(at(blocks, 0, 9, end + 7) == null,
                 key + ": withdrawn horizontal mast-height spar still exists");
+        // The y=1 floor remains HULL by design: never damage the sealed
+        // bottom merely to mark the hidden member as KEEL.
+        require(at(blocks, 0, 1, end - 10) == ShipHullVoxelLayout.Part.HULL,
+                key + ": bow foundation displaced the watertight bottom");
         int lastTipZ = end - 10;
-        for (int y = 1; y <= 15; y++) {
+        for (int y = 2; y <= 15; y++) {
             int tipZ = Integer.MIN_VALUE;
             for (int z = end - 10; z <= end + 8; z++)
                 if (at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL)
