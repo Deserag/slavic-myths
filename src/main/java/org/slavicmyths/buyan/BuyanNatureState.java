@@ -37,6 +37,14 @@ public final class BuyanNatureState extends SavedData {
             new SavedData.Factory<>(BuyanNatureState::new, BuyanNatureState::load), ID);
     }
 
+    public boolean hasCompletedSites() {
+        return !completed.isEmpty();
+    }
+
+    public int completedCount() {
+        return completed.size();
+    }
+
     public boolean finishedAt(BuyanState.Site site) {
         return completed.stream().anyMatch(s -> s.x() == site.x()
             && s.z() == site.z() && s.radius() == site.radius());
