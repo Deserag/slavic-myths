@@ -149,7 +149,7 @@ public final class ShipHullVoxelLayout {
 
     private static int[] frigateStairFloors(ShipSuperstructurePlan plan) {
         // Internal stairs stop on the quarterdeck, not inside the captain bridge.
-        return new int[]{1, 6, 11, 16};
+        return new int[]{1, 6, 11};
     }
 
     private static int[] previousFrigateStairFloors(ShipSuperstructurePlan plan) {
@@ -178,7 +178,9 @@ public final class ShipHullVoxelLayout {
     }
 
     private static int frigateStairStart(ShipSuperstructurePlan plan) {
-        return stairRouteStart(plan, frigateStairFloors(plan), 4);
+        // Internal stair finishes at rear + 18 on the open weather deck,
+        // three stations forward of the quarterdeck cabin wall.
+        return -plan.hullLength() / 2 + 4 + 30;
     }
 
     private static int previousFrigateStairStart(ShipSuperstructurePlan plan) {
@@ -768,13 +770,18 @@ public final class ShipHullVoxelLayout {
     }
 
     private static boolean frigateStairHole(int x, int floor, int z,
-            int rear, boolean captainDeck) {
-        if (x != -3 && x != -2 || floor != 6 && floor != 11
-                && floor != 16 && floor != 21) return false;
-        int top = captainDeck ? 21 : 16;
-        if (floor > top) return false;
-        int start = rear + 6 + 6 * ((top - floor) / 5 + 1);
-        return z >= start - 5 && z <= start - 2;
+            ShipSuperstructurePlan plan, boolean previousLayout) {
+        if (x != -3 && x != -2) return false;
+        int[] floors = previousLayout
+                ? previousFrigateStairFloors(plan) : frigateStairFloors(plan);
+        int start = previousLayout
+                ? previousFrigateStairStart(plan) : frigateStairStart(plan);
+        for (int i = 0; i + 1 < floors.length; i++)
+            if (floors[i + 1] == floor) {
+                int flight = stairFlightStart(floors, start, i);
+                return z >= flight - 5 && z <= flight - 2;
+            }
+        return false;
     }
 
     private static void validateFrigateStairLandings(Map<Cell, Part> blocks,
@@ -844,8 +851,7 @@ public final class ShipHullVoxelLayout {
                     for (int y : new int[]{6, 11}) {
                         Part actual = blocks.get(new Cell(x, y, z));
                         if (actual != Part.DECK && actual != Part.STAIR
-                                && !frigateStairHole(x, y, z, rear,
-                                        previousLayout && (plan.decks() >= 2 || plan.bridge())))
+                                && !frigateStairHole(x, y, z, plan, previousLayout))
                             throw new IllegalStateException("IV unexpected deck hole at "
                                     + x + "," + y + "," + z);
                     }
@@ -882,7 +888,8 @@ public final class ShipHullVoxelLayout {
     private static void frigateDeckRail(Map<Cell, Part> blocks, int x, int floor, int z) {
         Part support = blocks.get(new Cell(x, floor, z));
         Cell rail = new Cell(x, floor + 1, z);
-        if ((support == Part.DECK || support == Part.BRIDGE) && !blocks.containsKey(rail))
+        if ((support == Part.DECK || support == Part.BRIDGE || support == Part.HULL)
+                && !blocks.containsKey(rail))
             blocks.put(rail, Part.RAIL);
     }
 
@@ -890,7 +897,9 @@ public final class ShipHullVoxelLayout {
             ShipSuperstructurePlan plan, int rear, boolean captainDeck) {
         int end = plan.hullLength() / 2;
         for (int z = rear + 16; z <= end - 12; z++) {
-            int side = frigateBeam(plan, z) - 2;
+            // The outer HULL rim is the last supported edge, two cells
+            // outside the old misplaced fence.
+            int side = frigateBeam(plan, z);
             if (side >= 3) {
                 frigateDeckRail(blocks, -side, 11, z);
                 frigateDeckRail(blocks, side, 11, z);
@@ -1080,7 +1089,8 @@ public final class ShipHullVoxelLayout {
                 for (int x = -Math.max(3, span - 3); x <= Math.max(3, span - 3); x++)
                     if (x != 0) put(out, x, Math.min(45, height - 1), z, Part.YARD);
         }
-        // Main staircase finishes on the quarterdeck (Y=16) for every IV.
+        // Internal staircase emerges on the exposed Y=11 weather deck.
+        // External side stairs independently reach the upper platforms.
         int[] stairFloors = previousLayout
                 ? previousFrigateStairFloors(p) : frigateStairFloors(p);
         int stairZ = previousLayout
