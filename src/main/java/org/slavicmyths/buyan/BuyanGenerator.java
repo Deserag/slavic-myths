@@ -1,7 +1,9 @@
 package org.slavicmyths.buyan;
 
 import com.mojang.logging.LogUtils;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
@@ -162,31 +164,46 @@ public final class BuyanGenerator {
     }
 
     /**
-     * Native structure references, when available, are conservative protection:
-     * a structure does not stop the entire island job, only its occupied chunk.
-     * Never force-load a referenced start chunk merely to inspect it.
+     * Protect only a structure's actual X/Z footprint where its bounding box is
+     * known. A reference to an unloaded structure start stays conservatively
+     * protected at chunk granularity, without forcing new chunks to load.
      */
-    private static boolean protectedStructure(ServerLevel world, ChunkPos pos) {
+    private record Protection(boolean unknown, List<net.minecraft.world.level.levelgen.structure.BoundingBox> boxes) {
+        private boolean occupies(int x, int z) {
+            for (var box : boxes) {
+                if (x >= box.minX() - 2 && x <= box.maxX() + 2
+                    && z >= box.minZ() - 2 && z <= box.maxZ() + 2) return true;
+            }
+            return false;
+        }
+    }
+
+    private static Protection protectedStructure(ServerLevel world, ChunkPos pos) {
         var loaded = world.getChunkSource().getChunkNow(pos.x, pos.z);
-        if (loaded == null) return true;
+        if (loaded == null) return new Protection(true, List.of());
+        List<net.minecraft.world.level.levelgen.structure.BoundingBox> boxes = new ArrayList<>();
         int x0 = pos.getMinBlockX();
         int z0 = pos.getMinBlockZ();
         int x1 = pos.getMaxBlockX();
         int z1 = pos.getMaxBlockZ();
         for (var start : loaded.getAllStarts().values()) {
-            if (start.isValid() && intersects(start.getBoundingBox(), x0, z0, x1, z1)) return true;
+            if (start.isValid() && intersects(start.getBoundingBox(), x0, z0, x1, z1)) {
+                boxes.add(start.getBoundingBox());
+            }
         }
         for (var entry : loaded.getAllReferences().entrySet()) {
             for (long ref : entry.getValue()) {
                 ChunkPos origin = new ChunkPos(ref);
                 var source = world.getChunkSource().getChunkNow(origin.x, origin.z);
-                if (source == null) return true;
-                var start = source.getStartForStructure(entry.getKey());
-                if (start != null && start.isValid()
-                    && intersects(start.getBoundingBox(), x0, z0, x1, z1)) return true;
+                if (source == null) return new Protection(true, List.of());
+                var structure = source.getStartForStructure(entry.getKey());
+                if (structure != null && structure.isValid()
+                    && intersects(structure.getBoundingBox(), x0, z0, x1, z1)) {
+                    boxes.add(structure.getBoundingBox());
+                }
             }
         }
-        return false;
+        return new Protection(false, boxes);
     }
 
     private static boolean intersects(net.minecraft.world.level.levelgen.structure.BoundingBox box,
@@ -311,7 +328,7 @@ public final class BuyanGenerator {
         private final ServerLevel level;
         private SiteChunks ticket;
         private ChunkPos inspectedChunk;
-        private boolean occupiedChunk;
+        private Protection protection;
         private final BlockState[] original;
 
         private Work(ServerLevel level) {
@@ -356,9 +373,9 @@ public final class BuyanGenerator {
                 // inspect each chunk once per Work, not only at local column zero.
                 if (!pos.equals(inspectedChunk)) {
                     inspectedChunk = pos;
-                    occupiedChunk = protectedStructure(level, pos);
+                    protection = protectedStructure(level, pos);
                 }
-                if (occupiedChunk) {
+                if (protection.unknown()) {
                     state.skipChunk();
                     state.progress(state.chunkIndex + 1, 0);
                     ticket.close();
@@ -369,7 +386,9 @@ public final class BuyanGenerator {
                 int local = state.columnIndex;
                 int x = pos.getMinBlockX() + (local & 15);
                 int z = pos.getMinBlockZ() + (local >>> 4);
-                if (!column(level, state, x, z, original)) state.skipColumn();
+                if (protection.occupies(x, z) || !column(level, state, x, z, original)) {
+                    state.skipColumn();
+                }
                 ++columns;
                 if (local == 255) {
                     state.progress(state.chunkIndex + 1, 0);
