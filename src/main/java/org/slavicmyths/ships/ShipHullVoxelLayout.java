@@ -137,17 +137,43 @@ public final class ShipHullVoxelLayout {
         return x - Integer.signum(x);
     }
 
-    // Continuous two-wide flight rises toward -Z (stern). The next flight
-    // starts exactly on the previous landing, with a single flat tread.
-    private static int brigantineStairStart(ShipSuperstructurePlan plan) {
+    // Both classes use a single continuous route. Every flight owns its
+    // intermediate treads, and its final deck cell is the next flight's start.
+    // Changes to the deck elevations cannot silently split the stairwell.
+    private static int[] brigantineStairFloors(ShipSuperstructurePlan plan) {
         int top = brigantineTopDeck(plan);
-        int runs = 5 + 6 + (top >= 15 ? 6 : 0) + (top >= 20 ? 6 : 0);
-        return -plan.hullLength() / 2 + 2 + 6 + runs;
+        return top >= 20 ? new int[]{1, 5, 10, 15, 20}
+                : top >= 15 ? new int[]{1, 5, 10, 15}
+                : new int[]{1, 5, 10};
+    }
+
+    private static int[] frigateStairFloors(ShipSuperstructurePlan plan) {
+        return plan.decks() >= 2 || plan.bridge()
+                ? new int[]{1, 6, 11, 16, 21}
+                : new int[]{1, 6, 11, 16};
+    }
+
+    private static int stairFlightStart(int[] floors, int firstStart, int flight) {
+        int z = firstStart;
+        for (int i = 0; i < flight; i++)
+            z -= floors[i + 1] - floors[i] + 1;
+        return z;
+    }
+
+    private static int stairRouteStart(ShipSuperstructurePlan plan,
+            int[] floors, int sternInset) {
+        int span = 0;
+        for (int i = 0; i + 1 < floors.length; i++)
+            span += floors[i + 1] - floors[i] + 1;
+        return -plan.hullLength() / 2 + sternInset + 6 + span;
+    }
+
+    private static int brigantineStairStart(ShipSuperstructurePlan plan) {
+        return stairRouteStart(plan, brigantineStairFloors(plan), 2);
     }
 
     private static int frigateStairStart(ShipSuperstructurePlan plan) {
-        boolean captainDeck = plan.decks() >= 2 || plan.bridge();
-        return -plan.hullLength() / 2 + 4 + 6 + (captainDeck ? 24 : 18);
+        return stairRouteStart(plan, frigateStairFloors(plan), 4);
     }
 
     private static void brigantineStairLane(Map<Cell, Part> blocks,
@@ -324,7 +350,7 @@ public final class ShipHullVoxelLayout {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
         int rear = -end + 2;
-        // Compact, permanently aligned aft stairwell; alternate sides at each deck.
+        // Compact continuous aft stairwell, two blocks wide on one side.
         // Stepped bilge and keel, not a full-width flat underwater slab.
         for (int z = -end; z <= end; z++) {
             int beam = brigantineBeam(p, z);
@@ -419,12 +445,11 @@ public final class ShipHullVoxelLayout {
             for (int x = -radius; x <= radius; x++)
                 for (int y = 8; y <= 9; y++) put(out, x, y, z, timber);
         }
-        // Port lane rises to the gun deck; starboard lane rises to the
-        // weather deck. Both stay in the same aft 7-block-deep shaft.
-        // Alternating lanes prevents successive flights blocking headroom.
+        int[] stairFloors = brigantineStairFloors(p);
         int stairZ = brigantineStairStart(p);
-        brigantineStairs(out, -3, stairZ, 1, 5);
-        brigantineStairs(out, -3, stairZ - 5, 5, 10);
+        for (int i = 0; i < 2; i++)
+            brigantineStairs(out, -3, stairFlightStart(stairFloors, stairZ, i),
+                    stairFloors[i], stairFloors[i + 1]);
         // Upper deck only covers the stern, leaving the middle completely open.
         int top = brigantineTopDeck(p);
         if (top >= 15) {
@@ -522,9 +547,10 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, z, Part.FRAME);
             }
         }
-        // Continue the SAME two-wide stairwell through the raised decks.
-        if (top >= 15) brigantineStairs(out, -3, stairZ - 11, 10, 15);
-        if (top >= 20) brigantineStairs(out, -3, stairZ - 17, 15, 20);
+        // Extend the SAME line only through raised decks which actually exist.
+        for (int i = 2; i + 1 < stairFloors.length; i++)
+            brigantineStairs(out, -3, stairFlightStart(stairFloors, stairZ, i),
+                    stairFloors[i], stairFloors[i + 1]);
         // Every installed mast is rooted in the main deck; the complete
         // visible rig begins above the highest raised floor, never below it.
         for (int i = 0; i < p.mastPositions().size(); i++) {
@@ -543,18 +569,16 @@ public final class ShipHullVoxelLayout {
         }
         // Run this after every wall, mast, lantern and cabin placement: no
         // later decorative block may obstruct either flight or its landing.
-        clearBrigantineStairHeadroom(out, -3, stairZ, 1, 5);
-        clearBrigantineStairHeadroom(out, -3, stairZ - 5, 5, 10);
-        if (top >= 15) clearBrigantineStairHeadroom(out, -3, stairZ - 11, 10, 15);
-        if (top >= 20) clearBrigantineStairHeadroom(out, -3, stairZ - 17, 15, 20);
+        for (int i = 0; i + 1 < stairFloors.length; i++)
+            clearBrigantineStairHeadroom(out, -3, stairFlightStart(stairFloors, stairZ, i),
+                    stairFloors[i], stairFloors[i + 1]);
 
         sealBrigantineWorkingFloors(out, p);
         placeShipLighting(out, p, false);
         validateBrigantineBilge(out, p);
-        validateBrigantineStair(out, -3, stairZ, 1, 5);
-        validateBrigantineStair(out, -3, stairZ - 5, 5, 10);
-        if (top >= 15) validateBrigantineStair(out, -3, stairZ - 11, 10, 15);
-        if (top >= 20) validateBrigantineStair(out, -3, stairZ - 17, 15, 20);
+        for (int i = 0; i + 1 < stairFloors.length; i++)
+            validateBrigantineStair(out, -3, stairFlightStart(stairFloors, stairZ, i),
+                    stairFloors[i], stairFloors[i + 1]);
         // One physical wheel on the highest accessible captain's platform.
         int wheelZ = rear + 3;
         put(out, 0, top + 1, wheelZ, Part.HELM);
@@ -754,24 +778,21 @@ public final class ShipHullVoxelLayout {
                 }
             }
         }
+        int[] stairFloors = frigateStairFloors(plan);
         int stairStart = frigateStairStart(plan);
-        validateFrigateStairLandings(blocks, -3, stairStart, 1, 6);
-        validateFrigateStairLandings(blocks, -3, stairStart - 6, 6, 11);
-        validateFrigateStairLandings(blocks, -3, stairStart - 12, 11, 16);
-        if (plan.decks() >= 2 || plan.bridge())
-            validateFrigateStairLandings(blocks, -3, stairStart - 18, 16, 21);
+        for (int i = 0; i + 1 < stairFloors.length; i++)
+            validateFrigateStairLandings(blocks, -3,
+                    stairFlightStart(stairFloors, stairStart, i),
+                    stairFloors[i], stairFloors[i + 1]);
         for (int z : plan.mastPositions())
             if (blocks.get(new Cell(0, 12, z)) != Part.MAST)
                 throw new IllegalStateException("IV mast base missing at " + z);
-        for (int[] flight : new int[][]{{-3, stairStart, 1},
-                {-3, stairStart - 6, 6}, {-3, stairStart - 12, 11},
-                {-3, stairStart - 18, 16}}) {
-            if (flight[2] == 11 && !(plan.decks() >= 1)
-                    || flight[2] == 16 && !(plan.decks() >= 2 || plan.bridge()))
-                continue;
-            for (int i = 1; i <= 5; i++) {
-                int y = flight[2] + i, z = flight[1] - i;
-                for (int x : new int[]{flight[0], stairPairX(flight[0], flight[2])})
+        for (int flight = 0; flight + 1 < stairFloors.length; flight++) {
+            int start = stairFlightStart(stairFloors, stairStart, flight);
+            int lower = stairFloors[flight];
+            for (int i = 1; i <= stairFloors[flight + 1] - lower; i++) {
+                int y = lower + i, z = start - i;
+                for (int x : new int[]{-3, -2})
                     if (blocks.get(new Cell(x, y, z)) != Part.STAIR
                             || blocks.containsKey(new Cell(x, y + 1, z))
                             || blocks.containsKey(new Cell(x, y + 2, z))
@@ -933,11 +954,11 @@ public final class ShipHullVoxelLayout {
         }
         // One straight aft-rising, two-wide flight across all installed decks.
         // Consecutive landings are shared, with no transverse detours.
+        int[] stairFloors = frigateStairFloors(p);
         int stairZ = frigateStairStart(p);
-        frigateStairs(out, -3, stairZ, 1, 6);
-        frigateStairs(out, -3, stairZ - 6, 6, 11);
-        frigateStairs(out, -3, stairZ - 12, 11, 16);
-        if (captainDeck) frigateStairs(out, -3, stairZ - 18, 16, 21);
+        for (int i = 0; i + 1 < stairFloors.length; i++)
+            frigateStairs(out, -3, stairFlightStart(stairFloors, stairZ, i),
+                    stairFloors[i], stairFloors[i + 1]);
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
         put(out, 0, wheelY, rear + 4, Part.HELM);
         placeShipLighting(out, p, true);
