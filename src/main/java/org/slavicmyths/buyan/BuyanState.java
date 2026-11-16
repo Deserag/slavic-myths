@@ -22,6 +22,9 @@ public final class BuyanState extends SavedData {
     public int radius;
     public int chunkIndex;
     public int columnIndex;
+    public int traversalVersion = 2;
+    public int skippedChunks;
+    public int skippedColumns;
     public String lastError = "";
 
     public static BuyanState get(ServerLevel level) {
@@ -49,6 +52,9 @@ public final class BuyanState extends SavedData {
         radius = r;
         chunkIndex = 0;
         columnIndex = 0;
+        traversalVersion = 2;
+        skippedChunks = 0;
+        skippedColumns = 0;
         lastError = "";
         setDirty();
     }
@@ -56,6 +62,16 @@ public final class BuyanState extends SavedData {
     public void progress(int chunk, int column) {
         chunkIndex = chunk;
         columnIndex = column;
+        setDirty();
+    }
+
+    public void skipChunk() {
+        skippedChunks++;
+        setDirty();
+    }
+
+    public void skipColumn() {
+        skippedColumns++;
         setDirty();
     }
 
@@ -81,7 +97,7 @@ public final class BuyanState extends SavedData {
 
     @Override
     public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
-        tag.putInt("Schema", 1);
+        tag.putInt("Schema", 2);
         tag.putBoolean("Active", active);
         tag.putBoolean("Paused", paused);
         tag.putInt("CenterX", centerX);
@@ -89,6 +105,9 @@ public final class BuyanState extends SavedData {
         tag.putInt("Radius", radius);
         tag.putInt("Chunk", chunkIndex);
         tag.putInt("Column", columnIndex);
+        tag.putInt("Traversal", traversalVersion);
+        tag.putInt("SkippedChunks", skippedChunks);
+        tag.putInt("SkippedColumns", skippedColumns);
         tag.putString("Error", lastError);
         ListTag sites = new ListTag();
         for (Site site : completed) {
@@ -111,6 +130,9 @@ public final class BuyanState extends SavedData {
         data.radius = tag.getInt("Radius");
         data.chunkIndex = Math.max(0, tag.getInt("Chunk"));
         data.columnIndex = Math.clamp(tag.getInt("Column"), 0, 255);
+        data.traversalVersion = tag.contains("Traversal") ? tag.getInt("Traversal") : 1;
+        data.skippedChunks = Math.max(0, tag.getInt("SkippedChunks"));
+        data.skippedColumns = Math.max(0, tag.getInt("SkippedColumns"));
         data.lastError = tag.getString("Error");
         for (Tag value : tag.getList("Completed", 10)) {
             CompoundTag site = (CompoundTag) value;
@@ -118,6 +140,16 @@ public final class BuyanState extends SavedData {
             if (radius >= BuyanTerrain.MIN_RADIUS && radius <= BuyanTerrain.MAX_RADIUS) {
                 data.completed.add(new Site(site.getInt("X"), site.getInt("Z"), radius));
             }
+        }
+        if (data.active && data.traversalVersion != 2) {
+            // Old jobs scanned a distant square corner first. Revisit already edited
+            // natural terrain rather than treating their linear cursor as spiral order.
+            data.chunkIndex = 0;
+            data.columnIndex = 0;
+            data.traversalVersion = 2;
+            data.paused = true;
+            data.lastError = "Маршрут перестроен от центра. Сделайте резервную копию мира и выполните /slavicmyths dev buyan resume.";
+            data.setDirty();
         }
         if (data.active && (data.radius < BuyanTerrain.MIN_RADIUS
             || data.radius > BuyanTerrain.MAX_RADIUS)) {
