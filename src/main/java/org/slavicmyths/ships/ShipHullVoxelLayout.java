@@ -551,9 +551,13 @@ public final class ShipHullVoxelLayout {
         int end = p.hullLength() / 2;
         if (Math.abs(z) > end) return -1;
         int half = p.hullWidth() / 2;
-        if (z >= end - 14) {
-            double t = Math.max(0D, (end - z) / 14D);
-            return Math.max(1, (int)Math.round(1D + (half - 1D) * t));
+        // +Z is the actual bow. Retain a substantial five-block-wide stem
+        // at the foremost station and ease the beam inward over twelve
+        // stations rather than ending in a misplaced one-block needle.
+        if (z >= end - 12) {
+            double t = Math.max(0D, (end - z) / 12D);
+            return Math.max(2, (int)Math.round(2D + (half - 2D)
+                    * Math.sin(t * Math.PI / 2D)));
         }
         if (z <= -end + 8) {
             double t = Math.max(0D, (end + z) / 8D);
@@ -802,6 +806,22 @@ public final class ShipHullVoxelLayout {
                 }
                 if (d == beam && z > -end + 5 && z < end - 9)
                     put(out, x, 12, z, Part.RAIL);
+            }
+        }
+        // The forecastle's forward sheer rises above the weather deck:
+        // port and starboard edges climb together toward the +Z stem.
+        // Keep the interior clear for deck walkers, and leave the established
+        // horizontal bowsprit, its attachment and collision reach intact.
+        for (int z = end - 11; z <= end; z++) {
+            int beam = frigateBeam(p, z);
+            int nextBeam = frigateBeam(p, z + 1);
+            int rise = Math.min(4, (z - (end - 12) + 1) / 3);
+            for (int x = -beam; x <= beam; x++) {
+                int d = Math.abs(x);
+                boolean outerSkin = d >= beam - 1 || nextBeam < 0 || d > nextBeam;
+                if (!outerSkin) continue;
+                for (int y = 12; y <= 11 + rise; y++)
+                    put(out, x, y, z, y == 11 + rise ? Part.TRIM : Part.HULL);
             }
         }
         // The bowsprit is a supported 3x2 spar rooted in the lower bow stem.
