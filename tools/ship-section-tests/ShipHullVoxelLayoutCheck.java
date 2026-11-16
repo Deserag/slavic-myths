@@ -170,9 +170,9 @@ public final class ShipHullVoxelLayoutCheck {
                         "IV weather-deck external stair missing " + p);
         }
         if (captainDeck)
-            for (int x : new int[]{-4, -3})
+            for (int x : new int[]{-5, -4})
                 for (int i = 1; i <= 5; i++)
-                    require(at(model, x, 16 + i, rear + 15 - i)
+                    require(at(model, x, 16 + i, rear + 10 - i)
                             == ShipHullVoxelLayout.Part.STAIR,
                             "IV captain access missing " + p);
         require(model.values().stream().filter(part ->
