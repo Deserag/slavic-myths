@@ -865,7 +865,9 @@ public final class ShipModularBlockHull {
             if (entry.kind() == MISSING_HULL && !cargoPlan.containsKey(
                     new ShipHullVoxelLayout.Cell(entry.x(), entry.y(), entry.z()))) return false;
             if (entry.kind() != MISSING_HULL
-                    && !cargoCell(cargoPlan, entry.x(), entry.y(), entry.z())) return false;
+                    && !cargoCell(cargoPlan, entry.x(), entry.y(), entry.z(),
+                            config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4)) return false;
             BlockState state = entry.state();
             for (int n = 0; n < rotation; n++) state = state.rotate(Rotation.CLOCKWISE_90);
             transported.add(new Cargo(entry.x(), entry.y(), entry.z(),
