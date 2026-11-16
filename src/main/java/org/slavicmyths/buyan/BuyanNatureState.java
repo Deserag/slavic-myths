@@ -28,6 +28,8 @@ public final class BuyanNatureState extends SavedData {
     public int skippedColumns;
     public int plantedTrees;
     public double forestCutoff;
+    public double sandCutoff;
+    public double gravelCutoff;
     public String lastError = "";
 
     public static BuyanNatureState get(ServerLevel level) {
@@ -40,7 +42,8 @@ public final class BuyanNatureState extends SavedData {
             && s.z() == site.z() && s.radius() == site.radius());
     }
 
-    public void begin(BuyanState.Site site, double cutoff) {
+    public void begin(BuyanState.Site site, double cutoff,
+                      double sandLimit, double gravelLimit) {
         if (active || finishedAt(site)) {
             throw new IllegalStateException("Buyan nature generation already reserved or completed");
         }
@@ -50,6 +53,8 @@ public final class BuyanNatureState extends SavedData {
         centerZ = site.z();
         radius = site.radius();
         forestCutoff = cutoff;
+        sandCutoff = sandLimit;
+        gravelCutoff = gravelLimit;
         phase = 0;
         chunkIndex = 0;
         columnIndex = 0;
@@ -124,6 +129,8 @@ public final class BuyanNatureState extends SavedData {
         tag.putInt("SkippedColumns", skippedColumns);
         tag.putInt("Trees", plantedTrees);
         tag.putDouble("ForestCutoff", forestCutoff);
+        tag.putDouble("SandCutoff", sandCutoff);
+        tag.putDouble("GravelCutoff", gravelCutoff);
         tag.putString("Error", lastError);
         ListTag sites = new ListTag();
         for (BuyanState.Site site : completed) {
@@ -151,6 +158,8 @@ public final class BuyanNatureState extends SavedData {
         state.skippedColumns = Math.max(0, tag.getInt("SkippedColumns"));
         state.plantedTrees = Math.max(0, tag.getInt("Trees"));
         state.forestCutoff = tag.getDouble("ForestCutoff");
+        state.sandCutoff = tag.getDouble("SandCutoff");
+        state.gravelCutoff = tag.getDouble("GravelCutoff");
         state.compatible = tag.getInt("Schema") == SCHEMA;
         state.lastError = tag.getString("Error");
         for (Tag entry : tag.getList("Completed", 10)) {
@@ -160,7 +169,10 @@ public final class BuyanNatureState extends SavedData {
         }
         if (state.active && (!state.compatible
             || state.phase < 0 || state.phase > 1
-            || !Double.isFinite(state.forestCutoff))) {
+            || !Double.isFinite(state.forestCutoff)
+            || !Double.isFinite(state.sandCutoff)
+            || !Double.isFinite(state.gravelCutoff)
+            || state.sandCutoff > state.gravelCutoff)) {
             state.pause("Unsupported nature generation state; cannot safely resume");
         }
         return state;
