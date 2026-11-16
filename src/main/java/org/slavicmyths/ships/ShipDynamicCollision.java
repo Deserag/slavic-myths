@@ -66,21 +66,8 @@ public final class ShipDynamicCollision {
                 && config.hullRevision() == 4)
             return false; // IV uses only its real fixed stair flights.
         if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                && config.hullRevision() == 3) {
-            int rear = -(config.length() / 2) + 2;
-            int side = Math.min(5, config.width() / 2 - 3);
-            int upperSide = Math.min(3, config.width() / 2 - 5);
-            if (Math.abs(x + 2D) < .49D && Math.abs(z - 1D) < .49D
-                    && y >= 1.9D && y <= 10.9D) return true;
-            if (ShipHullVoxelLayout.brigantineTopDeck(config.structure()) >= 15
-                    && Math.abs(x - (-side + 1D)) < .49D
-                    && Math.abs(z - (rear + 10D)) < .49D
-                    && y >= 10.9D && y <= 15.9D) return true;
-            return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) >= 20
-                    && Math.abs(x - (-upperSide + 1D)) < .49D
-                    && Math.abs(z - (rear + 7D)) < .49D
-                    && y >= 15.9D && y <= 20.9D;
-        }
+                && config.hullRevision() == 3)
+            return false; // The III uses real stair treads, not legacy ladders.
         if (Math.abs(x + 2D) < .49D && Math.abs(z - 1D) < .49D
                 && y >= .9D && y <= 4D + (config.decks() - 1) * 4D + .9D) return true;
         if (config.bridge()) {
