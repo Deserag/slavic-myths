@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -79,7 +78,9 @@ public final class ShipModularBlockHull {
                     turns % 2 == 0 ? Direction.Axis.X : Direction.Axis.Z);
             case SAIL -> Blocks.WHITE_WOOL.defaultBlockState();
             case CABIN_WALL -> Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
-            case WINDOW -> Blocks.GLASS_PANE.defaultBlockState();
+            // Full glass blocks render consistently regardless of whether surrounding
+            // walls were placed before or after the windows.
+            case WINDOW -> Blocks.GLASS.defaultBlockState();
             case DOOR -> Blocks.OAK_DOOR.defaultBlockState()
                     .setValue(DoorBlock.HALF,
                             y == 6 || y == 12 && config.hullRevision() != 4
@@ -116,7 +117,6 @@ public final class ShipModularBlockHull {
                     state(entry.getValue(), 0, c.y(), c.x(), config));
         }
         connectFenceRails(blocks);
-        connectGlassPanes(blocks);
         return java.util.Collections.unmodifiableMap(blocks);
     }
 
@@ -171,7 +171,6 @@ public final class ShipModularBlockHull {
         }
         if (blocks.size() > MAX_BLOCKS) throw new IllegalArgumentException("Oversized ship hull");
         connectFenceRails(blocks);
-        connectGlassPanes(blocks);
         return blocks;
     }
 
@@ -197,19 +196,6 @@ public final class ShipModularBlockHull {
                             blocks.containsKey(p.east()) && blocks.get(p.east()).is(Blocks.SPRUCE_FENCE))
                     .setValue(net.minecraft.world.level.block.FenceBlock.WEST,
                             blocks.containsKey(p.west()) && blocks.get(p.west()).is(Blocks.SPRUCE_FENCE));
-            entry.setValue(state);
-        }
-    }
-
-    private static void connectGlassPanes(Map<BlockPos, BlockState> blocks) {
-        for (var entry : blocks.entrySet()) {
-            if (!entry.getValue().is(Blocks.GLASS_PANE)) continue;
-            BlockPos p = entry.getKey();
-            BlockState state = entry.getValue()
-                    .setValue(IronBarsBlock.NORTH, blocks.containsKey(p.north()))
-                    .setValue(IronBarsBlock.SOUTH, blocks.containsKey(p.south()))
-                    .setValue(IronBarsBlock.EAST, blocks.containsKey(p.east()))
-                    .setValue(IronBarsBlock.WEST, blocks.containsKey(p.west()));
             entry.setValue(state);
         }
     }
