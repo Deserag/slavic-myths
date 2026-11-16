@@ -38,7 +38,11 @@ public final class ShipPersistenceGameTest {
             if ("write".equals(stage)) {
                 BlockPos anchor = test.absolutePos(new BlockPos(
                         type == ShipSectionPlan.ShipClass.LARGE ? 45 : 245, 4, 60));
-                int extent = config.length() / 2 + 8;
+                // The IV knyavdiged projects eighteen blocks beyond the
+                // configured hull length, so its whole swept tip must be
+                // unloaded of terrain before the persistence fixture builds.
+                int extent = config.length() / 2
+                        + (type == ShipSectionPlan.ShipClass.LARGEST ? 22 : 8);
                 for (int x = -config.width() / 2 - 8; x <= config.width() / 2 + 8; x++)
                     for (int z = -extent; z <= extent; z++) {
                         BlockPos pos = anchor.offset(x, 0, z);
@@ -63,7 +67,9 @@ public final class ShipPersistenceGameTest {
                 BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
                 for (int x = -config.width() / 2 - 8; x <= config.width() / 2 + 15; x += 8)
                     for (int z = -config.length() / 2 - 8;
-                            z <= config.length() / 2 + 15; z += 8)
+                            z <= config.length() / 2
+                                    + (type == ShipSectionPlan.ShipClass.LARGEST ? 24 : 15);
+                            z += 8)
                         level.getChunkAt(anchor.offset(x, 0, z));
                 test.assertTrue(level.getBlockState(hole).isAir()
                         && !level.getBlockState(hole.north()).isAir(),
