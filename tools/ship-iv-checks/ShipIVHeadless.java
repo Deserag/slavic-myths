@@ -116,53 +116,65 @@ public final class ShipIVHeadless {
                 checkedHullCells++;
             }
         }
-        // The load-bearing knyavdiged starts in the underwater keel, not
-        // on a mast or at the weather deck. Its forward tip bends upward.
-        require(at(blocks, 0, 0, end) == ShipHullVoxelLayout.Part.KEEL
-                && at(blocks, 0, 1, end + 1) == ShipHullVoxelLayout.Part.KEEL,
-                key + ": knyavdiged does not emerge from the forward keel");
-        require(at(blocks, 0, 15, end + 8) == ShipHullVoxelLayout.Part.KEEL,
-                key + ": upper forward stem is missing");
-        require(at(blocks, 0, 9, end + 7) == null,
-                key + ": withdrawn horizontal mast-height spar still exists");
-        // The real y=1 hull floor is preserved inside the defined length.
+        // IV knyavdiged is a single load-bearing continuation of the keel:
+        // +18 blocks of forward run with at most eight blocks of center rise.
+        require(at(blocks, 0, 0, end - 12) == ShipHullVoxelLayout.Part.KEEL
+                && at(blocks, 0, 0, end) == ShipHullVoxelLayout.Part.KEEL
+                && at(blocks, 0, 0, end + 1) == ShipHullVoxelLayout.Part.KEEL,
+                key + ": lower knyavdiged is not rooted in the keel");
         require(at(blocks, 0, 1, end) == ShipHullVoxelLayout.Part.HULL,
-                key + ": bow foundation displaced the watertight bottom");
-        int lastTipZ = end;
-        for (int y = 1; y <= 15; y++) {
-            int tipZ = Integer.MIN_VALUE;
-            for (int z = end - 10; z <= end + 8; z++)
-                if (at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL)
-                    tipZ = z;
-            require(tipZ >= lastTipZ,
-                    key + ": knyavdiged does not rise forward at y=" + y);
-            lastTipZ = tipZ;
+                key + ": stem displaced the sealed bow bottom");
+        require(at(blocks, 0, 9, end + 18) == ShipHullVoxelLayout.Part.KEEL,
+                key + ": the long forward tip is missing");
+        require(at(blocks, 0, 15, end + 8) == null,
+                key + ": the old upward appendix was left in place");
+        int previousRise = 0;
+        for (int z = end + 1; z <= end + 18; z++) {
+            double progress = (z - (end - 12)) / 30D;
+            int rise = (int)Math.round(4D * (1D - Math.cos(progress * Math.PI)));
+            require(rise >= previousRise && rise <= previousRise + 1,
+                    key + ": kink in the forward keel curve at " + z);
+            int lowerY = z <= end + 3 ? 0
+                    : Math.max(0, Math.min(previousRise, rise) - 1);
+            int upperY = Math.max(rise + 1, 15 - (int)Math.round(6D
+                    * Math.sin((z - end) / 18D * Math.PI / 2D)));
+            int radius = z <= end + 3 ? 2 : z <= end + 12 ? 1 : 0;
+            for (int y = lowerY; y <= upperY; y++) {
+                require(at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL,
+                        key + ": empty gap through the knyavdiged at z=" + z
+                                + " y=" + y);
+                if (y >= 2)
+                    for (int x : new int[]{-radius, radius})
+                        require(at(blocks, x, y, z) == (x == 0
+                                        ? ShipHullVoxelLayout.Part.KEEL
+                                        : ShipHullVoxelLayout.Part.FRAME),
+                                key + ": detached bow scarf at x=" + x + " z=" + z
+                                        + " y=" + y);
+            }
+            previousRise = rise;
         }
-        // Face-connected path along the centerline from the actual keel to
-        // the prow. Physical deck plank at y=6 remains a solid connector.
+        // Only real KEEL cells can prove continuity; unrelated hull plates
+        // and decks must not conceal a disconnected decorative appendage.
         var visited = new java.util.HashSet<ShipHullVoxelLayout.Cell>();
         var queue = new java.util.ArrayDeque<ShipHullVoxelLayout.Cell>();
         var root = new ShipHullVoxelLayout.Cell(0, 0, end);
-        var tip = new ShipHullVoxelLayout.Cell(0, 15, end + 8);
+        var tip = new ShipHullVoxelLayout.Cell(0, 9, end + 18);
         visited.add(root);
         queue.add(root);
         while (!queue.isEmpty() && !visited.contains(tip)) {
             var pos = queue.removeFirst();
             for (int[] delta : new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}) {
                 int y = pos.y() + delta[0], z = pos.z() + delta[1];
-                if (y < 0 || y > 15 || z < end || z > end + 8)
+                if (y < 0 || y > 15 || z < end || z > end + 18)
                     continue;
                 var next = new ShipHullVoxelLayout.Cell(0, y, z);
-                var part = at(blocks, 0, y, z);
-                if (part == null || part == ShipHullVoxelLayout.Part.SAIL
-                        || part == ShipHullVoxelLayout.Part.LANTERN
-                        || part == ShipHullVoxelLayout.Part.HANGING_LANTERN
+                if (at(blocks, 0, y, z) != ShipHullVoxelLayout.Part.KEEL
                         || !visited.add(next)) continue;
                 queue.addLast(next);
             }
         }
         require(visited.contains(tip),
-                key + ": knyavdiged is not connected to the keel by block faces");
+                key + ": forward stem is not connected to the keel by block faces");
         int shaftZ = -end + 2;
         for (int[] route : new int[][] {
                 {-3, shaftZ, 1, 6}, {3, shaftZ, 6, 11},
