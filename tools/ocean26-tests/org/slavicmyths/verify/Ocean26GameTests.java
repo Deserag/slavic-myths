@@ -568,6 +568,13 @@ public final class Ocean26GameTests {
                 false, true);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_frigate_mixed_sail_voyage")
+    public static void frigateMixedSailVoyage(GameTestHelper t) {
+        // The upgraded IV build carries four masts with independently stored
+        // sail tiers 3, 3, 1, 1 through the same detach and movement path.
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST, true);
+    }
+
 
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
