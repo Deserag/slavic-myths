@@ -118,18 +118,18 @@ public final class ShipIVHeadless {
         }
         // The load-bearing knyavdiged starts in the underwater keel, not
         // on a mast or at the weather deck. Its forward tip bends upward.
-        require(at(blocks, 0, 0, end - 10) == ShipHullVoxelLayout.Part.KEEL,
-                key + ": knyavdiged does not begin at the keel");
+        require(at(blocks, 0, 0, end) == ShipHullVoxelLayout.Part.KEEL
+                && at(blocks, 0, 1, end + 1) == ShipHullVoxelLayout.Part.KEEL,
+                key + ": knyavdiged does not emerge from the forward keel");
         require(at(blocks, 0, 15, end + 8) == ShipHullVoxelLayout.Part.KEEL,
                 key + ": upper forward stem is missing");
         require(at(blocks, 0, 9, end + 7) == null,
                 key + ": withdrawn horizontal mast-height spar still exists");
-        // The y=1 floor remains HULL by design: never damage the sealed
-        // bottom merely to mark the hidden member as KEEL.
-        require(at(blocks, 0, 1, end - 10) == ShipHullVoxelLayout.Part.HULL,
+        // The real y=1 hull floor is preserved inside the defined length.
+        require(at(blocks, 0, 1, end) == ShipHullVoxelLayout.Part.HULL,
                 key + ": bow foundation displaced the watertight bottom");
-        int lastTipZ = end - 10;
-        for (int y = 2; y <= 15; y++) {
+        int lastTipZ = end;
+        for (int y = 1; y <= 15; y++) {
             int tipZ = Integer.MIN_VALUE;
             for (int z = end - 10; z <= end + 8; z++)
                 if (at(blocks, 0, y, z) == ShipHullVoxelLayout.Part.KEEL)
@@ -142,7 +142,7 @@ public final class ShipIVHeadless {
         // the prow. Physical deck plank at y=6 remains a solid connector.
         var visited = new java.util.HashSet<ShipHullVoxelLayout.Cell>();
         var queue = new java.util.ArrayDeque<ShipHullVoxelLayout.Cell>();
-        var root = new ShipHullVoxelLayout.Cell(0, 0, end - 10);
+        var root = new ShipHullVoxelLayout.Cell(0, 0, end);
         var tip = new ShipHullVoxelLayout.Cell(0, 15, end + 8);
         visited.add(root);
         queue.add(root);
@@ -150,7 +150,7 @@ public final class ShipIVHeadless {
             var pos = queue.removeFirst();
             for (int[] delta : new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}) {
                 int y = pos.y() + delta[0], z = pos.z() + delta[1];
-                if (y < 0 || y > 15 || z < end - 10 || z > end + 8)
+                if (y < 0 || y > 15 || z < end || z > end + 8)
                     continue;
                 var next = new ShipHullVoxelLayout.Cell(0, y, z);
                 var part = at(blocks, 0, y, z);
