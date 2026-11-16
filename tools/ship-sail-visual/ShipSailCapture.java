@@ -73,6 +73,9 @@ public final class ShipSailCapture {
     private static volatile boolean motionReady;
     private static int motionAge;
     private static double motionStartZ;
+    private static double motionRestartZ;
+    private static volatile double serverMotionSpeed;
+    private static volatile int acceptedHelmSteps;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -259,8 +262,10 @@ public final class ShipSailCapture {
                 : FirstShipNetwork.FORWARD;
         mc.getSingleplayerServer().execute(() -> {
             ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
-            if (player.getVehicle() == serverShip)
-                serverShip.helmStep(player, action);
+            if (player.getVehicle() != serverShip || !serverShip.helmStep(player, action))
+                throw new AssertionError("IV helm rejected at motion tick " + motionAge);
+            acceptedHelmSteps++;
+            serverMotionSpeed = serverShip.serverMovingSpeed();
         });
         if (motionAge == 60 || motionAge == 100 || motionAge == 140) {
             FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
@@ -281,7 +286,13 @@ public final class ShipSailCapture {
             row.addProperty("z", visible.getZ());
             row.addProperty("yaw", visible.getYRot());
             row.addProperty("speed", visible.visualMotionSpeed());
+            row.addProperty("server_speed", serverMotionSpeed);
+            row.addProperty("accepted_helm_steps", acceptedHelmSteps);
             MOTION_FRAMES.add(row);
+            if (motionAge == 100) motionRestartZ = visible.getZ();
+            if (motionAge == 140 && visible.getZ() <= motionRestartZ + .1D)
+                throw new AssertionError("IV failed to restart after idle: "
+                        + motionRestartZ + " -> " + visible.getZ());
         }
         if (motionAge == 150) {
             if (MOTION_FRAMES.size() != 3)
