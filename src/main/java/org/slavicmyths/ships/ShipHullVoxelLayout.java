@@ -697,7 +697,7 @@ public final class ShipHullVoxelLayout {
             int station = 0;
             // One lantern at each longitudinal station, four free blocks
             // between stations. All lights on a storey share one ceiling Y.
-            for (int z = -end + 4; z <= end - 4; z += frigate && !previousIV ? 4 : 5, station++) {
+            for (int z = -end + 4; z <= end - 4; z += frigate && !previousIV ? 3 : 5, station++) {
                 int beam = frigate ? frigateBeam(plan, z) : brigantineBeam(plan, z);
                 if (beam < 4) continue;
                 int side = Math.min(beam - 2, frigate ? 6 : 4);
@@ -907,7 +907,7 @@ public final class ShipHullVoxelLayout {
 
     private static void frigateSafetyRails(Map<Cell, Part> blocks,
             ShipSuperstructurePlan plan, int rear, boolean captainDeck,
-            boolean preRefinement) {
+            boolean preRefinement, boolean deckRefit) {
         int end = plan.hullLength() / 2;
         for (int z = rear + 16; z <= end - 12; z++) {
             // The outer HULL rim is the last supported edge, two cells
@@ -919,16 +919,20 @@ public final class ShipHullVoxelLayout {
             }
         }
         for (int z = rear; z <= rear + 15; z++) {
-            int side = Math.min(7, Math.max(2, frigateBeam(plan, z) - 2));
+            int side = deckRefit ? frigateBeam(plan, z)
+                    : Math.min(7, Math.max(2, frigateBeam(plan, z) - 2));
             frigateDeckRail(blocks, -side, 16, z);
             frigateDeckRail(blocks, side, 16, z);
         }
-        int sternSide = Math.min(7, Math.max(2, frigateBeam(plan, rear) - 2));
+        int sternSide = deckRefit ? frigateBeam(plan, rear)
+                : Math.min(7, Math.max(2, frigateBeam(plan, rear) - 2));
         for (int x = -sternSide; x <= sternSide; x++)
             frigateDeckRail(blocks, x, 16, rear);
-        int frontSide = Math.min(7, Math.max(2, frigateBeam(plan, rear + 15) - 2));
+        int frontSide = deckRefit ? frigateBeam(plan, rear + 15)
+                : Math.min(7, Math.max(2, frigateBeam(plan, rear + 15) - 2));
         for (int x = -frontSide; x <= frontSide; x++)
-            if (x != 3 && x != 4)
+            if (x != (deckRefit ? 6 : 3)
+                    && x != (deckRefit ? 7 : 4))
                 frigateDeckRail(blocks, x, 16, rear + 15);
         if (!captainDeck) return;
         for (int z = rear; z <= rear + 9; z++) {
@@ -997,6 +1001,12 @@ public final class ShipHullVoxelLayout {
 
     private static Map<Cell, Part> generateFrigateIV(
             ShipSuperstructurePlan p, boolean previousLayout, boolean preRefinement) {
+        return generateFrigateIV(p, previousLayout, preRefinement, false);
+    }
+
+    private static Map<Cell, Part> generateFrigateIV(
+            ShipSuperstructurePlan p, boolean previousLayout,
+            boolean preRefinement, boolean deckRefit) {
         Map<Cell, Part> out = new LinkedHashMap<>();
         int end = p.hullLength() / 2;
         int rear = -end + 4;
@@ -1092,6 +1102,17 @@ public final class ShipHullVoxelLayout {
                         put(out, x, y, rear + 15, Part.DOOR);
                     else put(out, x, y, rear + 15, Part.CABIN_WALL);
         }
+        if (deckRefit) {
+            // The quarterdeck edge follows the hull, not the old cabin wall.
+            // A narrow timber overhang removes the exposed two-cell strip.
+            for (int z = rear; z <= rear + 15; z++) {
+                int wall = Math.min(7, Math.max(2, frigateBeam(p, z) - 2));
+                int rim = frigateBeam(p, z);
+                for (int x = -rim; x <= rim; x++)
+                    if (Math.abs(x) > wall)
+                        put(out, x, 16, z, Part.DECK);
+            }
+        }
         if (captainDeck) {
             for (int z = rear; z <= rear + 9; z++) {
                 int half = Math.min(5, Math.max(2, frigateBeam(p, z) - 3));
@@ -1158,9 +1179,9 @@ public final class ShipHullVoxelLayout {
         if (!previousLayout) {
             // Separated exterior entrances, clear of the internal stairwell.
             // Starboard: weather deck -> quarterdeck. Port: captain access.
-            frigateStairs(out, 4, rear + 21, 11, 16);
+            frigateStairs(out, deckRefit ? 7 : 4, rear + 21, 11, 16);
             if (captainDeck) frigateStairs(out, -5, rear + 10, 16, 21);
-            frigateSafetyRails(out, p, rear, captainDeck, preRefinement);
+            frigateSafetyRails(out, p, rear, captainDeck, preRefinement, deckRefit);
             if (preRefinement) {
                 // Exact late-2026 IV geometry used before the latest retrofit.
                 int floor = captainDeck ? 21 : 16;
@@ -1179,6 +1200,15 @@ public final class ShipHullVoxelLayout {
         placeShipLighting(out, p, true, previousLayout || preRefinement);
         validateFrigateIV(out, p, rear, previousLayout, preRefinement);
         return Collections.unmodifiableMap(out);
+    }
+
+    /** Preserves the pre-refit IV deck and lighting for packing old vessels. */
+    public static Map<Cell, Part> previousDeckRefitFrigateIVLayout(
+            ShipSuperstructurePlan plan) {
+        if (plan.shipClass() != ShipSectionPlan.ShipClass.LARGEST
+                || plan.hullRevision() != 4)
+            throw new IllegalArgumentException("Only IV supports deck-refit history");
+        return generateFrigateIV(plan, false, false);
     }
 
     /**
@@ -1209,7 +1239,7 @@ public final class ShipHullVoxelLayout {
                 && plan.hullRevision() == 4) {
             Map<Cell, Part> cached = FRIGATE_CACHE.get(plan);
             if (cached != null) return cached;
-            Map<Cell, Part> generated = generateFrigateIV(plan, false);
+            Map<Cell, Part> generated = generateFrigateIV(plan, false, false, true);
             FRIGATE_CACHE.put(plan, generated);
             return generated;
         }
