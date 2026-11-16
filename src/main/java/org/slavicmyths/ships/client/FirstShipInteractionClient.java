@@ -166,23 +166,8 @@ public final class FirstShipInteractionClient {
                 FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (ship.isRemoved() || !ship.isMoving() || config == null) continue;
-            ListTag cargo = new ListTag();
-            if (!ship.movingCargoView().isBlank())
-                for (String token : ship.movingCargoView().split(";")) {
-                    String[] fields = token.split(",");
-                    if (fields.length != 4 && fields.length != 5) continue;
-                    try {
-                        CompoundTag entry = new CompoundTag();
-                        entry.putInt("X", Integer.parseInt(fields[0]));
-                        entry.putInt("Y", Integer.parseInt(fields[1]));
-                        entry.putInt("Z", Integer.parseInt(fields[2]));
-                        entry.putInt("Kind", Integer.parseInt(fields[3]));
-                        if (fields.length == 5) entry.putString("BlockId", fields[4]);
-                        cargo.add(entry);
-                    } catch (NumberFormatException ignored) {
-                        // Invalid client-only metadata cannot authorize a placement.
-                    }
-                }
+            ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
+                    ship.movingCargoView());
             Map<BlockPos, BlockState> palette =
                     ShipModularBlockHull.localVisualPalette(config, cargo);
             BlockPos cell = ShipMovingCargoTarget.target(ship, eye, end, palette);
