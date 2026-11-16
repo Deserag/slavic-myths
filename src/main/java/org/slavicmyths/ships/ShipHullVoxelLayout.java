@@ -1125,6 +1125,9 @@ public final class ShipHullVoxelLayout {
 
     private static void put(Map<Cell, Part> blocks, int x, int y, int z, Part part) {
         if (y < 0 || y > 48) throw new IllegalArgumentException("Ship part outside vertical bounds");
+        // All modular deck fences are intentionally removed. Keep the RAIL
+        // enum for backwards compatibility, but never place a new one.
+        if (part == Part.RAIL) return;
         blocks.put(new Cell(x, y, z), part);
     }
 
