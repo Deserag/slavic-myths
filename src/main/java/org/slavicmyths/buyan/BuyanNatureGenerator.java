@@ -89,7 +89,8 @@ public final class BuyanNatureGenerator {
             source.sendFailure(Component.literal("Недостаточно подходящей суши для смешанных лесов."));
             return 0;
         }
-        state.begin(site, cutoff);
+        double[] coast = BuyanNature.coastCutoffs(world.getSeed(), site.x(), site.z());
+        state.begin(site, cutoff, coast[0], coast[1]);
         source.sendSuccess(() -> Component.literal(
             "Буян: природный этап запущен для острова " + site.x() + "," + site.z()
             + ". Сначала рельеф и грунты, затем леса и подлесок. "
@@ -135,6 +136,8 @@ public final class BuyanNatureGenerator {
         BuyanNatureState state = BuyanNatureState.get(world);
         if (!state.active) return status(source);
         if (!state.compatible || !Double.isFinite(state.forestCutoff)
+            || !Double.isFinite(state.sandCutoff) || !Double.isFinite(state.gravelCutoff)
+            || state.sandCutoff > state.gravelCutoff
             || state.phase < 0 || state.phase > 1 || BuyanState.get(world).active) {
             source.sendFailure(Component.literal("Несовместимое состояние Буяна; возобновление запрещено."));
             return 0;
@@ -185,7 +188,7 @@ public final class BuyanNatureGenerator {
             original[y - minY] = old;
         }
         BuyanTerrain.Surface kind = BuyanNature.surface(seed, state.centerX, state.centerZ,
-            x, z, sea, top);
+            x, z, sea, top, state.sandCutoff, state.gravelCutoff);
         double cover = BuyanTerrain.surfaceCover(seed, x, z);
         int rockRoll = BuyanTerrain.surfaceRockRoll(seed, x, z);
         for (int y = start; y <= upper; ++y) {
