@@ -383,14 +383,12 @@ public final class ShipModularBlockHull {
         Map<BlockPos, BlockState> result =
                 new LinkedHashMap<>(worldPalette(config, anchor, turns));
         for (var e : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
-            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
-                    && e.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
             var c = e.getKey();
             result.remove(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()));
         }
         for (var e : ShipHullVoxelLayout.previousLightingLayout(config.structure()).entrySet()) {
-            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
-                    && e.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
             var c = e.getKey();
             result.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
                     state(e.getValue(), turns, c.y(), c.x(), config));
