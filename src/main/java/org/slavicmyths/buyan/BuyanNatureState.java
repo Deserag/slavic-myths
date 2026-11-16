@@ -12,7 +12,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 /** Independent progress: never changes or replays the accepted foundation job. */
 public final class BuyanNatureState extends SavedData {
     private static final String ID = "slavicmyths_buyan_2622_nature";
-    private static final int SCHEMA = 1;
+    private static final int SCHEMA = 2;
 
     private final List<BuyanState.Site> completed = new ArrayList<>();
     public boolean active;
