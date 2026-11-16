@@ -51,6 +51,8 @@ public final class ShipIVHeadless {
                     label + " head collision at " + x + "," + (y + 1) + "," + z);
             require(at(blocks, x, y + 2, z) == null,
                     label + " upper head collision at " + x + "," + (y + 2) + "," + z);
+            require(at(blocks, x, y + 3, z) == null,
+                    label + " third head collision at " + x + "," + (y + 3) + "," + z);
             checkedSteps++;
         }
     }
