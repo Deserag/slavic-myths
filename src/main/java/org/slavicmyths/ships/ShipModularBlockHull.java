@@ -258,6 +258,16 @@ public final class ShipModularBlockHull {
             for (int dy = y - 3; dy <= y + 2; dy++)
                 if (plan.get(new ShipHullVoxelLayout.Cell(x, dy, z + dz))
                         == ShipHullVoxelLayout.Part.STAIR) return false;
+        for (int dx = -1; dx <= 1; dx++)
+            for (int dz = -1; dz <= 1; dz++)
+                for (int dy = y - 2; dy <= y + 2; dy++) {
+                    var fixture = plan.get(new ShipHullVoxelLayout.Cell(
+                            x + dx, dy, z + dz));
+                    if (fixture == ShipHullVoxelLayout.Part.DOOR
+                            || fixture == ShipHullVoxelLayout.Part.HELM
+                            || fixture == ShipHullVoxelLayout.Part.LADDER)
+                        return false;
+                }
         return true;
     }
 
@@ -431,7 +441,7 @@ public final class ShipModularBlockHull {
             ShipBuildConfiguration config, ListTag entries,
             BlockPos local, BlockState requested) {
         if (level == null || config == null || config.withdrawn()
-                || entries == null || requested == null
+                || entries == null || local == null || requested == null
                 || requested.isAir() || ShipCargoPlacementGuard.forbidden(requested))
             return null;
         List<Cargo> old = decode(config, entries);
