@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.Rotation;
@@ -282,7 +283,8 @@ public final class ShipModularBlockHull {
         if (ShipCargoPlacementGuard.forbidden(state)) return false;
         return block instanceof BedBlock || block instanceof CraftingTableBlock
                 || block instanceof SlabBlock || block instanceof StairBlock
-                || block instanceof FenceBlock || block.getClass() == Block.class;
+                || block instanceof FenceBlock || block instanceof TrapDoorBlock
+                || block instanceof LanternBlock || block.getClass() == Block.class;
     }
 
     private static int kind(BlockState state, BlockEntity blockEntity) {
@@ -308,7 +310,7 @@ public final class ShipModularBlockHull {
     }
 
     private static boolean cargoCell(Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan,
-            int x, int y, int z) {
+            int x, int y, int z, boolean iv) {
         // A freestanding container may occupy any clear part of a deck, not a
         // mast, rail, hatch or cabin wall.
         var cell = new ShipHullVoxelLayout.Cell(x, y, z);
@@ -318,6 +320,21 @@ public final class ShipModularBlockHull {
                 || below == ShipHullVoxelLayout.Part.BRIDGE
                 || below == ShipHullVoxelLayout.Part.HULL;
         if (!supported) return false;
+        if (iv) {
+            // Allow ordinary building/decorating on every supported IV deck.
+            // Only occupied stair lanes and the actual door/helm approaches
+            // remain protected; a fixture on a different floor is irrelevant.
+            for (int dy = y - 3; dy <= y + 2; dy++)
+                if (plan.get(new ShipHullVoxelLayout.Cell(x, dy, z))
+                        == ShipHullVoxelLayout.Part.STAIR) return false;
+            for (int dz = -1; dz <= 1; dz++)
+                for (int dy = y; dy <= y + 1; dy++) {
+                    var fixture = plan.get(new ShipHullVoxelLayout.Cell(x, dy, z + dz));
+                    if (fixture == ShipHullVoxelLayout.Part.DOOR
+                            || fixture == ShipHullVoxelLayout.Part.HELM) return false;
+                }
+            return true;
+        }
         // Keep the whole approach, stair, and one-cell landing available,
         // including the player's headroom. No cargo may seal the new path.
         for (int dz = -1; dz <= 1; dz++)
@@ -345,7 +362,9 @@ public final class ShipModularBlockHull {
     public static boolean movingCargoCell(ShipBuildConfiguration config, BlockPos local) {
         return config != null && !config.withdrawn() && local != null
                 && cargoCell(ShipHullVoxelLayout.generate(config.structure()),
-                        local.getX(), local.getY(), local.getZ());
+                        local.getX(), local.getY(), local.getZ(),
+                        config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                && config.hullRevision() == 4);
     }
 
     private static Map<BlockPos, BlockState> previousLightingWorldPalette(
@@ -479,7 +498,9 @@ public final class ShipModularBlockHull {
                     if (state.isAir()) continue;
                     BlockEntity blockEntity = level.getBlockEntity(world);
                     int type = kind(state, blockEntity);
-                    if (type == 0 || !cargoCell(cargoPlan, x, y, z)) return null;
+                    if (type == 0 || !cargoCell(cargoPlan, x, y, z,
+                            config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4)) return null;
                     if (state.hasBlockEntity() && blockEntity == null) return null;
                     CompoundTag data = blockEntity == null ? new CompoundTag()
                             : blockEntity.saveWithFullMetadata(level.registryAccess());
@@ -508,7 +529,9 @@ public final class ShipModularBlockHull {
                             new ShipHullVoxelLayout.Cell(x, y, z))
                             || cargoPlan.get(new ShipHullVoxelLayout.Cell(x, y, z))
                                     == ShipHullVoxelLayout.Part.DOOR))
-                    || (!damage && !cargoCell(cargoPlan, x, y, z))
+                    || (!damage && !cargoCell(cargoPlan, x, y, z,
+                            config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4))
                     || !occupied.add(x + ":" + y + ":" + z)
                     || !entry.contains("State", Tag.TAG_COMPOUND)
                     || (kind != 3 && !damage && !(entry.contains("BlockEntity", Tag.TAG_COMPOUND)
@@ -606,7 +629,9 @@ public final class ShipModularBlockHull {
             BlockPos p = piece.getKey();
             BlockState state = piece.getValue();
             if (p.getY() < 1 || p.getY() > 48
-                    || !cargoCell(plan, p.getX(), p.getY(), p.getZ())
+                    || !cargoCell(plan, p.getX(), p.getY(), p.getZ(),
+                            config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4)
                     || next.stream().anyMatch(c -> c.x() == p.getX()
                             && c.y() == p.getY() && c.z() == p.getZ()))
                 return null;
