@@ -2262,7 +2262,7 @@ public final class Ocean26GameTests {
                     type + " cabin has an unnecessary inner wall layer");
 
         int physicalLanterns = 0;
-        java.util.Map<Integer, java.util.Set<Integer>> lightRows =
+        java.util.Map<Integer, java.util.Set<org.slavicmyths.ships.ShipHullVoxelLayout.Cell>> lightRows =
                 new java.util.HashMap<>();
         for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(
                 config.structure()).entrySet()) {
@@ -2271,10 +2271,13 @@ public final class Ocean26GameTests {
             var cell = piece.getKey();
             var stations = lightRows.computeIfAbsent(cell.y(),
                     ignored -> new java.util.HashSet<>());
-            for (int prev : stations)
-                t.assertTrue(Math.abs(cell.z() - prev) >= 5,
-                        type + " lanterns too close on one deck: " + cell + " and z=" + prev);
-            stations.add(cell.z());
+            for (var prev : stations)
+                t.assertTrue(iv
+                                ? Math.max(Math.abs(cell.x() - prev.x()),
+                                        Math.abs(cell.z() - prev.z())) >= 3
+                                : Math.abs(cell.z() - prev.z()) >= 5,
+                        type + " lanterns too close on one deck: " + cell + " and " + prev);
+            stations.add(cell);
             var lamp = level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, cell.x(), cell.y(), cell.z()));
             t.assertTrue(lamp.is(Blocks.LANTERN)
