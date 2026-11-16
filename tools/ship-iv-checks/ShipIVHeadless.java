@@ -72,8 +72,8 @@ public final class ShipIVHeadless {
             if (part != ShipHullVoxelLayout.Part.HANGING_LANTERN
                     && part != ShipHullVoxelLayout.Part.LANTERN) continue;
             var cell = entry.getKey();
-            require(part == ShipHullVoxelLayout.Part.HANGING_LANTERN,
-                    label + ": unexpected floor-standing lantern " + cell);
+            // IV helm posts deliberately carry standing lanterns, while
+            // interiors remain suspended from their ceiling.
             boolean correctHeight = false;
             for (int floor : frigate
                     ? new int[]{1, 6, 11, 16, 21}
@@ -81,7 +81,9 @@ public final class ShipIVHeadless {
                 if (cell.y() == (floor == 1 && !frigate ? 4 : floor + 4))
                     correctHeight = true;
             require(correctHeight, label + ": lantern at inconsistent Y " + cell);
-            var support = at(blocks, cell.x(), cell.y() + 1, cell.z());
+            var support = at(blocks, cell.x(),
+                    cell.y() + (part == ShipHullVoxelLayout.Part.LANTERN ? -1 : 1),
+                    cell.z());
             require(support == ShipHullVoxelLayout.Part.DECK
                     || support == ShipHullVoxelLayout.Part.BRIDGE
                     || support == ShipHullVoxelLayout.Part.HULL
@@ -91,7 +93,8 @@ public final class ShipIVHeadless {
             var row = rows.computeIfAbsent(cell.y(),
                     unused -> new java.util.ArrayList<>());
             for (var other : row)
-                require(Math.abs(cell.z() - other.z()) >= 5,
+                require(Math.max(Math.abs(cell.x() - other.x()),
+                        Math.abs(cell.z() - other.z())) >= (frigate ? 3 : 5),
                         label + ": lanterns too close at " + cell + " and " + other);
             row.add(cell);
             count++;
@@ -119,11 +122,19 @@ public final class ShipIVHeadless {
                     == ShipHullVoxelLayout.Part.HELM
                 && at(blocks, 0, wheelFloor + 1, rear + 5) == null,
                 key + ": the sole wheel is not accessible");
-        for (int x : new int[]{-2, 2})
-            for (int z : new int[]{rear + 3, rear + 5})
-                require(at(blocks, x, wheelFloor + 1, z)
-                        == ShipHullVoxelLayout.Part.RAIL,
-                        key + ": missing helm station bollard");
+        require(at(blocks, 0, wheelFloor + 1, rear + 1)
+                    == ShipHullVoxelLayout.Part.TRIM,
+                key + ": missing timber helm screen");
+        for (int x : new int[]{-4, 4})
+            require(at(blocks, x, wheelFloor + 4, rear + 1)
+                    == ShipHullVoxelLayout.Part.LANTERN,
+                    key + ": helm lighting post missing");
+        int station = rear + 20;
+        int outside = ShipHullVoxelLayout.halfBeam(plan, station);
+        for (int x : new int[]{-outside, outside})
+            require(at(blocks, x, 12, station)
+                    == ShipHullVoxelLayout.Part.RAIL,
+                    key + ": weather rail still sits two blocks inside");
         require(blocks.values().stream().filter(part ->
                         part == ShipHullVoxelLayout.Part.HELM).count() == 1,
                 key + ": captain helm must remain after deleting fences");
@@ -238,10 +249,9 @@ public final class ShipIVHeadless {
         }
         require(visited.contains(tip),
                 key + ": knyavdiged spine is disconnected by block faces");
-        int shaftZ = rear + 24;
+        int shaftZ = rear + 30;
         int[][] flights = {{-3, shaftZ, 1, 6},
-                {-3, shaftZ - 6, 6, 11},
-                {-3, shaftZ - 12, 11, 16}};
+                {-3, shaftZ - 6, 6, 11}};
         for (int[] flight : flights) {
             for (int x : new int[]{flight[0], flight[0] + 1})
                 stair(blocks, x, flight[1], flight[2], flight[3], key);
