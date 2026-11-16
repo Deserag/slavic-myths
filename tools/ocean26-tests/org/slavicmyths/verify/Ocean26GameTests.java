@@ -1814,10 +1814,18 @@ public final class Ocean26GameTests {
                 assertPairedStair(t, level, anchor, -3, stairZ - 17, 15, 5);
 
             int hangingLights = 0;
+            java.util.Map<Integer, java.util.Set<Integer>> rows =
+                    new java.util.HashMap<>();
             for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(layout).entrySet()) {
                 if (piece.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part.HANGING_LANTERN)
                     continue;
                 var c = piece.getKey();
+                var stations = rows.computeIfAbsent(c.y(),
+                        ignored -> new java.util.HashSet<>());
+                for (int prev : stations)
+                    t.assertTrue(Math.abs(c.z() - prev) >= 5,
+                            "III lanterns too close on one deck: " + c + " and z=" + prev);
+                stations.add(c.z());
                 var pos = FirstShipBlockHull.world(anchor, 0, c.x(), c.y(), c.z());
                 t.assertTrue(level.getBlockState(pos).is(Blocks.LANTERN)
                                 && level.getBlockState(pos).getValue(
@@ -2055,11 +2063,19 @@ public final class Ocean26GameTests {
                     type + " cabin has an unnecessary inner wall layer");
 
         int physicalLanterns = 0;
+        java.util.Map<Integer, java.util.Set<Integer>> lightRows =
+                new java.util.HashMap<>();
         for (var piece : org.slavicmyths.ships.ShipHullVoxelLayout.generate(
                 config.structure()).entrySet()) {
             if (piece.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part
                     .HANGING_LANTERN) continue;
             var cell = piece.getKey();
+            var stations = lightRows.computeIfAbsent(cell.y(),
+                    ignored -> new java.util.HashSet<>());
+            for (int prev : stations)
+                t.assertTrue(Math.abs(cell.z() - prev) >= 5,
+                        type + " lanterns too close on one deck: " + cell + " and z=" + prev);
+            stations.add(cell.z());
             var lamp = level.getBlockState(FirstShipBlockHull.world(
                     anchor, 0, cell.x(), cell.y(), cell.z()));
             t.assertTrue(lamp.is(Blocks.LANTERN)
