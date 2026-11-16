@@ -2,6 +2,7 @@ package org.slavicmyths.buyan;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -131,13 +132,63 @@ public final class BuyanNature {
         return sea + (int) Math.round(Math.clamp(height, 2.0, 60.0));
     }
 
+    private record CoastSample(double value, double length) {}
+
+    /**
+     * Weighted shoreline quantiles: approximately 40% sand, 30% gravel,
+     * 30% rocky coast by coast LENGTH, not by bounding-box land area.
+     */
+    public static double[] coastCutoffs(long seed, int cx, int cz) {
+        final int sections = 360;
+        int[] xs = new int[sections];
+        int[] zs = new int[sections];
+        double[] values = new double[sections];
+        for (int i = 0; i < sections; ++i) {
+            double angle = TWO_PI * i / sections;
+            double dx = Math.cos(angle);
+            double dz = Math.sin(angle);
+            double shore = BuyanTerrain.shoreRadius(seed, cx, cz,
+                cx + (int) Math.round(300.0 * dx),
+                cz + (int) Math.round(300.0 * dz));
+            xs[i] = cx + (int) Math.round((shore - 7.0) * dx);
+            zs[i] = cz + (int) Math.round((shore - 7.0) * dz);
+            values[i] = noise(seed ^ 0xB22A0301L, xs[i], zs[i], 107.0);
+        }
+        List<CoastSample> samples = new ArrayList<>(sections);
+        double totalLength = 0.0;
+        for (int i = 0; i < sections; ++i) {
+            int next = (i + 1) % sections;
+            double length = Math.hypot(xs[next] - xs[i], zs[next] - zs[i]);
+            samples.add(new CoastSample(values[i], length));
+            totalLength += length;
+        }
+        samples.sort(Comparator.comparingDouble(CoastSample::value));
+        double[] limits = new double[2];
+        double covered = 0.0;
+        int index = 0;
+        for (CoastSample sample : samples) {
+            covered += sample.length();
+            if (index < 2 && covered >= totalLength * (index == 0 ? 0.4 : 0.7)) {
+                limits[index++] = sample.value();
+            }
+        }
+        if (index != 2) throw new IllegalStateException("Unable to classify Buyan coast");
+        return limits;
+    }
+
     public static BuyanTerrain.Surface surface(long seed, int cx, int cz,
                                                 int x, int z, int sea, int height) {
+        return surface(seed, cx, cz, x, z, sea, height, -0.12, 0.22);
+    }
+
+    public static BuyanTerrain.Surface surface(long seed, int cx, int cz,
+                                                int x, int z, int sea, int height,
+                                                double sandLimit, double gravelLimit) {
         double edge = shoreDistance(seed, cx, cz, x, z);
         double geology = noise(seed ^ 0xB22A0301L, x, z, 107.0);
         if (edge < 14.0) {
-            if (geology < -0.12) return BuyanTerrain.Surface.SAND_BEACH;
-            return geology < 0.22 ? BuyanTerrain.Surface.STONY_BEACH
+            if (geology < sandLimit) return BuyanTerrain.Surface.SAND_BEACH;
+            return geology < gravelLimit ? BuyanTerrain.Surface.STONY_BEACH
                 : BuyanTerrain.Surface.ROCK;
         }
         if (height >= sea + 48
