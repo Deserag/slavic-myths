@@ -2296,6 +2296,52 @@ public final class Ocean26GameTests {
         }
     }
 
+    /**
+     * All generated modular decks and bridges are free of fence railings.
+     * The dark-oak helm is a functional steering control, not a deck railing.
+     * The legacy fixed 7x11 vessel is deliberately unaffected.
+     */
+    @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_no_fences")
+    public static void modularDecksHaveNoFenceRailings(GameTestHelper t) {
+        for (var type : org.slavicmyths.ships.ShipSectionPlan.ShipClass.values()) {
+            var initial = org.slavicmyths.ships.ShipBuildConfiguration.initial(type);
+            assertNoModularDeckFences(t, initial);
+            if (type != org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE
+                    && type != org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST)
+                continue;
+            for (int decks = 1; decks <= 3; decks++)
+                for (boolean bridge : new boolean[]{false, true})
+                    for (boolean cabin : new boolean[]{false, true}) {
+                        var config = initial.withDecks(decks)
+                                .withBridge(bridge).withCabin(cabin);
+                        assertNoModularDeckFences(t, config);
+                    }
+        }
+        t.succeed();
+    }
+
+    private static void assertNoModularDeckFences(GameTestHelper t,
+            org.slavicmyths.ships.ShipBuildConfiguration config) {
+        var plan = config.structure();
+        var parts = org.slavicmyths.ships.ShipHullVoxelLayout.generate(plan);
+        long railings = parts.values().stream().filter(part ->
+                part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.RAIL).count();
+        long helms = parts.values().stream().filter(part ->
+                part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.HELM).count();
+        long deck = parts.values().stream().filter(part ->
+                part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.DECK
+                        || part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.BRIDGE).count();
+        t.assertTrue(railings == 0 && helms == 1 && deck > 0,
+                "Modular deck still has fence railing or lost helm/floor: " + config);
+        var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
+        long spruceFences = palette.values().stream().filter(state ->
+                state.is(Blocks.SPRUCE_FENCE)).count();
+        long helmControls = palette.values().stream().filter(state ->
+                state.is(Blocks.DARK_OAK_FENCE)).count();
+        t.assertTrue(spruceFences == 0 && helmControls == 1,
+                "World block palette contains fence railings or lacks the helm: " + config);
+    }
+
     @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
     public static void modularBedAndFarmingPolicy(GameTestHelper t) {
         ServerLevel level = t.getLevel();
