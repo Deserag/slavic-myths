@@ -337,40 +337,77 @@ public final class ShipModularBlockHull {
                         local.getX(), local.getY(), local.getZ());
     }
 
+    private static Map<BlockPos, BlockState> previousLightingWorldPalette(
+            ShipBuildConfiguration config, BlockPos anchor, int turns) {
+        Map<BlockPos, BlockState> result =
+                new LinkedHashMap<>(worldPalette(config, anchor, turns));
+        for (var e : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
+            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
+                    && e.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+            var c = e.getKey();
+            result.remove(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()));
+        }
+        for (var e : ShipHullVoxelLayout.previousLightingLayout(config.structure()).entrySet()) {
+            if (e.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN
+                    && e.getValue() != ShipHullVoxelLayout.Part.LANTERN) continue;
+            var c = e.getKey();
+            result.put(FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z()),
+                    state(e.getValue(), turns, c.y(), c.x(), config));
+        }
+        return result;
+    }
+
+    private static ShipHullVoxelLayout.Cell missingHullCell(ServerLevel level,
+            BlockPos anchor, int turns, Map<BlockPos, BlockState> expected) {
+        ShipHullVoxelLayout.Cell missing = null;
+        for (var e : expected.entrySet()) {
+            BlockPos pos = e.getKey();
+            if (!level.hasChunkAt(pos)) return null;
+            if (matchesHullBlock(level.getBlockState(pos), e.getValue())) continue;
+            if (missing != null || !(level.getBlockState(pos).isAir()
+                    || level.getFluidState(pos).is(FluidTags.WATER))) return null;
+            int wx = pos.getX() - anchor.getX(), wz = pos.getZ() - anchor.getZ();
+            int x = switch (Math.floorMod(turns, 4)) {
+                case 0 -> wx;
+                case 1 -> wz;
+                case 2 -> -wx;
+                default -> -wz;
+            };
+            int z = switch (Math.floorMod(turns, 4)) {
+                case 0 -> wz;
+                case 1 -> -wx;
+                case 2 -> -wz;
+                default -> wx;
+            };
+            missing = new ShipHullVoxelLayout.Cell(x, pos.getY() - anchor.getY(), z);
+        }
+        return missing;
+    }
+
     private static Snapshot inspect(ServerLevel level, BlockPos anchor, int turns,
             ShipBuildConfiguration config) {
         if (config == null || config.withdrawn()) return null;
         Map<BlockPos, BlockState> source = worldPalette(config, anchor, turns);
         ShipHullVoxelLayout.Cell missingCell = null;
         if (!matchesPhysicalHull(level, source)) {
-            boolean invalidDamage = false;
-            // A single mined block is recorded as damage, never recreated as
-            // free timber when the vessel moves or is parked again.
-            if ((config.shipClass() == ShipSectionPlan.ShipClass.LARGE
-                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST)
-                    && (config.hullRevision() == 3 || config.hullRevision() == 4)) {
-                for (var part : ShipHullVoxelLayout.generate(config.structure()).entrySet()) {
-                    if (part.getValue() == ShipHullVoxelLayout.Part.SAIL
-                            || part.getValue() == ShipHullVoxelLayout.Part.GUNPORT_SHUTTER) continue;
-                    var c = part.getKey();
-                    BlockPos pos = FirstShipBlockHull.world(anchor, turns, c.x(), c.y(), c.z());
-                    if (!level.hasChunkAt(pos)) return null;
-                    if (matchesHullBlock(level.getBlockState(pos), source.get(pos))) continue;
-                    boolean empty = level.getBlockState(pos).isAir()
-                            || level.getFluidState(pos).is(FluidTags.WATER);
-                    if (missingCell != null || !empty) {
-                        invalidDamage = true;
-                        break;
-                    }
-                    missingCell = c;
-                }
-            }
-            if (missingCell != null && !invalidDamage) {
+            boolean modular = config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && config.hullRevision() == 3
+                    || config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && config.hullRevision() == 4;
+            if (!modular) return null;
+            Map<BlockPos, BlockState> previous =
+                    previousLightingWorldPalette(config, anchor, turns);
+            if (matchesPhysicalHull(level, previous)) source = previous;
+            else {
+                missingCell = missingHullCell(level, anchor, turns, previous);
+                if (missingCell != null) source = previous;
+                else missingCell = missingHullCell(level, anchor, turns, source);
+                if (missingCell == null) return null;
                 BlockPos missingWorld = FirstShipBlockHull.world(anchor, turns,
                         missingCell.x(), missingCell.y(), missingCell.z());
                 source = new LinkedHashMap<>(source);
                 source.remove(missingWorld);
-            } else return null;
+            }
         }
         List<Cargo> cargo = new ArrayList<>();
         if (missingCell != null)
