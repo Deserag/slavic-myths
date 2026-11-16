@@ -2013,6 +2013,44 @@ public final class Ocean26GameTests {
                 level, anchor, 0, config, new ListTag()),
                 type + " cannot place initial physical ship");
 
+        // Simulate a ship built before the lantern spacing update. The old
+        // physical ceiling lamps must not prevent packing or refurbishment.
+        var currentLighting = org.slavicmyths.ships.ShipHullVoxelLayout.generate(
+                config.structure());
+        var previousLighting =
+                org.slavicmyths.ships.ShipHullVoxelLayout.previousLightingLayout(
+                        config.structure());
+        int legacyChanges = 0;
+        for (var entry : currentLighting.entrySet()) {
+            if (entry.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part
+                    .HANGING_LANTERN) continue;
+            var c = entry.getKey();
+            if (previousLighting.get(c) == entry.getValue()) continue;
+            BlockPos pos = FirstShipBlockHull.world(anchor, 0, c.x(), c.y(), c.z());
+            t.assertTrue(level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2),
+                    type + " could not remove current lantern for legacy fixture");
+            legacyChanges++;
+        }
+        for (var entry : previousLighting.entrySet()) {
+            if (entry.getValue() != org.slavicmyths.ships.ShipHullVoxelLayout.Part
+                    .HANGING_LANTERN) continue;
+            var c = entry.getKey();
+            if (currentLighting.get(c) == entry.getValue()) continue;
+            BlockPos pos = FirstShipBlockHull.world(anchor, 0, c.x(), c.y(), c.z());
+            t.assertTrue(level.setBlock(pos, Blocks.LANTERN.defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.LanternBlock.HANGING,
+                            true), 2),
+                    type + " could not reconstruct legacy ceiling lantern");
+            legacyChanges++;
+        }
+        t.assertTrue(legacyChanges > 0
+                        && org.slavicmyths.ships.ShipModularBlockHull.pack(
+                                level, anchor, 0, config) != null,
+                type + " existing ship with legacy lanterns cannot pack");
+        t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.rebuild(
+                        level, anchor, 0, config, anchor, 0, config),
+                type + " legacy lighting cannot be migrated safely");
+
         // Inspect actual world-facing door halves, usable opening, and a
         // gapless stern window wall; one-block walls preserve usable cabin room.
         int rear = -config.length() / 2 + (iv ? 4 : 2);
