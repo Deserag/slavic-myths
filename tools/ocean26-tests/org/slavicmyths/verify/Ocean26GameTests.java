@@ -2138,14 +2138,28 @@ public final class Ocean26GameTests {
         t.assertTrue(!moving.placeMovingCargo(level, added,
                         Blocks.CHEST.defaultBlockState()),
                 type + " cargo placement can overwrite an occupied slot");
+        BlockPos newBedFoot = new BlockPos(4, cargoY, 8);
+        BlockPos newBedHead = newBedFoot.north();
+        t.assertTrue(moving.placeMovingCargo(level, newBedFoot,
+                        Blocks.RED_BED.defaultBlockState())
+                        && moving.cargoCount() == 7
+                        && moving.palette().get(newBedFoot).is(Blocks.RED_BED)
+                        && moving.palette().get(newBedHead).is(Blocks.RED_BED),
+                type + " paired bed was not installed atomically while sailing");
         var persisted = org.slavicmyths.ships.ShipMovingContraption.load(moving.save());
         t.assertTrue(persisted != null && persisted.detached()
-                        && persisted.cargoCount() == 5 && persisted.park(level),
+                        && persisted.cargoCount() == 7 && persisted.park(level),
                 type + " moving ship NBT did not survive save/load and parking");
         BlockPos addedWorld = FirstShipBlockHull.world(anchor, 0,
                 added.getX(), added.getY(), added.getZ());
-        t.assertTrue(level.getBlockState(addedWorld).is(Blocks.BARREL),
-                type + " cargo added after departure was lost during docking");
+        t.assertTrue(level.getBlockState(addedWorld).is(Blocks.BARREL)
+                        && level.getBlockState(FirstShipBlockHull.world(anchor, 0,
+                                newBedFoot.getX(), newBedFoot.getY(), newBedFoot.getZ()))
+                                .is(Blocks.RED_BED)
+                        && level.getBlockState(FirstShipBlockHull.world(anchor, 0,
+                                newBedHead.getX(), newBedHead.getY(), newBedHead.getZ()))
+                                .is(Blocks.RED_BED),
+                type + " new mid-voyage cargo or paired bed was lost at docking");
         t.assertTrue(chest(level, chestPos, t).getItem(0).getCount() == 17
                         && ((net.minecraft.world.Container)level.getBlockEntity(furnacePos))
                                 .getItem(1).getCount() == 8
@@ -2191,7 +2205,7 @@ public final class Ocean26GameTests {
                 type + " wrench item lost BlockCargo NBT or left blocks in world");
         FirstShipEntity unpacked = RaftContent.FIRST_SHIP.get().create(level);
         t.assertTrue(unpacked != null && unpacked.loadPacked(packed)
-                        && unpacked.pendingBlockCargo().size() == 5
+                        && unpacked.pendingBlockCargo().size() == 7
                         && org.slavicmyths.ships.ShipModularBlockHull.place(
                                 level, anchor, 0, config, unpacked.pendingBlockCargo()),
                 type + " packed ship item cannot re-place saved NBT cargo");
