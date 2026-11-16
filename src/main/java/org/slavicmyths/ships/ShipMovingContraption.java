@@ -57,11 +57,11 @@ public final class ShipMovingContraption {
         this.detached = detached;
     }
 
-    /** Include the real protruding bowsprit in turning sweep radius. */
+    /** Include the actual forward knyavdiged tip in the turning sweep radius. */
     private static double collisionRadius(ShipBuildConfiguration configuration) {
         double bowReach = configuration.length() / 2D
                 + (configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
-                        && configuration.hullRevision() == 4 ? 8D
+                        && configuration.hullRevision() == 4 ? 19D
                         : configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
                         && configuration.hullRevision() == 3 ? 4D : 1D);
         return Math.hypot(configuration.width() / 2D + 1D, bowReach);
