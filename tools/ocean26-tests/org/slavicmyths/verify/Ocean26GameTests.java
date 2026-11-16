@@ -610,6 +610,8 @@ public final class Ocean26GameTests {
         if (fullyUpgraded)
             config = config.resize(3, 2).withDecks(3).withBridge(true)
                     .withCabin(true).withSail(0, 3).withSail(1, 3);
+        if (fullyUpgraded && type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+            config = config.withSail(2, 2);
         final var voyageConfig = config;
         ServerPlayer builder = player(level, type + "VoyageBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
