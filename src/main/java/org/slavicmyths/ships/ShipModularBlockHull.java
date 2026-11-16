@@ -319,6 +319,17 @@ public final class ShipModularBlockHull {
         boolean supported = below == ShipHullVoxelLayout.Part.DECK
                 || below == ShipHullVoxelLayout.Part.BRIDGE
                 || below == ShipHullVoxelLayout.Part.HULL;
+        if (iv && !supported) {
+            // A buildable IV deck must permit stacked player decoration.
+            // The blueprint identifies the load-bearing floor; vanilla
+            // placement itself checks the actual support block below.
+            for (int depth = 2; depth <= 5 && !supported; depth++) {
+                var floor = plan.get(new ShipHullVoxelLayout.Cell(x, y - depth, z));
+                supported = floor == ShipHullVoxelLayout.Part.DECK
+                        || floor == ShipHullVoxelLayout.Part.BRIDGE
+                        || floor == ShipHullVoxelLayout.Part.HULL;
+            }
+        }
         if (!supported) return false;
         if (iv) {
             // Allow ordinary building/decorating on every supported IV deck.
