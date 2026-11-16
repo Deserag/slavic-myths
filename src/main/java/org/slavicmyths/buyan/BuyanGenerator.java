@@ -240,16 +240,18 @@ public final class BuyanGenerator {
             || old.is(Blocks.REDSTONE_ORE) || old.is(Blocks.DIAMOND_ORE);
     }
 
-    private static void setNatural(ServerLevel world, BlockPos pos, BlockState target) {
-        BlockState old = world.getBlockState(pos);
-        if (old.equals(target)) return;
-        if (!canReplace(old)) {
-            throw new IllegalStateException("Защищённый блок " + pos.toShortString() + " / " + old.getBlock());
-        }
-        world.setBlock(pos, target, 2);
+    /**
+     * Every original state was already validated in the column preflight.
+     * Reuse that snapshot instead of reading/checking each position twice.
+     * A Work owns the scratch array and runs exclusively on the server thread.
+     */
+    private static void writeChecked(ServerLevel world, BlockPos pos, BlockState expected,
+                                     BlockState target) {
+        if (!expected.equals(target)) world.setBlock(pos, target, 2);
     }
 
-    private static boolean column(ServerLevel world, BuyanState state, int x, int z) {
+    private static boolean column(ServerLevel world, BuyanState state, int x, int z,
+                                  BlockState[] original) {
         if (!withinFootprint(state, x, z)) return true;
         int sea = world.getSeaLevel();
         int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
@@ -269,9 +271,12 @@ public final class BuyanGenerator {
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
 
         // Preflight the entire column before writing any blocks to this column.
+        int minY = world.getMinBuildHeight();
         for (int y = first; y <= surface; y++) {
             cursor.set(x, y, z);
-            if (!canReplace(world.getBlockState(cursor))) return false;
+            BlockState old = world.getBlockState(cursor);
+            if (!canReplace(old)) return false;
+            original[y - minY] = old;
         }
         // A natural island may absorb grass, coastal trees and dirt overhangs.
         // It must not erase player structures or existing block entities.
@@ -280,19 +285,22 @@ public final class BuyanGenerator {
         if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
                 cursor.set(x, y, z);
-                if (!canReplace(world.getBlockState(cursor))) return false;
+                BlockState old = world.getBlockState(cursor);
+                if (!canReplace(old)) return false;
+                original[y - minY] = old;
             }
         }
 
         for (int y = first; y <= surface; y++) {
             cursor.set(x, y, z);
-            setNatural(world, cursor, BuyanTerrain.block(world.getSeed(), x, y, z,
-                surface, type, cover, rock));
+            writeChecked(world, cursor, original[y - minY],
+                BuyanTerrain.block(world.getSeed(), x, y, z,
+                    surface, type, cover, rock));
         }
         if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
                 cursor.set(x, y, z);
-                setNatural(world, cursor, y <= sea
+                writeChecked(world, cursor, original[y - minY], y <= sea
                     ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState());
             }
         }
@@ -304,10 +312,12 @@ public final class BuyanGenerator {
         private SiteChunks ticket;
         private ChunkPos inspectedChunk;
         private boolean occupiedChunk;
+        private final BlockState[] original;
 
         private Work(ServerLevel level) {
             this.level = level;
             this.ticket = new SiteChunks(level);
+            this.original = new BlockState[level.getMaxBuildHeight() - level.getMinBuildHeight()];
         }
 
         private void step() {
@@ -354,7 +364,7 @@ public final class BuyanGenerator {
                 int local = state.columnIndex;
                 int x = pos.getMinBlockX() + (local & 15);
                 int z = pos.getMinBlockZ() + (local >>> 4);
-                if (!column(level, state, x, z)) state.skipColumn();
+                if (!column(level, state, x, z, original)) state.skipColumn();
                 ++columns;
                 if (local == 255) {
                     state.progress(state.chunkIndex + 1, 0);
