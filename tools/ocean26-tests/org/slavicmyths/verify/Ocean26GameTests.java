@@ -2132,8 +2132,17 @@ public final class Ocean26GameTests {
                 type + " placed a forbidden farm block while sailing");
         // The first step is adjacent to the deck approach. Its free
         // standing area must remain protected after sailing begins.
-        int firstStairZ = rear + (iv ? 24 : 23);
+        // For the initial III blueprint only Y=1/5/10 exist; IV reaches Y=16.
+        // Derive the REAL lower landing, not the old disconnected test offset.
+        int firstStairZ = rear + (iv ? 24 : 17);
         BlockPos stairApproach = new BlockPos(-3, 2, firstStairZ);
+        t.assertTrue(!org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                        config, stairApproach),
+                type + " did not reserve the actual two-wide lower stair approach");
+        BlockPos pairedApproach = stairApproach.east();
+        t.assertTrue(!org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                        config, pairedApproach),
+                type + " second stair lane can be sealed by cargo");
         t.assertTrue(!moving.placeMovingCargo(level, stairApproach,
                         Blocks.CHEST.defaultBlockState()),
                 type + " cargo can block the continuous staircase approach");
