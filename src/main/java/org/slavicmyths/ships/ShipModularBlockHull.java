@@ -771,7 +771,11 @@ public final class ShipModularBlockHull {
         for (var entry : ordered)
             if (entry.getValue().getBlock() instanceof DoorBlock
                     && !level.setBlock(entry.getKey(), entry.getValue(), UPDATE)) return false;
-        for (Cargo entry : cargo) {
+        // Restore hand-built stacked decorations bottom-up. A lantern or
+        // trapdoor must see its support after packing and sailing.
+        List<Cargo> orderedCargo = new ArrayList<>(cargo);
+        orderedCargo.sort(Comparator.comparingInt(Cargo::y));
+        for (Cargo entry : orderedCargo) {
             if (entry.kind() == MISSING_HULL) continue;
             BlockPos pos = FirstShipBlockHull.world(anchor, turns,
                     entry.x(), entry.y(), entry.z());
