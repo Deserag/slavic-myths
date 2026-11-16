@@ -115,7 +115,7 @@ public final class BuyanNature {
                                         - Math.pow((v - 22.0) / 47.0, 2.0))
             * (0.88 + 0.12 * noise(seed ^ 0xB22A0104L, x, z, 36.0));
         double land = meadow + hills + ridge;
-        double height = blend(coast, land, smooth(edge / 36.0));
+        double height = blend(coast, land, smooth(edge / 52.0));
 
         double clearing = smooth((clearingMetric(seed, cx, cz, x, z) - 0.94) / 0.45);
         double clearingHeight = 10.3 + 0.65 * noise(seed ^ 0xB22A0105L, x, z, 37.0);
