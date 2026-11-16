@@ -192,19 +192,6 @@ public final class ShipDynamicCollision {
                 ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
                         ship.movingCargoView());
                 try {
-                        CompoundTag entry = new CompoundTag();
-                        entry.putInt("X", Integer.parseInt(fields[0]));
-                        entry.putInt("Y", Integer.parseInt(fields[1]));
-                        entry.putInt("Z", Integer.parseInt(fields[2]));
-                        entry.putInt("Kind", Integer.parseInt(fields[3]));
-                        if (fields.length == 5) entry.putString("BlockId", fields[4]);
-                        entry.put("BlockEntity", new CompoundTag());
-                        cargo.add(entry);
-                    } catch (NumberFormatException invalid) {
-                        // Ignore malformed cosmetic tokens.
-                    }
-                }
-                try {
                     palette = configuration == null
                             ? FirstShipBlockHull.localMotionPalette(
                                 new FirstShipBlockHull.MotionSnapshot(cargo,
