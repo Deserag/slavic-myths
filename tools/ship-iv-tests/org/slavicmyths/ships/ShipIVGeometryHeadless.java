@@ -110,7 +110,7 @@ public final class ShipIVGeometryHeadless {
         int stairZ = rear + 30;
         flight(cells, -3, stairZ, 1);
         flight(cells, -3, stairZ - 6, 6);
-        flight(cells, 4, rear + 21, 11);
+        flight(cells, 7, rear + 21, 11);
         if (config.decks() >= 2 || config.bridge())
             flight(cells, -5, rear + 10, 16);
         require(cells.values().stream().filter(p ->
