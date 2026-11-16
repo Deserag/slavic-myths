@@ -138,6 +138,9 @@ public final class ShipIVHeadless {
         if (decks >= 2 || bridge) {
             // The captain's guardrail must occupy the last actual roof-floor
             // cell, never an arbitrary inboard line or unsupported overhang.
+            require(at(blocks, -5, 22, rear + 4) == null
+                            && at(blocks, -4, 22, rear + 4) == null,
+                    key + ": captain stair landing is fenced off");
             for (int z = rear; z <= rear + 9; z++) {
                 int edge = -1;
                 for (int x = 0; x <= 5; x++)
