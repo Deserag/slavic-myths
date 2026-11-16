@@ -107,9 +107,23 @@ public final class ShipIVHeadless {
         var blocks = ShipHullVoxelLayout.generate(plan);
         String key = length + "x" + width + " decks=" + decks
                 + " bridge=" + bridge + " cabin=" + cabin + " tier=" + tier;
-        require(blocks.values().stream().noneMatch(part ->
-                        part == ShipHullVoxelLayout.Part.RAIL),
-                key + ": unwanted fence on a deck or upper floor");
+        long guardrails = blocks.values().stream().filter(part ->
+                part == ShipHullVoxelLayout.Part.RAIL).count();
+        require(guardrails >= 30, key + ": missing open-deck safety rails");
+        int rear = -length / 2 + 4;
+        require(at(blocks, 0, 12, rear + 15) == ShipHullVoxelLayout.Part.DOOR
+                && at(blocks, 0, 13, rear + 15) == ShipHullVoxelLayout.Part.DOOR,
+                key + ": captain door no longer has paired halves");
+        int wheelFloor = decks >= 2 || bridge ? 21 : 16;
+        require(at(blocks, 0, wheelFloor + 1, rear + 4)
+                    == ShipHullVoxelLayout.Part.HELM
+                && at(blocks, 0, wheelFloor + 1, rear + 5) == null,
+                key + ": the sole wheel is not accessible");
+        for (int x : new int[]{-2, 2})
+            for (int z : new int[]{rear + 3, rear + 5})
+                require(at(blocks, x, wheelFloor + 1, z)
+                        == ShipHullVoxelLayout.Part.RAIL,
+                        key + ": missing helm station bollard");
         require(blocks.values().stream().filter(part ->
                         part == ShipHullVoxelLayout.Part.HELM).count() == 1,
                 key + ": captain helm must remain after deleting fences");
@@ -224,16 +238,10 @@ public final class ShipIVHeadless {
         }
         require(visited.contains(tip),
                 key + ": knyavdiged spine is disconnected by block faces");
-        int rear = -end + 4;
-        int shaftZ = rear + 6 + (decks >= 2 || bridge ? 24 : 18);
-        int[][] flights = decks >= 2 || bridge
-                ? new int[][]{{-3, shaftZ, 1, 6},
-                        {-3, shaftZ - 6, 6, 11},
-                        {-3, shaftZ - 12, 11, 16},
-                        {-3, shaftZ - 18, 16, 21}}
-                : new int[][]{{-3, shaftZ, 1, 6},
-                        {-3, shaftZ - 6, 6, 11},
-                        {-3, shaftZ - 12, 11, 16}};
+        int shaftZ = rear + 24;
+        int[][] flights = {{-3, shaftZ, 1, 6},
+                {-3, shaftZ - 6, 6, 11},
+                {-3, shaftZ - 12, 11, 16}};
         for (int[] flight : flights) {
             for (int x : new int[]{flight[0], flight[0] + 1})
                 stair(blocks, x, flight[1], flight[2], flight[3], key);
@@ -245,6 +253,18 @@ public final class ShipIVHeadless {
             require(flights[i - 1][1] - 6 == flights[i][1]
                     && flights[i - 1][3] == flights[i][2],
                     key + ": stair flights have a disconnected landing");
+        for (int x : new int[]{3, 4})
+            stair(blocks, x, rear + 21, 11, 16, key + " weather deck");
+        if (decks >= 2 || bridge)
+            for (int x : new int[]{-4, -3})
+                stair(blocks, x, rear + 15, 16, 21, key + " captain bridge");
+        require(at(blocks, -2, 17, rear + 11) != ShipHullVoxelLayout.Part.STAIR,
+                key + ": old internal bridge staircase remains");
+        var legacy = ShipHullVoxelLayout.previousFrigateIVLayout(plan, false);
+        require(legacy.values().stream().noneMatch(part ->
+                part == ShipHullVoxelLayout.Part.RAIL),
+                key + ": migration baseline unexpectedly has guardrails");
+        require(!legacy.equals(blocks), key + ": IV retrofit did not change its topology");
         lanternRows(blocks, key, true);
         configurations++;
     }
