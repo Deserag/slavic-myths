@@ -2132,9 +2132,9 @@ public final class Ocean26GameTests {
                 type + " placed a forbidden farm block while sailing");
         // The first step is adjacent to the deck approach. Its free
         // standing area must remain protected after sailing begins.
-        // For the initial III blueprint only Y=1/5/10 exist; IV reaches Y=16.
-        // Derive the REAL lower landing, not the old disconnected test offset.
-        int firstStairZ = rear + (iv ? 24 : 17);
+        // This fixture enables the III cabin (and therefore Y=15);
+        // IV has Y=16 without the optional Y=21 captain's deck.
+        int firstStairZ = rear + (iv ? 24 : 23);
         BlockPos stairApproach = new BlockPos(-3, 2, firstStairZ);
         t.assertTrue(!org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
                         config, stairApproach),
