@@ -970,7 +970,8 @@ public final class ShipHullVoxelLayout {
         }
     }
 
-    private static void frigateRoofParapet(Map<Cell, Part> blocks, int rear) {
+    private static void frigateRoofParapet(
+            Map<Cell, Part> blocks, int rear, boolean bridgeRoof) {
         // Follow the actual wheelhouse roof footprint, not a rectangle.
         List<Cell> outline = new ArrayList<>();
         for (var entry : blocks.entrySet()) {
@@ -991,6 +992,15 @@ public final class ShipHullVoxelLayout {
             if (blocks.get(new Cell(x, 27, rear + 1)) != Part.TRIM) continue;
             put(blocks, x, 28, rear + 1, Part.FRAME);
             put(blocks, x, 29, rear + 1, Part.LANTERN);
+        }
+        if (bridgeRoof) {
+            // The optional bridge-only canopy also needs a real perimeter
+            // and illuminated outer corners, even with one or two decks.
+            for (int x : new int[]{-4, 4}) {
+                if (blocks.get(new Cell(x, 27, rear + 5)) != Part.TRIM) continue;
+                put(blocks, x, 28, rear + 5, Part.FRAME);
+                put(blocks, x, 29, rear + 5, Part.LANTERN);
+            }
         }
     }
 
@@ -1192,7 +1202,8 @@ public final class ShipHullVoxelLayout {
                     frigateDeckRail(out, x, floor, rear + 2);
             } else {
                 frigateHelmDetail(out, rear, captainDeck ? 21 : 16);
-                if (p.decks() >= 3) frigateRoofParapet(out, rear);
+                if (p.decks() >= 3 || p.bridge())
+                    frigateRoofParapet(out, rear, p.bridge());
             }
         }
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
