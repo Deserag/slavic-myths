@@ -64,6 +64,117 @@ public final class Ocean26GameTests {
                         "Player headroom blocked above stair " + lane + "," + step);
             }
     }
+    private static void assertRotatedStairRoute(GameTestHelper t, ServerLevel level,
+            BlockPos anchor, int turns,
+            org.slavicmyths.ships.ShipBuildConfiguration config) {
+        boolean iv = config.shipClass()
+                == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
+        int[] floors = iv
+                ? new int[]{1, 6, 11, 16, 21}
+                : new int[]{1, 5, 10, 15, 20};
+        int rear = -config.length() / 2 + (iv ? 4 : 2);
+        int z = rear + 6;
+        for (int i = 0; i + 1 < floors.length; i++)
+            z += floors[i + 1] - floors[i] + 1;
+        net.minecraft.core.Direction facing = switch (turns) {
+            case 0 -> net.minecraft.core.Direction.NORTH;
+            case 1 -> net.minecraft.core.Direction.EAST;
+            case 2 -> net.minecraft.core.Direction.SOUTH;
+            default -> net.minecraft.core.Direction.WEST;
+        };
+        var motion = org.slavicmyths.ships.ShipMovingContraption.prepare(
+                level, anchor, turns, config);
+        t.assertTrue(motion != null && motion.palette() != null,
+                "Ship III/IV cannot prepare moving staircase on heading " + turns);
+        for (int flight = 0; flight + 1 < floors.length; flight++) {
+            int lower = floors[flight], upper = floors[flight + 1];
+            int exit = z - (upper - lower + 1);
+            for (int lane : new int[]{-3, -2}) {
+                BlockPos approach = FirstShipBlockHull.world(
+                        anchor, turns, lane, lower, z);
+                t.assertTrue(!level.getBlockState(approach).isAir()
+                                && level.getBlockState(approach.above()).isAir()
+                                && level.getBlockState(approach.above(2)).isAir(),
+                        "Stair approach obstructed at heading " + turns
+                                + " flight " + flight + " lane " + lane);
+                for (int step = 1; step <= upper - lower; step++) {
+                    int y = lower + step, station = z - step;
+                    BlockPos tread = FirstShipBlockHull.world(
+                            anchor, turns, lane, y, station);
+                    var state = level.getBlockState(tread);
+                    var movingState = motion.palette().get(
+                            new BlockPos(lane, y, station));
+                    t.assertTrue(state.is(Blocks.SPRUCE_STAIRS)
+                                    && state.getValue(net.minecraft.world.level.block
+                                            .StairBlock.FACING) == facing
+                                    && movingState != null
+                                    && movingState.is(Blocks.SPRUCE_STAIRS)
+                                    && movingState.getValue(net.minecraft.world.level.block
+                                            .StairBlock.FACING) ==
+                                            net.minecraft.core.Direction.NORTH,
+                            "Stair orientation or moving palette wrong at "
+                                    + turns + " Y=" + y + " Z=" + station);
+                    for (int head = 1; head <= 3; head++)
+                        t.assertTrue(level.getBlockState(tread.above(head)).isAir(),
+                                "Stair headroom blocked at heading " + turns
+                                        + " Y=" + y + " Z=" + station);
+                }
+                BlockPos landing = FirstShipBlockHull.world(
+                        anchor, turns, lane, upper, exit);
+                BlockPos onward = FirstShipBlockHull.world(
+                        anchor, turns, lane, upper, exit - 1);
+                t.assertTrue(!level.getBlockState(landing).isAir()
+                                && !level.getBlockState(onward).isAir(),
+                        "Stair lands in a gap at heading " + turns
+                                + " flight " + flight + " lane " + lane);
+                for (int head = 1; head <= 3; head++)
+                    t.assertTrue(level.getBlockState(landing.above(head)).isAir(),
+                            "Stair landing blocked at heading " + turns
+                                    + " flight " + flight + " lane " + lane);
+            }
+            z = exit;
+        }
+        t.assertTrue(z == rear + 6, "Final stair landing detached from aft deck");
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 500,
+            batch = "ocean_modular_cardinal_stairs")
+    public static void continuousStairsSurviveAllCardinalShipHeadings(GameTestHelper t) {
+        ServerLevel level = t.getLevel();
+        BlockPos anchor = t.absolutePos(new BlockPos(70, 4, 70));
+        level.getChunkSource().addRegionTicket(
+                VOYAGE_TICKET, new ChunkPos(anchor), 6, anchor.asLong());
+        // The IV wedge reaches eighteen blocks beyond the bow. Prepare
+        // space for all four physical orientations without clipping the prow.
+        for (int x = -64; x <= 64; x++)
+            for (int z = -64; z <= 64; z++) {
+                BlockPos water = anchor.offset(x, 0, z);
+                level.setBlock(water.below(), Blocks.WATER.defaultBlockState(), 2);
+                level.setBlock(water, Blocks.WATER.defaultBlockState(), 2);
+                for (int y = 1; y <= 48; y++)
+                    if (!level.getBlockState(water.above(y)).isAir())
+                        level.setBlock(water.above(y), Blocks.AIR.defaultBlockState(), 2);
+            }
+        for (var type : new org.slavicmyths.ships.ShipSectionPlan.ShipClass[]{
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE,
+                org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST}) {
+            var config = org.slavicmyths.ships.ShipBuildConfiguration.initial(type)
+                    .withCabin(true).withBridge(true).withDecks(3);
+            for (int turns = 0; turns < 4; turns++) {
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.place(
+                                level, anchor, turns, config, new ListTag()),
+                        "Could not build " + type + " with heading " + turns);
+                assertRotatedStairRoute(t, level, anchor, turns, config);
+                t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.remove(
+                                level, anchor, turns, config),
+                        "Could not remove " + type + " with heading " + turns);
+            }
+        }
+        level.getChunkSource().removeRegionTicket(
+                VOYAGE_TICKET, new ChunkPos(anchor), 6, anchor.asLong());
+        t.succeed();
+    }
+
     private static final class LocalConnection extends Connection {
         private final EmbeddedChannel wire = new EmbeddedChannel();
         LocalConnection() { super(PacketFlow.SERVERBOUND); }
