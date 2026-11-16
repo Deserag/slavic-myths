@@ -252,13 +252,17 @@ public final class BuyanGenerator {
     private static boolean column(ServerLevel world, BuyanState state, int x, int z) {
         if (!withinFootprint(state, x, z)) return true;
         int sea = world.getSeaLevel();
+        int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
         int top = BuyanTerrain.top(world.getSeed(), state.centerX, state.centerZ,
-            state.radius, x, z, sea);
+            state.radius, x, z, sea, oceanFloor);
         if (top == Integer.MIN_VALUE) return true;
 
-        // Existing ocean floor remains the base of the newly raised geological mass.
-        int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
         int surface = Math.min(world.getMaxBuildHeight() - 8, top);
+        // One surface classification per column rather than a noisy block lottery.
+        BuyanTerrain.Surface type = BuyanTerrain.surface(world.getSeed(),
+            state.centerX, state.centerZ, state.radius, x, z, sea, surface, oceanFloor);
+        double cover = BuyanTerrain.surfaceCover(world.getSeed(), x, z);
+        int rock = BuyanTerrain.surfaceRockRoll(world.getSeed(), x, z);
         // Natural pre-existing ground is adapted as well as empty ocean water.
         int first = Math.max(world.getMinBuildHeight() + 1,
             Math.min(oceanFloor + 1, surface - 3));
@@ -282,7 +286,8 @@ public final class BuyanGenerator {
 
         for (int y = first; y <= surface; y++) {
             cursor.set(x, y, z);
-            setNatural(world, cursor, BuyanTerrain.block(world.getSeed(), x, y, z, surface, sea));
+            setNatural(world, cursor, BuyanTerrain.block(world.getSeed(), x, y, z,
+                surface, type, cover, rock));
         }
         if (above > surface) {
             for (int y = surface + 1; y <= above; y++) {
