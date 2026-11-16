@@ -19,11 +19,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BedBlock;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.CraftingTableBlock;
-import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
@@ -217,18 +214,14 @@ public final class ShipModularBlockHull {
 
     private static boolean allowedSimple(BlockState state) {
         Block block = state.getBlock();
-        if (!state.getFluidState().isEmpty() || block instanceof BushBlock
-                || block instanceof FarmBlock || block instanceof LiquidBlock)
-            return false;
+        if (ShipCargoPlacementGuard.forbidden(state)) return false;
         return block instanceof BedBlock || block instanceof CraftingTableBlock
                 || block instanceof SlabBlock || block instanceof StairBlock
                 || block instanceof FenceBlock || block.getClass() == Block.class;
     }
 
     private static int kind(BlockState state, BlockEntity blockEntity) {
-        if (!state.getFluidState().isEmpty() || state.getBlock() instanceof FarmBlock
-                || state.getBlock() instanceof BushBlock
-                || state.getBlock() instanceof LiquidBlock) return 0;
+        if (ShipCargoPlacementGuard.forbidden(state)) return 0;
         if (state.is(Blocks.CHEST)) return 1;
         if (state.is(Blocks.BARREL)) return 2;
         if (state.is(Blocks.CRAFTING_TABLE)) return 3;
@@ -370,6 +363,9 @@ public final class ShipModularBlockHull {
                     } catch (RuntimeException invalid) { return null; }
                 }
             }
+            // Saved NBT may be edited independently of live placement events.
+            // Reject farm blocks and crops even when they carry a BlockEntity.
+            if (!damage && ShipCargoPlacementGuard.forbidden(state)) return null;
             if (kind == GENERAL_CARGO && !state.hasBlockEntity()
                     && !allowedSimple(state)) return null;
             result.add(new Cargo(x, y, z, kind, state,
