@@ -1,0 +1,27 @@
+{
+  "display": "minecraft:water_bucket",
+  "settings": {
+    "biome": "minecraft:deep_ocean",
+    "features": false,
+    "lakes": false,
+    "layers": [
+      {
+        "block": "minecraft:bedrock",
+        "height": 1
+      },
+      {
+        "block": "minecraft:stone",
+        "height": 122
+      },
+      {
+        "block": "minecraft:gravel",
+        "height": 1
+      },
+      {
+        "block": "minecraft:water",
+        "height": 4
+      }
+    ],
+    "structure_overrides": []
+  }
+}
