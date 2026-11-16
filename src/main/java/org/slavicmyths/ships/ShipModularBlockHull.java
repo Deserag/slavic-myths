@@ -437,6 +437,11 @@ public final class ShipModularBlockHull {
                     ShipHullVoxelLayout.Cell missing =
                             missingHullCell(level, anchor, turns, candidate);
                     if (missing == null) continue;
+                    BlockPos missingPos = FirstShipBlockHull.world(anchor, turns,
+                            missing.x(), missing.y(), missing.z());
+                    // A lone door half is never a valid damaged ship state.
+                    // Vanilla door physics requires BOTH halves to exist.
+                    if (candidate.get(missingPos).getBlock() instanceof DoorBlock) return null;
                     missingCell = missing;
                     source = new LinkedHashMap<>(candidate);
                     source.remove(FirstShipBlockHull.world(anchor, turns,
@@ -498,7 +503,9 @@ public final class ShipModularBlockHull {
                     || (damage && config.shipClass() != ShipSectionPlan.ShipClass.LARGE
                             && config.shipClass() != ShipSectionPlan.ShipClass.LARGEST)
                     || (damage && (++missing > 1 || !cargoPlan.containsKey(
-                            new ShipHullVoxelLayout.Cell(x, y, z))))
+                            new ShipHullVoxelLayout.Cell(x, y, z))
+                            || cargoPlan.get(new ShipHullVoxelLayout.Cell(x, y, z))
+                                    == ShipHullVoxelLayout.Part.DOOR))
                     || (!damage && !cargoCell(cargoPlan, x, y, z))
                     || !occupied.add(x + ":" + y + ":" + z)
                     || !entry.contains("State", Tag.TAG_COMPOUND)
@@ -658,7 +665,8 @@ public final class ShipModularBlockHull {
             BlockPos upperPos = lowerPos.above();
             BlockState lower = level.getBlockState(lowerPos);
             BlockState upper = level.getBlockState(upperPos);
-            if (!(lower.getBlock() instanceof DoorBlock)
+            if (!blocks.containsKey(upperPos)
+                    || !(lower.getBlock() instanceof DoorBlock)
                     || upper.getBlock() != lower.getBlock()
                     || lower.getValue(DoorBlock.HALF) != DoubleBlockHalf.LOWER
                     || upper.getValue(DoorBlock.HALF) != DoubleBlockHalf.UPPER
