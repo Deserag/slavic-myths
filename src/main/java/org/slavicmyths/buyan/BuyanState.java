@@ -32,6 +32,10 @@ public final class BuyanState extends SavedData {
             new SavedData.Factory<>(BuyanState::new, BuyanState::load), ID);
     }
 
+    public List<Site> completedSites() {
+        return List.copyOf(completed);
+    }
+
     public boolean overlaps(int x, int z, int newRadius) {
         for (Site site : completed) {
             long dx = (long) x - site.x();
