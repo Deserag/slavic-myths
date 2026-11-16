@@ -47,6 +47,49 @@ public final class BuyanGenerator {
         int sea = world.getSeaLevel();
         int cx = (int) Math.floor(source.getPosition().x);
         int cz = (int) Math.floor(source.getPosition().z);
+        BuyanState state = BuyanState.get(world);
+        if (state.active) {
+            source.sendFailure(Component.literal(
+                "Буян уже строится. Прогресс: /slavicmyths dev buyan status."));
+            return 0;
+        }
+
+        // The same command also resumes the workflow when stage one was
+        // completed in an earlier session/version. No duplicate foundation.
+        BuyanState.Site completed = BuyanNatureGenerator.selectedFoundation(world, cx, cz);
+        if (completed != null) {
+            BuyanNatureState nature = BuyanNatureState.get(world);
+            if (nature.active) {
+                source.sendFailure(Component.literal(
+                    "Природный этап уже идёт. Прогресс: /slavicmyths dev buyan status."));
+                return 0;
+            }
+            if (nature.finishedAt(completed)) {
+                source.sendSuccess(() -> Component.literal(
+                    "Буян уже полностью построен (основание и природа)."), false);
+                return 1;
+            }
+            try {
+                if (!BuyanNatureGenerator.startCompleted(world, completed)) {
+                    source.sendFailure(Component.literal("Невозможно начать природный этап Буяна."));
+                    return 0;
+                }
+            } catch (IllegalStateException ex) {
+                source.sendFailure(Component.literal(
+                    "Не удалось начать природный этап: " + ex.getMessage()));
+                return 0;
+            }
+            source.sendSuccess(() -> Component.literal(
+                "Основание Буяна готово. Природный этап запущен автоматически."
+                + " Прогресс: /slavicmyths dev buyan status."), true);
+            return 1;
+        }
+
+        if (BuyanNatureState.get(world).active) {
+            source.sendFailure(Component.literal(
+                "Природный этап другого Буяна ещё активен. Проверьте статус."));
+            return 0;
+        }
         if (!world.getBiome(new BlockPos(cx, sea, cz)).is(BiomeTags.IS_OCEAN)) {
             source.sendFailure(Component.literal("Центр Буяна должен находиться в ванильном океанском биоме."));
             return 0;
@@ -57,36 +100,30 @@ public final class BuyanGenerator {
             source.sendFailure(Component.literal("Остров выходит за границу мира."));
             return 0;
         }
-        BuyanState state = BuyanState.get(world);
-        if (state.active) {
-            source.sendFailure(Component.literal("Буян уже зарезервирован: /slavicmyths dev buyan status."));
-            return 0;
-        }
         if (state.overlaps(cx, cz, radius)) {
             source.sendFailure(Component.literal("В этой акватории уже есть завершённое основание Буяна."));
             return 0;
         }
         state.begin(cx, cz, radius);
         source.sendSuccess(() -> Component.literal(
-            "Буян: строится ТОЛЬКО ОСНОВАНИЕ. Центр X=" + cx + " Z=" + cz
-            + ", берег 100–350 блоков, уровень суши выше моря."
-            + " Сначала появится цельная площадка, холмы и горы будут позже."
+            "Буян: запущена ПОЛНАЯ генерация. Центр X=" + cx + " Z=" + cz
+            + ", берег 100–350 блоков. Очередь: 1/3 основание → 2/3 рельеф и грунты"
+            + " → 3/3 леса и подлесок. Все этапы запускаются автоматически."
             + " Прогресс: /slavicmyths dev buyan status."), true);
         return 1;
     }
 
     public static int status(CommandSourceStack source) {
         BuyanState state = BuyanState.get(source.getLevel());
-        if (!state.active) {
-            source.sendSuccess(() -> Component.literal("Буян: активной генерации нет."), false);
-            return 1;
-        }
+        if (!state.active) return BuyanNatureGenerator.status(source);
         int count = totalChunks(state);
-        int progress = (int) Math.min(100L, 100L * state.chunkIndex / Math.max(1, count));
+        int progress = (int) Math.min(50L,
+            50L * (state.chunkIndex * 256L + state.columnIndex)
+            / Math.max(1L, count * 256L));
         source.sendSuccess(() -> Component.literal(
             "Буян: центр " + state.centerX + "," + state.centerZ + "; радиус "
-            + " (берег 100–350); этап: ОСНОВАНИЕ; чанки " + state.chunkIndex + "/" + count
-            + "; " + progress + "%; обход от центра; защищённые чанки "
+            + " (берег 100–350); этап 1/3: ОСНОВАНИЕ; чанки " + state.chunkIndex + "/" + count
+            + "; общий прогресс по чанкам ~" + progress + "%; защищённые чанки "
             + state.skippedChunks + ", пропущенные колонки " + state.skippedColumns
             + "; " + (state.paused ? "ПАУЗА" : "СТРОИТСЯ")
             + (state.lastError.isEmpty() ? "" : "; причина: " + state.lastError)), false);
@@ -96,7 +133,7 @@ public final class BuyanGenerator {
     public static int pause(CommandSourceStack source) {
         ServerLevel world = source.getLevel();
         BuyanState state = BuyanState.get(world);
-        if (!state.active) return status(source);
+        if (!state.active) return BuyanNatureGenerator.pause(source);
         state.pause("Остановлено оператором; уже построенные блоки сохраняются.");
         Work work = ACTIVE.remove(world);
         if (work != null) work.close();
@@ -108,7 +145,7 @@ public final class BuyanGenerator {
     public static int resume(CommandSourceStack source) {
         ServerLevel world = source.getLevel();
         BuyanState state = BuyanState.get(world);
-        if (!state.active) return status(source);
+        if (!state.active) return BuyanNatureGenerator.resume(source);
         if (state.traversalVersion != 3) {
             source.sendFailure(Component.literal(
                 "Старое задание несовместимо с новым основанием Буяна. "
@@ -371,11 +408,26 @@ public final class BuyanGenerator {
             int limit = strained ? 2 : healthy ? 24 : 10;
             while (System.nanoTime() < end && columns < limit) {
                 if (state.chunkIndex >= totalChunks(state)) {
+                    BuyanState.Site completed = new BuyanState.Site(
+                        state.centerX, state.centerZ, state.radius);
                     state.finish();
                     LogUtils.getLogger().info("Buyan island foundation generated at {},{} radius {}",
-                        state.centerX, state.centerZ, state.radius);
+                        completed.x(), completed.z(), completed.radius());
                     close();
                     ACTIVE.remove(level);
+                    try {
+                        if (!BuyanNatureGenerator.startCompleted(level, completed)) {
+                            LogUtils.getLogger().warn(
+                                "Buyan nature handoff not started at {},{}; retry with generate buyan",
+                                completed.x(), completed.z());
+                        }
+                    } catch (RuntimeException ex) {
+                        // Foundation is persisted as complete; an operator can retry
+                        // the nature phase without regenerating or deleting it.
+                        LogUtils.getLogger().error(
+                            "Buyan foundation finished, but nature handoff failed at {},{}",
+                            completed.x(), completed.z(), ex);
+                    }
                     return;
                 }
                 ChunkPos pos = chunk(state);
