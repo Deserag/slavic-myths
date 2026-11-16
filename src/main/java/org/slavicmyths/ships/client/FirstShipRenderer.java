@@ -60,50 +60,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 + ship.fabricQuality() + ":" + ship.movingCargoView()
                 + ":" + (config == null ? "" : config.wire());
         if (key.equals(paletteKey)) return cachedPalette;
-        ListTag cargo = new ListTag();
-        String types = ship.movingCargoView();
-        if (!types.isBlank()) {
-            for (String item : types.split(";")) {
-                try {
-                    String[] parts = item.split(",");
-                    if (parts.length != 4 && parts.length != 5) continue;
-                    CompoundTag entry = new CompoundTag();
-                    entry.putInt("X", Integer.parseInt(parts[0]));
-                    entry.putInt("Y", Integer.parseInt(parts[1]));
-                    entry.putInt("Z", Integer.parseInt(parts[2]));
-                    entry.putInt("Kind", Integer.parseInt(parts[3]));
-                    if (parts.length == 5) entry.putString("BlockId", parts[4]);
-                    entry.put("BlockEntity", new CompoundTag());
-                    cargo.add(entry);
-                } catch (NumberFormatException invalid) {
-                    // A bad cosmetic token must never crash world rendering.
-                }
-            }
-        }
+        ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
+                ship.movingCargoView());
         try {
-            if (config != null) {
-                Map<BlockPos, BlockState> visual = new java.util.LinkedHashMap<>(
-                        ShipModularBlockHull.localPalette(config));
-                for (int i = 0; i < cargo.size(); i++) {
-                    CompoundTag entry = cargo.getCompound(i);
-                    int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
-                    if (Math.abs(x) > config.width() / 2 || y < 1 || y > 48
-                            || Math.abs(z) > config.length() / 2) continue;
-                    if (entry.getInt("Kind") == 5) {
-                        visual.remove(new BlockPos(x, y, z));
-                        continue;
-                    }
-                    BlockState state = switch (entry.getInt("Kind")) {
-                        case 1 -> Blocks.CHEST.defaultBlockState();
-                        case 2 -> Blocks.BARREL.defaultBlockState();
-                        case 3 -> Blocks.CRAFTING_TABLE.defaultBlockState();
-                        case 4 -> Blocks.FURNACE.defaultBlockState();
-                        default -> Blocks.AIR.defaultBlockState();
-                    };
-                    if (!state.isAir()) visual.putIfAbsent(new BlockPos(x, y, z), state);
-                }
-                cachedPalette = java.util.Collections.unmodifiableMap(visual);
-            }
+            if (config != null)
+                cachedPalette = ShipModularBlockHull.localVisualPalette(config, cargo);
             else {
                 var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
                         ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
