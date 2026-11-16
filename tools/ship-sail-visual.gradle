@@ -1,0 +1,49 @@
+allprojects { afterEvaluate {
+  sourceSets {
+    shipSailVisual {
+      java.srcDir 'tools/ship-sail-visual'
+      resources.srcDir 'tools/ship-sail-visual-resources'
+    }
+  }
+  sourceSets.shipSailVisual.compileClasspath +=
+      sourceSets.main.output + sourceSets.main.compileClasspath
+  sourceSets.shipSailVisual.runtimeClasspath +=
+      sourceSets.main.runtimeClasspath - sourceSets.main.output
+  def qa = neoForge.mods.create('slavicmyths_shipsailvisual') {
+    sourceSet sourceSets.shipSailVisual
+  }
+  neoForge.runs {
+    shipSailVisual {
+      type = 'client'
+      sourceSet = sourceSets.shipSailVisual
+      loadedMods.set([qa])
+      gameDirectory = file('work/ship-sail-visual-isolated')
+      programArguments.addAll('--width','1600','--height','1000')
+      jvmArgument '-Xmx3G'
+      jvmArgument '-XX:ActiveProcessorCount=2'
+      systemProperty 'shipsailvisual.output',
+          file('build/ship-sail-visual/frames').absolutePath
+    }
+  }
+  tasks.named('runShipSailVisual') {
+    dependsOn tasks.named('jar')
+    doFirst {
+      if (System.getenv('GITHUB_ACTIONS') != 'true'
+              || System.getenv('RUNNER_ENVIRONMENT') != 'github-hosted')
+        throw new GradleException(
+            'Never run visual QA on the owner desktop; GitHub-hosted isolation required.')
+      def dir = neoForge.runs.shipSailVisual.gameDirectory.get().asFile
+      dir.mkdirs()
+      copy {
+        from tasks.named('jar').get().archiveFile
+        into new File(dir, 'mods')
+      }
+    }
+    doLast {
+      def receipt = file('build/ship-sail-visual/frames/finished.json')
+      if (!receipt.isFile() ||
+          !receipt.text.contains('CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'))
+        throw new GradleException('Ship visual capture missing or incomplete')
+    }
+  }
+} }

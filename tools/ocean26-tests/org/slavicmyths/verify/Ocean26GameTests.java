@@ -568,6 +568,13 @@ public final class Ocean26GameTests {
                 false, true);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_frigate_mixed_sail_voyage")
+    public static void frigateMixedSailVoyage(GameTestHelper t) {
+        // The upgraded IV build carries four masts with independently stored
+        // sail tiers 3, 3, 1, 1 through the same detach and movement path.
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST, true);
+    }
+
 
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
@@ -603,6 +610,8 @@ public final class Ocean26GameTests {
         if (fullyUpgraded)
             config = config.resize(3, 2).withDecks(3).withBridge(true)
                     .withCabin(true).withSail(0, 3).withSail(1, 3);
+        if (fullyUpgraded && type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+            config = config.withSail(2, 2);
         final var voyageConfig = config;
         ServerPlayer builder = player(level, type + "VoyageBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
@@ -699,6 +708,24 @@ public final class Ocean26GameTests {
                             + ship.isMoving() + " deltaZ=" + (ship.getZ() - startZ)
                             + " rider=" + (captain.getVehicle() == ship)
                             + " palette=" + (ship.serverMovingPalette() != null));
+            if (largeHull && !damaged) {
+                ServerPlayer fallingCrew = player(level, type + "FallingCrew",
+                        new Vec3(ship.getX() + 2D, ship.deckY() + .65D, ship.getZ()));
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, -.85D, 0D));
+                t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
+                        type + " moving deck failed to catch falling crew: y="
+                                + fallingCrew.getY() + " deck=" + ship.deckY());
+                fallingCrew.discard();
+                CompoundTag savedMovingShip = new CompoundTag();
+                ship.saveWithoutId(savedMovingShip);
+                var loadedMovingBody = org.slavicmyths.ships.ShipMovingContraption.load(
+                        savedMovingShip.getCompound("FirstShipMovingBody"));
+                t.assertTrue(loadedMovingBody != null
+                                && loadedMovingBody.palette().size()
+                                == ship.serverMovingPalette().size(),
+                        type + " moving mixed-tier hull palette changed in NBT roundtrip");
+            }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);
                 t.assertTrue(!ship.serverMovingPalette().containsKey(localHole),

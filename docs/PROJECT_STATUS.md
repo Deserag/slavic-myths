@@ -3322,3 +3322,7 @@ hell, source f9beb28d: зарегистрированы три нейтраль�
 Posad #382 on 2.4. New schema 25 repairs communal gable seams, relocates communal chests and seating, fits black panes, and adds a masonry arch to the Veche Hall. Manual creation invokes the existing resident roster. Visual acceptance is pending.
 
 Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.
+
+## #507, 2026-11-16 — III/IV паруса и такелаж
+Ветка codex/ships-3-4-sails-507-20261116: Java-реализация и 33 GameTests PASS; изолированные кадры парусов получены. Проверка действий игрока, движения в клиенте, relog/MP и приёмка владельца остаются NOT_RUN/BLOCKED. Матрица: docs/implementation/ships-507/VERIFICATION.md. Issue OPEN.
+
