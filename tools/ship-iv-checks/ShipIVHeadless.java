@@ -135,6 +135,24 @@ public final class ShipIVHeadless {
         require(at(blocks, quarterRim, 16, rear + 8) == ShipHullVoxelLayout.Part.DECK
                 && at(blocks, quarterRim, 17, rear + 8) == ShipHullVoxelLayout.Part.RAIL,
                 key + ": quarterdeck fence is inboard of the hull");
+        if (decks >= 2 || bridge) {
+            // The captain's guardrail must occupy the last actual roof-floor
+            // cell, never an arbitrary inboard line or unsupported overhang.
+            for (int z = rear; z <= rear + 9; z++) {
+                int edge = -1;
+                for (int x = 0; x <= 5; x++)
+                    if (at(blocks, x, 21, z) == ShipHullVoxelLayout.Part.BRIDGE)
+                        edge = x;
+                require(edge >= 2, key + ": captain platform missing at " + z);
+                require(at(blocks, edge, 22, z) == ShipHullVoxelLayout.Part.RAIL,
+                        key + ": captain starboard rail not on the floor edge " + z);
+                if (at(blocks, -edge, 22, z) != ShipHullVoxelLayout.Part.RAIL)
+                    require(at(blocks, -edge, 22, z) == null
+                                    || at(blocks, -edge, 22, z)
+                                            == ShipHullVoxelLayout.Part.FRAME,
+                            key + ": port captain edge occupied unexpectedly at " + z);
+            }
+        }
         int station = rear + 20;
         int outside = ShipHullVoxelLayout.halfBeam(plan, station);
         for (int x : new int[]{-outside, outside})
