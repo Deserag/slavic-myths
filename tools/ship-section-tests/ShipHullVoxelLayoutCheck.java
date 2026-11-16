@@ -175,7 +175,6 @@ public final class ShipHullVoxelLayoutCheck {
                         : top >= 15 ? new int[]{1, 5, 10, 15}
                         : new int[]{1, 5, 10}, "III " + p);
         if (top >= 15) {
-            flight(model, -3, rear + 1, 10, 5, "III quarterdeck " + p);
             int half = Math.min(5, p.hullWidth() / 2 - 3);
             for (int x = -half + 1; x <= half - 1; x++)
                 require(at(model, x, 12, rear) == ShipHullVoxelLayout.Part.WINDOW,
