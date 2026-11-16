@@ -45,7 +45,9 @@ public final class ShipIVDamageGameTest {
         var config = ShipBuildConfiguration.initial(ShipSectionPlan.ShipClass.LARGEST)
                 .withCabin(true).withBridge(true).withDecks(3);
         int rear = -config.length() / 2 + 4;
-        BlockPos first = new BlockPos(6, 12, rear + 20);
+        // Keep test decorations off the relocated x=6/7 exterior stair
+        // while verifying ordinary player building remains allowed.
+        BlockPos first = new BlockPos(4, 12, rear + 20);
         BlockPos second = first.east();
         test.assertTrue(ShipModularBlockHull.movingCargoCell(config, first)
                         && ShipModularBlockHull.movingCargoCell(config, second),
