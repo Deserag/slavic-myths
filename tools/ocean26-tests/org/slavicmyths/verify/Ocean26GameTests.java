@@ -708,6 +708,16 @@ public final class Ocean26GameTests {
                             + ship.isMoving() + " deltaZ=" + (ship.getZ() - startZ)
                             + " rider=" + (captain.getVehicle() == ship)
                             + " palette=" + (ship.serverMovingPalette() != null));
+            if (largeHull && !damaged) {
+                ServerPlayer fallingCrew = player(level, type + "FallingCrew",
+                        new Vec3(ship.getX() + 2D, ship.deckY() + .65D, ship.getZ()));
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, -.85D, 0D));
+                t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
+                        type + " moving deck failed to catch falling crew: y="
+                                + fallingCrew.getY() + " deck=" + ship.deckY());
+                fallingCrew.discard();
+            }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);
                 t.assertTrue(!ship.serverMovingPalette().containsKey(localHole),
