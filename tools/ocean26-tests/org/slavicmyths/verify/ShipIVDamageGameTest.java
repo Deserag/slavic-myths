@@ -72,6 +72,11 @@ public final class ShipIVDamageGameTest {
         ShipMovingContraption moving = ShipMovingContraption.prepare(level, anchor, 0, config);
         test.assertTrue(moving != null && moving.detach(level, anchor),
                 "IV upgraded ship cannot begin sailing");
+        double departureZ = moving.pose().z();
+        for (int tick = 0; tick < 18; tick++)
+            moving.tick(level, new ShipRigidMotion.Control(1D, 0D));
+        test.assertTrue(moving.pose().z() > departureZ + .01D,
+                "IV upgraded ship did not travel before saving");
         var saved = moving.save();
         var loaded = ShipMovingContraption.load(saved);
         test.assertTrue(loaded != null && loaded.detached()
