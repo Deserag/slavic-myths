@@ -59,6 +59,13 @@ public final class ShipIVDamageGameTest {
         test.assertTrue(cargo != null && cargo.size() == 2
                         && ShipModularBlockHull.rotateCargo(config, cargo, 0, 1) != null,
                 "IV lantern decoration cannot survive pack/rotation");
+        BlockPos stacked = first.above();
+        test.assertTrue(ShipModularBlockHull.movingCargoCell(config, stacked),
+                "Second level of IV player-built deck decoration remains blocked");
+        cargo = ShipModularBlockHull.withAddedMovingCargo(test.getLevel(),
+                config, cargo, stacked, Blocks.SPRUCE_PLANKS.defaultBlockState());
+        test.assertTrue(cargo != null && cargo.size() == 3,
+                "Stacked IV deck decoration cannot survive save/load");
         test.succeed();
     }
 
