@@ -251,16 +251,10 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     }
 
     private ShipSailRigGeometry.Point clothPoint(FirstShipEntity ship,
-            float partialTick, ShipSailRigGeometry.Panel p,
+            float partialTick, ShipSailRigGeometry.Panel panel,
             double pressure, double u, double v) {
-        double profile = .86D + .14D * Math.sin(Math.PI * v);
-        double x = p.halfWidth() * (u * 2D - 1D) * profile;
-        double y = p.bottom() + (p.top() - p.bottom()) * v;
-        double pinned = Math.sin(Math.PI * u) * Math.sin(Math.PI * v);
-        double swell = (.12D + 1.65D * pressure) * pinned;
-        double flutter = .045D * Math.sin((ship.tickCount + partialTick) * .085D
-                + u * 12D + v * 5D) * pinned;
-        return new ShipSailRigGeometry.Point(x, y, .20D + swell + flutter);
+        return ShipSailRigGeometry.clothSurface(panel, pressure, u, v,
+                ship.tickCount + partialTick);
     }
 
     private void renderRigPanel(FirstShipEntity ship, float partialTick,
