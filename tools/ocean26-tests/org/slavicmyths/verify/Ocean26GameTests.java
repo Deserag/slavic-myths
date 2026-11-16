@@ -2288,6 +2288,15 @@ public final class Ocean26GameTests {
         }
         t.assertTrue(physicalLanterns > 1, type + " requires spaced interior lighting");
         int cargoY = iv ? 7 : 6;
+        if (iv) {
+            // A parked IV must accept ordinary block placement on both the
+            // weather deck and its newly extended quarterdeck overhang.
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                            config, new BlockPos(5, 12, rear + 20))
+                    && org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                            config, new BlockPos(8, 17, rear + 8)),
+                    "IV buildable deck cells were incorrectly marked forbidden");
+        }
         BlockPos chestPos = FirstShipBlockHull.world(anchor, 0, 2, cargoY, 0);
         BlockPos furnacePos = FirstShipBlockHull.world(anchor, 0, 3, cargoY, 0);
         BlockPos bedFoot = FirstShipBlockHull.world(anchor, 0, 4, cargoY, 1);
