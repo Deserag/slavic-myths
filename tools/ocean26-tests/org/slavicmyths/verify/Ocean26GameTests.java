@@ -2162,6 +2162,19 @@ public final class Ocean26GameTests {
                         && moving.palette().get(newBedFoot).is(Blocks.RED_BED)
                         && moving.palette().get(newBedHead).is(Blocks.RED_BED),
                 type + " paired bed was not installed atomically while sailing");
+        // The client must render BOTH bed halves, not two default north-facing
+        // feet. Only block-state metadata is synchronized, never inventory NBT.
+        String view = "4," + cargoY + ",8,6,minecraft:red_bed,facing=north|part=foot"
+                + ";4," + cargoY + ",7,6,minecraft:red_bed,facing=north|part=head";
+        var visual = org.slavicmyths.ships.ShipModularBlockHull.localVisualPalette(
+                config, org.slavicmyths.ships.ShipModularBlockHull.decodeVisibleCargo(view));
+        t.assertTrue(visual.get(newBedFoot).getValue(
+                        net.minecraft.world.level.block.BedBlock.PART)
+                        == net.minecraft.world.level.block.state.properties.BedPart.FOOT
+                        && visual.get(newBedHead).getValue(
+                                net.minecraft.world.level.block.BedBlock.PART)
+                                == net.minecraft.world.level.block.state.properties.BedPart.HEAD,
+                type + " moving cargo lost synced block-state properties");
         var persisted = org.slavicmyths.ships.ShipMovingContraption.load(moving.save());
         t.assertTrue(persisted != null && persisted.detached()
                         && persisted.cargoCount() == 7 && persisted.park(level),
