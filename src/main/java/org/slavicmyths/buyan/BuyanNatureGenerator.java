@@ -42,6 +42,7 @@ public final class BuyanNatureGenerator {
         BuyanState.Site nearest = null;
         long distance = Long.MAX_VALUE;
         for (BuyanState.Site site : BuyanState.get(world).completedSites()) {
+            if (site.radius() != BuyanTerrain.MAX_RADIUS) continue;
             long dx = (long) x - site.x();
             long dz = (long) z - site.z();
             long sq = dx * dx + dz * dz;
@@ -133,8 +134,8 @@ public final class BuyanNatureGenerator {
         ServerLevel world = source.getLevel();
         BuyanNatureState state = BuyanNatureState.get(world);
         if (!state.active) return status(source);
-        if (!Double.isFinite(state.forestCutoff) || state.phase < 0 || state.phase > 1
-            || BuyanState.get(world).active) {
+        if (!state.compatible || !Double.isFinite(state.forestCutoff)
+            || state.phase < 0 || state.phase > 1 || BuyanState.get(world).active) {
             source.sendFailure(Component.literal("Несовместимое состояние Буяна; возобновление запрещено."));
             return 0;
         }
@@ -321,15 +322,30 @@ public final class BuyanNatureGenerator {
             state.radius, x, z, sea);
         if (y == Integer.MIN_VALUE) return;
         BlockPos groundPos = new BlockPos(x, y, z);
-        if (!ground(world.getBlockState(groundPos))) return;
+        BlockState soil = world.getBlockState(groundPos);
         BlockPos pos = groundPos.above();
         if (!world.getBlockState(pos).isAir()) return;
         double passage = BuyanNature.passage(seed, state.centerX, state.centerZ, x, z);
         double clearing = BuyanNature.clearingMetric(seed, state.centerX, state.centerZ, x, z);
+        double roll = BuyanTerrain.value(seed ^ 0xB22A0701L, x, z, 0);
+        if (!ground(soil)) {
+            // Sparse natural stone outcrops on existing rocky ground, not roads.
+            if (y >= sea + 18 && passage < 0.10 && clearing > 1.25
+                && (soil.is(Blocks.STONE) || soil.is(Blocks.TUFF) || soil.is(Blocks.ANDESITE))
+                && roll < 0.012) {
+                world.setBlock(pos, (roll < 0.006 ? Blocks.ANDESITE
+                    : Blocks.DIORITE).defaultBlockState(), 2);
+            }
+            return;
+        }
         boolean wooded = BuyanNature.forest(seed, state.centerX, state.centerZ,
             state.radius, x, z, sea, state.forestCutoff);
-        double roll = BuyanTerrain.value(seed ^ 0xB22A0701L, x, z, 0);
         double humidity = BuyanTerrain.noise(seed ^ 0xB22A0702L, x, z, 33.0);
+        if (!wooded && clearing > 0.92 && clearing < 1.38
+            && passage < 0.10 && roll < 0.003) {
+            world.setBlock(pos, Blocks.STONE.defaultBlockState(), 2);
+            return;
+        }
 
         if (passage > 0.30 && roll < 0.94) return;
         if (clearing < 0.65 && roll < 0.965) return;
