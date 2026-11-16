@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.core.component.DataComponents;
@@ -45,6 +46,8 @@ import org.slavicmyths.ships.FirstShipNetwork;
 import org.slavicmyths.ships.ShipBuildConfiguration;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
+import org.slavicmyths.ships.ShipMovingClearance;
+import org.slavicmyths.ships.ShipRigidMotion;
 import org.slavicmyths.ships.client.FirstShipRenderer;
 
 /**
@@ -81,6 +84,7 @@ public final class ShipSailCapture {
     private static volatile int acceptedHelmSteps;
     private static volatile int cameraStandId = -1;
     private static ArmorStand cameraStand;
+    private static boolean diagnosedBlockedPose;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -295,6 +299,24 @@ public final class ShipSailCapture {
                 throw new AssertionError("IV helm rejected at motion tick " + motionAge);
             acceptedHelmSteps++;
             serverMotionSpeed = serverShip.serverMovingSpeed();
+            if (motionAge > 180 && serverMotionSpeed < .001D && !diagnosedBlockedPose) {
+                diagnosedBlockedPose = true;
+                ServerLevel world = player.serverLevel();
+                double yaw = Math.toRadians(serverShip.getYRot());
+                ShipRigidMotion.Pose ahead = new ShipRigidMotion.Pose(
+                        serverShip.getX() - Math.sin(yaw) * .1D,
+                        serverShip.getZ() + Math.cos(yaw) * .1D,
+                        serverShip.getYRot());
+                int surface = (int)Math.floor(serverShip.getY());
+                System.out.println("SHIP_SAIL_MOTION_BLOCK_DIAG current="
+                        + ShipMovingClearance.clearPose(world,
+                                new ShipRigidMotion.Pose(serverShip.getX(),
+                                        serverShip.getZ(), serverShip.getYRot()),
+                                surface, serverShip.serverMovingPalette())
+                        + " ahead=" + ShipMovingClearance.clearPose(world,
+                                ahead, surface, serverShip.serverMovingPalette())
+                        + " support=" + firstMissingWater(world, ahead, surface));
+            }
             cameraStand.setPos(serverShip.getX() + 55D,
                     serverShip.getY() + 27D, serverShip.getZ());
         });
@@ -335,6 +357,25 @@ public final class ShipSailCapture {
                 throw new AssertionError("Missing moving IV captures");
             finish(mc);
         }
+    }
+
+    private static String firstMissingWater(ServerLevel world,
+            ShipRigidMotion.Pose pose, int surface) {
+        double yaw = Math.toRadians(pose.yaw());
+        double cos = Math.cos(yaw), sin = Math.sin(yaw);
+        for (BlockPos cell : serverShip.serverMovingPalette().keySet()) {
+            if (cell.getY() != 0 && cell.getY() != 1) continue;
+            for (double sx : new double[]{-.42D, .42D})
+                for (double sz : new double[]{-.42D, .42D}) {
+                    double x = cell.getX() + sx, z = cell.getZ() + sz;
+                    BlockPos below = BlockPos.containing(pose.x() + x * cos - z * sin,
+                            surface + cell.getY() - 1,
+                            pose.z() + x * sin + z * cos);
+                    if (!world.getFluidState(below).is(FluidTags.WATER))
+                        return cell + " -> " + below + "=" + world.getBlockState(below);
+                }
+        }
+        return "all-water-support-present";
     }
 
     @SubscribeEvent
