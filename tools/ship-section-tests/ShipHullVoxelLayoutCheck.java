@@ -199,21 +199,22 @@ public final class ShipHullVoxelLayoutCheck {
             for (int extraWidth = 0; extraWidth <= 2; extraWidth++)
                 for (int extraLength = 0; extraLength <= 3; extraLength++)
                     for (int deck : new int[] {1, 2, 3})
-                        for (boolean cabin : new boolean[] {false, true}) {
-                            int width = baseWidth + extraWidth * 2;
-                            int length = baseLength + extraLength * 4;
-                            int minimum = (int)Math.ceil(width * 3.6D);
-                            if ((minimum & 1) == 0) minimum++;
-                            length = Math.max(length, minimum);
-                            var p = new ShipSuperstructurePlan(type, width, length,
-                                    masts, deck, false, cabin, revision);
-                            double ratio = length / (double)width;
-                            require(ratio >= 3.5D && ratio <= 4.5D,
-                                    "III/IV disproportionate hull " + p);
-                            if (revision == 3) brigantine(p);
-                            else frigate(p);
-                            scenarios++;
-                        }
+                        for (boolean cabin : new boolean[] {false, true})
+                            for (boolean bridge : new boolean[] {false, true}) {
+                                int width = baseWidth + extraWidth * 2;
+                                int length = baseLength + extraLength * 4;
+                                int minimum = (int)Math.ceil(width * 3.6D);
+                                if ((minimum & 1) == 0) minimum++;
+                                length = Math.max(length, minimum);
+                                var p = new ShipSuperstructurePlan(type, width, length,
+                                        masts, deck, bridge, cabin, revision);
+                                double ratio = length / (double)width;
+                                require(ratio >= 3.5D && ratio <= 4.5D,
+                                        "III/IV disproportionate hull " + p);
+                                if (revision == 3) brigantine(p);
+                                else frigate(p);
+                                scenarios++;
+                            }
         }
         var medium = new ShipSuperstructurePlan(ShipSectionPlan.ShipClass.MEDIUM,
                 13, 21, List.of(1, 1), 2, false, true);
