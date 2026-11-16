@@ -2241,8 +2241,10 @@ public final class Ocean26GameTests {
                                 == net.minecraft.world.level.block.state.properties
                                         .DoubleBlockHalf.UPPER
                         && level.getBlockState(lower.south()).isAir()
-                        && level.getBlockState(upper.south()).isAir(),
-                "Third-deck cabin door is wrongly oriented or landing is blocked");
+                        && level.getBlockState(upper.south()).isAir()
+                        && level.getBlockState(lower.below()).is(Blocks.SPRUCE_PLANKS)
+                        && level.getBlockState(lower.south().below()).is(Blocks.SPRUCE_PLANKS),
+                "Third-deck cabin door is wrongly oriented, unsupported or blocked");
         var door = (net.minecraft.world.level.block.DoorBlock) lowerState.getBlock();
         door.setOpen(null, level, lowerState, lower, true);
         t.assertTrue(level.getBlockState(lower).getValue(
@@ -2284,6 +2286,12 @@ public final class Ocean26GameTests {
         t.assertTrue(!palette.containsKey(new BlockPos(0, lowerY, front + 1))
                         && !palette.containsKey(new BlockPos(0, lowerY + 1, front + 1)),
                 label + " outside landing is obstructed");
+        if (lowerY == 16)
+            t.assertTrue(Blocks.SPRUCE_PLANKS.equals(palette.get(
+                            new BlockPos(0, lowerY - 1, front)).getBlock())
+                            && Blocks.SPRUCE_PLANKS.equals(palette.get(
+                                    new BlockPos(0, lowerY - 1, front + 1)).getBlock()),
+                    "III upper cabin door lacks supporting deck and exterior landing");
     }
 
     @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
