@@ -70,10 +70,10 @@ public final class Ocean26GameTests {
         boolean iv = config.shipClass()
                 == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
         int[] floors = iv
-                ? new int[]{1, 6, 11, 16}
+                ? new int[]{1, 6, 11}
                 : new int[]{1, 5, 10, 15, 20};
         int rear = -config.length() / 2 + (iv ? 4 : 2);
-        int z = rear + 6;
+        int z = rear + (iv ? 18 : 6);
         for (int i = 0; i + 1 < floors.length; i++)
             z += floors[i + 1] - floors[i] + 1;
         net.minecraft.core.Direction facing = switch (turns) {
@@ -134,7 +134,8 @@ public final class Ocean26GameTests {
             }
             z = exit;
         }
-        t.assertTrue(z == rear + 6, "Final stair landing detached from aft deck");
+        t.assertTrue(z == rear + (iv ? 18 : 6),
+                "Final stair landing detached from intended deck");
         if (iv) {
             assertRotatedExteriorFlight(t, level, motion.palette(),
                     anchor, turns, 4, rear + 21, 11, facing);
@@ -615,12 +616,12 @@ public final class Ocean26GameTests {
                 level, anchor, 0, config, new ListTag()), type + " placement failed");
         if (largest) {
             int rear = -config.length() / 2 + 4;
-            int stairZ = rear + 6 + (config.decks() >= 2 || config.bridge() ? 24 : 18);
+            int stairZ = rear + 30;
             assertPairedStair(t, level, anchor, -3, stairZ, 1, 5);
             assertPairedStair(t, level, anchor, -3, stairZ - 6, 6, 5);
-            assertPairedStair(t, level, anchor, -3, stairZ - 12, 11, 5);
+            assertPairedStair(t, level, anchor, 4, rear + 21, 11, 5);
             if (config.decks() >= 2 || config.bridge())
-                assertPairedStair(t, level, anchor, -3, stairZ - 18, 16, 5);
+                assertPairedStair(t, level, anchor, -5, rear + 10, 16, 5);
         }
         if (damaged) {
             BlockPos hole = FirstShipBlockHull.world(anchor, 0, 0, 1, 0);
