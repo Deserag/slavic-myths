@@ -824,12 +824,31 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, z, y == 11 + rise ? Part.TRIM : Part.HULL);
             }
         }
-        // The bowsprit is a supported 3x2 spar rooted in the lower bow stem.
-        for (int z = end - 8; z <= end + 7; z++) {
-            int radius = z <= end + 5 ? 1 : 0;
-            Part timber = z <= end ? Part.FRAME : Part.BOWSPRIT;
-            for (int x = -radius; x <= radius; x++)
-                for (int y = 9; y <= 10; y++) put(out, x, y, z, timber);
+        // Княвдигед: lower structural bow timber, continuing the REAL KEEL.
+        // It begins at y=0 inside the bow bottom, bends forward through the
+        // lower stem, then rises at the far +Z prow. It is not a horizontal
+        // spar attached at mast/deck height. A sine arc gives a smooth sweep
+        // without disconnected diagonal-only voxel steps.
+        int stemBaseZ = end - 10;
+        int stemTipZ = end + 8;
+        int lastZ = stemBaseZ;
+        for (int y = 1; y <= 15; y++) {
+            double progress = y / 15D;
+            int nextZ = stemBaseZ + (int)Math.round((stemTipZ - stemBaseZ)
+                    * Math.sin(progress * Math.PI / 2D));
+            int radius = y >= 6 && y <= 12 ? 1 : 0;
+            for (int z = lastZ; z <= nextZ; z++)
+                for (int x = -radius; x <= radius; x++) {
+                    Cell cell = new Cell(x, y, z);
+                    // Floors inside the ship remain walkable. The timber
+                    // passes through their existing solid support instead
+                    // of replacing it with a colliding log.
+                    Part existing = out.get(cell);
+                    if (existing == Part.DECK || existing == Part.BRIDGE
+                            || existing == Part.STAIR) continue;
+                    put(out, x, y, z, x == 0 ? Part.KEEL : Part.FRAME);
+                }
+            lastZ = nextZ;
         }
         boolean raised = true; // IV always includes a functional stern quarterdeck.
         boolean captainDeck = p.decks() >= 2 || p.bridge();
