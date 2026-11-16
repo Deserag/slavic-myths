@@ -1,6 +1,8 @@
 package org.slavicmyths.ships;
 
 import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.Collections;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -52,7 +54,8 @@ public final class ShipMovingContraption {
         this.waterlineY = surfaceY;
         this.mode = TravelMode.WATER;
         this.motion = motion;
-        this.palette = ShipModularBlockHull.localMotionPalette(modular, cargo);
+        this.palette = new LinkedHashMap<>(
+                ShipModularBlockHull.localMotionPalette(modular, cargo));
         if (this.palette.isEmpty()) throw new IllegalArgumentException("Invalid modular palette");
         this.detached = detached;
     }
@@ -161,6 +164,28 @@ public final class ShipMovingContraption {
         return new FirstShipBlockHull.MotionSnapshot(cargo, snapshot.geometry(),
                 snapshot.rig(), snapshot.fabric(), snapshot.turn());
     }
+    /**
+     * Add blocks to the moving rigid body itself, never to the water/air
+     * underneath it. All changes are committed atomically after cargo and
+     * swept-volume validation, and persist in the normal ship save payload.
+     */
+    public boolean placeMovingCargo(ServerLevel world, BlockPos local, BlockState state) {
+        if (modular == null || world == null || !detached || parked
+                || local == null || state == null) return false;
+        ListTag next = ShipModularBlockHull.withAddedMovingCargo(
+                world, modular, cargo, local, state);
+        if (next == null) return false;
+        Map<BlockPos, BlockState> nextPalette =
+                ShipModularBlockHull.localMotionPalette(modular, next);
+        if (nextPalette.isEmpty() || !ShipMovingClearance.clearPose(
+                world, motion.pose(), waterlineY, nextPalette)) return false;
+        cargo.clear();
+        cargo.addAll(next);
+        palette.clear();
+        palette.putAll(nextPalette);
+        return true;
+    }
+
     public int cargoCount() { return cargo.size(); }
     public CompoundTag cargoEntry(int index) {
         return index < 0 || index >= cargo.size() ? null : cargo.getCompound(index).copy();
@@ -173,7 +198,9 @@ public final class ShipMovingContraption {
         cargo.set(index, entry);
         return true;
     }
-    public Map<BlockPos, BlockState> palette() { return palette; }
+    public Map<BlockPos, BlockState> palette() {
+        return Collections.unmodifiableMap(palette);
+    }
     public int waterlineY() { return waterlineY; }
     public boolean detached() { return detached; }
     public boolean parked() { return parked; }
