@@ -1060,8 +1060,30 @@ public final class FirstShipEntity extends Boat {
         ItemStack stack = player.getItemInHand(hand);
         if (!(stack.getItem() instanceof BlockItem blockItem)
                 || stack.isEmpty()) return false;
+        Vec3 eye = player.getEyePosition();
+        BlockPos aimed = ShipMovingCargoTarget.target(this, eye,
+                eye.add(player.getLookAngle().scale(5.5D)), movingBody.palette());
+        if (!local.equals(aimed)) return false;
         var state = blockItem.getBlock().defaultBlockState();
         if (ShipCargoPlacementGuard.forbidden(state)) return false;
+        FirstShipHull.Point direction = FirstShipHull.toLocal(
+                player.getX() + player.getLookAngle().x,
+                player.getZ() + player.getLookAngle().z,
+                getX(), getZ(), shipYaw());
+        FirstShipHull.Point origin = FirstShipHull.toLocal(player.getX(),
+                player.getZ(), getX(), getZ(), shipYaw());
+        double localDX = direction.x() - origin.x(), localDZ = direction.z() - origin.z();
+        net.minecraft.core.Direction forward = Math.abs(localDX) > Math.abs(localDZ)
+                ? (localDX >= 0D ? net.minecraft.core.Direction.EAST
+                        : net.minecraft.core.Direction.WEST)
+                : (localDZ >= 0D ? net.minecraft.core.Direction.SOUTH
+                        : net.minecraft.core.Direction.NORTH);
+        if (state.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+            state = state.setValue(
+                    net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING,
+                    state.getBlock() instanceof net.minecraft.world.level.block.StairBlock
+                            || state.getBlock() instanceof net.minecraft.world.level.block.BedBlock
+                            ? forward : forward.getOpposite());
         if (Math.abs(local.getX()) > modularConfiguration.width() / 2
                 || Math.abs(local.getZ()) > modularConfiguration.length() / 2
                 || local.getY() < 1 || local.getY() > 48) return false;
@@ -1077,10 +1099,21 @@ public final class FirstShipEntity extends Boat {
                 && player.getEyePosition().distanceToSqr(hit.getLocation())
                         + .5D < player.getEyePosition().distanceToSqr(target))
             return false;
-        if (player.getBoundingBox().intersects(new AABB(
-                point.x() - .48D, getY() + local.getY(), point.z() - .48D,
-                point.x() + .48D, getY() + local.getY() + 1D, point.z() + .48D)))
-            return false;
+        java.util.List<BlockPos> placements = new java.util.ArrayList<>();
+        placements.add(local);
+        if (state.getBlock() instanceof net.minecraft.world.level.block.BedBlock)
+            placements.add(local.relative(state.getValue(
+                    net.minecraft.world.level.block.BedBlock.FACING)));
+        for (BlockPos cell : placements) {
+            FirstShipHull.Point placement = FirstShipHull.toWorld(
+                    cell.getX(), cell.getZ(), getX(), getZ(), shipYaw());
+            AABB occupied = new AABB(placement.x() - .49D, getY() + cell.getY(),
+                    placement.z() - .49D, placement.x() + .49D,
+                    getY() + cell.getY() + 1D, placement.z() + .49D);
+            if (!world.getEntitiesOfClass(ServerPlayer.class, occupied,
+                    other -> other.isAlive() && !other.isSpectator()).isEmpty())
+                return false;
+        }
         if (!movingBody.placeMovingCargo(world, local, state)) return false;
         if (!player.getAbilities().instabuild) stack.shrink(1);
         syncMovingCargo();
