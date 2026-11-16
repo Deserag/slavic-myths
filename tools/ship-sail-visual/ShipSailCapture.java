@@ -39,6 +39,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.RaftContent;
+import org.slavicmyths.ships.FirstShipNetwork;
 import org.slavicmyths.ships.ShipBuildConfiguration;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
@@ -57,6 +58,7 @@ public final class ShipSailCapture {
     private static final int FRAMES_PER_CONFIG = 12; // 4 views x 3 fill states.
     private static final int EXPECTED_FRAMES = 6 * FRAMES_PER_CONFIG;
     private static final JsonArray FRAMES = new JsonArray();
+    private static final JsonArray MOTION_FRAMES = new JsonArray();
     private static Map<BlockPos, BlockState> lastPalette = Map.of();
     private static FirstShipEntity serverShip;
     private static boolean opened;
@@ -67,6 +69,10 @@ public final class ShipSailCapture {
     private static int scene = -1;
     private static int age = 0;
     private static String loadedSha = "";
+    private static boolean motionStarted;
+    private static volatile boolean motionReady;
+    private static int motionAge;
+    private static double motionStartZ;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -205,17 +211,83 @@ public final class ShipSailCapture {
         receipt.addProperty("environment",
                 "GitHub-hosted isolated Xvfb integrated Minecraft singleplayer world");
         receipt.addProperty("scope",
-                "Actual production JAR rigging screenshots, stationary hull; "
-                + "cloth pressure forced in test-only client fixture, "
-                + "NOT a validated sailing/wind/player-behaviour test");
+                "Actual production JAR: stationary tier matrix with test-only pressure "
+                + "preview, followed by an actual moving IV ship turn/idle/restart; "
+                + "NOT a manual player-behaviour or relog test");
         receipt.addProperty("seed", 5072026L);
         receipt.addProperty("jar_sha256", loadedSha);
         receipt.addProperty("captured", FRAMES.size());
         receipt.add("frames", FRAMES);
+        receipt.add("motion_frames", MOTION_FRAMES);
         Files.writeString(OUT.resolve("finished.json"),
                 new GsonBuilder().setPrettyPrinting().create().toJson(receipt));
         System.out.println("SHIP_SAIL_VISUAL " + receipt);
         mc.stop();
+    }
+
+    private static void beginMotion(Minecraft mc) {
+        motionStarted = true;
+        mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+        mc.getSingleplayerServer().execute(() -> {
+            ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
+            ServerLevel world = player.serverLevel();
+            // A temporary water basin surrounds the already-installed IV hull.
+            // Do not replace any cell of the physical ship palette.
+            for (int x = -27; x <= 27; x++)
+                for (int z = -38; z <= 60; z++) {
+                    world.setBlock(ANCHOR.offset(x, -1, z),
+                            Blocks.WATER.defaultBlockState(), 2);
+                    if (!lastPalette.containsKey(new BlockPos(x, 0, z)))
+                        world.setBlock(ANCHOR.offset(x, 0, z),
+                                Blocks.WATER.defaultBlockState(), 2);
+                }
+            player.setGameMode(GameType.CREATIVE);
+            if (!player.startRiding(serverShip))
+                throw new AssertionError("IV test captain could not board");
+            motionStartZ = serverShip.getZ();
+            if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
+                throw new AssertionError("IV motion assembly rejected");
+            motionReady = true;
+        });
+    }
+
+    private static void motionTick(Minecraft mc) throws Exception {
+        if (!motionReady) return;
+        motionAge++;
+        int action = motionAge < 70 ? FirstShipNetwork.FORWARD_RIGHT
+                : motionAge < 105 ? FirstShipNetwork.HELM_IDLE
+                : FirstShipNetwork.FORWARD;
+        mc.getSingleplayerServer().execute(() -> {
+            ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
+            if (player.getVehicle() == serverShip)
+                serverShip.helmStep(player, action);
+        });
+        if (motionAge == 60 || motionAge == 100 || motionAge == 140) {
+            FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
+                    ? ship : null;
+            if (visible == null || !visible.isMoving()
+                    || Math.hypot(visible.getX() - ANCHOR.getX() - .5D,
+                            visible.getZ() - motionStartZ) < .1D)
+                throw new AssertionError("Moving IV hull not synchronized at tick " + motionAge);
+            String state = motionAge == 60 ? "turn" : motionAge == 100 ? "idle" : "restart";
+            String file = "motion-iv-tier-3-" + state + ".png";
+            try (var image = Screenshot.takeScreenshot(mc.getMainRenderTarget())) {
+                image.writeToFile(OUT.resolve(file));
+            }
+            JsonObject row = new JsonObject();
+            row.addProperty("file", file);
+            row.addProperty("state", state);
+            row.addProperty("x", visible.getX());
+            row.addProperty("z", visible.getZ());
+            row.addProperty("yaw", visible.getYRot());
+            row.addProperty("speed", visible.visualMotionSpeed());
+            MOTION_FRAMES.add(row);
+        }
+        if (motionAge == 150) {
+            if (MOTION_FRAMES.size() != 3)
+                throw new AssertionError("Missing moving IV captures");
+            finish(mc);
+        }
     }
 
     @SubscribeEvent
@@ -263,6 +335,10 @@ public final class ShipSailCapture {
         }
         if (mc.level == null || mc.player == null
                 || mc.getSingleplayerServer() == null) return;
+        if (motionStarted) {
+            motionTick(mc);
+            return;
+        }
         if (scene < 0 || age >= 52) {
             scene++;
             age = 0;
@@ -270,7 +346,7 @@ public final class ShipSailCapture {
             mc.options.hideGui = true;
             mc.options.setCameraType(CameraType.FIRST_PERSON);
             if (scene == EXPECTED_FRAMES) {
-                finish(mc);
+                beginMotion(mc);
                 return;
             }
             Case c = configuration(scene);

@@ -50,6 +50,9 @@ jobs:
           assert receipt['captured'] == 72
           assert receipt['status']=='CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'
           assert len(receipt['frames'])==72
+          assert len(receipt['motion_frames'])==3
+          assert all((root/frame['file']).is_file()
+                     for frame in receipt['motion_frames'])
           assert all((root/frame['file']).is_file() for frame in receipt['frames'])
           assert all(frame['pressure_source']=='SIMULATED_PRESSURE_VISUAL_ONLY'
                      for frame in receipt['frames'])
