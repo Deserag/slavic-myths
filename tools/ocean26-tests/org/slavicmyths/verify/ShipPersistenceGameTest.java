@@ -45,6 +45,14 @@ public final class ShipPersistenceGameTest {
                         && upper.getValue(DoorBlock.HALF) == DoubleBlockHalf.UPPER
                         && lower.getValue(DoorBlock.FACING) == upper.getValue(DoorBlock.FACING),
                 stage + ": orphaned or reversed captain door halves");
+        net.minecraft.core.Direction expectedFacing = switch (Math.floorMod(turns, 4)) {
+            case 0 -> net.minecraft.core.Direction.SOUTH;
+            case 1 -> net.minecraft.core.Direction.WEST;
+            case 2 -> net.minecraft.core.Direction.NORTH;
+            default -> net.minecraft.core.Direction.EAST;
+        };
+        test.assertTrue(lower.getValue(DoorBlock.FACING) == expectedFacing,
+                stage + ": captain door faces the wrong side after rotation");
         for (boolean open : new boolean[]{true, false, true, false}) {
             var current = level.getBlockState(bottom);
             ((DoorBlock)current.getBlock()).setOpen(null, level, current, bottom, open);
