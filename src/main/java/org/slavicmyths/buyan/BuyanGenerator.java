@@ -121,26 +121,29 @@ public final class BuyanGenerator {
     }
 
     /** Square spiral; chunk zero contains the player's requested island center. */
-    private static int rings(BuyanState state) {
-        int extent = state.radius + BuyanTerrain.margin(state.radius);
-        int centerChunkX = state.centerX >> 4;
-        int centerChunkZ = state.centerZ >> 4;
+    private static int rings(int centerX, int centerZ, int radius) {
+        int extent = radius + BuyanTerrain.margin(radius);
+        int centerChunkX = centerX >> 4;
+        int centerChunkZ = centerZ >> 4;
         return Math.max(
-            Math.max(centerChunkX - ((state.centerX - extent) >> 4),
-                     ((state.centerX + extent) >> 4) - centerChunkX),
-            Math.max(centerChunkZ - ((state.centerZ - extent) >> 4),
-                     ((state.centerZ + extent) >> 4) - centerChunkZ));
+            Math.max(centerChunkX - ((centerX - extent) >> 4),
+                     ((centerX + extent) >> 4) - centerChunkX),
+            Math.max(centerChunkZ - ((centerZ - extent) >> 4),
+                     ((centerZ + extent) >> 4) - centerChunkZ));
     }
 
-    private static int totalChunks(BuyanState state) {
-        int side = rings(state) * 2 + 1;
+    static int totalChunks(int centerX, int centerZ, int radius) {
+        int side = rings(centerX, centerZ, radius) * 2 + 1;
         return side * side;
     }
 
-    private static ChunkPos chunk(BuyanState state) {
-        int index = state.chunkIndex;
-        int cx = state.centerX >> 4;
-        int cz = state.centerZ >> 4;
+    private static int totalChunks(BuyanState state) {
+        return totalChunks(state.centerX, state.centerZ, state.radius);
+    }
+
+    static ChunkPos chunk(int centerX, int centerZ, int index) {
+        int cx = centerX >> 4;
+        int cz = centerZ >> 4;
         if (index == 0) return new ChunkPos(cx, cz);
         int ring = (int) Math.ceil((Math.sqrt(index + 1.0) - 1.0) / 2.0);
         int side = 2 * ring;
@@ -156,6 +159,10 @@ public final class BuyanGenerator {
             return new ChunkPos(cx - ring, cz + ring - 1 - (offset - 2 * side));
         }
         return new ChunkPos(cx - ring + 1 + (offset - 3 * side), cz - ring);
+    }
+
+    private static ChunkPos chunk(BuyanState state) {
+        return chunk(state.centerX, state.centerZ, state.chunkIndex);
     }
 
     private static boolean withinFootprint(BuyanState state, int x, int z) {
@@ -176,8 +183,8 @@ public final class BuyanGenerator {
      * known. A reference to an unloaded structure start stays conservatively
      * protected at chunk granularity, without forcing new chunks to load.
      */
-    private record Protection(boolean unknown, List<net.minecraft.world.level.levelgen.structure.BoundingBox> boxes) {
-        private boolean occupies(int x, int z) {
+    record Protection(boolean unknown, List<net.minecraft.world.level.levelgen.structure.BoundingBox> boxes) {
+        boolean occupies(int x, int z) {
             for (var box : boxes) {
                 if (x >= box.minX() - 2 && x <= box.maxX() + 2
                     && z >= box.minZ() - 2 && z <= box.maxZ() + 2) return true;
@@ -186,7 +193,7 @@ public final class BuyanGenerator {
         }
     }
 
-    private static Protection protectedStructure(ServerLevel world, ChunkPos pos) {
+    static Protection protectedStructure(ServerLevel world, ChunkPos pos) {
         var loaded = world.getChunkSource().getChunkNow(pos.x, pos.z);
         if (loaded == null) return new Protection(true, List.of());
         List<net.minecraft.world.level.levelgen.structure.BoundingBox> boxes = new ArrayList<>();
@@ -226,7 +233,7 @@ public final class BuyanGenerator {
      * replaced deliberately. Player-placed natural blocks cannot be
      * distinguished from naturally generated blocks in existing saves.
      */
-    private static boolean canReplace(BlockState old) {
+    static boolean canReplace(BlockState old) {
         if (old.hasBlockEntity()
             || old.is(Blocks.BEDROCK) || old.is(Blocks.NETHER_PORTAL)
             || old.is(Blocks.END_PORTAL) || old.is(Blocks.END_PORTAL_FRAME)) return false;
