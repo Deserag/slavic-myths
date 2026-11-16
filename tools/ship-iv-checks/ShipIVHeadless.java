@@ -71,12 +71,22 @@ public final class ShipIVHeadless {
             require(at(blocks, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     key + ": mast missing near deck z=" + z);
         }
-        // Stern stays broad and the bow narrows monotonically over its
-        // last fourteen stations. Both port and starboard are symmetric.
+        // +Z is the bow and must remain visibly substantial: the final
+        // five-block-wide stem rises above the main deck. No fake bow
+        // appears at the stern, and the narrowing remains monotonic.
         require(ShipHullVoxelLayout.halfBeam(plan, -end)
                 > ShipHullVoxelLayout.halfBeam(plan, end),
                 key + ": stern should be fuller than the bow tip");
-        for (int z = end - 13; z <= end; z++)
+        require(ShipHullVoxelLayout.halfBeam(plan, end) == 2,
+                key + ": undersized or misplaced forward stem");
+        require(ShipHullVoxelLayout.halfBeam(plan, end - 4)
+                >= width / 2 - 6, key + ": bow shoulders are too narrow");
+        require(at(blocks, 0, 12, end) == ShipHullVoxelLayout.Part.HULL
+                && at(blocks, 0, 15, end) == ShipHullVoxelLayout.Part.TRIM,
+                key + ": raised forward bow tip is missing");
+        require(at(blocks, 0, 15, -end) == null,
+                key + ": raised bow was generated at the stern");
+        for (int z = end - 11; z <= end; z++)
             require(ShipHullVoxelLayout.halfBeam(plan, z)
                     <= ShipHullVoxelLayout.halfBeam(plan, z - 1),
                     key + ": bow has a reverse flare at station " + z);
