@@ -297,6 +297,8 @@ public final class BuyanGenerator {
     private static final class Work implements AutoCloseable {
         private final ServerLevel level;
         private SiteChunks ticket;
+        private ChunkPos inspectedChunk;
+        private boolean occupiedChunk;
 
         private Work(ServerLevel level) {
             this.level = level;
@@ -306,9 +308,16 @@ public final class BuyanGenerator {
         private void step() {
             BuyanState state = BuyanState.get(level);
             if (!state.active || state.paused) return;
-            long end = System.nanoTime() + 2_000_000L;
+            // Large island sculpting is expensive even when no single block is
+            // expensive. When the server is overloaded, yield most ticks rather
+            // than competing with player movement/rendering for resources.
+            long tickNanos = level.getServer().getAverageTickTimeNanos();
+            boolean strained = tickNanos > 40_000_000L;
+            if (strained && (level.getGameTime() & 3L) != 0L) return;
+            long end = System.nanoTime() + (strained ? 750_000L : 1_500_000L);
             int columns = 0;
-            while (System.nanoTime() < end && columns < 20) {
+            int limit = strained ? 2 : 10;
+            while (System.nanoTime() < end && columns < limit) {
                 if (state.chunkIndex >= totalChunks(state)) {
                     state.finish();
                     LogUtils.getLogger().info("Buyan island foundation generated at {},{} radius {}",
@@ -323,13 +332,18 @@ public final class BuyanGenerator {
                     continue;
                 }
                 if (!ticket.ready(pos)) return;
-                // Leave vanilla/mod structures alone, but continue sculpting the
-                // remaining natural landscape instead of aborting the whole job.
-                if (state.columnIndex == 0 && protectedStructure(level, pos)) {
+                // A resumed job can start midway through a protected chunk, so
+                // inspect each chunk once per Work, not only at local column zero.
+                if (!pos.equals(inspectedChunk)) {
+                    inspectedChunk = pos;
+                    occupiedChunk = protectedStructure(level, pos);
+                }
+                if (occupiedChunk) {
                     state.skipChunk();
                     state.progress(state.chunkIndex + 1, 0);
                     ticket.close();
                     ticket = new SiteChunks(level);
+                    inspectedChunk = null;
                     continue;
                 }
                 int local = state.columnIndex;
