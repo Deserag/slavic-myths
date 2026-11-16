@@ -3,7 +3,7 @@ package org.slavicmyths.buyan;
 import net.minecraft.commands.Commands;
 import org.slavicmyths.commands.CommandTree;
 
-/** Generates only the foundation; island size is determined by the world seed. */
+/** One operator command starts the full island; progress controls follow the active phase. */
 public final class BuyanCommands {
     private BuyanCommands() {}
 
