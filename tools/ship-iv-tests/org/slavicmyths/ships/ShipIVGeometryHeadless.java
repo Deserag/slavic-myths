@@ -107,14 +107,19 @@ public final class ShipIVGeometryHeadless {
         for (int z : config.mastPositions())
             require(at(cells, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     "Missing physical mast " + z);
-        int stairZ = rear + 6 + (config.decks() >= 2 || config.bridge() ? 24 : 18);
+        int stairZ = rear + 24;
         flight(cells, -3, stairZ, 1);
         flight(cells, -3, stairZ - 6, 6);
         flight(cells, -3, stairZ - 12, 11);
+        flight(cells, 4, rear + 21, 11);
         if (config.decks() >= 2 || config.bridge())
-            flight(cells, -3, stairZ - 18, 16);
-        require(cells.values().stream().noneMatch(p -> p == ShipHullVoxelLayout.Part.RAIL),
-                "IV deck fences returned");
+            flight(cells, -4, rear + 15, 16);
+        require(cells.values().stream().filter(p ->
+                p == ShipHullVoxelLayout.Part.RAIL).count() >= 30,
+                "IV open decks have no safety rails");
+        require(at(cells, 0, config.decks() >= 2 || config.bridge() ? 22 : 17,
+                rear + 4) == ShipHullVoxelLayout.Part.HELM,
+                "IV wheel missing");
         checked++;
     }
 
