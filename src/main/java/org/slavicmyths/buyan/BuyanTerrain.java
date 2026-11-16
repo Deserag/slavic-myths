@@ -159,6 +159,15 @@ public final class BuyanTerrain {
         return Surface.MEADOW;
     }
 
+    public static double surfaceCover(long seed, int x, int z) {
+        return noise(seed ^ 0x4B7L, x, z, 21.0);
+    }
+
+    public static int surfaceRockRoll(long seed, int x, int z) {
+        return (int) Math.round(clamp(50.0
+            + 105.0 * noise(seed ^ 0x621L, x, z, 27.0), 0.0, 99.0));
+    }
+
     private static BlockState rock(int roll, boolean exposed) {
         if (roll < 58) return Blocks.STONE.defaultBlockState();
         if (roll < 79) return Blocks.ANDESITE.defaultBlockState();
@@ -168,13 +177,13 @@ public final class BuyanTerrain {
             : Blocks.DIORITE.defaultBlockState();
     }
 
-    public static BlockState block(long seed, int x, int y, int z, int height, int sea,
-                                   Surface surface) {
-        // Broad geological seams are coherent, not individual random cubes.
-        int rockRoll = (int) Math.floorMod(hash(seed ^ 0x621L,
-            x >> 4, z >> 4, y >> 3), 100);
-        double cover = noise(seed ^ 0x4B7L, x, z, 21.0);
+    public static BlockState block(long seed, int x, int y, int z, int height,
+                                   Surface surface, double cover, int surfaceRockRoll) {
         int depth = height - y;
+        // Surface exposures blend smoothly; deep geology forms larger veins.
+        int rockRoll = depth <= 5 ? surfaceRockRoll
+            : (int) Math.floorMod(hash(seed ^ 0x621L,
+                x >> 4, z >> 4, y >> 3), 100);
 
         if (depth == 0) {
             switch (surface) {
