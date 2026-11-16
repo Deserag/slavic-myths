@@ -1,6 +1,7 @@
 package org.slavicmyths.ships;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +33,29 @@ public final class FirstShipNetwork {
                 },
                 buffer -> new Command(buffer.readVarInt(), buffer.readVarInt()));
         @Override public Type<Command> type() { return TYPE; }
+    }
+
+    /**
+     * Client-selected local block placement on an already detached ship.
+     * The server always determines the actual item and rejects invalid
+     * cells, unsupported blocks, protected stairs and excessive reach.
+     */
+    public record PlaceCargo(int shipId, int x, int y, int z, int hand)
+            implements CustomPacketPayload {
+        public static final Type<PlaceCargo> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths",
+                        "first_ship_place_cargo"));
+        public static final StreamCodec<FriendlyByteBuf, PlaceCargo> CODEC =
+                StreamCodec.of((buffer, packet) -> {
+                    buffer.writeVarInt(packet.shipId);
+                    buffer.writeVarInt(packet.x);
+                    buffer.writeVarInt(packet.y);
+                    buffer.writeVarInt(packet.z);
+                    buffer.writeVarInt(packet.hand);
+                }, buffer -> new PlaceCargo(buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt()));
+        @Override public Type<PlaceCargo> type() { return TYPE; }
     }
 
     /** Boat tracking does not reliably stream continuous ship pose around dismount. */
@@ -72,6 +96,20 @@ public final class FirstShipNetwork {
                             pose.speed(), pose.turn());
             });
         });
+        registrar.playToServer(PlaceCargo.TYPE, PlaceCargo.CODEC, (packet, context) ->
+                context.enqueueWork(() -> {
+                    if (!(context.player() instanceof ServerPlayer player)
+                            || !player.isAlive() || player.isSpectator()
+                            || packet.hand() < 0 || packet.hand() > 1) return;
+                    if (!(player.level().getEntity(packet.shipId())
+                            instanceof FirstShipEntity ship)
+                            || ship.isRemoved() || !ship.isMoving()
+                            || ship.level() != player.level()) return;
+                    ship.placeMovingCargo(player,
+                            new BlockPos(packet.x(), packet.y(), packet.z()),
+                            packet.hand() == 0 ? InteractionHand.MAIN_HAND
+                                    : InteractionHand.OFF_HAND);
+                }));
         registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
             if (!(context.player() instanceof ServerPlayer player)
                     || !player.isAlive() || player.isSpectator()) return;
