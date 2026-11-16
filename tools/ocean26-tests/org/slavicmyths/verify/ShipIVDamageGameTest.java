@@ -40,6 +40,28 @@ public final class ShipIVDamageGameTest {
         scanHull(test, ShipSectionPlan.ShipClass.LARGEST);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 100, batch = "iv_deck_decor")
+    public static void frigateDeckAllowsSafeDecoration(GameTestHelper test) {
+        var config = ShipBuildConfiguration.initial(ShipSectionPlan.ShipClass.LARGEST)
+                .withCabin(true).withBridge(true).withDecks(3);
+        int rear = -config.length() / 2 + 4;
+        BlockPos first = new BlockPos(6, 12, rear + 20);
+        BlockPos second = first.east();
+        test.assertTrue(ShipModularBlockHull.movingCargoCell(config, first)
+                        && ShipModularBlockHull.movingCargoCell(config, second),
+                "IV open weather deck wrongly rejects ordinary supported placements");
+        var cargo = ShipModularBlockHull.withAddedMovingCargo(test.getLevel(),
+                config, new ListTag(), first, Blocks.OAK_TRAPDOOR.defaultBlockState());
+        test.assertTrue(cargo != null && cargo.size() == 1,
+                "IV decorative trapdoor cannot be persisted as moving cargo");
+        cargo = ShipModularBlockHull.withAddedMovingCargo(test.getLevel(),
+                config, cargo, second, Blocks.LANTERN.defaultBlockState());
+        test.assertTrue(cargo != null && cargo.size() == 2
+                        && ShipModularBlockHull.rotateCargo(config, cargo, 0, 1) != null,
+                "IV lantern decoration cannot survive pack/rotation");
+        test.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 300, batch = "iv_upgraded_doors")
     public static void frigateUpgradedDoorAfterSailing(GameTestHelper test) {
         ShipBuildConfiguration config = ShipBuildConfiguration.initial(
