@@ -327,11 +327,16 @@ public final class BuyanGenerator {
             // expensive. When the server is overloaded, yield most ticks rather
             // than competing with player movement/rendering for resources.
             long tickNanos = level.getServer().getAverageTickTimeNanos();
-            boolean strained = tickNanos > 40_000_000L;
+            // Use spare server tick headroom but throttle immediately when TPS
+            // deteriorates. Never attempt hundreds of columns in one game tick.
+            boolean strained = tickNanos >= 35_000_000L;
+            boolean healthy = tickNanos < 20_000_000L;
             if (strained && (level.getGameTime() & 3L) != 0L) return;
-            long end = System.nanoTime() + (strained ? 750_000L : 1_500_000L);
+            long budgetNanos = strained ? 750_000L
+                : healthy ? 3_000_000L : 1_500_000L;
+            long end = System.nanoTime() + budgetNanos;
             int columns = 0;
-            int limit = strained ? 2 : 10;
+            int limit = strained ? 2 : healthy ? 24 : 10;
             while (System.nanoTime() < end && columns < limit) {
                 if (state.chunkIndex >= totalChunks(state)) {
                     state.finish();
