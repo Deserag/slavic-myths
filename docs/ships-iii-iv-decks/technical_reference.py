@@ -51,6 +51,7 @@ def beam(c, z):
 def box(ax,x,y,z,dx,dy,dz,color,alpha=.75):
     p=np.array([[x,y,z],[x+dx,y,z],[x+dx,y+dy,z],[x,y+dy,z],
                 [x,y,z+dz],[x+dx,y,z+dz],[x+dx,y+dy,z+dz],[x,y+dy,z+dz]])
+    p=p[:,[0,2,1]]  # plot axes X, Z, Y (source cells are X, Y, Z)
     faces=[[p[i] for i in ids] for ids in
            ([0,1,2,3],[4,5,6,7],[0,1,5,4],[1,2,6,5],[2,3,7,6],[3,0,4,7])]
     ax.add_collection3d(Poly3DCollection(faces, facecolors=color, alpha=alpha,
