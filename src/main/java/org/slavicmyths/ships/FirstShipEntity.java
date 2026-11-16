@@ -1547,7 +1547,19 @@ public final class FirstShipEntity extends Boat {
             if (view.length() > 0) view.append(';');
             view.append(c.getInt("X")).append(',').append(c.getInt("Y")).append(',')
                     .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
-            if (c.getInt("Kind") == 6) view.append(',').append(c.getString("BlockId"));
+            // BlockId and the serialized vanilla block properties are public;
+            // inventories remain exclusively on the server in the body NBT.
+            view.append(',');
+            if (c.getInt("Kind") == 6) view.append(c.getString("BlockId"));
+            view.append(',');
+            CompoundTag properties = c.getCompound("State");
+            java.util.List<String> keys = new java.util.ArrayList<>(properties.getAllKeys());
+            java.util.Collections.sort(keys);
+            for (String key : keys) {
+                if (!properties.contains(key, Tag.TAG_STRING)) continue;
+                if (view.charAt(view.length() - 1) != ',') view.append('|');
+                view.append(key).append('=').append(properties.getString(key));
+            }
         }
         entityData.set(MOTION_CARGO_VIEW, view.toString());
     }
