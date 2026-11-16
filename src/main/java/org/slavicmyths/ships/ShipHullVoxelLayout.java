@@ -653,21 +653,26 @@ public final class ShipHullVoxelLayout {
                 || part == Part.BRIDGE || part == Part.FRAME || part == Part.TRIM;
     }
 
-    private static void placeSpacedLight(Map<Cell, Part> blocks,
-            int x, int y, int z, boolean hanging) {
+    private static boolean placeSpacedLight(Map<Cell, Part> blocks,
+            int x, int y, int z) {
         Cell cell = new Cell(x, y, z);
-        if (blocks.containsKey(cell) || !lightSupport(blocks.get(new Cell(
-                x, y + (hanging ? 1 : -1), z)))) return;
+        if (blocks.containsKey(cell)
+                || !lightSupport(blocks.get(new Cell(x, y + 1, z)))) return false;
         for (int clearance = 0; clearance <= 3; clearance++)
-            if (blocks.get(new Cell(x, y - clearance, z)) == Part.STAIR) return;
+            if (blocks.get(new Cell(x, y - clearance, z)) == Part.STAIR)
+                return false;
         for (var entry : blocks.entrySet()) {
             if (entry.getValue() != Part.LANTERN
                     && entry.getValue() != Part.HANGING_LANTERN) continue;
             Cell other = entry.getKey();
-            int dx = x - other.x(), dy = y - other.y(), dz = z - other.z();
-            if (dx * dx + dy * dy + dz * dz < 25) return;
+            // A different floor must not make two lights on the same deck
+            // appear suitably spaced by inflating their 3D distance.
+            if (Math.abs(y - other.y()) < 4
+                    && Math.max(Math.abs(x - other.x()),
+                            Math.abs(z - other.z())) < 5) return false;
         }
-        blocks.put(cell, hanging ? Part.HANGING_LANTERN : Part.LANTERN);
+        blocks.put(cell, Part.HANGING_LANTERN);
+        return true;
     }
 
     private static void placeShipLighting(Map<Cell, Part> blocks,
@@ -675,22 +680,27 @@ public final class ShipHullVoxelLayout {
         int end = plan.hullLength() / 2;
         int[] floors = frigate ? new int[]{1, 6, 11, 16, 21}
                 : new int[]{1, 5, 10, 15, 20};
-        for (int floor : floors)
-            for (int z = -end + 4; z <= end - 4; z += 7) {
+        for (int floor : floors) {
+            int ceiling = floor == 1 && !frigate ? 5 : floor + 5;
+            int station = 0;
+            // One lantern at each longitudinal station, four free blocks
+            // between stations. All lights on a storey share one ceiling Y.
+            for (int z = -end + 4; z <= end - 4; z += 5, station++) {
                 int beam = frigate ? frigateBeam(plan, z) : brigantineBeam(plan, z);
                 if (beam < 4) continue;
                 int side = Math.min(beam - 2, frigate ? 6 : 4);
-                int ceiling = floor == 1 && !frigate ? 5 : floor + 5;
-                // A deck is a walking surface, never a lantern stand.
-                // Only secure lights to the underside of a ceiling beam.
-                for (int x : new int[]{-side, side})
-                    if (lightSupport(blocks.get(new Cell(x, ceiling, z))))
-                        placeSpacedLight(blocks, x, ceiling - 1, z, true);
-                int centerZ = z + (frigate ? 0 : 3);
-                if (centerZ <= end - 4
-                        && lightSupport(blocks.get(new Cell(0, ceiling, centerZ))))
-                    placeSpacedLight(blocks, 0, ceiling - 1, centerZ, true);
+                // Alternate port, centre and starboard instead of installing
+                // three lanterns at one station. Try the other tracks if a
+                // mast, cabin wall or staircase prevents the preferred one.
+                int[] tracks = switch (station % 3) {
+                    case 0 -> new int[]{-side, 0, side};
+                    case 1 -> new int[]{0, side, -side};
+                    default -> new int[]{side, -side, 0};
+                };
+                for (int x : tracks)
+                    if (placeSpacedLight(blocks, x, ceiling - 1, z)) break;
             }
+        }
     }
 
     private static boolean frigateStairHole(int x, int floor, int z,
