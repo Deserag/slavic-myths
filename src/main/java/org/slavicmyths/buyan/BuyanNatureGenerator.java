@@ -38,7 +38,30 @@ public final class BuyanNatureGenerator {
 
     private BuyanNatureGenerator() {}
 
-    private static BuyanState.Site selectedFoundation(ServerLevel world, int x, int z) {
+    /**
+     * Start the second phase for a foundation that is already marked complete.
+     * Safe to call at the phase boundary and from the operator command.
+     * Never rebuilds the foundation or silently restarts a completed nature job.
+     */
+    static boolean startCompleted(ServerLevel world, BuyanState.Site site) {
+        if (site.radius() != BuyanTerrain.MAX_RADIUS || BuyanState.get(world).active) {
+            return false;
+        }
+        BuyanNatureState state = BuyanNatureState.get(world);
+        if (state.active || state.finishedAt(site)) return false;
+        double cutoff = BuyanNature.forestCutoff(world.getSeed(),
+            site.x(), site.z(), site.radius(), world.getSeaLevel());
+        if (!Double.isFinite(cutoff)) {
+            throw new IllegalStateException("Not enough eligible dry land for Buyan forest");
+        }
+        double[] coast = BuyanNature.coastCutoffs(world.getSeed(), site.x(), site.z());
+        state.begin(site, cutoff, coast[0], coast[1]);
+        LogUtils.getLogger().info("Buyan nature automatically started at {},{}",
+            site.x(), site.z());
+        return true;
+    }
+
+    static BuyanState.Site selectedFoundation(ServerLevel world, int x, int z) {
         BuyanState.Site nearest = null;
         long distance = Long.MAX_VALUE;
         for (BuyanState.Site site : BuyanState.get(world).completedSites()) {
@@ -83,14 +106,16 @@ public final class BuyanNatureGenerator {
             source.sendFailure(Component.literal("Природный этап этого Буяна уже завершён."));
             return 0;
         }
-        double cutoff = BuyanNature.forestCutoff(world.getSeed(),
-            site.x(), site.z(), site.radius(), world.getSeaLevel());
-        if (!Double.isFinite(cutoff)) {
-            source.sendFailure(Component.literal("Недостаточно подходящей суши для смешанных лесов."));
+        try {
+            if (!startCompleted(world, site)) {
+                source.sendFailure(Component.literal(
+                    "Природный этап не запущен: основание не завершено или задача занята."));
+                return 0;
+            }
+        } catch (IllegalStateException ex) {
+            source.sendFailure(Component.literal("Не удалось начать природный этап: " + ex.getMessage()));
             return 0;
         }
-        double[] coast = BuyanNature.coastCutoffs(world.getSeed(), site.x(), site.z());
-        state.begin(site, cutoff, coast[0], coast[1]);
         source.sendSuccess(() -> Component.literal(
             "Буян: природный этап запущен для острова " + site.x() + "," + site.z()
             + ". Сначала рельеф и грунты, затем леса и подлесок. "
@@ -101,16 +126,21 @@ public final class BuyanNatureGenerator {
     public static int status(CommandSourceStack source) {
         BuyanNatureState state = BuyanNatureState.get(source.getLevel());
         if (!state.active) {
-            source.sendSuccess(() -> Component.literal(
-                "Буян: активного природного этапа нет (или он завершён)."), false);
+            BuyanState foundation = BuyanState.get(source.getLevel());
+            String message = foundation.completedSites().isEmpty()
+                ? "Буян: генерация пока не запускалась."
+                : "Буян: основание готово; " + (state.hasCompletedSites()
+                    ? "природный этап завершён для " + state.completedCount() + " острова(ов)."
+                    : "природный этап ещё не запущен. Используйте /slavicmyths dev generate buyan на острове.");
+            source.sendSuccess(() -> Component.literal(message), false);
             return 1;
         }
         int count = BuyanGenerator.totalChunks(state.centerX, state.centerZ, state.radius);
-        int percent = (int) Math.min(100L,
-            (100L * (state.phase * (long) count + state.chunkIndex)) / (2L * count));
+        int percent = 50 + (int) Math.min(50L,
+            (50L * (state.phase * (long) count + state.chunkIndex)) / (2L * count));
         source.sendSuccess(() -> Component.literal(
-            "Буян природа: " + (state.phase == 0 ? "рельеф/грунты" : "леса/подлесок")
-            + "; " + percent + "%; чанк " + state.chunkIndex + "/" + count
+            "Буян: " + (state.phase == 0 ? "природный рельеф и грунты (2/3)" : "леса и подлесок (3/3)")
+            + "; общий прогресс по чанкам ~" + percent + "%; чанк " + state.chunkIndex + "/" + count
             + "; пропуски: чанки " + state.skippedChunks
             + ", колонки " + state.skippedColumns
             + "; посажено деревьев " + state.plantedTrees
