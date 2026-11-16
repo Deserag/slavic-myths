@@ -824,32 +824,35 @@ public final class ShipHullVoxelLayout {
                     put(out, x, y, z, y == 11 + rise ? Part.TRIM : Part.HULL);
             }
         }
-        // Княвдигед: lower structural bow timber, continuing the REAL KEEL.
-        // It begins at y=0 at the forward keel tip, visibly emerges from
-        // the hull foundation, then bends upward at the far +Z prow. It is not a horizontal
-        // spar attached at mast/deck height. A sine arc gives a smooth sweep
-        // without disconnected diagonal-only voxel steps.
-        int stemBaseZ = end;
-        int stemTipZ = end + 8;
-        int lastZ = stemBaseZ;
-        for (int y = 1; y <= 15; y++) {
-            double progress = y / 15D;
-            int nextZ = stemBaseZ + (int)Math.round((stemTipZ - stemBaseZ)
-                    * Math.sin(progress * Math.PI / 2D));
-            int radius = y >= 2 && y <= 12 ? 1 : 0;
-            for (int z = lastZ; z <= nextZ; z++)
-                for (int x = -radius; x <= radius; x++) {
-                    Cell cell = new Cell(x, y, z);
-                    // Floors inside the ship remain walkable. The timber
-                    // passes through their existing solid support instead
-                    // of replacing it with a colliding log.
-                    Part existing = out.get(cell);
-                    if (existing == Part.DECK || existing == Part.BRIDGE
-                            || existing == Part.STAIR
-                            || y <= 5 && existing == Part.HULL) continue;
+        // The knyavdiged is an extension of the lower keel, not a short
+        // vertical appendage or a spar emerging from the mast/deck.
+        // The lower timber sweeps forward by eighteen whole blocks; the
+        // cosine keeps its rise to eight blocks over thirty longitudinal
+        // stations. A narrowing scarf ties it continuously into the
+        // full-height bow plating without an air gap at the forefoot.
+        int rootZ = end - 12;
+        int tipZ = end + 18;
+        int previousY = 0;
+        for (int z = rootZ; z <= tipZ; z++) {
+            double progress = (z - rootZ) / (double)(tipZ - rootZ);
+            int keelY = (int)Math.round(4D * (1D - Math.cos(progress * Math.PI)));
+            if (z <= end) {
+                // Existing y=0 keel carries the root inside the hull. Never
+                // replace the watertight y=1 bottom or the interior decks.
+                previousY = keelY;
+                continue;
+            }
+            int lowerY = z <= end + 3 ? 0
+                    : Math.max(0, Math.min(previousY, keelY) - 1);
+            int upperY = Math.max(keelY + 1, 15 - (int)Math.round(6D
+                    * Math.sin((z - end) / 18D * Math.PI / 2D)));
+            int radius = z <= end + 3 ? 2 : z <= end + 12 ? 1 : 0;
+            for (int y = lowerY; y <= upperY; y++) {
+                int layerRadius = y < 2 ? 0 : radius;
+                for (int x = -layerRadius; x <= layerRadius; x++)
                     put(out, x, y, z, x == 0 ? Part.KEEL : Part.FRAME);
-                }
-            lastZ = nextZ;
+            }
+            previousY = keelY;
         }
         boolean raised = true; // IV always includes a functional stern quarterdeck.
         boolean captainDeck = p.decks() >= 2 || p.bridge();
