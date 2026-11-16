@@ -189,12 +189,9 @@ public final class ShipDynamicCollision {
             if (existing != null && existing.key().equals(key)) return existing;
             Map<BlockPos, BlockState> palette = ship.serverMovingPalette();
             if (palette == null) {
-                ListTag cargo = new ListTag();
-                String types = ship.movingCargoView();
-                if (!types.isBlank()) for (String token : types.split(";")) {
-                    String[] fields = token.split(",");
-                    if (fields.length != 4 && fields.length != 5) continue;
-                    try {
+                ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
+                        ship.movingCargoView());
+                try {
                         CompoundTag entry = new CompoundTag();
                         entry.putInt("X", Integer.parseInt(fields[0]));
                         entry.putInt("Y", Integer.parseInt(fields[1]));
