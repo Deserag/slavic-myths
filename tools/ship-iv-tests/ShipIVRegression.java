@@ -76,10 +76,11 @@ public final class ShipIVRegression {
             require(z < p.hullLength() / 2 - 12,
                     "Mast collides with IV bow stem");
         }
-        // Every main interior flight reaches the open quarterdeck.
+        // Two interior flights finish on the open weather deck ahead of
+        // the cabin, without a floor opening inside the captain's room.
         int rear = -p.hullLength() / 2 + 4;
-        int startZ = rear + 24;
-        for (int flight = 0; flight < 3; flight++) {
+        int startZ = rear + 30;
+        for (int flight = 0; flight < 2; flight++) {
             int lower = 1 + flight * 5;
             for (int x : new int[]{-3, -2})
                 assertFlight(hull, x, startZ - 6 * flight, lower);
@@ -94,6 +95,28 @@ public final class ShipIVRegression {
         require(hull.get(new ShipHullVoxelLayout.Cell(0,
                 p.decks() >= 2 || p.bridge() ? 22 : 17, rear + 4))
                 == ShipHullVoxelLayout.Part.HELM, "Missing wheel at captain station");
+        int station = rear + 20;
+        int beam = ShipHullVoxelLayout.halfBeam(p, station);
+        for (int edge : new int[]{-beam, beam}) {
+            require(hull.get(new ShipHullVoxelLayout.Cell(edge, 12, station))
+                    == ShipHullVoxelLayout.Part.RAIL,
+                    "Weather rail is not at the physical edge of the IV hull");
+            require(hull.get(new ShipHullVoxelLayout.Cell(
+                    edge > 0 ? edge - 2 : edge + 2, 12, station))
+                    != ShipHullVoxelLayout.Part.RAIL,
+                    "Old internal IV guardrail still cuts across the deck");
+        }
+        require(hull.get(new ShipHullVoxelLayout.Cell(-3, 11, rear + 18))
+                    == ShipHullVoxelLayout.Part.DECK,
+                "Internal stairs fail to arrive on open deck");
+        int helmFloor = p.decks() >= 2 || p.bridge() ? 21 : 16;
+        require(hull.get(new ShipHullVoxelLayout.Cell(0,
+                        helmFloor + 1, rear + 1))
+                    == ShipHullVoxelLayout.Part.TRIM,
+                "Captain stern screen missing behind helm");
+        require(hull.get(new ShipHullVoxelLayout.Cell(0,
+                        helmFloor + 1, rear + 5)) == null,
+                "Captain helm's forward approach is blocked");
         require(hull.values().stream().filter(part ->
                 part == ShipHullVoxelLayout.Part.RAIL).count() >= 30,
                 "Open-deck safety rails missing");
