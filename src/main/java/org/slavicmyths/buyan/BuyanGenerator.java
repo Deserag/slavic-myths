@@ -36,7 +36,9 @@ public final class BuyanGenerator {
 
     private BuyanGenerator() {}
 
-    public static int generate(CommandSourceStack source, int radius) {
+    public static int generate(CommandSourceStack source) {
+        // This is the maximum outline bound, not a fixed circular coastline.
+        final int radius = BuyanTerrain.MAX_RADIUS;
         ServerLevel world = source.getLevel();
         if (world.dimension() != Level.OVERWORLD) {
             source.sendFailure(Component.literal("Буян можно создавать только в обычном мире."));
@@ -66,9 +68,9 @@ public final class BuyanGenerator {
         }
         state.begin(cx, cz, radius);
         source.sendSuccess(() -> Component.literal(
-            "Буян: центр X=" + cx + " Z=" + cz + ", радиус=" + radius
-            + ". Генерация начинается здесь и расширяется к берегам."
-            + " Природный рельеф заменяется, защищённые строения пропускаются."
+            "Буян: строится ТОЛЬКО ОСНОВАНИЕ. Центр X=" + cx + " Z=" + cz
+            + ", берег 100–350 блоков, уровень суши выше моря."
+            + " Сначала появится цельная площадка, холмы и горы будут позже."
             + " Прогресс: /slavicmyths dev buyan status."), true);
         return 1;
     }
@@ -83,7 +85,7 @@ public final class BuyanGenerator {
         int progress = (int) Math.min(100L, 100L * state.chunkIndex / Math.max(1, count));
         source.sendSuccess(() -> Component.literal(
             "Буян: центр " + state.centerX + "," + state.centerZ + "; радиус "
-            + state.radius + "; чанки " + state.chunkIndex + "/" + count
+            + " (берег 100–350); этап: ОСНОВАНИЕ; чанки " + state.chunkIndex + "/" + count
             + "; " + progress + "%; обход от центра; защищённые чанки "
             + state.skippedChunks + ", пропущенные колонки " + state.skippedColumns
             + "; " + (state.paused ? "ПАУЗА" : "СТРОИТСЯ")
@@ -107,8 +109,14 @@ public final class BuyanGenerator {
         ServerLevel world = source.getLevel();
         BuyanState state = BuyanState.get(world);
         if (!state.active) return status(source);
+        if (state.traversalVersion != 3) {
+            source.sendFailure(Component.literal(
+                "Старое задание несовместимо с новым основанием Буяна. "
+                + "Нужен новый тестовый мир; старая территория не должна перезаписываться."));
+            return 0;
+        }
         state.resume();
-        source.sendSuccess(() -> Component.literal("Буян: генерация продолжена с сохранённого чанка."), false);
+        source.sendSuccess(() -> Component.literal("Буян: генерация основания продолжена с сохранённого чанка."), false);
         return 1;
     }
 
@@ -271,15 +279,15 @@ public final class BuyanGenerator {
                                   BlockState[] original) {
         if (!withinFootprint(state, x, z)) return true;
         int sea = world.getSeaLevel();
-        int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
+        // Check the shoreline BEFORE querying the expensive ocean-floor heightmap.
         int top = BuyanTerrain.top(world.getSeed(), state.centerX, state.centerZ,
-            state.radius, x, z, sea, oceanFloor);
+            state.radius, x, z, sea);
         if (top == Integer.MIN_VALUE) return true;
+        int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z) - 1;
 
         int surface = Math.min(world.getMaxBuildHeight() - 8, top);
-        // One surface classification per column rather than a noisy block lottery.
         BuyanTerrain.Surface type = BuyanTerrain.surface(world.getSeed(),
-            state.centerX, state.centerZ, state.radius, x, z, sea, surface, oceanFloor);
+            state.centerX, state.centerZ, x, z, sea, surface);
         double cover = BuyanTerrain.surfaceCover(world.getSeed(), x, z);
         int rock = BuyanTerrain.surfaceRockRoll(world.getSeed(), x, z);
         // Natural pre-existing ground is adapted as well as empty ocean water.
