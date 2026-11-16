@@ -28,6 +28,32 @@ public final class ShipIVRegression {
                 bridge, cabin, 4);
     }
 
+    private static void assertFlight(
+            Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull,
+            int x, int start, int lower) {
+        require(hull.get(new ShipHullVoxelLayout.Cell(x, lower, start))
+                == ShipHullVoxelLayout.Part.HULL && lower == 1
+                || hull.get(new ShipHullVoxelLayout.Cell(x, lower, start))
+                    == ShipHullVoxelLayout.Part.DECK
+                || hull.get(new ShipHullVoxelLayout.Cell(x, lower, start))
+                    == ShipHullVoxelLayout.Part.BRIDGE,
+                "Missing stair approach at " + x + "," + lower + "," + start);
+        require(hull.get(new ShipHullVoxelLayout.Cell(x, lower + 5, start - 6))
+                == ShipHullVoxelLayout.Part.DECK
+                || hull.get(new ShipHullVoxelLayout.Cell(x, lower + 5, start - 6))
+                    == ShipHullVoxelLayout.Part.BRIDGE,
+                "Missing stair exit at " + x + "," + lower + "," + start);
+        for (int i = 1; i <= 5; i++) {
+            int y = lower + i, z = start - i;
+            require(hull.get(new ShipHullVoxelLayout.Cell(x, y, z))
+                    == ShipHullVoxelLayout.Part.STAIR,
+                    "Missing stair tread at " + x + "," + y + "," + z);
+            for (int head = 1; head <= 3; head++)
+                require(!hull.containsKey(new ShipHullVoxelLayout.Cell(x, y + head, z)),
+                        "Blocked stair headroom: " + x + "," + (y + head) + "," + z);
+        }
+    }
+
     private static void testHull(ShipSuperstructurePlan p) {
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> hull =
                 ShipHullVoxelLayout.generate(p);
@@ -50,28 +76,32 @@ public final class ShipIVRegression {
             require(z < p.hullLength() / 2 - 12,
                     "Mast collides with IV bow stem");
         }
-        // The fixed access routes are part of every valid IV blueprint.
-        int rear = -p.hullLength() / 2 + 3;
-        int[][] routes = {
-                {-3, -12, 1}, {3, 6, 1},
-                {-4, -8, 6}, {4, 2, 6},
-                {-5, rear + 8, 11}, {5, rear + 8, 11},
-                {-3, rear + 2, 16}, {3, rear + 2, 16}
-        };
-        for (int[] r : routes) {
-            if (r[2] == 16 && !(p.decks() >= 2 || p.bridge()))
-                continue;
-            for (int i = 1; i <= 5; i++) {
-                int y = r[2] + i, z = r[1] + i;
-                require(hull.get(new ShipHullVoxelLayout.Cell(r[0], y, z))
-                        == ShipHullVoxelLayout.Part.STAIR,
-                        "Missing stair tread at " + r[0] + "," + y + "," + z);
-                for (int head = y + 1; head <= y + 2; head++)
-                    require(!hull.containsKey(
-                            new ShipHullVoxelLayout.Cell(r[0], head, z)),
-                            "Blocked stair headroom: " + r[0] + "," + head + "," + z);
-            }
+        // Every main interior flight reaches the open quarterdeck.
+        int rear = -p.hullLength() / 2 + 4;
+        int startZ = rear + 24;
+        for (int flight = 0; flight < 3; flight++) {
+            int lower = 1 + flight * 5;
+            for (int x : new int[]{-3, -2})
+                assertFlight(hull, x, startZ - 6 * flight, lower);
         }
+        // The captain's station is reached from the quarterdeck via its
+        // own port-side exterior access; it cannot hijack the main route.
+        for (int x : new int[]{3, 4})
+            assertFlight(hull, x, rear + 21, 11);
+        if (p.decks() >= 2 || p.bridge())
+            for (int x : new int[]{-5, -4})
+                assertFlight(hull, x, rear + 10, 16);
+        require(hull.get(new ShipHullVoxelLayout.Cell(0,
+                p.decks() >= 2 || p.bridge() ? 22 : 17, rear + 4))
+                == ShipHullVoxelLayout.Part.HELM, "Missing wheel at captain station");
+        require(hull.values().stream().filter(part ->
+                part == ShipHullVoxelLayout.Part.RAIL).count() >= 30,
+                "Open-deck safety rails missing");
+        require(hull.get(new ShipHullVoxelLayout.Cell(0, 12, rear + 15))
+                == ShipHullVoxelLayout.Part.DOOR
+                && hull.get(new ShipHullVoxelLayout.Cell(0, 13, rear + 15))
+                == ShipHullVoxelLayout.Part.DOOR, "Cabin double-height door missing");
+
     }
 
     private static void testModifications() {
