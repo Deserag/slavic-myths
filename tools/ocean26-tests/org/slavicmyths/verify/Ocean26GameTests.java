@@ -70,7 +70,7 @@ public final class Ocean26GameTests {
         boolean iv = config.shipClass()
                 == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST;
         int[] floors = iv
-                ? new int[]{1, 6, 11, 16, 21}
+                ? new int[]{1, 6, 11, 16}
                 : new int[]{1, 5, 10, 15, 20};
         int rear = -config.length() / 2 + (iv ? 4 : 2);
         int z = rear + 6;
@@ -135,6 +135,36 @@ public final class Ocean26GameTests {
             z = exit;
         }
         t.assertTrue(z == rear + 6, "Final stair landing detached from aft deck");
+        if (iv) {
+            assertRotatedExteriorFlight(t, level, motion.palette(),
+                    anchor, turns, 4, rear + 21, 11, facing);
+            assertRotatedExteriorFlight(t, level, motion.palette(),
+                    anchor, turns, -5, rear + 10, 16, facing);
+        }
+    }
+
+    private static void assertRotatedExteriorFlight(GameTestHelper t, ServerLevel level,
+            java.util.Map<BlockPos, net.minecraft.world.level.block.state.BlockState> palette,
+            BlockPos anchor, int turns, int x, int z, int lower,
+            net.minecraft.core.Direction facing) {
+        for (int lane : new int[]{x, x - Integer.signum(x)}) {
+            for (int step = 1; step <= 5; step++) {
+                int y = lower + step, station = z - step;
+                BlockPos world = FirstShipBlockHull.world(anchor, turns, lane, y, station);
+                var state = level.getBlockState(world);
+                var moving = palette.get(new BlockPos(lane, y, station));
+                t.assertTrue(state.is(Blocks.SPRUCE_STAIRS)
+                                && state.getValue(net.minecraft.world.level.block.StairBlock.FACING) == facing
+                                && moving != null && moving.is(Blocks.SPRUCE_STAIRS)
+                                && moving.getValue(net.minecraft.world.level.block.StairBlock.FACING)
+                                        == net.minecraft.core.Direction.NORTH,
+                        "IV exterior stair rotation invalid at " + turns
+                                + " x=" + lane + " y=" + y + " z=" + station);
+                for (int head = 1; head <= 3; head++)
+                    t.assertTrue(level.getBlockState(world.above(head)).isAir(),
+                            "IV exterior staircase headroom blocked at " + world);
+            }
+        }
     }
 
     @GameTest(template = "empty", timeoutTicks = 500,
@@ -2597,9 +2627,9 @@ public final class Ocean26GameTests {
     }
 
     /**
-     * All generated modular decks and bridges are free of fence railings.
-     * The dark-oak helm is a functional steering control, not a deck railing.
-     * The legacy fixed 7x11 vessel is deliberately unaffected.
+     * Only Ship IV receives real spruce-fence safety rails on exposed decks.
+     * Ship III and earlier retain their fence-free blueprint. Every class
+     * keeps exactly one separate dark-oak helm control.
      */
     @GameTest(template = "empty", timeoutTicks = 180, batch = "ocean_modular_no_fences")
     public static void modularDecksHaveNoFenceRailings(GameTestHelper t) {
@@ -2631,15 +2661,20 @@ public final class Ocean26GameTests {
         long deck = parts.values().stream().filter(part ->
                 part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.DECK
                         || part == org.slavicmyths.ships.ShipHullVoxelLayout.Part.BRIDGE).count();
-        t.assertTrue(railings == 0 && helms == 1 && deck > 0,
-                "Modular deck still has fence railing or lost helm/floor: " + config);
+        boolean iv = config.shipClass()
+                == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4;
+        t.assertTrue((iv ? railings >= 30 : railings == 0)
+                        && helms == 1 && deck > 0,
+                "Unexpected deck safety rails or missing helm/floor: " + config);
         var palette = org.slavicmyths.ships.ShipModularBlockHull.localPalette(config);
         long spruceFences = palette.values().stream().filter(state ->
                 state.is(Blocks.SPRUCE_FENCE)).count();
         long helmControls = palette.values().stream().filter(state ->
                 state.is(Blocks.DARK_OAK_FENCE)).count();
-        t.assertTrue(spruceFences == 0 && helmControls == 1,
-                "World block palette contains fence railings or lacks the helm: " + config);
+        t.assertTrue((iv ? spruceFences == railings : spruceFences == 0)
+                        && helmControls == 1,
+                "World palette rail count mismatches design or lacks the helm: " + config);
     }
 
     @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_modular_bed_policy")
