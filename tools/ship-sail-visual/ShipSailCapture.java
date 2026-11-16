@@ -141,10 +141,10 @@ public final class ShipSailCapture {
         double eyeY = ANCHOR.getY() + (c.shipLevel() == 4 ? 35D : 31D);
         double x = angle == 1 ? distance : angle == 3 ? 2D : 0D;
         double z = angle == 0 ? distance : angle == 2 ? -distance
-                : angle == 3 ? (c.shipLevel() == 4 ? -14D : -9D) : 0D;
+                : angle == 3 ? (c.shipLevel() == 4 ? -23D : -15D) : 0D;
         if (angle == 3) {
-            eyeY = ANCHOR.getY() + (c.shipLevel() == 4 ? 15D : 15D);
-            targetY = ANCHOR.getY() + (c.shipLevel() == 4 ? 31D : 30D);
+            eyeY = ANCHOR.getY() + 14D;
+            targetY = ANCHOR.getY() + 22D;
         }
         double dx = -x, dy = targetY - eyeY, dz = -z;
         float yaw = (float) Math.toDegrees(Math.atan2(-dx, dz));
