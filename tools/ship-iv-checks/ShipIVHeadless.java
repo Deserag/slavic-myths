@@ -284,6 +284,12 @@ public final class ShipIVHeadless {
                         == ShipHullVoxelLayout.Part.LANTERN,
                         key + ": roof-top corner light missing");
         }
+        if (bridge) {
+            for (int x : new int[]{-4, 4})
+                require(at(blocks, x, 27, rear + 5) == ShipHullVoxelLayout.Part.TRIM
+                        && at(blocks, x, 29, rear + 5) == ShipHullVoxelLayout.Part.LANTERN,
+                        key + ": bridge-only canopy lacks an illuminated perimeter");
+        }
         var preDeckRefit = ShipHullVoxelLayout.previousDeckRefitFrigateIVLayout(plan);
         for (int x : new int[]{3, 4})
             stair(preDeckRefit, x, rear + 21, 11, 16,
