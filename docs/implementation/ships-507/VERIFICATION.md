@@ -16,7 +16,7 @@ Issue remains OPEN. Owner acceptance has not been granted.
 | Falling crew on III/IV moving deck | Direct `ServerPlayer.move` against detached moving hull in GameTests | PASS (server collision) |
 | Player jumps, passage, mast/rope interaction, moving client render and relog | No isolated client evidence for these actions yet | NOT_RUN |
 | Owner acceptance | Owner has not accepted the change | BLOCKED |
-| Owner-approved original art in Issue | Issue #507 contains technical references but no reachable owner-approved original art | BLOCKED |
+| Owner-approved original art in Issue | An original six-configuration concept is proposed at `docs/art/ships-507-proposed-original.png`. It is not a source render of the Java model and has not been accepted by the owner | BLOCKED |
 
 The screenshot fixture uses a spectator camera and overrides sail pressure on the client for the three visual profiles. It does not prove real wind, steering, player collision, save/relog, or multiplayer behaviour. GameTests exercise server movement and save paths separately.
 
