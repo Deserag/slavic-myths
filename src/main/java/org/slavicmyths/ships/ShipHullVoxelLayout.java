@@ -1,5 +1,6 @@
 package org.slavicmyths.ships;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
@@ -585,7 +586,7 @@ public final class ShipHullVoxelLayout {
                     stairFloors[i], stairFloors[i + 1]);
 
         sealBrigantineWorkingFloors(out, p);
-        placeShipLighting(out, p, false);
+        placeShipLighting(out, p, false, false);
         validateBrigantineBilge(out, p);
         for (int i = 0; i + 1 < stairFloors.length; i++)
             validateBrigantineStair(out, -3, stairFlightStart(stairFloors, stairZ, i),
@@ -665,7 +666,7 @@ public final class ShipHullVoxelLayout {
     }
 
     private static boolean placeSpacedLight(Map<Cell, Part> blocks,
-            int x, int y, int z) {
+            int x, int y, int z, int spacing) {
         Cell cell = new Cell(x, y, z);
         if (blocks.containsKey(cell)
                 || !lightSupport(blocks.get(new Cell(x, y + 1, z)))) return false;
@@ -680,14 +681,14 @@ public final class ShipHullVoxelLayout {
             // appear suitably spaced by inflating their 3D distance.
             if (Math.abs(y - other.y()) < 4
                     && Math.max(Math.abs(x - other.x()),
-                            Math.abs(z - other.z())) < 5) return false;
+                            Math.abs(z - other.z())) < spacing) return false;
         }
         blocks.put(cell, Part.HANGING_LANTERN);
         return true;
     }
 
     private static void placeShipLighting(Map<Cell, Part> blocks,
-            ShipSuperstructurePlan plan, boolean frigate) {
+            ShipSuperstructurePlan plan, boolean frigate, boolean previousIV) {
         int end = plan.hullLength() / 2;
         int[] floors = frigate ? new int[]{1, 6, 11, 16, 21}
                 : new int[]{1, 5, 10, 15, 20};
@@ -696,20 +697,27 @@ public final class ShipHullVoxelLayout {
             int station = 0;
             // One lantern at each longitudinal station, four free blocks
             // between stations. All lights on a storey share one ceiling Y.
-            for (int z = -end + 4; z <= end - 4; z += 5, station++) {
+            for (int z = -end + 4; z <= end - 4; z += frigate && !previousIV ? 4 : 5, station++) {
                 int beam = frigate ? frigateBeam(plan, z) : brigantineBeam(plan, z);
                 if (beam < 4) continue;
                 int side = Math.min(beam - 2, frigate ? 6 : 4);
-                // Alternate port, centre and starboard instead of installing
-                // three lanterns at one station. Try the other tracks if a
-                // mast, cabin wall or staircase prevents the preferred one.
-                int[] tracks = switch (station % 3) {
-                    case 0 -> new int[]{-side, 0, side};
-                    case 1 -> new int[]{0, side, -side};
-                    default -> new int[]{side, -side, 0};
-                };
-                for (int x : tracks)
-                    if (placeSpacedLight(blocks, x, ceiling - 1, z)) break;
+                if (frigate && !previousIV) {
+                    // Broad IV holds: both side aisles receive light.
+                    // A central row at alternating stations fills dark pockets.
+                    placeSpacedLight(blocks, -side, ceiling - 1, z, 3);
+                    placeSpacedLight(blocks, side, ceiling - 1, z, 3);
+                    if (station % 2 == 0)
+                        placeSpacedLight(blocks, 0, ceiling - 1, z, 3);
+                } else {
+                    // Retain previous III/IV spacing for save compatibility.
+                    int[] tracks = switch (station % 3) {
+                        case 0 -> new int[]{-side, 0, side};
+                        case 1 -> new int[]{0, side, -side};
+                        default -> new int[]{side, -side, 0};
+                    };
+                    for (int x : tracks)
+                        if (placeSpacedLight(blocks, x, ceiling - 1, z, 5)) break;
+                }
             }
         }
     }
@@ -930,13 +938,44 @@ public final class ShipHullVoxelLayout {
     }
 
     private static void frigateHelmDetail(Map<Cell, Part> blocks, int rear, int floor) {
-        // Four short bollards and a narrow aft handrail frame the only helm.
-        // The forward and side approaches to the wheel remain unobstructed.
-        for (int x : new int[]{-2, 2})
-            for (int z : new int[]{rear + 3, rear + 5})
-                frigateDeckRail(blocks, x, floor, z);
-        for (int x = -1; x <= 1; x++)
-            frigateDeckRail(blocks, x, floor, rear + 2);
+        // Build a continuous timber U behind the single wheel, instead of
+        // unrelated fence posts. Keep its forward and side approach clear.
+        for (int x = -3; x <= 3; x++) {
+            put(blocks, x, floor + 1, rear + 1, Part.TRIM);
+            if (Math.abs(x) <= 2)
+                put(blocks, x, floor + 2, rear + 1, Part.TRIM);
+        }
+        for (int z = rear + 2; z <= rear + 3; z++)
+            for (int x : new int[]{-3, 3})
+                if (!blocks.containsKey(new Cell(x, floor + 1, z)))
+                    put(blocks, x, floor + 1, z, Part.TRIM);
+        // Matching light-posts stand OUTSIDE the working wheel approach.
+        for (int x : new int[]{-4, 4}) {
+            Part support = blocks.get(new Cell(x, floor, rear + 1));
+            if (support != Part.DECK && support != Part.BRIDGE) continue;
+            for (int y = floor + 1; y <= floor + 3; y++)
+                if (!blocks.containsKey(new Cell(x, y, rear + 1)))
+                    put(blocks, x, y, rear + 1, Part.FRAME);
+            if (!blocks.containsKey(new Cell(x, floor + 4, rear + 1)))
+                put(blocks, x, floor + 4, rear + 1, Part.LANTERN);
+        }
+    }
+
+    private static void frigateRoofParapet(Map<Cell, Part> blocks) {
+        // Follow the actual wheelhouse roof footprint, not a rectangle.
+        List<Cell> outline = new ArrayList<>();
+        for (var entry : blocks.entrySet()) {
+            Cell c = entry.getKey();
+            if (c.y() != 26 || entry.getValue() != Part.BRIDGE) continue;
+            if (blocks.get(new Cell(c.x() - 1, 26, c.z())) != Part.BRIDGE
+                    || blocks.get(new Cell(c.x() + 1, 26, c.z())) != Part.BRIDGE
+                    || blocks.get(new Cell(c.x(), 26, c.z() - 1)) != Part.BRIDGE
+                    || blocks.get(new Cell(c.x(), 26, c.z() + 1)) != Part.BRIDGE)
+                outline.add(c);
+        }
+        for (Cell c : outline)
+            if (!blocks.containsKey(new Cell(c.x(), 27, c.z())))
+                put(blocks, c.x(), 27, c.z(), Part.TRIM);
     }
 
     private static Map<Cell, Part> generateFrigateIV(
@@ -1105,10 +1144,11 @@ public final class ShipHullVoxelLayout {
             if (captainDeck) frigateStairs(out, -5, rear + 10, 16, 21);
             frigateSafetyRails(out, p, rear, captainDeck);
             frigateHelmDetail(out, rear, captainDeck ? 21 : 16);
+            if (p.decks() >= 3) frigateRoofParapet(out);
         }
         int wheelY = captainDeck ? 22 : raised ? 17 : 12;
         put(out, 0, wheelY, rear + 4, Part.HELM);
-        placeShipLighting(out, p, true);
+        placeShipLighting(out, p, true, previousLayout);
         validateFrigateIV(out, p, rear, previousLayout);
         return Collections.unmodifiableMap(out);
     }
