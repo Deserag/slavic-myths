@@ -99,7 +99,7 @@ public final class ShipIVGeometryHeadless {
                         && other.getValue() != ShipHullVoxelLayout.Part.HANGING_LANTERN) continue;
                 var p = other.getKey();
                 int dx = p.x() - pos.x(), dy = p.y() - pos.y(), dz = p.z() - pos.z();
-                require(dx * dx + dy * dy + dz * dz >= 25,
+                require(dx * dx + dy * dy + dz * dz >= 9,
                         "Lanterns are too close: " + pos + " / " + p);
             }
         }
@@ -107,10 +107,9 @@ public final class ShipIVGeometryHeadless {
         for (int z : config.mastPositions())
             require(at(cells, 0, 12, z) == ShipHullVoxelLayout.Part.MAST,
                     "Missing physical mast " + z);
-        int stairZ = rear + 24;
+        int stairZ = rear + 30;
         flight(cells, -3, stairZ, 1);
         flight(cells, -3, stairZ - 6, 6);
-        flight(cells, -3, stairZ - 12, 11);
         flight(cells, 4, rear + 21, 11);
         if (config.decks() >= 2 || config.bridge())
             flight(cells, -5, rear + 10, 16);
