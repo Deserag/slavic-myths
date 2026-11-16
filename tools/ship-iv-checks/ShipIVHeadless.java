@@ -130,6 +130,11 @@ public final class ShipIVHeadless {
             require(at(blocks, x, wheelFloor + 4, rear + 1)
                     == ShipHullVoxelLayout.Part.LANTERN,
                     key + ": helm lighting post missing");
+        // Quarterdeck rail sits on the expanded physical roof edge.
+        int quarterRim = ShipHullVoxelLayout.halfBeam(plan, rear + 8);
+        require(at(blocks, quarterRim, 16, rear + 8) == ShipHullVoxelLayout.Part.DECK
+                && at(blocks, quarterRim, 17, rear + 8) == ShipHullVoxelLayout.Part.RAIL,
+                key + ": quarterdeck fence is inboard of the hull");
         int station = rear + 20;
         int outside = ShipHullVoxelLayout.halfBeam(plan, station);
         for (int x : new int[]{-outside, outside})
@@ -264,7 +269,7 @@ public final class ShipIVHeadless {
             require(flights[i - 1][1] - 6 == flights[i][1]
                     && flights[i - 1][3] == flights[i][2],
                     key + ": stair flights have a disconnected landing");
-        for (int x : new int[]{3, 4})
+        for (int x : new int[]{6, 7})
             stair(blocks, x, rear + 21, 11, 16, key + " weather deck");
         if (decks >= 2 || bridge)
             for (int x : new int[]{-5, -4})
