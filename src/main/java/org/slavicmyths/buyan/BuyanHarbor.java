@@ -88,13 +88,16 @@ public final class BuyanHarbor {
         }
         int land(int x,int z){
             BlockPos pos=plan.world(x,0,z);
-            return BuyanTerrain.top(seed,site.x(),site.z(),site.radius(),
+            return BuyanNature.top(seed,site.x(),site.z(),site.radius(),
                 pos.getX(),pos.getZ(),site.waterLevel());
         }
         int shore(int x){
             return shore.computeIfAbsent(x,u->{
-                for(int z=-site.radius()-12;z<=0;z++)
-                    if(land(u,z)!=Integer.MIN_VALUE)return z;
+                for(int z=-site.radius()-12;z<=0;z++){
+                    BlockPos pos=plan.world(u,0,z);
+                    if(BuyanTerrain.top(seed,site.x(),site.z(),site.radius(),
+                        pos.getX(),pos.getZ(),site.waterLevel())!=Integer.MIN_VALUE)return z;
+                }
                 return Integer.MAX_VALUE;
             });
         }
@@ -184,7 +187,9 @@ public final class BuyanHarbor {
         for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++)
             p.fill(x+dx,floor-4,z+dz,x+dx,floor-1,z+dz,Blocks.COBBLESTONE.defaultBlockState());
         p.fill(x,floor,z,x+width-1,floor,z+depth-1,FLOOR);
-        p.fill(x+1,floor+1,z+1,x+width-2,floor+height,z+depth-2,AIR);
+        // Remove only trees over this building plot, including branches above the roof.
+        // The rest of the island's forest is deliberately left untouched.
+        p.fill(x-1,floor+1,z-1,x+width,floor+height+9,z+depth,AIR);
         for(int y=1;y<=height;y++){
             for(int dx=0;dx<width;dx++){
                 p.at(x+dx,floor+y,z,OAK);
@@ -324,7 +329,7 @@ public final class BuyanHarbor {
             :(n<6?Blocks.COARSE_DIRT.defaultBlockState()
                 :n<12?Blocks.GRAVEL.defaultBlockState():Blocks.DIRT_PATH.defaultBlockState());
         p.at(x,y,z,surface);
-        for(int h=1;h<=3;h++)p.at(x,y+h,z,AIR);
+        for(int h=1;h<=14;h++)p.at(x,y+h,z,AIR);
     }
 
     /** Road segments lie on real terrain rather than on an artificial flat plane. */
@@ -348,11 +353,12 @@ public final class BuyanHarbor {
             for(int z=shore;z<=shore+6;z++){
                 int land=ground(coast,x,z);
                 if(land==Integer.MIN_VALUE)continue;
-                p.at(x,sea+3,z,FLOOR);
-                for(int h=1;h<=3;h++)p.at(x,sea+3+h,z,AIR);
+                int deck=Math.max(sea+3,land);
+                p.at(x,deck,z,FLOOR);
+                for(int h=1;h<=14;h++)p.at(x,deck+h,z,AIR);
                 if(z==shore||z==shore+5){
                     // Both ends of every short timber strip are structurally supported.
-                    p.fill(x,sea-3,z,x,sea+2,z,LOG);
+                    p.fill(x,sea-3,z,x,deck-1,z,LOG);
                 }
             }
         }
@@ -498,7 +504,7 @@ public final class BuyanHarbor {
             if(y==Integer.MIN_VALUE)return false;
             min=Math.min(min,y);max=Math.max(max,y);
         }
-        return min>=sea+2&&max<=sea+9&&max-min<=2;
+        return min>=sea+2&&max<=sea+60&&max-min<=3;
     }
 
     /** Runs only after the existing nature pass is completed; never rebuilds terrain. */
