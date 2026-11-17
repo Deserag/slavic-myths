@@ -334,6 +334,16 @@ public final class ShipSailCapture {
                                 ahead, surface, serverShip.serverMovingPalette())
                         + " support=" + firstMissingWater(world, ahead, surface)
                         + " yaw=" + serverShip.getYRot()
+                        + " micro_clear=" + java.util.stream.IntStream.rangeClosed(1, 50)
+                                .filter(n -> {
+                                    double distance = n * .001D;
+                                    return !ShipMovingClearance.clearPose(world,
+                                            new ShipRigidMotion.Pose(
+                                                    serverShip.getX() - Math.sin(yaw) * distance,
+                                                    serverShip.getZ() + Math.cos(yaw) * distance,
+                                                    serverShip.getYRot()),
+                                            surface, serverShip.serverMovingPalette());
+                                }).limit(5).boxed().toList()
                         + " turn_clear=" + java.util.stream.IntStream.rangeClosed(1, 10)
                                 .mapToObj(n -> n * .01D + ":" + ShipMovingClearance.clearPose(
                                         world, new ShipRigidMotion.Pose(serverShip.getX(),
