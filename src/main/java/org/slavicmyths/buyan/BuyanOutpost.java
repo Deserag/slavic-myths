@@ -913,7 +913,10 @@ public final class BuyanOutpost {
                         if (backing == null || !backing.is(backingType.getBlock())
                             || stairs == null || !stairs.is(tile.getBlock())
                             || stairs.getValue(StairBlock.FACING) !=
-                                (u < plot.width / 2 ? Direction.EAST : Direction.WEST))
+                                Blocks.DARK_OAK_STAIRS.defaultBlockState()
+                                    .setValue(StairBlock.FACING,
+                                        u < plot.width / 2 ? Direction.EAST : Direction.WEST)
+                                    .rotate(hill.rotation()).getValue(StairBlock.FACING))
                             return fail("gable roof at " + plot.x + "," + plot.z + " u=" + u + " v=" + v);
                     }
                 }
