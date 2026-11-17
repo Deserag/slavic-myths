@@ -671,6 +671,14 @@ public final class Ocean26GameTests {
                     "Two missing planks must reject detach");
             level.setBlock(second, secondState, 2);
         }
+        if (largest && fullyUpgraded && !damaged) {
+            BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 2, 7, 0);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                            config, new BlockPos(2, 7, 0))
+                            && level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2),
+                    "IV multiplayer cargo fixture could not be installed");
+            chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 7));
+        }
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
 
         ServerPlayer captain = player(level, type + "VoyageCaptain",
@@ -726,6 +734,26 @@ public final class Ocean26GameTests {
                             + " rider=" + (captain.getVehicle() == ship)
                             + " palette=" + (ship.serverMovingPalette() != null));
             if (largeHull && !damaged) {
+                if (largest && fullyUpgraded) {
+                    var berth = FirstShipHull.toWorld(2D, 2D,
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    ServerPlayer crewA = player(level, "IVCargoCrewA", new Vec3(
+                            berth.x(), ship.getY() + 7D, berth.z()));
+                    ServerPlayer crewB = player(level, "IVCargoCrewB", new Vec3(
+                            berth.x() + .3D, ship.getY() + 7D, berth.z()));
+                    t.assertTrue(ship.openMovingCargo(crewA, 0)
+                                    && ship.openMovingCargo(crewB, 0)
+                                    && crewA.containerMenu != crewA.inventoryMenu
+                                    && crewB.containerMenu != crewB.inventoryMenu
+                                    && crewA.containerMenu.getSlot(0).getItem().is(Items.DIAMOND),
+                            "IV two-crew detached chest did not open");
+                    crewA.containerMenu.getSlot(0).set(new ItemStack(Items.EMERALD, 9));
+                    t.assertTrue(crewB.containerMenu.getSlot(0).getItem().is(Items.EMERALD)
+                                    && crewB.containerMenu.getSlot(0).getItem().getCount() == 9,
+                            "IV second crew did not see the shared chest edit");
+                    crewA.closeContainer(); crewB.closeContainer();
+                    crewA.discard(); crewB.discard();
+                }
                 ServerPlayer fallingCrew = player(level, type + "FallingCrew",
                         new Vec3(ship.getX() + 2D, ship.deckY() + .65D, ship.getZ()));
                 fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
@@ -771,6 +799,15 @@ public final class Ocean26GameTests {
                                 && loadedMovingBody.palette().size()
                                 == ship.serverMovingPalette().size(),
                         type + " moving mixed-tier hull palette changed in NBT roundtrip");
+                if (largest && fullyUpgraded) {
+                    var items = net.minecraft.core.NonNullList.withSize(27, ItemStack.EMPTY);
+                    net.minecraft.world.ContainerHelper.loadAllItems(
+                            loadedMovingBody.cargoEntry(0).getCompound("BlockEntity"),
+                            items, level.registryAccess());
+                    t.assertTrue(items.get(0).is(Items.EMERALD)
+                                    && items.get(0).getCount() == 9,
+                            "IV shared chest edit was not saved with moving body");
+                }
                 BlockPos door = loadedMovingBody.palette().entrySet().stream()
                         .filter(entry -> entry.getValue().getBlock()
                                 instanceof net.minecraft.world.level.block.DoorBlock)

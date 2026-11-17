@@ -49,6 +49,11 @@ public final class ShipHullRenderRefreshClient {
                     anchor.getY() - 2, anchor.getZ() - radius,
                     anchor.getX() + radius, anchor.getY() + 49,
                     anchor.getZ() + radius);
+            // Bulk block removal leaves already-uploaded section meshes visible
+            // even after targeted dirty marks. Recreate the renderer once at
+            // detachment and once after the remaining queued chunk updates.
+            if (refresh == null || refresh.stage() == 1)
+                mc.levelRenderer.allChanged();
             int stage = refresh == null ? 1 : refresh.stage() + 1;
             PENDING.put(ship, new Refresh(stage,
                     now + (stage == 1 ? 30L : 70L)));
