@@ -108,7 +108,9 @@ public final class BuyanPreSpawn {
         }
     }
 
-    private static void construct(ServerLevel world){
+    // Package access for the isolated integration GameTest: this executes
+    // the REAL terrain, nature and all five districts in one disposable world.
+    static void construct(ServerLevel world){
         final long seed=world.getSeed();
         final int sea=63;
         final int min=world.getMinBuildHeight(),max=world.getMaxBuildHeight();
