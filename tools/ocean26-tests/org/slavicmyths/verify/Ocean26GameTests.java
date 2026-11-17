@@ -695,9 +695,25 @@ public final class Ocean26GameTests {
         t.assertTrue(wheelClick.isCanceled() && captain.getVehicle() == ship,
                 type + " physical helm interaction failed to board captain");
         double startZ = ship.getZ();
-        t.runAtTickTime(5L, () -> t.assertTrue(
-                ship.helmStep(captain, FirstShipNetwork.FORWARD),
-                type + " helm did not start motion"));
+        t.runAtTickTime(5L, () -> {
+            if (largest && org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, voyageConfig) == null) {
+                for (var expected : org.slavicmyths.ships.ShipModularBlockHull
+                        .localPalette(voyageConfig).entrySet()) {
+                    BlockPos where = FirstShipBlockHull.world(anchor, 0,
+                            expected.getKey().getX(), expected.getKey().getY(),
+                            expected.getKey().getZ());
+                    if (level.getBlockState(where).getBlock() != expected.getValue().getBlock()) {
+                        System.out.println("SHIP_IV_PACK_MISMATCH local=" + expected.getKey()
+                                + " expected=" + expected.getValue()
+                                + " actual=" + level.getBlockState(where));
+                        break;
+                    }
+                }
+            }
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                    type + " helm did not start motion");
+        });
         for (int tick = 6; tick <= (fullyUpgraded ? 16 : 48); tick++)
             t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
         t.runAtTickTime(fullyUpgraded ? 19L : 51L, () -> {
