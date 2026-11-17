@@ -512,7 +512,7 @@ public final class BuyanShrine {
                 }
             }
             return chains>=100&&leaves>=1300&&maxX-minX>=40&&maxZ-minZ>=40
-                &&blocks.getOrDefault(p(-34,9,31),AIR)!=AIR;
+                &&!blocks.getOrDefault(p(-34,9,31),AIR).isAir();
         }
         boolean safe() {
             Set<Long> chunks=new HashSet<>();
@@ -530,7 +530,7 @@ public final class BuyanShrine {
             for(int x=-64;x<=64;x+=2)for(int z=-40;z<=40;z+=2) {
                 BlockPos point=p(x,z,0);
                 int g=top(point.getX(),point.getZ());
-                if(g==Integer.MIN_VALUE||g>=base)return false;
+                if(g==Integer.MIN_VALUE||g>=floor(x,z))return false;
                 for(int y=g+1;y<=floor(x,z)+37;y++)
                     if(!BuyanGenerator.canReplace(world.getBlockState(
                         new BlockPos(point.getX(),y,point.getZ()))))return false;
@@ -582,7 +582,6 @@ public final class BuyanShrine {
         }
         if(!plan.geometryCheck())
             throw new IllegalStateException("Shrine fixture cannot restore roof");
-        BlockPos centre=new BlockPos(0,site.waterLevel()+16,-54);
         for(BlockPos point:plan.blocks.keySet())
             if(Math.abs(point.getX())<=3 && Math.abs(point.getZ()+54)<=3)
                 throw new IllegalStateException(
