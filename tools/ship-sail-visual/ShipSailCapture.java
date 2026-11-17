@@ -314,6 +314,7 @@ public final class ShipSailCapture {
                         + " action=" + action + " moving=" + serverShip.isMoving()
                         + " x=" + serverShip.getX() + " z=" + serverShip.getZ()
                         + " speed=" + serverMotionSpeed
+                        + " turn=" + serverShip.serverMovingTurn()
                         + " entity_ticks=" + serverShip.tickCount);
             if (motionAge > 180 && serverMotionSpeed < .001D && !diagnosedBlockedPose) {
                 diagnosedBlockedPose = true;
@@ -333,6 +334,11 @@ public final class ShipSailCapture {
                                 ahead, surface, serverShip.serverMovingPalette())
                         + " support=" + firstMissingWater(world, ahead, surface)
                         + " yaw=" + serverShip.getYRot()
+                        + " turn_clear=" + java.util.stream.IntStream.rangeClosed(1, 10)
+                                .mapToObj(n -> n * .01D + ":" + ShipMovingClearance.clearPose(
+                                        world, new ShipRigidMotion.Pose(serverShip.getX(),
+                                                serverShip.getZ(), serverShip.getYRot() + n * .01D),
+                                        surface, serverShip.serverMovingPalette())).toList()
                         + " target=" + java.util.stream.IntStream.rangeClosed(1, 20)
                                 .mapToObj(n -> {
                                     double distance = n * .05D;
