@@ -102,6 +102,8 @@ public final class ShipSailCapture {
     private static boolean doorOpened;
     private static boolean plankBroken;
     private static BlockPos interactionPlank;
+    private static BlockPos placementBase;
+    private static boolean chestPlacedByClient;
     private static String chestClientDiagnostic = "not observed";
     private static volatile String chestServerDiagnostic = "not observed";
 
@@ -263,6 +265,7 @@ public final class ShipSailCapture {
         receipt.addProperty("chest_opened_by_client", chestOpened);
         receipt.addProperty("door_opened_by_client", doorOpened);
         receipt.addProperty("plank_broken_by_client", plankBroken);
+        receipt.addProperty("chest_placed_by_client", chestPlacedByClient);
         receipt.add("frames", FRAMES);
         receipt.add("motion_frames", MOTION_FRAMES);
         Files.writeString(OUT.resolve("finished.json"),
@@ -538,6 +541,15 @@ public final class ShipSailCapture {
                                 && !serverShip.serverMovingPalette().containsKey(
                                         entry.getKey().above(2)))
                         .map(Map.Entry::getKey).findFirst().orElse(null);
+                placementBase = serverShip.serverMovingPalette().entrySet().stream()
+                        .filter(entry -> entry.getValue().is(Blocks.SPRUCE_PLANKS)
+                                && entry.getKey().getY() >= 6
+                                && !entry.getKey().equals(interactionPlank)
+                                && !serverShip.serverMovingPalette().containsKey(
+                                        entry.getKey().above())
+                                && org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                                        blueprint(new Case(4, 3)), entry.getKey().above()))
+                        .map(Map.Entry::getKey).findFirst().orElse(null);
                 if (interactionPlank != null) {
                     ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
                     FirstShipHull.Point point = FirstShipHull.toWorld(
@@ -571,6 +583,43 @@ public final class ShipSailCapture {
             if (interactionAge < 5) return;
             if (!plankBroken)
                 throw new AssertionError("Client could not break detached IV plank");
+            if (placementBase == null)
+                throw new AssertionError("No IV deck cell for client placement");
+            server.execute(() -> {
+                ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,
+                        new ItemStack(Items.CHEST));
+                FirstShipHull.Point point = FirstShipHull.toWorld(
+                        placementBase.getX(), placementBase.getZ(),
+                        serverShip.getX(), serverShip.getZ(), serverShip.getYRot());
+                player.teleportTo(player.serverLevel(), point.x(),
+                        serverShip.getY() + placementBase.getY() + 2D,
+                        point.z(), serverShip.getYRot(), 90F);
+            });
+            interactionPhase = 8; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 8) {
+            if (interactionAge < 25) return;
+            aimClientAt(mc, placementBase);
+            mc.options.keyShift.setDown(true);
+            net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
+            interactionPhase = 9; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 9) {
+            if (interactionAge < 12) return;
+            mc.options.keyShift.setDown(false);
+            server.execute(() -> chestPlacedByClient = serverShip.serverMovingPalette()
+                    .getOrDefault(placementBase.above(), Blocks.AIR.defaultBlockState())
+                    .is(Blocks.CHEST));
+            interactionPhase = 10; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 10) {
+            if (interactionAge < 5) return;
+            if (!chestPlacedByClient)
+                throw new AssertionError("Client could not place detached IV chest");
             finish(mc);
         }
     }
