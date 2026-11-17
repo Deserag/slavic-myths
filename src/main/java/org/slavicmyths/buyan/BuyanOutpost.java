@@ -1104,7 +1104,7 @@ public final class BuyanOutpost {
                 colliding++;
                 continue;
             }
-            LogUtils.getLogger().info(
+            com.mojang.logging.LogUtils.getLogger().info(
                 "Outpost palace-first crash seed: safe outpost {},{} orientation {},{} after "
                     + "{} inspected, {} valid, {} colliding plans",
                 hill.cx(), hill.cz(), hill.zx(), hill.zz(), inspected, valid, colliding);
