@@ -86,7 +86,7 @@ public final class ShipSailCapture {
     private static double motionRestartZ;
     private static double motionRestartX;
     private static volatile double serverMotionSpeed;
-    private static volatile int acceptedHelmSteps;
+    private static volatile int clientControlFrames;
     private static volatile int cameraStandId = -1;
     private static ArmorStand cameraStand;
     private static boolean diagnosedBlockedPose;
@@ -220,6 +220,8 @@ public final class ShipSailCapture {
     }
 
     private static void finish(Minecraft mc) throws Exception {
+        mc.options.keyUp.setDown(false);
+        mc.options.keyRight.setDown(false);
         finished = true;
         if (FRAMES.size() != EXPECTED_FRAMES)
             throw new AssertionError("Missing captures " + FRAMES.size());
@@ -304,11 +306,13 @@ public final class ShipSailCapture {
         int action = serverAge < 105 ? FirstShipNetwork.FORWARD_RIGHT
                 : serverAge < 155 ? FirstShipNetwork.HELM_IDLE
                 : FirstShipNetwork.FORWARD;
+        mc.options.keyUp.setDown(action != FirstShipNetwork.HELM_IDLE);
+        mc.options.keyRight.setDown(action == FirstShipNetwork.FORWARD_RIGHT);
         mc.getSingleplayerServer().execute(() -> {
             ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
-            if (player.getVehicle() != serverShip || !serverShip.helmStep(player, action))
-                throw new AssertionError("IV helm rejected at motion tick " + motionAge);
-            acceptedHelmSteps++;
+            if (player.getVehicle() != serverShip)
+                throw new AssertionError("IV captain left helm at motion tick " + motionAge);
+            clientControlFrames++;
             serverMotionSpeed = serverShip.serverMovingSpeed();
             if (serverAge >= 145 && serverAge <= 235 && serverAge % 10 == 0)
                 System.out.println("SHIP_IV_RESTART_TRACE age=" + serverAge
@@ -386,7 +390,7 @@ public final class ShipSailCapture {
             row.addProperty("yaw", visible.getYRot());
             row.addProperty("speed", visible.visualMotionSpeed());
             row.addProperty("server_speed", serverMotionSpeed);
-            row.addProperty("accepted_helm_steps", acceptedHelmSteps);
+            row.addProperty("client_control_frames", clientControlFrames);
             MOTION_FRAMES.add(row);
             if (frameIndex == 1) {
                 motionRestartX = visible.getX();
