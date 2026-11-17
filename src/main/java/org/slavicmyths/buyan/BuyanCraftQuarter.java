@@ -860,6 +860,19 @@ public final class BuyanCraftQuarter {
             at(-9, top(-9, 4) + 2, 4, Blocks.SMITHING_TABLE.defaultBlockState());
             at(-15, top(-15, 3) + 2, 3, Blocks.BARREL.defaultBlockState());
             at(-7, top(-7, 2) + 2, 2, Blocks.CRAFTING_TABLE.defaultBlockState());
+            // Charcoal and timber are actually sheltered by the two roofs,
+            // not merely placed next to the awnings.
+            for (int x = -18; x <= -17; x++)
+                for (int z : new int[]{9, 11})
+                    at(x, top(x, z) + 2, z, Blocks.COAL_BLOCK.defaultBlockState());
+            for (int x = -8; x <= -7; x++)
+                for (int z : new int[]{9, 11})
+                    at(x, top(x, z) + 2, z, Blocks.SPRUCE_LOG.defaultBlockState());
+            // Low railings protect loading stacks without closing the open aisle.
+            for (int x = -19; x <= -16; x++)
+                at(x, top(x, 1) + 2, 1, Blocks.OAK_FENCE.defaultBlockState());
+            for (int z = 4; z <= 6; z++)
+                at(-5, top(-5, z) + 2, z, Blocks.OAK_FENCE.defaultBlockState());
             // Three lantern posts avoid the two entrance ramps and roads.
             for (int x : new int[]{-19, -13, -5}) {
                 int z = x == -13 ? 4 : 11;
