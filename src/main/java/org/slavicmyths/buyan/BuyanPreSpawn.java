@@ -75,7 +75,8 @@ public final class BuyanPreSpawn {
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
                     &&BuyanCraftQuarter.placeOnce(world,site)
-                    &&BuyanTerem.placeOnce(world,site)){
+                    &&BuyanTerem.placeOnce(world,site)
+                    &&BuyanShrine.placeOnce(world,site)){
                     state.finished();
                     world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
                     return;
@@ -193,6 +194,8 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain, harbor and outpost are ready but craft forge placement failed");
         if(!BuyanTerem.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain and districts are ready but central terem placement failed");
+        if(!BuyanShrine.placeOnce(world,site))
+            throw new IllegalStateException("Buyan sanctuary failed safe placement");
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
