@@ -304,8 +304,9 @@ public final class BuyanOutpost {
                     bed(x + w - 3, y + 1, z + 2);
                     bed(x + 2, y + 1, z + 4);
                 }
-                chest(x + 2, y + 1, z + d - 3, "outpost_supply");
-                at(x + w - 3, y + 1, z + 2, Blocks.CRAFTING_TABLE.defaultBlockState());
+                chest(x + (p.floors == 2 ? 2 : 3), y + 1, z + d - 3, "outpost_supply");
+                at(x + (p.floors == 2 ? w - 3 : w - 2), y + 1, z + 2,
+                    Blocks.CRAFTING_TABLE.defaultBlockState());
                 at(x + w - 3, y + 1, z + d - 3, Blocks.BARREL.defaultBlockState());
             } else if (p.kind.equals("hanging")) {
                 bed(x + 2, y + 1, z + 2);
@@ -327,8 +328,8 @@ public final class BuyanOutpost {
                 at(x + w - 3, y + 1, z + 3, Blocks.BOOKSHELF.defaultBlockState());
                 chest(x + 2, y + 1, z + d - 3, "outpost_command");
             }
-            at(x + w / 2 + 2, y + 1, z + d - 3, Blocks.SPRUCE_STAIRS.defaultBlockState());
-            at(x + w / 2 + 2, y + 1, z + d - 4, Blocks.SPRUCE_SLAB.defaultBlockState());
+            at(x + w / 2 + 1, y + 1, z + d - 3, Blocks.SPRUCE_STAIRS.defaultBlockState());
+            at(x + w / 2 + 1, y + 1, z + d - 4, Blocks.SPRUCE_SLAB.defaultBlockState());
             lantern(x + 1, y + height - 1, z + d - 2);
             if (p.floors == 2) lantern(x + 1, y + 3, z + 3);
             door(p, y);
