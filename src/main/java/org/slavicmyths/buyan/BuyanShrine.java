@@ -125,6 +125,14 @@ public final class BuyanShrine {
             // The full precinct may follow a hill; the individual shrine
             // and oak foundations must be substantially more level.
             if(hi-lo>30)return false;
+            // Keep the future central Alatyr plaza entirely free; it is
+            // not the sanctuary's ritual ring and has its own city plan.
+            for(int x=-64;x<=64;x+=4)for(int z=-40;z<=40;z+=4) {
+                BlockPos wp=horizontal(x,z);
+                if(Math.abs(wp.getX()-site.x())<=35
+                    &&wp.getZ()-site.z()>=-76&&wp.getZ()-site.z()<=-24)
+                    return false;
+            }
             int sLow=Integer.MAX_VALUE,sHigh=Integer.MIN_VALUE;
             for(int x=-49;x<=-19;x++)for(int z=-5;z<=18;z++) {
                 int y=ground(x,z);
@@ -442,14 +450,25 @@ public final class BuyanShrine {
         }
         void cityRoad() {
             BlockPos gate=p(0,-40,0);
-            // Run outside the eastern/western edge of the reserved Alatyr
-            // square and outside the existing palace, not through its centre.
+            // Always leave the GATE toward the outside of the fence.
+            // Going along its inner side would trap the road behind a wall.
+            int dx=0,dz=0;
+            switch(rotation) {
+                case COUNTERCLOCKWISE_90 -> dx=-1;
+                case CLOCKWISE_90 -> dx=1;
+                case NONE -> dz=-1;
+                case CLOCKWISE_180 -> dz=1;
+            }
+            int outerX=gate.getX()+3*dx;
+            int outerZ=gate.getZ()+3*dz;
+            street(gate.getX(),gate.getZ(),outerX,outerZ);
+
             int side=rotation==Rotation.CLOCKWISE_90?-1:1;
-            int bypass=site.x()+side*41;
+            int bypass=dz==0?outerX:site.x()+41;
             int rim=site.x()+side*34;
             int squareZ=site.z()-54;
-            street(gate.getX(),gate.getZ(),bypass,gate.getZ());
-            street(bypass,gate.getZ(),bypass,squareZ);
+            street(outerX,outerZ,bypass,outerZ);
+            street(bypass,outerZ,bypass,squareZ);
             street(bypass,squareZ,rim,squareZ);
         }
         void build() {courtyard();shrine();oak();fence();cityRoad();}
