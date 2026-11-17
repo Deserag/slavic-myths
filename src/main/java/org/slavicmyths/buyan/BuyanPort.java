@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 
 /** Operator-only trial buildings. All interiors are placed before roofs are assembled. */
 public final class BuyanPort {
-    private static final class Plan {
+    static final class Plan {
         final Map<BlockPos, BlockState> cells = new LinkedHashMap<>();
         void put(int x,int y,int z,BlockState b){cells.put(new BlockPos(x,y,z),b);}
         void fill(int x1,int y1,int z1,int x2,int y2,int z2,BlockState b){
@@ -34,6 +34,7 @@ public final class BuyanPort {
                         .then(Commands.literal("warehouse").executes(c->place(c.getSource(),"warehouse")))
                         .then(Commands.literal("main_pier").executes(c->place(c.getSource(),"main_pier")))
                         .then(Commands.literal("small_pier").executes(c->place(c.getSource(),"small_pier")))
+                        .then(Commands.literal("island").executes(c->BuyanIsland.generate(c.getSource())))
                 )
             )
         );
@@ -81,7 +82,7 @@ public final class BuyanPort {
         if(type.equals("house")){
             p.put(width-3,1,depth-3,Blocks.WHITE_BED.defaultBlockState().setValue(net.minecraft.world.level.block.BedBlock.PART,net.minecraft.world.level.block.state.properties.BedPart.FOOT));
             p.put(width-3,1,depth-4,Blocks.WHITE_BED.defaultBlockState().setValue(net.minecraft.world.level.block.BedBlock.PART,net.minecraft.world.level.block.state.properties.BedPart.HEAD));
-            p.put(width-3,1,depth-4,Blocks.SPRUCE_STAIRS.defaultBlockState());
+            p.put(width-4,1,depth-5,Blocks.SPRUCE_STAIRS.defaultBlockState());
             p.put(width-5,1,depth-5,Blocks.SPRUCE_FENCE.defaultBlockState());
             p.put(width-5,2,depth-5,Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
             p.put(3,1,depth-5,Blocks.BOOKSHELF.defaultBlockState());
@@ -102,7 +103,7 @@ public final class BuyanPort {
         p.put(width-2,1,depth-2,Blocks.LANTERN.defaultBlockState());
     }
 
-    private static Plan building(String type){
+    static Plan building(String type){
         Plan p=new Plan();
         int w=type.equals("warehouse")?16:type.equals("market")?10:12;
         int d=type.equals("warehouse")?11:type.equals("market")?8:10;
@@ -120,13 +121,13 @@ public final class BuyanPort {
         return p;
     }
 
-    private static Plan pier(boolean main){
+    static Plan pier(boolean main){
         Plan p=new Plan();
         int w=main?5:3,len=main?14:10;
         for(int z=0;z<len;z++)for(int x=0;x<w;x++)
             p.put(x,0,-z,FLOOR);
         for(int z=1;z<len;z+=5)for(int x:new int[]{0,w-1}){
-            p.fill(x,-5,-z,x,-1,-z,LOG);
+            p.fill(x,-16,-z,x,-1,-z,LOG);
             p.put(x,0,-z,Blocks.SPRUCE_PLANKS.defaultBlockState());
         }
         if(main)for(int x=-2;x<w+2;x++)for(int z=-len+1;z<=-len+3;z++)
