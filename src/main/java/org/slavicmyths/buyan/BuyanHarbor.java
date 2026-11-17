@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.Blocks;
@@ -46,13 +47,26 @@ public final class BuyanHarbor {
         void done(BlockPos center){if(built.add(center.asLong()))setDirty();}
     }
 
+    /** Port-space coordinates: X follows the coast, +Z points toward inland. */
     private static final class Plan {
         final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();
+        final int ox,oz;
+        final Rotation rotation;
+        Plan(int ox,int oz,Rotation rotation){
+            this.ox=ox;this.oz=oz;this.rotation=rotation;
+        }
+        BlockPos world(int x,int y,int z){
+            return switch(rotation){
+                case NONE->new BlockPos(ox+x,y,oz+z);
+                case CLOCKWISE_90->new BlockPos(ox-z,y,oz+x);
+                case CLOCKWISE_180->new BlockPos(ox-x,y,oz-z);
+                case COUNTERCLOCKWISE_90->new BlockPos(ox+z,y,oz-x);
+            };
+        }
         void at(int x,int y,int z,BlockState state){
-            BlockPos pos=new BlockPos(x,y,z);
-            // Later fittings must be applied after their supporting shell, not at the old insertion position.
+            BlockPos pos=world(x,y,z);
             blocks.remove(pos);
-            blocks.put(pos,state);
+            blocks.put(pos,state.rotate(rotation));
         }
         void fill(int x1,int y1,int z1,int x2,int y2,int z2,BlockState b){
             for(int x=x1;x<=x2;x++)for(int z=z1;z<=z2;z++)for(int y=y1;y<=y2;y++)at(x,y,z,b);
@@ -60,6 +74,55 @@ public final class BuyanHarbor {
         void putLocal(int cx,int floor,int cz,int x,int y,int z,BlockState b){
             at(cx+x,floor+y,cz+z,b);
         }
+    }
+
+    /** Derived entirely from the existing island generator, never from another island. */
+    private static final class Coast {
+        final Plan plan;
+        final BuyanState.Site site;
+        final long seed;
+        final Map<Integer,Integer> shore=new HashMap<>();
+        int base;
+        Coast(Plan plan,BuyanState.Site site,long seed){
+            this.plan=plan;this.site=site;this.seed=seed;
+        }
+        int land(int x,int z){
+            BlockPos pos=plan.world(x,0,z);
+            return BuyanTerrain.top(seed,site.x(),site.z(),site.radius(),
+                pos.getX(),pos.getZ(),site.waterLevel());
+        }
+        int shore(int x){
+            return shore.computeIfAbsent(x,u->{
+                for(int z=-site.radius()-12;z<=0;z++)
+                    if(land(u,z)!=Integer.MIN_VALUE)return z;
+                return Integer.MAX_VALUE;
+            });
+        }
+        int score(){
+            int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+            for(int u=-52;u<=52;u+=2){
+                int z=shore(u);
+                if(z==Integer.MAX_VALUE)return Integer.MAX_VALUE;
+                min=Math.min(min,z);
+                max=Math.max(max,z);
+            }
+            base=max;
+            return max-min;
+        }
+    }
+
+    private static Coast chooseCoast(ServerLevel world,BuyanState.Site site){
+        Coast selected=null;
+        int best=Integer.MAX_VALUE;
+        for(Rotation rotation:Rotation.values())for(int shift:new int[]{0,-24,24,-48,48}){
+            Plan origin=new Plan(site.x(),site.z(),rotation);
+            BlockPos displaced=origin.world(shift,0,0);
+            Coast coast=new Coast(new Plan(displaced.getX(),displaced.getZ(),rotation),site,world.getSeed());
+            int score=coast.score();
+            // A safe usable shore section has no extreme 90-block-wide inlet.
+            if(score<best && score<=24){best=score;selected=coast;}
+        }
+        return selected;
     }
 
     private static final BlockState OAK=Blocks.OAK_PLANKS.defaultBlockState();
@@ -128,12 +191,33 @@ public final class BuyanHarbor {
             p.fill(x+door+3,floor+1,z-2,x+width-2,floor+1,z-2,Blocks.SPRUCE_SLAB.defaultBlockState());
             p.putLocal(x,floor,z,width-3,1,3,Blocks.SMOKER.defaultBlockState());
             p.putLocal(x,floor,z,width-3,1,depth-3,Blocks.CHEST.defaultBlockState());
-        }else{
+        }else if(type.equals("warehouse")){
             p.fill(x+door-1,floor,z-2,x+door+2,floor,z-1,FLOOR);
             for(int dz=4;dz<depth-2;dz+=2){
                 p.putLocal(x,floor,z,width-3,1,dz,Blocks.BARREL.defaultBlockState());
                 p.putLocal(x,floor,z,2,1,dz,Blocks.CHEST.defaultBlockState());
             }
+        }else if(type.equals("smokehouse")){
+            p.putLocal(x,floor,z,width-3,1,2,Blocks.SMOKER.defaultBlockState());
+            p.putLocal(x,floor,z,width-3,1,3,Blocks.SMOKER.defaultBlockState());
+            p.putLocal(x,floor,z,2,1,depth-3,Blocks.BARREL.defaultBlockState());
+            // The solid roof remains sealed beneath an exterior smoking chimney.
+            int chimneyX=width-2,chimneyZ=depth-3;
+            int rise=Math.min(chimneyX+1,width-chimneyX)/2;
+            int roofY=floor+height+1+rise;
+            p.fill(x+chimneyX,roofY+1,z+chimneyZ,
+                x+chimneyX,roofY+2,z+chimneyZ,Blocks.COBBLESTONE.defaultBlockState());
+            p.at(x+chimneyX,roofY+3,z+chimneyZ,Blocks.CAMPFIRE.defaultBlockState());
+        }else if(type.equals("workshop")){
+            p.putLocal(x,floor,z,width-3,1,2,Blocks.SMITHING_TABLE.defaultBlockState());
+            p.putLocal(x,floor,z,width-3,1,depth-3,Blocks.BARREL.defaultBlockState());
+            p.putLocal(x,floor,z,2,1,depth-4,Blocks.LOOM.defaultBlockState());
+            p.putLocal(x,floor,z,3,1,depth-4,Blocks.SPRUCE_SLAB.defaultBlockState());
+        }else if(type.equals("elder")){
+            p.putLocal(x,floor,z,width-3,1,3,Blocks.LECTERN.defaultBlockState());
+            p.putLocal(x,floor,z,width-3,1,depth-3,Blocks.BOOKSHELF.defaultBlockState());
+            p.putLocal(x,floor,z,3,1,depth-3,Blocks.CHEST.defaultBlockState());
+            p.putLocal(x,floor,z,width-4,1,depth-4,Blocks.SPRUCE_STAIRS.defaultBlockState());
         }
 
         // Wall torches have solid backing on the outer walls; hanging lamps have
@@ -166,84 +250,206 @@ public final class BuyanHarbor {
         }
     }
 
-    private static int shore(ServerLevel world,BuyanState.Site site,int lateral){
-        int x=site.x()+lateral;
-        int z=site.z()-Math.min(site.radius(),280);
-        double radius=BuyanTerrain.shoreRadius(world.getSeed(),site.x(),site.z(),x,z);
-        // Iterative projection onto the real irregular coast, not a circular guess.
-        for(int i=0;i<5;i++){
-            z=site.z()-(int)Math.floor(Math.sqrt(Math.max(1.0,
-                radius*radius-lateral*lateral)));
-            radius=BuyanTerrain.shoreRadius(world.getSeed(),site.x(),site.z(),x,z);
-        }
-        return z;
+    private static BlockState stone(int x,int z){
+        return switch(Math.floorMod(x*37+z*19,19)){
+            case 0,1->Blocks.MOSSY_COBBLESTONE.defaultBlockState();
+            case 2,3,4->Blocks.ANDESITE.defaultBlockState();
+            case 5->Blocks.STONE_BRICKS.defaultBlockState();
+            case 6->Blocks.STONE.defaultBlockState();
+            default->Blocks.COBBLESTONE.defaultBlockState();
+        };
     }
 
-    private static int surface(ServerLevel world,int x,int z){
-        return world.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z)-1;
+    private static int ground(Coast coast,int x,int z){
+        return coast.land(x,z);
     }
 
-    private static void pier(Plan p,int x,int z,int top,boolean large,int sea){
-        int width=large?5:3,length=large?15:10;
-        for(int dx=0;dx<width;dx++)for(int dz=0;dz<length;dz++)
-            p.at(x+dx,top,z-dz,FLOOR);
-        for(int dx:new int[]{0,width-1})for(int dz=2;dz<length;dz+=5)
-            p.fill(x+dx,sea-8,z-dz,x+dx,top-1,z-dz,LOG);
-        if(large)for(int dx=-1;dx<=width;dx++)for(int dz=length-4;dz<length;dz++)
-            p.at(x+dx,top,z-dz,FLOOR);
-        // Lights occupy the edges; the middle of either pier stays passable.
-        for(int dz=2;dz<length;dz+=5)for(int dx:new int[]{0,width-1}){
-            p.fill(x+dx,top+1,z-dz,x+dx,top+2,z-dz,Blocks.SPRUCE_FENCE.defaultBlockState());
-            p.at(x+dx,top+3,z-dz,Blocks.LANTERN.defaultBlockState());
-        }
+    private static void paving(Coast coast,Plan p,int x,int z,boolean square){
+        int y=ground(coast,x,z);
+        if(y==Integer.MIN_VALUE)return;
+        int n=Math.floorMod(x*29+z*43,17);
+        BlockState surface=square
+            ?(n<8?Blocks.COBBLESTONE.defaultBlockState()
+                :n<12?Blocks.ANDESITE.defaultBlockState()
+                :n==12?Blocks.MOSSY_COBBLESTONE.defaultBlockState()
+                :Blocks.COARSE_DIRT.defaultBlockState())
+            :(n<6?Blocks.COARSE_DIRT.defaultBlockState()
+                :n<12?Blocks.GRAVEL.defaultBlockState():Blocks.DIRT_PATH.defaultBlockState());
+        p.at(x,y,z,surface);
+        for(int h=1;h<=3;h++)p.at(x,y+h,z,AIR);
     }
 
-    /** Four short timber approach sections join the existing three-wide trails to the pier heads. */
-    private static void pierApproach(ServerLevel world,Plan p,int centerX,int coast,int top){
-        int level=top;
-        for(int z=coast+6;z<=coast+9;z++){
-            int ground=top;
-            for(int dx=-1;dx<=1;dx++)ground=Math.max(ground,surface(world,centerX+dx,z));
-            level=Math.min(ground,level+1);
-            p.fill(centerX-1,level,z,centerX+1,level,z,FLOOR);
+    /** Road segments lie on real terrain rather than on an artificial flat plane. */
+    private static void road(Coast coast,Plan p,int x1,int z1,int x2,int z2,int width){
+        if(x1!=x2&&z1!=z2)throw new IllegalArgumentException("Only straight roads");
+        if(x1==x2){
+            for(int z=Math.min(z1,z2);z<=Math.max(z1,z2);z++)
+                for(int dx=-(width/2);dx<=width/2;dx++)paving(coast,p,x1+dx,z,false);
+        }else{
+            for(int x=Math.min(x1,x2);x<=Math.max(x1,x2);x++)
+                for(int dz=-(width/2);dz<=width/2;dz++)paving(coast,p,x,z1+dz,false);
         }
     }
 
-    /** Lantern posts only on empty, solid ground immediately beside an existing path. */
-    private static void streetLights(ServerLevel world,Plan p,int x,int from,int to){
-        for(int z=from;z<=to;z+=11){
-            for(int side:new int[]{2,-2}){
-                int xx=x+side,y=surface(world,xx,z);
-                if(y<world.getSeaLevel()+1)continue;
-                BlockPos base=new BlockPos(xx,y,z);
-                BlockState ground=world.getBlockState(base);
-                if(ground.is(BlockTags.LOGS)||ground.is(BlockTags.LEAVES)
-                    ||ground.isAir()||!ground.getFluidState().isEmpty())continue;
-                boolean clear=true;
-                for(int h=1;h<=4;h++)if(!world.getBlockState(base.above(h)).isAir()){
-                    clear=false;
-                    break;
+    /** Irregular 84-block waterfront, retaining masonry backed by timber decking. */
+    private static void waterfront(Coast coast,Plan p,int sea){
+        for(int x=-42;x<=41;x++){
+            int shore=coast.shore(x);
+            int wall=shore-1;
+            for(int y=sea-3;y<=sea+2;y++)p.at(x,y,wall,stone(x,y));
+            for(int z=shore;z<=shore+6;z++){
+                int land=ground(coast,x,z);
+                if(land==Integer.MIN_VALUE)continue;
+                p.at(x,sea+3,z,FLOOR);
+                for(int h=1;h<=3;h++)p.at(x,sea+3+h,z,AIR);
+                if(z==shore||z==shore+5){
+                    // Both ends of every short timber strip are structurally supported.
+                    p.fill(x,sea-3,z,x,sea+2,z,LOG);
                 }
-                if(!clear)continue;
-                p.fill(xx,y+1,z,xx,y+3,z,Blocks.SPRUCE_FENCE.defaultBlockState());
-                p.at(xx,y+4,z,Blocks.LANTERN.defaultBlockState());
-                break;
+            }
+        }
+        // Localized upper terraces, linked to the natural higher shore.
+        for(int x=9;x<=27;x++)for(int z=coast.base+11;z<=coast.base+18;z++)
+            paving(coast,p,x,z,true);
+        for(int x=-39;x<=-27;x++)for(int z=coast.base+11;z<=coast.base+17;z++)
+            paving(coast,p,x,z,true);
+    }
+
+    private static void pier(Coast coast,Plan p,int center,int width,int length,int sea,boolean terminal){
+        int shore=coast.shore(center);
+        int top=sea+3;
+        for(int dx=-(width/2);dx<=width/2;dx++)
+            for(int dz=0;dz<length;dz++)
+                p.at(center+dx,top,shore+4-dz,FLOOR);
+        for(int dx:new int[]{-(width/2),width/2})for(int dz=2;dz<length;dz+=4){
+            int x=center+dx,z=shore+4-dz;
+            p.fill(x,sea-6,z,x,top-1,z,LOG);
+            p.fill(x,top+1,z,x,top+2,z,Blocks.SPRUCE_FENCE.defaultBlockState());
+            p.at(x,top+3,z,Blocks.LANTERN.defaultBlockState());
+        }
+        if(terminal){
+            for(int dx=-(width/2)-1;dx<=width/2+1;dx++)
+                for(int dz=length-4;dz<length;dz++)
+                    p.at(center+dx,top,shore+4-dz,FLOOR);
+        }
+        // Mooring bollards on edges; the middle three blocks remain unobstructed.
+        for(int dx:new int[]{-(width/2),width/2})
+            p.at(center+dx,top+1,shore+3-length,LOG);
+    }
+
+    /** The two cargo pads flank the unobstructed 5-wide main street. */
+    private static void cargoPad(Coast c,Plan p,int x,int z,int width,int depth,boolean fish){
+        for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++)
+            paving(c,p,x+dx,z+dz,dx%3==0);
+        int y=ground(c,x,z)+1;
+        p.at(x,y,z,Blocks.BARREL.defaultBlockState());
+        p.at(x+width-1,ground(c,x+width-1,z)+1,z,Blocks.BARREL.defaultBlockState());
+        p.at(x+1,ground(c,x+1,z+depth-2)+1,z+depth-2,Blocks.CHEST.defaultBlockState());
+        p.at(x+width-2,ground(c,x+width-2,z+depth-2)+1,z+depth-2,Blocks.SPRUCE_PLANKS.defaultBlockState());
+        p.at(x+width-2,ground(c,x+width-2,z+depth-2)+2,z+depth-2,Blocks.SPRUCE_SLAB.defaultBlockState());
+        if(fish){
+            for(int t=0;t<=2;t+=2){
+                int u=x+width-1,v=z+2+t,level=ground(c,u,v);
+                p.fill(u,level+1,v,u,level+3,v,Blocks.SPRUCE_FENCE.defaultBlockState());
+                p.at(u,level+4,v,Blocks.SPRUCE_SLAB.defaultBlockState());
+            }
+        }else{
+            int[] xs={x+1,x+4};
+            for(int u:xs){
+                int v=z+depth-3,level=ground(c,u,v);
+                p.fill(u,level+1,v,u,level+3,v,LOG);
+                p.at(u,level+4,v,Blocks.SPRUCE_SLAB.defaultBlockState());
             }
         }
     }
 
-    private static void trail(ServerLevel world,Plan p,int x,int from,int to){
-        int inc=from<=to?1:-1;
-        for(int z=from;z!=to+inc;z+=inc){
-            for(int dx=-1;dx<=1;dx++){
-                int xx=x+dx;
-                int y=surface(world,xx,z);
-                if(y<world.getSeaLevel()-2)continue;
-                p.at(xx,y,z,Blocks.COARSE_DIRT.defaultBlockState());
-                for(int dy=1;dy<=3;dy++)
-                    p.at(xx,y+dy,z,AIR);
-            }
+    private static void post(Coast c,Plan p,int x,int z){
+        int floor=ground(c,x,z);
+        if(floor==Integer.MIN_VALUE)return;
+        for(int h=1;h<=4;h++)p.at(x,floor+h,z,AIR);
+        p.fill(x,floor+1,z,x,floor+3,z,Blocks.SPRUCE_FENCE.defaultBlockState());
+        p.at(x,floor+4,z,Blocks.LANTERN.defaultBlockState());
+    }
+
+    private static void stall(Coast c,Plan p,int x,int z,boolean fish){
+        for(int dx=0;dx<=2;dx+=2)for(int dz=0;dz<=2;dz+=2){
+            int y=ground(c,x+dx,z+dz);
+            p.fill(x+dx,y+1,z+dz,x+dx,y+3,z+dz,Blocks.SPRUCE_FENCE.defaultBlockState());
         }
+        for(int dx=0;dx<=2;dx++)for(int dz=0;dz<=2;dz++){
+            int y=ground(c,x+dx,z+dz);
+            p.at(x+dx,y+4,z+dz,Blocks.SPRUCE_SLAB.defaultBlockState());
+        }
+        int y=ground(c,x+1,z+1);
+        p.at(x+1,y+1,z+1,fish?Blocks.BARREL.defaultBlockState():Blocks.CHEST.defaultBlockState());
+    }
+
+    private static void well(Coast c,Plan p,int x,int z){
+        int level=ground(c,x,z);
+        for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)
+            if(dx!=0||dz!=0)p.at(x+dx,level+1,z+dz,stone(x+dx,z+dz));
+        p.at(x,level,z,Blocks.WATER.defaultBlockState());
+        for(int dx:new int[]{-1,1})for(int dz:new int[]{-1,1})
+            p.fill(x+dx,level+2,z+dz,x+dx,level+3,z+dz,Blocks.SPRUCE_FENCE.defaultBlockState());
+        p.fill(x-1,level+4,z-1,x+1,level+4,z+1,Blocks.DARK_OAK_SLAB.defaultBlockState());
+    }
+
+    private static void marketSquare(Coast c,Plan p){
+        int base=c.base;
+        for(int x=-12;x<=11;x++)for(int z=base+39;z<=base+60;z++)
+            paving(c,p,x,z,x>=-6&&x<=5&&z>=base+44&&z<=base+53);
+        // The water well is west of the movement axis, not in its middle.
+        well(c,p,-6,base+49);
+        stall(c,p,-11,base+43,true);
+        stall(c,p,-11,base+54,true);
+        stall(c,p,9,base+49,false);
+        for(int x:new int[]{-10,10})for(int z:new int[]{base+40,base+57})
+            post(c,p,x,z);
+        for(int[] bench:new int[][]{{-4,base+58},{9,base+58},{-10,base+51}}){
+            int y=ground(c,bench[0],bench[1]);
+            p.at(bench[0],y+1,bench[1],Blocks.SPRUCE_STAIRS.defaultBlockState());
+        }
+        for(int[] load:new int[][]{{-11,base+59},{11,base+57},{10,base+42}}){
+            int y=ground(c,load[0],load[1]);
+            p.at(load[0],y+1,load[1],Blocks.BARREL.defaultBlockState());
+        }
+    }
+
+    private static void fishingYard(Coast c,Plan p){
+        int z=c.base+19;
+        for(int x=-40;x<=-31;x+=4){
+            int level=ground(c,x,z);
+            p.fill(x,level+1,z,x,level+3,z,Blocks.SPRUCE_FENCE.defaultBlockState());
+            p.at(x,level+4,z,Blocks.SPRUCE_SLAB.defaultBlockState());
+        }
+        for(int x:new int[]{-48,-46,-44}){
+            int v=c.base+35,level=ground(c,x,v);
+            p.at(x,level+1,v,LOG);
+        }
+    }
+
+    private static void boatYard(Coast c,Plan p){
+        for(int x:new int[]{43,47,51}){
+            int z=c.base+36,level=ground(c,x,z);
+            p.at(x,level+1,z,LOG);
+            p.at(x,level+2,z,Blocks.SPRUCE_SLAB.defaultBlockState());
+        }
+        // Compact repair slip aimed toward the water rather than a new large pier.
+        for(int x=46;x<=48;x++)for(int z=c.base+15;z<=c.base+21;z++){
+            int level=ground(c,x,z);
+            p.at(x,level,z,FLOOR);
+            if(x!=47)p.at(x,level+1,z,Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
+        }
+    }
+
+    private static boolean siteAvailable(Coast coast,int x,int z,int width,int depth,int sea){
+        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+        for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++){
+            int y=ground(coast,x+dx,z+dz);
+            if(y==Integer.MIN_VALUE)return false;
+            min=Math.min(min,y);max=Math.max(max,y);
+        }
+        return min>=sea+2&&max<=sea+9&&max-min<=2;
     }
 
     /** Runs only after the existing nature pass is completed; never rebuilds terrain. */
@@ -254,29 +460,69 @@ public final class BuyanHarbor {
         if(BuyanState.get(world).active || BuyanNatureState.get(world).active
             || !BuyanNatureState.get(world).finishedAt(site))return false;
 
-        Plan plan=new Plan();
-        int sea=site.waterLevel();
-        int coast=shore(world,site,0);
-        int centerZ=coast+35;
-        int[] offsets={-33,-9,16};
-        int[] widths={12,10,16},depths={10,8,11},heights={4,4,5};
-        String[] types={"house","market","warehouse"};
-        for(int i=0;i<3;i++){
-            int x=site.x()+offsets[i],z=centerZ;
-            int ground=surface(world,x+widths[i]/2,z+depths[i]/2);
-            if(ground<sea+1||ground>sea+24)return false;
-            building(plan,x,z,ground+1,widths[i],depths[i],heights[i],types[i]);
-            trail(world,plan,x+widths[i]/2,coast+8,z-2);
-            streetLights(world,plan,x+widths[i]/2,coast+12,z-9);
+        Coast coast=chooseCoast(world,site);
+        if(coast==null)return false;
+        Plan plan=coast.plan;
+        int sea=site.waterLevel(),base=coast.base;
+        // Eight capital buildings in four zones; the original three count in the total.
+        int[][] buildings={
+            {-48,base+63,12,10,4}, // Fishing home 1: residential line
+            {-30,base+77,10,8,4},  // Fishing home 2: offset farther inland
+            {25,base+75,11,8,4},   // Fishing home 3: opposite side of the street
+            {-29,base+41,10,8,4},  // Merchant shop left of the square
+            {25,base+41,14,10,5},  // Cargo warehouse right of the square
+            {-48,base+27,8,7,4},   // Fish smoker at fishing yard
+            {42,base+24,11,9,4},   // Boatwright workshop at service slip
+            {-5,base+79,11,9,4}    // Harbor elder house at back of the square
+        };
+        String[] types={"house","house","house","market","warehouse","smokehouse","workshop","elder"};
+        for(int i=0;i<buildings.length;i++){
+            int[] b=buildings[i];
+            if(!siteAvailable(coast,b[0],b[1],b[2],b[3],sea))return false;
         }
-        pier(plan,site.x()-17,coast+5,sea+2,true,sea);
-        pier(plan,site.x()+22,coast+5,sea+2,false,sea);
-        trail(world,plan,site.x()-15,coast+7,centerZ-2);
-        trail(world,plan,site.x()+23,coast+7,centerZ-2);
-        streetLights(world,plan,site.x()-15,coast+12,centerZ-9);
-        streetLights(world,plan,site.x()+23,coast+12,centerZ-9);
-        pierApproach(world,plan,site.x()-15,coast,sea+2);
-        pierApproach(world,plan,site.x()+23,coast,sea+2);
+
+        // Roads and quays are created before houses, so they cannot erase furniture.
+        waterfront(coast,plan,sea);
+        pier(coast,plan,17,5,18,sea,true);
+        pier(coast,plan,-33,3,12,sea,false);
+        pier(coast,plan,44,3,6,sea,false);
+        road(coast,plan,5,base+9,5,base+76,5);
+        road(coast,plan,5,base+35,-25,base+35,3);
+        road(coast,plan,-25,base+35,-25,base+40,3);
+        road(coast,plan,5,base+35,32,base+35,3);
+        road(coast,plan,32,base+35,32,base+40,3);
+        road(coast,plan,17,coast.shore(17)+7,17,base+18,3);
+        road(coast,plan,-33,coast.shore(-33)+7,-33,base+19,3);
+        road(coast,plan,44,coast.shore(44)+7,44,base+23,3);
+        road(coast,plan,-33,base+23,-45,base+23,3);
+        road(coast,plan,-45,base+23,-45,base+26,3);
+        road(coast,plan,5,base+58,-43,base+58,3);
+        road(coast,plan,-43,base+58,-43,base+62,3);
+        road(coast,plan,5,base+73,-26,base+73,3);
+        road(coast,plan,-26,base+73,-26,base+76,3);
+        road(coast,plan,5,base+71,30,base+71,3);
+        road(coast,plan,30,base+71,30,base+74,3);
+        road(coast,plan,5,base+75,0,base+75,3);
+        road(coast,plan,0,base+75,0,base+78,3);
+        road(coast,plan,44,base+22,46,base+22,3);
+        road(coast,plan,46,base+22,46,base+23,3);
+
+        cargoPad(coast,plan,13,base+18,10,12,false);
+        cargoPad(coast,plan,-34,base+17,6,8,true);
+        marketSquare(coast,plan);
+        fishingYard(coast,plan);
+        boatYard(coast,plan);
+        for(int i=0;i<buildings.length;i++){
+            int[] b=buildings[i];
+            int floor=Integer.MIN_VALUE;
+            for(int dx=0;dx<b[2];dx++)for(int dz=0;dz<b[3];dz++)
+                floor=Math.max(floor,ground(coast,b[0]+dx,b[1]+dz));
+            building(plan,b[0],b[1],floor+1,b[2],b[3],b[4],types[i]);
+        }
+        // Clearly visible lanterns for approach paths and working docks.
+        for(int z:new int[]{base+13,base+28,base+66,base+73})post(coast,plan,10,z);
+        for(int[] lamp:new int[][]{{-38,base+28},{-35,base+11},{20,base+14},{47,base+14}})
+            post(coast,plan,lamp[0],lamp[1]);
 
         Set<Long> loaded=new HashSet<>();
         for(var entry:plan.blocks.entrySet()){
@@ -307,7 +553,7 @@ public final class BuyanHarbor {
         }
         boolean ok=placeOnce(world,site);
         if(!ok)source.sendFailure(Component.literal("Порт не размещён: участок занят или берег неподходящий; ничего не изменено."));
-        else source.sendSuccess(()->Component.literal("Буян: портовые дома, интерьер, склад, лавка и две пристани проверены/созданы."),true);
+        else source.sendSuccess(()->Component.literal("Буян: торгово-рыбацкий порт, 8 зданий, площадь, набережная и 3 причала проверены/созданы."),true);
         return ok?1:0;
     }
 }
