@@ -70,7 +70,7 @@ public final class BuyanIsland {
         }
         state.completed();
         int sea=sea(level);
-        player.connection.teleport(0.5,sea+5,8.5,player.getYRot(),player.getXRot());
+        player.teleportTo(level,0.5,sea+5,8.5,player.getYRot(),player.getXRot());
         player.sendSystemMessage(Component.literal("Buyan test island created: house, market, warehouse, two piers and connected paths."));
     }
 
