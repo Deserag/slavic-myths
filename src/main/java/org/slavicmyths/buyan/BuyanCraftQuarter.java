@@ -118,6 +118,7 @@ public final class BuyanCraftQuarter {
         final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         final Map<BlockPos, String> chests = new LinkedHashMap<>();
         int firstFloor;
+        String collisionReason = "none";
 
         Plan(ServerLevel world, BuyanState.Site site, Rotation rotation,
              int outward, int lateral, long seed) {
@@ -245,6 +246,13 @@ public final class BuyanCraftQuarter {
                 at(x, y, z, y < level - 3 ? COBBLE : ANDESITE);
             at(x, level, z, surface);
             for (int y = level + 1; y <= level + 4; y++) at(x, y, z, AIR);
+            // Natural crowns and trunks must not remain suspended over the new street.
+            // Only vegetation above normal headroom is additionally cleared.
+            for (int y = level + 5; y <= level + 18; y++) {
+                BlockState existing = world.getBlockState(pos(x, y, z));
+                if (existing.is(BlockTags.LOGS) || existing.is(BlockTags.LEAVES))
+                    at(x, y, z, AIR);
+            }
         }
 
         BlockState slope(int[] levels, int index, Direction forward, Direction backward) {
@@ -350,6 +358,12 @@ public final class BuyanCraftQuarter {
 
         void forge() {
             final int f = firstFloor, x0 = -36, z0 = 2;
+            // Clear the complete workshop and upper dwelling volume before placing
+            // walls and furnishings, otherwise a tree can survive inside the house.
+            for (int x = 0; x < 15; x++)
+                for (int z = 0; z < 11; z++)
+                    for (int y = f + 1; y <= f + 26; y++)
+                        at(x0 + x, y, z0 + z, AIR);
             // Stone platform and continuous piers; no floating foundations.
             for (int x = 0; x < 15; x++)
                 for (int z = 0; z < 11; z++) {
@@ -653,7 +667,10 @@ public final class BuyanCraftQuarter {
                 BlockPos p = entry.getKey();
                 if (p.getY() <= world.getMinBuildHeight()
                     || p.getY() >= world.getMaxBuildHeight() - 1
-                    || !world.getWorldBorder().isWithinBounds(p)) return false;
+                    || !world.getWorldBorder().isWithinBounds(p)) {
+                    collisionReason = "outside build limit at " + p;
+                    return false;
+                }
                 if (loaded.add(ChunkPos.asLong(p.getX() >> 4, p.getZ() >> 4)))
                     world.getChunk(p.getX() >> 4, p.getZ() >> 4);
             }
@@ -661,17 +678,22 @@ public final class BuyanCraftQuarter {
             // leaves in the actual building/road footprint are also protected.
             for (var entry : blocks.entrySet()) {
                 BlockState old = world.getBlockState(entry.getKey());
-                if (old.is(BlockTags.LOGS) || old.is(BlockTags.LEAVES)
-                    || (!old.equals(entry.getValue()) && !BuyanGenerator.canReplace(old)))
+                // Generated trees may be cleared for construction. Preserve
+                // buildings, containers and all other non-replaceable blocks.
+                if (!old.equals(entry.getValue()) && !BuyanGenerator.canReplace(old)) {
+                    collisionReason = "protected block " + old + " at " + entry.getKey();
                     return false;
+                }
             }
             for (int[] lot : LOTS)
                 for (int x = lot[0]; x <= lot[2]; x += 3)
                     for (int z = lot[1]; z <= lot[3]; z += 3) {
                         BlockPos p = pos(x, top(x, z) + 1, z);
                         BlockState old = world.getBlockState(p);
-                        if (!BuyanGenerator.canReplace(old) && !old.isAir())
+                        if (!BuyanGenerator.canReplace(old) && !old.isAir()) {
+                            collisionReason = "future lot occupied by " + old + " at " + p;
                             return false;
+                        }
                     }
             return true;
         }
@@ -704,18 +726,34 @@ public final class BuyanCraftQuarter {
 
         // Near-center sites take precedence over a remote forest clearing;
         // all rotations/offsets are deterministic for every world seed.
+        int candidates = 0, terrainMatches = 0, invalidBlueprints = 0;
+        int occupiedSites = 0, invalidGrades = 0;
+        String lastRejection = "no terrain matches";
         for (int radius = 108; radius <= 180; radius += 12)
             for (Rotation turn : Rotation.values())
                 for (int lateral = 0; lateral <= 60; lateral += 4)
                     for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
+                        candidates++;
                         Plan p = new Plan(world, site, turn, radius, lateral * sign, world.getSeed());
                         if (!p.terrainFit()) continue;
+                        terrainMatches++;
                         try {
                             p.build();
-                            if (!p.checkDesign() || !p.worldAvailable()) continue;
+                            if (!p.checkDesign()) {
+                                invalidBlueprints++;
+                                lastRejection = "blueprint " + p.ox + "," + p.oz;
+                                continue;
+                            }
+                            if (!p.worldAvailable()) {
+                                occupiedSites++;
+                                lastRejection = p.collisionReason;
+                                continue;
+                            }
                         } catch (IllegalStateException badSite) {
                             // Invalid slope/approach/collision at this hillside:
                             // never apply a partial candidate to the world.
+                            invalidGrades++;
+                            lastRejection = badSite.getMessage();
                             continue;
                         }
                         p.commit();
@@ -725,6 +763,11 @@ public final class BuyanCraftQuarter {
                             p.ox, p.oz, p.firstFloor, turn);
                         return true;
                     }
+        LogUtils.getLogger().error(
+            "Buyan craft forge: no viable site among {} candidates, {} terrain matches, "
+                + "{} invalid blueprints, {} occupied sites, {} grade errors; last rejection: {}",
+            candidates, terrainMatches, invalidBlueprints, occupiedSites,
+            invalidGrades, lastRejection);
         return false;
     }
 
@@ -796,6 +839,36 @@ public final class BuyanCraftQuarter {
         if (!p.checkDesign())
             throw new IllegalStateException("Craft blueprint restoration failed");
         verifyReportedSeedSite(world);
+        verifyCrashSeedFixture(world);
+    }
+
+    /** Regression for the crash seed: natural timber is clearable, buildings are not. */
+    public static void verifyCrashSeedFixture(ServerLevel world) {
+        BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
+        long seed = 7670812339892729374L;
+        Plan candidate = new Plan(world, site, Rotation.NONE, 108, -20, seed);
+        if (!candidate.terrainFit())
+            throw new IllegalStateException("Crash seed craft hillside no longer fits");
+        candidate.build();
+        if (!candidate.checkDesign())
+            throw new IllegalStateException("Crash seed craft blueprint or road network invalid");
+
+        BlockPos street = candidate.pos(2,
+            candidate.roadHeights[40 - candidate.roadStart] + 2, 40);
+        BlockState original = world.getBlockState(street);
+        try {
+            world.setBlock(street, Blocks.OAK_LOG.defaultBlockState(), 2);
+            if (!candidate.worldAvailable())
+                throw new IllegalStateException(
+                    "Crash seed: natural tree should not block the planned street: "
+                        + candidate.collisionReason);
+            world.setBlock(street, Blocks.OAK_PLANKS.defaultBlockState(), 2);
+            if (candidate.worldAvailable())
+                throw new IllegalStateException(
+                    "Crash seed: existing wooden construction was not protected");
+        } finally {
+            world.setBlock(street, original, 2);
+        }
     }
 
     public static void verifyReportedSeedSite(ServerLevel world) {
