@@ -1160,12 +1160,15 @@ public final class BuyanCraftQuarter {
         if (BuyanState.get(world).active || BuyanNatureState.get(world).active
             || !BuyanNatureState.get(world).finishedAt(site)) return false;
 
-        // Near-center sites take precedence over a remote forest clearing;
-        // all rotations/offsets are deterministic for every world seed.
+        // The full quarter spans 74 blocks beyond its origin. Starting at
+        // radius 108 placed the distant plots beyond the narrow coast on
+        // valid seeds. Search closer to the central square while keeping the
+        // same shoreline, terrain-gradient and collision protection.
+        // The connecting road begins at radius 55 on every candidate.
         int candidates = 0, terrainMatches = 0, invalidBlueprints = 0;
         int occupiedSites = 0, invalidGrades = 0;
         String lastRejection = "no terrain matches";
-        for (int radius = 108; radius <= 180; radius += 12)
+        for (int radius = 60; radius <= 180; radius += 6)
             for (Rotation turn : Rotation.values())
                 for (int lateral = 0; lateral <= 60; lateral += 4)
                     for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
@@ -1279,7 +1282,7 @@ public final class BuyanCraftQuarter {
     private static Plan findBlueprintFixture(ServerLevel world, long seed) {
         BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
         int eligible = 0, rejected = 0;
-        for (int radius = 108; radius <= 180; radius += 12)
+        for (int radius = 60; radius <= 180; radius += 6)
             for (Rotation turn : Rotation.values())
                 for (int lateral = 0; lateral <= 60; lateral += 4)
                     for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
