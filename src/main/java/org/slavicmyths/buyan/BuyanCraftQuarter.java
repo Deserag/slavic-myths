@@ -602,7 +602,10 @@ public final class BuyanCraftQuarter {
                 BlockState stair = blocks.get(step);
                 if (stair == null || !stair.is(Blocks.SPRUCE_STAIRS)
                     || stair.getValue(StairBlock.HALF) != Half.BOTTOM
-                    || stair.getValue(StairBlock.FACING) != Direction.NORTH) return false;
+                    || stair.getValue(StairBlock.FACING) !=
+                        Blocks.SPRUCE_STAIRS.defaultBlockState()
+                            .setValue(StairBlock.FACING, Direction.NORTH)
+                            .rotate(rotation).getValue(StairBlock.FACING)) return false;
                 for (int h = 1; h <= 2; h++) {
                     BlockState above = blocks.get(step.above(h));
                     if (above != null && !above.isAir()) return false;
