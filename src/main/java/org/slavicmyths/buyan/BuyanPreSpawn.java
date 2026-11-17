@@ -74,9 +74,10 @@ public final class BuyanPreSpawn {
                     &&BuyanNatureState.get(world).finishedAt(site)
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
-                    &&BuyanCraftQuarter.placeOnce(world,site)){
+                    &&BuyanCraftQuarter.placeOnce(world,site)
+                    &&BuyanTerem.placeOnce(world,site)){
                     state.finished();
-                    world.setDefaultSpawnPos(new BlockPos(0,world.getSeaLevel()+14,0),0.0F);
+                    world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
                     return;
                 }
             }
@@ -87,7 +88,7 @@ public final class BuyanPreSpawn {
         try{
             construct(world);
             state.finished();
-            world.setDefaultSpawnPos(new BlockPos(0,world.getSeaLevel()+14,0),0.0F);
+            world.setDefaultSpawnPos(BuyanTerem.spawn(world,new BuyanState.Site(0,0,R,63)),0.0F);
             LogUtils.getLogger().info("Slavic Oceans ready before player spawn; elapsed {} ms",
                 (System.nanoTime()-begin)/1_000_000L);
         }catch(RuntimeException exception){
@@ -190,6 +191,8 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain and harbor are ready but hill outpost placement failed");
         if(!BuyanCraftQuarter.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain, harbor and outpost are ready but craft forge placement failed");
+        if(!BuyanTerem.placeOnce(world,site))
+            throw new IllegalStateException("Buyan terrain and districts are ready but central terem placement failed");
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
