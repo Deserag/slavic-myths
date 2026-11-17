@@ -239,8 +239,8 @@ public final class BuyanCraftQuarter {
 
         void roadCell(int x, int z, int level, BlockState surface) {
             int ground = top(x, z);
-            if (ground == Integer.MIN_VALUE || level < ground + 1)
-                throw new IllegalStateException("Craft road outside island or under terrain");
+            if (ground == Integer.MIN_VALUE || level < ground)
+                throw new IllegalStateException("Craft road outside island or below terrain surface");
             for (int y = ground + 1; y < level; y++)
                 at(x, y, z, y < level - 3 ? COBBLE : ANDESITE);
             at(x, level, z, surface);
@@ -536,6 +536,47 @@ public final class BuyanCraftQuarter {
 
         boolean checkDesign() {
             final int f = firstFloor, x0 = -36, z0 = 2;
+            if (roadHeights != null) {
+                int[] crossZ = {16, 35, 58};
+                for (int z = roadStart; z <= 74; z++) {
+                    int i = z - roadStart, y = roadHeights[i];
+                    if (i > 0 && Math.abs(y - roadHeights[i - 1]) > 1) return false;
+                    BlockState road = blocks.get(pos(2, y, z));
+                    if (road == null || !(road.is(ANDESITE.getBlock())
+                        || road.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                    for (int x = 0; x <= 4; x++) {
+                        BlockState surface = blocks.get(pos(x, y, z));
+                        if (surface == null || !(surface.is(ANDESITE.getBlock())
+                            || surface.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                    }
+                }
+                for (int lane = 0; lane < intersections.length; lane++) {
+                    int[] heights = intersections[lane];
+                    for (int x = -40; x <= 40; x++) {
+                        int i = x + 40, y = heights[i];
+                        if (i > 0 && Math.abs(y - heights[i - 1]) > 1) return false;
+                        BlockState paving = blocks.get(pos(x, y, crossZ[lane] + 2));
+                        if (paving == null || !(paving.is(ANDESITE.getBlock())
+                            || paving.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                    }
+                    for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
+                        for (int x = 0; x <= 4; x++)
+                            if (roadHeights[z - roadStart] != heights[x + 40]) return false;
+                }
+                for (int x = -31; x <= -27; x++) {
+                    int last = firstFloor;
+                    for (int z = 13; z <= 16; z++) {
+                        int y = z == 16 ? intersections[0][x + 40] : porchHeight(x, z);
+                        if (Math.abs(y - last) > 1) return false;
+                        last = y;
+                        if (z < 16) {
+                            BlockState path = blocks.get(pos(x, y, z));
+                            if (path == null || !(path.is(ANDESITE.getBlock())
+                                || path.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                        }
+                    }
+                }
+            }
             // Assertions validate actual FINAL staged blocks. Check every
             // roof tile and backing (the hollow stone flue is the only opening).
             for (int x = -1; x <= 15; x++)
@@ -747,6 +788,13 @@ public final class BuyanCraftQuarter {
         southern.build();
         if (!southern.checkDesign())
             throw new IllegalStateException("Craft southern reference road or blueprint invalid");
+        BlockPos junction = southern.pos(2, southern.roadHeights[16 - southern.roadStart], 16);
+        BlockState originalPaving = southern.blocks.put(junction, AIR);
+        if (southern.checkDesign())
+            throw new IllegalStateException("Craft road hole escaped intersection validation");
+        southern.blocks.put(junction, originalPaving);
+        if (!southern.checkDesign())
+            throw new IllegalStateException("Craft road restoration failed");
 
         for (int distance = 108; distance <= 180; distance += 12)
             for (Rotation direction : Rotation.values())
