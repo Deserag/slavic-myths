@@ -304,6 +304,11 @@ public final class ShipSailCapture {
                 throw new AssertionError("IV helm rejected at motion tick " + motionAge);
             acceptedHelmSteps++;
             serverMotionSpeed = serverShip.serverMovingSpeed();
+            if (serverAge >= 145 && serverAge <= 235 && serverAge % 10 == 0)
+                System.out.println("SHIP_IV_RESTART_TRACE age=" + serverAge
+                        + " action=" + action + " moving=" + serverShip.isMoving()
+                        + " x=" + serverShip.getX() + " z=" + serverShip.getZ()
+                        + " speed=" + serverMotionSpeed);
             if (motionAge > 180 && serverMotionSpeed < .001D && !diagnosedBlockedPose) {
                 diagnosedBlockedPose = true;
                 ServerLevel world = player.serverLevel();
