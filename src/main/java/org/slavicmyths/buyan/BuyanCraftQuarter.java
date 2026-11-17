@@ -10,6 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -35,12 +40,11 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 /**
- * The first of eight reserved Buyan craft-quarter buildings. 15 x 11 forge,
- * built only after the island's existing harbor and outpost. The complete
- * staging map is checked before any world edits.
+ * Forge (15 x 11), armory (17 x 13) and shared smithing yard are built
+ * together after the harbor and hill outpost, before the player joins.
+ * Every planned block is checked before any world edit.
  *
- * Quarter grid: local X -40..40, Z 0..74; forge X -36..-22, Z 2..12.
- * The other seven plots are reserved metadata, never pre-cleared or populated.
+ * Quarter grid: local X -40..40, Z 0..74, including six future craft lots.
  */
 public final class BuyanCraftQuarter {
     private static final String ID = "slavicmyths_buyan_craft_2622";
@@ -53,13 +57,16 @@ public final class BuyanCraftQuarter {
     private static final BlockState LOG = Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState();
     private static final BlockState BEAM = Blocks.STRIPPED_OAK_LOG.defaultBlockState();
     private static final BlockState DARK = Blocks.DARK_OAK_PLANKS.defaultBlockState();
+    private static final BlockState ARM_ROOF = Blocks.DEEPSLATE_TILES.defaultBlockState();
+    private static final BlockState ARM_BEAM = Blocks.STRIPPED_DARK_OAK_LOG.defaultBlockState();
 
-    // Reserved future lots: armory, carpentry, cooper, pottery, weaving,
-    // tannery and warehouse. They are not touched by this issue.
+    // The first two plots are occupied. The remaining six stay untouched:
+    // carpentry, cooperage, pottery, weaving, tannery and general storage.
     private static final int[][] LOTS = {
-        {-36, 2, -22, 12}, {-18, 2, -5, 12}, {8, 2, 24, 12},
-        {27, 2, 39, 12}, {-36, 43, -24, 54}, {-18, 43, -5, 54},
-        {8, 43, 24, 54}, {27, 43, 40, 54}
+        {-36, 2, -22, 12}, {8, 0, 24, 12},
+        {27, 2, 39, 12}, {-36, 43, -24, 54},
+        {-18, 43, -5, 54}, {8, 43, 24, 54}, {27, 43, 40, 54},
+        {-18, 24, -5, 36}
     };
 
     private BuyanCraftQuarter() {}
@@ -117,6 +124,8 @@ public final class BuyanCraftQuarter {
         final long seed;
         final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         final Map<BlockPos, String> chests = new LinkedHashMap<>();
+        final Map<BlockPos, Integer> displayStands = new LinkedHashMap<>();
+        int armoryFloor;
         int firstFloor;
         String collisionReason = "none";
 
@@ -164,6 +173,15 @@ public final class BuyanCraftQuarter {
 
         int roofY(int x) {
             return firstFloor + 14 + Math.max(0, 7 - Math.abs(x - 7));
+        }
+
+        int armoryRoofY(int z) {
+            // Broad roof ridge runs EAST-WEST, unlike the forge's NORTH-SOUTH ridge.
+            return armoryFloor + 15 + Math.max(0, 6 - Math.abs(z - 6));
+        }
+
+        void rack(int x, int y, int z, int equipment) {
+            displayStands.put(pos(x, y, z), equipment);
         }
 
         void chest(int x, int y, int z, String table) {
@@ -218,7 +236,17 @@ public final class BuyanCraftQuarter {
                     lo = Math.min(lo, y);
                     hi = Math.max(hi, y);
                 }
-            return hi - lo <= 4;
+            if (hi - lo > 4) return false;
+            lo = Integer.MAX_VALUE;
+            hi = Integer.MIN_VALUE;
+            for (int x = 8; x <= 24; x++)
+                for (int z = 0; z <= 12; z++) {
+                    int y = top(x, z);
+                    if (y == Integer.MIN_VALUE) return false;
+                    lo = Math.min(lo, y);
+                    hi = Math.max(hi, y);
+                }
+            return hi - lo <= 7;
         }
 
         int roadStart;
@@ -253,6 +281,41 @@ public final class BuyanCraftQuarter {
                 if (existing.is(BlockTags.LOGS) || existing.is(BlockTags.LEAVES))
                     at(x, y, z, AIR);
             }
+        }
+
+        BlockState surface(int x, int z, BlockState slope) {
+            if (slope.is(Blocks.STONE_BRICK_STAIRS)) return slope;
+            long mix = BuyanTerrain.hash(seed ^ 0xA4E9B223L,
+                pos(x, 0, z).getX(), pos(x, 0, z).getZ(), 0);
+            int n = (int) Math.floorMod(mix, 20);
+            if (n < 9) return ANDESITE;
+            if (n < 14) return COBBLE;
+            if (n < 17) return STONE;
+            if (n < 19) return Blocks.GRAVEL.defaultBlockState();
+            return Blocks.COARSE_DIRT.defaultBlockState();
+        }
+
+        boolean isPaving(BlockState s) {
+            return s != null && (s.is(Blocks.STONE_BRICK_STAIRS)
+                || s.is(Blocks.POLISHED_ANDESITE) || s.is(Blocks.COBBLESTONE)
+                || s.is(Blocks.STONE_BRICKS) || s.is(Blocks.GRAVEL)
+                || s.is(Blocks.COARSE_DIRT));
+        }
+
+        int armoryPorchHeight(int x, int z) {
+            int street = intersections[0][x + 40];
+            return armoryFloor + (int) Math.round((street - armoryFloor) * (z - 12) / 4.0);
+        }
+
+        BlockState armoryPorchSurface(int x, int z) {
+            int y = armoryPorchHeight(x, z);
+            Direction facing = y > (z == 13 ? armoryFloor : armoryPorchHeight(x, z - 1))
+                ? Direction.SOUTH
+                : y > (z == 15 ? intersections[0][x + 40] : armoryPorchHeight(x, z + 1))
+                    ? Direction.NORTH : null;
+            return facing == null ? surface(x, z, ANDESITE)
+                : Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+                    .setValue(StairBlock.FACING, facing).setValue(StairBlock.HALF, Half.BOTTOM);
         }
 
         BlockState slope(int[] levels, int index, Direction forward, Direction backward) {
@@ -333,7 +396,8 @@ public final class BuyanCraftQuarter {
             for (int z = roadStart; z <= 74; z++) {
                 int index = z - roadStart, floor = roadHeights[index];
                 BlockState paving = slope(roadHeights, index, Direction.SOUTH, Direction.NORTH);
-                for (int x = 0; x <= 4; x++) roadCell(x, z, floor, paving);
+                for (int x = 0; x <= 4; x++)
+                    roadCell(x, z, floor, surface(x, z, paving));
             }
             for (int lane = 0; lane < crossZ.length; lane++) {
                 int[] heights = intersections[lane];
@@ -341,7 +405,7 @@ public final class BuyanCraftQuarter {
                     int level = heights[x + 40];
                     BlockState paving = slope(heights, x + 40, Direction.EAST, Direction.WEST);
                     for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
-                        roadCell(x, z, level, paving);
+                        roadCell(x, z, level, surface(x, z, paving));
                 }
             }
 
@@ -354,6 +418,16 @@ public final class BuyanCraftQuarter {
                 for (int z = 13; z <= 15; z++)
                     roadCell(x, z, porchHeight(x, z), porchSurface(x, z));
             }
+            // Two separate, genuinely accessible entrances: retail and workshop.
+            for (int left : new int[]{12, 19})
+                for (int x = left; x <= left + 2; x++) {
+                    int street = intersections[0][x + 40];
+                    if (Math.abs(street - armoryFloor) > 4)
+                        throw new IllegalStateException("Craft armory entrance has no graded road");
+                    for (int z = 13; z <= 15; z++)
+                        roadCell(x, z, armoryPorchHeight(x, z),
+                            armoryPorchSurface(x, z));
+                }
         }
 
         void forge() {
@@ -548,14 +622,264 @@ public final class BuyanCraftQuarter {
                 Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true));
         }
 
+
+        void armory() {
+            final int x0 = 8, z0 = 0, f = armoryFloor;
+            // Clear the entire two-storey volume so naturally generated
+            // trees never remain embedded in timber, furniture or shingles.
+            for (int x = 0; x < 17; x++)
+                for (int z = 0; z < 13; z++)
+                    for (int y = f + 1; y <= f + 26; y++) at(x0 + x, y, z0 + z, AIR);
+
+            // 17x13 masonry plinth on actual terrain, including deep piers.
+            for (int x = 0; x < 17; x++)
+                for (int z = 0; z < 13; z++) {
+                    int ground = top(x0 + x, z0 + z);
+                    for (int y = ground + 1; y < f; y++)
+                        at(x0 + x, y, z0 + z, y >= f - 3 ? STONE : COBBLE);
+                    at(x0 + x, f, z0 + z,
+                        x == 0 || x == 16 || z == 0 || z == 12 ? STONE : ANDESITE);
+                }
+            // Workshop below; residential timber floor and frames above.
+            for (int y = f + 1; y <= f + 6; y++) {
+                BlockState masonry = y <= f + 3 ? STONE : OAK;
+                for (int x = 0; x < 17; x++) {
+                    at(x0 + x, y, z0, masonry);
+                    at(x0 + x, y, z0 + 12, masonry);
+                }
+                for (int z = 1; z < 12; z++) {
+                    at(x0, y, z0 + z, masonry);
+                    at(x0 + 16, y, z0 + z, masonry);
+                }
+            }
+            for (int x : new int[]{0, 4, 8, 12, 16})
+                for (int z : new int[]{0, 12})
+                    fill(x0 + x, f + 1, z0 + z, x0 + x, f + 13, z0 + z, ARM_BEAM);
+            for (int z : new int[]{0, 4, 8, 12})
+                for (int x : new int[]{0, 16})
+                    fill(x0 + x, f + 1, z0 + z, x0 + x, f + 13, z0 + z, ARM_BEAM);
+
+            fill(x0, f + 7, z0, x0 + 16, f + 7, z0 + 12, SPRUCE);
+            for (int x = 13; x <= 15; x++)
+                for (int z = 4; z <= 10; z++)
+                    at(x0 + x, f + 7, z0 + z, AIR);
+            for (int y = f + 8; y <= f + 13; y++) {
+                for (int x = 0; x < 17; x++) {
+                    at(x0 + x, y, z0, OAK);
+                    at(x0 + x, y, z0 + 12, OAK);
+                }
+                for (int z = 1; z < 12; z++) {
+                    at(x0, y, z0 + z, OAK);
+                    at(x0 + 16, y, z0 + z, OAK);
+                }
+            }
+            for (int x : new int[]{0, 4, 8, 12, 16})
+                for (int z : new int[]{0, 12})
+                    fill(x0 + x, f + 8, z0 + z, x0 + x, f + 13, z0 + z, ARM_BEAM);
+
+            // Distinct broad east-west ridge, backed along every tile
+            // (and solid gables beneath the roof).
+            for (int z = -1; z <= 13; z++) {
+                int y = armoryRoofY(z);
+                for (int x = -1; x <= 17; x++) {
+                    at(x0 + x, y - 1, z0 + z, ARM_ROOF);
+                    BlockState tile = z == 6 ? ARM_ROOF
+                        : Blocks.DEEPSLATE_TILE_STAIRS.defaultBlockState()
+                            .setValue(StairBlock.FACING, z < 6
+                                ? Direction.SOUTH : Direction.NORTH)
+                            .setValue(StairBlock.HALF, Half.BOTTOM);
+                    at(x0 + x, y, z0 + z, tile);
+                }
+                for (int x : new int[]{0, 16})
+                    for (int yy = f + 14; yy < y - 1; yy++)
+                        at(x0 + x, yy, z0 + z, OAK);
+            }
+            // Protected masonry flue above the armory repair hearth.
+            for (int y = f + 1; y <= f + 25; y++)
+                for (int x = 1; x <= 3; x++)
+                    for (int z = 1; z <= 3; z++)
+                        at(x0 + x, y, z0 + z,
+                            x == 2 && z == 2
+                                ? y == f + 1 ? Blocks.CAMPFIRE.defaultBlockState() : AIR
+                                : STONE);
+            for (int x = 1; x <= 3; x++)
+                for (int z = 1; z <= 3; z++)
+                    if (x != 2 || z != 2)
+                        at(x0 + x, f + 26, z0 + z,
+                            Blocks.STONE_BRICK_WALL.defaultBlockState());
+
+            // Exterior: two different entrances, open windows and shallow
+            // cantilevered shop canopy with wooden support posts.
+            door(x0 + 5, f + 1, z0 + 12, Direction.SOUTH);
+            door(x0 + 12, f + 1, z0 + 12, Direction.SOUTH);
+            for (int x : new int[]{2, 9, 15})
+                for (int z : new int[]{0, 12}) {
+                    at(x0 + x, f + 4, z0 + z, Blocks.GLASS_PANE.defaultBlockState());
+                    at(x0 + x, f + 11, z0 + z, Blocks.GLASS_PANE.defaultBlockState());
+                }
+            for (int z : new int[]{5, 9})
+                for (int x : new int[]{0, 16})
+                    at(x0 + x, f + 10, z0 + z, Blocks.GLASS_PANE.defaultBlockState());
+            for (int x = 2; x <= 14; x++)
+                for (int z = 13; z <= 14; z++)
+                    at(x0 + x, f + 5, z0 + z,
+                        Blocks.DARK_OAK_SLAB.defaultBlockState());
+            for (int x : new int[]{2, 14})
+                fill(x0 + x, f + 1, z0 + 13,
+                    x0 + x, f + 4, z0 + 13, ARM_BEAM);
+
+            // Three clearly separated ground-floor functions: display /
+            // sales to the west, repair in the middle, fabrication east.
+            for (int z = 1; z <= 11; z++)
+                for (int y = f + 1; y <= f + 5; y++)
+                    if (z < 6 || z > 8) at(x0 + 8, y, z0 + z, OAK);
+            at(x0 + 2, f + 1, z0 + 10, Blocks.BARREL.defaultBlockState());
+            at(x0 + 3, f + 1, z0 + 10, Blocks.BARREL.defaultBlockState());
+            fill(x0 + 2, f + 1, z0 + 8, x0 + 6, f + 1, z0 + 8, SPRUCE);
+            for (int x : new int[]{2, 6})
+                at(x0 + x, f + 2, z0 + 8, Blocks.OAK_FENCE.defaultBlockState());
+            rack(x0 + 3, f + 1, z0 + 6, 0);
+            rack(x0 + 5, f + 1, z0 + 6, 1);
+            rack(x0 + 10, f + 1, z0 + 6, 2);
+            chest(x0 + 2, f + 1, z0 + 3, "craft_armory_goods");
+            chest(x0 + 6, f + 1, z0 + 2, "craft_armory_goods");
+            at(x0 + 10, f + 1, z0 + 2, Blocks.SMITHING_TABLE.defaultBlockState());
+            at(x0 + 12, f + 1, z0 + 2, Blocks.ANVIL.defaultBlockState());
+            at(x0 + 14, f + 1, z0 + 2, Blocks.BLAST_FURNACE.defaultBlockState());
+            at(x0 + 10, f + 1, z0 + 4, Blocks.GRINDSTONE.defaultBlockState());
+            at(x0 + 12, f + 1, z0 + 5, Blocks.CRAFTING_TABLE.defaultBlockState());
+            at(x0 + 10, f + 1, z0 + 10, Blocks.FLETCHING_TABLE.defaultBlockState());
+            chest(x0 + 9, f + 1, z0 + 3, "craft_armory_materials");
+            chest(x0 + 11, f + 1, z0 + 9, "craft_armory_materials");
+            at(x0 + 2, f + 1, z0 + 5, Blocks.OAK_STAIRS.defaultBlockState());
+            at(x0 + 6, f + 1, z0 + 5, Blocks.OAK_STAIRS.defaultBlockState());
+            for (int x : new int[]{6, 11})
+                at(x0 + x, f + 4, z0 + 11,
+                    Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true));
+
+            // Seven real ascending stairs and a cleared 2-block headspace.
+            for (int z = 10; z >= 4; z--) {
+                int y = f + 11 - z;
+                at(x0 + 14, y, z0 + z, Blocks.SPRUCE_STAIRS.defaultBlockState()
+                    .setValue(StairBlock.FACING, Direction.NORTH)
+                    .setValue(StairBlock.HALF, Half.BOTTOM));
+                for (int clear = 1; clear <= 3; clear++)
+                    at(x0 + 14, y + clear, z0 + z, AIR);
+            }
+            at(x0 + 14, f + 7, z0 + 3, SPRUCE);
+            for (int z = 4; z <= 10; z++)
+                at(x0 + 12, f + 8, z0 + z, Blocks.OAK_FENCE.defaultBlockState());
+
+            // Master bedroom + apprentice room; connected by the central
+            // upstairs corridor, with genuine beds and small dining kitchen.
+            for (int x = 1; x <= 11; x++)
+                if (x != 7)
+                    fill(x0 + x, f + 8, z0 + 8, x0 + x, f + 10, z0 + 8, OAK);
+            for (int z = 1; z <= 7; z++)
+                if (z != 5)
+                    fill(x0 + 8, f + 8, z0 + z, x0 + 8, f + 10, z0 + z, OAK);
+            bed(x0 + 4, f + 8, z0 + 2);
+            bed(x0 + 6, f + 8, z0 + 2);
+            chest(x0 + 3, f + 8, z0 + 5, "craft_armory_home");
+            at(x0 + 10, f + 8, z0 + 2, Blocks.FURNACE.defaultBlockState());
+            at(x0 + 11, f + 8, z0 + 4, Blocks.OAK_FENCE.defaultBlockState());
+            at(x0 + 11, f + 9, z0 + 4, Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
+            at(x0 + 6, f + 8, z0 + 10, Blocks.OAK_FENCE.defaultBlockState());
+            at(x0 + 6, f + 9, z0 + 10, Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
+            at(x0 + 5, f + 8, z0 + 10, Blocks.OAK_STAIRS.defaultBlockState());
+            at(x0 + 7, f + 8, z0 + 10, Blocks.OAK_STAIRS.defaultBlockState());
+            at(x0 + 3, f + 8, z0 + 10, Blocks.BOOKSHELF.defaultBlockState());
+            at(x0 + 9, f + 8, z0 + 10, Blocks.BARREL.defaultBlockState());
+            at(x0 + 10, f + 8, z0 + 10, Blocks.BARREL.defaultBlockState());
+            for (int x : new int[]{2, 11, 15})
+                at(x0 + x, f + 8, z0 + 11, Blocks.LANTERN.defaultBlockState());
+        }
+
+        void smithingYard() {
+            // All work areas remain west of the five-block principal avenue;
+            // the forge entrance and both armory ramps stay clear.
+            // Natural stone/grass below is preserved, with short stone piers
+            // instead of destructive full-volume terrain flattening.
+            for (int x = -19; x <= -5; x++)
+                for (int z = 1; z <= 12; z++) {
+                    int ground = top(x, z);
+                    if (ground == Integer.MIN_VALUE)
+                        throw new IllegalStateException("Smithing yard outside island");
+                    int y = ground + 1;
+                    BlockState surface = (x + z) % 4 == 0 ? COBBLE :
+                        (x + z) % 4 == 1 ? ANDESITE :
+                        (x + z) % 4 == 2 ? Blocks.GRAVEL.defaultBlockState()
+                            : Blocks.COARSE_DIRT.defaultBlockState();
+                    at(x, y, z, surface);
+                    for (int up = 1; up <= 3; up++) at(x, y + up, z, AIR);
+                }
+            // Loading and raw-metal bays. Their low walls and heavy tarps
+            // leave a broad, unblocked aisle at x=-12..-10.
+            for (int x = -18; x <= -16; x++)
+                for (int z = 3; z <= 8; z++) {
+                    int y = top(x, z) + 2;
+                    if (z == 3 || z == 8)
+                        at(x, y, z, Blocks.IRON_BLOCK.defaultBlockState());
+                    else at(x, y, z, Blocks.COAL_BLOCK.defaultBlockState());
+                }
+            for (int x = -8; x <= -6; x++)
+                for (int z = 3; z <= 6; z++) {
+                    int y = top(x, z) + 2;
+                    at(x, y, z, Blocks.SPRUCE_LOG.defaultBlockState());
+                }
+            // Two accessible timber awnings: charcoal and dry tool stock.
+            for (int left : new int[]{-19, -9}) {
+                int right = left + 3;
+                int floor = Integer.MIN_VALUE;
+                for (int x = left; x <= right; x++)
+                    for (int z = 8; z <= 12; z++)
+                        floor = Math.max(floor, top(x, z) + 1);
+                for (int x : new int[]{left, right})
+                    for (int z : new int[]{8, 12}) {
+                        int base = top(x, z);
+                        for (int y = base + 1; y <= floor + 4; y++)
+                            at(x, y, z, y < floor ? COBBLE : LOG);
+                    }
+                for (int x = left; x <= right; x++)
+                    for (int z = 8; z <= 12; z++)
+                        at(x, floor + 5, z, Blocks.DARK_OAK_SLAB.defaultBlockState());
+                at(left + 1, floor + 1, 10, Blocks.BARREL.defaultBlockState());
+            }
+            // Three lantern posts avoid the two entrance ramps and roads.
+            for (int x : new int[]{-19, -12, -5}) {
+                int z = x == -12 ? 4 : 11;
+                int base = top(x, z) + 1;
+                for (int h = 1; h <= 4; h++) at(x, base + h, z, Blocks.OAK_FENCE.defaultBlockState());
+                at(x, base + 5, z, Blocks.LANTERN.defaultBlockState());
+            }
+            // Open exit from the yard to the existing northern cross-street.
+            for (int x = -12; x <= -10; x++) {
+                int street = intersections[0][x + 40];
+                for (int z = 13; z <= 15; z++) {
+                    int ground = top(x, z);
+                    int y = Math.max(ground + 1, street - (16 - z));
+                    if (Math.abs(street - y) > 3)
+                        throw new IllegalStateException("Smithing yard loading route too steep");
+                    roadCell(x, z, y, surface(x, z, ANDESITE));
+                }
+            }
+        }
+
         void build() {
             int high = Integer.MIN_VALUE;
             for (int x = -36; x <= -22; x++)
                 for (int z = 2; z <= 12; z++)
                     high = Math.max(high, top(x, z));
             firstFloor = high + 1;
+            high = Integer.MIN_VALUE;
+            for (int x = 8; x <= 24; x++)
+                for (int z = 0; z <= 12; z++)
+                    high = Math.max(high, top(x, z));
+            armoryFloor = high + 1;
             roads();
             forge();
+            armory();
+            smithingYard();
         }
 
         boolean checkDesign() {
@@ -566,12 +890,10 @@ public final class BuyanCraftQuarter {
                     int i = z - roadStart, y = roadHeights[i];
                     if (i > 0 && Math.abs(y - roadHeights[i - 1]) > 1) return false;
                     BlockState road = blocks.get(pos(2, y, z));
-                    if (road == null || !(road.is(ANDESITE.getBlock())
-                        || road.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                    if (!isPaving(road)) return false;
                     for (int x = 0; x <= 4; x++) {
                         BlockState surface = blocks.get(pos(x, y, z));
-                        if (surface == null || !(surface.is(ANDESITE.getBlock())
-                            || surface.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                        if (!isPaving(surface)) return false;
                     }
                 }
                 for (int lane = 0; lane < intersections.length; lane++) {
@@ -580,8 +902,7 @@ public final class BuyanCraftQuarter {
                         int i = x + 40, y = heights[i];
                         if (i > 0 && Math.abs(y - heights[i - 1]) > 1) return false;
                         BlockState paving = blocks.get(pos(x, y, crossZ[lane] + 2));
-                        if (paving == null || !(paving.is(ANDESITE.getBlock())
-                            || paving.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                        if (!isPaving(paving)) return false;
                     }
                     for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
                         for (int x = 0; x <= 4; x++)
@@ -595,12 +916,22 @@ public final class BuyanCraftQuarter {
                         last = y;
                         if (z < 16) {
                             BlockState path = blocks.get(pos(x, y, z));
-                            if (path == null || !(path.is(ANDESITE.getBlock())
-                                || path.is(Blocks.STONE_BRICK_STAIRS))) return false;
+                            if (!isPaving(path)) return false;
                         }
                     }
                 }
             }
+            for (int left : new int[]{12, 19})
+                for (int x = left; x <= left + 2; x++) {
+                    int last = armoryFloor;
+                    for (int z = 13; z <= 16; z++) {
+                        int y = z == 16 ? intersections[0][x + 40]
+                            : armoryPorchHeight(x, z);
+                        if (Math.abs(y - last) > 1) return false;
+                        last = y;
+                        if (z < 16 && !isPaving(blocks.get(pos(x, y, z)))) return false;
+                    }
+                }
             // Assertions validate actual FINAL staged blocks. Check every
             // roof tile and backing (the hollow stone flue is the only opening).
             for (int x = -1; x <= 15; x++)
@@ -616,6 +947,33 @@ public final class BuyanCraftQuarter {
                     if (tile == null || !(tile.is(Blocks.DARK_OAK_STAIRS) || tile.is(DARK.getBlock()))
                         || backing == null || !backing.is(DARK.getBlock())) return false;
                 }
+            // Every sloped armory roof tile has solid backing; only the
+            // fully enclosed 3x3 masonry chimney may interrupt it.
+            for (int z = -1; z <= 13; z++)
+                for (int x = -1; x <= 17; x++) {
+                    int y = armoryRoofY(z);
+                    BlockState tile = blocks.get(pos(8 + x, y, z));
+                    if (x >= 1 && x <= 3 && z >= 1 && z <= 3) {
+                        if (tile == null || !(tile.is(STONE.getBlock())
+                            || (x == 2 && z == 2 && tile.isAir()))) return false;
+                        continue;
+                    }
+                    BlockState backing = blocks.get(pos(8 + x, y - 1, z));
+                    if (tile == null || !(tile.is(Blocks.DEEPSLATE_TILE_STAIRS)
+                        || tile.is(ARM_ROOF.getBlock()))
+                        || backing == null || !backing.is(ARM_ROOF.getBlock())) return false;
+                }
+            for (int z = 10; z >= 4; z--) {
+                BlockPos step = pos(22, armoryFloor + 11 - z, z);
+                BlockState stair = blocks.get(step);
+                if (stair == null || !stair.is(Blocks.SPRUCE_STAIRS)
+                    || stair.getValue(StairBlock.HALF) != Half.BOTTOM) return false;
+                for (int y = 1; y <= 2; y++) {
+                    BlockState above = blocks.get(step.above(y));
+                    if (above != null && !above.isAir()) return false;
+                }
+            }
+            if (displayStands.size() != 3) return false;
             if (!blocks.getOrDefault(pos(x0 + 2, f + 1, z0 + 3), AIR).is(Blocks.CAMPFIRE))
                 return false;
             for (int y = f + 2; y <= f + 25; y++)
@@ -658,7 +1016,7 @@ public final class BuyanCraftQuarter {
             }
             for (BlockPos p : chests.keySet())
                 if (!blocks.getOrDefault(p, AIR).is(Blocks.CHEST)) return false;
-            return chests.size() == 3;
+            return chests.size() == 7;
         }
 
         boolean worldAvailable() {
@@ -709,6 +1067,28 @@ public final class BuyanCraftQuarter {
                     ResourceLocation.fromNamespaceAndPath("slavicmyths", "chests/" + entry.getValue()));
                 chest.setLootTable(table, seed ^ entry.getKey().asLong());
                 chest.setChanged();
+            }
+            for (var entry : displayStands.entrySet()) {
+                ArmorStand stand = EntityType.ARMOR_STAND.create(world);
+                if (stand == null) continue;
+                BlockPos point = entry.getKey();
+                stand.setPos(point.getX() + 0.5, point.getY(), point.getZ() + 0.5);
+                switch (entry.getValue()) {
+                    case 0 -> {
+                        stand.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+                        stand.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+                    }
+                    case 1 -> {
+                        stand.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+                        stand.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+                    }
+                    default -> {
+                        stand.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
+                        stand.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+                    }
+                }
+                if (!world.addFreshEntity(stand))
+                    LogUtils.getLogger().warn("Craft armory display did not spawn at {}", point);
             }
         }
     }
