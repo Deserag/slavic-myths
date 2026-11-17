@@ -227,42 +227,71 @@ public final class BuyanOutpost {
             at(x, y, z, Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true));
         }
 
+        int roofRise(Plot p, int u) {
+            int pitch = p.kind.equals("commander") ? 1
+                : p.kind.equals("supply") ? 3 : 2;
+            return Math.max(0, Math.min(u + 1, p.width - u) / pitch);
+        }
+
+        boolean paleRoof(Plot p) {
+            return (p.kind.equals("barracks") && p.floors == 1)
+                || p.kind.equals("supply")
+                || (p.kind.equals("hanging") && p.x < 0);
+        }
+
         void roof(Plot p, int floor, int top) {
             int x = p.x, z = p.z, w = p.width, d = p.depth;
-            for (int u = -1; u <= w; u++) {
-                int rise = Math.max(0, Math.min(u + 1, w - u) / 2);
-                int y = top + 2 + rise;
-                BlockState slope = Blocks.DARK_OAK_STAIRS.defaultBlockState()
-                    .setValue(StairBlock.FACING, u < w / 2 ? Direction.WEST : Direction.EAST)
-                    .setValue(StairBlock.HALF, net.minecraft.world.level.block.state.properties.Half.BOTTOM);
-                for (int v = -1; v <= d; v++) {
+            boolean light = paleRoof(p);
+            BlockState tile = light ? Blocks.SPRUCE_STAIRS.defaultBlockState()
+                : Blocks.DARK_OAK_STAIRS.defaultBlockState();
+            BlockState backing = light ? Blocks.SPRUCE_PLANKS.defaultBlockState() : ROOF;
+            int eave = p.kind.equals("barracks") && p.floors == 2 ? 2 : 1;
+            for (int u = -eave; u <= w - 1 + eave; u++) {
+                int y = top + 2 + roofRise(p, u);
+                // Stair fronts climb TOWARD the ridge, not away from it.
+                Direction up = u < w / 2 ? Direction.EAST : Direction.WEST;
+                BlockState slope = tile
+                    .setValue(StairBlock.FACING, up)
+                    .setValue(StairBlock.HALF, net.minecraft.world.level.block.state.properties.Half.BOTTOM)
+                    .setValue(StairBlock.SHAPE, StairsShape.STRAIGHT);
+                for (int v = -eave; v <= d - 1 + eave; v++) {
                     at(x + u, y, z + v, slope);
-                    if (u >= 0 && u < w) at(x + u, y - 1, z + v, ROOF);
+                    if (u >= 0 && u < w && v >= 0 && v < d)
+                        at(x + u, y - 1, z + v, backing);
                 }
-                if (u >= 0 && u < w) {
-                    for (int a = top + 1; a < y; a++) {
-                        at(x + u, a, z, PLANK);
-                        at(x + u, a, z + d - 1, PLANK);
+                // Both end gables are closed all the way to the supporting roof.
+                if (u >= 0 && u < w)
+                    for (int a = top + 1; a < y - 1; a++) {
+                        at(x + u, a, z, p.kind.equals("armory")
+                            ? Blocks.STONE_BRICKS.defaultBlockState() : backing);
+                        at(x + u, a, z + d - 1, p.kind.equals("armory")
+                            ? Blocks.STONE_BRICKS.defaultBlockState() : backing);
                     }
-                }
             }
-            // Static shape invariant: each room column has a backed roof cell.
-            for (int u = 1; u < w - 1; u++) {
-                int y = top + 2 + Math.min(u + 1, w - u) / 2;
-                for (int v = 1; v < d - 1; v++)
-                    if (!blocks.containsKey(hill.at(x + u, y - 1, z + v))
-                        || !blocks.containsKey(hill.at(x + u, y, z + v)))
-                        throw new IllegalStateException("Outpost roof coverage gap");
+            // Check staged continuity for every occupied roof column.
+            for (int u = 0; u < w; u++) {
+                int y = top + 2 + roofRise(p, u);
+                for (int v = 0; v < d; v++) {
+                    BlockState beneath = blocks.get(hill.at(x + u, y - 1, z + v));
+                    BlockState above = blocks.get(hill.at(x + u, y, z + v));
+                    if (beneath == null || !beneath.is(backing.getBlock())
+                        || above == null || !above.is(tile.getBlock()))
+                        throw new IllegalStateException("Outpost roof surface/backing gap");
+                }
             }
         }
 
-        void door(Plot p, int floor) {
-            int x = p.door();
-            BlockState door = Blocks.SPRUCE_DOOR.defaultBlockState()
-                .setValue(DoorBlock.FACING, Direction.NORTH)
+        void doorAt(int x, int floor, int z, Direction facing, BlockState material) {
+            BlockState lower = material.setValue(DoorBlock.FACING, facing)
                 .setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER);
-            at(x, floor + 1, p.z, door);
-            at(x, floor + 2, p.z, door.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER));
+            at(x, floor + 1, z, lower);
+            at(x, floor + 2, z, lower.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER));
+        }
+
+        void door(Plot p, int floor) {
+            doorAt(p.door(), floor, p.z, Direction.NORTH,
+                p.kind.equals("armory") ? Blocks.DARK_OAK_DOOR.defaultBlockState()
+                    : Blocks.SPRUCE_DOOR.defaultBlockState());
         }
 
         void house(Plot p, int y) {
@@ -273,24 +302,56 @@ public final class BuyanOutpost {
             fill(x, y, z, x + w - 1, y, z + d - 1, PLANK);
             for (int a : new int[]{x, x + w - 1})
                 for (int b : new int[]{z, z + d - 1}) posts(a, b, y);
+            BlockState panel = p.kind.equals("commander") || p.kind.equals("hanging")
+                || (p.kind.equals("barracks") && p.floors == 2)
+                ? Blocks.OAK_PLANKS.defaultBlockState() : PLANK;
+            BlockState beam = p.kind.equals("commander")
+                ? Blocks.DARK_OAK_LOG.defaultBlockState() : LOG;
             for (int k = 1; k <= height; k++) {
+                BlockState wall = k <= (p.kind.equals("armory") ? 3 : 1)
+                    && !p.kind.equals("hanging")
+                    ? (p.kind.equals("armory") ? Blocks.STONE_BRICKS.defaultBlockState() : STONE)
+                    : panel;
                 for (int u = 0; u < w; u++) {
-                    at(x + u, y + k, z, PLANK);
-                    at(x + u, y + k, z + d - 1, PLANK);
+                    at(x + u, y + k, z, wall);
+                    at(x + u, y + k, z + d - 1, wall);
                 }
                 for (int v = 1; v < d - 1; v++) {
-                    at(x, y + k, z + v, PLANK);
-                    at(x + w - 1, y + k, z + v, PLANK);
+                    at(x, y + k, z + v, wall);
+                    at(x + w - 1, y + k, z + v, wall);
                 }
             }
+            // Strong posts, crossbeams and visible bays; no random recoloring.
             for (int a : new int[]{x, x + w - 1})
                 for (int b : new int[]{z, z + d - 1})
-                    fill(a, y + 1, b, a, y + height, b, LOG);
+                    fill(a, y + 1, b, a, y + height, b, beam);
+            for (int a : new int[]{x + 4, x + w - 5})
+                for (int b : new int[]{z, z + d - 1})
+                    fill(a, y + 2, b, a, y + height, b, beam);
+            for (int b : new int[]{z + 3, z + d - 4})
+                for (int a : new int[]{x, x + w - 1})
+                    fill(a, y + 2, b, a, y + height, b, beam);
+            for (int u = 0; u < w; u++)
+                for (int b : new int[]{z, z + d - 1})
+                    at(x + u, y + height, b, beam);
+            for (int v = 1; v < d - 1; v++)
+                for (int a : new int[]{x, x + w - 1})
+                    at(a, y + height, z + v, beam);
+            // Slit windows for armory, wider glazed bays for occupied housing.
             for (int a : new int[]{x + 2, x + w - 3})
                 for (int b : new int[]{z, z + d - 1}) {
                     at(a, y + 3, b, Blocks.GLASS_PANE.defaultBlockState());
-                    at(a, y + 4, b, Blocks.GLASS_PANE.defaultBlockState());
+                    if (!p.kind.equals("armory"))
+                        at(a, y + 4, b, Blocks.GLASS_PANE.defaultBlockState());
+                    at(a - 1, y + 3, b, beam);
+                    at(a + 1, y + 3, b, beam);
                 }
+            if (p.floors == 2)
+                for (int a : new int[]{x + 2, x + w - 3})
+                    for (int b : new int[]{z, z + d - 1}) {
+                        at(a, y + 8, b, Blocks.GLASS_PANE.defaultBlockState());
+                        at(a, y + 7, b, Blocks.GLASS_PANE.defaultBlockState());
+                    }
             if (p.floors == 2) {
                 fill(x + 1, y + 5, z + 1, x + w - 2, y + 5, z + d - 2, PLANK);
                 // An actual opening, continuous backed ladder and upper landing.
@@ -343,6 +404,41 @@ public final class BuyanOutpost {
             lantern(x + 1, y + height - 1, z + d - 2);
             if (p.floors == 2) lantern(x + 1, y + 3, z + 3);
             door(p, y);
+            // A three-block porch with a real overhead canopy, leaving the
+            // central approach and door entirely unobstructed.
+            for (int xx = p.door() - 2; xx <= p.door() + 2; xx++)
+                for (int zz = z - 2; zz <= z - 1; zz++)
+                    at(xx, y + 4, zz, Blocks.DARK_OAK_SLAB.defaultBlockState());
+            for (int xx : new int[]{p.door() - 2, p.door() + 2})
+                fill(xx, y + 1, z - 2, xx, y + 3, z - 2, LOG);
+            if (p.kind.equals("barracks") && p.floors == 2) {
+                // Wide, usable side gallery, reached through a second doorway.
+                for (int xx = x - 3; xx < x; xx++)
+                    for (int zz = z + 1; zz < z + d - 1; zz++)
+                        at(xx, y, zz, PLANK);
+                for (int zz = z + 1; zz < z + d - 1; zz += 3) {
+                    posts(x - 3, zz, y);
+                    at(x - 3, y + 1, zz, Blocks.SPRUCE_FENCE.defaultBlockState());
+                }
+                doorAt(x, y, z + d / 2, Direction.WEST, Blocks.SPRUCE_DOOR.defaultBlockState());
+            }
+            if (p.kind.equals("barracks") && p.floors == 1) {
+                // Compact lean-to, clearly different from the large barracks.
+                for (int zz = z + 1; zz < z + d - 1; zz++) {
+                    at(x + w, y + 4, zz, Blocks.SPRUCE_SLAB.defaultBlockState());
+                    if (zz % 3 == 0) posts(x + w, zz, y + 4);
+                }
+            }
+            if (p.kind.equals("armory") || p.kind.equals("supply")) {
+                for (int xx : new int[]{x + 1, x + w - 2})
+                    at(xx, y + 1, z - 3, Blocks.BARREL.defaultBlockState());
+            }
+            if (p.kind.equals("commander")) {
+                for (int xx : new int[]{x + 1, x + w - 2}) {
+                    at(xx, y + 4, z - 1, Blocks.RED_BANNER.defaultBlockState());
+                    at(xx, y + 3, z - 1, LOG);
+                }
+            }
             if (p.kind.equals("hanging")) {
                 for (int xx = x + 2; xx < x + w - 1; xx += 3) {
                     for (int h = 1; h <= 4; h++) {
@@ -352,6 +448,17 @@ public final class BuyanOutpost {
                 }
                 for (int xx = x; xx < x + w; xx++)
                     at(xx, y - 1, z + d / 2, LOG);
+                // Outward balcony, with a real back exit and diagonal braces.
+                for (int xx = x + 1; xx < x + w - 1; xx++)
+                    for (int zz = z + d; zz <= z + d + 2; zz++)
+                        at(xx, y, zz, PLANK);
+                for (int xx = x + 1; xx < x + w - 1; xx++)
+                    at(xx, y + 1, z + d + 2, Blocks.SPRUCE_FENCE.defaultBlockState());
+                for (int h = 1; h <= 3; h++)
+                    for (int xx : new int[]{x + 1, x + w - 2})
+                        at(xx, y - h, z + d + 2 - h, LOG);
+                doorAt(p.door(), y, z + d - 1, Direction.SOUTH,
+                    Blocks.SPRUCE_DOOR.defaultBlockState());
             }
         }
 
@@ -629,15 +736,21 @@ public final class BuyanOutpost {
             for (Plot plot : plots) {
                 if (plot.kind.equals("tower")) continue;
                 int top = floor(plot) + (plot.floors == 2 ? 10 : 5);
-                for (int u = 1; u < plot.width - 1; u++) {
-                    int y = top + 2 + Math.min(u + 1, plot.width - u) / 2;
-                    for (int v = 1; v < plot.depth - 1; v++) {
+                BlockState tile = paleRoof(plot) ? Blocks.SPRUCE_STAIRS.defaultBlockState()
+                    : Blocks.DARK_OAK_STAIRS.defaultBlockState();
+                BlockState backingType = paleRoof(plot)
+                    ? Blocks.SPRUCE_PLANKS.defaultBlockState() : ROOF;
+                for (int u = 0; u < plot.width; u++) {
+                    int y = top + 2 + roofRise(plot, u);
+                    for (int v = 0; v < plot.depth; v++) {
                         BlockState backing = blocks.get(
                             hill.at(plot.x + u, y - 1, plot.z + v));
                         BlockState stairs = blocks.get(
                             hill.at(plot.x + u, y, plot.z + v));
-                        if (backing == null || !backing.is(Blocks.DARK_OAK_PLANKS)
-                            || stairs == null || !stairs.is(Blocks.DARK_OAK_STAIRS))
+                        if (backing == null || !backing.is(backingType.getBlock())
+                            || stairs == null || !stairs.is(tile.getBlock())
+                            || stairs.getValue(StairBlock.FACING) !=
+                                (u < plot.width / 2 ? Direction.EAST : Direction.WEST))
                             return false;
                     }
                 }
