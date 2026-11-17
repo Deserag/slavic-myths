@@ -119,10 +119,52 @@ public final class BuyanHarbor {
             BlockPos displaced=origin.world(shift,0,0);
             Coast coast=new Coast(new Plan(displaced.getX(),displaced.getZ(),rotation),site,world.getSeed());
             int score=coast.score();
-            // A safe usable shore section has no extreme 90-block-wide inlet.
-            if(score<best && score<=24){best=score;selected=coast;}
+            if(score>=best||score>72)continue;
+            boolean contiguous=true;
+            for(int x=-41;x<=41;x++)
+                if(Math.abs(coast.shore(x)-coast.shore(x-1))>3){
+                    contiguous=false;
+                    break;
+                }
+            if(!contiguous||!safeBuildings(coast,site.waterLevel()))continue;
+            // Each pier must end over water. The port follows this seed's coast.
+            for(int[] dock:new int[][]{{17,18,5},{-33,12,3},{44,6,3}}){
+                int end=coast.shore(dock[0])+4-(dock[1]-1);
+                for(int dx=-(dock[2]/2);dx<=dock[2]/2;dx++)
+                    if(coast.land(dock[0]+dx,end)!=Integer.MIN_VALUE)contiguous=false;
+            }
+            if(!contiguous)continue;
+            best=score;selected=coast;
         }
         return selected;
+    }
+
+    private static int[][] buildingPlots(int base){
+        return new int[][]{
+            {-48,base+63,12,10,4},
+            {-30,base+77,10,8,4},
+            {25,base+75,11,8,4},
+            {-29,base+41,10,8,4},
+            {25,base+41,14,10,5},
+            {-48,base+27,8,7,4},
+            {42,base+24,11,9,4},
+            {-5,base+79,11,9,4}
+        };
+    }
+
+    private static boolean safeBuildings(Coast coast,int sea){
+        int[][] buildings=buildingPlots(coast.base);
+        for(int i=0;i<buildings.length;i++){
+            int[] a=buildings[i];
+            if(!siteAvailable(coast,a[0],a[1],a[2],a[3],sea))return false;
+            for(int j=0;j<i;j++){
+                int[] b=buildings[j];
+                int separationX=Math.max(a[0]-(b[0]+b[2]-1),b[0]-(a[0]+a[2]-1));
+                int separationZ=Math.max(a[1]-(b[1]+b[3]-1),b[1]-(a[1]+a[3]-1));
+                if(separationX<3&&separationZ<3)return false;
+            }
+        }
+        return true;
     }
 
     private static final BlockState OAK=Blocks.OAK_PLANKS.defaultBlockState();
@@ -465,21 +507,9 @@ public final class BuyanHarbor {
         Plan plan=coast.plan;
         int sea=site.waterLevel(),base=coast.base;
         // Eight capital buildings in four zones; the original three count in the total.
-        int[][] buildings={
-            {-48,base+63,12,10,4}, // Fishing home 1: residential line
-            {-30,base+77,10,8,4},  // Fishing home 2: offset farther inland
-            {25,base+75,11,8,4},   // Fishing home 3: opposite side of the street
-            {-29,base+41,10,8,4},  // Merchant shop left of the square
-            {25,base+41,14,10,5},  // Cargo warehouse right of the square
-            {-48,base+27,8,7,4},   // Fish smoker at fishing yard
-            {42,base+24,11,9,4},   // Boatwright workshop at service slip
-            {-5,base+79,11,9,4}    // Harbor elder house at back of the square
-        };
+        int[][] buildings=buildingPlots(base);
         String[] types={"house","house","house","market","warehouse","smokehouse","workshop","elder"};
-        for(int i=0;i<buildings.length;i++){
-            int[] b=buildings[i];
-            if(!siteAvailable(coast,b[0],b[1],b[2],b[3],sea))return false;
-        }
+        if(!safeBuildings(coast,sea))return false;
 
         // Roads and quays are created before houses, so they cannot erase furniture.
         waterfront(coast,plan,sea);
