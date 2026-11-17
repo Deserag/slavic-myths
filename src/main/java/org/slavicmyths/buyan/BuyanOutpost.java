@@ -831,7 +831,8 @@ public final class BuyanOutpost {
                 BlockState backing = blocks.get(support);
                 if (backing == null || !(backing.is(Blocks.STRIPPED_SPRUCE_LOG)
                     || backing.is(Blocks.OAK_LOG) || backing.is(Blocks.DARK_OAK_LOG)
-                    || backing.is(Blocks.SPRUCE_PLANKS) || backing.is(Blocks.DARK_OAK_PLANKS)
+                    || backing.is(Blocks.SPRUCE_PLANKS) || backing.is(Blocks.OAK_PLANKS)
+                    || backing.is(Blocks.DARK_OAK_PLANKS)
                     || backing.is(Blocks.COBBLESTONE) || backing.is(Blocks.STONE_BRICKS)))
                     return fail("unbacked ladder " + point + " behind " + support);
                 BlockState headroom = blocks.get(point.above());
