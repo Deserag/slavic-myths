@@ -74,8 +74,10 @@ public final class BuyanPreSpawn {
                     &&BuyanNatureState.get(world).finishedAt(site)
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
-                    &&BuyanCraftQuarter.placeOnce(world,site)
+                    // The palace owns the central clearing. Placing the
+                    // craft district first can occupy every palace candidate.
                     &&BuyanTerem.placeOnce(world,site)
+                    &&BuyanCraftQuarter.placeOnce(world,site)
                     &&BuyanShrine.placeOnce(world,site)){
                     state.finished();
                     world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
@@ -93,8 +95,15 @@ public final class BuyanPreSpawn {
             LogUtils.getLogger().info("Slavic Oceans ready before player spawn; elapsed {} ms",
                 (System.nanoTime()-begin)/1_000_000L);
         }catch(RuntimeException exception){
-            LogUtils.getLogger().error("Slavic Oceans spawn construction FAILED; do not use this save as a completed Buyan.",exception);
-            throw exception;
+            // Never crash the integrated server because one optional district
+            // cannot be safely placed. Ready remains false so recovery can
+            // retry on the next world opening without rebuilding the terrain.
+            LogUtils.getLogger().error(
+                "Slavic Oceans city is incomplete; placement was stopped safely. "
+                    + "This save is NOT a completed Buyan.",exception);
+            int ground=BuyanNature.top(world.getSeed(),0,0,R,0,-40,63);
+            if(ground!=Integer.MIN_VALUE)
+                world.setDefaultSpawnPos(new BlockPos(0,ground+2,-40),0.0F);
         }
     }
 
@@ -190,10 +199,12 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain is ready but harbor placement failed");
         if(!BuyanOutpost.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain and harbor are ready but hill outpost placement failed");
-        if(!BuyanCraftQuarter.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain, harbor and outpost are ready but craft forge placement failed");
+        // Place the approved central palace before districts on the outer
+        // island. Every later district uses its strict collision preflight.
         if(!BuyanTerem.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain and districts are ready but central terem placement failed");
+            throw new IllegalStateException("Buyan terrain and outpost are ready but central terem placement failed");
+        if(!BuyanCraftQuarter.placeOnce(world,site))
+            throw new IllegalStateException("Buyan terrain and central terem are ready but craft forge placement failed");
         if(!BuyanShrine.placeOnce(world,site))
             throw new IllegalStateException("Buyan sanctuary failed safe placement");
     }
