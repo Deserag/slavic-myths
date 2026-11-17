@@ -28,4 +28,10 @@ public final class BuyanCraftGameTests {
         BuyanCraftQuarter.verifyReportedSeedSite(helper.getLevel());
         helper.succeed();
     }
+
+    @GameTest(template = "empty", timeoutTicks = 1200)
+    public static void integratedClientCrashSeedPreservesCentralPalace(GameTestHelper helper) {
+        BuyanCraftQuarter.verifyTemerFirstCrashSeedFixture(helper.getLevel());
+        helper.succeed();
+    }
 }
