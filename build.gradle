@@ -762,3 +762,21 @@ if (project.hasProperty('ocean26ClientProbe')) {
         }
     }
 }
+
+// Isolated Buyan outpost regression fixture; not part of the production JAR.
+// Reuses the existing empty GameTest structure resource, but no old test code.
+if (project.hasProperty('buyanOutpostCheck')) {
+    sourceSets { buyanOutpostCheck {
+        java.srcDir 'tools/buyan-outpost-tests'
+        resources.srcDir 'tools/accessories278-test-resources'
+    } }
+    sourceSets.buyanOutpostCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.buyanOutpostCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileBuyanOutpostCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.buyanOutpostCheck)
+    neoForge.runs { buyanOutpostChecks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-buyan-outpost-2622')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
+    } }
+}
