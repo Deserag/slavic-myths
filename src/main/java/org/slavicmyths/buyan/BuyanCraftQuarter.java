@@ -1352,6 +1352,11 @@ public final class BuyanCraftQuarter {
                 "Crash seed: natural trees and protected construction are misclassified");
         if (p.chests.size() != 8 || p.armoryFloor <= 63)
             throw new IllegalStateException("Crash seed: smithing complex incomplete");
+        // November 17 integrated-client crash: terrainFit rejected all 868
+        // original candidates for this exact seed before world construction.
+        Plan clientCrash = findBlueprintFixture(world, -9047918643626153269L);
+        if (clientCrash.chests.size() != 8 || !clientCrash.checkDesign())
+            throw new IllegalStateException("Integrated-client crash seed blueprint incomplete");
     }
 
     public static void verifyReportedSeedSite(ServerLevel world) {
