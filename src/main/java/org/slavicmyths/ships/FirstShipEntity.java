@@ -1244,11 +1244,16 @@ public final class FirstShipEntity extends Boat {
         }
         if (!movingBody.removeMovingBlock(local)) return false;
         clearMovingCargoCache();
-        if (level() instanceof net.minecraft.server.level.ServerLevel world) {
+        if (level() instanceof net.minecraft.server.level.ServerLevel world
+                && world.getGameRules().getBoolean(
+                        net.minecraft.world.level.GameRules.RULE_DOBLOCKDROPS)) {
             FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
                     getX(), getZ(), getYRot());
             BlockPos drop = BlockPos.containing(point.x(), getY() + local.getY(), point.z());
-            if (cargoData != null && cargoData.contains("Items", Tag.TAG_LIST)) {
+            boolean looseInventory = state.is(Blocks.CHEST)
+                    || state.is(Blocks.BARREL) || state.is(Blocks.FURNACE);
+            if (looseInventory && cargoData != null
+                    && cargoData.contains("Items", Tag.TAG_LIST)) {
                 var contents = net.minecraft.core.NonNullList.withSize(256, ItemStack.EMPTY);
                 net.minecraft.world.ContainerHelper.loadAllItems(cargoData, contents,
                         registryAccess());
@@ -1256,9 +1261,14 @@ public final class FirstShipEntity extends Boat {
                     if (!item.isEmpty())
                         net.minecraft.world.level.block.Block.popResource(world, drop, item);
             }
-            if (!player.getAbilities().instabuild)
+            net.minecraft.world.level.block.entity.BlockEntity savedBlockEntity = null;
+            if (cargoData != null && state.hasBlockEntity())
+                savedBlockEntity = net.minecraft.world.level.block.entity.BlockEntity
+                        .loadStatic(drop, state, cargoData, registryAccess());
+            if (!player.getAbilities().instabuild || state.hasBlockEntity() && !looseInventory)
                 for (ItemStack item : net.minecraft.world.level.block.Block.getDrops(
-                        state, world, drop, null, player, player.getMainHandItem()))
+                        state, world, drop, savedBlockEntity, player,
+                        player.getMainHandItem()))
                     net.minecraft.world.level.block.Block.popResource(world, drop, item);
         }
         syncMovingCargo();

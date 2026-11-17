@@ -101,6 +101,8 @@ public final class ShipSailCapture {
     private static boolean doorOpened;
     private static boolean plankBroken;
     private static BlockPos interactionPlank;
+    private static String chestClientDiagnostic = "not observed";
+    private static volatile String chestServerDiagnostic = "not observed";
 
     private record Case(int shipLevel, int tier) {}
 
@@ -386,12 +388,6 @@ public final class ShipSailCapture {
             System.out.println("SHIP_SAIL_RESIDUAL server=" + serverResidualBlocks
                     + " client=" + clientResidual + " frame=" + state);
             MOTION_FRAMES.add(row);
-            if (frameIndex == 0) {
-                // Diagnostic only: client state can already be AIR while its
-                // old chunk mesh still displays timber after bulk detachment.
-                mc.levelRenderer.allChanged();
-                System.out.println("SHIP_SAIL_RENDER_REBUILD after=turn");
-            }
             if (frameIndex == 0 && serverMotionSpeed <= .05D)
                 throw new AssertionError("IV did not turn under client helm input");
             if (frameIndex == 1) {
@@ -445,6 +441,23 @@ public final class ShipSailCapture {
         }
         if (interactionPhase == 1) {
             if (interactionAge < 25) return;
+            FirstShipEntity visible = mc.level.getEntity(expectedShipId)
+                    instanceof FirstShipEntity ship ? ship : null;
+            var eye = mc.player.getEyePosition();
+            var end = eye.add(mc.player.getLookAngle().scale(5D));
+            var palette = visible == null ? Map.<BlockPos, BlockState>of()
+                    : ShipModularBlockHull.localVisualPalette(blueprint(new Case(4, 3)),
+                            ShipModularBlockHull.decodeVisibleCargo(
+                                    visible.movingCargoView()));
+            var hit = visible == null ? null
+                    : org.slavicmyths.ships.ShipMovingCargoTarget.hit(
+                            visible, eye, end, palette);
+            chestClientDiagnostic = "player=" + mc.player.position()
+                    + " passenger=" + mc.player.isPassenger()
+                    + " screen=" + mc.screen
+                    + " hit=" + hit + " cargoView="
+                    + (visible == null ? "missing ship" : visible.movingCargoView());
+            System.out.println("SHIP_CHEST_CLIENT_DIAGNOSTIC " + chestClientDiagnostic);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             interactionPhase = 2; interactionAge = 0;
             return;
@@ -454,6 +467,14 @@ public final class ShipSailCapture {
             server.execute(() -> {
                 ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
                 chestOpened = player.containerMenu != player.inventoryMenu;
+                if (!chestOpened) {
+                    boolean direct = serverShip.openMovingCargo(player, 0);
+                    chestServerDiagnostic = "direct=" + direct + " player="
+                            + player.position() + " ship=" + serverShip.position()
+                            + " view=" + serverShip.movingCargoView();
+                    System.out.println("SHIP_CHEST_SERVER_DIAGNOSTIC "
+                            + chestServerDiagnostic);
+                }
                 player.closeContainer();
                 interactionDoor = serverShip.serverMovingPalette().entrySet().stream()
                         .filter(entry -> entry.getValue().getBlock()
@@ -471,7 +492,8 @@ public final class ShipSailCapture {
         if (interactionPhase == 3) {
             if (interactionAge < 25) return;
             if (!chestOpened || interactionDoor == null)
-                throw new AssertionError("Client could not open detached IV chest");
+                throw new AssertionError("Client could not open detached IV chest: "
+                        + chestClientDiagnostic + " server=" + chestServerDiagnostic);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             interactionPhase = 4; interactionAge = 0;
             return;

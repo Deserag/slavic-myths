@@ -177,7 +177,7 @@ public final class FirstShipNetwork {
                 ship.helmStep(player, action);
                 return;
             }
-            if (action >= CARGO_BASE && action < CARGO_BASE + 154) {
+            if (action >= CARGO_BASE && action < CARGO_BASE + 8192) {
                 ship.openMovingCargo(player, action - CARGO_BASE);
                 return;
             }
