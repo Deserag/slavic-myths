@@ -307,7 +307,7 @@ public final class BuyanOutpost {
             }
             at(x + w / 2 + 2, y + 1, z + d - 3, Blocks.SPRUCE_STAIRS.defaultBlockState());
             at(x + w / 2 + 2, y + 1, z + d - 4, Blocks.SPRUCE_SLAB.defaultBlockState());
-            lantern(x + w - 2, y + height - 1, z + d - 2);
+            lantern(x + 1, y + height - 1, z + d - 2);
             door(p, y);
             if (p.kind.equals("hanging")) {
                 for (int xx = x + 2; xx < x + w - 1; xx += 3) {
@@ -367,43 +367,49 @@ public final class BuyanOutpost {
             door(p, y);
         }
 
-        void platform(int x1, int z1, int x2, int z2) {
+        int platform(int x1, int z1, int x2, int z2) {
             int floor = Integer.MIN_VALUE;
             for (int x = x1; x <= x2; x++)
                 for (int z = z1; z <= z2; z++)
                     floor = Math.max(floor, ground(x, z) + 1);
-            if (floor == Integer.MIN_VALUE) return;
+            if (floor == Integer.MIN_VALUE) return Integer.MIN_VALUE;
             for (int x = x1; x <= x2; x++)
                 for (int z = z1; z <= z2; z++) {
                     posts(x, z, floor);
                     at(x, floor, z, PLANK);
                     for (int y = floor + 1; y <= floor + 3; y++) at(x, y, z, AIR);
                 }
+            return floor;
         }
 
         void yards() {
             // Open upper drill area, actual hay targets and a solid backstop.
-            platform(5, 17, 14, 25);
-            for (int x = 6; x <= 13; x += 3) {
-                at(x, ground(x, 22) + 5, 22, Blocks.HAY_BLOCK.defaultBlockState());
-                at(x, ground(x, 22) + 6, 22, Blocks.TARGET.defaultBlockState());
+            int range = platform(5, 17, 14, 25);
+            if (range != Integer.MIN_VALUE) {
+                for (int x = 6; x <= 13; x += 3) {
+                    at(x, range + 1, 22, Blocks.HAY_BLOCK.defaultBlockState());
+                    at(x, range + 2, 22, Blocks.TARGET.defaultBlockState());
+                }
+                for (int x = 5; x <= 14; x++)
+                    for (int y = range + 1; y <= range + 4; y++)
+                        at(x, y, 26, LOG);
             }
-            for (int x = 5; x <= 14; x++)
-                for (int y = ground(x, 26) + 1; y <= ground(x, 26) + 4; y++)
-                    at(x, y, 26, LOG);
-            platform(18, 17, 27, 23);
-            for (int x = 20; x <= 25; x += 2)
-                at(x, ground(x, 19) + 5, 19, Blocks.OAK_FENCE.defaultBlockState());
-            platform(-8, -63, -3, -57);
-            for (int x = -8; x <= -3; x += 2)
-                at(x, ground(x, -60) + 4, -60, LOG);
-            platform(3, -94, 8, -89);
-            at(7, ground(7, -91) + 4, -91, Blocks.CRAFTING_TABLE.defaultBlockState());
+            int drill = platform(18, 17, 27, 23);
+            if (drill != Integer.MIN_VALUE)
+                for (int x = 20; x <= 25; x += 2)
+                    at(x, drill + 1, 19, Blocks.OAK_FENCE.defaultBlockState());
+            int slope = platform(-8, -63, -3, -57);
+            if (slope != Integer.MIN_VALUE)
+                for (int x = -8; x <= -3; x += 2)
+                    at(x, slope + 1, -60, LOG);
+            int lower = platform(3, -94, 8, -89);
+            if (lower != Integer.MIN_VALUE)
+                at(7, lower + 1, -91, Blocks.CRAFTING_TABLE.defaultBlockState());
         }
 
-        void path(int x1, int z1, int x2, int z2, int start, int finish) {
+        int path(int x1, int z1, int x2, int z2, int start, int finish) {
             int length = Math.abs(x2 - x1) + Math.abs(z2 - z1);
-            if (length == 0) return;
+            if (length == 0) return start;
             if (x1 != x2 && z1 != z2) throw new IllegalArgumentException("Path must be orthogonal");
             int dx = Integer.compare(x2, x1), dz = Integer.compare(z2, z1);
             int[] h = new int[length + 1];
@@ -439,11 +445,15 @@ public final class BuyanOutpost {
                 for (int side : new int[]{-2, 2}) {
                     int bx = x + (dx != 0 ? 0 : side);
                     int bz = z + (dx != 0 ? side : 0);
-                    if (floor - ground(bx, bz) > 2)
+                    if (floor - ground(bx, bz) > 2) {
+                        posts(bx, bz, floor);
+                        at(bx, floor, bz, PLANK);
                         at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
+                    }
                 }
                 if (x1 == 0 && x2 == 0) mainHeight.put(z, floor);
             }
+            return h[length];
         }
 
         void build() {
@@ -472,9 +482,8 @@ public final class BuyanOutpost {
                 int entryZ = p.z - 5;
                 int entryY = floor(p);
                 int join = mainHeight.getOrDefault(entryZ, ground(0, entryZ) + 1);
-                path(0, entryZ, p.door(), entryZ, join, entryY);
-                path(p.door(), entryZ, p.door(), p.z - 1,
-                    Math.max(entryY, ground(p.door(), entryZ) + 1), entryY);
+                int bend = path(0, entryZ, p.door(), entryZ, join, entryY);
+                path(p.door(), entryZ, p.door(), p.z - 1, bend, entryY);
             }
             // Final houses overwrite only their own doorways, never roads.
             for (Plot p : plots) {
