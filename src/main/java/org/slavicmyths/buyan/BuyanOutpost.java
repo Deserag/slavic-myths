@@ -375,6 +375,8 @@ public final class BuyanOutpost {
             for (int b = 1; b < d - 1; b++)
                 for (int a : new int[]{0,w-1})
                     at(x + a, y + 11, z + b, Blocks.SPRUCE_FENCE.defaultBlockState());
+            // A solid anchor is required behind the ladder's last rung.
+            at(x, y + 11, z + 1, LOG);
             for (int a : new int[]{x + 2, x + w - 3})
                 for (int b : new int[]{z + 2, z + d - 3}) {
                     fill(a, y + 11, b, a, y + 14, b, LOG);
@@ -531,6 +533,48 @@ public final class BuyanOutpost {
             }
             for (BlockPos point : blocks.keySet())
                 if (!BuyanGenerator.canReplace(world.getBlockState(point))) return false;
+            // Assert the FINAL staged geometry, not only its intermediate template.
+            // Detect beds, doors and roofs damaged by later furnishing or pathways.
+            for (var entry : blocks.entrySet()) {
+                BlockPos point = entry.getKey();
+                BlockState state = entry.getValue();
+                if (state.getBlock() instanceof BedBlock) {
+                    Direction face = state.getValue(BedBlock.FACING);
+                    boolean foot = state.getValue(BedBlock.PART) == BedPart.FOOT;
+                    BlockState pair = blocks.get(point.relative(foot ? face : face.getOpposite()));
+                    if (pair == null || pair.getBlock() != state.getBlock()
+                        || pair.getValue(BedBlock.PART) != (foot ? BedPart.HEAD : BedPart.FOOT))
+                        return false;
+                }
+                if (state.getBlock() instanceof DoorBlock) {
+                    boolean lower = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER;
+                    BlockState pair = blocks.get(lower ? point.above() : point.below());
+                    if (pair == null || pair.getBlock() != state.getBlock()
+                        || pair.getValue(DoorBlock.HALF) !=
+                            (lower ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER))
+                        return false;
+                }
+            }
+            for (BlockPos point : loot.keySet()) {
+                BlockState state = blocks.get(point);
+                if (state == null || !state.is(Blocks.CHEST)) return false;
+            }
+            for (Plot plot : plots) {
+                if (plot.kind.equals("tower")) continue;
+                int top = floor(plot) + (plot.floors == 2 ? 10 : 5);
+                for (int u = 1; u < plot.width - 1; u++) {
+                    int y = top + 2 + Math.min(u + 1, plot.width - u) / 2;
+                    for (int v = 1; v < plot.depth - 1; v++) {
+                        BlockState backing = blocks.get(
+                            hill.at(plot.x + u, y - 1, plot.z + v));
+                        BlockState stairs = blocks.get(
+                            hill.at(plot.x + u, y, plot.z + v));
+                        if (backing == null || !backing.is(Blocks.DARK_OAK_PLANKS)
+                            || stairs == null || !stairs.is(Blocks.DARK_OAK_STAIRS))
+                            return false;
+                    }
+                }
+            }
             return true;
         }
 
