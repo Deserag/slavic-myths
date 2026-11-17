@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -169,6 +170,7 @@ public final class BuyanOutpost {
         final List<BlockPos> weaponRacks = new ArrayList<>();
         final List<Plot> plots = new ArrayList<>();
         final Map<Integer, Integer> mainHeight = new HashMap<>();
+        final List<List<BlockPos>> routes = new ArrayList<>();
 
         Plan(ServerLevel world, Hill hill) {
             this.world = world;
@@ -452,25 +454,37 @@ public final class BuyanOutpost {
                 int interpolation = start + (int) Math.round((finish - start) * i / (double) length);
                 h[i] = Math.max(interpolation, ground(x, z) + 1);
             }
+            // Raise low cells until no neighboring pair differs by more than one.
+            // Two directional sweeps suffice for the shortest 1-Lipschitz majorant.
             for (int i = length - 1; i >= 0; i--) h[i] = Math.max(h[i], h[i + 1] - 1);
             for (int i = 1; i <= length; i++) h[i] = Math.max(h[i], h[i - 1] - 1);
-            // Branches must meet the main spine, their turn and the door
-            // at their actual floor height; otherwise the plan is rejected.
-            if (!mainHeight.isEmpty() && (h[0] != start || h[length] != finish))
-                throw new IllegalStateException("Outpost access path is too steep");
+            if (h[0] != start || h[length] != finish)
+                throw new IllegalStateException("Outpost route would disconnect an entrance");
+            List<BlockPos> route = new ArrayList<>();
             for (int i = 0; i <= length; i++) {
+                if (i > 0 && Math.abs(h[i] - h[i - 1]) > 1)
+                    throw new IllegalStateException("Outpost route height jump");
+
                 int x = x1 + dx * i, z = z1 + dz * i, floor = h[i];
                 BlockState board = PLANK;
+                // A stair always faces UP the incline. Its lower half meets the
+                // neighboring lower deck; the higher half meets the upper deck.
                 if (i > 0 && h[i] > h[i - 1]) {
-                    Direction descending = dx != 0
-                        ? (dx > 0 ? Direction.WEST : Direction.EAST)
-                        : (dz > 0 ? Direction.NORTH : Direction.SOUTH);
-                    board = Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, descending);
-                } else if (i < length && h[i] > h[i + 1]) {
-                    Direction descending = dx != 0
+                    Direction uphill = dx != 0
                         ? (dx > 0 ? Direction.EAST : Direction.WEST)
                         : (dz > 0 ? Direction.SOUTH : Direction.NORTH);
-                    board = Blocks.SPRUCE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, descending);
+                    board = Blocks.SPRUCE_STAIRS.defaultBlockState()
+                        .setValue(StairBlock.FACING, uphill)
+                        .setValue(StairBlock.HALF, net.minecraft.world.level.block.state.properties.Half.BOTTOM)
+                        .setValue(StairBlock.SHAPE, StairsShape.STRAIGHT);
+                } else if (i < length && h[i] > h[i + 1]) {
+                    Direction uphill = dx != 0
+                        ? (dx > 0 ? Direction.WEST : Direction.EAST)
+                        : (dz > 0 ? Direction.NORTH : Direction.SOUTH);
+                    board = Blocks.SPRUCE_STAIRS.defaultBlockState()
+                        .setValue(StairBlock.FACING, uphill)
+                        .setValue(StairBlock.HALF, net.minecraft.world.level.block.state.properties.Half.BOTTOM)
+                        .setValue(StairBlock.SHAPE, StairsShape.STRAIGHT);
                 }
                 for (int side = -1; side <= 1; side++) {
                     int bx = x + (dx != 0 ? 0 : side);
@@ -489,8 +503,10 @@ public final class BuyanOutpost {
                         at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
                     }
                 }
+                route.add(hill.at(x, floor, z));
                 if (x1 == 0 && x2 == 0) mainHeight.put(z, floor);
             }
+            routes.add(route);
             return h[length];
         }
 
@@ -570,6 +586,45 @@ public final class BuyanOutpost {
             for (BlockPos point : loot.keySet()) {
                 BlockState state = blocks.get(point);
                 if (state == null || !state.is(Blocks.CHEST)) return false;
+            }
+            // Every ladder must be backed by a full structural block on the
+            // opposite side of FACING, including the highest and lowest rung.
+            for (var entry : blocks.entrySet()) {
+                BlockState ladder = entry.getValue();
+                if (!(ladder.getBlock() instanceof LadderBlock)) continue;
+                BlockPos point = entry.getKey();
+                BlockPos support = point.relative(ladder.getValue(LadderBlock.FACING).getOpposite());
+                BlockState backing = blocks.get(support);
+                if (backing == null || !(backing.is(Blocks.STRIPPED_SPRUCE_LOG)
+                    || backing.is(Blocks.OAK_LOG) || backing.is(Blocks.DARK_OAK_LOG)
+                    || backing.is(Blocks.SPRUCE_PLANKS) || backing.is(Blocks.DARK_OAK_PLANKS)
+                    || backing.is(Blocks.COBBLESTONE) || backing.is(Blocks.STONE_BRICKS)))
+                    return false;
+                BlockState headroom = blocks.get(point.above());
+                if (headroom != null && !headroom.isAir()
+                    && !(headroom.getBlock() instanceof LadderBlock)) return false;
+            }
+            // Check the FINAL walkable surfaces after houses and yards have been
+            // installed. Each landing, intersection and stair must remain intact.
+            for (List<BlockPos> route : routes) {
+                for (int i = 0; i < route.size(); i++) {
+                    BlockPos point = route.get(i);
+                    BlockState surface = blocks.get(point);
+                    if (surface == null || !(surface.is(Blocks.SPRUCE_PLANKS)
+                        || surface.is(Blocks.SPRUCE_STAIRS))) return false;
+                    for (int dy = 1; dy <= 2; dy++) {
+                        BlockState air = blocks.get(point.above(dy));
+                        if (air != null && !air.isAir()) return false;
+                    }
+                    if (i > 0 && Math.abs(point.getY() - route.get(i - 1).getY()) > 1)
+                        return false;
+                    if (surface.is(Blocks.SPRUCE_STAIRS)) {
+                        if (surface.getValue(StairBlock.HALF)
+                            != net.minecraft.world.level.block.state.properties.Half.BOTTOM
+                            || surface.getValue(StairBlock.SHAPE) != StairsShape.STRAIGHT)
+                            return false;
+                    }
+                }
             }
             for (Plot plot : plots) {
                 if (plot.kind.equals("tower")) continue;
