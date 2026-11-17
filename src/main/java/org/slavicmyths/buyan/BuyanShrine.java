@@ -174,6 +174,10 @@ public final class BuyanShrine {
         }
         void shrine() {
             int x=-34,z=9;
+            // Support every plinth tile down to natural ground; no hovering floor.
+            for(int dx=-13;dx<=13;dx++)
+                for(int dz=-9;dz<=9;dz++)
+                    pavement(x+dx,z+dz,GRAY);
             box(x-13,x+13,z-9,z+9,0,0,GRAY);
             box(x-12,x+12,z-8,z+8,1,1,IVORY);
             for(int dx=-10;dx<=10;dx++)for(int dz=-6;dz<=6;dz++)
@@ -273,6 +277,10 @@ public final class BuyanShrine {
         }
         void oak() {
             int cx=29,cz=8;
+            // The enormous sacred-oak podium also needs continuous supports.
+            for(int dx=-26;dx<=26;dx++)
+                for(int dz=-26;dz<=26;dz++)
+                    pavement(cx+dx,cz+dz,GRAY);
             box(cx-26,cx+26,cz-26,cz+26,0,0,GRAY);
             for(int x=-21;x<=21;x++)for(int z=-21;z<=21;z++) {
                 double r=Math.hypot(x,z);
@@ -476,8 +484,10 @@ public final class BuyanShrine {
         long k=key(site);
         if(saved.built.containsKey(k))return true;
         for(int radius:new int[]{120,136,152,168})
-            for(int[] d:new int[][]{{1,0},{-1,0},{0,-1},{0,1}}) {
-                int x=site.x()+d[0]*radius,z=site.z()+d[1]*radius;
+            for(int lateral:new int[]{0,-16,16,-32,32})
+                for(int[] d:new int[][]{{1,0},{-1,0},{0,-1},{0,1}}) {
+                int x=site.x()+d[0]*radius+d[1]*lateral;
+                int z=site.z()+d[1]*radius-d[0]*lateral;
                 Rotation rotation=d[0]==1?Rotation.COUNTERCLOCKWISE_90:
                     d[0]==-1?Rotation.CLOCKWISE_90:
                         d[1]==-1?Rotation.CLOCKWISE_180:Rotation.NONE;
