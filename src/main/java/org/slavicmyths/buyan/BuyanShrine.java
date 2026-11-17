@@ -67,17 +67,35 @@ public final class BuyanShrine {
         final int ox,oz;
         final Rotation rotation;
         final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();
-        int base;
-        Plan(ServerLevel world,BuyanState.Site site,int x,int z,Rotation rotation) {
+        final long seed;
+        int base, shrineFloor, oakFloor;
+        Plan(ServerLevel world,BuyanState.Site site,int x,int z,Rotation rotation,long seed) {
             this.world=world;this.site=site;ox=x;oz=z;this.rotation=rotation;
+            this.seed=seed;
+        }
+        BlockPos horizontal(int x,int z) {
+            return switch(rotation) {
+                case NONE -> new BlockPos(ox+x,0,oz+z);
+                case CLOCKWISE_90 -> new BlockPos(ox-z,0,oz+x);
+                case CLOCKWISE_180 -> new BlockPos(ox-x,0,oz-z);
+                case COUNTERCLOCKWISE_90 -> new BlockPos(ox+z,0,oz-x);
+            };
+        }
+        private static int outside(int x,int z,int left,int right,int near,int far) {
+            return Math.max(Math.max(Math.max(left-x,x-right),0),
+                Math.max(Math.max(near-z,z-far),0));
+        }
+        // Each monument remains level. The approaches rise at most one
+        // block per step toward each monument instead of levelling 129x81 land.
+        int floor(int x,int z) {
+            int natural=ground(x,z)+1;
+            return Math.max(natural,Math.max(
+                shrineFloor-outside(x,z,-52,-17,-6,20),
+                oakFloor-outside(x,z,0,58,-20,37)));
         }
         BlockPos p(int x,int z,int h) {
-            return switch(rotation) {
-                case NONE -> new BlockPos(ox+x,base+h,oz+z);
-                case CLOCKWISE_90 -> new BlockPos(ox-z,base+h,oz+x);
-                case CLOCKWISE_180 -> new BlockPos(ox-x,base+h,oz-z);
-                case COUNTERCLOCKWISE_90 -> new BlockPos(ox+z,base+h,oz-x);
-            };
+            BlockPos point=horizontal(x,z);
+            return new BlockPos(point.getX(),floor(x,z)+h,point.getZ());
         }
         void at(int x,int z,int h,BlockState state) {
             blocks.put(p(x,z,h),state.rotate(rotation));
@@ -90,27 +108,47 @@ public final class BuyanShrine {
                 for(int h=h0;h<=h1;h++)at(x,z,h,state);
         }
         int top(int x,int z) {
-            return BuyanNature.top(world.getSeed(),site.x(),site.z(),site.radius(),
+            return BuyanNature.top(seed,site.x(),site.z(),site.radius(),
                 x,z,site.waterLevel());
         }
         int ground(int x,int z) {
-            BlockPos p=p(x,z,0);return top(p.getX(),p.getZ());
+            BlockPos point=horizontal(x,z);
+            return top(point.getX(),point.getZ());
         }
         boolean fits() {
             int lo=Integer.MAX_VALUE,hi=Integer.MIN_VALUE;
-            for(int x=-64;x<=64;x+=4)for(int z=-40;z<=40;z+=4) {
+            for(int x=-64;x<=64;x+=8)for(int z=-40;z<=40;z+=8) {
                 int y=ground(x,z);
                 if(y==Integer.MIN_VALUE||y<site.waterLevel()+7)return false;
                 lo=Math.min(lo,y);hi=Math.max(hi,y);
             }
-            if(hi-lo>8||hi+43>=world.getMaxBuildHeight())return false;
-            base=hi+1;return true;
+            // The full precinct may follow a hill; the individual shrine
+            // and oak foundations must be substantially more level.
+            if(hi-lo>30)return false;
+            int sLow=Integer.MAX_VALUE,sHigh=Integer.MIN_VALUE;
+            for(int x=-49;x<=-19;x++)for(int z=-5;z<=18;z++) {
+                int y=ground(x,z);
+                if(y==Integer.MIN_VALUE||y<site.waterLevel()+7)return false;
+                sLow=Math.min(sLow,y);sHigh=Math.max(sHigh,y);
+            }
+            int oLow=Integer.MAX_VALUE,oHigh=Integer.MIN_VALUE;
+            for(int x=3;x<=55;x++)for(int z=-18;z<=34;z++) {
+                int y=ground(x,z);
+                if(y==Integer.MIN_VALUE||y<site.waterLevel()+7)return false;
+                oLow=Math.min(oLow,y);oHigh=Math.max(oHigh,y);
+            }
+            if(sHigh-sLow>8||oHigh-oLow>12
+                ||Math.max(sHigh,oHigh)+44>=world.getMaxBuildHeight())return false;
+            shrineFloor=sHigh+1;oakFloor=oHigh+1;
+            base=ground(0,0)+1;
+            return true;
         }
         void pavement(int x,int z,BlockState tile) {
-            int g=ground(x,z);
-            if(g==Integer.MIN_VALUE||g>=base)
+            int g=ground(x,z),level=floor(x,z);
+            if(g==Integer.MIN_VALUE||g>=level)
                 throw new IllegalStateException("Shrine floor crosses natural ground");
-            for(int h=g+1-base;h<0;h++)at(x,z,h,h<-3?STONE:GRAY);
+            for(int y=g+1;y<level;y++)
+                at(x,z,y-level,y<level-3?STONE:GRAY);
             at(x,z,0,tile);
             for(int h=1;h<=3;h++)at(x,z,h,AIR);
         }
@@ -132,16 +170,21 @@ public final class BuyanShrine {
             for(int h=y+1;h<=y+3;h++)absolute(x,h,z,AIR);
         }
         void street(int x0,int z0,int x1,int z1) {
+            if(x0!=x1&&z0!=z1)
+                throw new IllegalArgumentException("Sanctuary road is not axis aligned");
             int n=Math.max(Math.abs(x1-x0),Math.abs(z1-z0));
-            BlockPos gate=p(0,-40,0);
-            boolean fromGate=x0==gate.getX()&&z0==gate.getZ();
+            int last=Integer.MIN_VALUE;
             for(int i=0;i<=n;i++) {
-                int x=x0+i*Integer.signum(x1-x0),z=z0+i*Integer.signum(z1-z0);
+                int x=x0+i*Integer.signum(x1-x0);
+                int z=z0+i*Integer.signum(z1-z0);
+                int h=top(x,z);
+                if(h==Integer.MIN_VALUE||h<site.waterLevel()+5
+                    ||last!=Integer.MIN_VALUE&&Math.abs(h-last)>1)
+                    throw new IllegalStateException("Sanctuary road cannot follow safe walkable grade");
+                last=h;
                 for(int w=-1;w<=1;w++) {
                     int wx=x0==x1?x+w:x,wz=x0==x1?z:z+w;
-                    int g=top(wx,wz);
-                    exteriorTile(wx,wz,fromGate?Math.max(g+1,base-i):g+1,
-                        w==0?GRAY:IVORY);
+                    exteriorTile(wx,wz,top(wx,wz)+1,w==0?GRAY:IVORY);
                 }
             }
         }
@@ -399,26 +442,15 @@ public final class BuyanShrine {
         }
         void cityRoad() {
             BlockPos gate=p(0,-40,0);
-            int x=site.x(),z=site.z();
-            if(rotation==Rotation.COUNTERCLOCKWISE_90) {
-                street(gate.getX(),gate.getZ(),x+41,z);
-                street(x+41,z,x+41,z-54);
-                street(x+41,z-54,x+34,z-54);
-            } else if(rotation==Rotation.CLOCKWISE_90) {
-                street(gate.getX(),gate.getZ(),x-41,z);
-                street(x-41,z,x-41,z-54);
-                street(x-41,z-54,x-34,z-54);
-            } else if(rotation==Rotation.CLOCKWISE_180) {
-                // Link the northern entrance to the east edge of the future
-                // Alatyr square without paving its central monument site.
-                street(gate.getX(),gate.getZ(),x,z-74);
-                street(x,z-74,x+34,z-74);
-                street(x+34,z-74,x+34,z-54);
-            } else {
-                street(gate.getX(),gate.getZ(),x+41,gate.getZ());
-                street(x+41,gate.getZ(),x+41,z-54);
-                street(x+41,z-54,x+34,z-54);
-            }
+            // Run outside the eastern/western edge of the reserved Alatyr
+            // square and outside the existing palace, not through its centre.
+            int side=rotation==Rotation.CLOCKWISE_90?-1:1;
+            int bypass=site.x()+side*41;
+            int rim=site.x()+side*34;
+            int squareZ=site.z()-54;
+            street(gate.getX(),gate.getZ(),bypass,gate.getZ());
+            street(bypass,gate.getZ(),bypass,squareZ);
+            street(bypass,squareZ,rim,squareZ);
         }
         void build() {courtyard();shrine();oak();fence();cityRoad();}
         boolean geometryCheck() {
@@ -447,7 +479,7 @@ public final class BuyanShrine {
                 BlockPos point=p(x,z,0);
                 int g=top(point.getX(),point.getZ());
                 if(g==Integer.MIN_VALUE||g>=base)return false;
-                for(int y=g+1;y<=base+37;y++)
+                for(int y=g+1;y<=floor(x,z)+37;y++)
                     if(!BuyanGenerator.canReplace(world.getBlockState(
                         new BlockPos(point.getX(),y,point.getZ()))))return false;
             }
@@ -483,15 +515,17 @@ public final class BuyanShrine {
         Record saved=Record.get(world);
         long k=key(site);
         if(saved.built.containsKey(k))return true;
-        for(int radius:new int[]{120,136,152,168})
-            for(int lateral:new int[]{0,-16,16,-32,32})
+        // Begin with near-central dry land, then expand; never clear the
+        // centre or sacrifice another existing building just to find a site.
+        for(int radius=80;radius<=176;radius+=8)
+            for(int lateral:new int[]{0,-8,8,-16,16,-24,24,-32,32,-40,40,-48,48})
                 for(int[] d:new int[][]{{1,0},{-1,0},{0,-1},{0,1}}) {
                 int x=site.x()+d[0]*radius+d[1]*lateral;
                 int z=site.z()+d[1]*radius-d[0]*lateral;
                 Rotation rotation=d[0]==1?Rotation.COUNTERCLOCKWISE_90:
                     d[0]==-1?Rotation.CLOCKWISE_90:
                         d[1]==-1?Rotation.CLOCKWISE_180:Rotation.NONE;
-                Plan plan=new Plan(world,site,x,z,rotation);
+                Plan plan=new Plan(world,site,x,z,rotation,world.getSeed());
                 if(!plan.fits())continue;
                 try {
                     plan.build();
