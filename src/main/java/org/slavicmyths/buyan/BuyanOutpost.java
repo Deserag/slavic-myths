@@ -1077,6 +1077,43 @@ public final class BuyanOutpost {
             + " candidates; last rejection: " + lastRejection);
     }
 
+    /** Check that the outpost can be built on the crash seed after the palace. */
+    public static void verifyPalaceFirstCrashSeedFixture(ServerLevel world) {
+        long seed = -8010468109031904307L;
+        BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
+        int inspected = 0, valid = 0, colliding = 0;
+        for (Hill hill : selectHills(seed, site)) {
+            inspected++;
+            Plan plan = new Plan(world, hill, (x, z) -> hill.ground(seed, x, z));
+            try {
+                plan.build();
+                if (!plan.validate()) continue;
+            } catch (IllegalStateException invalid) {
+                continue;
+            }
+            valid++;
+            boolean overlaps = false;
+            for (BlockPos point : plan.blocks.keySet()) {
+                if (point.getX() >= -43 && point.getX() <= 43
+                    && point.getZ() >= -20 && point.getZ() <= 43) {
+                    overlaps = true;
+                    break;
+                }
+            }
+            if (overlaps) {
+                colliding++;
+                continue;
+            }
+            LogUtils.getLogger().info(
+                "Outpost palace-first crash seed: safe outpost {},{} orientation {},{} after "
+                    + "{} inspected, {} valid, {} colliding plans",
+                hill.cx(), hill.cz(), hill.zx(), hill.zz(), inspected, valid, colliding);
+            return;
+        }
+        throw new IllegalStateException("Crash seed outpost has no site outside the palace: "
+            + inspected + " inspected, " + valid + " valid, " + colliding + " colliding");
+    }
+
     /** Automatic for newly completed Buyans, operator-only for existing saves. */
     static boolean placeOnce(ServerLevel world, BuyanState.Site site) {
         long key = new BlockPos(site.x(), 0, site.z()).asLong();
