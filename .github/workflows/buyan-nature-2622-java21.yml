@@ -6,6 +6,8 @@ on:
       - feature/buyan-2.6.2.2-nature
     paths:
       - "src/main/java/org/slavicmyths/buyan/**"
+      - "tools/buyan-outpost-tests/**"
+      - "build.gradle"
       - "src/main/resources/data/slavicmyths/worldgen/flat_level_generator_preset/**"
       - "src/main/resources/data/minecraft/tags/worldgen/flat_level_generator_preset/**"
       - "src/main/resources/assets/slavicmyths/lang/ru_ru.json"
@@ -45,3 +47,5 @@ jobs:
           PY
       - name: Clean NeoForge build (Java 21)
         run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Isolated Buyan outpost NeoForge GameTests
+        run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
