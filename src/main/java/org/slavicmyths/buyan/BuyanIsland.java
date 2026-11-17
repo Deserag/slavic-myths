@@ -70,6 +70,7 @@ public final class BuyanIsland {
         }
         state.completed();
         int sea=sea(level);
+        level.setDefaultSpawnPos(new BlockPos(0,sea+4,8),0.0F);
         player.teleportTo(level,0.5,sea+5,8.5,player.getYRot(),player.getXRot());
         player.sendSystemMessage(Component.literal("Buyan test island created: house, market, warehouse, two piers and connected paths."));
     }
@@ -92,6 +93,7 @@ public final class BuyanIsland {
             return 0;
         }
         state.completed();
+        level.setDefaultSpawnPos(new BlockPos(0,sea(level)+4,8),0.0F);
         source.sendSuccess(()->Component.literal("Buyan island built at 0,0: "+count+" block edits."),true);
         return 1;
     }
