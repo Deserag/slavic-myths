@@ -23,6 +23,8 @@ public final class BuyanCommands {
                         .executes(ctx -> BuyanGenerator.pause(ctx.getSource())))
                     .then(Commands.literal("resume")
                         .executes(ctx -> BuyanGenerator.resume(ctx.getSource())))
+                    .then(Commands.literal("harbor")
+                        .executes(ctx -> BuyanHarbor.generate(ctx.getSource())))
                     .then(Commands.literal("nature")
                         .then(Commands.literal("start")
                             .executes(ctx -> BuyanNatureGenerator.start(ctx.getSource())))
