@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.IntBinaryOperator;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -165,6 +166,7 @@ public final class BuyanOutpost {
         final ServerLevel world;
         final Hill hill;
         final long seed;
+        final IntBinaryOperator simulatedGround;
         final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         final Map<BlockPos, String> loot = new LinkedHashMap<>();
         final List<BlockPos> weaponRacks = new ArrayList<>();
@@ -173,9 +175,14 @@ public final class BuyanOutpost {
         final List<List<BlockPos>> routes = new ArrayList<>();
 
         Plan(ServerLevel world, Hill hill) {
+            this(world, hill, null);
+        }
+
+        Plan(ServerLevel world, Hill hill, IntBinaryOperator simulatedGround) {
             this.world = world;
             this.hill = hill;
             this.seed = world.getSeed();
+            this.simulatedGround = simulatedGround;
         }
 
         void at(int x, int y, int z, BlockState block) {
@@ -189,7 +196,10 @@ public final class BuyanOutpost {
                     for (int y = y1; y <= y2; y++) at(x, y, z, state);
         }
 
-        int ground(int x, int z) { return hill.ground(seed, x, z); }
+        int ground(int x, int z) {
+            return simulatedGround == null ? hill.ground(seed, x, z)
+                : simulatedGround.applyAsInt(x, z);
+        }
 
         int floor(Plot plot) {
             int highest = Integer.MIN_VALUE;
@@ -914,6 +924,58 @@ public final class BuyanOutpost {
                         "Buyan outpost weapon rack could not spawn at {}", point);
             }
         }
+    }
+
+    /**
+     * Standalone, non-mutating geometry fixture for an isolated NeoForge GameTest.
+     * Uses the actual production Plan/build/validate methods on a predictable
+     * sloping hill without writing any test blocks or touching saved Buyan sites.
+     */
+    public static void verifyGeometryFixture(ServerLevel world) {
+        BuyanState.Site site = new BuyanState.Site(500, 500, 450, 63);
+        Hill hill = new Hill(site, site.x(), site.z(), 0, 1);
+        Plan sample = new Plan(world, hill, (x, z) -> 75 + Math.floorDiv(z + 98, 8));
+        sample.build();
+        if (sample.plots.size() != 11)
+            throw new IllegalStateException("Outpost GameTest: not eleven buildings");
+        if (!sample.validate())
+            throw new IllegalStateException("Outpost GameTest: base fixture geometry invalid");
+        // Deliberate faults demonstrate that the same checks detect bad roofs,
+        // ladder supports, interrupted paths and destroyed loot containers.
+        BlockPos ladder = sample.blocks.entrySet().stream()
+            .filter(entry -> entry.getValue().getBlock() instanceof LadderBlock)
+            .map(Map.Entry::getKey).findFirst().orElseThrow();
+        BlockPos brace = ladder.relative(
+            sample.blocks.get(ladder).getValue(LadderBlock.FACING).getOpposite());
+        BlockState originalSupport = sample.blocks.put(brace, AIR);
+        if (sample.validate())
+            throw new IllegalStateException("Outpost GameTest: unsupported ladder passed");
+        sample.blocks.put(brace, originalSupport);
+
+        Plot barracks = sample.plots.stream()
+            .filter(plot -> plot.kind.equals("barracks") && plot.floors == 2)
+            .findFirst().orElseThrow();
+        int u = barracks.width / 2, v = barracks.depth / 2;
+        int roofY = sample.floor(barracks) + 10 + 2 + sample.roofRise(barracks, u);
+        BlockPos roof = hill.at(barracks.x + u, roofY, barracks.z + v);
+        BlockState originalRoof = sample.blocks.put(roof, AIR);
+        if (sample.validate())
+            throw new IllegalStateException("Outpost GameTest: open roof passed");
+        sample.blocks.put(roof, originalRoof);
+
+        BlockPos path = sample.routes.get(0).get(10);
+        BlockState originalDeck = sample.blocks.put(path, AIR);
+        if (sample.validate())
+            throw new IllegalStateException("Outpost GameTest: broken bridge passed");
+        sample.blocks.put(path, originalDeck);
+
+        BlockPos chest = sample.loot.keySet().iterator().next();
+        BlockState originalChest = sample.blocks.put(chest, AIR);
+        if (sample.validate())
+            throw new IllegalStateException("Outpost GameTest: absent chest passed");
+        sample.blocks.put(chest, originalChest);
+        if (!sample.validate())
+            throw new IllegalStateException("Outpost GameTest: fixture not restored");
     }
 
     /** Automatic for newly completed Buyans, operator-only for existing saves. */
