@@ -23,6 +23,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
@@ -255,6 +256,21 @@ public final class BuyanCraftQuarter {
                 .setValue(StairBlock.FACING, facing).setValue(StairBlock.HALF, Half.BOTTOM);
         }
 
+        int porchHeight(int x, int z) {
+            int street = intersections[0][x + 40];
+            return firstFloor + (int) Math.round((street - firstFloor) * (z - 12) / 4.0);
+        }
+
+        BlockState porchSurface(int x, int z) {
+            int y = porchHeight(x, z);
+            Direction face = y > (z == 13 ? firstFloor : porchHeight(x, z - 1))
+                ? Direction.SOUTH
+                : y > (z == 15 ? intersections[0][x + 40] : porchHeight(x, z + 1))
+                    ? Direction.NORTH : null;
+            return face == null ? ANDESITE : Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+                .setValue(StairBlock.FACING, face).setValue(StairBlock.HALF, Half.BOTTOM);
+        }
+
         void roads() {
             // Model the full five-wide avenue and three cross streets as
             // interconnected height profiles. Shared 5x5 junctions are flat;
@@ -325,10 +341,10 @@ public final class BuyanCraftQuarter {
             // cross-street, never requiring a jump at the porch.
             for (int x = -31; x <= -27; x++) {
                 int street = intersections[0][x + 40];
-                if (Math.abs(street - firstFloor) > 1)
+                if (Math.abs(street - firstFloor) > 4)
                     throw new IllegalStateException("Craft forge porch is disconnected from street");
                 for (int z = 13; z <= 15; z++)
-                    roadCell(x, z, firstFloor, ANDESITE);
+                    roadCell(x, z, porchHeight(x, z), porchSurface(x, z));
             }
         }
 
@@ -486,14 +502,11 @@ public final class BuyanCraftQuarter {
             lamp(x0 + 5, f + 8, z0 + 1);
 
             // Entry porch, working awning, outdoor fuel and tool benches.
-            for (int x = 5; x <= 9; x++)
-                for (int z = 11; z <= 13; z++) {
-                    int y = top(x0 + x, z0 + z);
-                    for (int h = y + 1; h < f; h++) at(x0 + x, h, z0 + z, COBBLE);
-                    at(x0 + x, f, z0 + z, ANDESITE);
-                }
+            // The 5-wide porch/ramp was staged together with the road at
+            // the correct stair heights; do not flatten it while furnishing.
             for (int x : new int[] {5, 9}) {
-                fill(x0 + x, f + 1, z0 + 12, x0 + x, f + 3, z0 + 12, LOG);
+                fill(x0 + x, porchHeight(x0 + x, z0 + 12) + 1, z0 + 12,
+                    x0 + x, f + 3, z0 + 12, LOG);
                 for (int z = 10; z <= 13; z++)
                     at(x0 + x, f + 4, z0 + z, Blocks.SPRUCE_SLAB.defaultBlockState());
             }
@@ -507,7 +520,8 @@ public final class BuyanCraftQuarter {
             at(x0 - 2, f + 1, z0 + 6, Blocks.COAL_BLOCK.defaultBlockState());
             at(x0 - 3, f + 1, z0 + 7, Blocks.IRON_BLOCK.defaultBlockState());
             at(x0 + 10, f + 1, z0 + 12, Blocks.BARREL.defaultBlockState());
-            lamp(x0 + 4, f + 1, z0 + 12);
+            at(x0 + 5, f + 3, z0 + 11,
+                Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true));
         }
 
         void build() {
@@ -725,6 +739,15 @@ public final class BuyanCraftQuarter {
         BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
         long seed = 9083133736688572422L;
         int tested = 0;
+        // The southern hillside is deliberately outside the reported
+        // west-side outpost footprint, so geometry must fit here as well.
+        Plan southern = new Plan(world, site, Rotation.CLOCKWISE_180, 168, 12, seed);
+        if (!southern.terrainFit())
+            throw new IllegalStateException("Craft southern reference area is outside Bu yan");
+        southern.build();
+        if (!southern.checkDesign())
+            throw new IllegalStateException("Craft southern reference road or blueprint invalid");
+
         for (int distance = 108; distance <= 180; distance += 12)
             for (Rotation direction : Rotation.values())
                 for (int lateral = 0; lateral <= 60; lateral += 12)
