@@ -58,6 +58,36 @@ public final class FirstShipNetwork {
         @Override public Type<PlaceCargo> type() { return TYPE; }
     }
 
+    public record UseMovingDoor(int shipId, int x, int y, int z)
+            implements CustomPacketPayload {
+        public static final Type<UseMovingDoor> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_use_door"));
+        public static final StreamCodec<FriendlyByteBuf, UseMovingDoor> CODEC =
+                StreamCodec.of((buffer, packet) -> {
+                    buffer.writeVarInt(packet.shipId);
+                    buffer.writeVarInt(packet.x);
+                    buffer.writeVarInt(packet.y);
+                    buffer.writeVarInt(packet.z);
+                }, buffer -> new UseMovingDoor(buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt()));
+        @Override public Type<UseMovingDoor> type() { return TYPE; }
+    }
+
+    public record BreakMovingBlock(int shipId, int x, int y, int z)
+            implements CustomPacketPayload {
+        public static final Type<BreakMovingBlock> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_break_block"));
+        public static final StreamCodec<FriendlyByteBuf, BreakMovingBlock> CODEC =
+                StreamCodec.of((buffer, packet) -> {
+                    buffer.writeVarInt(packet.shipId);
+                    buffer.writeVarInt(packet.x);
+                    buffer.writeVarInt(packet.y);
+                    buffer.writeVarInt(packet.z);
+                }, buffer -> new BreakMovingBlock(buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt()));
+        @Override public Type<BreakMovingBlock> type() { return TYPE; }
+    }
+
     /** Boat tracking does not reliably stream continuous ship pose around dismount. */
     public record MotionPose(int shipId, double x, double y, double z, float yaw,
                              double speed, double turn)
@@ -109,6 +139,24 @@ public final class FirstShipNetwork {
                             new BlockPos(packet.x(), packet.y(), packet.z()),
                             packet.hand() == 0 ? InteractionHand.MAIN_HAND
                                     : InteractionHand.OFF_HAND);
+                }));
+        registrar.playToServer(UseMovingDoor.TYPE, UseMovingDoor.CODEC, (packet, context) ->
+                context.enqueueWork(() -> {
+                    if (!(context.player() instanceof ServerPlayer player)
+                            || !player.isAlive() || player.isSpectator()) return;
+                    if (player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship
+                            && ship.level() == player.level())
+                        ship.useMovingDoor(player,
+                                new BlockPos(packet.x(), packet.y(), packet.z()));
+                }));
+        registrar.playToServer(BreakMovingBlock.TYPE, BreakMovingBlock.CODEC,
+                (packet, context) -> context.enqueueWork(() -> {
+                    if (!(context.player() instanceof ServerPlayer player)
+                            || !player.isAlive() || !player.getAbilities().instabuild) return;
+                    if (player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship
+                            && ship.level() == player.level())
+                        ship.breakMovingBlock(player,
+                                new BlockPos(packet.x(), packet.y(), packet.z()));
                 }));
         registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
             if (!(context.player() instanceof ServerPlayer player)

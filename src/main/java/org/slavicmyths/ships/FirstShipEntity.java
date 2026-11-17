@@ -1121,6 +1121,20 @@ public final class FirstShipEntity extends Boat {
     }
 
     /** Open a detached palette container; writes go back into the saved body. */
+    private boolean aboardMovingShip(Player player) {
+        if (player == null || !isMoving()) return false;
+        FirstShipHull.Point aboard = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (modularConfiguration == null)
+            return FirstShipHull.withinHull(aboard.x(), aboard.z(), .1D)
+                    && player.getY() >= holdY() - .4D
+                    && player.getY() <= deckY() + 2.2D;
+        return Math.abs(aboard.x()) <= modularConfiguration.width() / 2D + .6D
+                && Math.abs(aboard.z()) <= modularConfiguration.length() / 2D + .6D
+                && player.getY() >= holdY() - .4D
+                && player.getY() <= getY() + 48D;
+    }
+
     public boolean openMovingCargo(ServerPlayer player, int index) {
         if (!isMoving() || movingBody == null || player.isPassenger()
                 || player.containerMenu != player.inventoryMenu) return false;
@@ -1128,11 +1142,7 @@ public final class FirstShipEntity extends Boat {
         if (entry == null) return false;
         int type = entry.getInt("Kind");
         if (type < 1 || type > 4) return false;
-        FirstShipHull.Point aboard = FirstShipHull.toLocal(player.getX(), player.getZ(),
-                getX(), getZ(), getYRot());
-        if (!FirstShipHull.withinHull(aboard.x(), aboard.z(), .1D)
-                || player.getY() < holdY() - .4D || player.getY() > deckY() + 2.2D)
-            return false;
+        if (!aboardMovingShip(player)) return false;
         int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
         FirstShipHull.Point point = FirstShipHull.toWorld(x, z,
                 getX(), getZ(), getYRot());
@@ -1148,7 +1158,7 @@ public final class FirstShipEntity extends Boat {
                             net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
                         @Override public boolean stillValid(Player p) {
                             return !FirstShipEntity.this.isRemoved() && isMoving()
-                                    && p.distanceToSqr(FirstShipEntity.this) < 196D;
+                                    && aboardMovingShip(p);
                         }
                     }, label));
         } else if (type == 4) {
@@ -1161,13 +1171,38 @@ public final class FirstShipEntity extends Boat {
         return true;
     }
 
+    public boolean useMovingDoor(ServerPlayer player, BlockPos local) {
+        if (!isMoving() || movingBody == null || player == null || local == null
+                || player.isPassenger() || player.isSpectator()) return false;
+        Vec3 eye = player.getEyePosition();
+        var hit = ShipMovingCargoTarget.hit(this, eye,
+                eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
+        if (hit == null || !local.equals(hit.cell())
+                || !movingBody.toggleDoor(local)) return false;
+        syncMovingCargo();
+        return true;
+    }
+
+    public boolean breakMovingBlock(ServerPlayer player, BlockPos local) {
+        if (!isMoving() || movingBody == null || player == null || local == null
+                || !player.getAbilities().instabuild || player.isPassenger()
+                || player.isSpectator()) return false;
+        Vec3 eye = player.getEyePosition();
+        var hit = ShipMovingCargoTarget.hit(this, eye,
+                eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
+        if (hit == null || !local.equals(hit.cell())
+                || !movingBody.removeMovingBlock(local)) return false;
+        syncMovingCargo();
+        return true;
+    }
+
     private SimpleContainer movingCargoSlots(int index, int type, CompoundTag initial) {
         SimpleContainer existing = movingCargoSlots.get(index);
         if (existing != null) return existing;
         SimpleContainer slots = new SimpleContainer(type == 4 ? 3 : 27) {
             @Override public boolean stillValid(Player viewer) {
                 return movingBody != null && !FirstShipEntity.this.isRemoved()
-                        && viewer.distanceToSqr(FirstShipEntity.this) < 196D;
+                        && aboardMovingShip(viewer);
             }
             @Override public void setChanged() {
                 super.setChanged();
@@ -1559,6 +1594,13 @@ public final class FirstShipEntity extends Boat {
                 if (!properties.contains(key, Tag.TAG_STRING)) continue;
                 if (view.charAt(view.length() - 1) != ',') view.append('|');
                 view.append(key).append('=').append(properties.getString(key));
+            }
+        }
+        for (BlockPos door : movingBody.openDoors()) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                if (view.length() > 0) view.append(';');
+                view.append(half.getX()).append(',').append(half.getY()).append(',')
+                        .append(half.getZ()).append(",7,,open=true");
             }
         }
         entityData.set(MOTION_CARGO_VIEW, view.toString());

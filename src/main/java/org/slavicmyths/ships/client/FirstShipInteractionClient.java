@@ -31,13 +31,20 @@ import org.slavicmyths.ships.RaftContent;
 public final class FirstShipInteractionClient {
     @SubscribeEvent
     public static void onUse(InputEvent.InteractionKeyMappingTriggered event) {
+        if (event.isAttack()) {
+            breakMovingBlock(event);
+            return;
+        }
         if (!event.isUseItem() || event.getHand() != InteractionHand.MAIN_HAND) return;
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.screen != null || mc.player.isPassenger()) return;
+        if (useMovingDoor(mc, event)) return;
         boolean key = mc.player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
                 || mc.player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get());
-        if (!key && placeOnMovingShip(mc, event)) return;
-        if (mc.player.isShiftKeyDown() && !key) return;
+        if (mc.player.isShiftKeyDown() && !key) {
+            placeOnMovingShip(mc, event);
+            return;
+        }
 
         Vec3 eye = mc.player.getEyePosition(), direction = mc.player.getLookAngle();
         FirstShipEntity selected = null;
@@ -77,7 +84,7 @@ public final class FirstShipInteractionClient {
                 String[] cargo = ship.movingCargoView().split(";");
                 for (int i = 0; i < cargo.length; i++) {
                     String[] fields = cargo[i].split(",");
-                    if (fields.length != 4 && fields.length != 5) continue;
+                    if (fields.length < 4) continue;
                     try {
                         int x = Integer.parseInt(fields[0]);
                         int y = Integer.parseInt(fields[1]);
@@ -137,10 +144,57 @@ public final class FirstShipInteractionClient {
                 }
             }
         }
-        if (selected == null) return;
+        if (selected == null) {
+            if (!key) placeOnMovingShip(mc, event);
+            return;
+        }
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(selected.getId(), action));
         event.setSwingHand(false);
         event.setCanceled(true);
+    }
+
+    private static void breakMovingBlock(InputEvent.InteractionKeyMappingTriggered event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null || mc.level == null || mc.screen != null
+                || mc.player.isPassenger() || !mc.player.getAbilities().instabuild) return;
+        Vec3 eye = mc.player.getEyePosition();
+        Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
+        for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (!ship.isMoving() || config == null) continue;
+            Map<BlockPos, BlockState> palette = ShipModularBlockHull.localVisualPalette(
+                    config, ShipModularBlockHull.decodeVisibleCargo(ship.movingCargoView()));
+            var hit = ShipMovingCargoTarget.hit(ship, eye, end, palette);
+            if (hit == null) continue;
+            PacketDistributor.sendToServer(new FirstShipNetwork.BreakMovingBlock(
+                    ship.getId(), hit.cell().getX(), hit.cell().getY(), hit.cell().getZ()));
+            event.setSwingHand(false);
+            event.setCanceled(true);
+            return;
+        }
+    }
+
+    private static boolean useMovingDoor(Minecraft mc,
+            InputEvent.InteractionKeyMappingTriggered event) {
+        Vec3 eye = mc.player.getEyePosition();
+        Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
+        for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (!ship.isMoving() || config == null) continue;
+            Map<BlockPos, BlockState> palette = ShipModularBlockHull.localVisualPalette(
+                    config, ShipModularBlockHull.decodeVisibleCargo(ship.movingCargoView()));
+            var hit = ShipMovingCargoTarget.hit(ship, eye, end, palette);
+            if (hit == null || !(palette.get(hit.cell()).getBlock()
+                    instanceof net.minecraft.world.level.block.DoorBlock)) continue;
+            PacketDistributor.sendToServer(new FirstShipNetwork.UseMovingDoor(
+                    ship.getId(), hit.cell().getX(), hit.cell().getY(), hit.cell().getZ()));
+            event.setSwingHand(false);
+            event.setCanceled(true);
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -66,14 +66,14 @@ public final class ShipSailRigProof {
             for (double u : new double[]{0D, 1D})
                 for (double v : new double[]{0D, .25D, .5D, .75D, 1D}) {
                     var fixed = ShipSailRigGeometry.clothSurface(panel, 1D, u, v, 20D);
-                    require(Math.abs(fixed.z() - .20D) < 1E-6D,
+                    require(Math.abs(fixed.z() - .12D) < 1E-6D,
                             "Cloth side edge moved with wind");
                     checkPoint(fixed);
                 }
             for (double v : new double[]{0D, 1D})
                 for (double u : new double[]{0D, .2D, .5D, .8D, 1D}) {
                     var fixed = ShipSailRigGeometry.clothSurface(panel, 1D, u, v, 20D);
-                    require(Math.abs(fixed.z() - .20D) < 1E-6D,
+                    require(Math.abs(fixed.z() - .12D) < 1E-6D,
                             "Cloth top/bottom edge moved with wind");
                 }
             var weak = ShipSailRigGeometry.clothSurface(panel, .13D, .5D, .5D, 21D);

@@ -42,7 +42,7 @@ import org.slavicmyths.ships.ShipSailRigGeometry;
  */
 public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
     private static final ResourceLocation SAIL_TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            "slavicmyths", "textures/block/linen_cover.png");
+            "slavicmyths", "textures/block/textile_cloth.png");
     private final ItemRenderer items;
     private final ItemStack helm;
     private String paletteKey = "";

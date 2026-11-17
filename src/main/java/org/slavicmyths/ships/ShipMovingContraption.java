@@ -3,12 +3,16 @@ package org.slavicmyths.ships;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 /**
  * Server state of a DETACHED, moving rigid ship. This class is intentionally
@@ -26,6 +30,7 @@ public final class ShipMovingContraption {
     private final int firstTurn;
     private final ListTag cargo;
     private final Map<BlockPos, BlockState> palette;
+    private final Set<BlockPos> openDoors = new HashSet<>();
     private final int waterlineY;
     private final TravelMode mode;
     private final ShipRigidMotion motion;
@@ -183,8 +188,54 @@ public final class ShipMovingContraption {
         cargo.addAll(next);
         palette.clear();
         palette.putAll(nextPalette);
+        for (BlockPos door : openDoors) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                BlockState piece = palette.get(half);
+                if (piece != null && piece.getBlock() instanceof DoorBlock)
+                    palette.put(half, piece.setValue(DoorBlock.OPEN, true));
+            }
+        }
         return true;
     }
+
+    public boolean toggleDoor(BlockPos local) {
+        if (modular == null || !detached || parked || local == null) return false;
+        BlockState state = palette.get(local);
+        if (state == null || !(state.getBlock() instanceof DoorBlock)) return false;
+        BlockPos lower = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER
+                ? local : local.below();
+        BlockState bottom = palette.get(lower), top = palette.get(lower.above());
+        if (bottom == null || top == null || !(bottom.getBlock() instanceof DoorBlock)
+                || top.getBlock() != bottom.getBlock()) return false;
+        boolean open = !openDoors.contains(lower);
+        if (open) openDoors.add(lower); else openDoors.remove(lower);
+        palette.put(lower, bottom.setValue(DoorBlock.OPEN, open));
+        palette.put(lower.above(), top.setValue(DoorBlock.OPEN, open));
+        return true;
+    }
+
+    public boolean removeMovingBlock(BlockPos local) {
+        if (modular == null || !detached || parked || local == null) return false;
+        ListTag next = ShipModularBlockHull.withoutMovingBlock(modular, cargo, local);
+        if (next == null) return false;
+        Map<BlockPos, BlockState> nextPalette =
+                ShipModularBlockHull.localMotionPalette(modular, next);
+        if (nextPalette.isEmpty()) return false;
+        cargo.clear();
+        cargo.addAll(next);
+        palette.clear();
+        palette.putAll(nextPalette);
+        for (BlockPos door : openDoors) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                BlockState piece = palette.get(half);
+                if (piece != null && piece.getBlock() instanceof DoorBlock)
+                    palette.put(half, piece.setValue(DoorBlock.OPEN, true));
+            }
+        }
+        return true;
+    }
+
+    public Set<BlockPos> openDoors() { return Set.copyOf(openDoors); }
 
     public int cargoCount() { return cargo.size(); }
     public CompoundTag cargoEntry(int index) {
@@ -228,6 +279,14 @@ public final class ShipMovingContraption {
         tag.putDouble("TurnSpeed", motion.angularVelocity());
         tag.putBoolean("Detached", detached);
         tag.putBoolean("Parked", parked);
+        int[] doors = new int[openDoors.size() * 3];
+        int index = 0;
+        for (BlockPos door : openDoors) {
+            doors[index++] = door.getX();
+            doors[index++] = door.getY();
+            doors[index++] = door.getZ();
+        }
+        tag.putIntArray("OpenDoors", doors);
         return tag;
     }
 
@@ -252,8 +311,15 @@ public final class ShipMovingContraption {
                                 && config.hullRevision() == 4
                                 ? ShipRigidMotion.MAX_IV_FORWARD : ShipRigidMotion.MAX_FORWARD);
                 modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
-                return new ShipMovingContraption(config, tag.getList("Cargo", Tag.TAG_COMPOUND),
-                        tag.getInt("OriginalTurn"), tag.getInt("Waterline"), modularMotion, detached);
+                ShipMovingContraption body = new ShipMovingContraption(config,
+                        tag.getList("Cargo", Tag.TAG_COMPOUND), tag.getInt("OriginalTurn"),
+                        tag.getInt("Waterline"), modularMotion, detached);
+                int[] doors = tag.getIntArray("OpenDoors");
+                if (doors.length % 3 != 0 || doors.length > 192) return null;
+                for (int i = 0; i < doors.length; i += 3)
+                    if (!body.toggleDoor(new BlockPos(doors[i], doors[i + 1], doors[i + 2])))
+                        return null;
+                return body;
             }
             ShipRigidMotion motion = new ShipRigidMotion(pose);
             motion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));

@@ -771,6 +771,29 @@ public final class Ocean26GameTests {
                                 && loadedMovingBody.palette().size()
                                 == ship.serverMovingPalette().size(),
                         type + " moving mixed-tier hull palette changed in NBT roundtrip");
+                BlockPos door = loadedMovingBody.palette().entrySet().stream()
+                        .filter(entry -> entry.getValue().getBlock()
+                                instanceof net.minecraft.world.level.block.DoorBlock)
+                        .map(java.util.Map.Entry::getKey).findFirst().orElse(null);
+                if (door != null) {
+                    t.assertTrue(loadedMovingBody.toggleDoor(door)
+                                    && loadedMovingBody.palette().get(door).getValue(
+                                            net.minecraft.world.level.block.DoorBlock.OPEN),
+                            type + " detached door could not open");
+                }
+                var reopened = org.slavicmyths.ships.ShipMovingContraption.load(
+                        loadedMovingBody.save());
+                t.assertTrue(reopened != null && (door == null
+                                || reopened.palette().get(door).getValue(
+                                        net.minecraft.world.level.block.DoorBlock.OPEN)),
+                        type + " detached door lost its state on save/load");
+                BlockPos editablePlank = new BlockPos(0, 1, 0);
+                t.assertTrue(reopened.removeMovingBlock(editablePlank)
+                                && !reopened.palette().containsKey(editablePlank),
+                        type + " detached hull plank could not be removed");
+                var edited = org.slavicmyths.ships.ShipMovingContraption.load(reopened.save());
+                t.assertTrue(edited != null && !edited.palette().containsKey(editablePlank),
+                        type + " detached hull edit was lost on save/load");
             }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);

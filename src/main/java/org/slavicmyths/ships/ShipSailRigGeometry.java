@@ -122,14 +122,18 @@ public final class ShipSailRigGeometry {
                 || v < 0D || v > 1D)
             throw new IllegalArgumentException("Invalid cloth parameters");
         double fill = Math.max(0D, Math.min(1D, pressure));
-        double profile = .86D + .14D * Math.sin(Math.PI * v);
-        double x = panel.halfWidth() * (u * 2D - 1D) * profile;
-        double y = panel.bottom() + (panel.top() - panel.bottom()) * v;
+        // A square sail hangs from a straight yard. Its foot dips gently at
+        // the middle; the broad sides stay almost straight instead of making
+        // the round barrel silhouette of the previous panel.
+        double width = 1D - .08D * (1D - v);
+        double x = panel.halfWidth() * (u * 2D - 1D) * width;
+        double y = panel.bottom() + (panel.top() - panel.bottom()) * v
+                - .42D * Math.sin(Math.PI * u) * (1D - v);
         double pinned = Math.sin(Math.PI * u) * Math.sin(Math.PI * v);
-        double swell = (.12D + 1.65D * fill) * pinned;
-        double flutter = .045D * Math.sin(phase * .085D
-                + u * 12D + v * 5D) * pinned;
-        return new Point(x, y, .20D + swell + flutter);
+        double swell = (.08D + 2.35D * fill) * pinned;
+        double flutter = (.04D + .11D * fill) * Math.sin(phase * .11D
+                + u * 10D + v * 5D) * pinned;
+        return new Point(x, y, .12D + swell + flutter);
     }
 
     private static int mastHead(ShipSuperstructurePlan plan, int mast) {
