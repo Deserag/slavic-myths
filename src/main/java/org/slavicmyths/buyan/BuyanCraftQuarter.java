@@ -137,6 +137,7 @@ public final class BuyanCraftQuarter {
         int armoryFloor;
         int firstFloor;
         String collisionReason = "none";
+        boolean diagnostic;
 
         Plan(ServerLevel world, BuyanState.Site site, Rotation rotation,
              int outward, int lateral, long seed) {
@@ -928,41 +929,47 @@ public final class BuyanCraftQuarter {
             smithingYard();
         }
 
+        boolean designReject(int sourceLine) {
+            if (diagnostic) LogUtils.getLogger().warn(
+                "Buyan craft design fixture rejected at source line {}", sourceLine);
+            return false;
+        }
+
         boolean checkDesign() {
             final int f = firstFloor, x0 = -36, z0 = 2;
             if (roadHeights != null) {
                 int[] crossZ = {16, 35, 58};
                 for (int z = roadStart; z <= 74; z++) {
                     int i = z - roadStart, y = roadHeights[i];
-                    if (i > 0 && Math.abs(y - roadHeights[i - 1]) > 1) return false;
+                    if (i > 0 && Math.abs(y - roadHeights[i - 1]) > 1) return designReject(938);
                     BlockState road = blocks.get(pos(2, y, z));
-                    if (!isPaving(road)) return false;
+                    if (!isPaving(road)) return designReject(940);
                     for (int x = 0; x <= 4; x++) {
                         BlockState surface = blocks.get(pos(x, y, z));
-                        if (!isPaving(surface)) return false;
+                        if (!isPaving(surface)) return designReject(943);
                     }
                 }
                 for (int lane = 0; lane < intersections.length; lane++) {
                     int[] heights = intersections[lane];
                     for (int x = -40; x <= 40; x++) {
                         int i = x + 40, y = heights[i];
-                        if (i > 0 && Math.abs(y - heights[i - 1]) > 1) return false;
+                        if (i > 0 && Math.abs(y - heights[i - 1]) > 1) return designReject(950);
                         BlockState paving = blocks.get(pos(x, y, crossZ[lane] + 2));
-                        if (!isPaving(paving)) return false;
+                        if (!isPaving(paving)) return designReject(952);
                     }
                     for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
                         for (int x = 0; x <= 4; x++)
-                            if (roadHeights[z - roadStart] != heights[x + 40]) return false;
+                            if (roadHeights[z - roadStart] != heights[x + 40]) return designReject(956);
                 }
                 for (int x = -30; x <= -28; x++) {
                     int last = firstFloor;
                     for (int z = 13; z <= 16; z++) {
                         int y = z == 16 ? intersections[0][x + 40] : porchHeight(x, z);
-                        if (Math.abs(y - last) > 1) return false;
+                        if (Math.abs(y - last) > 1) return designReject(962);
                         last = y;
                         if (z < 16) {
                             BlockState path = blocks.get(pos(x, y, z));
-                            if (!isPaving(path)) return false;
+                            if (!isPaving(path)) return designReject(966);
                         }
                     }
                 }
@@ -973,9 +980,9 @@ public final class BuyanCraftQuarter {
                     for (int z = 13; z <= 16; z++) {
                         int y = z == 16 ? intersections[0][x + 40]
                             : armoryPorchHeight(x, z);
-                        if (Math.abs(y - last) > 1) return false;
+                        if (Math.abs(y - last) > 1) return designReject(977);
                         last = y;
-                        if (z < 16 && !isPaving(blocks.get(pos(x, y, z)))) return false;
+                        if (z < 16 && !isPaving(blocks.get(pos(x, y, z)))) return designReject(979);
                     }
                 }
             // Assertions validate actual FINAL staged blocks. Check every
@@ -986,12 +993,12 @@ public final class BuyanCraftQuarter {
                     BlockState tile = blocks.get(pos(x0 + x, y, z0 + z));
                     if (x >= 1 && x <= 3 && z >= 2 && z <= 4) {
                         if (tile == null || !(tile.is(STONE.getBlock())
-                            || (x == 2 && z == 3 && tile.isAir()))) return false;
+                            || (x == 2 && z == 3 && tile.isAir()))) return designReject(990);
                         continue;
                     }
                     BlockState backing = blocks.get(pos(x0 + x, y - 1, z0 + z));
                     if (tile == null || !(tile.is(Blocks.DARK_OAK_STAIRS) || tile.is(DARK.getBlock()))
-                        || backing == null || !backing.is(DARK.getBlock())) return false;
+                        || backing == null || !backing.is(DARK.getBlock())) return designReject(995);
                 }
             // Every sloped armory roof tile has solid backing; only the
             // fully enclosed 3x3 masonry chimney may interrupt it.
@@ -1001,13 +1008,13 @@ public final class BuyanCraftQuarter {
                     BlockState tile = blocks.get(pos(8 + x, y, z));
                     if (x >= 1 && x <= 3 && z >= 1 && z <= 3) {
                         if (tile == null || !(tile.is(STONE.getBlock())
-                            || (x == 2 && z == 2 && tile.isAir()))) return false;
+                            || (x == 2 && z == 2 && tile.isAir()))) return designReject(1005);
                         continue;
                     }
                     BlockState backing = blocks.get(pos(8 + x, y - 1, z));
                     if (tile == null || !(tile.is(Blocks.DEEPSLATE_TILE_STAIRS)
                         || tile.is(ARM_ROOF.getBlock()))
-                        || backing == null || !backing.is(ARM_ROOF.getBlock())) return false;
+                        || backing == null || !backing.is(ARM_ROOF.getBlock())) return designReject(1011);
                 }
             for (int z = 10; z >= 4; z--) {
                 BlockPos step = pos(22, armoryFloor + 11 - z, z);
@@ -1017,17 +1024,17 @@ public final class BuyanCraftQuarter {
                     || stair.getValue(StairBlock.FACING) !=
                         Blocks.SPRUCE_STAIRS.defaultBlockState()
                             .setValue(StairBlock.FACING, Direction.NORTH)
-                            .rotate(rotation).getValue(StairBlock.FACING)) return false;
+                            .rotate(rotation).getValue(StairBlock.FACING)) return designReject(1021);
                 for (int y = 1; y <= 2; y++) {
                     BlockState above = blocks.get(step.above(y));
-                    if (above != null && !above.isAir()) return false;
+                    if (above != null && !above.isAir()) return designReject(1024);
                 }
             }
-            if (displayStands.size() != 3) return false;
+            if (displayStands.size() != 3) return designReject(1027);
             if (!blocks.getOrDefault(pos(x0 + 2, f + 1, z0 + 3), AIR).is(Blocks.CAMPFIRE))
-                return false;
+                return designReject(1029);
             for (int y = f + 2; y <= f + 25; y++)
-                if (!blocks.getOrDefault(pos(x0 + 2, y, z0 + 3), STONE).isAir()) return false;
+                if (!blocks.getOrDefault(pos(x0 + 2, y, z0 + 3), STONE).isAir()) return designReject(1031);
 
             for (int z = 9; z >= 3; z--) {
                 BlockPos step = pos(x0 + 12, f + 10 - z, z0 + z);
@@ -1037,14 +1044,14 @@ public final class BuyanCraftQuarter {
                     || stair.getValue(StairBlock.FACING) !=
                         Blocks.SPRUCE_STAIRS.defaultBlockState()
                             .setValue(StairBlock.FACING, Direction.NORTH)
-                            .rotate(rotation).getValue(StairBlock.FACING)) return false;
+                            .rotate(rotation).getValue(StairBlock.FACING)) return designReject(1041);
                 for (int h = 1; h <= 2; h++) {
                     BlockState above = blocks.get(step.above(h));
-                    if (above != null && !above.isAir()) return false;
+                    if (above != null && !above.isAir()) return designReject(1044);
                 }
             }
             if (!blocks.getOrDefault(pos(x0 + 12, f + 7, z0 + 2), AIR).is(SPRUCE.getBlock()))
-                return false;
+                return designReject(1048);
             for (var entry : blocks.entrySet()) {
                 BlockState state = entry.getValue();
                 BlockPos p = entry.getKey();
@@ -1053,7 +1060,7 @@ public final class BuyanCraftQuarter {
                     BlockState partner = blocks.get(lower ? p.above() : p.below());
                     if (partner == null || partner.getBlock() != state.getBlock()
                         || partner.getValue(DoorBlock.HALF) ==
-                            state.getValue(DoorBlock.HALF)) return false;
+                            state.getValue(DoorBlock.HALF)) return designReject(1057);
                 }
                 if (state.getBlock() instanceof BedBlock) {
                     boolean foot = state.getValue(BedBlock.PART) == BedPart.FOOT;
@@ -1061,12 +1068,12 @@ public final class BuyanCraftQuarter {
                     BlockState partner = blocks.get(p.relative(foot ? face : face.getOpposite()));
                     if (partner == null || !partner.is(Blocks.RED_BED)
                         || partner.getValue(BedBlock.PART) ==
-                            state.getValue(BedBlock.PART)) return false;
+                            state.getValue(BedBlock.PART)) return designReject(1065);
                 }
             }
             for (BlockPos p : chests.keySet())
-                if (!blocks.getOrDefault(p, AIR).is(Blocks.CHEST)) return false;
-            return chests.size() == 8;
+                if (!blocks.getOrDefault(p, AIR).is(Blocks.CHEST)) return designReject(1069);
+            return chests.size() == 8 || designReject(1070);
         }
 
         boolean worldAvailable() {
@@ -1290,6 +1297,7 @@ public final class BuyanCraftQuarter {
                             lateral * sign, seed);
                         if (!p.terrainFit()) continue;
                         eligible++;
+                        p.diagnostic = eligible == 1;
                         try {
                             p.build();
                             if (!p.checkDesign()) {
