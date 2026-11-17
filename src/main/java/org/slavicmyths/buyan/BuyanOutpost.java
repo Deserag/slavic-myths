@@ -446,6 +446,10 @@ public final class BuyanOutpost {
             }
             for (int i = length - 1; i >= 0; i--) h[i] = Math.max(h[i], h[i + 1] - 1);
             for (int i = 1; i <= length; i++) h[i] = Math.max(h[i], h[i - 1] - 1);
+            // Branches must meet the main spine, their turn and the door
+            // at their actual floor height; otherwise the plan is rejected.
+            if (!mainHeight.isEmpty() && (h[0] != start || h[length] != finish))
+                throw new IllegalStateException("Outpost access path is too steep");
             for (int i = 0; i <= length; i++) {
                 int x = x1 + dx * i, z = z1 + dz * i, floor = h[i];
                 BlockState board = PLANK;
