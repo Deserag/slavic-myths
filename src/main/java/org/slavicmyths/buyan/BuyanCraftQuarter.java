@@ -66,7 +66,7 @@ public final class BuyanCraftQuarter {
         {-36, 2, -22, 12}, {8, 0, 24, 12},
         {27, 2, 39, 12}, {-36, 43, -24, 54},
         {-18, 43, -5, 54}, {8, 43, 24, 54}, {27, 43, 40, 54},
-        {-18, 24, -5, 36}
+        {-18, 22, -5, 32}
     };
 
     private BuyanCraftQuarter() {}
@@ -741,7 +741,7 @@ public final class BuyanCraftQuarter {
             rack(x0 + 3, f + 1, z0 + 6, 0);
             rack(x0 + 5, f + 1, z0 + 6, 1);
             rack(x0 + 10, f + 1, z0 + 6, 2);
-            chest(x0 + 2, f + 1, z0 + 3, "craft_armory_goods");
+            chest(x0 + 5, f + 1, z0 + 4, "craft_armory_goods");
             chest(x0 + 6, f + 1, z0 + 2, "craft_armory_goods");
             at(x0 + 10, f + 1, z0 + 2, Blocks.SMITHING_TABLE.defaultBlockState());
             at(x0 + 12, f + 1, z0 + 2, Blocks.ANVIL.defaultBlockState());
@@ -852,16 +852,31 @@ public final class BuyanCraftQuarter {
                 for (int h = 1; h <= 4; h++) at(x, base + h, z, Blocks.OAK_FENCE.defaultBlockState());
                 at(x, base + 5, z, Blocks.LANTERN.defaultBlockState());
             }
-            // Open exit from the yard to the existing northern cross-street.
-            for (int x = -12; x <= -10; x++) {
-                int street = intersections[0][x + 40];
-                for (int z = 13; z <= 15; z++) {
-                    int ground = top(x, z);
-                    int y = Math.max(ground + 1, street - (16 - z));
-                    if (Math.abs(street - y) > 3)
-                        throw new IllegalStateException("Smithing yard loading route too steep");
+            // Graded three-wide loading lane from the inner yard to the
+            // existing cross-street. The final row is fixed at the junction:
+            // if terrain cannot be connected without changing that road,
+            // reject this site and select a different orientation.
+            int[] lane = new int[14]; // local Z=3..16
+            for (int z = 3; z <= 15; z++) {
+                int high = Integer.MIN_VALUE;
+                for (int x = -12; x <= -10; x++)
+                    high = Math.max(high, top(x, z) + 1);
+                lane[z - 3] = high;
+            }
+            lane[13] = Integer.MIN_VALUE;
+            for (int x = -12; x <= -10; x++)
+                lane[13] = Math.max(lane[13], intersections[0][x + 40]);
+            for (int attempt = 0; attempt < 32 && grade(lane); attempt++) {
+                if (lane[13] != Math.max(intersections[0][28],
+                    Math.max(intersections[0][29], intersections[0][30])))
+                    throw new IllegalStateException("Smithing yard road cannot reach existing crossing");
+            }
+            for (int z = 3; z <= 15; z++) {
+                int y = lane[z - 3];
+                if (Math.abs(y - lane[z - 2]) > 1)
+                    throw new IllegalStateException("Smithing yard road has a discontinuity");
+                for (int x = -12; x <= -10; x++)
                     roadCell(x, z, y, surface(x, z, ANDESITE));
-                }
             }
         }
 
@@ -1016,7 +1031,7 @@ public final class BuyanCraftQuarter {
             }
             for (BlockPos p : chests.keySet())
                 if (!blocks.getOrDefault(p, AIR).is(Blocks.CHEST)) return false;
-            return chests.size() == 7;
+            return chests.size() == 8;
         }
 
         boolean worldAvailable() {
