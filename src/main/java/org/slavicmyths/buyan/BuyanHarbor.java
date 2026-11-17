@@ -98,6 +98,11 @@ public final class BuyanHarbor {
                 return Integer.MAX_VALUE;
             });
         }
+        int landwardShore(int from,int to){
+            int value=Integer.MIN_VALUE;
+            for(int u=from;u<=to;u++)value=Math.max(value,shore(u));
+            return value;
+        }
         int score(){
             int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
             for(int u=-52;u<=52;u+=2){
@@ -139,21 +144,22 @@ public final class BuyanHarbor {
         return selected;
     }
 
-    private static int[][] buildingPlots(int base){
+    private static int[][] buildingPlots(Coast coast){
+        int base=coast.base;
         return new int[][]{
             {-48,base+63,12,10,4},
             {-30,base+77,10,8,4},
             {25,base+75,11,8,4},
             {-29,base+41,10,8,4},
             {25,base+41,14,10,5},
-            {-48,base+27,8,7,4},
-            {42,base+24,11,9,4},
+            {-48,coast.landwardShore(-48,-41)+26,8,7,4},
+            {42,coast.landwardShore(42,52)+24,11,9,4},
             {-5,base+79,11,9,4}
         };
     }
 
     private static boolean safeBuildings(Coast coast,int sea){
-        int[][] buildings=buildingPlots(coast.base);
+        int[][] buildings=buildingPlots(coast);
         for(int i=0;i<buildings.length;i++){
             int[] a=buildings[i];
             if(!siteAvailable(coast,a[0],a[1],a[2],a[3],sea))return false;
@@ -458,26 +464,27 @@ public final class BuyanHarbor {
     }
 
     private static void fishingYard(Coast c,Plan p){
-        int z=c.base+19;
-        for(int x=-40;x<=-31;x+=4){
+        int z=c.landwardShore(-40,-31)+16;
+        for(int x=-40;x<=-36;x+=4){
             int level=ground(c,x,z);
             p.fill(x,level+1,z,x,level+3,z,Blocks.SPRUCE_FENCE.defaultBlockState());
             p.at(x,level+4,z,Blocks.SPRUCE_SLAB.defaultBlockState());
         }
         for(int x:new int[]{-48,-46,-44}){
-            int v=c.base+35,level=ground(c,x,v);
+            int v=c.landwardShore(-48,-41)+36,level=ground(c,x,v);
             p.at(x,level+1,v,LOG);
         }
     }
 
     private static void boatYard(Coast c,Plan p){
         for(int x:new int[]{43,47,51}){
-            int z=c.base+36,level=ground(c,x,z);
+            int z=c.landwardShore(42,52)+36,level=ground(c,x,z);
             p.at(x,level+1,z,LOG);
             p.at(x,level+2,z,Blocks.SPRUCE_SLAB.defaultBlockState());
         }
         // Compact repair slip aimed toward the water rather than a new large pier.
-        for(int x=46;x<=48;x++)for(int z=c.base+15;z<=c.base+21;z++){
+        int slip=c.landwardShore(46,48)+8;
+        for(int x=46;x<=48;x++)for(int z=slip;z<=slip+6;z++){
             int level=ground(c,x,z);
             p.at(x,level,z,FLOOR);
             if(x!=47)p.at(x,level+1,z,Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState());
@@ -507,7 +514,7 @@ public final class BuyanHarbor {
         Plan plan=coast.plan;
         int sea=site.waterLevel(),base=coast.base;
         // Eight capital buildings in four zones; the original three count in the total.
-        int[][] buildings=buildingPlots(base);
+        int[][] buildings=buildingPlots(coast);
         String[] types={"house","house","house","market","warehouse","smokehouse","workshop","elder"};
         if(!safeBuildings(coast,sea))return false;
 
@@ -516,16 +523,22 @@ public final class BuyanHarbor {
         pier(coast,plan,17,5,18,sea,true);
         pier(coast,plan,-33,3,12,sea,false);
         pier(coast,plan,44,3,6,sea,false);
-        road(coast,plan,5,base+9,5,base+76,5);
-        road(coast,plan,5,base+35,-25,base+35,3);
+        int tradeCargo=coast.landwardShore(13,22)+16;
+        int fishCargo=coast.landwardShore(-34,-29)+15;
+        int workshopFront=buildings[6][1]-1;
+        int smokeFront=buildings[5][1]-1;
+        road(coast,plan,5,coast.shore(5)+7,5,base+76,5);
+        road(coast,plan,5,base+35,-33,base+35,3);
         road(coast,plan,-25,base+35,-25,base+40,3);
         road(coast,plan,5,base+35,32,base+35,3);
         road(coast,plan,32,base+35,32,base+40,3);
-        road(coast,plan,17,coast.shore(17)+7,17,base+18,3);
-        road(coast,plan,-33,coast.shore(-33)+7,-33,base+19,3);
-        road(coast,plan,44,coast.shore(44)+7,44,base+23,3);
-        road(coast,plan,-33,base+23,-45,base+23,3);
-        road(coast,plan,-45,base+23,-45,base+26,3);
+        road(coast,plan,17,coast.shore(17)+7,17,base+35,3);
+        road(coast,plan,-33,coast.shore(-33)+7,-33,base+35,3);
+        road(coast,plan,40,coast.shore(40)+7,40,base+35,3);
+        road(coast,plan,40,workshopFront-2,46,workshopFront-2,3);
+        road(coast,plan,46,workshopFront-2,46,workshopFront,3);
+        road(coast,plan,-33,smokeFront-2,-45,smokeFront-2,3);
+        road(coast,plan,-45,smokeFront-2,-45,smokeFront,3);
         road(coast,plan,5,base+58,-43,base+58,3);
         road(coast,plan,-43,base+58,-43,base+62,3);
         road(coast,plan,5,base+73,-26,base+73,3);
@@ -534,11 +547,8 @@ public final class BuyanHarbor {
         road(coast,plan,30,base+71,30,base+74,3);
         road(coast,plan,5,base+75,0,base+75,3);
         road(coast,plan,0,base+75,0,base+78,3);
-        road(coast,plan,44,base+22,46,base+22,3);
-        road(coast,plan,46,base+22,46,base+23,3);
-
-        cargoPad(coast,plan,13,base+18,10,12,false);
-        cargoPad(coast,plan,-34,base+17,6,8,true);
+        cargoPad(coast,plan,13,tradeCargo,10,12,false);
+        cargoPad(coast,plan,-34,fishCargo,6,8,true);
         marketSquare(coast,plan);
         fishingYard(coast,plan);
         boatYard(coast,plan);
@@ -551,8 +561,10 @@ public final class BuyanHarbor {
         }
         // Clearly visible lanterns for approach paths and working docks.
         for(int z:new int[]{base+13,base+28,base+66,base+73})post(coast,plan,10,z);
-        for(int[] lamp:new int[][]{{-38,base+28},{-35,base+11},{20,base+14},{47,base+14}})
-            post(coast,plan,lamp[0],lamp[1]);
+        for(int[] lamp:new int[][]{
+            {-38,fishCargo+10},{-35,coast.shore(-33)+10},
+            {22,tradeCargo+13},{47,coast.shore(44)+12}
+        })post(coast,plan,lamp[0],lamp[1]);
 
         Set<Long> loaded=new HashSet<>();
         for(var entry:plan.blocks.entrySet()){
