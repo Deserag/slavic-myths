@@ -67,7 +67,18 @@ public final class BuyanPreSpawn {
         Record state=Record.get(world);
         if(state.ready)return;
         if(!BuyanState.get(world).completedSites().isEmpty()){
-            LogUtils.getLogger().warn("Slavic Oceans preset: an existing Buyan is already recorded, avoiding replacement.");
+            // A crash after terrain creation but before harbor completion must never
+            // regenerate the entire island or destroy an existing player's work.
+            for(BuyanState.Site site:BuyanState.get(world).completedSites()){
+                if(site.x()==0&&site.z()==0
+                    &&BuyanNatureState.get(world).finishedAt(site)
+                    &&BuyanHarbor.placeOnce(world,site)){
+                    state.finished();
+                    world.setDefaultSpawnPos(new BlockPos(0,world.getSeaLevel()+14,0),0.0F);
+                    return;
+                }
+            }
+            LogUtils.getLogger().warn("Slavic Oceans: an existing Buyan could not be recovered; avoiding terrain overwrite.");
             return;
         }
         long begin=System.nanoTime();
