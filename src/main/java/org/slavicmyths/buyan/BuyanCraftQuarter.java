@@ -420,7 +420,7 @@ public final class BuyanCraftQuarter {
 
             // A short wide approach joins the smithy door to the first
             // cross-street, never requiring a jump at the porch.
-            for (int x = -31; x <= -27; x++) {
+            for (int x = -30; x <= -28; x++) {
                 int street = intersections[0][x + 40];
                 if (Math.abs(street - firstFloor) > 4)
                     throw new IllegalStateException("Craft forge porch is disconnected from street");
@@ -604,7 +604,7 @@ public final class BuyanCraftQuarter {
             lamp(x0 + 5, f + 8, z0 + 1);
 
             // Entry porch, working awning, outdoor fuel and tool benches.
-            // The 5-wide porch/ramp was staged together with the road at
+            // The 3-wide porch/ramp was staged together with the road at
             // the correct stair heights; do not flatten it while furnishing.
             for (int x : new int[] {5, 9}) {
                 fill(x0 + x, porchHeight(x0 + x, z0 + 12) + 1, z0 + 12,
@@ -938,7 +938,7 @@ public final class BuyanCraftQuarter {
                         for (int x = 0; x <= 4; x++)
                             if (roadHeights[z - roadStart] != heights[x + 40]) return false;
                 }
-                for (int x = -31; x <= -27; x++) {
+                for (int x = -30; x <= -28; x++) {
                     int last = firstFloor;
                     for (int z = 13; z <= 16; z++) {
                         int y = z == 16 ? intersections[0][x + 40] : porchHeight(x, z);
