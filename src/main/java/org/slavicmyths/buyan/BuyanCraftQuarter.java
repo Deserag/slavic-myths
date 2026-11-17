@@ -1367,4 +1367,78 @@ public final class BuyanCraftQuarter {
             throw new IllegalStateException("Original site blueprint did not validate");
     }
 
+    /**
+     * Non-destructive regression for the integrated-client crash of 17 November:
+     * a forge site is not usable if its roads or six future lots reserve the
+     * space where the protected central terem must already stand.
+     */
+    public static void verifyTemerFirstCrashSeedFixture(ServerLevel world) {
+        final long seed = -8010468109031904307L;
+        BuyanState.Site island = new BuyanState.Site(0, 0, 350, 63);
+        // Check the terrain at the actual first-choice palace plot. This
+        // mirrors BuyanTerem.fit without modifying its approved blueprint.
+        int lo = Integer.MAX_VALUE, hi = Integer.MIN_VALUE;
+        for (int x = -33; x <= 33; x += 3)
+            for (int z = -15; z <= 25; z += 3) {
+                int top = BuyanNature.top(seed, 0, 0, 350, x, z + 10, 63);
+                if (top == Integer.MIN_VALUE || top < 70)
+                    throw new IllegalStateException("Central palace plot is outside safe land");
+                lo = Math.min(lo, top);
+                hi = Math.max(hi, top);
+            }
+        if (hi - lo > 5)
+            throw new IllegalStateException("Central palace first-choice plot is too steep");
+
+        int candidates = 0, checked = 0;
+        for (int radius = 60; radius <= 180; radius += 6)
+            for (Rotation turn : Rotation.values())
+                for (int lateral = 0; lateral <= 60; lateral += 4)
+                    for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
+                        Plan p = new Plan(world, island, turn, radius, lateral * sign, seed);
+                        if (!p.terrainFit()) continue;
+                        candidates++;
+                        try {
+                            p.build();
+                            if (!p.checkDesign()) continue;
+                        } catch (IllegalStateException invalidTerrain) {
+                            continue;
+                        }
+                        checked++;
+                        boolean collision = false;
+                        // Terem reserves central shell and its front entrance.
+                        for (BlockPos point : p.blocks.keySet()) {
+                            if (point.getX() >= -35 && point.getX() <= 35
+                                && point.getZ() >= -25 && point.getZ() <= 38) {
+                                collision = true;
+                                break;
+                            }
+                        }
+                        if (collision) continue;
+                        // Reserved craft plots may not occupy the palace even
+                        // if no buildings have yet been erected in those lots.
+                        for (int[] plot : LOTS) {
+                            for (int x = plot[0]; x <= plot[2] && !collision; x += 3)
+                                for (int z = plot[1]; z <= plot[3]; z += 3) {
+                                    BlockPos point = p.pos(x, 0, z);
+                                    if (point.getX() >= -35 && point.getX() <= 35
+                                        && point.getZ() >= -25 && point.getZ() <= 38) {
+                                        collision = true;
+                                        break;
+                                    }
+                                }
+                            if (collision) break;
+                        }
+                        if (!collision) {
+                            LogUtils.getLogger().info(
+                                "Buyan palace-first crash-seed fixture: forge {},{} orientation {}, "
+                                    + "{} terrain candidates, {} valid blueprints",
+                                p.ox, p.oz, turn, candidates, checked);
+                            return;
+                        }
+                    }
+        throw new IllegalStateException(
+            "Crash seed has no craft plot that preserves its central palace; "
+                + candidates + " terrain fits, " + checked + " valid designs");
+    }
+
 }
