@@ -586,7 +586,7 @@ public final class BuyanCraftQuarter {
                 if (z != 5) fill(x0 + 9, f + 8, z0 + z, x0 + 9, f + 10, z0 + z, OAK);
             for (int x = 1; x <= 10; x++)
                 if (x != 6) fill(x0 + x, f + 8, z0 + 7, x0 + x, f + 10, z0 + 7, OAK);
-            bed(x0 + 6, f + 8, z0 + 2);
+            bed(x0 + 12, f + 8, z0 + 2);
             chest(x0 + 7, f + 8, z0 + 5, "craft_forge_home");
             at(x0 + 4, f + 8, z0 + 5, Blocks.OAK_FENCE.defaultBlockState());
             at(x0 + 4, f + 9, z0 + 5, Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
@@ -854,6 +854,12 @@ public final class BuyanCraftQuarter {
                         at(x, floor + 5, z, Blocks.DARK_OAK_SLAB.defaultBlockState());
                 at(left + 1, floor + 1, 10, Blocks.BARREL.defaultBlockState());
             }
+            // Finished goods, tool preparation and repair, separate from the
+            // central loading aisle and the raised solid-fuel bays.
+            at(-14, top(-14, 4) + 2, 4, Blocks.ANVIL.defaultBlockState());
+            at(-9, top(-9, 4) + 2, 4, Blocks.SMITHING_TABLE.defaultBlockState());
+            at(-15, top(-15, 3) + 2, 3, Blocks.BARREL.defaultBlockState());
+            at(-7, top(-7, 2) + 2, 2, Blocks.CRAFTING_TABLE.defaultBlockState());
             // Three lantern posts avoid the two entrance ramps and roads.
             for (int x : new int[]{-19, -12, -5}) {
                 int z = x == -12 ? 4 : 11;
@@ -991,7 +997,11 @@ public final class BuyanCraftQuarter {
                 BlockPos step = pos(22, armoryFloor + 11 - z, z);
                 BlockState stair = blocks.get(step);
                 if (stair == null || !stair.is(Blocks.SPRUCE_STAIRS)
-                    || stair.getValue(StairBlock.HALF) != Half.BOTTOM) return false;
+                    || stair.getValue(StairBlock.HALF) != Half.BOTTOM
+                    || stair.getValue(StairBlock.FACING) !=
+                        Blocks.SPRUCE_STAIRS.defaultBlockState()
+                            .setValue(StairBlock.FACING, Direction.NORTH)
+                            .rotate(rotation).getValue(StairBlock.FACING)) return false;
                 for (int y = 1; y <= 2; y++) {
                     BlockState above = blocks.get(step.above(y));
                     if (above != null && !above.isAir()) return false;
@@ -1170,12 +1180,12 @@ public final class BuyanCraftQuarter {
                         record.mark(key, new BlockPos(p.ox, p.firstFloor, p.oz),
                             turn, p.armoryFloor);
                         LogUtils.getLogger().info(
-                            "Buyan craft forge completed at {},{} (floor {}) in {} orientation",
-                            p.ox, p.oz, p.firstFloor, turn);
+                            "Buyan craft complex completed at {},{}: forge Y={}, armory Y={}, orientation {}",
+                            p.ox, p.oz, p.firstFloor, p.armoryFloor, turn);
                         return true;
                     }
         LogUtils.getLogger().error(
-            "Buyan craft forge: no viable site among {} candidates, {} terrain matches, "
+            "Buyan forge+armory complex: no viable site among {} candidates, {} terrain matches, "
                 + "{} invalid blueprints, {} occupied sites, {} grade errors; last rejection: {}",
             candidates, terrainMatches, invalidBlueprints, occupiedSites,
             invalidGrades, lastRejection);
