@@ -33,6 +33,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.core.component.DataComponents;
@@ -422,6 +423,22 @@ public final class ShipSailCapture {
                 standing.z(), yaw, pitch);
     }
 
+    private static void aimClientAt(Minecraft mc, BlockPos local) {
+        FirstShipEntity visible = mc.level.getEntity(expectedShipId)
+                instanceof FirstShipEntity ship ? ship : null;
+        if (visible == null) throw new AssertionError("Missing client IV for aiming");
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                visible.getX(), visible.getZ(), visible.shipYaw());
+        Vec3 delta = new Vec3(point.x(), visible.getY() + local.getY() + .5D,
+                point.z()).subtract(mc.player.getEyePosition());
+        float yaw = (float)Math.toDegrees(Math.atan2(-delta.x, delta.z));
+        float pitch = (float)-Math.toDegrees(Math.atan2(delta.y,
+                Math.hypot(delta.x, delta.z)));
+        mc.player.setYRot(yaw);
+        mc.player.setYHeadRot(yaw);
+        mc.player.setXRot(pitch);
+    }
+
     private static void interactionTick(Minecraft mc) throws Exception {
         interactionAge++;
         mc.options.keyUp.setDown(false);
@@ -441,6 +458,7 @@ public final class ShipSailCapture {
         }
         if (interactionPhase == 1) {
             if (interactionAge < 25) return;
+            aimClientAt(mc, new BlockPos(2, 7, 0));
             FirstShipEntity visible = mc.level.getEntity(expectedShipId)
                     instanceof FirstShipEntity ship ? ship : null;
             var eye = mc.player.getEyePosition();
@@ -455,6 +473,8 @@ public final class ShipSailCapture {
             chestClientDiagnostic = "player=" + mc.player.position()
                     + " passenger=" + mc.player.isPassenger()
                     + " screen=" + mc.screen
+                    + " look=" + mc.player.getLookAngle()
+                    + " clientShip=" + (visible == null ? null : visible.position())
                     + " hit=" + hit + " cargoView="
                     + (visible == null ? "missing ship" : visible.movingCargoView());
             System.out.println("SHIP_CHEST_CLIENT_DIAGNOSTIC " + chestClientDiagnostic);
@@ -494,6 +514,7 @@ public final class ShipSailCapture {
             if (!chestOpened || interactionDoor == null)
                 throw new AssertionError("Client could not open detached IV chest: "
                         + chestClientDiagnostic + " server=" + chestServerDiagnostic);
+            aimClientAt(mc, interactionDoor);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             interactionPhase = 4; interactionAge = 0;
             return;
@@ -531,6 +552,7 @@ public final class ShipSailCapture {
             if (interactionAge < 25) return;
             if (!doorOpened || interactionPlank == null)
                 throw new AssertionError("Client could not open detached IV door");
+            aimClientAt(mc, interactionPlank);
             net.minecraft.client.KeyMapping.click(mc.options.keyAttack.getKey());
             interactionPhase = 6; interactionAge = 0;
             return;
