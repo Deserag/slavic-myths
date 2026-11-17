@@ -296,8 +296,14 @@ public final class BuyanOutpost {
             }
             roof(p, y, y + height);
             if (p.kind.equals("barracks")) {
-                int count = p.floors == 2 ? 6 : 3;
-                for (int i = 0; i < count; i++) bed(x + 2 + i * (p.floors == 2 ? 2 : 2), y + 1, z + 2);
+                if (p.floors == 2) {
+                    for (int i = 0; i < 6; i++) bed(x + 2 + 2 * i, y + 1, z + 2);
+                } else {
+                    // Preserve a two-block-wide approach from the single front door.
+                    bed(x + 2, y + 1, z + 2);
+                    bed(x + w - 3, y + 1, z + 2);
+                    bed(x + 2, y + 1, z + 4);
+                }
                 chest(x + 2, y + 1, z + d - 3, "outpost_supply");
                 at(x + w - 3, y + 1, z + 2, Blocks.CRAFTING_TABLE.defaultBlockState());
                 at(x + w - 3, y + 1, z + d - 3, Blocks.BARREL.defaultBlockState());
