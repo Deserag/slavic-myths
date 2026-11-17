@@ -478,6 +478,10 @@ public final class BuyanNatureGenerator {
                         new BuyanState.Site(state.centerX,state.centerZ,state.radius,state.waterLevel));
                     if(!harborPlaced)world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Портовые здания не размещены: проверьте участок через /slavicmyths dev buyan harbor."),false);
+                    if(harborPlaced && !BuyanOutpost.placeOnce(world,
+                        new BuyanState.Site(state.centerX,state.centerZ,state.radius,state.waterLevel)))
+                        world.getServer().getPlayerList().broadcastSystemMessage(
+                            Component.literal("[Буян] Военный аванпост не размещён: проверьте рельеф через /slavicmyths dev buyan outpost."),false);
                     world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Готово: основание, природный рельеф и растительность — 100%."),
                         false);
