@@ -77,6 +77,7 @@ public final class ShipSailCapture {
     private static boolean motionStarted;
     private static volatile boolean motionReady;
     private static int motionAge;
+    private static volatile long motionStartServerTick;
     private static double motionStartZ;
     private static double motionRestartZ;
     private static double motionRestartX;
@@ -260,6 +261,7 @@ public final class ShipSailCapture {
             motionStartZ = serverShip.getZ();
             if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
                 throw new AssertionError("IV motion assembly rejected");
+            motionStartServerTick = world.getGameTime();
             // Detachment can expose air at the old waterline where the keel
             // occupied source blocks. Refill only those empty basin cells so
             // the next swept pose has the same water support as open sea.
@@ -288,11 +290,13 @@ public final class ShipSailCapture {
     private static void motionTick(Minecraft mc) throws Exception {
         if (!motionReady) return;
         motionAge++;
+        long serverAge = mc.getSingleplayerServer().overworld().getGameTime()
+                - motionStartServerTick;
         if (mc.level.getEntity(cameraStandId) instanceof ArmorStand stand
                 && mc.getCameraEntity() != stand)
             mc.setCameraEntity(stand);
-        int action = motionAge < 105 ? FirstShipNetwork.FORWARD_RIGHT
-                : motionAge < 155 ? FirstShipNetwork.HELM_IDLE
+        int action = serverAge < 105 ? FirstShipNetwork.FORWARD_RIGHT
+                : serverAge < 155 ? FirstShipNetwork.HELM_IDLE
                 : FirstShipNetwork.FORWARD;
         mc.getSingleplayerServer().execute(() -> {
             ServerPlayer player = mc.getSingleplayerServer().getPlayerList().getPlayers().getFirst();
@@ -332,14 +336,16 @@ public final class ShipSailCapture {
             cameraStand.setPos(serverShip.getX() + 55D,
                     serverShip.getY() + 27D, serverShip.getZ());
         });
-        if (motionAge == 90 || motionAge == 150 || motionAge == 225) {
+        int frameIndex = MOTION_FRAMES.size();
+        int frameTick = frameIndex == 0 ? 90 : frameIndex == 1 ? 150 : 225;
+        if (frameIndex < 3 && serverAge >= frameTick) {
             FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
                     ? ship : null;
             if (visible == null || !visible.isMoving()
                     || Math.hypot(visible.getX() - ANCHOR.getX() - .5D,
                             visible.getZ() - motionStartZ) < .1D)
                 throw new AssertionError("Moving IV hull not synchronized at tick " + motionAge);
-            String state = motionAge == 90 ? "turn" : motionAge == 150 ? "idle" : "restart";
+            String state = frameIndex == 0 ? "turn" : frameIndex == 1 ? "idle" : "restart";
             String file = "motion-iv-tier-3-" + state + ".png";
             try (var image = Screenshot.takeScreenshot(mc.getMainRenderTarget())) {
                 image.writeToFile(OUT.resolve(file));
@@ -354,17 +360,17 @@ public final class ShipSailCapture {
             row.addProperty("server_speed", serverMotionSpeed);
             row.addProperty("accepted_helm_steps", acceptedHelmSteps);
             MOTION_FRAMES.add(row);
-            if (motionAge == 150) {
+            if (frameIndex == 1) {
                 motionRestartX = visible.getX();
                 motionRestartZ = visible.getZ();
             }
-            if (motionAge == 225 && Math.hypot(visible.getX() - motionRestartX,
+            if (frameIndex == 2 && Math.hypot(visible.getX() - motionRestartX,
                     visible.getZ() - motionRestartZ) <= .1D)
                 throw new AssertionError("IV failed to restart after idle: "
                         + motionRestartX + "," + motionRestartZ + " -> "
                         + visible.getX() + "," + visible.getZ());
         }
-        if (motionAge == 235) {
+        if (serverAge >= 235) {
             if (MOTION_FRAMES.size() != 3)
                 throw new AssertionError("Missing moving IV captures");
             finish(mc);
