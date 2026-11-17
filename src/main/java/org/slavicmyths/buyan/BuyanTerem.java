@@ -501,7 +501,10 @@ public final class BuyanTerem {
             chest(-16, 18, 3, "buyan_terem_household");
             for (int v : new int[]{7, 14, 20}) fixture(0, v, 3);
             for (int v : new int[]{5, 12, 18}) {
-                fixture(-16, v, 3);
+                // The service-room chest is at (-16,18,3). Its lantern
+                // used to overwrite the CHEST in the final block map,
+                // aborting first-world city construction at runtime.
+                fixture(v == 18 ? -15 : -16, v, 3);
                 fixture(17, v, 3);
             }
             // Second floor: prince's council, two libraries and the accessible loggia.
@@ -659,7 +662,11 @@ public final class BuyanTerem {
                 if (!blocks.getOrDefault(pos(pair[0], pair[1], pair[2]), AIR)
                     .is(Blocks.DARK_OAK_DOOR)) return false;
             }
-            return loot.size() == 4;
+            if (loot.size() != 4) return false;
+            for (BlockPos chest : loot.keySet())
+                if (!blocks.getOrDefault(chest, AIR).is(Blocks.CHEST))
+                    return false;
+            return true;
         }
     }
 
@@ -731,6 +738,19 @@ public final class BuyanTerem {
         plan.build();
         if (!plan.geometryCheck())
             throw new IllegalStateException("Terem silhouette/doors/floors/roof/loot fixture failed");
+        for (BlockPos chest : plan.loot.keySet())
+            if (!plan.blocks.getOrDefault(chest, AIR).is(Blocks.CHEST))
+                throw new IllegalStateException("Loot chest overwritten in finished plan: " + chest);
+        BlockPos deliberatelyBrokenChest = plan.loot.keySet().iterator().next();
+        BlockState originalChest = plan.blocks.put(deliberatelyBrokenChest, AIR);
+        try {
+            if (plan.geometryCheck())
+                throw new IllegalStateException("Terem validator did not detect missing chest");
+        } finally {
+            plan.blocks.put(deliberatelyBrokenChest, originalChest);
+        }
+        if (!plan.geometryCheck())
+            throw new IllegalStateException("Terem chest validator cannot restore blueprint");
         for (int h : new int[]{3, 10, 18})
             if (!plan.blocks.getOrDefault(plan.pos(0, 12, h), AIR).isAir())
                 throw new IllegalStateException("Central hallway blocked at floor " + h);
