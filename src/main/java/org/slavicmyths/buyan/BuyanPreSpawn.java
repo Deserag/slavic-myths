@@ -72,11 +72,12 @@ public final class BuyanPreSpawn {
             for(BuyanState.Site site:BuyanState.get(world).completedSites()){
                 if(site.x()==0&&site.z()==0
                     &&BuyanNatureState.get(world).finishedAt(site)
+                    // The palace must be the first constructed building:
+                    // both hill-outpost roads and craft plots can otherwise
+                    // occupy its protected central-clearing positions.
+                    &&BuyanTerem.placeOnce(world,site)
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
-                    // The palace owns the central clearing. Placing the
-                    // craft district first can occupy every palace candidate.
-                    &&BuyanTerem.placeOnce(world,site)
                     &&BuyanCraftQuarter.placeOnce(world,site)
                     &&BuyanShrine.placeOnce(world,site)){
                     state.finished();
@@ -195,14 +196,14 @@ public final class BuyanPreSpawn {
         nature.nextPhase();
         nature.finish();
 
-        if(!BuyanHarbor.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain is ready but harbor placement failed");
-        if(!BuyanOutpost.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain and harbor are ready but hill outpost placement failed");
-        // Place the approved central palace before districts on the outer
-        // island. Every later district uses its strict collision preflight.
+        // A completed central palace is the prerequisite for all outer
+        // districts. Existing preflights protect its walls and roads.
         if(!BuyanTerem.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain and outpost are ready but central terem placement failed");
+            throw new IllegalStateException("Buyan terrain is ready but central terem placement failed");
+        if(!BuyanHarbor.placeOnce(world,site))
+            throw new IllegalStateException("Buyan terrain and terem are ready but harbor placement failed");
+        if(!BuyanOutpost.placeOnce(world,site))
+            throw new IllegalStateException("Buyan terrain, terem and harbor are ready but hill outpost placement failed");
         if(!BuyanCraftQuarter.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain and central terem are ready but craft forge placement failed");
         if(!BuyanShrine.placeOnce(world,site))
