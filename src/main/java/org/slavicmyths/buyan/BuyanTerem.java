@@ -721,6 +721,43 @@ public final class BuyanTerem {
         return new BlockPos(palace.getX(), y + 1, z);
     }
 
+    /** Deterministic block-by-block geometry gate; no saved world writes. */
+    public static void verifyBlueprintFixture(ServerLevel world) {
+        BuyanState.Site site = new BuyanState.Site(0, 0, BuyanTerrain.MAX_RADIUS, 63);
+        Plan plan = new Plan(world, site, 0, 10, 80);
+        plan.build();
+        if (!plan.geometryCheck())
+            throw new IllegalStateException("Terem silhouette/doors/floors/roof/loot fixture failed");
+        for (int h : new int[]{3, 10, 18})
+            if (!plan.blocks.getOrDefault(plan.pos(0, 12, h), AIR).isAir())
+                throw new IllegalStateException("Central hallway blocked at floor " + h);
+        for (int i = 0; i < 7; i++)
+            for (int x = 12; x <= 14; x++)
+                if (!plan.blocks.getOrDefault(plan.pos(x, 3 + i, 4 + i), AIR).isAir())
+                    throw new IllegalStateException("First stair headroom blocked at step " + i);
+        for (int i = 0; i < 8; i++)
+            for (int x = -14; x <= -12; x++)
+                if (!plan.blocks.getOrDefault(plan.pos(x, 3 + i, 11 + i), AIR).isAir())
+                    throw new IllegalStateException("Second stair headroom blocked at step " + i);
+        for (int x : new int[]{-31, 25})
+            for (int h : new int[]{4, 9, 17, 25, 26})
+                if (!plan.blocks.getOrDefault(plan.pos(x, 0, h), AIR).is(Blocks.LADDER))
+                    throw new IllegalStateException("Inaccessible side tower ladder " + x + ":" + h);
+        for (int[] d : new int[][]{{-1, 0, 3}, {0, 0, 3},
+                {-1, 0, 10}, {0, 0, 10}, {-18, 0, 18}, {-17, 0, 18},
+                {16, 0, 18}, {17, 0, 18}, {-1, -4, 19}, {0, -4, 19}})
+            for (int h = d[2]; h <= d[2] + 1; h++)
+                if (!plan.blocks.getOrDefault(plan.pos(d[0], d[1], h), AIR)
+                    .is(Blocks.DARK_OAK_DOOR))
+                    throw new IllegalStateException("Missing double-height door at " + d[0] + "/" + d[1] + "/" + h);
+        if (!plan.blocks.getOrDefault(plan.pos(-16, 10, 18), AIR).is(Blocks.RED_BED)
+            || !plan.blocks.getOrDefault(plan.pos(15, 10, 18), AIR).is(Blocks.BLUE_BED)
+            || !plan.blocks.getOrDefault(plan.pos(0, 11, 51), AIR).is(Blocks.YELLOW_GLAZED_TERRACOTTA))
+            throw new IllegalStateException("Terem beds or upper finial missing");
+        LogUtils.getLogger().info("Buyan central terem blueprint fixture: {} positions, {} loot chests",
+            plan.blocks.size(), plan.loot.size());
+    }
+
     public static int status(CommandSourceStack source) {
         ServerLevel world = source.getLevel();
         BuyanState.Site site = BuyanNatureGenerator.selectedFoundation(world,
