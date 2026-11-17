@@ -724,9 +724,22 @@ public final class BuyanOutpost {
                     int bx = x + (dx != 0 ? 0 : side);
                     int bz = z + (dx != 0 ? side : 0);
                     if (floor - ground(bx, bz) > 2) {
-                        posts(bx, bz, floor);
-                        at(bx, floor, bz, PLANK);
-                        at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
+                        // A turn's outer rail must NEVER be placed over a
+                        // previously constructed cross-route or landing.
+                        boolean crossesRoad = false;
+                        for (int level = floor - 1; level <= floor + 1; level++) {
+                            BlockState earlier = blocks.get(hill.at(bx, level, bz));
+                            if (earlier != null && (earlier.is(Blocks.SPRUCE_PLANKS)
+                                || earlier.is(Blocks.SPRUCE_STAIRS))) {
+                                crossesRoad = true;
+                                break;
+                            }
+                        }
+                        if (!crossesRoad) {
+                            posts(bx, bz, floor);
+                            at(bx, floor, bz, PLANK);
+                            at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
+                        }
                     }
                 }
                 route.add(hill.at(x, floor, z));
@@ -849,7 +862,7 @@ public final class BuyanOutpost {
                         || surface.is(Blocks.SPRUCE_STAIRS))) return fail("route surface " + point);
                     for (int dy = 1; dy <= 2; dy++) {
                         BlockState air = blocks.get(point.above(dy));
-                        if (air != null && !air.isAir()) return fail("route headroom " + point);
+                        if (air != null && !air.isAir()) return fail("route headroom " + point + " at=" + point.above(dy) + " block=" + air);
                     }
                     if (i > 0 && Math.abs(point.getY() - route.get(i - 1).getY()) > 1)
                         return fail("route discontinuity " + point);
