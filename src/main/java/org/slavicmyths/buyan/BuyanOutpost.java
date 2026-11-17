@@ -108,10 +108,11 @@ public final class BuyanOutpost {
         int door() { return x + width / 2; }
     }
 
-    private static Hill selectHill(ServerLevel world, BuyanState.Site site) {
+    private record Candidate(Hill hill, double score) {}
+
+    private static List<Hill> selectHills(ServerLevel world, BuyanState.Site site) {
         long seed = world.getSeed();
-        Hill best = null;
-        double bestScore = -Double.MAX_VALUE;
+        List<Candidate> ranked = new ArrayList<>();
         for (int dx = -216; dx <= 216; dx += 12) {
             for (int dz = -216; dz <= 216; dz += 12) {
                 int distance = dx * dx + dz * dz;
@@ -131,14 +132,27 @@ public final class BuyanOutpost {
                 }
                 if (!available || hi - lo > 8) continue;
                 double score = top - (hi - lo) * 2.0 - Math.sqrt(distance) * 0.018;
-                if (score <= bestScore) continue;
                 int zx = Math.abs(dx) >= Math.abs(dz) ? Integer.signum(dx) : 0;
                 int zz = zx == 0 ? Integer.signum(dz) : 0;
-                best = new Hill(site, x, z, zx, zz);
-                bestScore = score;
+                ranked.add(new Candidate(new Hill(site, x, z, zx, zz), score));
             }
         }
-        return best;
+        ranked.sort((a, b) -> Double.compare(b.score(), a.score()));
+        List<Hill> candidates = new ArrayList<>();
+        for (Candidate candidate : ranked) {
+            Hill hill = candidate.hill();
+            boolean nearby = false;
+            for (Hill chosen : candidates) {
+                long dx = hill.cx() - chosen.cx(), dz = hill.cz() - chosen.cz();
+                if (dx * dx + dz * dz < 28L * 28L) {
+                    nearby = true;
+                    break;
+                }
+            }
+            if (!nearby) candidates.add(hill);
+            if (candidates.size() >= 12) break;
+        }
+        return candidates;
     }
 
     private static final class Plan {
@@ -177,6 +191,8 @@ public final class BuyanOutpost {
                     if (y == Integer.MIN_VALUE) return Integer.MIN_VALUE;
                     highest = Math.max(highest, y);
                 }
+            highest = Math.max(highest, ground(plot.door(), plot.z - 1));
+            if (highest == Integer.MIN_VALUE) return Integer.MIN_VALUE;
             return highest + 1 + (plot.kind.equals("hanging") ? 4 : 0);
         }
 
@@ -308,6 +324,7 @@ public final class BuyanOutpost {
             at(x + w / 2 + 2, y + 1, z + d - 3, Blocks.SPRUCE_STAIRS.defaultBlockState());
             at(x + w / 2 + 2, y + 1, z + d - 4, Blocks.SPRUCE_SLAB.defaultBlockState());
             lantern(x + 1, y + height - 1, z + d - 2);
+            if (p.floors == 2) lantern(x + 1, y + 3, z + 3);
             door(p, y);
             if (p.kind.equals("hanging")) {
                 for (int xx = x + 2; xx < x + w - 1; xx += 3) {
@@ -533,20 +550,30 @@ public final class BuyanOutpost {
         if (record.built.containsKey(key)) return true;
         if (BuyanState.get(world).active || BuyanNatureState.get(world).active
             || !BuyanNatureState.get(world).finishedAt(site)) return false;
-        Hill hill = selectHill(world, site);
-        if (hill == null) return false;
-        Plan plan = new Plan(world, hill);
-        try {
-            plan.build();
-            if (!plan.validate()) return false;
-            plan.commit();
-        } catch (IllegalStateException exception) {
-            com.mojang.logging.LogUtils.getLogger().error("Buyan outpost aborted at {} {}",
-                hill.cx, hill.cz, exception);
-            return false;
+        for (Hill hill : selectHills(world, site)) {
+            Plan plan = new Plan(world, hill);
+            try {
+                plan.build();
+                if (!plan.validate()) continue;
+            } catch (IllegalStateException exception) {
+                com.mojang.logging.LogUtils.getLogger().warn(
+                    "Buyan outpost candidate rejected at {},{}: {}",
+                    hill.cx, hill.cz, exception.getMessage());
+                continue;
+            }
+            // All planned writes were checked before starting. Never try another
+            // candidate after an exception during commit: partial writes remain safe.
+            try {
+                plan.commit();
+            } catch (IllegalStateException exception) {
+                com.mojang.logging.LogUtils.getLogger().error(
+                    "Buyan outpost commit failed at {},{}", hill.cx, hill.cz, exception);
+                return false;
+            }
+            record.mark(key, hill.at(0, plan.ground(0, 0) + 1, 0));
+            return true;
         }
-        record.mark(key, hill.at(0, plan.ground(0, 0) + 1, 0));
-        return true;
+        return false;
     }
 
     public static int status(CommandSourceStack source) {
