@@ -756,9 +756,9 @@ public final class BuyanCraftQuarter {
     /** Isolated non-mutating NeoForge regression fixture. */
     public static void verifyBlueprintFixture(ServerLevel world) {
         BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
-        Plan p = new Plan(world, site, Rotation.NONE, 70, 0, 9083133736688572422L);
-        p.firstFloor = 90;
-        p.forge();
+        Plan p = new Plan(world, site, Rotation.CLOCKWISE_180, 168, 12,
+            9083133736688572422L);
+        p.build();
         if (!p.checkDesign())
             throw new IllegalStateException("Craft forge blueprint failed final roof/stair/door/bed/chest assertions");
         BlockPos roof = p.pos(-32, p.roofY(4), 8);
@@ -766,7 +766,7 @@ public final class BuyanCraftQuarter {
         if (p.checkDesign())
             throw new IllegalStateException("Craft roof hole was not detected");
         p.blocks.put(roof, original);
-        BlockPos stair = p.pos(-24, 91, 11);
+        BlockPos stair = p.pos(-24, p.firstFloor + 1, 11);
         BlockState originalStair = p.blocks.put(stair, AIR);
         if (p.checkDesign())
             throw new IllegalStateException("Craft inaccessible stair was not detected");
