@@ -201,7 +201,7 @@ public final class BuyanCraftQuarter {
                     min = Math.min(min, h);
                     max = Math.max(max, h);
                 }
-            if (max - min > 18) return false;
+            if (max - min > 48) return false;
             // The access avenue runs into the existing open central clearing;
             // it may not end at a random stand of trees or in the ocean.
             for (int z = -(outward - 55); z < 0; z += 8) {
@@ -219,35 +219,117 @@ public final class BuyanCraftQuarter {
             return hi - lo <= 4;
         }
 
-        void roadCell(int x, int z, int level) {
+        int roadStart;
+        int[] roadHeights;
+        int[][] intersections;
+
+        private static boolean grade(int[] levels) {
+            boolean changed = false;
+            for (int i = levels.length - 2; i >= 0; i--) {
+                int required = levels[i + 1] - 1;
+                if (levels[i] < required) { levels[i] = required; changed = true; }
+            }
+            for (int i = 1; i < levels.length; i++) {
+                int required = levels[i - 1] - 1;
+                if (levels[i] < required) { levels[i] = required; changed = true; }
+            }
+            return changed;
+        }
+
+        void roadCell(int x, int z, int level, BlockState surface) {
             int ground = top(x, z);
-            if (ground == Integer.MIN_VALUE) throw new IllegalStateException("Craft road outside island");
+            if (ground == Integer.MIN_VALUE || level < ground + 1)
+                throw new IllegalStateException("Craft road outside island or under terrain");
             for (int y = ground + 1; y < level; y++)
                 at(x, y, z, y < level - 3 ? COBBLE : ANDESITE);
-            at(x, level, z, ANDESITE);
+            at(x, level, z, surface);
             for (int y = level + 1; y <= level + 4; y++) at(x, y, z, AIR);
         }
 
+        BlockState slope(int[] levels, int index, Direction forward, Direction backward) {
+            Direction facing = null;
+            if (index > 0 && levels[index] > levels[index - 1]) facing = forward;
+            else if (index + 1 < levels.length && levels[index] > levels[index + 1])
+                facing = backward;
+            return facing == null ? ANDESITE : Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+                .setValue(StairBlock.FACING, facing).setValue(StairBlock.HALF, Half.BOTTOM);
+        }
+
         void roads() {
-            // Five-wide quarter avenue, tied to the treeless central clearing,
-            // with two full cross streets and a planned continuation at Z=74.
-            int from = -(outward - 55);
-            for (int z = from; z <= 74; z++) {
-                int floor = Integer.MIN_VALUE;
-                for (int x = 0; x <= 4; x++) floor = Math.max(floor, top(x, z) + 1);
-                for (int x = 0; x <= 4; x++) roadCell(x, z, floor);
+            // Model the full five-wide avenue and three cross streets as
+            // interconnected height profiles. Shared 5x5 junctions are flat;
+            // raising a road is safe, lowering it through terrain is forbidden.
+            roadStart = -(outward - 55);
+            roadHeights = new int[75 - roadStart];
+            for (int z = roadStart; z <= 74; z++) {
+                int highest = Integer.MIN_VALUE;
+                for (int x = 0; x <= 4; x++)
+                    highest = Math.max(highest, top(x, z) + 1);
+                roadHeights[z - roadStart] = highest;
             }
-            for (int z0 : new int[] {16, 35, 58}) {
+            int[] crossZ = {16, 35, 58};
+            intersections = new int[crossZ.length][81];
+            for (int lane = 0; lane < crossZ.length; lane++)
                 for (int x = -40; x <= 40; x++) {
-                    int floor = Math.max(top(x, z0) + 1, top(x, z0 + 4) + 1);
-                    for (int z = z0; z <= z0 + 4; z++)
-                        roadCell(x, z, floor);
+                    int high = Integer.MIN_VALUE;
+                    for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
+                        high = Math.max(high, top(x, z) + 1);
+                    intersections[lane][x + 40] = high;
+                }
+            // Repeated monotone relaxation terminates: 1-Lipschitz grades
+            // and exactly level crossing squares are one connected network.
+            boolean changed;
+            int iterations = 0;
+            do {
+                changed = grade(roadHeights);
+                for (int lane = 0; lane < crossZ.length; lane++) {
+                    changed |= grade(intersections[lane]);
+                    int level = Integer.MIN_VALUE;
+                    for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
+                        level = Math.max(level, roadHeights[z - roadStart]);
+                    for (int x = 40; x <= 44; x++)
+                        level = Math.max(level, intersections[lane][x]);
+                    for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++) {
+                        int index = z - roadStart;
+                        if (roadHeights[index] < level) {
+                            roadHeights[index] = level;
+                            changed = true;
+                        }
+                    }
+                    for (int x = 40; x <= 44; x++)
+                        if (intersections[lane][x] < level) {
+                            intersections[lane][x] = level;
+                            changed = true;
+                        }
+                }
+                if (++iterations > 128)
+                    throw new IllegalStateException("Craft road grade did not converge");
+            } while (changed);
+
+            for (int z = roadStart; z <= 74; z++) {
+                int index = z - roadStart, floor = roadHeights[index];
+                BlockState paving = slope(roadHeights, index, Direction.SOUTH, Direction.NORTH);
+                for (int x = 0; x <= 4; x++) roadCell(x, z, floor, paving);
+            }
+            for (int lane = 0; lane < crossZ.length; lane++) {
+                int[] heights = intersections[lane];
+                for (int x = -40; x <= 40; x++) {
+                    int level = heights[x + 40];
+                    BlockState paving = slope(heights, x + 40, Direction.EAST, Direction.WEST);
+                    for (int z = crossZ[lane]; z <= crossZ[lane] + 4; z++)
+                        roadCell(x, z, level, paving);
                 }
             }
-            // The forge entrance is directly connected to the Z=16 cross street.
-            for (int x = -31; x <= -27; x++)
+
+            // A short wide approach joins the smithy door to the first
+            // cross-street, never requiring a jump at the porch.
+            for (int x = -31; x <= -27; x++) {
+                int street = intersections[0][x + 40];
+                if (Math.abs(street - firstFloor) > 1)
+                    throw new IllegalStateException("Craft forge porch is disconnected from street");
                 for (int z = 13; z <= 15; z++)
-                    roadCell(x, z, Math.max(firstFloor, top(x, z) + 1));
+                    roadCell(x, z, firstFloor, ANDESITE);
+            }
         }
 
         void forge() {
@@ -560,8 +642,14 @@ public final class BuyanCraftQuarter {
                     for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
                         Plan p = new Plan(world, site, turn, radius, lateral * sign, world.getSeed());
                         if (!p.terrainFit()) continue;
-                        p.build();
-                        if (!p.checkDesign() || !p.worldAvailable()) continue;
+                        try {
+                            p.build();
+                            if (!p.checkDesign() || !p.worldAvailable()) continue;
+                        } catch (IllegalStateException badSite) {
+                            // Invalid slope/approach/collision at this hillside:
+                            // never apply a partial candidate to the world.
+                            continue;
+                        }
                         p.commit();
                         record.mark(key, new BlockPos(p.ox, p.firstFloor, p.oz), turn);
                         LogUtils.getLogger().info(
@@ -630,5 +718,33 @@ public final class BuyanCraftQuarter {
         p.blocks.put(stair, originalStair);
         if (!p.checkDesign())
             throw new IllegalStateException("Craft blueprint restoration failed");
+        verifyReportedSeedSite(world);
+    }
+
+    public static void verifyReportedSeedSite(ServerLevel world) {
+        BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
+        long seed = 9083133736688572422L;
+        int tested = 0;
+        for (int distance = 108; distance <= 180; distance += 12)
+            for (Rotation direction : Rotation.values())
+                for (int lateral = 0; lateral <= 60; lateral += 12)
+                    for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
+                        Plan candidate = new Plan(world, site, direction,
+                            distance, lateral * sign, seed);
+                        if (!candidate.terrainFit()) continue;
+                        tested++;
+                        try {
+                            candidate.build();
+                            if (!candidate.checkDesign()) continue;
+                            LogUtils.getLogger().info(
+                                "Craft quarter real-seed terrain fixture passed at {},{} floor {} rotation {} after {} sites",
+                                candidate.ox, candidate.oz, candidate.firstFloor, direction, tested);
+                            return;
+                        } catch (IllegalStateException badSite) {
+                            // Continue checking the same candidate set as production.
+                        }
+                    }
+        throw new IllegalStateException("Craft quarter: reported seed has no viable blueprint site after "
+            + tested + " terrain candidates");
     }
 }
