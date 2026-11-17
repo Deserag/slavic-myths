@@ -449,10 +449,15 @@ public final class BuyanCraftQuarter {
             at(x0 + 8, f + 1, z0 + 4, Blocks.BLAST_FURNACE.defaultBlockState());
             at(x0 + 5, f + 1, z0 + 2, Blocks.CRAFTING_TABLE.defaultBlockState());
             at(x0 + 5, f + 1, z0 + 8, Blocks.GRINDSTONE.defaultBlockState());
-            at(x0 + 9, f + 1, z0 + 2, Blocks.BARREL.defaultBlockState());
+            // Partition the raw-material store from the active work bay,
+            // leaving a two-block-high doorway at its south-west corner.
+            for (int z = 1; z <= 4; z++)
+                for (int y = f + 1; y <= f + 5; y++)
+                    if (z != 4 || y > f + 2) at(x0 + 9, y, z0 + z, STONE);
+            at(x0 + 11, f + 1, z0 + 2, Blocks.BARREL.defaultBlockState());
             at(x0 + 10, f + 1, z0 + 2, Blocks.BARREL.defaultBlockState());
-            fill(x0 + 10, f + 1, z0 + 4, x0 + 10, f + 4, z0 + 4, OAK);
-            at(x0 + 10, f + 2, z0 + 5, Blocks.OAK_TRAPDOOR.defaultBlockState());
+            fill(x0 + 10, f + 4, z0 + 5, x0 + 11, f + 5, z0 + 5, OAK);
+            at(x0 + 11, f + 3, z0 + 1, Blocks.OAK_TRAPDOOR.defaultBlockState());
             at(x0 + 8, f + 2, z0 + 6, Blocks.IRON_BARS.defaultBlockState());
             at(x0 + 7, f + 2, z0 + 1, Blocks.CHAIN.defaultBlockState());
             chest(x0 + 4, f + 1, z0 + 7, "craft_forge_tools");
@@ -509,6 +514,11 @@ public final class BuyanCraftQuarter {
                     x0 + x, f + 3, z0 + 12, LOG);
                 for (int z = 10; z <= 13; z++)
                     at(x0 + x, f + 4, z0 + z, Blocks.SPRUCE_SLAB.defaultBlockState());
+            }
+            for (int z : new int[] {3, 8}) {
+                int soil = top(x0 - 4, z0 + z);
+                for (int y = soil + 1; y <= f + 3; y++)
+                    at(x0 - 4, y, z0 + z, LOG);
             }
             for (int x = -4; x <= -1; x++) {
                 for (int z = 3; z <= 8; z++) {
@@ -696,7 +706,7 @@ public final class BuyanCraftQuarter {
         // all rotations/offsets are deterministic for every world seed.
         for (int radius = 108; radius <= 180; radius += 12)
             for (Rotation turn : Rotation.values())
-                for (int lateral = 0; lateral <= 60; lateral += 12)
+                for (int lateral = 0; lateral <= 60; lateral += 4)
                     for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
                         Plan p = new Plan(world, site, turn, radius, lateral * sign, world.getSeed());
                         if (!p.terrainFit()) continue;
@@ -749,10 +759,19 @@ public final class BuyanCraftQuarter {
             return 0;
         }
         BlockPos p = BlockPos.of(stored);
+        Rotation orientation = Rotation.values()[Math.floorMod(
+            record.rotations.getOrDefault(siteKey(site), 0), Rotation.values().length)];
+        // Actual entrance (forge local X=-29,Z=12) rather than the district origin.
+        BlockPos entrance = switch (orientation) {
+            case NONE -> new BlockPos(p.getX() - 29, p.getY() + 1, p.getZ() + 12);
+            case CLOCKWISE_90 -> new BlockPos(p.getX() - 12, p.getY() + 1, p.getZ() - 29);
+            case CLOCKWISE_180 -> new BlockPos(p.getX() + 29, p.getY() + 1, p.getZ() - 12);
+            case COUNTERCLOCKWISE_90 -> new BlockPos(p.getX() + 12, p.getY() + 1, p.getZ() + 29);
+        };
         source.sendSuccess(() -> Component.literal(
-            "Ремесленный квартал: кузница готова, ориентир X=" + p.getX()
-            + " Y=" + p.getY() + " Z=" + p.getZ()
-            + "; участки под 7 следующих мастерских зарезервированы."), false);
+            "Кузница готова. Вход: X=" + entrance.getX()
+            + " Y=" + entrance.getY() + " Z=" + entrance.getZ()
+            + ". Семь будущих мастерских зарезервированы."), false);
         return 1;
     }
 
