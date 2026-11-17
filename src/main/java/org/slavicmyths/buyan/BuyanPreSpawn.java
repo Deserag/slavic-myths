@@ -108,6 +108,9 @@ public final class BuyanPreSpawn {
         for(int chunkZ=-22;chunkZ<=21;chunkZ++){
             for(int chunkX=-22;chunkX<=21;chunkX++){
                 int bx=chunkX<<4,bz=chunkZ<<4;
+                int nearX=Math.max(bx,Math.min(0,bx+15));
+                int nearZ=Math.max(bz,Math.min(0,bz+15));
+                if((long)nearX*nearX+(long)nearZ*nearZ>(long)(R+3)*(R+3))continue;
                 // Loading one chunk at a time avoids keeping an extra 2000-chunk ticket set.
                 world.getChunk(chunkX,chunkZ);
                 for(int dz=0;dz<16;dz++)for(int dx=0;dx<16;dx++){
@@ -131,6 +134,9 @@ public final class BuyanPreSpawn {
         // Entire crowns stay inside the already generated island.
         for(int chunkZ=-22;chunkZ<=21;chunkZ++)for(int chunkX=-22;chunkX<=21;chunkX++){
             int bx=chunkX<<4,bz=chunkZ<<4;
+            int nearX=Math.max(bx,Math.min(0,bx+15));
+            int nearZ=Math.max(bz,Math.min(0,bz+15));
+            if((long)nearX*nearX+(long)nearZ*nearZ>(long)(R+3)*(R+3))continue;
             for(int ox:new int[]{4,12})for(int oz:new int[]{4,12}){
                 int x=bx+ox,z=bz+oz;
                 if(!BuyanNature.forest(seed,0,0,R,x,z,sea,forestCutoff)
