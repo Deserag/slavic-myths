@@ -259,7 +259,9 @@ public final class BuyanShrine {
             }
             roof(x-11,x+11,z-8,z+8,11,RED,BLUE);
             box(x-3,x+3,z-2,z+2,21,26,WHITE);
-            box(x-2,x+2,z-1,z+1,22,25,AIR);
+            // The tower interior starts ABOVE its solid, weatherproof
+            // h=22 sill; hollowing at h=22 opened the main roof ridge.
+            box(x-2,x+2,z-1,z+1,23,25,AIR);
             at(x,z-2,23,Blocks.YELLOW_STAINED_GLASS.defaultBlockState());
             at(x,z+2,23,Blocks.YELLOW_STAINED_GLASS.defaultBlockState());
             roof(x-4,x+4,z-3,z+3,27,BLUE,RED);
