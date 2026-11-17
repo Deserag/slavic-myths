@@ -120,12 +120,16 @@ public final class BuyanHarbor {
     }
 
     private static Coast chooseCoast(ServerLevel world,BuyanState.Site site){
+        return chooseCoast(world.getSeed(),site);
+    }
+
+    private static Coast chooseCoast(long seed,BuyanState.Site site){
         Coast selected=null;
         int best=Integer.MAX_VALUE;
         for(Rotation rotation:Rotation.values())for(int shift:new int[]{0,-24,24,-48,48,-72,72,-96,96}){
             Plan origin=new Plan(site.x(),site.z(),rotation);
             BlockPos displaced=origin.world(shift,0,0);
-            Coast coast=new Coast(new Plan(displaced.getX(),displaced.getZ(),rotation),site,world.getSeed());
+            Coast coast=new Coast(new Plan(displaced.getX(),displaced.getZ(),rotation),site,seed);
             int score=coast.score();
             if(score>=best||score>72)continue;
             boolean contiguous=true;
@@ -524,6 +528,32 @@ public final class BuyanHarbor {
             min=Math.min(min,y);max=Math.max(max,y);
         }
         return min>=sea+2&&max<=sea+60&&max-min<=5;
+    }
+
+    /** Deterministic port collision check against the future/occupied terem. */
+    public static void verifyHarborPalaceCrashSeedFixture(ServerLevel world) {
+        long seed = -8010468109031904307L;
+        BuyanState.Site site = new BuyanState.Site(0,0,350,63);
+        Coast coast = chooseCoast(seed,site);
+        if(coast == null)
+            throw new IllegalStateException("No port site on integrated-client crash seed");
+        int conflicting = 0;
+        int[][] plots = buildingPlots(coast);
+        for(int[] plot : plots)
+            for(int x=plot[0];x<plot[0]+plot[2];x++)
+                for(int z=plot[1];z<plot[1]+plot[3];z++) {
+                    BlockPos pos=coast.plan.world(x,0,z);
+                    if(pos.getX()>=-43&&pos.getX()<=43
+                        &&pos.getZ()>=-20&&pos.getZ()<=43)
+                        conflicting++;
+                }
+        com.mojang.logging.LogUtils.getLogger().info(
+            "Buyan port crash-seed fixture: coast {},{} rotation {} base {}, "
+                + "{} palace-footprint intersections",
+            coast.plan.ox,coast.plan.oz,coast.plan.rotation,coast.base,conflicting);
+        if(conflicting!=0)
+            throw new IllegalStateException(
+                "Port would occupy "+conflicting+" protected palace cells on crash seed");
     }
 
     /** Runs only after the existing nature pass is completed; never rebuilds terrain. */
