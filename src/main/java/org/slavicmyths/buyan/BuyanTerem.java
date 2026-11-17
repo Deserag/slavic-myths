@@ -424,7 +424,7 @@ public final class BuyanTerem {
             door(-1, 0, 10, DoorHingeSide.LEFT);
             door(0, 0, 10, DoorHingeSide.RIGHT);
             // Third floor center and wing balconies use the prototype h=17 deck.
-            for (int[] range : new int[][]{{-18, -17}, {16, 17}, {-1, 0}})
+            for (int[] range : new int[][]{{-18, -17}, {16, 17}})
                 for (int x = range[0]; x <= range[1]; x++)
                     for (int v = -1; v <= 0; v++)
                         for (int h = 18; h <= 19; h++) at(x, v, h, AIR);
@@ -507,7 +507,7 @@ public final class BuyanTerem {
             fixture(13, 20, 18);
             // Fully accessible central keep via a backed ladder and loft floor.
             box(-5, 6, 5, 18, 27, 28, FLOOR);
-            for (int h = 23; h <= 29; h++) {
+            for (int h = 18; h <= 29; h++) {
                 at(0, 4, h, WHITE);
                 at(0, 5, h, Blocks.LADDER.defaultBlockState()
                     .setValue(net.minecraft.world.level.block.LadderBlock.FACING,
