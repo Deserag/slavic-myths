@@ -861,8 +861,8 @@ public final class BuyanCraftQuarter {
             at(-15, top(-15, 3) + 2, 3, Blocks.BARREL.defaultBlockState());
             at(-7, top(-7, 2) + 2, 2, Blocks.CRAFTING_TABLE.defaultBlockState());
             // Three lantern posts avoid the two entrance ramps and roads.
-            for (int x : new int[]{-19, -12, -5}) {
-                int z = x == -12 ? 4 : 11;
+            for (int x : new int[]{-19, -13, -5}) {
+                int z = x == -13 ? 4 : 11;
                 int base = top(x, z) + 1;
                 for (int h = 1; h <= 4; h++) at(x, base + h, z, Blocks.OAK_FENCE.defaultBlockState());
                 at(x, base + 5, z, Blocks.LANTERN.defaultBlockState());
