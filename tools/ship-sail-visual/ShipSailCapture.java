@@ -300,8 +300,8 @@ public final class ShipSailCapture {
         if (mc.level.getEntity(cameraStandId) instanceof ArmorStand stand
                 && mc.getCameraEntity() != stand)
             mc.setCameraEntity(stand);
-        int action = serverAge < 105 ? FirstShipNetwork.FORWARD_RIGHT
-                : serverAge < 155 ? FirstShipNetwork.HELM_IDLE
+        int action = serverAge < 30 ? FirstShipNetwork.FORWARD_RIGHT
+                : serverAge < 130 ? FirstShipNetwork.HELM_IDLE
                 : FirstShipNetwork.FORWARD;
         mc.options.keyUp.setDown(action != FirstShipNetwork.HELM_IDLE);
         mc.options.keyRight.setDown(action == FirstShipNetwork.FORWARD_RIGHT);
@@ -315,7 +315,7 @@ public final class ShipSailCapture {
                     serverShip.getY() + 27D, serverShip.getZ());
         });
         int frameIndex = MOTION_FRAMES.size();
-        int frameTick = frameIndex == 0 ? 90 : frameIndex == 1 ? 150 : 225;
+        int frameTick = frameIndex == 0 ? 25 : frameIndex == 1 ? 125 : 195;
         if (frameIndex < 3 && serverAge >= frameTick) {
             FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
                     ? ship : null;
@@ -354,7 +354,7 @@ public final class ShipSailCapture {
                         + visible.getX() + "," + visible.getZ()
                         + " serverSpeed=" + serverMotionSpeed);
         }
-        if (serverAge >= 235) {
+        if (serverAge >= 205) {
             if (MOTION_FRAMES.size() != 3)
                 throw new AssertionError("Missing moving IV captures");
             finish(mc);

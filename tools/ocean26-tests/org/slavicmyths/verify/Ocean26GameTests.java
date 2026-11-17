@@ -698,16 +698,17 @@ public final class Ocean26GameTests {
         t.runAtTickTime(5L, () -> {
             if (largest && org.slavicmyths.ships.ShipModularBlockHull.pack(
                     level, anchor, 0, voyageConfig) == null) {
+                int reported = 0;
                 for (var expected : org.slavicmyths.ships.ShipModularBlockHull
                         .localPalette(voyageConfig).entrySet()) {
                     BlockPos where = FirstShipBlockHull.world(anchor, 0,
                             expected.getKey().getX(), expected.getKey().getY(),
                             expected.getKey().getZ());
-                    if (level.getBlockState(where).getBlock() != expected.getValue().getBlock()) {
+                    if (!level.getBlockState(where).equals(expected.getValue())) {
                         System.out.println("SHIP_IV_PACK_MISMATCH local=" + expected.getKey()
                                 + " expected=" + expected.getValue()
                                 + " actual=" + level.getBlockState(where));
-                        break;
+                        if (++reported == 5) break;
                     }
                 }
             }
