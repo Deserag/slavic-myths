@@ -245,8 +245,9 @@ public final class ShipSailCapture {
             ServerLevel world = player.serverLevel();
             // A temporary water basin surrounds the already-installed IV hull.
             // Do not replace any cell of the physical ship palette.
-            for (int x = -27; x <= 27; x++)
-                for (int z = -38; z <= 60; z++) {
+            // The IV bow sweeps beyond its 27-block half-length while turning.
+            for (int x = -45; x <= 45; x++)
+                for (int z = -60; z <= 75; z++) {
                     world.setBlock(ANCHOR.offset(x, -1, z),
                             Blocks.WATER.defaultBlockState(), 2);
                     if (!lastPalette.containsKey(new BlockPos(x, 0, z)))
@@ -262,8 +263,8 @@ public final class ShipSailCapture {
             // Detachment can expose air at the old waterline where the keel
             // occupied source blocks. Refill only those empty basin cells so
             // the next swept pose has the same water support as open sea.
-            for (int x = -27; x <= 27; x++)
-                for (int z = -38; z <= 60; z++) {
+            for (int x = -45; x <= 45; x++)
+                for (int z = -60; z <= 75; z++) {
                     BlockPos surface = ANCHOR.offset(x, 0, z);
                     if (world.getBlockState(surface).isAir())
                         world.setBlock(surface, Blocks.WATER.defaultBlockState(), 2);
