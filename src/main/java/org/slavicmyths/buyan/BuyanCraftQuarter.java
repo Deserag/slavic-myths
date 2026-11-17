@@ -1239,99 +1239,90 @@ public final class BuyanCraftQuarter {
         return 1;
     }
 
-    /** Isolated non-mutating NeoForge regression fixture. */
-    public static void verifyBlueprintFixture(ServerLevel world) {
+
+    /**
+     * Deterministic fixture selection uses the production terrain and road
+     * constraints, but never writes to the GameTest world's blocks.
+     */
+    private static Plan findBlueprintFixture(ServerLevel world, long seed) {
         BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
-        Plan p = new Plan(world, site, Rotation.CLOCKWISE_180, 168, 12,
-            9083133736688572422L);
-        p.build();
-        if (!p.checkDesign())
-            throw new IllegalStateException("Craft forge blueprint failed final roof/stair/door/bed/chest assertions");
-        BlockPos roof = p.pos(-32, p.roofY(4), 8);
-        BlockState original = p.blocks.put(roof, AIR);
-        if (p.checkDesign())
-            throw new IllegalStateException("Craft roof hole was not detected");
-        p.blocks.put(roof, original);
-        BlockPos stair = p.pos(-24, p.firstFloor + 1, 11);
-        BlockState originalStair = p.blocks.put(stair, AIR);
-        if (p.checkDesign())
-            throw new IllegalStateException("Craft inaccessible stair was not detected");
-        p.blocks.put(stair, originalStair);
-        if (!p.checkDesign())
-            throw new IllegalStateException("Craft blueprint restoration failed");
-        verifyReportedSeedSite(world);
-        verifyCrashSeedFixture(world);
+        int eligible = 0, rejected = 0;
+        for (int radius = 108; radius <= 180; radius += 12)
+            for (Rotation turn : Rotation.values())
+                for (int lateral = 0; lateral <= 60; lateral += 4)
+                    for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
+                        Plan p = new Plan(world, site, turn, radius,
+                            lateral * sign, seed);
+                        if (!p.terrainFit()) continue;
+                        eligible++;
+                        try {
+                            p.build();
+                            if (!p.checkDesign()) {
+                                rejected++;
+                                continue;
+                            }
+                        } catch (IllegalStateException invalidSite) {
+                            rejected++;
+                            continue;
+                        }
+                        LogUtils.getLogger().info(
+                            "Buyan craft complex blueprint: seed {} origin {},{} rotation {}",
+                            seed, p.ox, p.oz, turn);
+                        return p;
+                    }
+        throw new IllegalStateException(
+            "Buyan forge+armory fixture has no site for seed " + seed
+                + "; terrain candidates " + eligible + "; rejected " + rejected);
     }
 
-    /** Regression for the crash seed: natural timber is clearable, buildings are not. */
-    public static void verifyCrashSeedFixture(ServerLevel world) {
-        BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
-        long seed = 7670812339892729374L;
-        Plan candidate = new Plan(world, site, Rotation.NONE, 108, -20, seed);
-        if (!candidate.terrainFit())
-            throw new IllegalStateException("Crash seed craft hillside no longer fits");
-        candidate.build();
-        if (!candidate.checkDesign())
-            throw new IllegalStateException("Crash seed craft blueprint or road network invalid");
-
-        BlockPos street = candidate.pos(2,
-            candidate.roadHeights[40 - candidate.roadStart] + 2, 40);
-        BlockState original = world.getBlockState(street);
+    private static void mustCatchBlueprintDamage(Plan p, BlockPos point,
+                                                  String description) {
+        BlockState old = p.blocks.put(point, AIR);
+        if (old == null || old.isAir())
+            throw new IllegalStateException(
+                "Regression fixture tried to remove nonexistent " + description + " at " + point);
         try {
-            world.setBlock(street, Blocks.OAK_LOG.defaultBlockState(), 2);
-            if (!candidate.worldAvailable())
+            if (p.checkDesign())
                 throw new IllegalStateException(
-                    "Crash seed: natural tree should not block the planned street: "
-                        + candidate.collisionReason);
-            world.setBlock(street, Blocks.OAK_PLANKS.defaultBlockState(), 2);
-            if (candidate.worldAvailable())
-                throw new IllegalStateException(
-                    "Crash seed: existing wooden construction was not protected");
+                    "Blueprint validator missed damage: " + description + " at " + point);
         } finally {
-            world.setBlock(street, original, 2);
+            p.blocks.put(point, old);
         }
+        if (!p.checkDesign())
+            throw new IllegalStateException("Blueprint not restored after " + description);
+    }
+
+    /** No block edits: the same validations run against a staged full complex. */
+    public static void verifyBlueprintFixture(ServerLevel world) {
+        Plan p = findBlueprintFixture(world, 9083133736688572422L);
+        if (p.chests.size() != 8 || p.displayStands.size() != 3)
+            throw new IllegalStateException("Buyan armory loot or displays missing");
+        mustCatchBlueprintDamage(p, p.pos(-32, p.roofY(4), 8), "forge roof");
+        mustCatchBlueprintDamage(p, p.pos(16, p.armoryRoofY(10), 10), "armory roof");
+        mustCatchBlueprintDamage(p, p.pos(-24, p.firstFloor + 1, 11), "forge stair");
+        mustCatchBlueprintDamage(p, p.pos(22, p.armoryFloor + 1, 10), "armory stair");
+        mustCatchBlueprintDamage(p, p.pos(12, p.armoryFloor + 8, 2), "armory bed");
+        mustCatchBlueprintDamage(p, p.pos(2,
+            p.roadHeights[16 - p.roadStart], 16), "street junction");
+    }
+
+    /** The exact crash seed from 17 November 2026. */
+    public static void verifyCrashSeedFixture(ServerLevel world) {
+        Plan p = findBlueprintFixture(world, 7670812339892729374L);
+        if (!BuyanGenerator.canReplace(Blocks.OAK_LOG.defaultBlockState())
+            || !BuyanGenerator.canReplace(Blocks.OAK_LEAVES.defaultBlockState())
+            || BuyanGenerator.canReplace(Blocks.OAK_PLANKS.defaultBlockState())
+            || BuyanGenerator.canReplace(Blocks.CHEST.defaultBlockState()))
+            throw new IllegalStateException(
+                "Crash seed: natural trees and protected construction are misclassified");
+        if (p.chests.size() != 8 || p.armoryFloor <= 63)
+            throw new IllegalStateException("Crash seed: smithing complex incomplete");
     }
 
     public static void verifyReportedSeedSite(ServerLevel world) {
-        BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
-        long seed = 9083133736688572422L;
-        int tested = 0;
-        // The southern hillside is deliberately outside the reported
-        // west-side outpost footprint, so geometry must fit here as well.
-        Plan southern = new Plan(world, site, Rotation.CLOCKWISE_180, 168, 12, seed);
-        if (!southern.terrainFit())
-            throw new IllegalStateException("Craft southern reference area is outside Bu yan");
-        southern.build();
-        if (!southern.checkDesign())
-            throw new IllegalStateException("Craft southern reference road or blueprint invalid");
-        BlockPos junction = southern.pos(2, southern.roadHeights[16 - southern.roadStart], 16);
-        BlockState originalPaving = southern.blocks.put(junction, AIR);
-        if (southern.checkDesign())
-            throw new IllegalStateException("Craft road hole escaped intersection validation");
-        southern.blocks.put(junction, originalPaving);
-        if (!southern.checkDesign())
-            throw new IllegalStateException("Craft road restoration failed");
-
-        for (int distance = 108; distance <= 180; distance += 12)
-            for (Rotation direction : Rotation.values())
-                for (int lateral = 0; lateral <= 60; lateral += 12)
-                    for (int sign : lateral == 0 ? new int[]{1} : new int[]{-1, 1}) {
-                        Plan candidate = new Plan(world, site, direction,
-                            distance, lateral * sign, seed);
-                        if (!candidate.terrainFit()) continue;
-                        tested++;
-                        try {
-                            candidate.build();
-                            if (!candidate.checkDesign()) continue;
-                            LogUtils.getLogger().info(
-                                "Craft quarter real-seed terrain fixture passed at {},{} floor {} rotation {} after {} sites",
-                                candidate.ox, candidate.oz, candidate.firstFloor, direction, tested);
-                            return;
-                        } catch (IllegalStateException badSite) {
-                            // Continue checking the same candidate set as production.
-                        }
-                    }
-        throw new IllegalStateException("Craft quarter: reported seed has no viable blueprint site after "
-            + tested + " terrain candidates");
+        Plan p = findBlueprintFixture(world, 9083133736688572422L);
+        if (!p.checkDesign())
+            throw new IllegalStateException("Original site blueprint did not validate");
     }
+
 }
