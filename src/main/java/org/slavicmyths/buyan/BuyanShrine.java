@@ -401,7 +401,11 @@ public final class BuyanShrine {
                 street(x-41,z,x-41,z-54);
                 street(x-41,z-54,x-34,z-54);
             } else if(rotation==Rotation.CLOCKWISE_180) {
-                street(gate.getX(),gate.getZ(),x,z-85);
+                // Link the northern entrance to the east edge of the future
+                // Alatyr square without paving its central monument site.
+                street(gate.getX(),gate.getZ(),x,z-74);
+                street(x,z-74,x+34,z-74);
+                street(x+34,z-74,x+34,z-54);
             } else {
                 street(gate.getX(),gate.getZ(),x+41,gate.getZ());
                 street(x+41,gate.getZ(),x+41,z-54);
