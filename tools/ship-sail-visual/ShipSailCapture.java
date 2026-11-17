@@ -332,7 +332,7 @@ public final class ShipSailCapture {
         motionAge++;
         long serverAge = mc.getSingleplayerServer().overworld().getGameTime()
                 - motionStartServerTick;
-        if (serverAge >= 250) {
+        if (serverAge >= 350) {
             if (MOTION_FRAMES.size() != 3)
                 throw new AssertionError("Missing moving IV captures");
             interactionTick(mc);
@@ -341,8 +341,11 @@ public final class ShipSailCapture {
         if (mc.level.getEntity(cameraStandId) instanceof ArmorStand stand
                 && mc.getCameraEntity() != stand)
             mc.setCameraEntity(stand);
-        int action = serverAge < 50 ? FirstShipNetwork.FORWARD_RIGHT
-                : serverAge < 160 ? FirstShipNetwork.HELM_IDLE
+        // Allow the remote camera's section meshes to finish loading before
+        // the first underway screenshot; otherwise the turning frame is sky.
+        int action = serverAge < 100 ? FirstShipNetwork.HELM_IDLE
+                : serverAge < 150 ? FirstShipNetwork.FORWARD_RIGHT
+                : serverAge < 260 ? FirstShipNetwork.HELM_IDLE
                 : FirstShipNetwork.FORWARD;
         mc.options.keyUp.setDown(action != FirstShipNetwork.HELM_IDLE);
         mc.options.keyRight.setDown(action == FirstShipNetwork.FORWARD_RIGHT);
@@ -356,7 +359,7 @@ public final class ShipSailCapture {
                     serverShip.getY() + 27D, serverShip.getZ());
         });
         int frameIndex = MOTION_FRAMES.size();
-        int frameTick = frameIndex == 0 ? 45 : frameIndex == 1 ? 155 : 240;
+        int frameTick = frameIndex == 0 ? 145 : frameIndex == 1 ? 255 : 340;
         if (frameIndex < 3 && serverAge >= frameTick) {
             FirstShipEntity visible = mc.level.getEntity(expectedShipId) instanceof FirstShipEntity ship
                     ? ship : null;
