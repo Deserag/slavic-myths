@@ -462,52 +462,148 @@ public final class BuyanOutpost {
             }
         }
 
+        int towerHeight(Plot p) {
+            if (p.z > 0 && p.x > 0) return 15;  // sea-facing signal tower
+            if (p.z > 0) return 12;              // compact inland tower
+            if (p.z < -80) return 11;            // stout gate tower
+            return 13;                          // slope-facing tower
+        }
+
+        int galleryOverhang(Plot p) {
+            return p.z > 0 && p.x > 0 ? 2 : 1;
+        }
+
+        int towerRoofY(Plot p, int u, int v, int height) {
+            int edge = galleryOverhang(p);
+            int nearest = Math.min(
+                Math.min(u + edge + 1, p.width + edge - u),
+                Math.min(v + edge + 1, p.depth + edge - v));
+            return height + 6 + Math.max(0, nearest / 2);
+        }
+
         void tower(Plot p, int y) {
             int x = p.x, z = p.z, w = p.width, d = p.depth;
-            fill(x - 1, y + 1, z - 1, x + w, y + 16, z + d, AIR);
-            fill(x, y, z, x + w - 1, y, z + d - 1, PLANK);
+            int height = towerHeight(p);
+            int middle = height / 2;
+            int overhang = galleryOverhang(p);
+            boolean sea = p.z > 0 && p.x > 0;
+            boolean gate = p.z < -80;
+            boolean slope = p.z < 0 && !gate;
+            BlockState beam = sea ? Blocks.DARK_OAK_LOG.defaultBlockState() : LOG;
+            BlockState panel = sea || gate ? Blocks.OAK_PLANKS.defaultBlockState() : PLANK;
+            BlockState masonry = sea ? Blocks.STONE_BRICKS.defaultBlockState() : STONE;
+            BlockState tile = (sea || gate) ? Blocks.DARK_OAK_STAIRS.defaultBlockState()
+                : Blocks.SPRUCE_STAIRS.defaultBlockState();
+            BlockState backing = (sea || gate) ? ROOF : PLANK;
+
+            fill(x - overhang - 1, y + 1, z - overhang - 1,
+                x + w + overhang, y + height + 13, z + d + overhang, AIR);
+            fill(x, y, z, x + w - 1, y, z + d - 1, masonry);
             for (int a : new int[]{x, x + w - 1})
                 for (int b : new int[]{z, z + d - 1}) posts(a, b, y);
-            for (int v = 1; v <= 10; v++) {
+            // Real stone plinth, regular wooden structural bays above it.
+            for (int v = 1; v <= height; v++) {
+                BlockState wall = v <= (gate ? 4 : 3) ? masonry : panel;
                 for (int a = 0; a < w; a++) {
-                    at(x + a, y + v, z, LOG);
-                    at(x + a, y + v, z + d - 1, LOG);
+                    at(x + a, y + v, z, wall);
+                    at(x + a, y + v, z + d - 1, wall);
                 }
                 for (int b = 1; b < d - 1; b++) {
-                    at(x, y + v, z + b, LOG);
-                    at(x + w - 1, y + v, z + b, LOG);
+                    at(x, y + v, z + b, wall);
+                    at(x + w - 1, y + v, z + b, wall);
                 }
             }
-            for (int deck : new int[]{5,10}) {
-                fill(x + 1, y + deck, z + 1, x + w - 2, y + deck, z + d - 2, PLANK);
+            for (int a : new int[]{x, x + w - 1})
+                for (int b : new int[]{z, z + d - 1})
+                    fill(a, y + 1, b, a, y + height, b, beam);
+            for (int a : new int[]{x + 2, x + w - 3})
+                for (int b : new int[]{z, z + d - 1})
+                    fill(a, y + 4, b, a, y + height, b, beam);
+            for (int v : new int[]{middle, height})
+                for (int a = x; a < x + w; a++)
+                    for (int b = z; b < z + d; b++)
+                        if (a == x || a == x + w - 1 || b == z || b == z + d - 1)
+                            at(a, y + v, b, beam);
+
+            // Upper and lower occupied floors, including uninterrupted ladder well.
+            fill(x + 1, y + middle, z + 1,
+                x + w - 2, y + middle, z + d - 2, PLANK);
+            fill(x - overhang, y + height, z - overhang,
+                x + w - 1 + overhang, y + height, z + d - 1 + overhang, PLANK);
+            for (int deck : new int[]{middle, height})
                 at(x + 1, y + deck, z + 1, AIR);
-            }
-            // Lower and upper accessible decks, ladders supported by the west wall.
-            for (int v = 1; v <= 11; v++)
+            // Back wall x supports each rung (FACING EAST => WEST support).
+            at(x, y + height + 1, z + 1, beam);
+            for (int v = 1; v <= height + 1; v++)
                 at(x + 1, y + v, z + 1,
                     Blocks.LADDER.defaultBlockState().setValue(LadderBlock.FACING, Direction.EAST));
-            for (int a = 0; a < w; a++)
-                for (int b : new int[]{0,d-1})
-                    at(x + a, y + 11, z + b, Blocks.SPRUCE_FENCE.defaultBlockState());
-            for (int b = 1; b < d - 1; b++)
-                for (int a : new int[]{0,w-1})
-                    at(x + a, y + 11, z + b, Blocks.SPRUCE_FENCE.defaultBlockState());
-            // A solid anchor is required behind the ladder's last rung.
-            at(x, y + 11, z + 1, LOG);
-            for (int a : new int[]{x + 2, x + w - 3})
-                for (int b : new int[]{z + 2, z + d - 3}) {
-                    fill(a, y + 11, b, a, y + 14, b, LOG);
-                    at(a, y + 15, b, ROOF);
+            // The gallery overhang has heavy visible supports and diagonal corbels.
+            for (int a : new int[]{x - overhang, x + w - 1 + overhang})
+                for (int b : new int[]{z - overhang, z + d - 1 + overhang}) {
+                    for (int h = 1; h <= overhang + 1; h++) {
+                        int towardX = a < x ? a + h : a - h;
+                        int towardZ = b < z ? b + h : b - h;
+                        at(towardX, y + height - h, towardZ, beam);
+                    }
+                    fill(a, y + height + 1, b, a, y + height + 5, b, beam);
                 }
-            fill(x + 2, y + 15, z + 2, x + w - 3, y + 15, z + d - 3, ROOF);
-            for (int h : new int[]{3,8}) {
-                at(x + w / 2, y + h, z + d - 1, Blocks.GLASS_PANE.defaultBlockState());
-                at(x + w / 2, y + h, z, Blocks.GLASS_PANE.defaultBlockState());
-            }
+            // Rails stay strictly at the outer edge, never across the exit.
+            for (int a = x - overhang; a <= x + w - 1 + overhang; a++)
+                for (int b : new int[]{z - overhang, z + d - 1 + overhang})
+                    at(a, y + height + 1, b, Blocks.SPRUCE_FENCE.defaultBlockState());
+            for (int b = z - overhang + 1; b < z + d - 1 + overhang; b++)
+                for (int a : new int[]{x - overhang, x + w - 1 + overhang})
+                    at(a, y + height + 1, b, Blocks.SPRUCE_FENCE.defaultBlockState());
+            // Shaded, fully roofed HIP profile, not an undersized cube cap.
+            for (int u = -overhang - 1; u <= w + overhang; u++)
+                for (int v = -overhang - 1; v <= d + overhang; v++) {
+                    int roofY = towerRoofY(p, u, v, height);
+                    int left = u + overhang + 1, right = w + overhang - u;
+                    int front = v + overhang + 1, back = d + overhang - v;
+                    Direction up = Math.min(left, right) <= Math.min(front, back)
+                        ? (left <= right ? Direction.EAST : Direction.WEST)
+                        : (front <= back ? Direction.SOUTH : Direction.NORTH);
+                    BlockState sloping = tile
+                        .setValue(StairBlock.FACING, up)
+                        .setValue(StairBlock.HALF, net.minecraft.world.level.block.state.properties.Half.BOTTOM)
+                        .setValue(StairBlock.SHAPE, StairsShape.STRAIGHT);
+                    at(x + u, y + roofY, z + v, sloping);
+                    if (u >= 0 && u < w && v >= 0 && v < d)
+                        at(x + u, y + roofY - 1, z + v, backing);
+                }
+            // Small slits alternate with wide wall sections; do not obstruct ladder.
+            for (int v : new int[]{4, middle + 2})
+                for (int b : new int[]{z, z + d - 1})
+                    at(x + w / 2, y + v, b, Blocks.GLASS_PANE.defaultBlockState());
+            for (int v : new int[]{5, middle + 3})
+                for (int a : new int[]{x, x + w - 1})
+                    at(a, y + v, z + d - 2, Blocks.GLASS_PANE.defaultBlockState());
             chest(x + w - 3, y + 1, z + d - 3, "outpost_armory");
             at(x + 2, y + 1, z + d - 3, Blocks.BARREL.defaultBlockState());
-            at(x + w - 3, y + 9, z + d - 3, Blocks.LANTERN.defaultBlockState());
+            at(x + w - 3, y + middle + 1, z + d - 3,
+                Blocks.LANTERN.defaultBlockState());
             door(p, y);
+            // Entrance canopy and bold gate-house stone flanks.
+            for (int a = p.door() - 2; a <= p.door() + 2; a++)
+                for (int b = z - 2; b <= z - 1; b++)
+                    at(a, y + 4, b, Blocks.DARK_OAK_SLAB.defaultBlockState());
+            for (int a : new int[]{p.door() - 2, p.door() + 2})
+                fill(a, y + 1, z - 2, a, y + 3, z - 2, beam);
+            if (sea) {
+                // Signal tower: marker above a fully sealed roof.
+                int centerY = towerRoofY(p, w / 2, d / 2, height);
+                at(x + w / 2, y + centerY + 1, z + d / 2,
+                    Blocks.CAMPFIRE.defaultBlockState());
+            } else if (slope) {
+                // Extra seaward lookout attached to the slope tower.
+                for (int a = x + w; a <= x + w + 2; a++)
+                    for (int b = z + 1; b <= z + d - 2; b++)
+                        at(a, y + height, b, PLANK);
+                for (int b = z + 1; b <= z + d - 2; b++)
+                    at(x + w + 2, y + height + 1, b, Blocks.SPRUCE_FENCE.defaultBlockState());
+                for (int h = 1; h <= 3; h++)
+                    at(x + w + 2 - h, y + height - h, z + d / 2, LOG);
+            }
         }
 
         int platform(int x1, int z1, int x2, int z2) {
