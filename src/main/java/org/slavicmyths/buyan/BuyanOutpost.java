@@ -837,7 +837,7 @@ public final class BuyanOutpost {
                     return fail("unbacked ladder " + point + " behind " + support);
                 BlockState headroom = blocks.get(point.above());
                 if (headroom != null && !headroom.isAir()
-                    && !(headroom.getBlock() instanceof LadderBlock)) return fail("ladder headroom " + point);
+                    && !(headroom.getBlock() instanceof LadderBlock)) return fail("ladder headroom " + point + " above=" + headroom);
             }
             // Check the FINAL walkable surfaces after houses and yards have been
             // installed. Each landing, intersection and stair must remain intact.
