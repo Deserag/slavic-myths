@@ -25,6 +25,11 @@ import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -161,6 +166,7 @@ public final class BuyanOutpost {
         final long seed;
         final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
         final Map<BlockPos, String> loot = new LinkedHashMap<>();
+        final List<BlockPos> weaponRacks = new ArrayList<>();
         final List<Plot> plots = new ArrayList<>();
         final Map<Integer, Integer> mainHeight = new HashMap<>();
 
@@ -308,6 +314,7 @@ public final class BuyanOutpost {
                 at(x + (p.floors == 2 ? w - 3 : w - 2), y + 1, z + 2,
                     Blocks.CRAFTING_TABLE.defaultBlockState());
                 at(x + w - 3, y + 1, z + d - 3, Blocks.BARREL.defaultBlockState());
+                weaponRacks.add(hill.at(x + w - 2, y + 1, z + d - 3));
             } else if (p.kind.equals("hanging")) {
                 bed(x + 2, y + 1, z + 2);
                 bed(x + 4, y + 1, z + 2);
@@ -317,6 +324,7 @@ public final class BuyanOutpost {
                 at(x + 3, y + 1, z + 2, Blocks.GRINDSTONE.defaultBlockState());
                 at(x + w - 3, y + 1, z + 2, Blocks.ANVIL.defaultBlockState());
                 chest(x + 2, y + 1, z + d - 3, "outpost_armory");
+                weaponRacks.add(hill.at(x + w - 2, y + 1, z + d - 3));
             } else if (p.kind.equals("supply")) {
                 for (int t = 2; t <= d - 3; t += 2) {
                     at(x + 2, y + 1, z + t, Blocks.BARREL.defaultBlockState());
@@ -594,6 +602,17 @@ public final class BuyanOutpost {
                         "chests/" + entry.getValue()));
                 chest.setLootTable(table, seed ^ entry.getKey().asLong());
                 chest.setChanged();
+            }
+            // Actual vanilla armor stands, not fake solid-block weapon racks.
+            // Spawning happens only once alongside the structure's saved record.
+            for (BlockPos point : weaponRacks) {
+                ArmorStand stand = EntityType.ARMOR_STAND.create(world);
+                if (stand == null) continue;
+                stand.setPos(point.getX() + 0.5, point.getY(), point.getZ() + 0.5);
+                stand.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+                if (!world.addFreshEntity(stand))
+                    com.mojang.logging.LogUtils.getLogger().warn(
+                        "Buyan outpost weapon rack could not spawn at {}", point);
             }
         }
     }
