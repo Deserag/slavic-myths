@@ -20,6 +20,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.TicketType;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
@@ -60,6 +62,8 @@ public final class ShipSailCapture {
     private static final Path OUT = Path.of(
             System.getProperty("shipsailvisual.output", "build/ship-sail-visual/frames"));
     private static final BlockPos ANCHOR = new BlockPos(0, 81, 0);
+    private static final TicketType<Long> MOTION_TICKET = TicketType.create(
+            "slavicmyths_ship_507_capture", Long::compare);
     private static final int FRAMES_PER_CONFIG = 12; // 4 views x 3 fill states.
     private static final int EXPECTED_FRAMES = 6 * FRAMES_PER_CONFIG;
     private static final JsonArray FRAMES = new JsonArray();
@@ -261,6 +265,8 @@ public final class ShipSailCapture {
             motionStartZ = serverShip.getZ();
             if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
                 throw new AssertionError("IV motion assembly rejected");
+            world.getChunkSource().addRegionTicket(MOTION_TICKET,
+                    new ChunkPos(ANCHOR), 4, ANCHOR.asLong());
             motionStartServerTick = world.getGameTime();
             // Detachment can expose air at the old waterline where the keel
             // occupied source blocks. Refill only those empty basin cells so
@@ -308,7 +314,8 @@ public final class ShipSailCapture {
                 System.out.println("SHIP_IV_RESTART_TRACE age=" + serverAge
                         + " action=" + action + " moving=" + serverShip.isMoving()
                         + " x=" + serverShip.getX() + " z=" + serverShip.getZ()
-                        + " speed=" + serverMotionSpeed);
+                        + " speed=" + serverMotionSpeed
+                        + " entity_ticks=" + serverShip.tickCount);
             if (motionAge > 180 && serverMotionSpeed < .001D && !diagnosedBlockedPose) {
                 diagnosedBlockedPose = true;
                 ServerLevel world = player.serverLevel();
