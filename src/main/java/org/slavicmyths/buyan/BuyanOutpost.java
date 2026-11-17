@@ -548,7 +548,7 @@ public final class BuyanOutpost {
                     fill(a, y + height + 1, b, a, y + height + 5, b, beam);
                 }
             // Rails stay strictly at the outer edge, never across the exit.
-            for (int a = x - overhang; a <= x + w - 1 + overhang; a++)
+            for (int a = x - overhang + 1; a < x + w - 1 + overhang; a++)
                 for (int b : new int[]{z - overhang, z + d - 1 + overhang})
                     at(a, y + height + 1, b, Blocks.SPRUCE_FENCE.defaultBlockState());
             for (int b = z - overhang + 1; b < z + d - 1 + overhang; b++)
@@ -826,11 +826,46 @@ public final class BuyanOutpost {
                             != net.minecraft.world.level.block.state.properties.Half.BOTTOM
                             || surface.getValue(StairBlock.SHAPE) != StairsShape.STRAIGHT)
                             return false;
+                        BlockPos lower = null;
+                        if (i > 0 && point.getY() > route.get(i - 1).getY())
+                            lower = route.get(i - 1);
+                        else if (i + 1 < route.size() && point.getY() > route.get(i + 1).getY())
+                            lower = route.get(i + 1);
+                        if (lower == null) return false;
+                        int dx = point.getX() - lower.getX();
+                        int dz = point.getZ() - lower.getZ();
+                        Direction actualUp = dx > 0 ? Direction.EAST : dx < 0
+                            ? Direction.WEST : dz > 0 ? Direction.SOUTH : Direction.NORTH;
+                        if (surface.getValue(StairBlock.FACING) != actualUp) return false;
                     }
                 }
             }
             for (Plot plot : plots) {
-                if (plot.kind.equals("tower")) continue;
+                if (plot.kind.equals("tower")) {
+                    int height = towerHeight(plot);
+                    int x = plot.x, z = plot.z;
+                    BlockState tile = plot.z > 0 && plot.x > 0 || plot.z < -80
+                        ? Blocks.DARK_OAK_STAIRS.defaultBlockState()
+                        : Blocks.SPRUCE_STAIRS.defaultBlockState();
+                    BlockState backingType = plot.z > 0 && plot.x > 0 || plot.z < -80
+                        ? ROOF : PLANK;
+                    for (int u = 0; u < plot.width; u++)
+                        for (int v = 0; v < plot.depth; v++) {
+                            int roofY = floor(plot) + towerRoofY(plot, u, v, height);
+                            BlockState below = blocks.get(hill.at(x + u, roofY - 1, z + v));
+                            BlockState above = blocks.get(hill.at(x + u, roofY, z + v));
+                            if (below == null || !below.is(backingType.getBlock())
+                                || above == null || !above.is(tile.getBlock()))
+                                return false;
+                        }
+                    for (int deck : new int[]{height / 2, height}) {
+                        BlockState ladder = blocks.get(
+                            hill.at(plot.x + 1, floor(plot) + deck, plot.z + 1));
+                        if (ladder == null || !(ladder.getBlock() instanceof LadderBlock))
+                            return false;
+                    }
+                    continue;
+                }
                 int top = floor(plot) + (plot.floors == 2 ? 10 : 5);
                 BlockState tile = paleRoof(plot) ? Blocks.SPRUCE_STAIRS.defaultBlockState()
                     : Blocks.DARK_OAK_STAIRS.defaultBlockState();
