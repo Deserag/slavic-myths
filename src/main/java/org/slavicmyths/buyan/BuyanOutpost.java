@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -117,8 +118,7 @@ public final class BuyanOutpost {
 
     private record Candidate(Hill hill, double score) {}
 
-    private static List<Hill> selectHills(ServerLevel world, BuyanState.Site site) {
-        long seed = world.getSeed();
+    private static List<Hill> selectHills(long seed, BuyanState.Site site) {
         List<Candidate> ranked = new ArrayList<>();
         for (int dx = -216; dx <= 216; dx += 12) {
             for (int dz = -216; dz <= 216; dz += 12) {
@@ -145,21 +145,39 @@ public final class BuyanOutpost {
             }
         }
         ranked.sort((a, b) -> Double.compare(b.score(), a.score()));
-        List<Hill> candidates = new ArrayList<>();
+        // Preserve the original preferred placements first. They remain
+        // byte-for-byte identical on seeds where one of them already works.
+        List<Hill> preferred = new ArrayList<>();
         for (Candidate candidate : ranked) {
             Hill hill = candidate.hill();
             boolean nearby = false;
-            for (Hill chosen : candidates) {
+            for (Hill chosen : preferred) {
                 long dx = hill.cx() - chosen.cx(), dz = hill.cz() - chosen.cz();
                 if (dx * dx + dz * dz < 28L * 28L) {
                     nearby = true;
                     break;
                 }
             }
-            if (!nearby) candidates.add(hill);
-            if (candidates.size() >= 12) break;
+            if (!nearby) preferred.add(hill);
+            if (preferred.size() >= 12) break;
         }
-        return candidates;
+        // The 11-building plan spans over 120 blocks; the highest local
+        // hilltop often points its access road into a steep ravine or offshore.
+        // Search the opposite-facing hillside and the full ranked pool before
+        // declaring that the existing island cannot host the unchanged plan.
+        // Deduplication preserves deterministic order and avoids retries.
+        Set<Hill> candidates = new LinkedHashSet<>(preferred);
+        for (Candidate candidate : ranked) {
+            Hill h = candidate.hill();
+            candidates.add(new Hill(site, h.cx(), h.cz(), -h.zx(), -h.zz()));
+        }
+        for (Candidate candidate : ranked) candidates.add(candidate.hill());
+        for (Candidate candidate : ranked) {
+            Hill h = candidate.hill();
+            candidates.add(new Hill(site, h.cx(), h.cz(), -h.zz(), h.zx()));
+            candidates.add(new Hill(site, h.cx(), h.cz(), h.zz(), -h.zx()));
+        }
+        return List.copyOf(candidates);
     }
 
     private static final class Plan {
@@ -676,6 +694,11 @@ public final class BuyanOutpost {
             // Two directional sweeps suffice for the shortest 1-Lipschitz majorant.
             for (int i = length - 1; i >= 0; i--) h[i] = Math.max(h[i], h[i + 1] - 1);
             for (int i = 1; i <= length; i++) h[i] = Math.max(h[i], h[i - 1] - 1);
+            // Both the main road and its first shoulder are shared 3-wide
+            // walkable blocks. Never silently use a higher Y for a shared
+            // cell while skipping the corresponding block placement below.
+            if (crossingMain && length >= 1 && h[1] != start)
+                throw new IllegalStateException("Outpost junction would disconnect main road shoulder");
             if (h[0] != start || h[length] != finish)
                 throw new IllegalStateException("Outpost route would disconnect an entrance");
             List<BlockPos> route = new ArrayList<>();
@@ -1016,6 +1039,41 @@ public final class BuyanOutpost {
             throw new IllegalStateException("Outpost GameTest: fixture not restored");
     }
 
+
+    /**
+     * Reproduces the Windows client seed 9083133736688572422 without mutating
+     * the GameTest world. Production hill selection, all 11 buildings, every
+     * route, collision preflight and geometry validators are exercised.
+     */
+    public static void verifyReportedSeedFixture(ServerLevel world) {
+        long reportedSeed = 9083133736688572422L;
+        BuyanState.Site site = new BuyanState.Site(0, 0, BuyanTerrain.MAX_RADIUS, 63);
+        int inspected = 0;
+        String lastRejection = "";
+        for (Hill hill : selectHills(reportedSeed, site)) {
+            inspected++;
+            Plan sample = new Plan(world, hill, (x, z) -> hill.ground(reportedSeed, x, z));
+            try {
+                sample.build();
+                if (!sample.validate()) {
+                    lastRejection = hill.cx() + "," + hill.cz() + ": " + sample.lastValidationError;
+                    continue;
+                }
+                if (sample.plots.size() != 11 || sample.routes.size() != 23)
+                    throw new IllegalStateException("Unexpected Buyan outpost structure count");
+                com.mojang.logging.LogUtils.getLogger().info(
+                    "Buyan outpost real-seed geometry passed: seed {}, site {},{}, orientation {},{} after {} candidates",
+                    reportedSeed, hill.cx(), hill.cz(), hill.zx(), hill.zz(), inspected);
+                return;
+            } catch (IllegalStateException exception) {
+                lastRejection = hill.cx() + "," + hill.cz() + ": " + exception.getMessage();
+            }
+        }
+        throw new IllegalStateException("Outpost GameTest: seed " + reportedSeed
+            + " has no complete valid eleven-building site in " + inspected
+            + " candidates; last rejection: " + lastRejection);
+    }
+
     /** Automatic for newly completed Buyans, operator-only for existing saves. */
     static boolean placeOnce(ServerLevel world, BuyanState.Site site) {
         long key = new BlockPos(site.x(), 0, site.z()).asLong();
@@ -1023,7 +1081,7 @@ public final class BuyanOutpost {
         if (record.built.containsKey(key)) return true;
         if (BuyanState.get(world).active || BuyanNatureState.get(world).active
             || !BuyanNatureState.get(world).finishedAt(site)) return false;
-        for (Hill hill : selectHills(world, site)) {
+        for (Hill hill : selectHills(world.getSeed(), site)) {
             Plan plan = new Plan(world, hill);
             try {
                 plan.build();

@@ -19,4 +19,10 @@ public final class BuyanOutpostGameTests {
         BuyanOutpost.verifyGeometryFixture(helper.getLevel());
         helper.succeed();
     }
+
+    @GameTest(template = "empty", timeoutTicks = 2000)
+    public static void outpostReportedSeedMaintainsElevenBuildingsAndTraversableRoads(GameTestHelper helper) {
+        BuyanOutpost.verifyReportedSeedFixture(helper.getLevel());
+        helper.succeed();
+    }
 }
