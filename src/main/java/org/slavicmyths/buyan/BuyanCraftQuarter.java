@@ -74,6 +74,8 @@ public final class BuyanCraftQuarter {
     private static final class Record extends SavedData {
         final Map<Long, Long> positions = new HashMap<>();
         final Map<Long, Integer> rotations = new HashMap<>();
+        // Missing value means a legacy save containing only the old forge.
+        final Map<Long, Integer> armoryFloors = new HashMap<>();
 
         static Record get(ServerLevel world) {
             return world.getDataStorage().computeIfAbsent(
@@ -85,9 +87,12 @@ public final class BuyanCraftQuarter {
             long[] keys = n.getLongArray("Keys");
             long[] pos = n.getLongArray("Positions");
             int[] turns = n.getIntArray("Rotations");
+            int[] armory = n.getIntArray("ArmoryFloors");
             for (int i = 0; i < Math.min(keys.length, pos.length); i++) {
                 r.positions.put(keys[i], pos[i]);
                 r.rotations.put(keys[i], i < turns.length ? turns[i] : 0);
+                if (i < armory.length && armory[i] > 0)
+                    r.armoryFloors.put(keys[i], armory[i]);
             }
             return r;
         }
@@ -96,22 +101,26 @@ public final class BuyanCraftQuarter {
             long[] keys = new long[positions.size()];
             long[] pos = new long[positions.size()];
             int[] turns = new int[positions.size()];
+            int[] armory = new int[positions.size()];
             int i = 0;
             for (var e : positions.entrySet()) {
                 keys[i] = e.getKey();
                 pos[i] = e.getValue();
                 turns[i] = rotations.getOrDefault(e.getKey(), 0);
+                armory[i] = armoryFloors.getOrDefault(e.getKey(), 0);
                 i++;
             }
             n.putLongArray("Keys", keys);
             n.putLongArray("Positions", pos);
             n.putIntArray("Rotations", turns);
+            n.putIntArray("ArmoryFloors", armory);
             return n;
         }
 
-        void mark(long key, BlockPos center, Rotation rotation) {
+        void mark(long key, BlockPos center, Rotation rotation, int armoryFloor) {
             positions.put(key, center.asLong());
             rotations.put(key, rotation.ordinal());
+            armoryFloors.put(key, armoryFloor);
             setDirty();
         }
     }
@@ -1152,7 +1161,8 @@ public final class BuyanCraftQuarter {
                             continue;
                         }
                         p.commit();
-                        record.mark(key, new BlockPos(p.ox, p.firstFloor, p.oz), turn);
+                        record.mark(key, new BlockPos(p.ox, p.firstFloor, p.oz),
+                            turn, p.armoryFloor);
                         LogUtils.getLogger().info(
                             "Buyan craft forge completed at {},{} (floor {}) in {} orientation",
                             p.ox, p.oz, p.firstFloor, turn);
@@ -1176,7 +1186,7 @@ public final class BuyanCraftQuarter {
         }
         if (!placeOnce(world, site)) {
             source.sendFailure(Component.literal(
-                "Кузница: свободный безопасный участок не найден. Мир не изменён."));
+                "Кузнечно-оружейный комплекс: безопасный участок не найден. Мир не изменён."));
             return 0;
         }
         return status(source);
@@ -1193,7 +1203,7 @@ public final class BuyanCraftQuarter {
         Record record = Record.get(world);
         Long stored = record.positions.get(siteKey(site));
         if (stored == null) {
-            source.sendSuccess(() -> Component.literal("Ремесленная кузница ещё не построена."), false);
+            source.sendSuccess(() -> Component.literal("Кузнечно-оружейный комплекс не построен."), false);
             return 0;
         }
         BlockPos p = BlockPos.of(stored);
@@ -1206,10 +1216,26 @@ public final class BuyanCraftQuarter {
             case CLOCKWISE_180 -> new BlockPos(p.getX() + 29, p.getY() + 1, p.getZ() - 12);
             case COUNTERCLOCKWISE_90 -> new BlockPos(p.getX() + 12, p.getY() + 1, p.getZ() + 29);
         };
+        Integer armoryY = record.armoryFloors.get(siteKey(site));
+        if (armoryY == null) {
+            source.sendSuccess(() -> Component.literal(
+                "Старая кузница готова (без оружейной). Вход: "
+                    + entrance.getX() + "," + entrance.getY() + "," + entrance.getZ()
+                    + ". Сохранение не изменено автоматически."), false);
+            return 1;
+        }
+        BlockPos armoryEntry = switch (orientation) {
+            case NONE -> new BlockPos(p.getX() + 13, armoryY + 1, p.getZ() + 12);
+            case CLOCKWISE_90 -> new BlockPos(p.getX() - 12, armoryY + 1, p.getZ() + 13);
+            case CLOCKWISE_180 -> new BlockPos(p.getX() - 13, armoryY + 1, p.getZ() - 12);
+            case COUNTERCLOCKWISE_90 -> new BlockPos(p.getX() + 12, armoryY + 1, p.getZ() - 13);
+        };
         source.sendSuccess(() -> Component.literal(
-            "Кузница готова. Вход: X=" + entrance.getX()
-            + " Y=" + entrance.getY() + " Z=" + entrance.getZ()
-            + ". Семь будущих мастерских зарезервированы."), false);
+            "Кузница: X=" + entrance.getX() + " Y=" + entrance.getY()
+            + " Z=" + entrance.getZ() + "; оружейная: X="
+            + armoryEntry.getX() + " Y=" + armoryEntry.getY()
+            + " Z=" + armoryEntry.getZ()
+            + "; рабочий двор между ними; ещё шесть участков зарезервировано."), false);
         return 1;
     }
 
