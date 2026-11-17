@@ -14,6 +14,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
@@ -153,10 +154,17 @@ public final class FirstShipInteractionClient {
         event.setCanceled(true);
     }
 
+    @SubscribeEvent
+    public static void onMineTick(ClientTickEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player != null && !mc.player.getAbilities().instabuild
+                && mc.options.keyAttack.isDown()) breakMovingBlock(null);
+    }
+
     private static void breakMovingBlock(InputEvent.InteractionKeyMappingTriggered event) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.screen != null
-                || mc.player.isPassenger() || !mc.player.getAbilities().instabuild) return;
+                || mc.player.isPassenger()) return;
         Vec3 eye = mc.player.getEyePosition();
         Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
         for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
@@ -169,8 +177,10 @@ public final class FirstShipInteractionClient {
             if (hit == null) continue;
             PacketDistributor.sendToServer(new FirstShipNetwork.BreakMovingBlock(
                     ship.getId(), hit.cell().getX(), hit.cell().getY(), hit.cell().getZ()));
-            event.setSwingHand(false);
-            event.setCanceled(true);
+            if (event != null) {
+                event.setSwingHand(false);
+                event.setCanceled(true);
+            }
             return;
         }
     }

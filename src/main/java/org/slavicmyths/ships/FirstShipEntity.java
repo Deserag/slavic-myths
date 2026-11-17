@@ -69,6 +69,8 @@ public final class FirstShipEntity extends Boat {
     private final Map<Integer, SimpleContainer> movingCargoSlots = new HashMap<>();
     private final Map<Integer, SimpleContainerData> movingCargoHeat = new HashMap<>();
     private final Set<Integer> loadingMovingCargo = new HashSet<>();
+    private record Mining(BlockPos cell, long tick, float progress) {}
+    private final Map<java.util.UUID, Mining> movingMining = new HashMap<>();
     private boolean packing;
     /** Malformed saved inventories are retained byte-for-byte; packing is blocked. */
     private ListTag quarantinedModules;
@@ -1135,6 +1137,19 @@ public final class FirstShipEntity extends Boat {
                 && player.getY() <= getY() + 48D;
     }
 
+    private boolean visibleMovingCell(ServerPlayer player, BlockPos local) {
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 eye = player.getEyePosition();
+        Vec3 target = new Vec3(point.x(), getY() + local.getY() + .5D, point.z());
+        if (eye.distanceToSqr(target) > 36D) return false;
+        var hit = level().clip(new net.minecraft.world.level.ClipContext(eye, target,
+                net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                net.minecraft.world.level.ClipContext.Fluid.NONE, player));
+        return hit.getType() != net.minecraft.world.phys.HitResult.Type.BLOCK
+                || eye.distanceToSqr(hit.getLocation()) + .5D >= eye.distanceToSqr(target);
+    }
+
     public boolean openMovingCargo(ServerPlayer player, int index) {
         if (!isMoving() || movingBody == null || player.isPassenger()
                 || player.containerMenu != player.inventoryMenu) return false;
@@ -1148,6 +1163,7 @@ public final class FirstShipEntity extends Boat {
                 getX(), getZ(), getYRot());
         if (player.distanceToSqr(point.x(), getY() + y + .5D, point.z()) > 36D)
             return false;
+        if (!visibleMovingCell(player, new BlockPos(x, y, z))) return false;
         CompoundTag blockEntity = entry.getCompound("BlockEntity").copy();
         SimpleContainer slots = movingCargoSlots(index, type, blockEntity);
         Component label = Component.literal(type == 1 ? "Корабельный сундук"
@@ -1178,6 +1194,7 @@ public final class FirstShipEntity extends Boat {
         var hit = ShipMovingCargoTarget.hit(this, eye,
                 eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
         if (hit == null || !local.equals(hit.cell())
+                || !visibleMovingCell(player, local)
                 || !movingBody.toggleDoor(local)) return false;
         syncMovingCargo();
         return true;
@@ -1185,13 +1202,65 @@ public final class FirstShipEntity extends Boat {
 
     public boolean breakMovingBlock(ServerPlayer player, BlockPos local) {
         if (!isMoving() || movingBody == null || player == null || local == null
-                || !player.getAbilities().instabuild || player.isPassenger()
-                || player.isSpectator()) return false;
+                || player.isPassenger() || player.isSpectator()
+                || !aboardMovingShip(player) || !player.getAbilities().mayBuild) return false;
         Vec3 eye = player.getEyePosition();
         var hit = ShipMovingCargoTarget.hit(this, eye,
                 eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
         if (hit == null || !local.equals(hit.cell())
-                || !movingBody.removeMovingBlock(local)) return false;
+                || !visibleMovingCell(player, local)) return false;
+        var state = movingBody.palette().get(local);
+        if (state == null || state.isAir()) return false;
+        if (level() instanceof net.minecraft.server.level.ServerLevel server
+                && hasOpenShipMenus(server)) return false;
+        if (!player.getAbilities().instabuild) {
+            long tick = level().getGameTime();
+            Mining previous = movingMining.get(player.getUUID());
+            float progress = previous != null && previous.cell().equals(local)
+                    && tick - previous.tick() <= 3L
+                    ? previous.progress() : 0F;
+            if (previous != null && previous.tick() == tick) return false;
+            FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                    getX(), getZ(), getYRot());
+            BlockPos worldPos = BlockPos.containing(point.x(), getY() + local.getY(), point.z());
+            float step = state.getDestroyProgress(player, level(), worldPos);
+            if (step <= 0F) return false;
+            progress += step;
+            if (progress < 1F) {
+                movingMining.put(player.getUUID(), new Mining(local, tick, progress));
+                return false;
+            }
+            movingMining.remove(player.getUUID());
+        }
+        CompoundTag cargoData = null;
+        for (int index = 0; index < movingBody.cargoCount(); index++) {
+            CompoundTag entry = movingBody.cargoEntry(index);
+            if (entry.getInt("X") == local.getX() && entry.getInt("Y") == local.getY()
+                    && entry.getInt("Z") == local.getZ()
+                    && entry.contains("BlockEntity", Tag.TAG_COMPOUND)) {
+                cargoData = entry.getCompound("BlockEntity").copy();
+                break;
+            }
+        }
+        if (!movingBody.removeMovingBlock(local)) return false;
+        clearMovingCargoCache();
+        if (level() instanceof net.minecraft.server.level.ServerLevel world) {
+            FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                    getX(), getZ(), getYRot());
+            BlockPos drop = BlockPos.containing(point.x(), getY() + local.getY(), point.z());
+            if (cargoData != null && cargoData.contains("Items", Tag.TAG_LIST)) {
+                var contents = net.minecraft.core.NonNullList.withSize(256, ItemStack.EMPTY);
+                net.minecraft.world.ContainerHelper.loadAllItems(cargoData, contents,
+                        registryAccess());
+                for (ItemStack item : contents)
+                    if (!item.isEmpty())
+                        net.minecraft.world.level.block.Block.popResource(world, drop, item);
+            }
+            if (!player.getAbilities().instabuild)
+                for (ItemStack item : net.minecraft.world.level.block.Block.getDrops(
+                        state, world, drop, null, player, player.getMainHandItem()))
+                    net.minecraft.world.level.block.Block.popResource(world, drop, item);
+        }
         syncMovingCargo();
         return true;
     }
@@ -1504,9 +1573,12 @@ public final class FirstShipEntity extends Boat {
             }
             if (!level().isClientSide && movingBody != null
                     && level() instanceof net.minecraft.server.level.ServerLevel server) {
-                if (level().getGameTime() % 40L == 0L)
+                if (level().getGameTime() % 40L == 0L) {
                     pendingDismounts.values().removeIf(
                             landing -> level().getGameTime() > landing.expires());
+                    movingMining.values().removeIf(
+                            mining -> level().getGameTime() - mining.tick() > 40L);
+                }
                 ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 10L
                         ? helmControl : ShipRigidMotion.Control.IDLE;
                 double oldX = getX(), oldZ = getZ();
@@ -1623,6 +1695,7 @@ public final class FirstShipEntity extends Boat {
         movingCargoSlots.clear();
         movingCargoHeat.clear();
         loadingMovingCargo.clear();
+        movingMining.clear();
     }
 
     /** Stage new bodies only after validating the real hull and all cargo. */

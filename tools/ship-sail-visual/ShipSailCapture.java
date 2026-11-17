@@ -10,6 +10,8 @@ import java.util.HexFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
@@ -68,6 +70,8 @@ public final class ShipSailCapture {
     private static final JsonArray FRAMES = new JsonArray();
     private static final JsonArray MOTION_FRAMES = new JsonArray();
     private static Map<BlockPos, BlockState> lastPalette = Map.of();
+    private static final Set<BlockPos> historicalCells = new HashSet<>();
+    private static volatile int serverResidualBlocks;
     private static FirstShipEntity serverShip;
     private static boolean opened;
     private static boolean finished;
@@ -144,6 +148,7 @@ public final class ShipSailCapture {
             if (!cell.getValue().equals(lastPalette.get(cell.getKey())))
                 world.setBlock(ANCHOR.offset(cell.getKey()), cell.getValue(), 2);
         lastPalette = new LinkedHashMap<>(palette);
+        historicalCells.addAll(palette.keySet());
         FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(world);
         if (ship == null) throw new AssertionError("Cannot create FirstShipEntity");
         ship.initializeNativeHull(ANCHOR, 0);
@@ -265,6 +270,12 @@ public final class ShipSailCapture {
             motionStartZ = serverShip.getZ();
             if (!serverShip.helmStep(player, FirstShipNetwork.FORWARD_RIGHT))
                 throw new AssertionError("IV motion assembly rejected");
+            serverResidualBlocks = 0;
+            for (BlockPos cell : historicalCells) {
+                BlockState leftover = world.getBlockState(ANCHOR.offset(cell));
+                if (!leftover.isAir() && !leftover.is(Blocks.WATER))
+                    serverResidualBlocks++;
+            }
             world.getChunkSource().addRegionTicket(MOTION_TICKET,
                     new ChunkPos(ANCHOR), 4, ANCHOR.asLong());
             motionStartServerTick = world.getGameTime();
@@ -337,6 +348,16 @@ public final class ShipSailCapture {
             row.addProperty("speed", visible.visualMotionSpeed());
             row.addProperty("server_speed", serverMotionSpeed);
             row.addProperty("client_control_frames", clientControlFrames);
+            int clientResidual = 0;
+            for (BlockPos cell : historicalCells) {
+                BlockState leftover = mc.level.getBlockState(ANCHOR.offset(cell));
+                if (!leftover.isAir() && !leftover.is(Blocks.WATER))
+                    clientResidual++;
+            }
+            row.addProperty("server_residual_blocks", serverResidualBlocks);
+            row.addProperty("client_residual_blocks", clientResidual);
+            System.out.println("SHIP_SAIL_RESIDUAL server=" + serverResidualBlocks
+                    + " client=" + clientResidual + " frame=" + state);
             MOTION_FRAMES.add(row);
             if (frameIndex == 0 && serverMotionSpeed <= .05D)
                 throw new AssertionError("IV did not turn under client helm input");

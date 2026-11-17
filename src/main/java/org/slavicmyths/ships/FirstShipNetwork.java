@@ -152,7 +152,7 @@ public final class FirstShipNetwork {
         registrar.playToServer(BreakMovingBlock.TYPE, BreakMovingBlock.CODEC,
                 (packet, context) -> context.enqueueWork(() -> {
                     if (!(context.player() instanceof ServerPlayer player)
-                            || !player.isAlive() || !player.getAbilities().instabuild) return;
+                            || !player.isAlive()) return;
                     if (player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship
                             && ship.level() == player.level())
                         ship.breakMovingBlock(player,
