@@ -774,19 +774,27 @@ public final class BuyanOutpost {
             yards();
         }
 
+        String lastValidationError = "";
+
+        boolean fail(String reason) {
+            lastValidationError = reason;
+            return false;
+        }
+
         boolean validate() {
+            lastValidationError = "";
             Set<Long> chunks = new HashSet<>();
             for (var entry : blocks.entrySet()) {
                 BlockPos point = entry.getKey();
                 if (point.getY() <= world.getMinBuildHeight()
                     || point.getY() >= world.getMaxBuildHeight() - 1
                     || !world.getWorldBorder().isWithinBounds(point))
-                    return false;
+                    return fail("height/border " + point);
                 if (chunks.add(ChunkPos.asLong(point.getX() >> 4, point.getZ() >> 4)))
                     world.getChunk(point.getX() >> 4, point.getZ() >> 4);
             }
             for (BlockPos point : blocks.keySet())
-                if (!BuyanGenerator.canReplace(world.getBlockState(point))) return false;
+                if (!BuyanGenerator.canReplace(world.getBlockState(point))) return fail("existing world collision " + point);
             // Assert the FINAL staged geometry, not only its intermediate template.
             // Detect beds, doors and roofs damaged by later furnishing or pathways.
             for (var entry : blocks.entrySet()) {
@@ -798,7 +806,7 @@ public final class BuyanOutpost {
                     BlockState pair = blocks.get(point.relative(foot ? face : face.getOpposite()));
                     if (pair == null || pair.getBlock() != state.getBlock()
                         || pair.getValue(BedBlock.PART) != (foot ? BedPart.HEAD : BedPart.FOOT))
-                        return false;
+                        return fail("bed pairing " + point);
                 }
                 if (state.getBlock() instanceof DoorBlock) {
                     boolean lower = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER;
@@ -806,12 +814,12 @@ public final class BuyanOutpost {
                     if (pair == null || pair.getBlock() != state.getBlock()
                         || pair.getValue(DoorBlock.HALF) !=
                             (lower ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER))
-                        return false;
+                        return fail("door pairing " + point);
                 }
             }
             for (BlockPos point : loot.keySet()) {
                 BlockState state = blocks.get(point);
-                if (state == null || !state.is(Blocks.CHEST)) return false;
+                if (state == null || !state.is(Blocks.CHEST)) return fail("missing loot chest " + point);
             }
             // Every ladder must be backed by a full structural block on the
             // opposite side of FACING, including the highest and lowest rung.
@@ -825,10 +833,10 @@ public final class BuyanOutpost {
                     || backing.is(Blocks.OAK_LOG) || backing.is(Blocks.DARK_OAK_LOG)
                     || backing.is(Blocks.SPRUCE_PLANKS) || backing.is(Blocks.DARK_OAK_PLANKS)
                     || backing.is(Blocks.COBBLESTONE) || backing.is(Blocks.STONE_BRICKS)))
-                    return false;
+                    return fail("unbacked ladder " + point + " behind " + support);
                 BlockState headroom = blocks.get(point.above());
                 if (headroom != null && !headroom.isAir()
-                    && !(headroom.getBlock() instanceof LadderBlock)) return false;
+                    && !(headroom.getBlock() instanceof LadderBlock)) return fail("ladder headroom " + point);
             }
             // Check the FINAL walkable surfaces after houses and yards have been
             // installed. Each landing, intersection and stair must remain intact.
@@ -837,29 +845,29 @@ public final class BuyanOutpost {
                     BlockPos point = route.get(i);
                     BlockState surface = blocks.get(point);
                     if (surface == null || !(surface.is(Blocks.SPRUCE_PLANKS)
-                        || surface.is(Blocks.SPRUCE_STAIRS))) return false;
+                        || surface.is(Blocks.SPRUCE_STAIRS))) return fail("route surface " + point);
                     for (int dy = 1; dy <= 2; dy++) {
                         BlockState air = blocks.get(point.above(dy));
-                        if (air != null && !air.isAir()) return false;
+                        if (air != null && !air.isAir()) return fail("route headroom " + point);
                     }
                     if (i > 0 && Math.abs(point.getY() - route.get(i - 1).getY()) > 1)
-                        return false;
+                        return fail("route discontinuity " + point);
                     if (surface.is(Blocks.SPRUCE_STAIRS) && !sharedRouteJoins.contains(point)) {
                         if (surface.getValue(StairBlock.HALF)
                             != net.minecraft.world.level.block.state.properties.Half.BOTTOM
                             || surface.getValue(StairBlock.SHAPE) != StairsShape.STRAIGHT)
-                            return false;
+                            return fail("stair half/shape " + point);
                         BlockPos lower = null;
                         if (i > 0 && point.getY() > route.get(i - 1).getY())
                             lower = route.get(i - 1);
                         else if (i + 1 < route.size() && point.getY() > route.get(i + 1).getY())
                             lower = route.get(i + 1);
-                        if (lower == null) return false;
+                        if (lower == null) return fail("stair has no lower neighbor " + point);
                         int dx = point.getX() - lower.getX();
                         int dz = point.getZ() - lower.getZ();
                         Direction actualUp = dx > 0 ? Direction.EAST : dx < 0
                             ? Direction.WEST : dz > 0 ? Direction.SOUTH : Direction.NORTH;
-                        if (surface.getValue(StairBlock.FACING) != actualUp) return false;
+                        if (surface.getValue(StairBlock.FACING) != actualUp) return fail("stair facing " + point + " expected " + actualUp);
                     }
                 }
             }
@@ -879,13 +887,13 @@ public final class BuyanOutpost {
                             BlockState above = blocks.get(hill.at(x + u, roofY, z + v));
                             if (below == null || !below.is(backingType.getBlock())
                                 || above == null || !above.is(tile.getBlock()))
-                                return false;
+                                return fail("tower roof at " + plot.x + "," + plot.z + " u=" + u + " v=" + v);
                         }
                     for (int deck : new int[]{height / 2, height}) {
                         BlockState ladder = blocks.get(
                             hill.at(plot.x + 1, floor(plot) + deck, plot.z + 1));
                         if (ladder == null || !(ladder.getBlock() instanceof LadderBlock))
-                            return false;
+                            return fail("tower deck ladder at " + plot.x + "," + plot.z + " y=" + deck);
                     }
                     continue;
                 }
@@ -905,7 +913,7 @@ public final class BuyanOutpost {
                             || stairs == null || !stairs.is(tile.getBlock())
                             || stairs.getValue(StairBlock.FACING) !=
                                 (u < plot.width / 2 ? Direction.EAST : Direction.WEST))
-                            return false;
+                            return fail("gable roof at " + plot.x + "," + plot.z + " u=" + u + " v=" + v);
                     }
                 }
             }
@@ -952,7 +960,7 @@ public final class BuyanOutpost {
         if (sample.plots.size() != 11)
             throw new IllegalStateException("Outpost GameTest: not eleven buildings");
         if (!sample.validate())
-            throw new IllegalStateException("Outpost GameTest: base fixture geometry invalid");
+            throw new IllegalStateException("Outpost GameTest: base fixture geometry invalid: " + sample.lastValidationError);
         // Deliberate faults demonstrate that the same checks detect bad roofs,
         // ladder supports, interrupted paths and destroyed loot containers.
         BlockPos ladder = sample.blocks.entrySet().stream()
@@ -1002,7 +1010,12 @@ public final class BuyanOutpost {
             Plan plan = new Plan(world, hill);
             try {
                 plan.build();
-                if (!plan.validate()) continue;
+                if (!plan.validate()) {
+                    com.mojang.logging.LogUtils.getLogger().warn(
+                        "Buyan outpost plan rejected at {},{}: {}", hill.cx, hill.cz,
+                        plan.lastValidationError);
+                    continue;
+                }
             } catch (IllegalStateException exception) {
                 com.mojang.logging.LogUtils.getLogger().warn(
                     "Buyan outpost candidate rejected at {},{}: {}",
