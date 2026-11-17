@@ -432,8 +432,14 @@ public final class BuyanTerem {
             door(-17, 0, 18, DoorHingeSide.RIGHT);
             door(16, 0, 18, DoorHingeSide.LEFT);
             door(17, 0, 18, DoorHingeSide.RIGHT);
-            door(-1, -1, 18, DoorHingeSide.LEFT);
-            door(0, -1, 18, DoorHingeSide.RIGHT);
+            for (int x = -1; x <= 0; x++) {
+                for (int v = -5; v <= -3; v++)
+                    for (int h = 19; h <= 21; h++) at(x, v, h, AIR);
+                at(x, -5, 18, Blocks.SPRUCE_STAIRS.defaultBlockState()
+                    .setValue(StairBlock.FACING, Direction.SOUTH));
+            }
+            door(-1, -4, 19, DoorHingeSide.LEFT);
+            door(0, -4, 19, DoorHingeSide.RIGHT);
         }
 
         void roomWall(int x0, int x1, int v0, int v1, int h0, int h1) {
@@ -502,6 +508,7 @@ public final class BuyanTerem {
             // Fully accessible central keep via a backed ladder and loft floor.
             box(-5, 6, 5, 18, 27, 28, FLOOR);
             for (int h = 23; h <= 29; h++) {
+                at(0, 4, h, WHITE);
                 at(0, 5, h, Blocks.LADDER.defaultBlockState()
                     .setValue(net.minecraft.world.level.block.LadderBlock.FACING,
                         Direction.SOUTH));
@@ -612,7 +619,7 @@ public final class BuyanTerem {
                     if (!blocks.containsKey(pos(x, v, h))) return false;
                 }
             for (int[] pair : new int[][]{{-1, 0, 3}, {-1, 0, 10},
-                {-18, 0, 18}, {16, 0, 18}}) {
+                {-18, 0, 18}, {16, 0, 18}, {-1, -4, 19}}) {
                 if (!blocks.getOrDefault(pos(pair[0], pair[1], pair[2]), AIR)
                     .is(Blocks.DARK_OAK_DOOR)) return false;
             }
