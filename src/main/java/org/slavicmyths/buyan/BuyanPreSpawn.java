@@ -147,7 +147,29 @@ public final class BuyanPreSpawn {
                 BuyanNature.TreeKind type=BuyanNature.treeKind(seed,x,z,y,sea);
                 int height=(type==BuyanNature.TreeKind.SPRUCE?9:6)
                     +(int)(4.0*BuyanTerrain.value(seed ^ 0xB22A0604L,x,z,0));
-                tree(world,x,y,z,height,type);
+                if(type==BuyanNature.TreeKind.GOLD_BIRCH){
+                    BuyanFlora.placeNaturalTree(world,seed,x,y,z,height);
+                }else tree(world,x,y,z,height,type);
+            }
+        }
+
+        // Deterministic flowers at creation time, with central/shore/route/highland exclusions.
+        for(int chunkZ=-22;chunkZ<=21;chunkZ++)for(int chunkX=-22;chunkX<=21;chunkX++){
+            int bx=chunkX<<4,bz=chunkZ<<4;
+            int nearX=Math.max(bx,Math.min(0,bx+15));
+            int nearZ=Math.max(bz,Math.min(0,bz+15));
+            if((long)nearX*nearX+(long)nearZ*nearZ>(long)(R+3)*(R+3))continue;
+            for(int dz=0;dz<16;dz++)for(int dx=0;dx<16;dx++){
+                int x=bx+dx,z=bz+dz;
+                int ground=BuyanNature.top(seed,0,0,R,x,z,sea);
+                if(ground==Integer.MIN_VALUE)continue;
+                BlockState flower=BuyanFlora.flowerAt(seed,0,0,R,x,ground,z,sea);
+                if(flower==null)continue;
+                BlockPos pos=new BlockPos(x,ground+1,z);
+                BlockState soil=world.getBlockState(pos.below());
+                if((soil.is(Blocks.GRASS_BLOCK)||soil.is(Blocks.PODZOL)
+                    ||soil.is(Blocks.MOSS_BLOCK)||soil.is(Blocks.COARSE_DIRT))
+                    &&world.getBlockState(pos).isAir())world.setBlock(pos,flower,2);
             }
         }
 
@@ -171,6 +193,7 @@ public final class BuyanPreSpawn {
         return switch(type){
             case OAK->Blocks.OAK_LOG.defaultBlockState();
             case BIRCH->Blocks.BIRCH_LOG.defaultBlockState();
+            case GOLD_BIRCH->BuyanFlora.GOLD_BIRCH_LOG.get().defaultBlockState();
             case SPRUCE->Blocks.SPRUCE_LOG.defaultBlockState();
         };
     }
@@ -178,6 +201,7 @@ public final class BuyanPreSpawn {
         return switch(type){
             case OAK->Blocks.OAK_LEAVES.defaultBlockState();
             case BIRCH->Blocks.BIRCH_LEAVES.defaultBlockState();
+            case GOLD_BIRCH->BuyanFlora.GOLD_BIRCH_LEAVES.get().defaultBlockState();
             case SPRUCE->Blocks.SPRUCE_LEAVES.defaultBlockState();
         };
     }

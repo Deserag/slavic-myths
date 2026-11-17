@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * No block decisions depend on chunk traversal, time or mutable Random state.
  */
 public final class BuyanNature {
-    public enum TreeKind { OAK, BIRCH, SPRUCE }
+    public enum TreeKind { OAK, BIRCH, GOLD_BIRCH, SPRUCE }
 
     private static final double TWO_PI = Math.PI * 2.0;
     private static final long HEIGHT_SALT = 0xB22A0101L;
@@ -251,7 +251,9 @@ public final class BuyanNature {
         double spruce = 0.10 + altitude * 0.35;
         double birch = 0.34 - altitude * 0.10;
         if (roll < spruce) return TreeKind.SPRUCE;
-        return roll < spruce + birch ? TreeKind.BIRCH : TreeKind.OAK;
+        if (roll < spruce + birch) return TreeKind.BIRCH;
+        return roll < spruce + birch + 0.19 * (1.0 - altitude * 0.45)
+            ? TreeKind.GOLD_BIRCH : TreeKind.OAK;
     }
 
     public static BlockState block(long seed, int cx, int cz, int radius,

@@ -1,3 +1,12 @@
 {
-  "flat_world_preset.slavicmyths.buyan_shallow_ocean": "Славянские океаны"
+  "flat_world_preset.slavicmyths.buyan_shallow_ocean": "Славянские океаны",
+  "block.slavicmyths.gold_birch_log": "Бревно золотистой берёзы Буяна",
+  "block.slavicmyths.gold_birch_leaves": "Листва золотистой берёзы Буяна",
+  "block.slavicmyths.gold_birch_sapling": "Саженец золотистой берёзы Буяна",
+  "block.slavicmyths.chamomile": "Ромашка",
+  "block.slavicmyths.yarrow": "Тысячелистник",
+  "block.slavicmyths.pasque_flower": "Сон-трава",
+  "block.slavicmyths.heather": "Вереск",
+  "block.slavicmyths.globeflower": "Купальница",
+  "block.slavicmyths.tansy": "Пижма"
 }

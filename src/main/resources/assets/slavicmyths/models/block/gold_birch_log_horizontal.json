@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "slavicmyths:block/gold_birch_log_side",
+    "end": "slavicmyths:block/gold_birch_log_top"
+  }
+}

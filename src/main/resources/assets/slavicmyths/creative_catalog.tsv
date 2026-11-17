@@ -1185,3 +1185,12 @@ crimson_pepper	food	ingredients
 viy_spawn_egg	mobs	bosses_25
 bauk_wool	resources	boss_material
 bauk_cloak	accessories	boss_loot
+gold_birch_log	decor	wood_buyan
+gold_birch_leaves	decor	wood_buyan
+gold_birch_sapling	farming	saplings
+chamomile	decor	flowers_buyan
+yarrow	decor	flowers_buyan
+pasque_flower	decor	flowers_buyan
+heather	decor	flowers_buyan
+globeflower	decor	flowers_buyan
+tansy	decor	flowers_buyan

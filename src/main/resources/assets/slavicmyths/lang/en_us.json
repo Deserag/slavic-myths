@@ -6641,5 +6641,14 @@
   "item.slavicmyths.bauk_wool": "Bauk Wool",
   "item.slavicmyths.bauk_cloak": "Bauk Cloak",
   "item.slavicmyths.bauk_cloak.effect": "+3 hearts (+6 HP), +15% attack damage, -15% incoming damage",
-  "flat_world_preset.slavicmyths.buyan_shallow_ocean": "Slavic Oceans"
+  "flat_world_preset.slavicmyths.buyan_shallow_ocean": "Slavic Oceans",
+  "block.slavicmyths.gold_birch_log": "Buyan Golden Birch Log",
+  "block.slavicmyths.gold_birch_leaves": "Buyan Golden Birch Leaves",
+  "block.slavicmyths.gold_birch_sapling": "Buyan Golden Birch Sapling",
+  "block.slavicmyths.chamomile": "Chamomile",
+  "block.slavicmyths.yarrow": "Yarrow",
+  "block.slavicmyths.pasque_flower": "Pasque Flower",
+  "block.slavicmyths.heather": "Heather",
+  "block.slavicmyths.globeflower": "Globeflower",
+  "block.slavicmyths.tansy": "Tansy"
 }

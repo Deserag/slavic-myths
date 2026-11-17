@@ -38,6 +38,7 @@ public final class SlavicMyths {
         org.slavicmyths.village.VillageFoundation.init(bus);
         org.slavicmyths.kitchen.KitchenRecipe.SERIALIZER.getId();
         org.slavicmyths.wood.Woodlands.init();
+        org.slavicmyths.buyan.BuyanFlora.init();
         org.slavicmyths.netherores.NetherOres.init();
         org.slavicmyths.nethersmithing.NetherSmithing.init();
         org.slavicmyths.nethersmithing.NetherArmor.init();

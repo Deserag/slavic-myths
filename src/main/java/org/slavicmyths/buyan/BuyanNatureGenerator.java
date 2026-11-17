@@ -244,6 +244,7 @@ public final class BuyanNatureGenerator {
         return switch (kind) {
             case OAK -> Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
             case BIRCH -> Blocks.BIRCH_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
+            case GOLD_BIRCH -> BuyanFlora.GOLD_BIRCH_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
             case SPRUCE -> Blocks.SPRUCE_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
         };
     }
@@ -252,6 +253,7 @@ public final class BuyanNatureGenerator {
         return switch (kind) {
             case OAK -> Blocks.OAK_LOG.defaultBlockState();
             case BIRCH -> Blocks.BIRCH_LOG.defaultBlockState();
+            case GOLD_BIRCH -> BuyanFlora.GOLD_BIRCH_LOG.get().defaultBlockState();
             case SPRUCE -> Blocks.SPRUCE_LOG.defaultBlockState();
         };
     }
@@ -270,6 +272,7 @@ public final class BuyanNatureGenerator {
 
     private static Map<BlockPos, BlockState> treeShape(long seed, int x, int y, int z,
                                                        int height, BuyanNature.TreeKind kind) {
+        if (kind == BuyanNature.TreeKind.GOLD_BIRCH) return BuyanFlora.goldenTree(seed, x, y, z, height);
         Map<BlockPos, BlockState> shape = new LinkedHashMap<>();
         BlockState leaf = leaves(kind);
         int top = y + height;
@@ -323,6 +326,8 @@ public final class BuyanNatureGenerator {
         if (y == Integer.MIN_VALUE || y + 16 >= world.getMaxBuildHeight()
             || !ground(world.getBlockState(new BlockPos(x, y, z)))) return false;
         BuyanNature.TreeKind kind = BuyanNature.treeKind(seed, x, z, y, sea);
+        if (kind == BuyanNature.TreeKind.GOLD_BIRCH &&
+            !BuyanFlora.suitable(seed, state.centerX, state.centerZ, x, y, z, sea)) return false;
         int slopeLimit = kind == BuyanNature.TreeKind.SPRUCE ? 3 : 2;
         for (int dx = -2; dx <= 2; dx += 2) {
             for (int dz = -2; dz <= 2; dz += 2) {
@@ -404,7 +409,9 @@ public final class BuyanNatureGenerator {
             world.setBlock(pos.above(), Blocks.TALL_GRASS.defaultBlockState()
                 .setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 2);
         } else if (roll >= 0.98) {
-            BlockState flower = humidity > 0.30 ? Blocks.BLUE_ORCHID.defaultBlockState()
+            BlockState special = BuyanFlora.flowerAt(seed, state.centerX, state.centerZ,
+                state.radius, x, y, z, sea);
+            BlockState flower = special != null ? special : humidity > 0.30 ? Blocks.BLUE_ORCHID.defaultBlockState()
                 : humidity > 0.0 ? Blocks.CORNFLOWER.defaultBlockState()
                 : humidity < -0.38 ? Blocks.POPPY.defaultBlockState()
                 : Blocks.DANDELION.defaultBlockState();
