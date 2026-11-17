@@ -511,7 +511,7 @@ public final class BuyanHarbor {
                 if(earth<y)p.fill(xx,earth,zz,xx,y-1,zz,
                     Blocks.COBBLESTONE.defaultBlockState());
                 p.at(xx,y,zz,FLOOR);
-                for(int h=1;h<=10;h++)p.at(xx,y+h,zz,AIR);
+                for(int h=1;h<=4;h++)p.at(xx,y+h,zz,AIR);
             }
         }
     }
