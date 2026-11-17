@@ -173,6 +173,7 @@ public final class BuyanOutpost {
         final List<Plot> plots = new ArrayList<>();
         final Map<Integer, Integer> mainHeight = new HashMap<>();
         final List<List<BlockPos>> routes = new ArrayList<>();
+        final Set<BlockPos> sharedRouteJoins = new HashSet<>();
 
         Plan(ServerLevel world, Hill hill) {
             this(world, hill, null);
@@ -661,12 +662,16 @@ public final class BuyanOutpost {
             if (length == 0) return start;
             if (x1 != x2 && z1 != z2) throw new IllegalArgumentException("Path must be orthogonal");
             int dx = Integer.compare(x2, x1), dz = Integer.compare(z2, z1);
+            boolean crossingMain = !mainHeight.isEmpty() && x1 == 0 && z1 == z2;
             int[] h = new int[length + 1];
             for (int i = 0; i <= length; i++) {
                 int x = x1 + dx * i, z = z1 + dz * i;
                 int interpolation = start + (int) Math.round((finish - start) * i / (double) length);
                 h[i] = Math.max(interpolation, ground(x, z) + 1);
             }
+            // At a T-junction, the central lane and its first shoulder are
+            // already part of the main road. Do not raise or rebuild them.
+            if (crossingMain && length >= 1) h[1] = start;
             // Raise low cells until no neighboring pair differs by more than one.
             // Two directional sweeps suffice for the shortest 1-Lipschitz majorant.
             for (int i = length - 1; i >= 0; i--) h[i] = Math.max(h[i], h[i + 1] - 1);
@@ -679,6 +684,14 @@ public final class BuyanOutpost {
                     throw new IllegalStateException("Outpost route height jump");
 
                 int x = x1 + dx * i, z = z1 + dz * i, floor = h[i];
+                if (crossingMain && i <= 1) {
+                    // Main-road surface, stairs and headroom remain authoritative
+                    // across the full 3-wide turning landing.
+                    BlockPos joined = hill.at(x, floor, z);
+                    route.add(joined);
+                    sharedRouteJoins.add(joined);
+                    continue;
+                }
                 BlockState board = PLANK;
                 // A stair always faces UP the incline. Its lower half meets the
                 // neighboring lower deck; the higher half meets the upper deck.
@@ -831,7 +844,7 @@ public final class BuyanOutpost {
                     }
                     if (i > 0 && Math.abs(point.getY() - route.get(i - 1).getY()) > 1)
                         return false;
-                    if (surface.is(Blocks.SPRUCE_STAIRS)) {
+                    if (surface.is(Blocks.SPRUCE_STAIRS) && !sharedRouteJoins.contains(point)) {
                         if (surface.getValue(StairBlock.HALF)
                             != net.minecraft.world.level.block.state.properties.Half.BOTTOM
                             || surface.getValue(StairBlock.SHAPE) != StairsShape.STRAIGHT)
