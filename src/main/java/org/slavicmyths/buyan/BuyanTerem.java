@@ -153,7 +153,7 @@ public final class BuyanTerem {
             for (int dx = 0; dx < width; dx++)
                 for (int dy = 0; dy < 4; dy++)
                     at(x + dx, 0, h + dy,
-                        dy == 1 || dy == 2 ? GLASS : BEAM);
+                        (dy == 1 || dy == 2) && dx > 0 && dx < width - 1 ? GLASS : BEAM);
             for (int dx = -1; dx <= width; dx++) {
                 at(x + dx, -1, h - 1, STONE);
                 at(x + dx, -1, h + 4, GOLD);
