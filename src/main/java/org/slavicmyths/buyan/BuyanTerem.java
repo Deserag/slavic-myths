@@ -337,6 +337,9 @@ public final class BuyanTerem {
             roof(19, 31, 2, 23, 26, 5, BLUE2, RED);
             roof(-7, 8, 3, 20, 38, 8, RED, BLUE);
             for (int[] tower : new int[][]{{-33, -22}, {23, 34}}) {
+                // Seal the one-block gap left between the reference tower
+                // walls (up to h=28) and its first pyramid row (h=30).
+                box(tower[0] + 1, tower[1] - 1, -1, 9, 29, 30, WHITE);
                 for (int h = 0; h < 6; h++)
                     box(tower[0] + h, tower[1] - h,
                         -2 + h, 10 - h, 30 + h, 31 + h,
