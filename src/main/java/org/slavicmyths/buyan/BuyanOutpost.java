@@ -551,7 +551,7 @@ public final class BuyanOutpost {
             // The gallery overhang has heavy visible supports and diagonal corbels.
             for (int a : new int[]{x - overhang, x + w - 1 + overhang})
                 for (int b : new int[]{z - overhang, z + d - 1 + overhang}) {
-                    for (int h = 1; h <= overhang + 1; h++) {
+                    for (int h = 1; h <= overhang; h++) {
                         int towardX = a < x ? a + h : a - h;
                         int towardZ = b < z ? b + h : b - h;
                         at(towardX, y + height - h, towardZ, beam);
