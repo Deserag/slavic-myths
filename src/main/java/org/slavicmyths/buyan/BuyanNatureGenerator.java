@@ -474,6 +474,10 @@ public final class BuyanNatureGenerator {
                         return;
                     }
                     state.finish();
+                    boolean harborPlaced=BuyanHarbor.placeOnce(world,
+                        new BuyanState.Site(state.centerX,state.centerZ,state.radius,state.waterLevel));
+                    if(!harborPlaced)world.getServer().getPlayerList().broadcastSystemMessage(
+                        Component.literal("[Буян] Портовые здания не размещены: проверьте участок через /slavicmyths dev buyan harbor."),false);
                     world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Готово: основание, природный рельеф и растительность — 100%."),
                         false);
