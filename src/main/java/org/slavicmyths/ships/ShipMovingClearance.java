@@ -24,6 +24,14 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public final class ShipMovingClearance {
     private static final double[] SAMPLES = {-0.42D, 0.42D};
+    private static int traceFailures;
+
+    private static boolean rejected(String reason, BlockPos pos, ShipRigidMotion.Pose pose) {
+        if (Boolean.getBoolean("slavicmyths.ship507.trace") && traceFailures++ < 30)
+            System.out.println("SHIP507_CLEARANCE_REJECT " + reason + " at=" + pos
+                    + " pose=" + pose);
+        return false;
+    }
 
     private static boolean walkingFloor(BlockPos pos, BlockState state) {
         return pos.getY() >= 5 && pos.getY() <= 26
@@ -52,16 +60,17 @@ public final class ShipMovingClearance {
                 long packed = BlockPos.asLong(worldX, worldY, worldZ);
                 if (visited.add(packed)) {
                     BlockPos target = new BlockPos(worldX, worldY, worldZ);
-                    if (!level.hasChunkAt(target)) return false;
+                    if (!level.hasChunkAt(target)) return rejected("unloaded", target, pose);
                     BlockState obstacle = level.getBlockState(target);
                     if (!harmless(level, target, obstacle)
-                            || level.getBlockEntity(target) != null) return false;
+                            || level.getBlockEntity(target) != null)
+                        return rejected("obstacle=" + obstacle, target, pose);
                 }
                 if (waterline && waterVisited.add(packed)) {
                     BlockPos below = new BlockPos(worldX, worldY - 1, worldZ);
                     if (!level.hasChunkAt(below)
                             || !level.getFluidState(below).is(FluidTags.WATER))
-                        return false;
+                        return rejected("no-water=" + level.getBlockState(below), below, pose);
                 }
             }
         return true;

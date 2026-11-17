@@ -243,6 +243,7 @@ public final class ShipSailCapture {
     }
 
     private static void beginMotion(Minecraft mc) {
+        System.setProperty("slavicmyths.ship507.trace", "true");
         motionStarted = true;
         mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
         mc.getSingleplayerServer().execute(() -> {
