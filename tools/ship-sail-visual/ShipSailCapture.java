@@ -268,14 +268,13 @@ public final class ShipSailCapture {
             world.getChunkSource().addRegionTicket(MOTION_TICKET,
                     new ChunkPos(ANCHOR), 4, ANCHOR.asLong());
             motionStartServerTick = world.getGameTime();
-            // Detachment can expose air at the old waterline where the keel
-            // occupied source blocks. Refill only those empty basin cells so
-            // the next swept pose has the same water support as open sea.
+            // After successful detachment the old world palette is no longer
+            // physical. Restore the entire temporary water surface, including
+            // stale solid cells left by earlier stationary capture scenes.
             for (int x = -45; x <= 45; x++)
                 for (int z = -60; z <= 75; z++) {
                     BlockPos surface = ANCHOR.offset(x, 0, z);
-                    if (world.getBlockState(surface).isAir())
-                        world.setBlock(surface, Blocks.WATER.defaultBlockState(), 2);
+                    world.setBlock(surface, Blocks.WATER.defaultBlockState(), 2);
                 }
             cameraStand = EntityType.ARMOR_STAND.create(world);
             if (cameraStand == null) throw new AssertionError("Cannot create camera stand");
