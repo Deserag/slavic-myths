@@ -73,7 +73,8 @@ public final class BuyanPreSpawn {
                 if(site.x()==0&&site.z()==0
                     &&BuyanNatureState.get(world).finishedAt(site)
                     &&BuyanHarbor.placeOnce(world,site)
-                    &&BuyanOutpost.placeOnce(world,site)){
+                    &&BuyanOutpost.placeOnce(world,site)
+                    &&BuyanCraftQuarter.placeOnce(world,site)){
                     state.finished();
                     world.setDefaultSpawnPos(new BlockPos(0,world.getSeaLevel()+14,0),0.0F);
                     return;
@@ -187,6 +188,8 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain is ready but harbor placement failed");
         if(!BuyanOutpost.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain and harbor are ready but hill outpost placement failed");
+        if(!BuyanCraftQuarter.placeOnce(world,site))
+            throw new IllegalStateException("Buyan terrain, harbor and outpost are ready but craft forge placement failed");
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
