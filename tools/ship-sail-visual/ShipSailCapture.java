@@ -37,6 +37,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -46,6 +47,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.RaftContent;
 import org.slavicmyths.ships.FirstShipNetwork;
+import org.slavicmyths.ships.FirstShipHull;
 import org.slavicmyths.ships.ShipBuildConfiguration;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
@@ -92,6 +94,13 @@ public final class ShipSailCapture {
     private static volatile int clientControlFrames;
     private static volatile int cameraStandId = -1;
     private static ArmorStand cameraStand;
+    private static int interactionPhase;
+    private static int interactionAge;
+    private static BlockPos interactionDoor;
+    private static boolean chestOpened;
+    private static boolean doorOpened;
+    private static boolean plankBroken;
+    private static BlockPos interactionPlank;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -111,10 +120,11 @@ public final class ShipSailCapture {
         List<Integer> tiers = iv
                 ? List.of(c.tier(), c.tier(), c.tier(), c.tier())
                 : List.of(c.tier(), c.tier(), c.tier());
-        return new ShipBuildConfiguration(iv
+        ShipBuildConfiguration plan = new ShipBuildConfiguration(iv
                 ? ShipSectionPlan.ShipClass.LARGEST
                 : ShipSectionPlan.ShipClass.LARGE,
                 0, 0, tiers, 1, false, false, iv ? 4 : 3);
+        return iv && c.tier() == 3 ? plan.withCabin(true) : plan;
     }
 
     private static ItemStack packed(ShipBuildConfiguration config) {
@@ -149,6 +159,14 @@ public final class ShipSailCapture {
                 world.setBlock(ANCHOR.offset(cell.getKey()), cell.getValue(), 2);
         lastPalette = new LinkedHashMap<>(palette);
         historicalCells.addAll(palette.keySet());
+        if (requested.shipLevel() == 4 && requested.tier() == 3) {
+            BlockPos chest = ANCHOR.offset(2, 7, 0);
+            if (!ShipModularBlockHull.movingCargoCell(config, new BlockPos(2, 7, 0))
+                    || !world.setBlock(chest, Blocks.CHEST.defaultBlockState(), 2)
+                    || !(world.getBlockEntity(chest) instanceof net.minecraft.world.Container box))
+                throw new AssertionError("IV interaction chest cannot be installed");
+            box.setItem(0, new ItemStack(Items.DIAMOND, 7));
+        }
         FirstShipEntity ship = RaftContent.FIRST_SHIP.get().create(world);
         if (ship == null) throw new AssertionError("Cannot create FirstShipEntity");
         ship.initializeNativeHull(ANCHOR, 0);
@@ -239,6 +257,9 @@ public final class ShipSailCapture {
         receipt.addProperty("seed", 5072026L);
         receipt.addProperty("jar_sha256", loadedSha);
         receipt.addProperty("captured", FRAMES.size());
+        receipt.addProperty("chest_opened_by_client", chestOpened);
+        receipt.addProperty("door_opened_by_client", doorOpened);
+        receipt.addProperty("plank_broken_by_client", plankBroken);
         receipt.add("frames", FRAMES);
         receipt.add("motion_frames", MOTION_FRAMES);
         Files.writeString(OUT.resolve("finished.json"),
@@ -308,6 +329,12 @@ public final class ShipSailCapture {
         motionAge++;
         long serverAge = mc.getSingleplayerServer().overworld().getGameTime()
                 - motionStartServerTick;
+        if (serverAge >= 205) {
+            if (MOTION_FRAMES.size() != 3)
+                throw new AssertionError("Missing moving IV captures");
+            interactionTick(mc);
+            return;
+        }
         if (mc.level.getEntity(cameraStandId) instanceof ArmorStand stand
                 && mc.getCameraEntity() != stand)
             mc.setCameraEntity(stand);
@@ -359,6 +386,12 @@ public final class ShipSailCapture {
             System.out.println("SHIP_SAIL_RESIDUAL server=" + serverResidualBlocks
                     + " client=" + clientResidual + " frame=" + state);
             MOTION_FRAMES.add(row);
+            if (frameIndex == 0) {
+                // Diagnostic only: client state can already be AIR while its
+                // old chunk mesh still displays timber after bulk detachment.
+                mc.levelRenderer.allChanged();
+                System.out.println("SHIP_SAIL_RENDER_REBUILD after=turn");
+            }
             if (frameIndex == 0 && serverMotionSpeed <= .05D)
                 throw new AssertionError("IV did not turn under client helm input");
             if (frameIndex == 1) {
@@ -375,9 +408,122 @@ public final class ShipSailCapture {
                         + visible.getX() + "," + visible.getZ()
                         + " serverSpeed=" + serverMotionSpeed);
         }
-        if (serverAge >= 205) {
-            if (MOTION_FRAMES.size() != 3)
-                throw new AssertionError("Missing moving IV captures");
+    }
+
+    private static void aimAt(ServerPlayer player, BlockPos local, double offsetZ) {
+        FirstShipHull.Point target = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                serverShip.getX(), serverShip.getZ(), serverShip.getYRot());
+        FirstShipHull.Point standing = FirstShipHull.toWorld(local.getX(),
+                local.getZ() + offsetZ, serverShip.getX(), serverShip.getZ(),
+                serverShip.getYRot());
+        double playerY = serverShip.getY() + local.getY();
+        double dx = target.x() - standing.x(), dz = target.z() - standing.z();
+        double dy = serverShip.getY() + local.getY() + .5D
+                - playerY - player.getEyeHeight();
+        float yaw = (float)Math.toDegrees(Math.atan2(-dx, dz));
+        float pitch = (float)-Math.toDegrees(Math.atan2(dy, Math.hypot(dx, dz)));
+        player.teleportTo(player.serverLevel(), standing.x(), playerY,
+                standing.z(), yaw, pitch);
+    }
+
+    private static void interactionTick(Minecraft mc) throws Exception {
+        interactionAge++;
+        mc.options.keyUp.setDown(false);
+        mc.options.keyRight.setDown(false);
+        var server = mc.getSingleplayerServer();
+        if (interactionPhase == 0) {
+            if (interactionAge < 100) return;
+            server.execute(() -> {
+                ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                player.stopRiding();
+                aimAt(player, new BlockPos(2, 7, 0), 2D);
+            });
+            mc.setCameraEntity(mc.player);
+            mc.options.hideGui = false;
+            interactionPhase = 1; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 1) {
+            if (interactionAge < 25) return;
+            net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
+            interactionPhase = 2; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 2) {
+            if (interactionAge < 12) return;
+            server.execute(() -> {
+                ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                chestOpened = player.containerMenu != player.inventoryMenu;
+                player.closeContainer();
+                interactionDoor = serverShip.serverMovingPalette().entrySet().stream()
+                        .filter(entry -> entry.getValue().getBlock()
+                                instanceof net.minecraft.world.level.block.DoorBlock
+                                && entry.getValue().getValue(
+                                        net.minecraft.world.level.block.DoorBlock.HALF)
+                                        == net.minecraft.world.level.block.state.properties
+                                                .DoubleBlockHalf.LOWER)
+                        .map(Map.Entry::getKey).findFirst().orElse(null);
+                if (interactionDoor != null) aimAt(player, interactionDoor, 2D);
+            });
+            interactionPhase = 3; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 3) {
+            if (interactionAge < 25) return;
+            if (!chestOpened || interactionDoor == null)
+                throw new AssertionError("Client could not open detached IV chest");
+            net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
+            interactionPhase = 4; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 4) {
+            if (interactionAge < 12) return;
+            server.execute(() -> {
+                BlockState door = serverShip.serverMovingPalette().get(interactionDoor);
+                doorOpened = door != null && door.getValue(
+                        net.minecraft.world.level.block.DoorBlock.OPEN);
+                interactionPlank = serverShip.serverMovingPalette().entrySet().stream()
+                        .filter(entry -> entry.getValue().is(Blocks.SPRUCE_PLANKS)
+                                && entry.getKey().getY() >= 6
+                                && Math.abs(entry.getKey().getX()) <= 5
+                                && Math.abs(entry.getKey().getZ()) <= 8
+                                && !serverShip.serverMovingPalette().containsKey(
+                                        entry.getKey().above())
+                                && !serverShip.serverMovingPalette().containsKey(
+                                        entry.getKey().above(2)))
+                        .map(Map.Entry::getKey).findFirst().orElse(null);
+                if (interactionPlank != null) {
+                    ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                    FirstShipHull.Point point = FirstShipHull.toWorld(
+                            interactionPlank.getX(), interactionPlank.getZ(),
+                            serverShip.getX(), serverShip.getZ(), serverShip.getYRot());
+                    player.teleportTo(player.serverLevel(), point.x(),
+                            serverShip.getY() + interactionPlank.getY() + 2D,
+                            point.z(), serverShip.getYRot(), 90F);
+                }
+            });
+            interactionPhase = 5; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 5) {
+            if (interactionAge < 25) return;
+            if (!doorOpened || interactionPlank == null)
+                throw new AssertionError("Client could not open detached IV door");
+            net.minecraft.client.KeyMapping.click(mc.options.keyAttack.getKey());
+            interactionPhase = 6; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 6) {
+            if (interactionAge < 12) return;
+            server.execute(() -> plankBroken = interactionPlank != null
+                    && !serverShip.serverMovingPalette().containsKey(interactionPlank));
+            interactionPhase = 7; interactionAge = 0;
+            return;
+        }
+        if (interactionPhase == 7) {
+            if (interactionAge < 5) return;
+            if (!plankBroken)
+                throw new AssertionError("Client could not break detached IV plank");
             finish(mc);
         }
     }

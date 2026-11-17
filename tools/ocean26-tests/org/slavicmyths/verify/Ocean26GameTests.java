@@ -794,6 +794,10 @@ public final class Ocean26GameTests {
                 var edited = org.slavicmyths.ships.ShipMovingContraption.load(reopened.save());
                 t.assertTrue(edited != null && !edited.palette().containsKey(editablePlank),
                         type + " detached hull edit was lost on save/load");
+                t.assertTrue(edited.placeMovingCargo(level, editablePlank,
+                                Blocks.SPRUCE_PLANKS.defaultBlockState())
+                                && edited.palette().get(editablePlank).is(Blocks.SPRUCE_PLANKS),
+                        type + " detached plank could not be repaired");
             }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);

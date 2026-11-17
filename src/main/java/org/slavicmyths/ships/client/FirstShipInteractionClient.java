@@ -247,9 +247,7 @@ public final class FirstShipInteractionClient {
             }
         }
         if (nearestShip == null) return false;
-        if (selectedCell != null
-                && ShipModularBlockHull.movingCargoCell(
-                        nearestShip.modularConfiguration(), selectedCell)) {
+        if (selectedCell != null) {
             PacketDistributor.sendToServer(new FirstShipNetwork.PlaceCargo(
                     nearestShip.getId(), selectedCell.getX(), selectedCell.getY(),
                     selectedCell.getZ(), hand == InteractionHand.MAIN_HAND ? 0 : 1));

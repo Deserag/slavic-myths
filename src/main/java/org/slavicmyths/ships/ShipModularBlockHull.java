@@ -647,6 +647,16 @@ public final class ShipModularBlockHull {
             return null;
         List<Cargo> old = decode(config, entries);
         if (old == null) return null;
+        for (Cargo entry : old)
+            if (entry.kind() == MISSING_HULL && entry.x() == local.getX()
+                    && entry.y() == local.getY() && entry.z() == local.getZ()) {
+                BlockState expected = localPalette(config).get(local);
+                if (expected == null || expected.getBlock() != requested.getBlock())
+                    return null;
+                List<Cargo> repaired = new ArrayList<>(old);
+                repaired.remove(entry);
+                return encode(repaired);
+            }
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
                 ShipHullVoxelLayout.generate(config.structure());
         List<Map.Entry<BlockPos, BlockState>> pieces = new ArrayList<>();
@@ -709,8 +719,11 @@ public final class ShipModularBlockHull {
                         && entry.state().getBlock() == bedBlock);
             }
         } else {
-            if (!localPalette(config).containsKey(local)
-                    || localPalette(config).get(local).getBlock() instanceof DoorBlock
+            Map<BlockPos, BlockState> fixture = localPalette(config);
+            BlockState supported = fixture.get(local.above());
+            if (!fixture.containsKey(local)
+                    || fixture.get(local).getBlock() instanceof DoorBlock
+                    || supported != null && supported.getBlock() instanceof DoorBlock
                     || old.stream().anyMatch(entry -> entry.kind() == MISSING_HULL)) return null;
             next.add(new Cargo(local.getX(), local.getY(), local.getZ(),
                     MISSING_HULL, Blocks.AIR.defaultBlockState(), new CompoundTag()));
