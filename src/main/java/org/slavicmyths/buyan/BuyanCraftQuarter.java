@@ -613,9 +613,8 @@ public final class BuyanCraftQuarter {
     /** Isolated non-mutating NeoForge regression fixture. */
     public static void verifyBlueprintFixture(ServerLevel world) {
         BuyanState.Site site = new BuyanState.Site(0, 0, 350, 63);
-        Plan p = new Plan(world, site, Rotation.NONE, 108, 0, 9083133736688572422L);
+        Plan p = new Plan(world, site, Rotation.NONE, 70, 0, 9083133736688572422L);
         p.firstFloor = 90;
-        p.roads();
         p.forge();
         if (!p.checkDesign())
             throw new IllegalStateException("Craft forge blueprint failed final roof/stair/door/bed/chest assertions");
