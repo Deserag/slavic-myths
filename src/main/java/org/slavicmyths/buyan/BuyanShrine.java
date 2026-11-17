@@ -454,13 +454,46 @@ public final class BuyanShrine {
         }
         void build() {courtyard();shrine();oak();fence();cityRoad();}
         boolean geometryCheck() {
-            for(int x=-11;x<=11;x++)for(int z=-8;z<=8;z++)
-                if(!blocks.containsKey(p(-34+x,9+z,
-                    11+Math.min(x+11,11-x))))return false;
-            return blocks.containsKey(p(-34,9,31))
-                &&blocks.getOrDefault(p(29,8,20),AIR).is(Blocks.OAK_WOOD)
-                &&blocks.getOrDefault(p(-35,3,2),AIR).is(Blocks.DARK_OAK_DOOR)
-                &&blocks.getOrDefault(p(29,-13,13),AIR).is(Blocks.YELLOW_GLAZED_TERRACOTTA);
+            // Check all 391 main roof positions, not merely whether a map
+            // key exists: planned AIR is still a hole in the finished roof.
+            for(int x=-11;x<=11;x++)for(int z=-8;z<=8;z++) {
+                BlockState roofTile=blocks.get(p(-34+x,9+z,
+                    11+Math.min(x+11,11-x)));
+                if(roofTile==null||roofTile.isAir())return false;
+            }
+            BlockState door=blocks.get(p(-35,3,2));
+            if(door==null||!door.is(Blocks.DARK_OAK_DOOR)
+                ||door.getValue(DoorBlock.HALF)!=DoubleBlockHalf.LOWER
+                ||!blocks.getOrDefault(p(-35,3,3),AIR).is(Blocks.DARK_OAK_DOOR))
+                return false;
+            // Both monument foundations and the actual road-connected gate
+            // must remain in the finished staged geometry.
+            if(!blocks.getOrDefault(p(29,8,20),AIR).is(Blocks.OAK_WOOD)
+                ||!blocks.getOrDefault(p(29,-13,13),AIR).is(GOLD.getBlock())
+                ||!blocks.getOrDefault(p(-27,13,2),AIR).is(Blocks.CHEST)
+                ||!blocks.getOrDefault(p(-34,13,3),AIR).is(GOLD.getBlock())
+                ||!blocks.getOrDefault(p(-34,1,1),AIR).is(Blocks.STONE_BRICK_STAIRS)
+                ||!blocks.getOrDefault(p(0,-40,1),AIR).isAir()
+                ||!blocks.getOrDefault(p(-64,-40,2),AIR).is(WHITE.getBlock())
+                ||!blocks.getOrDefault(p(64,-40,2),AIR).is(WHITE.getBlock()))
+                return false;
+            int chains=0,leaves=0;
+            int minX=Integer.MAX_VALUE,maxX=Integer.MIN_VALUE;
+            int minZ=Integer.MAX_VALUE,maxZ=Integer.MIN_VALUE;
+            for(var entry:blocks.entrySet()) {
+                BlockState state=entry.getValue();
+                if(state.is(Blocks.CHAIN))chains++;
+                if(state.is(Blocks.OAK_LEAVES)||state.is(Blocks.AZALEA_LEAVES)
+                    ||state.is(Blocks.FLOWERING_AZALEA_LEAVES)) {
+                    leaves++;
+                    minX=Math.min(minX,entry.getKey().getX());
+                    maxX=Math.max(maxX,entry.getKey().getX());
+                    minZ=Math.min(minZ,entry.getKey().getZ());
+                    maxZ=Math.max(maxZ,entry.getKey().getZ());
+                }
+            }
+            return chains>=100&&leaves>=1300&&maxX-minX>=40&&maxZ-minZ>=40
+                &&blocks.getOrDefault(p(-34,9,31),AIR)!=AIR;
         }
         boolean safe() {
             Set<Long> chunks=new HashSet<>();
@@ -507,6 +540,39 @@ public final class BuyanShrine {
             }
         }
     }
+    /**
+     * A non-destructive GameTest blueprint on the exact reported crash seed.
+     * It checks the staged complex and never modifies the test world's blocks.
+     */
+    public static void verifyBlueprintFixture(ServerLevel world) {
+        BuyanState.Site site=new BuyanState.Site(0,0,350,63);
+        Plan plan=new Plan(world,site,80,-8,Rotation.COUNTERCLOCKWISE_90,
+            -9047918643626153269L);
+        if(!plan.fits())
+            throw new IllegalStateException("Shrine fixture: valid inland site rejected");
+        plan.build();
+        if(!plan.geometryCheck())
+            throw new IllegalStateException("Shrine fixture: roof, oak or courtyard incomplete");
+        BlockPos roof=plan.p(-45,9,11);
+        BlockState original=plan.blocks.put(roof,AIR);
+        try {
+            if(plan.geometryCheck())
+                throw new IllegalStateException("Shrine fixture missed damaged roof");
+        } finally {
+            plan.blocks.put(roof,original);
+        }
+        if(!plan.geometryCheck())
+            throw new IllegalStateException("Shrine fixture cannot restore roof");
+        BlockPos centre=new BlockPos(0,site.waterLevel()+16,-54);
+        for(BlockPos point:plan.blocks.keySet())
+            if(Math.abs(point.getX())<=3 && Math.abs(point.getZ()+54)<=3)
+                throw new IllegalStateException(
+                    "Shrine fixture invades reserved Alatyr monument space at "+point);
+        LogUtils.getLogger().info(
+            "Buyan shrine fixture: {} staged blocks; temple floor {} oak floor {}",
+            plan.blocks.size(),plan.shrineFloor,plan.oakFloor);
+    }
+
     /** Existing saves are not silently rebuilt. Explicit operator command is safe. */
     static boolean placeOnce(ServerLevel world,BuyanState.Site site) {
         if(world.dimension()!=Level.OVERWORLD
