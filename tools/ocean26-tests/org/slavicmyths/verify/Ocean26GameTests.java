@@ -733,6 +733,35 @@ public final class Ocean26GameTests {
                 t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
                         type + " moving deck failed to catch falling crew: y="
                                 + fallingCrew.getY() + " deck=" + ship.deckY());
+                double deckY = fallingCrew.getY();
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, .42D, 0D));
+                t.assertTrue(fallingCrew.getY() > deckY + .35D,
+                        type + " moving deck blocked upward jump");
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, -.65D, 0D));
+                t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
+                        type + " moving deck failed jump landing");
+                double passageX = fallingCrew.getX();
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(1.5D, 0D, 0D));
+                t.assertTrue(fallingCrew.getX() > passageX + 1.2D,
+                        type + " main deck passage blocked");
+                if (fullyUpgraded && !voyageConfig.structure().mastPositions().isEmpty()) {
+                    int mastZ = voyageConfig.structure().mastPositions().getFirst();
+                    int mastY = (int)Math.round(ship.deckY() - ship.getY());
+                    t.assertTrue(ship.serverMovingPalette().containsKey(
+                                    new BlockPos(0, mastY, mastZ)),
+                            type + " physical mast missing from moving palette");
+                    ServerPlayer mastCrew = player(level, type + "MastCrew",
+                            new Vec3(ship.getX() + 3D, ship.deckY(), ship.getZ() + mastZ));
+                    mastCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                            new Vec3(-3D, 0D, 0D));
+                    t.assertTrue(mastCrew.getX() > ship.getX() + .45D,
+                            type + " crew passed through physical mast: x="
+                                    + mastCrew.getX() + " mast=" + ship.getX());
+                    mastCrew.discard();
+                }
                 fallingCrew.discard();
                 CompoundTag savedMovingShip = new CompoundTag();
                 ship.saveWithoutId(savedMovingShip);
