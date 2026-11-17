@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.WorldOptions;
 import net.minecraft.world.level.levelgen.presets.WorldPresets;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.core.component.DataComponents;
@@ -48,8 +47,6 @@ import org.slavicmyths.ships.FirstShipNetwork;
 import org.slavicmyths.ships.ShipBuildConfiguration;
 import org.slavicmyths.ships.ShipModularBlockHull;
 import org.slavicmyths.ships.ShipSectionPlan;
-import org.slavicmyths.ships.ShipMovingClearance;
-import org.slavicmyths.ships.ShipRigidMotion;
 import org.slavicmyths.ships.client.FirstShipRenderer;
 
 /**
@@ -62,6 +59,8 @@ public final class ShipSailCapture {
     private static final Path OUT = Path.of(
             System.getProperty("shipsailvisual.output", "build/ship-sail-visual/frames"));
     private static final BlockPos ANCHOR = new BlockPos(0, 81, 0);
+    private static final int BASIN_MIN_X = -80, BASIN_MAX_X = 80;
+    private static final int BASIN_MIN_Z = -75, BASIN_MAX_Z = 115;
     private static final TicketType<Long> MOTION_TICKET = TicketType.create(
             "slavicmyths_ship_507_capture", Long::compare);
     private static final int FRAMES_PER_CONFIG = 12; // 4 views x 3 fill states.
@@ -89,7 +88,6 @@ public final class ShipSailCapture {
     private static volatile int clientControlFrames;
     private static volatile int cameraStandId = -1;
     private static ArmorStand cameraStand;
-    private static boolean diagnosedBlockedPose;
 
     private record Case(int shipLevel, int tier) {}
 
@@ -245,7 +243,6 @@ public final class ShipSailCapture {
     }
 
     private static void beginMotion(Minecraft mc) {
-        System.setProperty("slavicmyths.ship507.trace", "true");
         motionStarted = true;
         mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
         mc.getSingleplayerServer().execute(() -> {
@@ -253,9 +250,9 @@ public final class ShipSailCapture {
             ServerLevel world = player.serverLevel();
             // A temporary water basin surrounds the already-installed IV hull.
             // Do not replace any cell of the physical ship palette.
-            // The IV bow sweeps beyond its 27-block half-length while turning.
-            for (int x = -45; x <= 45; x++)
-                for (int z = -60; z <= 75; z++) {
+            // Leave enough water for the entire turn and restart sweep.
+            for (int x = BASIN_MIN_X; x <= BASIN_MAX_X; x++)
+                for (int z = BASIN_MIN_Z; z <= BASIN_MAX_Z; z++) {
                     world.setBlock(ANCHOR.offset(x, -1, z),
                             Blocks.WATER.defaultBlockState(), 2);
                     if (!lastPalette.containsKey(new BlockPos(x, 0, z)))
@@ -274,8 +271,8 @@ public final class ShipSailCapture {
             // After successful detachment the old world palette is no longer
             // physical. Restore the entire temporary water surface, including
             // stale solid cells left by earlier stationary capture scenes.
-            for (int x = -45; x <= 45; x++)
-                for (int z = -60; z <= 75; z++) {
+            for (int x = BASIN_MIN_X; x <= BASIN_MAX_X; x++)
+                for (int z = BASIN_MIN_Z; z <= BASIN_MAX_Z; z++) {
                     BlockPos surface = ANCHOR.offset(x, 0, z);
                     world.setBlock(surface, Blocks.WATER.defaultBlockState(), 2);
                 }
@@ -314,57 +311,6 @@ public final class ShipSailCapture {
                 throw new AssertionError("IV captain left helm at motion tick " + motionAge);
             clientControlFrames++;
             serverMotionSpeed = serverShip.serverMovingSpeed();
-            if (serverAge >= 145 && serverAge <= 235 && serverAge % 10 == 0)
-                System.out.println("SHIP_IV_RESTART_TRACE age=" + serverAge
-                        + " action=" + action + " moving=" + serverShip.isMoving()
-                        + " x=" + serverShip.getX() + " z=" + serverShip.getZ()
-                        + " speed=" + serverMotionSpeed
-                        + " turn=" + serverShip.serverMovingTurn()
-                        + " entity_ticks=" + serverShip.tickCount);
-            if (motionAge > 180 && serverMotionSpeed < .001D && !diagnosedBlockedPose) {
-                diagnosedBlockedPose = true;
-                ServerLevel world = player.serverLevel();
-                double yaw = Math.toRadians(serverShip.getYRot());
-                ShipRigidMotion.Pose ahead = new ShipRigidMotion.Pose(
-                        serverShip.getX() - Math.sin(yaw) * .1D,
-                        serverShip.getZ() + Math.cos(yaw) * .1D,
-                        serverShip.getYRot());
-                int surface = (int)Math.floor(serverShip.getY());
-                System.out.println("SHIP_SAIL_MOTION_BLOCK_DIAG current="
-                        + ShipMovingClearance.clearPose(world,
-                                new ShipRigidMotion.Pose(serverShip.getX(),
-                                        serverShip.getZ(), serverShip.getYRot()),
-                                surface, serverShip.serverMovingPalette())
-                        + " ahead=" + ShipMovingClearance.clearPose(world,
-                                ahead, surface, serverShip.serverMovingPalette())
-                        + " support=" + firstMissingWater(world, ahead, surface)
-                        + " yaw=" + serverShip.getYRot()
-                        + " micro_clear=" + java.util.stream.IntStream.rangeClosed(1, 50)
-                                .filter(n -> {
-                                    double distance = n * .001D;
-                                    return !ShipMovingClearance.clearPose(world,
-                                            new ShipRigidMotion.Pose(
-                                                    serverShip.getX() - Math.sin(yaw) * distance,
-                                                    serverShip.getZ() + Math.cos(yaw) * distance,
-                                                    serverShip.getYRot()),
-                                            surface, serverShip.serverMovingPalette());
-                                }).limit(5).boxed().toList()
-                        + " turn_clear=" + java.util.stream.IntStream.rangeClosed(1, 10)
-                                .mapToObj(n -> n * .01D + ":" + ShipMovingClearance.clearPose(
-                                        world, new ShipRigidMotion.Pose(serverShip.getX(),
-                                                serverShip.getZ(), serverShip.getYRot() + n * .01D),
-                                        surface, serverShip.serverMovingPalette())).toList()
-                        + " target=" + java.util.stream.IntStream.rangeClosed(1, 20)
-                                .mapToObj(n -> {
-                                    double distance = n * .05D;
-                                    ShipRigidMotion.Pose probe = new ShipRigidMotion.Pose(
-                                            serverShip.getX() - Math.sin(yaw) * distance,
-                                            serverShip.getZ() + Math.cos(yaw) * distance,
-                                            serverShip.getYRot());
-                                    return distance + ":" + ShipMovingClearance.clearPose(world,
-                                            probe, surface, serverShip.serverMovingPalette());
-                                }).toList());
-            }
             cameraStand.setPos(serverShip.getX() + 55D,
                     serverShip.getY() + 27D, serverShip.getZ());
         });
@@ -392,40 +338,27 @@ public final class ShipSailCapture {
             row.addProperty("server_speed", serverMotionSpeed);
             row.addProperty("client_control_frames", clientControlFrames);
             MOTION_FRAMES.add(row);
+            if (frameIndex == 0 && serverMotionSpeed <= .05D)
+                throw new AssertionError("IV did not turn under client helm input");
             if (frameIndex == 1) {
+                if (serverMotionSpeed > .01D)
+                    throw new AssertionError("IV remained underway after idle input");
                 motionRestartX = visible.getX();
                 motionRestartZ = visible.getZ();
             }
-            if (frameIndex == 2 && Math.hypot(visible.getX() - motionRestartX,
-                    visible.getZ() - motionRestartZ) <= .1D)
+            if (frameIndex == 2 && (serverMotionSpeed <= .05D
+                    || Math.hypot(visible.getX() - motionRestartX,
+                            visible.getZ() - motionRestartZ) <= .5D))
                 throw new AssertionError("IV failed to restart after idle: "
                         + motionRestartX + "," + motionRestartZ + " -> "
-                        + visible.getX() + "," + visible.getZ());
+                        + visible.getX() + "," + visible.getZ()
+                        + " serverSpeed=" + serverMotionSpeed);
         }
         if (serverAge >= 235) {
             if (MOTION_FRAMES.size() != 3)
                 throw new AssertionError("Missing moving IV captures");
             finish(mc);
         }
-    }
-
-    private static String firstMissingWater(ServerLevel world,
-            ShipRigidMotion.Pose pose, int surface) {
-        double yaw = Math.toRadians(pose.yaw());
-        double cos = Math.cos(yaw), sin = Math.sin(yaw);
-        for (BlockPos cell : serverShip.serverMovingPalette().keySet()) {
-            if (cell.getY() != 0 && cell.getY() != 1) continue;
-            for (double sx : new double[]{-.42D, .42D})
-                for (double sz : new double[]{-.42D, .42D}) {
-                    double x = cell.getX() + sx, z = cell.getZ() + sz;
-                    BlockPos below = BlockPos.containing(pose.x() + x * cos - z * sin,
-                            surface + cell.getY() - 1,
-                            pose.z() + x * sin + z * cos);
-                    if (!world.getFluidState(below).is(FluidTags.WATER))
-                        return cell + " -> " + below + "=" + world.getBlockState(below);
-                }
-        }
-        return "all-water-support-present";
     }
 
     @SubscribeEvent
