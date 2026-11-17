@@ -1294,10 +1294,18 @@ public final class BuyanCraftQuarter {
                             p.build();
                             if (!p.checkDesign()) {
                                 rejected++;
+                                if (rejected <= 8)
+                                    LogUtils.getLogger().warn(
+                                        "Buyan craft fixture seed {} at {},{} rotation {} failed design validation",
+                                        seed, p.ox, p.oz, turn);
                                 continue;
                             }
                         } catch (IllegalStateException invalidSite) {
                             rejected++;
+                            if (rejected <= 8)
+                                LogUtils.getLogger().warn(
+                                    "Buyan craft fixture seed {} at {},{} rotation {} rejected during build: {}",
+                                    seed, p.ox, p.oz, turn, invalidSite.getMessage());
                             continue;
                         }
                         LogUtils.getLogger().info(
