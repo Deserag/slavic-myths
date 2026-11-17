@@ -363,6 +363,38 @@ public final class BuyanTerem {
                 }
         }
 
+        void towerInteriors() {
+            // The prototype's full red floor bands are continuous. Retain
+            // their outer trim but make walkable timber decks inside both
+            // towers, with aligned ladder openings and access from the wings.
+            for (int[] tower : new int[][]{{-32, -23}, {24, 33}}) {
+                int x0 = tower[0], x1 = tower[1];
+                for (int h : new int[]{9, 17, 25})
+                    box(x0 + 1, x1 - 1, 0, 8, h, h + 1, FLOOR);
+                for (int h = 4; h <= 26; h++) {
+                    at(x0 + 1, 0, h, Blocks.LADDER.defaultBlockState()
+                        .setValue(net.minecraft.world.level.block.LadderBlock.FACING,
+                            Direction.SOUTH));
+                    at(x0 + 1, -1, h, WHITE);
+                }
+                for (int h : new int[]{4, 10, 18}) {
+                    int passageX = x0 < 0 ? -30 : 30;
+                    for (int yy = h; yy < h + 3; yy++)
+                        at(passageX, 4, yy, AIR);
+                }
+                fixture(x0 + 4, 5, 10);
+                fixture(x0 + 4, 5, 18);
+                fixture(x0 + 4, 5, 26);
+            }
+            // Join the overlapping wings to the main body's corridors at
+            // the correct floor heights, instead of enclosing dead rooms.
+            for (int x : new int[]{-22, 22})
+                for (int h : new int[]{3, 10, 18}) {
+                    internalDoor(x, 12, h);
+                    internalDoor(x, 13, h);
+                }
+        }
+
         void stairsAndEntrance() {
             // Height-adjusted functional entrance: the prototype's decorative
             // six-layer steps rose ABOVE its first floor. These real stairs
@@ -535,6 +567,7 @@ public final class BuyanTerem {
 
         void build() {
             constructShell();
+            towerInteriors();
             stairsAndEntrance();
             furnishings();
             approach();
