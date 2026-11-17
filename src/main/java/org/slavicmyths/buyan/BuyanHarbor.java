@@ -2,6 +2,7 @@ package org.slavicmyths.buyan;
 
 import java.util.*;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -11,9 +12,14 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.saveddata.SavedData;
 
 /** Port structures on the EXISTING large Buyan island; never creates a second terrain generator. */
@@ -42,7 +48,12 @@ public final class BuyanHarbor {
 
     private static final class Plan {
         final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();
-        void at(int x,int y,int z,BlockState state){blocks.put(new BlockPos(x,y,z),state);}
+        void at(int x,int y,int z,BlockState state){
+            BlockPos pos=new BlockPos(x,y,z);
+            // Later fittings must be applied after their supporting shell, not at the old insertion position.
+            blocks.remove(pos);
+            blocks.put(pos,state);
+        }
         void fill(int x1,int y1,int z1,int x2,int y2,int z2,BlockState b){
             for(int x=x1;x<=x2;x++)for(int z=z1;z<=z2;z++)for(int y=y1;y<=y2;y++)at(x,y,z,b);
         }
@@ -57,13 +68,10 @@ public final class BuyanHarbor {
     private static final BlockState ROOF=Blocks.DARK_OAK_PLANKS.defaultBlockState();
     private static final BlockState AIR=Blocks.AIR.defaultBlockState();
 
-    /** House front faces the water (negative Z). Center aisle is 2 blocks wide. */
+    /** All doors face the sea (-Z), with a free two-block-wide central aisle. */
     private static void building(Plan p,int x,int z,int floor,int width,int depth,int height,String type){
-        for(int dx=-1;dx<=width;dx++)for(int dz=-2;dz<=depth;dz++){
-            // Lightweight foundation; every stone support rests into existing soil.
-            if(dx>=0&&dx<width&&dz>=0&&dz<depth)
-                p.fill(x+dx,floor-4,z+dz,x+dx,floor-1,z+dz,Blocks.COBBLESTONE.defaultBlockState());
-        }
+        for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++)
+            p.fill(x+dx,floor-4,z+dz,x+dx,floor-1,z+dz,Blocks.COBBLESTONE.defaultBlockState());
         p.fill(x,floor,z,x+width-1,floor,z+depth-1,FLOOR);
         p.fill(x+1,floor+1,z+1,x+width-2,floor+height,z+depth-2,AIR);
         for(int y=1;y<=height;y++){
@@ -78,26 +86,28 @@ public final class BuyanHarbor {
         }
         for(int dx:new int[]{0,width-1})for(int dz:new int[]{0,depth-1})
             p.fill(x+dx,floor+1,z+dz,x+dx,floor+height,z+dz,LOG);
-        // Doors and windows.
+
         int door=width/2-1;
-        p.fill(x+door,floor+1,z,x+door+1,floor+3,z,AIR);
         for(int dx:new int[]{2,width-4})for(int dz:new int[]{0,depth-1})
-            p.fill(x+dx,floor+3,z+dz,x+dx+1,floor+4,z+dz,Blocks.GLASS_PANE.defaultBlockState());
-        // Solid gabled shell (no open roof holes); the interior remains unobstructed.
-        for(int layer=0;layer<=(width+1)/2;layer++){
-            int left=-1+layer,right=width-layer;
-            if(left>right)break;
-            for(int dz=-1;dz<=depth;dz++){
-                p.at(x+left,floor+height+1+layer,z+dz,ROOF);
-                p.at(x+right,floor+height+1+layer,z+dz,ROOF);
-            }
-            for(int dx=Math.max(0,left+1);dx<=Math.min(width-1,right-1);dx++){
-                p.at(x+dx,floor+height+1+layer,z,OAK);
-                p.at(x+dx,floor+height+1+layer,z+depth-1,OAK);
+            p.fill(x+dx,floor+3,z+dz,x+dx+1,floor+Math.min(height,4),z+dz,
+                Blocks.GLASS.defaultBlockState());
+
+        // A low, fully covered pitched roof: every horizontal column has a roof block.
+        // Solid timber gables seal the space between the wall and each roof step.
+        for(int dx=-1;dx<=width;dx++){
+            int rise=Math.min(dx+1,width-dx)/2;
+            int roofY=floor+height+1+rise;
+            for(int dz=-1;dz<=depth;dz++)p.at(x+dx,roofY,z+dz,ROOF);
+            if(dx>=0&&dx<width){
+                for(int y=floor+height+1;y<roofY;y++){
+                    p.at(x+dx,y,z,OAK);
+                    p.at(x+dx,y,z+depth-1,OAK);
+                }
             }
         }
-        p.fill(x+door,floor,z-1,x+door+1,floor,z-1,Blocks.SPRUCE_PLANKS.defaultBlockState());
-        // Avoid occupying the central route. All furniture is real vanilla blocks.
+        p.fill(x+door,floor,z-1,x+door+1,floor,z-1,FLOOR);
+
+        // Real furniture is placed only after the wall, roof and floor passes.
         p.putLocal(x,floor,z,2,1,2,Blocks.FURNACE.defaultBlockState());
         p.putLocal(x,floor,z,2,1,3,Blocks.CRAFTING_TABLE.defaultBlockState());
         p.putLocal(x,floor,z,2,1,depth-3,Blocks.BARREL.defaultBlockState());
@@ -105,27 +115,55 @@ public final class BuyanHarbor {
         if(type.equals("house")){
             BlockState foot=Blocks.WHITE_BED.defaultBlockState()
                 .setValue(BedBlock.FACING,Direction.SOUTH).setValue(BedBlock.PART,BedPart.FOOT);
-            BlockState head=foot.setValue(BedBlock.PART,BedPart.HEAD);
             p.putLocal(x,floor,z,width-3,1,depth-4,foot);
-            p.putLocal(x,floor,z,width-3,1,depth-3,head);
+            p.putLocal(x,floor,z,width-3,1,depth-3,foot.setValue(BedBlock.PART,BedPart.HEAD));
             p.putLocal(x,floor,z,width-4,1,3,Blocks.SPRUCE_STAIRS.defaultBlockState());
             p.putLocal(x,floor,z,width-5,1,depth-4,Blocks.SPRUCE_FENCE.defaultBlockState());
-            p.putLocal(x,floor,z,width-5,2,depth-4,Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
+            p.putLocal(x,floor,z,width-5,2,depth-4,Blocks.SPRUCE_SLAB.defaultBlockState());
             p.putLocal(x,floor,z,3,1,depth-5,Blocks.BOOKSHELF.defaultBlockState());
         }else if(type.equals("market")){
-            p.fill(x+1,floor+1,z-2,x+width-2,floor+1,z-2,Blocks.SPRUCE_SLAB.defaultBlockState());
             p.fill(x+1,floor,z-2,x+width-2,floor,z-1,FLOOR);
+            // Display counters are to the sides, not across the entrance.
+            p.fill(x+1,floor+1,z-2,x+door-2,floor+1,z-2,Blocks.SPRUCE_SLAB.defaultBlockState());
+            p.fill(x+door+3,floor+1,z-2,x+width-2,floor+1,z-2,Blocks.SPRUCE_SLAB.defaultBlockState());
             p.putLocal(x,floor,z,width-3,1,3,Blocks.SMOKER.defaultBlockState());
             p.putLocal(x,floor,z,width-3,1,depth-3,Blocks.CHEST.defaultBlockState());
         }else{
-            p.fill(x+door-1,floor+1,z,x+door+2,floor+4,z,AIR);
             p.fill(x+door-1,floor,z-2,x+door+2,floor,z-1,FLOOR);
             for(int dz=4;dz<depth-2;dz+=2){
                 p.putLocal(x,floor,z,width-3,1,dz,Blocks.BARREL.defaultBlockState());
                 p.putLocal(x,floor,z,2,1,dz,Blocks.CHEST.defaultBlockState());
             }
         }
-        p.putLocal(x,floor,z,width-2,1,depth-2,Blocks.LANTERN.defaultBlockState());
+
+        // Wall torches have solid backing on the outer walls; hanging lamps have
+        // a ceiling beam. Neither blocks the central aisle or either door leaf.
+        p.putLocal(x,floor,z,1,2,3,Blocks.WALL_TORCH.defaultBlockState()
+            .setValue(WallTorchBlock.FACING,Direction.EAST));
+        p.putLocal(x,floor,z,width-2,2,depth-3,Blocks.WALL_TORCH.defaultBlockState()
+            .setValue(WallTorchBlock.FACING,Direction.WEST));
+        p.putLocal(x,floor,z,width-2,height,depth-2,LOG);
+        p.putLocal(x,floor,z,width-2,height-1,depth-2,Blocks.LANTERN.defaultBlockState()
+            .setValue(LanternBlock.HANGING,true));
+
+        // Door pairs must be the LAST blocks in their openings. Each leaf gets
+        // matching upper/lower facing and opposite hinges so vanilla can operate it.
+        for(int offset=0;offset<2;offset++){
+            DoorHingeSide hinge=offset==0?DoorHingeSide.LEFT:DoorHingeSide.RIGHT;
+            BlockState bottom=Blocks.SPRUCE_DOOR.defaultBlockState()
+                .setValue(DoorBlock.FACING,Direction.NORTH)
+                .setValue(DoorBlock.HINGE,hinge)
+                .setValue(DoorBlock.HALF,DoubleBlockHalf.LOWER);
+            p.at(x+door+offset,floor+1,z,bottom);
+            p.at(x+door+offset,floor+2,z,bottom.setValue(DoorBlock.HALF,DoubleBlockHalf.UPPER));
+        }
+
+        // The outer lamps hang below short roof-supported brackets, off the path.
+        for(int dx:new int[]{door-1,door+2}){
+            p.at(x+dx,floor+height+1,z-1,LOG);
+            p.at(x+dx,floor+height,z-1,Blocks.LANTERN.defaultBlockState()
+                .setValue(LanternBlock.HANGING,true));
+        }
     }
 
     private static int shore(ServerLevel world,BuyanState.Site site,int lateral){
@@ -153,6 +191,45 @@ public final class BuyanHarbor {
             p.fill(x+dx,sea-8,z-dz,x+dx,top-1,z-dz,LOG);
         if(large)for(int dx=-1;dx<=width;dx++)for(int dz=length-4;dz<length;dz++)
             p.at(x+dx,top,z-dz,FLOOR);
+        // Lights occupy the edges; the middle of either pier stays passable.
+        for(int dz=2;dz<length;dz+=5)for(int dx:new int[]{0,width-1}){
+            p.fill(x+dx,top+1,z-dz,x+dx,top+2,z-dz,Blocks.SPRUCE_FENCE.defaultBlockState());
+            p.at(x+dx,top+3,z-dz,Blocks.LANTERN.defaultBlockState());
+        }
+    }
+
+    /** Four short timber approach sections join the existing three-wide trails to the pier heads. */
+    private static void pierApproach(ServerLevel world,Plan p,int centerX,int coast,int top){
+        int level=top;
+        for(int z=coast+6;z<=coast+9;z++){
+            int ground=top;
+            for(int dx=-1;dx<=1;dx++)ground=Math.max(ground,surface(world,centerX+dx,z));
+            level=Math.min(ground,level+1);
+            p.fill(centerX-1,level,z,centerX+1,level,z,FLOOR);
+        }
+    }
+
+    /** Lantern posts only on empty, solid ground immediately beside an existing path. */
+    private static void streetLights(ServerLevel world,Plan p,int x,int from,int to){
+        for(int z=from;z<=to;z+=11){
+            for(int side:new int[]{2,-2}){
+                int xx=x+side,y=surface(world,xx,z);
+                if(y<world.getSeaLevel()+1)continue;
+                BlockPos base=new BlockPos(xx,y,z);
+                BlockState ground=world.getBlockState(base);
+                if(ground.is(BlockTags.LOGS)||ground.is(BlockTags.LEAVES)
+                    ||ground.isAir()||!ground.getFluidState().isEmpty())continue;
+                boolean clear=true;
+                for(int h=1;h<=4;h++)if(!world.getBlockState(base.above(h)).isAir()){
+                    clear=false;
+                    break;
+                }
+                if(!clear)continue;
+                p.fill(xx,y+1,z,xx,y+3,z,Blocks.SPRUCE_FENCE.defaultBlockState());
+                p.at(xx,y+4,z,Blocks.LANTERN.defaultBlockState());
+                break;
+            }
+        }
     }
 
     private static void trail(ServerLevel world,Plan p,int x,int from,int to){
@@ -182,7 +259,7 @@ public final class BuyanHarbor {
         int coast=shore(world,site,0);
         int centerZ=coast+35;
         int[] offsets={-33,-9,16};
-        int[] widths={12,10,16},depths={10,8,11},heights={6,6,7};
+        int[] widths={12,10,16},depths={10,8,11},heights={4,4,5};
         String[] types={"house","market","warehouse"};
         for(int i=0;i<3;i++){
             int x=site.x()+offsets[i],z=centerZ;
@@ -190,11 +267,16 @@ public final class BuyanHarbor {
             if(ground<sea+1||ground>sea+24)return false;
             building(plan,x,z,ground+1,widths[i],depths[i],heights[i],types[i]);
             trail(world,plan,x+widths[i]/2,coast+8,z-2);
+            streetLights(world,plan,x+widths[i]/2,coast+12,z-9);
         }
         pier(plan,site.x()-17,coast+5,sea+2,true,sea);
         pier(plan,site.x()+22,coast+5,sea+2,false,sea);
         trail(world,plan,site.x()-15,coast+7,centerZ-2);
         trail(world,plan,site.x()+23,coast+7,centerZ-2);
+        streetLights(world,plan,site.x()-15,coast+12,centerZ-9);
+        streetLights(world,plan,site.x()+23,coast+12,centerZ-9);
+        pierApproach(world,plan,site.x()-15,coast,sea+2);
+        pierApproach(world,plan,site.x()+23,coast,sea+2);
 
         Set<Long> loaded=new HashSet<>();
         for(var entry:plan.blocks.entrySet()){
