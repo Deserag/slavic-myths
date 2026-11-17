@@ -1070,7 +1070,13 @@ public final class BuyanCraftQuarter {
             for (int[] lot : LOTS)
                 for (int x = lot[0]; x <= lot[2]; x += 3)
                     for (int z = lot[1]; z <= lot[3]; z += 3) {
-                        BlockPos p = pos(x, top(x, z) + 1, z);
+                        int ground = top(x, z);
+                        if (ground == Integer.MIN_VALUE
+                            || ground <= site.waterLevel() + 5) {
+                            collisionReason = "future lot outside safe land at " + x + "," + z;
+                            return false;
+                        }
+                        BlockPos p = pos(x, ground + 1, z);
                         BlockState old = world.getBlockState(p);
                         if (!BuyanGenerator.canReplace(old) && !old.isAir()) {
                             collisionReason = "future lot occupied by " + old + " at " + p;
