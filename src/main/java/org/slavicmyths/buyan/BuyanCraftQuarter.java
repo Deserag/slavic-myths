@@ -762,9 +762,12 @@ public final class BuyanCraftQuarter {
             chest(x0 + 11, f + 1, z0 + 9, "craft_armory_materials");
             at(x0 + 2, f + 1, z0 + 5, Blocks.OAK_STAIRS.defaultBlockState());
             at(x0 + 6, f + 1, z0 + 5, Blocks.OAK_STAIRS.defaultBlockState());
-            for (int x : new int[]{6, 11})
+            for (int x : new int[]{6, 11}) {
+                at(x0 + x, f + 6, z0 + 11, SPRUCE);
+                at(x0 + x, f + 5, z0 + 11, Blocks.CHAIN.defaultBlockState());
                 at(x0 + x, f + 4, z0 + 11,
                     Blocks.LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true));
+            }
 
             // Seven real ascending stairs and a cleared 2-block headspace.
             for (int z = 10; z >= 4; z--) {
