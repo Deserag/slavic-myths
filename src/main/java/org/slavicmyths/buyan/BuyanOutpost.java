@@ -127,7 +127,7 @@ public final class BuyanOutpost {
                 int x = site.x() + dx, z = site.z() + dz;
                 int top = BuyanNature.top(seed, site.x(), site.z(),
                     site.radius(), x, z, site.waterLevel());
-                if (top < site.waterLevel() + 36) continue;
+                if (top < site.waterLevel() + 28) continue;
                 int lo = top, hi = top;
                 boolean available = true;
                 for (int[] offset : new int[][]{{-7,0},{7,0},{0,-7},{0,7},{-7,-7},{7,7}}) {
@@ -1057,6 +1057,9 @@ public final class BuyanOutpost {
                 sample.build();
                 if (!sample.validate()) {
                     lastRejection = hill.cx() + "," + hill.cz() + ": " + sample.lastValidationError;
+                    com.mojang.logging.LogUtils.getLogger().warn(
+                        "Buyan seeded site fixture rejected at {},{} facing {},{}: {}",
+                        hill.cx(), hill.cz(), hill.zx(), hill.zz(), sample.lastValidationError);
                     continue;
                 }
                 if (sample.plots.size() != 11 || sample.routes.size() != 23)
