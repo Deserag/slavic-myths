@@ -587,7 +587,9 @@ public final class BuyanCraftQuarter {
                 if (z != 5) fill(x0 + 9, f + 8, z0 + z, x0 + 9, f + 10, z0 + z, OAK);
             for (int x = 1; x <= 10; x++)
                 if (x != 6) fill(x0 + x, f + 8, z0 + 7, x0 + x, f + 10, z0 + 7, OAK);
-            bed(x0 + 12, f + 8, z0 + 2);
+            // Keep the bed entirely on the floored landing: the old head at
+            // local z=3 covered the final stair at f+7 and blocked headroom.
+            bed(x0 + 12, f + 8, z0 + 1);
             chest(x0 + 7, f + 8, z0 + 5, "craft_forge_home");
             at(x0 + 4, f + 8, z0 + 5, Blocks.OAK_FENCE.defaultBlockState());
             at(x0 + 4, f + 9, z0 + 5, Blocks.SPRUCE_PRESSURE_PLATE.defaultBlockState());
