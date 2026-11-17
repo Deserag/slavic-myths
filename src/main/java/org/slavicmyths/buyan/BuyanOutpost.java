@@ -756,7 +756,7 @@ public final class BuyanOutpost {
                 new Plot(-23, -72, 9, 8, 1, "supply"),
                 new Plot(-25, -49, 10, 8, 1, "hanging"),
                 new Plot(16, -45, 10, 8, 1, "hanging"),
-                new Plot(3, -55, 7, 7, 1, "tower"),
+                new Plot(3, -66, 7, 7, 1, "tower"), // Keep the east hanging bridge unobstructed
                 new Plot(-24, -7, 9, 8, 1, "barracks"),
                 new Plot(-43, 8, 7, 7, 1, "tower"),
                 new Plot(37, 8, 7, 7, 1, "tower"),
