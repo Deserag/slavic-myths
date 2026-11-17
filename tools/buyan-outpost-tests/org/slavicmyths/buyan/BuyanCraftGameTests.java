@@ -12,8 +12,20 @@ public final class BuyanCraftGameTests {
     private BuyanCraftGameTests() {}
 
     @GameTest(template = "empty", timeoutTicks = 1200)
-    public static void craftForgeRoofsStairsChimneyBedroomAndLoot(GameTestHelper helper) {
+    public static void completeCraftComplexRoofsStairsLootAndRoads(GameTestHelper helper) {
         BuyanCraftQuarter.verifyBlueprintFixture(helper.getLevel());
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 1200)
+    public static void crashSeedCanBuildForgeArmoryAndYard(GameTestHelper helper) {
+        BuyanCraftQuarter.verifyCrashSeedFixture(helper.getLevel());
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 1200)
+    public static void earlierReportedSeedRemainsSupported(GameTestHelper helper) {
+        BuyanCraftQuarter.verifyReportedSeedSite(helper.getLevel());
         helper.succeed();
     }
 }
