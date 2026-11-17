@@ -124,7 +124,16 @@ public final class FirstShipEntity extends Boat {
                 Math.min(ShipRigidMotion.MAX_IV_FORWARD, speed));
         clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
                 Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
-        clientMotionSteps = 1;
+        // Tracking may pause when the rider dismounts or the camera moves far
+        // from the hull. A stale velocity must never carry the client copy
+        // away from the server copy and make all block interactions miss.
+        if (position().distanceToSqr(x, y, z) > 9D) {
+            setPos(x, y, z);
+            xo = x; yo = y; zo = z;
+            setYRot(yaw);
+            yRotO = yaw;
+        }
+        clientMotionSteps = 3;
     }
 
     @Override public void lerpTo(double x, double y, double z, float yaw, float pitch, int steps) {
@@ -1543,6 +1552,7 @@ public final class FirstShipEntity extends Boat {
             baseTick();
             setDeltaMovement(Vec3.ZERO);
             if (level().isClientSide && clientMotionSteps > 0) {
+                clientMotionSteps--;
                 clientPreviousX = getX();
                 clientPreviousZ = getZ();
                 clientPreviousYaw = getYRot();
