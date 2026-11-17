@@ -122,7 +122,7 @@ public final class BuyanHarbor {
     private static Coast chooseCoast(ServerLevel world,BuyanState.Site site){
         Coast selected=null;
         int best=Integer.MAX_VALUE;
-        for(Rotation rotation:Rotation.values())for(int shift:new int[]{0,-24,24,-48,48}){
+        for(Rotation rotation:Rotation.values())for(int shift:new int[]{0,-24,24,-48,48,-72,72,-96,96}){
             Plan origin=new Plan(site.x(),site.z(),rotation);
             BlockPos displaced=origin.world(shift,0,0);
             Coast coast=new Coast(new Plan(displaced.getX(),displaced.getZ(),rotation),site,world.getSeed());
@@ -137,7 +137,7 @@ public final class BuyanHarbor {
             if(!contiguous||!safeBuildings(coast,site.waterLevel()))continue;
             // Each pier must end over water. The port follows this seed's coast.
             for(int[] dock:new int[][]{{17,18,5},{-33,12,3},{44,6,3}}){
-                int end=coast.shore(dock[0])+4-(dock[1]-1);
+                int end=coast.shore(dock[0])+(dock[1]==6?2:4)-(dock[1]-1);
                 for(int dx=-(dock[2]/2);dx<=dock[2]/2;dx++)
                     if(coast.land(dock[0]+dx,end)!=Integer.MIN_VALUE)contiguous=false;
             }
@@ -185,7 +185,7 @@ public final class BuyanHarbor {
     /** All doors face the sea (-Z), with a free two-block-wide central aisle. */
     private static void building(Plan p,int x,int z,int floor,int width,int depth,int height,String type){
         for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++)
-            p.fill(x+dx,floor-4,z+dz,x+dx,floor-1,z+dz,Blocks.COBBLESTONE.defaultBlockState());
+            p.fill(x+dx,floor-7,z+dz,x+dx,floor-1,z+dz,Blocks.COBBLESTONE.defaultBlockState());
         p.fill(x,floor,z,x+width-1,floor,z+depth-1,FLOOR);
         // Remove only trees over this building plot, including branches above the roof.
         // The rest of the island's forest is deliberately left untouched.
@@ -370,13 +370,13 @@ public final class BuyanHarbor {
     }
 
     private static void pier(Coast coast,Plan p,int center,int width,int length,int sea,boolean terminal){
-        int shore=coast.shore(center);
+        int shore=coast.shore(center),start=length==6?2:4;
         int top=sea+3;
         for(int dx=-(width/2);dx<=width/2;dx++)
             for(int dz=0;dz<length;dz++)
-                p.at(center+dx,top,shore+4-dz,FLOOR);
+                p.at(center+dx,top,shore+start-dz,FLOOR);
         for(int dx:new int[]{-(width/2),width/2})for(int dz=2;dz<length;dz+=4){
-            int x=center+dx,z=shore+4-dz;
+            int x=center+dx,z=shore+start-dz;
             p.fill(x,sea-6,z,x,top-1,z,LOG);
             p.fill(x,top+1,z,x,top+2,z,Blocks.SPRUCE_FENCE.defaultBlockState());
             p.at(x,top+3,z,Blocks.LANTERN.defaultBlockState());
@@ -384,11 +384,11 @@ public final class BuyanHarbor {
         if(terminal){
             for(int dx=-(width/2)-1;dx<=width/2+1;dx++)
                 for(int dz=length-4;dz<length;dz++)
-                    p.at(center+dx,top,shore+4-dz,FLOOR);
+                    p.at(center+dx,top,shore+start-dz,FLOOR);
         }
         // Mooring bollards on edges; the middle three blocks remain unobstructed.
         for(int dx:new int[]{-(width/2),width/2})
-            p.at(center+dx,top+1,shore+3-length,LOG);
+            p.at(center+dx,top+1,shore+start-1-length,LOG);
     }
 
     /** The two cargo pads flank the unobstructed 5-wide main street. */
@@ -440,6 +440,7 @@ public final class BuyanHarbor {
 
     private static void well(Coast c,Plan p,int x,int z){
         int level=ground(c,x,z);
+        p.fill(x-1,level-2,z-1,x+1,level,z+1,Blocks.COBBLESTONE.defaultBlockState());
         for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)
             if(dx!=0||dz!=0)p.at(x+dx,level+1,z+dz,stone(x+dx,z+dz));
         p.at(x,level,z,Blocks.WATER.defaultBlockState());
@@ -497,6 +498,24 @@ public final class BuyanHarbor {
         }
     }
 
+    /** Descending two-wide timber entrance ramps follow the natural grade. */
+    private static void entranceRamp(Coast c,Plan p,int x,int z,int width,int floor){
+        int door=x+width/2-1;
+        for(int step=0;step<8;step++){
+            int zz=z-1-step;
+            int groundLevel=Math.max(ground(c,door,zz),ground(c,door+1,zz));
+            if(groundLevel==Integer.MIN_VALUE)break;
+            int y=Math.max(groundLevel,floor-step);
+            for(int xx=door;xx<=door+1;xx++){
+                int earth=ground(c,xx,zz);
+                if(earth<y)p.fill(xx,earth,zz,xx,y-1,zz,
+                    Blocks.COBBLESTONE.defaultBlockState());
+                p.at(xx,y,zz,FLOOR);
+                for(int h=1;h<=10;h++)p.at(xx,y+h,zz,AIR);
+            }
+        }
+    }
+
     private static boolean siteAvailable(Coast coast,int x,int z,int width,int depth,int sea){
         int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
         for(int dx=0;dx<width;dx++)for(int dz=0;dz<depth;dz++){
@@ -504,7 +523,7 @@ public final class BuyanHarbor {
             if(y==Integer.MIN_VALUE)return false;
             min=Math.min(min,y);max=Math.max(max,y);
         }
-        return min>=sea+2&&max<=sea+60&&max-min<=3;
+        return min>=sea+2&&max<=sea+60&&max-min<=5;
     }
 
     /** Runs only after the existing nature pass is completed; never rebuilds terrain. */
@@ -564,6 +583,7 @@ public final class BuyanHarbor {
             for(int dx=0;dx<b[2];dx++)for(int dz=0;dz<b[3];dz++)
                 floor=Math.max(floor,ground(coast,b[0]+dx,b[1]+dz));
             building(plan,b[0],b[1],floor+1,b[2],b[3],b[4],types[i]);
+            entranceRamp(coast,plan,b[0],b[1],b[2],floor+1);
         }
         // Clearly visible lanterns for approach paths and working docks.
         for(int z:new int[]{base+13,base+28,base+66,base+73})post(coast,plan,10,z);
