@@ -69,7 +69,7 @@ public final class BuyanFullCityGameTests {
         require(layout.plots().size() == 6, "expected six reserved plots");
         for (BuyanCityPlan.Plot lot : layout.plots()) {
             if ("TEREM".equals(lot.name()))
-                require(lot.facade() == net.minecraft.core.Direction.SOUTH,
+                require(lot.facade() == net.minecraft.core.Direction.NORTH,
                     "terem facade does not face the plaza");
             checkEntrance(helper, lot);
         }
