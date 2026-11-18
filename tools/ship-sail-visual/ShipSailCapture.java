@@ -111,6 +111,7 @@ public final class ShipSailCapture {
     private static int relogAge;
     private static boolean relogChestOpened;
     private static boolean relogDoorWorked;
+    private static String relogChestDiagnostic = "not attempted";
     private static String placementDiagnostic = "not attempted";
     private static String chestClientDiagnostic = "not observed";
     private static volatile String chestServerDiagnostic = "not observed";
@@ -749,6 +750,19 @@ public final class ShipSailCapture {
         }
         if (relogAge == 55) {
             aimClientAt(mc, new BlockPos(2, 7, 0));
+            FirstShipEntity visible = mc.level.getEntity(expectedShipId)
+                    instanceof FirstShipEntity ship ? ship : null;
+            Vec3 eye = mc.player.getEyePosition();
+            var hit = visible == null ? null : org.slavicmyths.ships.ShipMovingCargoTarget.hit(
+                    visible, eye, eye.add(mc.player.getLookAngle().scale(5D)),
+                    ShipModularBlockHull.localVisualPalette(blueprint(new Case(4, 3)),
+                            ShipModularBlockHull.decodeVisibleCargo(
+                                    visible.movingCargoView())));
+            relogChestDiagnostic = "hit=" + hit + " screen=" + mc.screen
+                    + " player=" + mc.player.position() + " ship="
+                    + (visible == null ? null : visible.position()) + " cargo="
+                    + (visible == null ? null : visible.movingCargoView());
+            System.out.println("SHIP_RELOG_CHEST_CLIENT " + relogChestDiagnostic);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
         }
         if (relogAge == 75) {
@@ -756,13 +770,24 @@ public final class ShipSailCapture {
                 ServerPlayer player = mc.getSingleplayerServer().getPlayerList()
                         .getPlayers().getFirst();
                 relogChestOpened = player.containerMenu != player.inventoryMenu;
+                if (!relogChestOpened) {
+                    Vec3 eye = player.getEyePosition();
+                    var hit = org.slavicmyths.ships.ShipMovingCargoTarget.hit(
+                            serverShip, eye, eye.add(player.getLookAngle().scale(5D)),
+                            serverShip.serverMovingPalette());
+                    System.out.println("SHIP_RELOG_CHEST_SERVER hit=" + hit
+                            + " player=" + player.position() + " ship="
+                            + serverShip.position() + " cargo="
+                            + serverShip.movingCargoView());
+                }
                 player.closeContainer();
                 aimAt(player, interactionDoor, 2D);
             });
         }
         if (relogAge == 100) {
             if (!relogChestOpened)
-                throw new AssertionError("Client chest failed after actual world relog");
+                throw new AssertionError("Client chest failed after actual world relog: "
+                        + relogChestDiagnostic);
             aimClientAt(mc, interactionDoor);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
         }
