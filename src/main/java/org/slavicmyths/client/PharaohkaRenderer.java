@@ -13,6 +13,10 @@ public final class PharaohkaRenderer extends MobRenderer<PharaohkaEntity,Pharaoh
     public PharaohkaRenderer(EntityRendererProvider.Context context,boolean leader) {
         super(context,new PharaohkaModel(leader),leader?.65F:.35F);
     }
+    @Override protected void scale(PharaohkaEntity entity,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick) {
+        float scale=entity.leader()?.70F:.52F;
+        pose.scale(scale,scale,scale);
+    }
     @Override public ResourceLocation getTextureLocation(PharaohkaEntity entity) {return WHITE;}
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(PharaohkaContent.PHARAOHKA.get(),ctx->new PharaohkaRenderer(ctx,false));

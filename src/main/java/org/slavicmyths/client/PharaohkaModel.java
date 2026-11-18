@@ -38,26 +38,26 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
     public PharaohkaModel(boolean boss) {
         leader=boss;
         skin=create(SKIN,0,24,0);
-        head=create(SKIN,0,-33,0);
-        hair=create(HAIR,0,-33,0);
-        hair2=create(HAIR2,0,-33,0);
+        head=create(SKIN,0,-9,0);
+        hair=create(HAIR,0,-9,0);
+        hair2=create(HAIR2,0,-9,0);
         armor=create(boss?ARMOR:CLOTH,0,24,0);
         trim=create(boss?GOLD:BRONZE,0,24,0);
         cloth=create(DARK,0,24,0);
-        eye=create(EYE,0,-33,0);
-        pupil=create(DARK,0,-33,0);
-        armL=create(SKIN,-6,-32,0);
-        guardL=create(boss?ARMOR:CLOTH,-6,-32,0);
-        armR=create(SKIN,6,-32,0);
-        guardR=create(boss?ARMOR:CLOTH,6,-32,0);
-        spear=create(GOLD,-6,-32,0);
-        shield=create(ARMOR,6,-32,0);
-        shieldTrim=create(GOLD,6,-32,0);
-        crown=create(GOLD,0,-33,0);
+        eye=create(EYE,0,-9,0);
+        pupil=create(DARK,0,-9,0);
+        armL=create(SKIN,-6,-8,0);
+        guardL=create(boss?ARMOR:CLOTH,-6,-8,0);
+        armR=create(SKIN,6,-8,0);
+        guardR=create(boss?ARMOR:CLOTH,6,-8,0);
+        spear=create(GOLD,-6,-8,0);
+        shield=create(ARMOR,6,-8,0);
+        shieldTrim=create(GOLD,6,-8,0);
+        crown=create(GOLD,0,-9,0);
         tailA=create(TAIL,0,8,0);
         tailB=create(SCALE,0,15,0);
         tailC=create(TAIL,0,22,0);
-        fin=create(FIN,0,28,0);
+        fin=create(FIN,0,26,0);
         build();
     }
     private void build() {
@@ -144,7 +144,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         if (leader) {
             box(crown,-4.8F,-17,-4.1F,9.6F,1.8F,8.2F);
             box(crown,-2.2F,-20,-4.5F,4.4F,4,1.3F);
-            ModelPart coral=create(CORAL,0,-33,0);
+            ModelPart coral=create(CORAL,0,-9,0);
             for(int s:new int[]{-1,1})for(int i=0;i<3;i++)
                 box(coral,s*(2.2F+i*1.35F)-.55F,-20-i*.8F,-2.2F,1.1F,3.8F+i*.8F,1.2F);
             // The large shield is articulated with the right forearm.
@@ -158,7 +158,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             box(spear,-3,-23,-4.1F,1,44,1);
             for (int s:new int[]{-1,0,1})
                 box(spear,-3+s*2.1F,-29+(s==0?-2:0),-4.3F,1,9,1);
-            ModelPart shell=create(SHELL,-6,-32,0);
+            ModelPart shell=create(SHELL,-6,-8,0);
             box(shell,-4.5F,-23,-4.6F,4.7F,1.1F,1.5F);
         } else {
             spear.visible=false;shield.visible=false;shieldTrim.visible=false;crown.visible=false;
