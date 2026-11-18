@@ -240,8 +240,8 @@ public final class BuyanFullCityGameTests {
         BuyanCityPlan.Street southern = layout.streets().stream()
             .filter(s -> s.name().equals("MAIN_SOUTH")).findFirst().orElseThrow();
         require(southern.minZ() == layout.centerZ() + 23
-            && southern.maxZ() == layout.centerZ() + 54,
-            "main road to terem was not shortened to 32 blocks");
+            && southern.maxZ() == layout.centerZ() + 50,
+            "main road to terem was not shortened to 28 blocks");
         int cityY = layout.centerY();
         require(helper.getLevel().getBlockState(new BlockPos(
             layout.centerX() - 43, cityY + 12, layout.centerZ() - 78))

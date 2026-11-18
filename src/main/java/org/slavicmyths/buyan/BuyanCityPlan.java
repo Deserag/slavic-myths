@@ -255,36 +255,36 @@ public final class BuyanCityPlan {
         List<Plot> lots = new ArrayList<>();
         // Keep the sanctuary and sacred oak together in the north-west precinct.
         // The opposite northern sector and both southern quarters remain reserves.
-        lots.add(plot(site, seed, "SANCTUARY_AND_OAK", cx - 112, cx - 24,
-            cz - 113, cz - 25, Direction.EAST));
-        lots.add(plot(site, seed, "CIVIC_RESERVE", cx + 25, cx + 112,
-            cz - 113, cz - 25, Direction.WEST));
-        lots.add(plot(site, seed, "RESIDENTIAL", cx - 112, cx - 40,
-            cz + 25, cz + 103, Direction.EAST));
-        lots.add(plot(site, seed, "RESIDENTIAL_MARKET", cx + 40, cx + 112,
-            cz + 25, cz + 103, Direction.WEST));
-        // The terem occupies Z=55..95; the old approach ended at Z=107.
+        lots.add(plot(site, seed, "SANCTUARY_AND_OAK", cx - 105, cx - 24,
+            cz - 105, cz - 25, Direction.EAST));
+        lots.add(plot(site, seed, "CIVIC_RESERVE", cx + 25, cx + 105,
+            cz - 105, cz - 25, Direction.WEST));
+        lots.add(plot(site, seed, "RESIDENTIAL", cx - 105, cx - 40,
+            cz + 25, cz + 96, Direction.EAST));
+        lots.add(plot(site, seed, "RESIDENTIAL_MARKET", cx + 40, cx + 105,
+            cz + 25, cz + 96, Direction.WEST));
+        // The terem occupies Z=51..91; the old approach ended at Z=107.
         lots.add(plot(site, seed, "TEREM", cx - 34, cx + 34,
-            cz + 55, cz + 95, Direction.NORTH));
+            cz + 51, cz + 91, Direction.NORTH));
         List<Street> streets = new ArrayList<>();
         streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4, cz - 150, cz - 23, MAIN_WIDTH));
         streets.add(new Street("MAIN_WEST", cx - 150, cx - 23, cz - 4, cz + 4, MAIN_WIDTH));
         streets.add(new Street("MAIN_EAST", cx + 23, cx + 150, cz - 4, cz + 4, MAIN_WIDTH));
-        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4, cz + 23, cz + 54, MAIN_WIDTH));
+        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4, cz + 23, cz + 50, MAIN_WIDTH));
         // The north-west precinct has no through-streets cutting its ritual grounds.
         // Secondary E-W roads on each side have equal 30/32-block spacing.
         for (int z : new int[]{-84, -54})
             streets.add(new Street("SECONDARY_CIVIC_" + z,
-                cx + 25, cx + 112, cz + z - 2, cz + z + 2, 5));
+                cx + 25, cx + 105, cz + z - 2, cz + z + 2, 5));
         for (int z : new int[]{48, 80}) {
             streets.add(new Street("SECONDARY_RESIDENTIAL_" + z,
-                cx - 112, cx - 40, cz + z - 2, cz + z + 2, 5));
+                cx - 105, cx - 40, cz + z - 2, cz + z + 2, 5));
             streets.add(new Street("SECONDARY_MARKET_" + z,
-                cx + 40, cx + 112, cz + z - 2, cz + z + 2, 5));
+                cx + 40, cx + 105, cz + z - 2, cz + z + 2, 5));
         }
         for (int x : new int[]{-75, 75})
             streets.add(new Street("SECONDARY_SOUTH_" + x,
-                cx + x - 2, cx + x + 2, cz + 25, cz + 103, 5));
+                cx + x - 2, cx + x + 2, cz + 25, cz + 96, 5));
         return new Layout(cx, cy, cz, 1, List.copyOf(lots), List.copyOf(streets));
     }
 
@@ -633,9 +633,9 @@ public final class BuyanCityPlan {
         Street south = layout.streets.stream()
             .filter(s -> s.name.equals("MAIN_SOUTH")).findFirst().orElseThrow();
         if (sanctuary.maxX != site.x() - 24
-            || palace.minZ != site.z() + 55
-            || south.maxZ != site.z() + 54
-            || south.maxZ - (site.z() + 23) + 1 != 32)
+            || palace.minZ != site.z() + 51
+            || south.maxZ != site.z() + 50
+            || south.maxZ - (site.z() + 23) + 1 != 28)
             throw new IllegalStateException("Compact city distances invalid");
         Plot left = new Plot("A", 0, 34, 0, 34, 74, Direction.NORTH);
         Plot right = new Plot("B", 35, 69, 0, 34, 74, Direction.NORTH);
