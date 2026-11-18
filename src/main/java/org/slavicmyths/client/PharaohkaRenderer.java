@@ -13,6 +13,23 @@ public final class PharaohkaRenderer extends MobRenderer<PharaohkaEntity,Pharaoh
     public PharaohkaRenderer(EntityRendererProvider.Context context,boolean leader) {
         super(context,new PharaohkaModel(leader),leader?.65F:.35F);
     }
+    @Override protected void setupRotations(PharaohkaEntity entity,com.mojang.blaze3d.vertex.PoseStack pose,
+                                            float age,float bodyYaw,float partialTick,float scaleFactor) {
+        super.setupRotations(entity,pose,age,bodyYaw,partialTick,scaleFactor);
+        // Idle mermaids stand upright, but turn toward horizontal flight when travelling.
+        // Rotate around the central torso rather than the feet, preserving the visual hitbox.
+        if (entity.isInWater()) {
+            float swimSpeed=(float)entity.getDeltaMovement().horizontalDistance();
+            float lean=entity.action()==PharaohkaEntity.DASH?48F:
+                       Math.min(34F,swimSpeed*105F);
+            if(lean>1.5F) {
+                float pivot=entity.getBbHeight()*.45F;
+                pose.translate(0,pivot,0);
+                pose.mulPose(com.mojang.math.Axis.XP.rotationDegrees(-lean));
+                pose.translate(0,-pivot,0);
+            }
+        }
+    }
     @Override protected void scale(PharaohkaEntity entity,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick) {
         float scale=entity.leader()?.70F:.52F;
         pose.scale(scale,scale,scale);
