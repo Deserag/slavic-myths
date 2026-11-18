@@ -142,9 +142,14 @@ final class BuyanCityHousing {
                         fill(b, x, x, z, z, floor + 1, floor + 5,
                             Blocks.BIRCH_PLANKS.defaultBlockState());
                 for (int x : new int[]{8, b.width - 11})
-                    for (int z : new int[]{1, 10})
+                    for (int z : new int[]{1, 10}) {
+                        // No partition immediately behind either leaf of the
+                        // paired entrance in the narrower mirrored houses.
+                        if (z == 1 && (x == b.width / 2 - 1 || x == b.width / 2))
+                            continue;
                         fill(b, x, x, z, z + 3, floor + 1, floor + 5,
                             Blocks.BIRCH_PLANKS.defaultBlockState());
+                    }
                 for (int x : new int[]{4, 11}) {
                     door(b, x, 5, floor, north(b), DoorHingeSide.LEFT);
                     door(b, x, 9, floor, south(b), DoorHingeSide.RIGHT);
@@ -233,11 +238,12 @@ final class BuyanCityHousing {
             door(b, 0, b.depth - 5, 0, east(b).getOpposite(), DoorHingeSide.LEFT);
             // Lit glazing every floor, retaining doorways and stair structural bays.
             for (int floor : new int[]{0, 7, 14})
-                for (int x = 1; x < b.width - 1; x++)
+                for (int x = 0; x < b.width; x++)
                     for (int z = 0; z < b.depth; z++) {
                         if (!edge(b, x, z)) continue;
                         if ((x + z) % 6 != 2 && (x + z) % 6 != 3) continue;
                         if (floor == 0 && z == 0 && Math.abs(x - mid) < 5) continue;
+                        if (floor == 0 && x == 0 && z >= b.depth - 6) continue;
                         for (int h = floor + 3; h <= floor + 4; h++)
                             at(b, x, z, h, GLASS);
                     }
