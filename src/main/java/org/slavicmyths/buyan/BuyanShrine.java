@@ -613,6 +613,18 @@ public final class BuyanShrine {
             plan.blocks.size(),plan.shrineFloor,plan.oakFloor);
     }
 
+    /** The saved entrance is rotated toward the city, not a guessed location. */
+    static BlockPos entrance(ServerLevel world,BuyanState.Site site) {
+        Long stored=Record.get(world).built.get(key(site));
+        if(stored==null)return null;
+        BlockPos anchor=BlockPos.of(stored);
+        int dx=anchor.getX()-site.x(),dz=anchor.getZ()-site.z();
+        if(Math.abs(dx)>Math.abs(dz))
+            return new BlockPos(anchor.getX()-40*Integer.signum(dx),0,anchor.getZ());
+        return new BlockPos(anchor.getX(),0,
+            anchor.getZ()-40*Integer.signum(dz));
+    }
+
     /** Existing saves are not silently rebuilt. Explicit operator command is safe. */
     static boolean placeOnce(ServerLevel world,BuyanState.Site site) {
         if(world.dimension()!=Level.OVERWORLD

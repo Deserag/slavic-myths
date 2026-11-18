@@ -101,9 +101,14 @@ public final class BuyanCityPlan {
             blocks.put(pos(x,y,z),state);
         }
         void pave(int x,int z,BlockState tile) {
-            int natural=natural(x,z),height=level(z);
+            int natural=natural(x,z);
+            // A plaza perimeter follows the land independently. The old
+            // centre-line grade reused at x +/- 20 caused sheer stone walls.
+            boolean avenue=Math.abs(x)<=5&&(z>=-35||z<=-73);
+            int height=avenue?Math.max(natural+1,grade.getOrDefault(z,natural+1))
+                :natural+1;
             if(natural==Integer.MIN_VALUE||natural<=site.waterLevel()+4
-                ||Math.abs(natural+1-height)>10)
+                ||height-natural-1>4)
                 throw new IllegalStateException("City street requires unsafe earthwork at "
                     +x+","+z);
             for(int y=natural+1;y<height;y++)at(x,y,z,FOUNDATION);
@@ -142,14 +147,43 @@ public final class BuyanCityPlan {
         }
         void lamp(int x,int z) {
             pave(x,z,FOUNDATION);
-            int h=level(z);
+            int h=natural(x,z)+1;
             for(int y=h+1;y<=h+4;y++)
                 at(x,y,z,Blocks.QUARTZ_PILLAR.defaultBlockState());
             at(x,h+5,z,Blocks.LANTERN.defaultBlockState());
         }
+        void shrineConnection() {
+            BlockPos gate=BuyanShrine.entrance(world,site);
+            if(gate==null)return; // Isolated blueprint-only GameTest.
+            int gx=gate.getX()-site.x(),gz=gate.getZ()-site.z();
+            // The sanctuary is kept lateral to the central plaza; approach
+            // via the outside of its fence rather than across the altar court.
+            if(Math.abs(gx)<32 || Math.abs(gx)>110) {
+                LogUtils.getLogger().warn("Buyan shrine road needs a different connector at {}",
+                    gate);
+                return;
+            }
+            int side=Integer.signum(gx),outer=gx-side*4;
+            int start=side*33;
+            if(side*(outer-start)<0) {
+                LogUtils.getLogger().warn("Buyan shrine approach behind central square {}",gate);
+                return;
+            }
+            for(int x=start;side*x<=side*outer;x+=side)
+                for(int z=-55;z<=-53;z++)
+                    pave(x,z,z==-54?ORNAMENT:WHITE);
+            int toward=Integer.signum(gz+54);
+            for(int z=-54;z!=gz+(! (gz==-54)?toward:0);z+=toward==0?1:toward)
+                for(int x=outer-1;x<=outer+1;x++)
+                    pave(x,z,x==outer?ORNAMENT:WHITE);
+            for(int x=outer;x!=gx;x+=side)
+                for(int z=gz-1;z<=gz+1;z++)
+                    pave(x,z,z==gz?ORNAMENT:WHITE);
+        }
         void build() {
             mainStreet();
             plaza();
+            shrineConnection();
             for(int z:new int[]{-18,-30,-78,-90})
                 for(int x:new int[]{-7,7})lamp(x,z);
             for(int z:new int[]{-38,-70})
