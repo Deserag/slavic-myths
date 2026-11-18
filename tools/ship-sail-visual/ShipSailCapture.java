@@ -113,6 +113,8 @@ public final class ShipSailCapture {
     private static String placementDiagnostic = "not attempted";
     private static String chestClientDiagnostic = "not observed";
     private static volatile String chestServerDiagnostic = "not observed";
+    private static String doorClientDiagnostic = "not attempted";
+    private static volatile String doorServerDiagnostic = "not observed";
 
     private record Case(int shipLevel, int tier) {}
 
@@ -531,6 +533,21 @@ public final class ShipSailCapture {
                 throw new AssertionError("Client could not open detached IV chest: "
                         + chestClientDiagnostic + " server=" + chestServerDiagnostic);
             aimClientAt(mc, interactionDoor);
+            FirstShipEntity visibleDoorShip = mc.level.getEntity(expectedShipId)
+                    instanceof FirstShipEntity ship ? ship : null;
+            Vec3 doorEye = mc.player.getEyePosition();
+            var doorHit = visibleDoorShip == null ? null
+                    : org.slavicmyths.ships.ShipMovingCargoTarget.hit(
+                            visibleDoorShip, doorEye,
+                            doorEye.add(mc.player.getLookAngle().scale(5D)),
+                            ShipModularBlockHull.localVisualPalette(
+                                    blueprint(new Case(4, 3)),
+                                    ShipModularBlockHull.decodeVisibleCargo(
+                                            visibleDoorShip.movingCargoView())));
+            doorClientDiagnostic = "target=" + interactionDoor + " hit=" + doorHit
+                    + " screen=" + mc.screen + " player=" + mc.player.position()
+                    + " ship=" + (visibleDoorShip == null ? null : visibleDoorShip.position());
+            System.out.println("SHIP_DOOR_CLIENT_DIAGNOSTIC " + doorClientDiagnostic);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             interactionPhase = 4; interactionAge = 0;
             return;
@@ -541,6 +558,18 @@ public final class ShipSailCapture {
                 BlockState door = serverShip.serverMovingPalette().get(interactionDoor);
                 doorOpened = door != null && door.getValue(
                         net.minecraft.world.level.block.DoorBlock.OPEN);
+                if (!doorOpened) {
+                    ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                    Vec3 eye = player.getEyePosition();
+                    var hit = org.slavicmyths.ships.ShipMovingCargoTarget.hit(
+                            serverShip, eye, eye.add(player.getLookAngle().scale(5D)),
+                            serverShip.serverMovingPalette());
+                    doorServerDiagnostic = "target=" + interactionDoor + " hit=" + hit
+                            + " player=" + player.position() + " ship="
+                            + serverShip.position() + " state=" + door;
+                    System.out.println("SHIP_DOOR_SERVER_DIAGNOSTIC "
+                            + doorServerDiagnostic);
+                }
                 interactionPlank = serverShip.serverMovingPalette().entrySet().stream()
                         .filter(entry -> entry.getValue().is(Blocks.SPRUCE_PLANKS)
                                 && entry.getKey().getY() >= 6
@@ -576,7 +605,8 @@ public final class ShipSailCapture {
         if (interactionPhase == 5) {
             if (interactionAge < 25) return;
             if (!doorOpened || interactionPlank == null)
-                throw new AssertionError("Client could not open detached IV door");
+                throw new AssertionError("Client could not open detached IV door: "
+                        + doorClientDiagnostic + " server=" + doorServerDiagnostic);
             aimClientAt(mc, interactionPlank);
             net.minecraft.client.KeyMapping.click(mc.options.keyAttack.getKey());
             interactionPhase = 6; interactionAge = 0;
