@@ -100,13 +100,16 @@ public final class BuyanCityPlan {
         void at(int x,int y,int z,BlockState state) {
             blocks.put(pos(x,y,z),state);
         }
-        void pave(int x,int z,BlockState tile) {
-            int natural=natural(x,z);
-            // A plaza perimeter follows the land independently. The old
-            // centre-line grade reused at x +/- 20 caused sheer stone walls.
+        int plannedHeight(int x,int z) {
+            int ground=natural(x,z);
+            if(ground==Integer.MIN_VALUE)return Integer.MIN_VALUE;
+            // The wide plaza boundary follows the local natural surface.
             boolean avenue=Math.abs(x)<=5&&(z>=-35||z<=-73);
-            int height=avenue?Math.max(natural+1,grade.getOrDefault(z,natural+1))
-                :natural+1;
+            return avenue?Math.max(ground+1,grade.getOrDefault(z,ground+1))
+                :ground+1;
+        }
+        void pave(int x,int z,BlockState tile) {
+            int natural=natural(x,z),height=plannedHeight(x,z);
             if(natural==Integer.MIN_VALUE||natural<=site.waterLevel()+4
                 ||height-natural-1>4)
                 throw new IllegalStateException("City street requires unsafe earthwork at "
@@ -147,7 +150,7 @@ public final class BuyanCityPlan {
         }
         void lamp(int x,int z) {
             pave(x,z,FOUNDATION);
-            int h=natural(x,z)+1;
+            int h=plannedHeight(x,z);
             for(int y=h+1;y<=h+4;y++)
                 at(x,y,z,Blocks.QUARTZ_PILLAR.defaultBlockState());
             at(x,h+5,z,Blocks.LANTERN.defaultBlockState());
@@ -190,9 +193,9 @@ public final class BuyanCityPlan {
                 for(int x:new int[]{-22,22})lamp(x,z);
         }
         boolean geometryCheck() {
-            if(!blocks.getOrDefault(pos(0,level(-25),-25),AIR).is(Blocks.BLUE_TERRACOTTA)
-                ||!blocks.getOrDefault(pos(0,level(-85),-85),AIR).is(Blocks.BLUE_TERRACOTTA)
-                ||!blocks.getOrDefault(pos(19,level(-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
+            if(!blocks.getOrDefault(pos(0,plannedHeight(0,-25),-25),AIR).is(Blocks.BLUE_TERRACOTTA)
+                ||!blocks.getOrDefault(pos(0,plannedHeight(0,-85),-85),AIR).is(Blocks.BLUE_TERRACOTTA)
+                ||!blocks.getOrDefault(pos(19,plannedHeight(19,-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
                 return false;
             for(BlockPos p:blocks.keySet()) {
                 int x=p.getX()-site.x(),z=p.getZ()-site.z();
