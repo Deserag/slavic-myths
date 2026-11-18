@@ -72,6 +72,7 @@ public final class BuyanCityPlan {
         final long seed;
         final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();
         final Map<Integer,Integer> grade=new HashMap<>();
+        boolean shrineLinked;
 
         Plan(ServerLevel world,BuyanState.Site site) {
             this.world=world;
@@ -186,6 +187,7 @@ public final class BuyanCityPlan {
             for(int x=outer;x!=gx;x+=side)
                 for(int z=gz-1;z<=gz+1;z++)
                     pave(x,z,z==gz?ORNAMENT:WHITE);
+            shrineLinked=blocks.containsKey(pos(gx-side,plannedHeight(gx-side,gz),gz));
         }
         void build() {
             mainStreet();
@@ -197,6 +199,7 @@ public final class BuyanCityPlan {
                 for(int x:new int[]{-22,22})lamp(x,z);
         }
         boolean geometryCheck() {
+            if(BuyanShrine.entrance(world,site)!=null&&!shrineLinked)return false;
             if(!blocks.getOrDefault(pos(0,plannedHeight(0,-25),-25),AIR).is(Blocks.BLUE_TERRACOTTA)
                 ||!blocks.getOrDefault(pos(0,plannedHeight(0,-85),-85),AIR).is(Blocks.BLUE_TERRACOTTA)
                 ||!blocks.getOrDefault(pos(19,plannedHeight(19,-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
