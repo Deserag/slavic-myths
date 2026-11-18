@@ -296,8 +296,8 @@ public final class ShipSailMultiplayer {
                             () -> { throw new AssertionError("Ship MP world failed to load"); });
                 } else {
                     ConnectScreen.startConnecting(new TitleScreen(), mc,
-                            ServerAddress.parseString("127.0.0.1:" + PORT),
-                            new ServerData("Ship QA loopback", "127.0.0.1:" + PORT,
+                            ServerAddress.parseString("[::1]:" + PORT),
+                            new ServerData("Ship QA loopback", "[::1]:" + PORT,
                                     ServerData.Type.OTHER), false, null);
                 }
                 return;
