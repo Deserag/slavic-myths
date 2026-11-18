@@ -16,7 +16,10 @@ public final class BuyanFullCityGameTests {
 
     @GameTest(template = "empty", timeoutTicks = 3000)
     public static void fullBuyanCityBuildsInSingleWorld(GameTestHelper helper) {
-        BuyanPreSpawn.construct(helper.getLevel());
+        // Reuse the completed geological and natural passes on later runs.
+        // Invoking the same path twice also tests in-process idempotence.
+        BuyanPreSpawn.constructOrResume(helper.getLevel());
+        BuyanPreSpawn.constructOrResume(helper.getLevel());
         BuyanState.Site island = new BuyanState.Site(0, 0, BuyanTerrain.MAX_RADIUS, 63);
         if (!BuyanNatureState.get(helper.getLevel()).finishedAt(island))
             throw new IllegalStateException("End-to-end Buyan: nature not marked complete");
