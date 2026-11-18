@@ -2,6 +2,7 @@ package org.slavicmyths.buyan;
 
 import com.mojang.logging.LogUtils;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -9,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
@@ -18,281 +22,492 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.saveddata.SavedData;
 
 /**
- * The first coherent city axis. The broad avenue begins at the existing palace
- * approach, opens into the marked Alatyr plaza and continues beyond its south
- * entrance. The plaza centre stays untouched for a later actual monument.
- *
- * A whole-plan collision preflight and rollback protect the existing districts.
- * Only new-world construction explicitly calls this class.
+ * Stage-one White City masterplan. All city coordinates derive from one saved
+ * plaza origin. No palace, sanctuary, oak, Alatyr or house is constructed here.
  */
 public final class BuyanCityPlan {
-    private static final String SAVE="slavicmyths_buyan_city_axis_2622";
-    private static final BlockState AIR=Blocks.AIR.defaultBlockState();
-    private static final BlockState WHITE=Blocks.SMOOTH_QUARTZ.defaultBlockState();
-    private static final BlockState BORDER=Blocks.POLISHED_DIORITE.defaultBlockState();
-    private static final BlockState ORNAMENT=Blocks.BLUE_TERRACOTTA.defaultBlockState();
-    private static final BlockState FOUNDATION=Blocks.STONE_BRICKS.defaultBlockState();
+    private static final String SAVE = "slavicmyths_buyan_masterplan_2622_v2";
+    private static final BlockState AIR = Blocks.AIR.defaultBlockState();
+    private static final BlockState WHITE = Blocks.SMOOTH_QUARTZ.defaultBlockState();
+    private static final BlockState EDGE = Blocks.POLISHED_DIORITE.defaultBlockState();
+    private static final BlockState STONE = Blocks.STONE_BRICKS.defaultBlockState();
+    private static final BlockState RED = Blocks.RED_TERRACOTTA.defaultBlockState();
+    private static final BlockState BLUE = Blocks.BLUE_TERRACOTTA.defaultBlockState();
+    private static final BlockState GOLD = Blocks.YELLOW_TERRACOTTA.defaultBlockState();
+    private static final int HALF = 22;
+    private static final int SQUARE_SIZE = 45;
+    private static final int MAIN_WIDTH = 9;
 
     private BuyanCityPlan() {}
 
+    /** Inclusive world-space footprint with its intended facade direction. */
+    public record Plot(String name, int minX, int maxX, int minZ, int maxZ,
+                       int level, Direction facade) {
+        public int width() { return maxX - minX + 1; }
+        public int depth() { return maxZ - minZ + 1; }
+        public BlockPos center() {
+            return new BlockPos((minX + maxX) / 2, level, (minZ + maxZ) / 2);
+        }
+        public boolean overlaps(Plot other) {
+            return minX <= other.maxX && maxX >= other.minX
+                && minZ <= other.maxZ && maxZ >= other.minZ;
+        }
+    }
+
+    /** Adjacent equal-height 35x35 cells may form one continuous 70x35 lot. */
+    public static Plot merge(Plot first, Plot second, String name) {
+        if (first.level != second.level || first.facade != second.facade)
+            throw new IllegalArgumentException("Plots must share an elevation and facade");
+        boolean alongX = first.minZ == second.minZ && first.maxZ == second.maxZ
+            && (first.maxX + 1 == second.minX || second.maxX + 1 == first.minX);
+        boolean alongZ = first.minX == second.minX && first.maxX == second.maxX
+            && (first.maxZ + 1 == second.minZ || second.maxZ + 1 == first.minZ);
+        if (!alongX && !alongZ) throw new IllegalArgumentException("Plots are not adjacent");
+        return new Plot(name, Math.min(first.minX, second.minX),
+            Math.max(first.maxX, second.maxX), Math.min(first.minZ, second.minZ),
+            Math.max(first.maxZ, second.maxZ), first.level, first.facade);
+    }
+
+    private record Street(String name, int minX, int maxX, int minZ, int maxZ,
+                          int width) {}
+
+    public record Layout(int centerX, int centerY, int centerZ, int side,
+                         List<Plot> plots, List<Street> streets) {}
+
+    private static long key(BuyanState.Site site) {
+        return new BlockPos(site.x(), 0, site.z()).asLong();
+    }
+
     private static final class Record extends SavedData {
-        final Set<Long> completed=new HashSet<>();
+        final Map<Long, Layout> built = new LinkedHashMap<>();
+
         static Record get(ServerLevel world) {
             return world.getDataStorage().computeIfAbsent(
-                new SavedData.Factory<>(Record::new,Record::load),SAVE);
+                new SavedData.Factory<>(Record::new, Record::load), SAVE);
         }
-        static Record load(CompoundTag tag,HolderLookup.Provider lookup) {
-            Record state=new Record();
-            for(long id:tag.getLongArray("Completed"))state.completed.add(id);
-            return state;
+
+        static Record load(CompoundTag tag, HolderLookup.Provider registries) {
+            Record record = new Record();
+            ListTag entries = tag.getList("Cities", Tag.TAG_COMPOUND);
+            for (int i = 0; i < entries.size(); i++) {
+                CompoundTag entry = entries.getCompound(i);
+                List<Plot> plots = new ArrayList<>();
+                for (Tag raw : entry.getList("Plots", Tag.TAG_COMPOUND)) {
+                    CompoundTag p = (CompoundTag) raw;
+                    Direction facing = Direction.byName(p.getString("Facade"));
+                    if (facing == null) facing = Direction.NORTH;
+                    plots.add(new Plot(p.getString("Name"), p.getInt("MinX"),
+                        p.getInt("MaxX"), p.getInt("MinZ"), p.getInt("MaxZ"),
+                        p.getInt("Y"), facing));
+                }
+                List<Street> streets = new ArrayList<>();
+                for (Tag raw : entry.getList("Streets", Tag.TAG_COMPOUND)) {
+                    CompoundTag p = (CompoundTag) raw;
+                    streets.add(new Street(p.getString("Name"), p.getInt("MinX"),
+                        p.getInt("MaxX"), p.getInt("MinZ"), p.getInt("MaxZ"),
+                        p.getInt("Width")));
+                }
+                record.built.put(entry.getLong("Site"), new Layout(
+                    entry.getInt("X"), entry.getInt("Y"), entry.getInt("Z"),
+                    entry.getInt("Side"), List.copyOf(plots), List.copyOf(streets)));
+            }
+            return record;
         }
-        @Override public CompoundTag save(CompoundTag tag,HolderLookup.Provider lookup) {
-            long[] ids=new long[completed.size()];
-            int i=0;
-            for(long id:completed) ids[i++]=id;
-            tag.putLongArray("Completed",ids);
+
+        @Override
+        public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
+            ListTag cities = new ListTag();
+            for (var e : built.entrySet()) {
+                Layout layout = e.getValue();
+                CompoundTag city = new CompoundTag();
+                city.putLong("Site", e.getKey());
+                city.putInt("X", layout.centerX);
+                city.putInt("Y", layout.centerY);
+                city.putInt("Z", layout.centerZ);
+                city.putInt("Side", layout.side);
+                ListTag plots = new ListTag();
+                for (Plot plot : layout.plots) {
+                    CompoundTag p = new CompoundTag();
+                    p.putString("Name", plot.name);
+                    p.putInt("MinX", plot.minX);
+                    p.putInt("MaxX", plot.maxX);
+                    p.putInt("MinZ", plot.minZ);
+                    p.putInt("MaxZ", plot.maxZ);
+                    p.putInt("Y", plot.level);
+                    p.putString("Facade", plot.facade.getName());
+                    plots.add(p);
+                }
+                city.put("Plots", plots);
+                ListTag streets = new ListTag();
+                for (Street street : layout.streets) {
+                    CompoundTag p = new CompoundTag();
+                    p.putString("Name", street.name);
+                    p.putInt("MinX", street.minX);
+                    p.putInt("MaxX", street.maxX);
+                    p.putInt("MinZ", street.minZ);
+                    p.putInt("MaxZ", street.maxZ);
+                    p.putInt("Width", street.width);
+                    streets.add(p);
+                }
+                city.put("Streets", streets);
+                cities.add(city);
+            }
+            tag.put("Cities", cities);
             return tag;
         }
-        boolean contains(BuyanState.Site site) {
-            return completed.contains(new BlockPos(site.x(),0,site.z()).asLong());
-        }
-        void mark(BuyanState.Site site) {
-            completed.add(new BlockPos(site.x(),0,site.z()).asLong());
+
+        void mark(BuyanState.Site site, Layout layout) {
+            built.put(key(site), layout);
             setDirty();
         }
     }
 
-    static boolean hasBuilt(ServerLevel world,BuyanState.Site site) {
-        return Record.get(world).contains(site);
+    static boolean hasBuilt(ServerLevel world, BuyanState.Site site) {
+        return Record.get(world).built.containsKey(key(site));
     }
+
+    public static Layout savedLayout(ServerLevel world, BuyanState.Site site) {
+        return Record.get(world).built.get(key(site));
+    }
+
+    static BlockPos spawn(ServerLevel world, BuyanState.Site site) {
+        Layout layout = savedLayout(world, site);
+        if (layout == null) throw new IllegalStateException("City masterplan not constructed");
+        return new BlockPos(layout.centerX, layout.centerY + 2, layout.centerZ - 15);
+    }
+
+    private static int natural(ServerLevel world, BuyanState.Site site, int x, int z) {
+        return BuyanNature.top(world.getSeed(), site.x(), site.z(), site.radius(),
+            x, z, site.waterLevel());
+    }
+
+    private static int elevation(ServerLevel world, BuyanState.Site site,
+                                 int x, int z) {
+        int h = natural(world, site, x, z);
+        if (h == Integer.MIN_VALUE) throw new IllegalStateException(
+            "City masterplan intersects sea at " + x + "," + z);
+        return h + 1;
+    }
+
+    private static Plot plot(ServerLevel world, BuyanState.Site site, String name,
+                             int x0, int x1, int z0, int z1, Direction facade) {
+        int left = Math.min(x0, x1), right = Math.max(x0, x1);
+        int near = Math.min(z0, z1), far = Math.max(z0, z1);
+        int[] samples = {
+            elevation(world, site, left, near),
+            elevation(world, site, left, far),
+            elevation(world, site, right, near),
+            elevation(world, site, right, far),
+            elevation(world, site, (left + right) / 2, (near + far) / 2)
+        };
+        java.util.Arrays.sort(samples);
+        return new Plot(name, left, right, near, far, samples[2], facade);
+    }
+
+    /** Layout selection uses both coasts. Do not take a dry square for granted. */
+    private static double sideScore(ServerLevel world, BuyanState.Site site,
+                                    int cx, int cz, int side) {
+        double score = Double.POSITIVE_INFINITY;
+        for (int x : new int[]{35, 100, 171}) {
+            for (int z : new int[]{-45, 0, 41}) {
+                int wx = cx + side * x, wz = cz + z;
+                double margin = BuyanNature.shoreDistance(
+                    world.getSeed(), site.x(), site.z(), wx, wz);
+                if (margin < 5.0) return Double.NEGATIVE_INFINITY;
+                score = Math.min(score, margin);
+            }
+        }
+        for (int x : new int[]{-96, -62, -32}) {
+            for (int z : new int[]{-41, 0, 41}) {
+                int wx = cx + side * x, wz = cz + z;
+                double margin = BuyanNature.shoreDistance(
+                    world.getSeed(), site.x(), site.z(), wx, wz);
+                if (margin < 5.0) return Double.NEGATIVE_INFINITY;
+                score = Math.min(score, margin);
+            }
+        }
+        return score;
+    }
+
+    static Layout calculate(ServerLevel world, BuyanState.Site site) {
+        int cx = site.x(), cz = site.z() - 54;
+        int cy = elevation(world, site, cx, cz);
+        int side = sideScore(world, site, cx, cz, 1) >=
+            sideScore(world, site, cx, cz, -1) ? 1 : -1;
+        if (!Double.isFinite(sideScore(world, site, cx, cz, side)))
+            throw new IllegalStateException("No safe side for the sanctuary reserve");
+        List<Plot> lots = new ArrayList<>();
+        // The approved palace's real volume is 67x41; the lot reserves
+        // its towers, front stairs, approach and surrounding clearance.
+        lots.add(plot(world, site, "TEREM", cx - 40, cx + 40,
+            cz + 43, cz + 103, Direction.NORTH));
+        // 129x81 is the sanctuary's enclosed complex. Reserve exterior
+        // clearance for the crown, roots, chains and ritual court as well.
+        lots.add(plot(world, site, "SANCTUARY_AND_OAK", cx + side * 35,
+            cx + side * 171, cz - 45, cz + 41,
+            side == 1 ? Direction.WEST : Direction.EAST));
+        for (int[] z : new int[][]{{-41, -7}, {7, 41}}) {
+            lots.add(plot(world, site, "B_35_" + z[0],
+                cx - side * 96, cx - side * 62, cz + z[0], cz + z[1],
+                Direction.valueOf(side == 1 ? "EAST" : "WEST")));
+        }
+        for (int[] z : new int[][]{{-41, -17}, {17, 41}}) {
+            lots.add(plot(world, site, "A_25_" + z[0],
+                cx - side * 56, cx - side * 32, cz + z[0], cz + z[1],
+                Direction.valueOf(side == 1 ? "EAST" : "WEST")));
+        }
+        List<Street> streets = new ArrayList<>();
+        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4,
+            cz - 90, cz - 23, MAIN_WIDTH));
+        streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4,
+            cz + 23, cz + 42, MAIN_WIDTH));
+        streets.add(new Street("SANCTUARY_APPROACH",
+            Math.min(cx + side * 23, cx + side * 34),
+            Math.max(cx + side * 23, cx + side * 34), cz - 2, cz + 2, 5));
+        streets.add(new Street("WEST_CROSS_STREET",
+            Math.min(cx - side * 97, cx - side * 23),
+            Math.max(cx - side * 97, cx - side * 23), cz - 2, cz + 2, 5));
+        for (int[] span : new int[][]{{-61, -59}, {-29, -27}}) {
+            streets.add(new Street("RESIDENTIAL_ACCESS_" + span[0],
+                Math.min(cx - side * span[0], cx - side * span[1]),
+                Math.max(cx - side * span[0], cx - side * span[1]),
+                cz - 42, cz + 42, 3));
+        }
+        return new Layout(cx, cy, cz, side, List.copyOf(lots), List.copyOf(streets));
+    }
+
+    private record Tile(BlockState block, int y, int clearance) {}
 
     private static final class Plan {
         final ServerLevel world;
         final BuyanState.Site site;
-        final long seed;
-        final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();
-        final Map<Integer,Integer> grade=new HashMap<>();
-        boolean shrineLinked;
+        final Layout layout;
+        final Map<Long, Tile> columns = new LinkedHashMap<>();
+        final Map<BlockPos, BlockState> blocks = new LinkedHashMap<>();
 
-        Plan(ServerLevel world,BuyanState.Site site) {
-            this.world=world;
-            this.site=site;
-            seed=world.getSeed();
-            int prev=Integer.MIN_VALUE;
-            for(int z=-94;z<=-14;z++) {
-                int top=natural(0,z);
-                if(top==Integer.MIN_VALUE)
-                    throw new IllegalStateException("City axis has no land at z="+z);
-                int wanted=top+1;
-                if(prev!=Integer.MIN_VALUE)wanted=Math.clamp(wanted,prev-1,prev+1);
-                grade.put(z,wanted);
-                prev=wanted;
+        Plan(ServerLevel world, BuyanState.Site site, Layout layout) {
+            this.world = world;
+            this.site = site;
+            this.layout = layout;
+        }
+
+        void put(int x, int z, int y, BlockState block, int clear) {
+            columns.put(new BlockPos(x, 0, z).asLong(), new Tile(block, y, clear));
+        }
+
+        void plots() {
+            for (Plot plot : layout.plots) {
+                for (int x = plot.minX; x <= plot.maxX; x++)
+                    for (int z = plot.minZ; z <= plot.maxZ; z++) {
+                        boolean edge = x == plot.minX || x == plot.maxX
+                            || z == plot.minZ || z == plot.maxZ;
+                        boolean corner = (x == plot.minX || x == plot.maxX)
+                            && (z == plot.minZ || z == plot.maxZ);
+                        put(x, z, plot.level,
+                            corner ? GOLD : edge ? STONE : Blocks.GRASS_BLOCK.defaultBlockState(),
+                            16);
+                    }
             }
         }
 
-        int natural(int x,int z) {
-            return BuyanNature.top(seed,site.x(),site.z(),site.radius(),
-                site.x()+x,site.z()+z,site.waterLevel());
+        void roads() {
+            for (Street street : layout.streets) {
+                for (int x = street.minX; x <= street.maxX; x++)
+                    for (int z = street.minZ; z <= street.maxZ; z++) {
+                        boolean main = street.width == MAIN_WIDTH;
+                        boolean edge = main
+                            ? (x == street.minX || x == street.maxX)
+                            : (street.maxX - street.minX > street.maxZ - street.minZ
+                                ? z == street.minZ || z == street.maxZ
+                                : x == street.minX || x == street.maxX);
+                        int nat = elevation(world, site, x, z);
+                        int distance = Math.max(Math.abs(x - layout.centerX),
+                            Math.abs(z - layout.centerZ));
+                        int allowed = Math.max(0, distance - HALF);
+                        int y = Math.clamp(nat, layout.centerY - allowed, layout.centerY + allowed);
+                        put(x, z, y, edge ? EDGE : main
+                            && x == layout.centerX ? BLUE : WHITE, 9);
+                    }
+            }
         }
-        BlockPos pos(int x,int y,int z) {
-            return new BlockPos(site.x()+x,y,site.z()+z);
-        }
-        int level(int z) {return grade.get(z);}
-        void at(int x,int y,int z,BlockState state) {
-            blocks.put(pos(x,y,z),state);
-        }
-        int plannedHeight(int x,int z) {
-            int ground=natural(x,z);
-            if(ground==Integer.MIN_VALUE)return Integer.MIN_VALUE;
-            // The wide plaza boundary follows the local natural surface.
-            boolean avenue=Math.abs(x)<=5&&(z>=-35||z<=-73);
-            // Paving REPLACES the surface; placing everything at top+1
-            // produced a raised one-block strip along the entire island.
-            // Keep earthwork strictly local (no more than two fill layers).
-            return avenue?Math.min(ground+2,
-                Math.max(ground,grade.getOrDefault(z,ground+1)-1))
-                :ground;
-        }
-        void pave(int x,int z,BlockState tile) {
-            int natural=natural(x,z),height=plannedHeight(x,z);
-            if(natural==Integer.MIN_VALUE||natural<=site.waterLevel()+4
-                ||height-natural>2)
-                throw new IllegalStateException("City street requires unsafe earthwork at "
-                    +x+","+z);
-            for(int y=natural+1;y<height;y++)at(x,y,z,FOUNDATION);
-            at(x,height,z,tile);
-            // The road replaces only the modest earthwork corridor and its
-            // three-block-clear headroom, never foundations outside it.
-            for(int y=height+1;y<=Math.max(height+3,natural+3);y++)
-                at(x,y,z,AIR);
-        }
-        void mainStreet() {
-            for(int z=-35;z<=-15;z++)
-                for(int x=-5;x<=5;x++)
-                    pave(x,z,Math.abs(x)==5?BORDER:x==0?ORNAMENT:WHITE);
-            for(int z=-94;z<=-73;z++)
-                for(int x=-5;x<=5;x++)
-                    pave(x,z,Math.abs(x)==5?BORDER:x==0?ORNAMENT:WHITE);
-        }
+
         void plaza() {
-            // Twenty-five-plus-block reserved plaza with an open inner court.
-            for(int z=-72;z<=-36;z++) {
-                for(int x=-20;x<=-17;x++)
-                    pave(x,z,x==-20?BORDER:WHITE);
-                for(int x=17;x<=20;x++)
-                    pave(x,z,x==20?BORDER:WHITE);
-            }
-            for(int x=-20;x<=20;x++)
-                for(int z:new int[]{-72,-71,-70,-69,-39,-38,-37,-36})
-                    pave(x,z,(z==-72||z==-36)?BORDER:WHITE);
-            // Both future city approaches reach the sanctuary road at x +/-33.
-            for(int x=-32;x<=-21;x++)
-                for(int z=-55;z<=-53;z++)
-                    pave(x,z,z==-54?ORNAMENT:WHITE);
-            for(int x=21;x<=32;x++)
-                for(int z=-55;z<=-53;z++)
-                    pave(x,z,z==-54?ORNAMENT:WHITE);
+            int cx = layout.centerX, cz = layout.centerZ;
+            for (int dx = -HALF; dx <= HALF; dx++)
+                for (int dz = -HALF; dz <= HALF; dz++) {
+                    int ax = Math.abs(dx), az = Math.abs(dz);
+                    int ring = Math.max(ax, az);
+                    BlockState tile = WHITE;
+                    if (ring == HALF || ring == HALF - 1) tile = EDGE;
+                    else if (ring == 17 || (ax == az && ring >= 11 && ring <= 19))
+                        tile = RED;
+                    else if (ring == 12 || ring == 8) tile = BLUE;
+                    else if ((ax == 15 && dz == 0) || (az == 15 && dx == 0))
+                        tile = GOLD;
+                    // The center remains only a marked and supported dais;
+                    // no Alatyr geometry is built in this stage.
+                    if (ring <= 6) tile = EDGE;
+                    if (dx == 0 && dz == 0) tile = GOLD;
+                    put(cx + dx, cz + dz, layout.centerY, tile, 14);
+                }
         }
-        void lamp(int x,int z) {
-            pave(x,z,FOUNDATION);
-            int h=plannedHeight(x,z);
-            for(int y=h+1;y<=h+4;y++)
-                at(x,y,z,Blocks.QUARTZ_PILLAR.defaultBlockState());
-            at(x,h+5,z,Blocks.LANTERN.defaultBlockState());
-        }
-        void shrineConnection() {
-            BlockPos gate=BuyanShrine.entrance(world,site);
-            if(gate==null)return; // Isolated blueprint-only GameTest.
-            int gx=gate.getX()-site.x(),gz=gate.getZ()-site.z();
-            // The sanctuary is kept lateral to the central plaza; approach
-            // via the outside of its fence rather than across the altar court.
-            if(Math.abs(gx)<32 || Math.abs(gx)>110) {
-                LogUtils.getLogger().warn("Buyan shrine road needs a different connector at {}",
-                    gate);
-                return;
+
+        void foundation() {
+            for (var entry : columns.entrySet()) {
+                BlockPos horizontal = BlockPos.of(entry.getKey());
+                int x = horizontal.getX(), z = horizontal.getZ();
+                Tile tile = entry.getValue();
+                int ground = natural(world, site, x, z);
+                if (ground == Integer.MIN_VALUE)
+                    throw new IllegalStateException("City plan touches sea " + x + "," + z);
+                if (tile.y < site.waterLevel() + 4)
+                    throw new IllegalStateException("City grade too low " + x + "," + z);
+                if (Math.abs(tile.y - ground) > 52)
+                    throw new IllegalStateException("Excessive earthwork " + x + "," + z);
+                int bottom = Math.min(ground - 2, tile.y - 3);
+                for (int y = bottom; y < tile.y; y++)
+                    blocks.put(new BlockPos(x, y, z), STONE);
+                blocks.put(new BlockPos(x, tile.y, z), tile.block);
+                for (int y = tile.y + 1; y <= Math.max(tile.y + tile.clearance,
+                    ground + tile.clearance); y++)
+                    blocks.put(new BlockPos(x, y, z), AIR);
             }
-            int side=Integer.signum(gx),outer=gx-side*4;
-            int start=side*33;
-            if(side*(outer-start)<0) {
-                LogUtils.getLogger().warn("Buyan shrine approach behind central square {}",gate);
-                return;
-            }
-            for(int x=start;side*x<=side*outer;x+=side)
-                for(int z=-55;z<=-53;z++)
-                    pave(x,z,z==-54?ORNAMENT:WHITE);
-            int toward=Integer.signum(gz+54);
-            for(int z=-54;z!=gz+(! (gz==-54)?toward:0);z+=toward==0?1:toward)
-                for(int x=outer-1;x<=outer+1;x++)
-                    pave(x,z,x==outer?ORNAMENT:WHITE);
-            for(int x=outer;x!=gx;x+=side)
-                for(int z=gz-1;z<=gz+1;z++)
-                    pave(x,z,z==gz?ORNAMENT:WHITE);
-            shrineLinked=blocks.containsKey(pos(gx-side,plannedHeight(gx-side,gz),gz));
         }
+
+        void lamps() {
+            for (int dz : new int[]{-84, -27, 31}) {
+                for (int dx : new int[]{-6, 6}) {
+                    int x = layout.centerX + dx, z = layout.centerZ + dz;
+                    int y = natural(world, site, x, z) + 1;
+                    if (y <= site.waterLevel() + 3) continue;
+                    blocks.put(new BlockPos(x, y, z), STONE);
+                    for (int h = 1; h <= 3; h++)
+                        blocks.put(new BlockPos(x, y + h, z),
+                            Blocks.QUARTZ_PILLAR.defaultBlockState());
+                    blocks.put(new BlockPos(x, y + 4, z),
+                        Blocks.LANTERN.defaultBlockState());
+                }
+            }
+        }
+
         void build() {
-            mainStreet();
+            plots();
+            roads();
             plaza();
-            shrineConnection();
-            for(int z:new int[]{-18,-30,-78,-90})
-                for(int x:new int[]{-7,7})lamp(x,z);
-            for(int z:new int[]{-38,-70})
-                for(int x:new int[]{-22,22})lamp(x,z);
+            foundation();
+            lamps();
         }
+
         boolean geometryCheck() {
-            if(BuyanShrine.entrance(world,site)!=null&&!shrineLinked)return false;
-            if(!blocks.getOrDefault(pos(0,plannedHeight(0,-25),-25),AIR).is(Blocks.BLUE_TERRACOTTA)
-                ||!blocks.getOrDefault(pos(0,plannedHeight(0,-85),-85),AIR).is(Blocks.BLUE_TERRACOTTA)
-                ||!blocks.getOrDefault(pos(19,plannedHeight(19,-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
+            if (layout.plots.size() != 6 || layout.streets.size() != 6
+                || columns.size() < SQUARE_SIZE * SQUARE_SIZE)
                 return false;
-            for(BlockPos p:blocks.keySet()) {
-                int x=p.getX()-site.x(),z=p.getZ()-site.z();
-                if(Math.abs(x)<=8&&z>=-63&&z<=-45)
-                    return false; // Reserve the Alatyr stone's future footprint.
+            for (int dx = -HALF; dx <= HALF; dx++)
+                for (int dz = -HALF; dz <= HALF; dz++)
+                    if (!columns.containsKey(new BlockPos(layout.centerX + dx,
+                        0, layout.centerZ + dz).asLong())) return false;
+            if (!blocks.getOrDefault(
+                new BlockPos(layout.centerX, layout.centerY, layout.centerZ), AIR).is(
+                    Blocks.YELLOW_TERRACOTTA)) return false;
+            for (int i = 0; i < layout.plots.size(); i++) {
+                Plot p = layout.plots.get(i);
+                if (p.overlaps(new Plot("square", layout.centerX - HALF,
+                    layout.centerX + HALF, layout.centerZ - HALF,
+                    layout.centerZ + HALF, layout.centerY, Direction.NORTH)))
+                    return false;
+                for (int j = i + 1; j < layout.plots.size(); j++)
+                    if (p.overlaps(layout.plots.get(j))) return false;
             }
+            if (layout.plots.stream().filter(p -> p.width() == 25 && p.depth() == 25)
+                    .count() != 2
+                || layout.plots.stream().filter(p -> p.width() == 35 && p.depth() == 35)
+                    .count() != 2) return false;
+            for (int z = layout.centerZ - 90; z <= layout.centerZ + 42; z++)
+                if (z >= layout.centerZ - HALF && z <= layout.centerZ + HALF
+                    || columns.containsKey(new BlockPos(layout.centerX, 0, z).asLong()))
+                    continue;
+                else return false;
             return true;
         }
+
         boolean preflight() {
-            Set<Long> chunks=new HashSet<>();
-            for(var entry:blocks.entrySet()) {
-                BlockPos p=entry.getKey();
-                if(p.getY()<=world.getMinBuildHeight()
-                    ||p.getY()>=world.getMaxBuildHeight()-1
-                    ||!world.getWorldBorder().isWithinBounds(p))return false;
-                if(chunks.add(ChunkPos.asLong(p.getX()>>4,p.getZ()>>4)))
-                    world.getChunk(p.getX()>>4,p.getZ()>>4);
-                BlockState previous=world.getBlockState(p);
-                if(!previous.equals(entry.getValue())
-                    &&!BuyanGenerator.canReplace(previous)) {
-                    LogUtils.getLogger().warn(
-                        "Buyan city street would overwrite a protected block at {}: {}",
-                        p,previous);
+            Set<Long> loaded = new HashSet<>();
+            for (var entry : blocks.entrySet()) {
+                BlockPos p = entry.getKey();
+                if (p.getY() <= world.getMinBuildHeight()
+                    || p.getY() >= world.getMaxBuildHeight() - 1
+                    || !world.getWorldBorder().isWithinBounds(p)) return false;
+                long chunk = ChunkPos.asLong(p.getX() >> 4, p.getZ() >> 4);
+                if (loaded.add(chunk)) world.getChunk(p.getX() >> 4, p.getZ() >> 4);
+                BlockState original = world.getBlockState(p);
+                if (!original.equals(entry.getValue())
+                    && !BuyanGenerator.canReplace(original)) {
+                    LogUtils.getLogger().warn("City masterplan protected block {}: {}", p, original);
                     return false;
                 }
             }
             return true;
         }
+
         void commit() {
-            List<Map.Entry<BlockPos,BlockState>> changed=new ArrayList<>();
-            Map<BlockPos,BlockState> originals=new LinkedHashMap<>();
-            for(var entry:blocks.entrySet()) {
-                BlockState before=world.getBlockState(entry.getKey());
-                if(!before.equals(entry.getValue())) {
-                    changed.add(entry);
-                    originals.put(entry.getKey(),before);
-                }
-            }
+            Map<BlockPos, BlockState> originals = new LinkedHashMap<>();
             try {
-                for(var entry:changed) {
-                    BlockPos point=entry.getKey();
-                    BlockState target=entry.getValue();
-                    // Replacing topsoil can automatically break plants above it.
-                    // Such AIR entries were different during snapshotting but
-                    // are already correct by the time their turn is reached.
-                    if(world.getBlockState(point).equals(target))continue;
-                    boolean applied=world.setBlock(point,target,2);
-                    if(!applied&&!world.getBlockState(point).equals(target))
-                        throw new IllegalStateException(
-                            "City street block failed at "+point
-                                +": expected "+target+", found "+world.getBlockState(point));
+                for (var entry : blocks.entrySet()) {
+                    BlockPos pos = entry.getKey();
+                    BlockState previous = world.getBlockState(pos);
+                    if (previous.equals(entry.getValue())) continue;
+                    originals.put(pos, previous);
+                    if (!world.setBlock(pos, entry.getValue(), 2)
+                        && !world.getBlockState(pos).equals(entry.getValue()))
+                        throw new IllegalStateException("City block cannot be placed at " + pos);
                 }
-                // Catch unsupported lanterns, fallen decorations or road
-                // surfaces altered by later Minecraft neighbor updates.
-                for(var entry:blocks.entrySet())
-                    if(!world.getBlockState(entry.getKey()).equals(entry.getValue()))
-                        throw new IllegalStateException(
-                            "City street changed after placement at "+entry.getKey()
-                                +": expected "+entry.getValue()
-                                +", found "+world.getBlockState(entry.getKey()));
-            } catch(RuntimeException problem) {
-                for(int i=changed.size()-1;i>=0;i--) {
-                    BlockPos p=changed.get(i).getKey();
-                    BlockState original=originals.get(p);
-                    if(!world.getBlockState(p).equals(original))
-                        world.setBlock(p,original,2);
+                for (var entry : columns.entrySet()) {
+                    BlockPos at = BlockPos.of(entry.getKey());
+                    Tile tile = entry.getValue();
+                    if (!world.getBlockState(new BlockPos(at.getX(), tile.y, at.getZ()))
+                        .equals(tile.block))
+                        throw new IllegalStateException("City floor changed after placement " + at);
                 }
-                throw problem;
+            } catch (RuntimeException error) {
+                List<Map.Entry<BlockPos, BlockState>> undo =
+                    new ArrayList<>(originals.entrySet());
+                for (int i = undo.size() - 1; i >= 0; i--)
+                    world.setBlock(undo.get(i).getKey(), undo.get(i).getValue(), 2);
+                throw error;
             }
         }
     }
 
-    static boolean placeOnce(ServerLevel world,BuyanState.Site site) {
-        Record record=Record.get(world);
-        if(record.contains(site))return true;
-        Plan plan=new Plan(world,site);
+    static boolean placeOnce(ServerLevel world, BuyanState.Site site) {
+        if (hasBuilt(world, site)) return true;
+        if (BuyanState.get(world).active || BuyanNatureState.get(world).active
+            || !BuyanNatureState.get(world).finishedAt(site)) return false;
+        Layout layout = calculate(world, site);
+        Plan plan = new Plan(world, site, layout);
         plan.build();
-        if(!plan.geometryCheck()||!plan.preflight())return false;
+        if (!plan.geometryCheck() || !plan.preflight()) return false;
         plan.commit();
-        record.mark(site);
-        LogUtils.getLogger().info("Buyan central street and reserved Alatyr plaza created for {},{}",
-            site.x(),site.z());
+        Record.get(world).mark(site, layout);
+        LogUtils.getLogger().info(
+            "Buyan White City masterplan: plaza {},{},{} (45x45), side {}, {} plots",
+            layout.centerX, layout.centerY, layout.centerZ, layout.side,
+            layout.plots.size());
         return true;
     }
 
+    /** Non-mutating checks used from GameTests. */
     public static void verifyBlueprintFixture(ServerLevel world) {
-        BuyanState.Site site=new BuyanState.Site(0,0,BuyanTerrain.MAX_RADIUS,63);
-        Plan plan=new Plan(world,site);
+        BuyanState.Site site = new BuyanState.Site(
+            0, 0, BuyanTerrain.MAX_RADIUS, 63);
+        Layout layout = calculate(world, site);
+        Plan plan = new Plan(world, site, layout);
         plan.build();
-        if(!plan.geometryCheck()||plan.blocks.size()<1050)
-            throw new IllegalStateException("Buyan central street/plaza blueprint invalid");
+        if (!plan.geometryCheck())
+            throw new IllegalStateException("White City masterplan fixture invalid");
+        Plot left = new Plot("A", 0, 34, 0, 34, 74, Direction.NORTH);
+        Plot right = new Plot("B", 35, 69, 0, 34, 74, Direction.NORTH);
+        Plot combined = merge(left, right, "70x35");
+        if (combined.width() != 70 || combined.depth() != 35)
+            throw new IllegalStateException("Merged plot geometry invalid");
     }
 }
