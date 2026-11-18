@@ -227,6 +227,23 @@ public final class BuyanTerem {
             at(x, v, h, Blocks.LANTERN.defaultBlockState());
         }
 
+        void ceilingLight(int x, int v, int ceiling) {
+            // Attach to an existing full timber deck. All blocks are inside
+            // the room and the lantern is suspended above walkable headroom.
+            if (!blocks.getOrDefault(pos(x,v,ceiling),AIR).is(Blocks.SPRUCE_PLANKS))
+                throw new IllegalStateException("No ceiling for hall lighting");
+            at(x,v,ceiling-1,Blocks.CHAIN.defaultBlockState());
+            at(x,v,ceiling-2,Blocks.LANTERN.defaultBlockState()
+                .setValue(LanternBlock.HANGING,true));
+        }
+
+        void decoratedColumn(int x,int v) {
+            at(x,v,3,Blocks.CHISELED_QUARTZ_BLOCK.defaultBlockState());
+            for(int h=4;h<=7;h++)
+                at(x,v,h,Blocks.QUARTZ_PILLAR.defaultBlockState());
+            at(x,v,8,Blocks.CHISELED_QUARTZ_BLOCK.defaultBlockState());
+        }
+
         void chandelier(int x, int v, int ceiling) {
             // Secured to the actual upper-floor deck rather than floating in air.
             if (!blocks.getOrDefault(pos(x, v, ceiling), AIR).is(Blocks.SPRUCE_PLANKS))
@@ -534,13 +551,17 @@ public final class BuyanTerem {
             chest(-16, 18, 3, "buyan_terem_household");
             chandelier(0, 7, 9);
             chandelier(0, 20, 9);
-            for (int v : new int[]{5, 12, 18}) {
-                // The service-room chest is at (-16,18,3). Its lantern
-                // used to overwrite the CHEST in the final block map,
-                // aborting first-world city construction at runtime.
-                fixture(v == 18 ? -15 : -16, v, 3);
-                fixture(17, v, 3);
-            }
+            // Clear reception floor: hang lanterns from the deck above
+            // rather than scattering them at ankle height.
+            for (int v : new int[]{5,12,19})
+                for (int x : new int[]{-17,17})
+                    ceilingLight(x,v,9);
+            for(int x:new int[]{-7,7})
+                for(int v:new int[]{5,19})
+                    decoratedColumn(x,v);
+            for(int x:new int[]{-5,-4,4,5})
+                at(x,6,3,Blocks.SPRUCE_STAIRS.defaultBlockState()
+                    .setValue(StairBlock.FACING,x<0?Direction.EAST:Direction.WEST));
             // Second floor: prince's council, two libraries and the accessible loggia.
             roomWall(-10, -9, 12, 22, 10, 17);
             roomWall(9, 10, 12, 22, 10, 17);
@@ -559,8 +580,9 @@ public final class BuyanTerem {
             chest(17, 19, 10, "buyan_terem_household");
             chandelier(0, 7, 17);
             chandelier(0, 20, 17);
-            fixture(-15, 18, 10);
-            fixture(15, 18, 10);
+            for (int v : new int[]{5,12,19})
+                for (int x : new int[]{-17,17})
+                    ceilingLight(x,v,17);
             // Third floor: royal bedchamber, guest room, strongroom and upper hall.
             roomWall(-9, -8, 4, 22, 18, 25);
             roomWall(8, 9, 4, 22, 18, 25);
@@ -575,9 +597,14 @@ public final class BuyanTerem {
             at(-18, 15, 18, Blocks.BOOKSHELF.defaultBlockState());
             at(18, 15, 18, Blocks.BOOKSHELF.defaultBlockState());
             box(-3, 4, 14, 16, 18, 19, WOOD);
-            fixture(0, 20, 18);
-            fixture(-13, 20, 18);
-            fixture(13, 20, 18);
+            // Third floor retains free passages, with warm lights safely
+            // above rather than on the walkable floor.
+            for(int x:new int[]{-13,0,13}) {
+                at(x,20,24,BEAM);
+                at(x,20,23,Blocks.CHAIN.defaultBlockState());
+                at(x,20,22,Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING,true));
+            }
             // Fully accessible central keep via a backed ladder and loft floor.
             box(-5, 6, 5, 18, 27, 28, FLOOR);
             for (int h = 18; h <= 29; h++) {
@@ -712,6 +739,11 @@ public final class BuyanTerem {
             for (int[] light : new int[][]{{0,7,6},{0,20,6},{0,7,14},{0,20,14}})
                 if (!blocks.getOrDefault(pos(light[0],light[1],light[2]),AIR)
                     .is(Blocks.LANTERN))return false;
+            for(int x:new int[]{-17,17})
+                for(int v:new int[]{5,12,19})
+                    for(int floor:new int[]{9,17})
+                        if(!blocks.getOrDefault(pos(x,v,floor-2),AIR)
+                            .is(Blocks.LANTERN))return false;
             if (loot.size() != 4) return false;
             for (BlockPos chest : loot.keySet())
                 if (!blocks.getOrDefault(chest, AIR).is(Blocks.CHEST))

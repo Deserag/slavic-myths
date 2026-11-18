@@ -738,7 +738,15 @@ public final class BuyanOutpost {
                 for (int side = -1; side <= 1; side++) {
                     int bx = x + (dx != 0 ? 0 : side);
                     int bz = z + (dx != 0 ? side : 0);
-                    posts(bx, bz, floor);
+                    int supportHeight = floor - ground(bx, bz);
+                    // The old algorithm filled every 3-wide road column
+                    // from the ground all the way to the deck, creating
+                    // kilometer-looking solid cliffs under hill roads.
+                    // Use sparse, spaced stone piers and timber cross braces.
+                    if (supportHeight <= 3 || (side == 0 && i % 5 == 0))
+                        posts(bx, bz, floor);
+                    else if (supportHeight > 3)
+                        at(bx, floor - 1, bz, LOG);
                     at(bx, floor, bz, board);
                     for (int clearance = 1; clearance <= 3; clearance++)
                         at(bx, floor + clearance, bz, AIR);
@@ -759,7 +767,9 @@ public final class BuyanOutpost {
                             }
                         }
                         if (!crossesRoad) {
-                            posts(bx, bz, floor);
+                            // Keep the safety rail attached to the bridge
+                            // deck without building another tall stone wall.
+                            at(bx, floor - 1, bz, LOG);
                             at(bx, floor, bz, PLANK);
                             at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
                         }
