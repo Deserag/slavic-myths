@@ -426,8 +426,11 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
                 b.x() - sx * half, b.y() - sy * half, b.z() - sz * half);
         var b1 = new ShipSailRigGeometry.Point(
                 b.x() + sx * half, b.y() + sy * half, b.z() + sz * half);
-        renderQuad(out, pose, light, a0, b0, b1, a1,
-                0F, 1F, 0F, 1F, r, g, blue);
+        // A rope must sample one cloth texel. Spreading the entire patterned
+        // sail atlas over a hair-thin strip made its apparent colour flicker
+        // as the vessel moved and the strip rasterized to different pixels.
+        renderQuad(out, pose, net.minecraft.client.renderer.LightTexture.FULL_BRIGHT,
+                a0, b0, b1, a1, .5F, .5F, .5F, .5F, r, g, blue);
     }
 
     /** Thin, bowed cloth panels. The V7 layout retains physical mast and yards. */
