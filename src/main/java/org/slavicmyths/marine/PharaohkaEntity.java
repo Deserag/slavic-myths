@@ -12,6 +12,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -162,6 +164,8 @@ public final class PharaohkaEntity extends Monster {
             --shieldTicks;
             if (shieldTicks==6 && target!=null && hasLineOfSight(target) && distanceToSqr(target)<9.0) {
                 target.hurt(damageSources().mobAttack(this),8F);
+                if (level() instanceof ServerLevel world)
+                    world.sendParticles(ParticleTypes.BUBBLE,target.getX(),target.getY()+.8,target.getZ(),12,.55,.5,.55,.06);
                 Vec3 away=target.position().subtract(position()).multiply(1,0,1);
                 if (away.lengthSqr()>.01) {
                     Vec3 impulse=away.normalize();
@@ -194,11 +198,13 @@ public final class PharaohkaEntity extends Monster {
         if (leader() && dashCooldown==0 && distance>6 && distance<196) { beginDash(target); return; }
         if (leader() && currentCooldown==0 && distance<100) {
             currentTicks=24;currentCooldown=190;animate(CURRENT);
+            playSound(SoundEvents.CONDUIT_ATTACK_TARGET,1.1F,.75F);
         }
         if (leader() && shieldCooldown==0 && distance<8.0) {
             shieldTicks=15;
             shieldCooldown=115+random.nextInt(65);
             animate(BASH);
+            playSound(SoundEvents.SHIELD_BLOCK,.85F,.65F);
             getNavigation().stop();
             return;
         }
@@ -216,16 +222,26 @@ public final class PharaohkaEntity extends Monster {
     }
 
     private void beginDash(LivingEntity target) {
-        dashTicks=17;
+        // A visible windup (7 ticks) precedes the fast swimming charge.
+        dashTicks=24;
         dashCooldown=105+random.nextInt(36);
         dashHit=false;
         animate(DASH);
+        playSound(SoundEvents.TRIDENT_RIPTIDE_1,1.0F,.85F);
+        if (level() instanceof ServerLevel world)
+            world.sendParticles(ParticleTypes.BUBBLE,getX(),getY()+1,getZ(),16,.7,.8,.7,.08);
         getNavigation().stop();
     }
 
     private void dash() {
         LivingEntity target=getTarget();
         if (target==null || !isInWater() || !isTargetInWater(target)) {dashTicks=0;animate(IDLE);return;}
+        getLookControl().setLookAt(target,30,30);
+        if (dashTicks>17) {
+            setDeltaMovement(getDeltaMovement().scale(.8));
+            --dashTicks;
+            return;
+        }
         Vec3 direction=target.getEyePosition().subtract(getEyePosition());
         if (direction.lengthSqr()>.1) {
             Vec3 impulse=direction.normalize().scale(leader()?.57:.4);
@@ -247,6 +263,8 @@ public final class PharaohkaEntity extends Monster {
         summonCooldown=260+random.nextInt(100);
         if (allies.size()>=4) return;
         animate(SUMMON);
+        playSound(SoundEvents.CONDUIT_ACTIVATE,.95F,.8F);
+        world.sendParticles(ParticleTypes.BUBBLE,getX(),getY()+1.2,getZ(),20,1.4,1.4,1.4,.04);
         int count=Math.min(2,4-allies.size());
         for (int i=0;i<count;i++) {
             PharaohkaEntity minion=PharaohkaContent.PHARAOHKA.get().create(world);
@@ -269,8 +287,10 @@ public final class PharaohkaEntity extends Monster {
     private void currentPulse() {
         if (currentTicks-- <= 0) return;
         if (tickCount % 4 != 0) return;
+        if (tickCount%8==0 && level() instanceof ServerLevel server)
+            server.sendParticles(ParticleTypes.BUBBLE,getX(),getY()+1,getZ(),12,1.6,1.3,1.6,.045);
         for (Player player:level().getEntitiesOfClass(Player.class, getBoundingBox().inflate(9),
-                p->!p.isCreative()&&!p.isSpectator()&&isTargetInWater(p))) {
+                p->!p.isCreative()&&!p.isSpectator()&&isTargetInWater(p)&&hasLineOfSight(p))) {
             Vec3 delta=position().subtract(player.position());
             if (delta.lengthSqr()>.3) {
                 player.setDeltaMovement(player.getDeltaMovement().add(delta.normalize().scale(.24)));
