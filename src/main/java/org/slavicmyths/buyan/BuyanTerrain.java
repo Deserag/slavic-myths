@@ -11,12 +11,10 @@ import net.minecraft.world.level.block.state.BlockState;
 public final class BuyanTerrain {
     private BuyanTerrain() {}
 
-    /** Shore distance varies continuously between these two limits. */
+    /** Historical supported radii; the new shoreline stays inside MAX_RADIUS. */
     public static final int MIN_RADIUS = 100;
     public static final int MAX_RADIUS = 350;
     public static final int DEFAULT_RADIUS = MAX_RADIUS;
-    private static final int SHORE_SECTORS = 16;
-    private static final double TWO_PI = Math.PI * 2.0;
 
     /**
      * No underwater shelf outside the coast in this FOUNDATION-only stage.
@@ -65,28 +63,16 @@ public final class BuyanTerrain {
             + (c + (d - c) * u) * v) * 2.0 - 1.0;
     }
 
-    /** A deterministic control point for one of the 16 curved shoreline sectors. */
-    private static double shorelineKnot(long seed, int cx, int cz, int index) {
-        int minIndex = (int) Math.floorMod(hash(seed ^ 0xB11A0L, cx, cz, 0), SHORE_SECTORS);
-        int wrapped = Math.floorMod(index, SHORE_SECTORS);
-        if (wrapped == minIndex) return MIN_RADIUS;
-        if (wrapped == (minIndex + SHORE_SECTORS / 2) % SHORE_SECTORS) return MAX_RADIUS;
-        return 135.0 + 180.0 * value(seed ^ 0xB11A1L, cx, cz, wrapped);
-    }
-
     /**
-     * Smooth angular interpolation means different directions can be 100, 200
-     * or 350 blocks from the center, without chunk-sized random jumps.
+     * Stable angular shoreline with fixed coves and small seeded texture.
+     * The inner 180 blocks remain safely inland on every supported seed.
      */
     public static double shoreRadius(long seed, int cx, int cz, int x, int z) {
         double angle = Math.atan2((double) z - cz, (double) x - cx);
-        if (angle < 0.0) angle += TWO_PI;
-        double sector = angle * SHORE_SECTORS / TWO_PI;
-        int index = (int) Math.floor(sector);
-        double t = smooth(sector - index);
-        double a = shorelineKnot(seed, cx, cz, index);
-        double b = shorelineKnot(seed, cx, cz, index + 1);
-        return a + (b - a) * t;
+        return 305.0 + 24.0 * Math.cos(2.0 * angle - 0.6)
+            + 17.0 * Math.sin(3.0 * angle + 0.4)
+            + 4.0 * noise(seed ^ 0xB11A1L,
+                x - (double) cx, z - (double) cz, 96.0);
     }
 
     /** Raised, almost-level terrain: always above the actual ocean sea level. */

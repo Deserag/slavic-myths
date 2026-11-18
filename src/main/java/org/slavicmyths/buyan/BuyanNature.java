@@ -47,7 +47,7 @@ public final class BuyanNature {
             - Math.hypot((double) x - cx, (double) z - cz);
     }
 
-    /** Rotated, irregular, nearly level 80-95 block clearing at the center. */
+    /** Legacy clearing metric used for wild nature outside the city. */
     public static double clearingMetric(long seed, int cx, int cz, int x, int z) {
         double angle = bayAngle(seed, cx, cz) + 0.31;
         double dx = x - (double) cx;
@@ -130,6 +130,8 @@ public final class BuyanNature {
             destination = blend(coast, destination, smooth(edge / 22.0));
             height = blend(height, destination, corridor);
         }
+        // Flat 150-block city core; blend to natural relief from radius 150 to 180.
+        height = blend(12.0, height, smooth(clamp01((Math.hypot(dx, dz) - 150.0) / 30.0)));
         return sea + (int) Math.round(Math.clamp(height, 2.0, 60.0));
     }
 
@@ -185,6 +187,8 @@ public final class BuyanNature {
     public static BuyanTerrain.Surface surface(long seed, int cx, int cz,
                                                 int x, int z, int sea, int height,
                                                 double sandLimit, double gravelLimit) {
+        if (Math.hypot((double) x - cx, (double) z - cz) <= 150.0)
+            return BuyanTerrain.Surface.MEADOW;
         double edge = shoreDistance(seed, cx, cz, x, z);
         double geology = noise(seed ^ 0xB22A0301L, x, z, 107.0);
         if (edge < 14.0) {
@@ -208,7 +212,8 @@ public final class BuyanNature {
 
     private static boolean forestCandidate(long seed, int cx, int cz, int radius,
                                            int x, int z, int sea) {
-        if (shoreDistance(seed, cx, cz, x, z) < 19.0
+        if (Math.hypot((double) x - cx, (double) z - cz) < 165.0
+            || shoreDistance(seed, cx, cz, x, z) < 19.0
             || clearingMetric(seed, cx, cz, x, z) < 1.44
             || passage(seed, cx, cz, x, z) > 0.10) return false;
         int h = top(seed, cx, cz, radius, x, z, sea);

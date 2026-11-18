@@ -122,7 +122,7 @@ public final class BuyanGenerator {
         state.begin(cx, cz, radius, waterLevel);
         source.sendSuccess(() -> Component.literal(
             "Буян: запущена ПОЛНАЯ генерация. Центр X=" + cx + " Z=" + cz
-            + ", берег 100–350 блоков, вода Y=" + waterLevel
+            + ", берег около 260–350 блоков, вода Y=" + waterLevel
             + ", самая низкая суша Y=" + (waterLevel + 2)
             + ". Очередь: 1/3 основание → 2/3 рельеф и грунты"
             + " → 3/3 леса и подлесок. Все этапы запускаются автоматически."

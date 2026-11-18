@@ -361,7 +361,9 @@ public final class BuyanNatureGenerator {
         int sea = state.waterLevel;
         int y = BuyanNature.top(seed, state.centerX, state.centerZ,
             state.radius, x, z, sea);
-        if (y == Integer.MIN_VALUE) return;
+        if (y == Integer.MIN_VALUE
+            || Math.hypot((double) x - state.centerX,
+                (double) z - state.centerZ) <= 150.0) return;
         BlockPos groundPos = new BlockPos(x, y, z);
         BlockState soil = world.getBlockState(groundPos);
         BlockPos pos = groundPos.above();
@@ -495,13 +497,6 @@ public final class BuyanNatureGenerator {
                             Component.literal("[Буян] Городская площадь не построена: "
                                 + "местность или существующие структуры не прошли проверку."),
                             false);
-                    boolean harborPlaced=BuyanHarbor.placeOnce(world, completedSite);
-                    if(!harborPlaced)world.getServer().getPlayerList().broadcastSystemMessage(
-                        Component.literal("[Буян] Портовые здания не размещены: проверьте участок через /slavicmyths dev buyan harbor."),false);
-                    if(harborPlaced && !BuyanOutpost.placeOnce(world,
-                        new BuyanState.Site(state.centerX,state.centerZ,state.radius,state.waterLevel)))
-                        world.getServer().getPlayerList().broadcastSystemMessage(
-                            Component.literal("[Буян] Военный аванпост не размещён: проверьте рельеф через /slavicmyths dev buyan outpost."),false);
                     world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Готово: основание, природный рельеф и растительность — 100%."),
                         false);

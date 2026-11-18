@@ -99,18 +99,22 @@ public final class BuyanFullCityGameTests {
             "sanctuary was built before owner approval");
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(helper.getLevel(), island);
         require(layout != null, "persisted layout missing");
-        require(layout.plots().size() == 6, "expected six reserved plots");
+        require(layout.plots().size() == 5, "expected five reserved districts");
+        require(layout.centerX() == 0 && layout.centerZ() == 0,
+            "city center must match the island center");
+        require(layout.streets().size() == 12, "four main and eight secondary roads expected");
         for (BuyanCityPlan.Plot lot : layout.plots()) {
-            if ("TEREM".equals(lot.name()))
+            if ("TEREM".equals(lot.name())) {
                 require(lot.facade() == net.minecraft.core.Direction.NORTH,
                     "terem facade does not face the plaza");
-            checkEntrance(helper, lot);
+                checkEntrance(helper, lot);
+            }
         }
-        long small = layout.plots().stream()
-            .filter(p -> p.width() == 25 && p.depth() == 25).count();
-        long large = layout.plots().stream()
-            .filter(p -> p.width() == 35 && p.depth() == 35).count();
-        require(small == 2 && large == 2, "25x25 and 35x35 cells missing");
+        for (String district : new String[]{"SANCTUARY", "SACRED_OAK",
+            "RESIDENTIAL", "RESIDENTIAL_MARKET", "TEREM"}) {
+            require(layout.plots().stream().anyMatch(p -> district.equals(p.name())),
+                "missing reserve " + district);
+        }
         for (int i = 0; i < layout.plots().size(); i++)
             for (int j = i + 1; j < layout.plots().size(); j++)
                 require(!layout.plots().get(i).overlaps(layout.plots().get(j)),

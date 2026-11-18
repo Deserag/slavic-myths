@@ -249,64 +249,37 @@ public final class BuyanCityPlan {
         return calculateForSeed(site, world.getSeed());
     }
 
+    /** City coordinates are anchored to the exact island origin for every seed. */
     static Layout calculateForSeed(BuyanState.Site site, long seed) {
-        int cx = site.x(), cz = site.z() - 54, side = 1;
-        double best = Double.NEGATIVE_INFINITY;
-        for (int dx : new int[]{0, -27, 27, -54, 54})
-            for (int dz : new int[]{-54, -27, 0, 27, 54})
-                for (int mirror : new int[]{1, -1}) {
-                    int trialX = site.x() + dx, trialZ = site.z() + dz;
-                    double fit = sideScore(site, seed, trialX, trialZ, mirror);
-                    if (fit > best) {
-                        best = fit;
-                        cx = trialX;
-                        cz = trialZ;
-                        side = mirror;
-                    }
-                }
-        if (!Double.isFinite(best))
-            throw new IllegalStateException("No dry city core can host the reserved districts");
-        int cy = elevation(site, seed, cx, cz);
+        int cx = site.x(), cz = site.z(), cy = elevation(site, seed, site.x(), site.z());
         List<Plot> lots = new ArrayList<>();
-        // The approved palace's real volume is 67x41; the lot reserves
-        // its towers, front stairs, approach and surrounding clearance.
-        lots.add(plot(site, seed, "TEREM", cx - 40, cx + 40,
-            cz + 43, cz + 103, Direction.NORTH));
-        // 129x81 is the sanctuary's enclosed complex. Reserve exterior
-        // clearance for the crown, roots, chains and ritual court as well.
-        lots.add(plot(site, seed, "SANCTUARY_AND_OAK", cx + side * 35,
-            cx + side * 171, cz - 45, cz + 41,
-            side == 1 ? Direction.WEST : Direction.EAST));
-        for (int[] z : new int[][]{{-41, -7}, {7, 41}}) {
-            lots.add(plot(site, seed, "B_35_" + z[0],
-                cx - side * 96, cx - side * 62, cz + z[0], cz + z[1],
-                Direction.valueOf(side == 1 ? "EAST" : "WEST")));
-        }
-        for (int[] z : new int[][]{{-41, -17}, {17, 41}}) {
-            lots.add(plot(site, seed, "A_25_" + z[0],
-                cx - side * 56, cx - side * 32, cz + z[0], cz + z[1],
-                Direction.valueOf(side == 1 ? "EAST" : "WEST")));
-        }
+        lots.add(plot(site, seed, "SANCTUARY", cx - 105, cx - 25,
+            cz - 105, cz - 25, Direction.EAST));
+        lots.add(plot(site, seed, "SACRED_OAK", cx + 25, cx + 105,
+            cz - 105, cz - 25, Direction.WEST));
+        lots.add(plot(site, seed, "RESIDENTIAL", cx - 105, cx - 25,
+            cz + 25, cz + 96, Direction.EAST));
+        lots.add(plot(site, seed, "RESIDENTIAL_MARKET", cx + 25, cx + 105,
+            cz + 25, cz + 96, Direction.WEST));
+        lots.add(plot(site, seed, "TEREM", cx - 32, cx + 32,
+            cz + 108, cz + 143, Direction.NORTH));
         List<Street> streets = new ArrayList<>();
-        streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4,
-            cz - 90, cz - 23, MAIN_WIDTH));
-        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4,
-            cz + 23, cz + 42, MAIN_WIDTH));
-        streets.add(new Street("SANCTUARY_APPROACH",
-            Math.min(cx + side * 23, cx + side * 34),
-            Math.max(cx + side * 23, cx + side * 34), cz - 2, cz + 2, 5));
-        streets.add(new Street("RESIDENTIAL_CROSS_STREET",
-            Math.min(cx - side * 97, cx - side * 23),
-            Math.max(cx - side * 97, cx - side * 23), cz - 2, cz + 2, 5));
-        // Five-wide north/south feeders touch BOTH plot families, and join
-        // the five-wide cross street at a conventional T-intersection.
-        for (int[] span : new int[][]{{-61, -57}, {-31, -27}}) {
-            streets.add(new Street("RESIDENTIAL_ACCESS_" + span[0],
-                Math.min(cx + side * span[0], cx + side * span[1]),
-                Math.max(cx + side * span[0], cx + side * span[1]),
-                cz - 42, cz + 42, 5));
+        streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4, cz - 150, cz - 23, MAIN_WIDTH));
+        streets.add(new Street("MAIN_WEST", cx - 150, cx - 23, cz - 4, cz + 4, MAIN_WIDTH));
+        streets.add(new Street("MAIN_EAST", cx + 23, cx + 150, cz - 4, cz + 4, MAIN_WIDTH));
+        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4, cz + 23, cz + 107, MAIN_WIDTH));
+        // Equal 30-block intervals between secondary east-west streets per half.
+        for (int z : new int[]{-85, -55, 45, 75}) {
+            streets.add(new Street("SECONDARY_EW_" + z,
+                cx - 105, cx + 105, cz + z - 2, cz + z + 2, 5));
         }
-        return new Layout(cx, cy, cz, side, List.copyOf(lots), List.copyOf(streets));
+        for (int x : new int[]{-65, 65}) {
+            streets.add(new Street("SECONDARY_NS_NORTH_" + x,
+                cx + x - 2, cx + x + 2, cz - 105, cz - 5, 5));
+            streets.add(new Street("SECONDARY_NS_SOUTH_" + x,
+                cx + x - 2, cx + x + 2, cz + 5, cz + 96, 5));
+        }
+        return new Layout(cx, cy, cz, 1, List.copyOf(lots), List.copyOf(streets));
     }
 
     private record Tile(BlockState block, int y, int clearance) {}
@@ -330,40 +303,41 @@ public final class BuyanCityPlan {
 
         void plots() {
             for (Plot plot : layout.plots) {
-                // Distinguish the two reserved monuments with low, temporary
-                // ground-level borders; neither structure is built in stage one.
-                BlockState boundary = plot.name.equals("TEREM") ? BLUE
-                    : plot.name.equals("SANCTUARY_AND_OAK") ? RED : STONE;
+                BlockState boundary = switch (plot.name) {
+                    case "TEREM" -> BLUE;
+                    case "SANCTUARY" -> RED;
+                    case "SACRED_OAK" -> Blocks.GREEN_TERRACOTTA.defaultBlockState();
+                    case "RESIDENTIAL_MARKET" -> Blocks.ORANGE_TERRACOTTA.defaultBlockState();
+                    default -> STONE;
+                };
                 for (int x = plot.minX; x <= plot.maxX; x++)
                     for (int z = plot.minZ; z <= plot.maxZ; z++) {
                         boolean edge = x == plot.minX || x == plot.maxX
                             || z == plot.minZ || z == plot.maxZ;
+                        if (!edge) continue;
                         boolean corner = (x == plot.minX || x == plot.maxX)
                             && (z == plot.minZ || z == plot.maxZ);
-                        put(x, z, plot.level,
-                            corner ? GOLD : edge ? boundary : Blocks.GRASS_BLOCK.defaultBlockState(),
-                            16);
+                        // Only a surface-height outline: no leveled lot interior.
+                        put(x, z, elevation(world, site, x, z),
+                            corner ? GOLD : boundary, 2);
                     }
             }
         }
 
         void roads() {
             for (Street street : layout.streets) {
+                boolean alongX = street.maxX - street.minX >
+                    street.maxZ - street.minZ;
                 for (int x = street.minX; x <= street.maxX; x++)
                     for (int z = street.minZ; z <= street.maxZ; z++) {
+                        boolean edge = alongX
+                            ? z == street.minZ || z == street.maxZ
+                            : x == street.minX || x == street.maxX;
+                        boolean centerLine = alongX ? z == layout.centerZ
+                            : x == layout.centerX;
                         boolean main = street.width == MAIN_WIDTH;
-                        boolean edge = main
-                            ? (x == street.minX || x == street.maxX)
-                            : (street.maxX - street.minX > street.maxZ - street.minZ
-                                ? z == street.minZ || z == street.maxZ
-                                : x == street.minX || x == street.maxX);
-                        int nat = elevation(world, site, x, z);
-                        int distance = Math.max(Math.abs(x - layout.centerX),
-                            Math.abs(z - layout.centerZ));
-                        int allowed = Math.max(0, distance - HALF);
-                        int y = Math.clamp(nat, layout.centerY - allowed, layout.centerY + allowed);
-                        put(x, z, y, edge ? EDGE : main
-                            && x == layout.centerX ? BLUE : WHITE, 9);
+                        put(x, z, layout.centerY,
+                            edge ? EDGE : main && centerLine ? BLUE : WHITE, 4);
                     }
             }
         }
@@ -521,42 +495,43 @@ public final class BuyanCityPlan {
         void build() {
             plots();
             roads();
-            entranceGrades();
-            smoothFeederGrades();
             plaza();
             foundation();
-            lamps();
         }
 
         boolean geometryCheck() {
-            if (layout.plots.size() != 6 || layout.streets.size() != 6
-                || columns.size() < SQUARE_SIZE * SQUARE_SIZE)
-                return false;
+            if (layout.centerX != site.x() || layout.centerZ != site.z()
+                || layout.plots.size() != 5 || layout.streets.size() != 12
+                || columns.size() < SQUARE_SIZE * SQUARE_SIZE) return false;
             for (int dx = -HALF; dx <= HALF; dx++)
                 for (int dz = -HALF; dz <= HALF; dz++)
                     if (!columns.containsKey(new BlockPos(layout.centerX + dx,
                         0, layout.centerZ + dz).asLong())) return false;
-            if (!blocks.getOrDefault(
-                new BlockPos(layout.centerX, layout.centerY, layout.centerZ), AIR).is(
-                    Blocks.YELLOW_TERRACOTTA)) return false;
+            if (!blocks.getOrDefault(new BlockPos(layout.centerX,
+                layout.centerY, layout.centerZ), AIR).is(Blocks.YELLOW_TERRACOTTA))
+                return false;
             for (int i = 0; i < layout.plots.size(); i++) {
                 Plot p = layout.plots.get(i);
                 if (p.overlaps(new Plot("square", layout.centerX - HALF,
                     layout.centerX + HALF, layout.centerZ - HALF,
                     layout.centerZ + HALF, layout.centerY, Direction.NORTH)))
                     return false;
+                for (int x : new int[]{p.minX, p.maxX})
+                    for (int z : new int[]{p.minZ, p.maxZ})
+                        if (Math.hypot((double) x - site.x(), (double) z - site.z())
+                            > 150.0) return false;
                 for (int j = i + 1; j < layout.plots.size(); j++)
                     if (p.overlaps(layout.plots.get(j))) return false;
             }
-            if (layout.plots.stream().filter(p -> p.width() == 25 && p.depth() == 25)
-                    .count() != 2
-                || layout.plots.stream().filter(p -> p.width() == 35 && p.depth() == 35)
-                    .count() != 2) return false;
-            for (int z = layout.centerZ - 90; z <= layout.centerZ + 42; z++)
-                if (z >= layout.centerZ - HALF && z <= layout.centerZ + HALF
-                    || columns.containsKey(new BlockPos(layout.centerX, 0, z).asLong()))
-                    continue;
-                else return false;
+            for (Street s : layout.streets) {
+                if (s.width != 5 && s.width != MAIN_WIDTH) return false;
+                int sx = s.maxX - s.minX + 1, sz = s.maxZ - s.minZ + 1;
+                if (Math.min(sx, sz) != s.width) return false;
+                for (int x : new int[]{s.minX, s.maxX})
+                    for (int z : new int[]{s.minZ, s.maxZ})
+                        if (natural(world, site, x, z) == Integer.MIN_VALUE)
+                            return false;
+            }
             return true;
         }
 
@@ -655,7 +630,8 @@ public final class BuyanCityPlan {
             9083133736688572422L
         }) {
             Layout check = calculateForSeed(site, seed);
-            if (check.plots.size() != 6 || check.streets.size() != 6)
+            if (check.plots.size() != 5 || check.streets.size() != 12
+                || check.centerX != site.x() || check.centerZ != site.z())
                 throw new IllegalStateException("City plots missing for seed " + seed);
             for (int i = 0; i < check.plots.size(); i++)
                 for (int j = i + 1; j < check.plots.size(); j++)

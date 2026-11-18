@@ -217,17 +217,11 @@ public final class BuyanPreSpawn {
         nature.nextPhase();
         nature.finish();
 
-        // The city foundation is completed BEFORE any secondary districts.
-        // Approved palace, sanctuary and oak generators remain untouched,
-        // but are deliberately not called during this preparation stage.
+        // Only terrain and reserved city layout are generated in stage one.
+        // Harbor, outpost and craft buildings are never placed automatically.
         if(!BuyanCityPlan.placeOnce(world,site))
             throw new IllegalStateException("White City masterplan could not be placed safely");
-        if(!BuyanHarbor.placeOnce(world,site))
-            LogUtils.getLogger().warn("Buyan harbor requires a separate safe placement");
-        if(!BuyanOutpost.placeOnce(world,site))
-            LogUtils.getLogger().warn("Buyan outpost requires a separate safe placement");
-        if(!BuyanCraftQuarter.placeOnce(world,site))
-            LogUtils.getLogger().warn("Buyan craft quarter requires a separate safe placement");
+
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
