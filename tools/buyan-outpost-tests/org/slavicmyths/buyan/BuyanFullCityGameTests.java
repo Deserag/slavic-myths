@@ -201,9 +201,11 @@ public final class BuyanFullCityGameTests {
         require(BuyanShrine.hasBuilt(helper.getLevel(), island),
             "new north-west sanctuary was not generated");
         require(BuyanDevelopment.placeOak(helper.getLevel(), island),
-            "north-east sacred oak was not generated");
+            "shared-precinct sacred oak was not generated");
+        require(BuyanDevelopment.placeSacredPrecinct(helper.getLevel(), island),
+            "ritual court and walkways were not generated");
         require(BuyanDevelopment.placeHouses(helper.getLevel(), island),
-            "residential and trading blocks were not generated");
+            "future residential reserves were not prepared");
         require(BuyanHarbor.placeOnce(helper.getLevel(), island),
             "harbor was not generated");
         require(BuyanCraftQuarter.placeOnce(helper.getLevel(), island),
@@ -223,7 +225,7 @@ public final class BuyanFullCityGameTests {
                 checkEntrance(helper, lot);
             }
         }
-        for (String district : new String[]{"SANCTUARY", "SACRED_OAK",
+        for (String district : new String[]{"SANCTUARY_AND_OAK", "CIVIC_RESERVE",
             "RESIDENTIAL", "RESIDENTIAL_MARKET", "TEREM"}) {
             require(layout.plots().stream().anyMatch(p -> district.equals(p.name())),
                 "missing reserve " + district);
@@ -234,9 +236,29 @@ public final class BuyanFullCityGameTests {
                     "building plots overlap");
 
         checkStreetGrades(helper, layout);
-        checkExistingHouseUpgrade(helper, island, layout);
-        checkTownBuildings(helper, layout);
         checkAllCityRoadSurfaces(helper, layout);
+        BuyanCityPlan.Street southern = layout.streets().stream()
+            .filter(s -> s.name().equals("MAIN_SOUTH")).findFirst().orElseThrow();
+        require(southern.minZ() == layout.centerZ() + 23
+            && southern.maxZ() == layout.centerZ() + 54,
+            "main road to terem was not shortened to 32 blocks");
+        int cityY = layout.centerY();
+        require(helper.getLevel().getBlockState(new BlockPos(
+            layout.centerX() - 43, cityY + 12, layout.centerZ() - 78))
+                .is(Blocks.OAK_WOOD),
+            "sacred oak is not next to the sanctuary");
+        require(helper.getLevel().getBlockState(new BlockPos(
+            layout.centerX() - 62, cityY + 2, layout.centerZ() - 65))
+                .is(Blocks.SOUL_CAMPFIRE),
+            "ritual court centerpiece missing");
+        require(helper.getLevel().getBlockState(new BlockPos(
+            layout.centerX() - 10, cityY, layout.centerZ() - 53))
+                .is(Blocks.POLISHED_ANDESITE),
+            "sanctuary processional walkway missing");
+        require(!helper.getLevel().getBlockState(new BlockPos(
+            layout.centerX() - 95, cityY + 2, layout.centerZ() + 32))
+                .is(Blocks.SPRUCE_PLANKS),
+            "old compact houses were generated despite deferred architecture");
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
         for (int dx = -22; dx <= 22; dx++)
             for (int dz = -22; dz <= 22; dz++) {

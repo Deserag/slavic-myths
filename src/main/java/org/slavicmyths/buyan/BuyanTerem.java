@@ -778,9 +778,14 @@ public final class BuyanTerem {
         Record record = Record.get(world);
         long key = key(site);
         if (record.built.containsKey(key)) return true;
-        // The previous center-clearing search would overwrite the 45x45 plaza.
-        // The fixed southern reserve is centered 123 blocks from island origin.
-        int ox = site.x(), oz = site.z() + 123;
+        // Derive the anchor from the saved plot so the compact 32-block
+        // approach and older worlds can use their respective coordinates.
+        BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
+        if (layout == null) return false;
+        BuyanCityPlan.Plot lot = layout.plots().stream()
+            .filter(p -> p.name().equals("TEREM")).findFirst().orElse(null);
+        if (lot == null) return false;
+        int ox = site.x(), oz = lot.minZ() + 15;
         int[] heights = fit(world, site, ox, oz);
         if (heights != null) {
             Plan p = new Plan(world, site, ox, oz, heights[1] + 1);
@@ -793,7 +798,7 @@ public final class BuyanTerem {
                     return false;
                 }
                 record.finish(key, new BlockPos(ox, p.base, oz));
-                LogUtils.getLogger().info("Buyan southern terem placed at {},{},{}",
+                LogUtils.getLogger().info("Buyan compact southern terem placed at {},{},{}",
                     ox, p.base, oz);
                 return true;
             }

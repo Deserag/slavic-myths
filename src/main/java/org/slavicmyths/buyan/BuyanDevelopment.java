@@ -46,6 +46,7 @@ public final class BuyanDevelopment {
 
     private static final class Record extends SavedData {
         final Set<Long> oaks = new HashSet<>();
+        final Set<Long> precincts = new HashSet<>();
         final Set<Long> houses = new HashSet<>();
         // Older saves may have houses but no furnished-home upgrade marker.
         final Set<Long> furnishedHouses = new HashSet<>();
@@ -58,6 +59,7 @@ public final class BuyanDevelopment {
         static Record load(CompoundTag tag, HolderLookup.Provider registries) {
             Record r = new Record();
             for (long id : tag.getLongArray("Oaks")) r.oaks.add(id);
+            for (long id : tag.getLongArray("Precincts")) r.precincts.add(id);
             for (long id : tag.getLongArray("Houses")) r.houses.add(id);
             for (long id : tag.getLongArray("FurnishedHouses"))
                 r.furnishedHouses.add(id);
@@ -67,6 +69,7 @@ public final class BuyanDevelopment {
         @Override
         public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
             tag.putLongArray("Oaks", oaks.stream().mapToLong(Long::longValue).toArray());
+            tag.putLongArray("Precincts", precincts.stream().mapToLong(Long::longValue).toArray());
             tag.putLongArray("Houses", houses.stream().mapToLong(Long::longValue).toArray());
             tag.putLongArray("FurnishedHouses",
                 furnishedHouses.stream().mapToLong(Long::longValue).toArray());
@@ -74,6 +77,7 @@ public final class BuyanDevelopment {
         }
 
         void markOak(long site) { oaks.add(site); setDirty(); }
+        void markPrecinct(long site) { precincts.add(site); setDirty(); }
         void markHouses(long site) { houses.add(site); setDirty(); }
         void markFurnished(long site) { furnishedHouses.add(site); setDirty(); }
     }
@@ -240,11 +244,71 @@ public final class BuyanDevelopment {
                 }
         }
 
-        void oak() {
+        /**
+         * A shared sacred precinct with a walkable processional axis, a branch
+         * to the oak, a circular ritual court and small planted gardens.
+         * Existing shrine and oak geometry is deliberately left untouched.
+         */
+        void sacredPrecinct() {
+            BlockState walk = Blocks.POLISHED_ANDESITE.defaultBlockState();
+            BlockState rim = Blocks.MOSSY_STONE_BRICKS.defaultBlockState();
+            // Connect to the west shoulder of the north main road. Preserve
+            // the district's colored boundary marker at X=-24.
+            for (int x = -86; x <= -6; x++) {
+                if (x == -24) continue;
+                for (int dz = -1; dz <= 1; dz++)
+                    at(x, floor, -53 + dz, dz == 0 ? walk : STONE);
+            }
+            // The western terminus meets the existing stone stair landing.
+            // The northern branch stops at the oak's root-ring, not its trunk.
+            for (int z = -67; z <= -54; z++)
+                for (int dx = -1; dx <= 1; dx++)
+                    at(-43 + dx, floor, z, dx == 0 ? walk : STONE);
+            for (int z = -57; z <= -54; z++)
+                for (int dx = -1; dx <= 1; dx++)
+                    at(-62 + dx, floor, z, dx == 0 ? walk : STONE);
+
+            // Circular ritual courtyard, embedded into the lawn rather than
+            // a large monolithic podium; alternating stone bands read overhead.
+            for (int dx = -9; dx <= 9; dx++)
+                for (int dz = -9; dz <= 9; dz++) {
+                    double r = Math.hypot(dx, dz);
+                    if (r > 8.2) continue;
+                    BlockState tile = r > 6.7 ? rim
+                        : r > 5.4 ? WHITE
+                        : ((Math.abs(dx) + Math.abs(dz)) % 5 == 0 ? rim : walk);
+                    at(-62 + dx, floor, -65 + dz, tile);
+                }
+            at(-62, floor + 1, -65, Blocks.CHISELED_STONE_BRICKS.defaultBlockState());
+            at(-62, floor + 2, -65, Blocks.SOUL_CAMPFIRE.defaultBlockState());
+            for (int[] post : new int[][]{
+                {-69,-65},{-55,-65},{-62,-72},{-62,-58},
+                {-80,-57},{-30,-63}
+            }) {
+                at(post[0], floor + 1, post[1],
+                    Blocks.MOSSY_STONE_BRICK_WALL.defaultBlockState());
+                at(post[0], floor + 2, post[1],
+                    Blocks.LANTERN.defaultBlockState());
+            }
+            // Small planted pockets. No domestic buildings in the precinct.
+            for (int x = -100; x <= -92; x += 2)
+                for (int z = -91; z <= -83; z += 2) {
+                    at(x, floor, z, Blocks.MOSS_BLOCK.defaultBlockState());
+                    at(x, floor + 1, z, ((x + z) & 2) == 0
+                        ? Blocks.BLUE_ORCHID.defaultBlockState()
+                        : Blocks.CORNFLOWER.defaultBlockState());
+                }
+            for (int x = -77; x <= -73; x += 2)
+                for (int z = -101; z <= -95; z += 2) {
+                    at(x, floor, z, Blocks.MOSS_BLOCK.defaultBlockState());
+                    at(x, floor + 1, z, Blocks.AZURE_BLUET.defaultBlockState());
+                }
+        }
+
+        void oak(int cx, int cz) {
             // Sacred oak has a compact natural root base in one reserved cell;
             // its wide canopy rises ABOVE the street level without replacing
             // any existing street or creating a 53x53 stone podium.
-            final int cx = 85, cz = -70;
             for (int dx = -10; dx <= 10; dx++)
                 for (int dz = -10; dz <= 10; dz++) {
                     double radius = Math.hypot(dx, dz);
@@ -419,6 +483,12 @@ public final class BuyanDevelopment {
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
         if (layout == null || layout.centerX() != site.x() || layout.centerZ() != site.z())
             return false;
+        // Housing architecture is explicitly deferred for the compact city.
+        // Keep legacy furnishing upgrades available for old worlds only.
+        if (layout.plots().stream().anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK"))) {
+            LogUtils.getLogger().info("Buyan: residential quarters kept as empty reserves");
+            return true;
+        }
         Plan p = new Plan(world, site, layout.centerY());
         if (record.houses.contains(id)) {
             p.retrofitTown();
@@ -455,13 +525,34 @@ public final class BuyanDevelopment {
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
         if (layout == null || layout.centerX() != site.x() || layout.centerZ() != site.z())
             return false;
+        boolean compact = layout.plots().stream()
+            .anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK"));
+        int oakX = compact ? -43 : 85, oakZ = compact ? -78 : -70;
         Plan p = new Plan(world, site, layout.centerY());
-        p.oak();
+        p.oak(oakX, oakZ);
         if (!p.safe()) return false;
         p.commit();
         record.markOak(id);
         LogUtils.getLogger().info("Buyan: sacred oak planted at {},{}",
-            site.x() + 85, site.z() - 70);
+            site.x() + oakX, site.z() + oakZ);
+        return true;
+    }
+
+    static boolean placeSacredPrecinct(ServerLevel world, BuyanState.Site site) {
+        BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
+        if (layout == null) return false;
+        if (layout.plots().stream().noneMatch(p -> p.name().equals("SANCTUARY_AND_OAK")))
+            return true;
+        Record record = Record.get(world);
+        long id = key(site);
+        if (record.precincts.contains(id)) return true;
+        if (!record.oaks.contains(id) || !BuyanShrine.hasBuilt(world, site)) return false;
+        Plan plan = new Plan(world, site, layout.centerY());
+        plan.sacredPrecinct();
+        if (!plan.safe()) return false;
+        plan.commit();
+        record.markPrecinct(id);
+        LogUtils.getLogger().info("Buyan: shared sacred precinct paths and court placed");
         return true;
     }
 
@@ -487,13 +578,19 @@ public final class BuyanDevelopment {
 
         boolean shrine = attempt("sanctuary", () -> BuyanShrine.placeOnce(world, site));
         boolean oak = attempt("sacred oak", () -> placeOak(world, site));
+        boolean precinct = attempt("sacred precinct",
+            () -> placeSacredPrecinct(world, site));
         boolean palace = attempt("terem", () -> BuyanTerem.placeOnce(world, site));
         boolean housing = attempt("housing and shops", () -> placeHouses(world, site));
         boolean harbor = attempt("harbor", () -> BuyanHarbor.placeOnce(world, site));
         boolean craft = attempt("forge and armory", () -> BuyanCraftQuarter.placeOnce(world, site));
         boolean outpost = attempt("military outpost", () -> BuyanOutpost.placeOnce(world, site));
-        return "святилище=" + shrine + ", дуб=" + oak + ", терем=" + palace
-            + ", жильё/торговля=" + housing + ", порт=" + harbor
+        boolean compact = BuyanCityPlan.savedLayout(world, site).plots().stream()
+            .anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK"));
+        return "святилище=" + shrine + ", дуб=" + oak
+            + ", культовый сектор=" + precinct + ", терем=" + palace
+            + ", жильё/торговля=" + (compact && housing ? "резерв" : housing)
+            + ", порт=" + harbor
             + ", мастерские=" + craft + ", аванпост=" + outpost;
     }
 
