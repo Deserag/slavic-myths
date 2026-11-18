@@ -364,6 +364,34 @@ public final class BuyanCityPlan {
             }
         }
 
+        void entranceGrades() {
+            for (Plot plot : layout.plots) {
+                int centerX = (plot.minX + plot.maxX) / 2;
+                int centerZ = (plot.minZ + plot.maxZ) / 2;
+                int outX = plot.facade.getStepX();
+                int outZ = plot.facade.getStepZ();
+                int frontX = outX > 0 ? plot.maxX + 1
+                    : outX < 0 ? plot.minX - 1 : centerX;
+                int frontZ = outZ > 0 ? plot.maxZ + 1
+                    : outZ < 0 ? plot.minZ - 1 : centerZ;
+                // The palace and shrine approaches have longer runs to the
+                // plaza. Residential plots need a full five-block exit.
+                int length = plot.name.equals("TEREM") ? 23
+                    : plot.name.equals("SANCTUARY_AND_OAK") ? 15 : 5;
+                for (int distance = 0; distance < length; distance++)
+                    for (int lateral = -2; lateral <= 2; lateral++) {
+                        int x = frontX + outX * distance + outZ * lateral;
+                        int z = frontZ + outZ * distance + outX * lateral;
+                        long key = new BlockPos(x, 0, z).asLong();
+                        Tile before = columns.get(key);
+                        if (before == null) continue;
+                        int y = Math.clamp(before.y, plot.level - distance,
+                            plot.level + distance);
+                        columns.put(key, new Tile(before.block, y, before.clearance));
+                    }
+            }
+        }
+
         void plaza() {
             int cx = layout.centerX, cz = layout.centerZ;
             for (int dx = -HALF; dx <= HALF; dx++)
@@ -434,6 +462,7 @@ public final class BuyanCityPlan {
         void build() {
             plots();
             roads();
+            entranceGrades();
             plaza();
             foundation();
             lamps();
