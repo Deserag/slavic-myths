@@ -242,14 +242,33 @@ public final class BuyanCityPlan {
                 }
             }
             try {
-                for(var entry:changed)
-                    if(!world.setBlock(entry.getKey(),entry.getValue(),2))
-                        throw new IllegalStateException("City street block failed: "
-                            +entry.getKey());
+                for(var entry:changed) {
+                    BlockPos point=entry.getKey();
+                    BlockState target=entry.getValue();
+                    // Replacing topsoil can automatically break plants above it.
+                    // Such AIR entries were different during snapshotting but
+                    // are already correct by the time their turn is reached.
+                    if(world.getBlockState(point).equals(target))continue;
+                    boolean applied=world.setBlock(point,target,2);
+                    if(!applied&&!world.getBlockState(point).equals(target))
+                        throw new IllegalStateException(
+                            "City street block failed at "+point
+                                +": expected "+target+", found "+world.getBlockState(point));
+                }
+                // Catch unsupported lanterns, fallen decorations or road
+                // surfaces altered by later Minecraft neighbor updates.
+                for(var entry:blocks.entrySet())
+                    if(!world.getBlockState(entry.getKey()).equals(entry.getValue()))
+                        throw new IllegalStateException(
+                            "City street changed after placement at "+entry.getKey()
+                                +": expected "+entry.getValue()
+                                +", found "+world.getBlockState(entry.getKey()));
             } catch(RuntimeException problem) {
                 for(int i=changed.size()-1;i>=0;i--) {
                     BlockPos p=changed.get(i).getKey();
-                    world.setBlock(p,originals.get(p),2);
+                    BlockState original=originals.get(p);
+                    if(!world.getBlockState(p).equals(original))
+                        world.setBlock(p,original,2);
                 }
                 throw problem;
             }
