@@ -179,7 +179,10 @@ public final class BuyanDevelopment {
             }
             at(x + 2, floor + 3, z + 2, Blocks.LANTERN.defaultBlockState());
             int start = entrance == Direction.NORTH ? front - 1 : front + 1;
-            int end = entrance == Direction.NORTH ? z - 3 : back + 3;
+            // Stop outside the existing five-block cross street instead
+            // of replacing its polished-diorite shoulder.
+            int end = entrance == Direction.NORTH
+                ? (z == 50 ? z - 2 : z - 1) : back + 3;
             for (int zz = Math.min(start, end); zz <= Math.max(start, end); zz++)
                 for (int dx = -1; dx <= 1; dx++)
                     at(doorway + dx, floor, zz,
