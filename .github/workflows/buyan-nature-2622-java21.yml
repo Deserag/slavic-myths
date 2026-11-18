@@ -47,5 +47,7 @@ jobs:
           PY
       - name: Clean NeoForge build (Java 21)
         run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
-      - name: Isolated Buyan outpost NeoForge GameTests
+      - name: Isolated Buyan outpost NeoForge GameTests (new world)
+        run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+      - name: Repeat GameTests on persisted world (regression)
         run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
