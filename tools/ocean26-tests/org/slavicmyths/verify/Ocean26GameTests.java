@@ -568,6 +568,13 @@ public final class Ocean26GameTests {
                 false, true);
     }
 
+    @GameTest(template = "empty", timeoutTicks = 120, batch = "ocean_frigate_mixed_sail_voyage")
+    public static void frigateMixedSailVoyage(GameTestHelper t) {
+        // The upgraded IV build carries four masts with independently stored
+        // sail tiers 3, 3, 1, 1 through the same detach and movement path.
+        modularClassVoyage(t, org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGEST, true);
+    }
+
 
     private static void modularClassVoyage(GameTestHelper t,
             org.slavicmyths.ships.ShipSectionPlan.ShipClass type) {
@@ -603,6 +610,8 @@ public final class Ocean26GameTests {
         if (fullyUpgraded)
             config = config.resize(3, 2).withDecks(3).withBridge(true)
                     .withCabin(true).withSail(0, 3).withSail(1, 3);
+        if (fullyUpgraded && type == org.slavicmyths.ships.ShipSectionPlan.ShipClass.LARGE)
+            config = config.withSail(2, 2);
         final var voyageConfig = config;
         ServerPlayer builder = player(level, type + "VoyageBuilder",
                 new Vec3(anchor.getX() + 18D, anchor.getY() + 8D, anchor.getZ()));
@@ -662,6 +671,14 @@ public final class Ocean26GameTests {
                     "Two missing planks must reject detach");
             level.setBlock(second, secondState, 2);
         }
+        if (largest && fullyUpgraded && !damaged) {
+            BlockPos cargo = FirstShipBlockHull.world(anchor, 0, 2, 7, 0);
+            t.assertTrue(org.slavicmyths.ships.ShipModularBlockHull.movingCargoCell(
+                            config, new BlockPos(2, 7, 0))
+                            && level.setBlock(cargo, Blocks.CHEST.defaultBlockState(), 2),
+                    "IV multiplayer cargo fixture could not be installed");
+            chest(level, cargo, t).setItem(0, new ItemStack(Items.DIAMOND, 7));
+        }
         t.assertTrue(level.addFreshEntity(ship), type + " entity did not spawn");
 
         ServerPlayer captain = player(level, type + "VoyageCaptain",
@@ -686,9 +703,26 @@ public final class Ocean26GameTests {
         t.assertTrue(wheelClick.isCanceled() && captain.getVehicle() == ship,
                 type + " physical helm interaction failed to board captain");
         double startZ = ship.getZ();
-        t.runAtTickTime(5L, () -> t.assertTrue(
-                ship.helmStep(captain, FirstShipNetwork.FORWARD),
-                type + " helm did not start motion"));
+        t.runAtTickTime(5L, () -> {
+            if (largest && org.slavicmyths.ships.ShipModularBlockHull.pack(
+                    level, anchor, 0, voyageConfig) == null) {
+                int reported = 0;
+                for (var expected : org.slavicmyths.ships.ShipModularBlockHull
+                        .localPalette(voyageConfig).entrySet()) {
+                    BlockPos where = FirstShipBlockHull.world(anchor, 0,
+                            expected.getKey().getX(), expected.getKey().getY(),
+                            expected.getKey().getZ());
+                    if (!level.getBlockState(where).equals(expected.getValue())) {
+                        System.out.println("SHIP_IV_PACK_MISMATCH local=" + expected.getKey()
+                                + " expected=" + expected.getValue()
+                                + " actual=" + level.getBlockState(where));
+                        if (++reported == 5) break;
+                    }
+                }
+            }
+            t.assertTrue(ship.helmStep(captain, FirstShipNetwork.FORWARD),
+                    type + " helm did not start motion");
+        });
         for (int tick = 6; tick <= (fullyUpgraded ? 16 : 48); tick++)
             t.runAtTickTime(tick, () -> ship.helmStep(captain, FirstShipNetwork.FORWARD));
         t.runAtTickTime(fullyUpgraded ? 19L : 51L, () -> {
@@ -699,6 +733,128 @@ public final class Ocean26GameTests {
                             + ship.isMoving() + " deltaZ=" + (ship.getZ() - startZ)
                             + " rider=" + (captain.getVehicle() == ship)
                             + " palette=" + (ship.serverMovingPalette() != null));
+            if (largeHull && !damaged) {
+                if (largest && fullyUpgraded) {
+                    BlockPos ceiling = ship.serverMovingPalette().entrySet().stream()
+                            .filter(entry -> entry.getValue().is(Blocks.SPRUCE_PLANKS)
+                                    && entry.getKey().getY() >= 9
+                                    && !ship.serverMovingPalette().containsKey(
+                                            entry.getKey().below()))
+                            .map(java.util.Map.Entry::getKey).findFirst().orElse(null);
+                    t.assertTrue(ceiling != null, "IV moving cabin ceiling fixture missing");
+                    var roofPoint = FirstShipHull.toWorld(ceiling.getX(), ceiling.getZ(),
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    ServerPlayer flyingCrew = player(level, "IVFlyingCrew", new Vec3(
+                            roofPoint.x(), ship.getY() + ceiling.getY() - 2.15D,
+                            roofPoint.z()));
+                    flyingCrew.getAbilities().flying = true;
+                    double belowRoof = flyingCrew.getY();
+                    flyingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                            new Vec3(0D, 1.3D, 0D));
+                    t.assertTrue(flyingCrew.getY() < belowRoof + 1.2D,
+                            "Creative flyer passed through IV moving cabin ceiling");
+                    flyingCrew.discard();
+                    var berth = FirstShipHull.toWorld(2D, 2D,
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    ServerPlayer crewA = player(level, "IVCargoCrewA", new Vec3(
+                            berth.x(), ship.getY() + 7D, berth.z()));
+                    ServerPlayer crewB = player(level, "IVCargoCrewB", new Vec3(
+                            berth.x() + .3D, ship.getY() + 7D, berth.z()));
+                    t.assertTrue(ship.openMovingCargo(crewA, 0)
+                                    && ship.openMovingCargo(crewB, 0)
+                                    && crewA.containerMenu != crewA.inventoryMenu
+                                    && crewB.containerMenu != crewB.inventoryMenu
+                                    && crewA.containerMenu.getSlot(0).getItem().is(Items.DIAMOND),
+                            "IV two-crew detached chest did not open");
+                    crewA.containerMenu.getSlot(0).set(new ItemStack(Items.EMERALD, 9));
+                    t.assertTrue(crewB.containerMenu.getSlot(0).getItem().is(Items.EMERALD)
+                                    && crewB.containerMenu.getSlot(0).getItem().getCount() == 9,
+                            "IV second crew did not see the shared chest edit");
+                    crewA.closeContainer(); crewB.closeContainer();
+                    crewA.discard(); crewB.discard();
+                }
+                ServerPlayer fallingCrew = player(level, type + "FallingCrew",
+                        new Vec3(ship.getX() + 2D, ship.deckY() + .65D, ship.getZ()));
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, -.85D, 0D));
+                t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
+                        type + " moving deck failed to catch falling crew: y="
+                                + fallingCrew.getY() + " deck=" + ship.deckY());
+                double deckY = fallingCrew.getY();
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, .42D, 0D));
+                t.assertTrue(fallingCrew.getY() > deckY + .35D,
+                        type + " moving deck blocked upward jump");
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(0D, -.65D, 0D));
+                t.assertTrue(fallingCrew.getY() >= ship.deckY() - .06D,
+                        type + " moving deck failed jump landing");
+                double passageX = fallingCrew.getX();
+                fallingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                        new Vec3(1.5D, 0D, 0D));
+                t.assertTrue(fallingCrew.getX() > passageX + 1.2D,
+                        type + " main deck passage blocked");
+                if (fullyUpgraded && !voyageConfig.structure().mastPositions().isEmpty()) {
+                    int mastZ = voyageConfig.structure().mastPositions().getFirst();
+                    int mastY = (int)Math.round(ship.deckY() - ship.getY());
+                    t.assertTrue(ship.serverMovingPalette().containsKey(
+                                    new BlockPos(0, mastY, mastZ)),
+                            type + " physical mast missing from moving palette");
+                    ServerPlayer mastCrew = player(level, type + "MastCrew",
+                            new Vec3(ship.getX() + 3D, ship.deckY(), ship.getZ() + mastZ));
+                    mastCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                            new Vec3(-3D, 0D, 0D));
+                    t.assertTrue(mastCrew.getX() > ship.getX() + .45D,
+                            type + " crew passed through physical mast: x="
+                                    + mastCrew.getX() + " mast=" + ship.getX());
+                    mastCrew.discard();
+                }
+                fallingCrew.discard();
+                CompoundTag savedMovingShip = new CompoundTag();
+                ship.saveWithoutId(savedMovingShip);
+                var loadedMovingBody = org.slavicmyths.ships.ShipMovingContraption.load(
+                        savedMovingShip.getCompound("FirstShipMovingBody"));
+                t.assertTrue(loadedMovingBody != null
+                                && loadedMovingBody.palette().size()
+                                == ship.serverMovingPalette().size(),
+                        type + " moving mixed-tier hull palette changed in NBT roundtrip");
+                if (largest && fullyUpgraded) {
+                    var items = net.minecraft.core.NonNullList.withSize(27, ItemStack.EMPTY);
+                    net.minecraft.world.ContainerHelper.loadAllItems(
+                            loadedMovingBody.cargoEntry(0).getCompound("BlockEntity"),
+                            items, level.registryAccess());
+                    t.assertTrue(items.get(0).is(Items.EMERALD)
+                                    && items.get(0).getCount() == 9,
+                            "IV shared chest edit was not saved with moving body");
+                }
+                BlockPos door = loadedMovingBody.palette().entrySet().stream()
+                        .filter(entry -> entry.getValue().getBlock()
+                                instanceof net.minecraft.world.level.block.DoorBlock)
+                        .map(java.util.Map.Entry::getKey).findFirst().orElse(null);
+                if (door != null) {
+                    t.assertTrue(loadedMovingBody.toggleDoor(door)
+                                    && loadedMovingBody.palette().get(door).getValue(
+                                            net.minecraft.world.level.block.DoorBlock.OPEN),
+                            type + " detached door could not open");
+                }
+                var reopened = org.slavicmyths.ships.ShipMovingContraption.load(
+                        loadedMovingBody.save());
+                t.assertTrue(reopened != null && (door == null
+                                || reopened.palette().get(door).getValue(
+                                        net.minecraft.world.level.block.DoorBlock.OPEN)),
+                        type + " detached door lost its state on save/load");
+                BlockPos editablePlank = new BlockPos(0, 1, 0);
+                t.assertTrue(reopened.removeMovingBlock(editablePlank)
+                                && !reopened.palette().containsKey(editablePlank),
+                        type + " detached hull plank could not be removed");
+                var edited = org.slavicmyths.ships.ShipMovingContraption.load(reopened.save());
+                t.assertTrue(edited != null && !edited.palette().containsKey(editablePlank),
+                        type + " detached hull edit was lost on save/load");
+                t.assertTrue(edited.placeMovingCargo(level, editablePlank,
+                                Blocks.SPRUCE_PLANKS.defaultBlockState())
+                                && edited.palette().get(editablePlank).is(Blocks.SPRUCE_PLANKS),
+                        type + " detached plank could not be repaired");
+            }
             if (damaged) {
                 BlockPos localHole = new BlockPos(0, 1, 0);
                 t.assertTrue(!ship.serverMovingPalette().containsKey(localHole),

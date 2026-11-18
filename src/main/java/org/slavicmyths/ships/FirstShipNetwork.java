@@ -58,6 +58,36 @@ public final class FirstShipNetwork {
         @Override public Type<PlaceCargo> type() { return TYPE; }
     }
 
+    public record UseMovingDoor(int shipId, int x, int y, int z)
+            implements CustomPacketPayload {
+        public static final Type<UseMovingDoor> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_use_door"));
+        public static final StreamCodec<FriendlyByteBuf, UseMovingDoor> CODEC =
+                StreamCodec.of((buffer, packet) -> {
+                    buffer.writeVarInt(packet.shipId);
+                    buffer.writeVarInt(packet.x);
+                    buffer.writeVarInt(packet.y);
+                    buffer.writeVarInt(packet.z);
+                }, buffer -> new UseMovingDoor(buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt()));
+        @Override public Type<UseMovingDoor> type() { return TYPE; }
+    }
+
+    public record BreakMovingBlock(int shipId, int x, int y, int z)
+            implements CustomPacketPayload {
+        public static final Type<BreakMovingBlock> TYPE = new Type<>(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", "first_ship_break_block"));
+        public static final StreamCodec<FriendlyByteBuf, BreakMovingBlock> CODEC =
+                StreamCodec.of((buffer, packet) -> {
+                    buffer.writeVarInt(packet.shipId);
+                    buffer.writeVarInt(packet.x);
+                    buffer.writeVarInt(packet.y);
+                    buffer.writeVarInt(packet.z);
+                }, buffer -> new BreakMovingBlock(buffer.readVarInt(), buffer.readVarInt(),
+                        buffer.readVarInt(), buffer.readVarInt()));
+        @Override public Type<BreakMovingBlock> type() { return TYPE; }
+    }
+
     /** Boat tracking does not reliably stream continuous ship pose around dismount. */
     public record MotionPose(int shipId, double x, double y, double z, float yaw,
                              double speed, double turn)
@@ -110,7 +140,26 @@ public final class FirstShipNetwork {
                             packet.hand() == 0 ? InteractionHand.MAIN_HAND
                                     : InteractionHand.OFF_HAND);
                 }));
-        registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
+        registrar.playToServer(UseMovingDoor.TYPE, UseMovingDoor.CODEC, (packet, context) ->
+                context.enqueueWork(() -> {
+                    if (!(context.player() instanceof ServerPlayer player)
+                            || !player.isAlive() || player.isSpectator()) return;
+                    if (player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship
+                            && ship.level() == player.level())
+                        ship.useMovingDoor(player,
+                                new BlockPos(packet.x(), packet.y(), packet.z()));
+                }));
+        registrar.playToServer(BreakMovingBlock.TYPE, BreakMovingBlock.CODEC,
+                (packet, context) -> context.enqueueWork(() -> {
+                    if (!(context.player() instanceof ServerPlayer player)
+                            || !player.isAlive()) return;
+                    if (player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship
+                            && ship.level() == player.level())
+                        ship.breakMovingBlock(player,
+                                new BlockPos(packet.x(), packet.y(), packet.z()));
+                }));
+        registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) ->
+                context.enqueueWork(() -> {
             if (!(context.player() instanceof ServerPlayer player)
                     || !player.isAlive() || player.isSpectator()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
@@ -120,6 +169,11 @@ public final class FirstShipNetwork {
             double reach = configuration == null ? 14D : configuration.length() / 2D + 7D;
             if (player.distanceToSqr(ship) > reach * reach) return;
             int action = packet.action();
+            if ("true".equals(System.getenv("GITHUB_ACTIONS"))
+                    && "github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT"))
+                    && action >= CARGO_BASE)
+                System.out.println("SHIP_COMMAND_SERVER action=" + action
+                        + " ship=" + ship.getId() + " player=" + player.position());
             if (action == DISMOUNT_ACK) {
                 ship.confirmDismount(player);
                 return;
@@ -129,7 +183,7 @@ public final class FirstShipNetwork {
                 ship.helmStep(player, action);
                 return;
             }
-            if (action >= CARGO_BASE && action < CARGO_BASE + 154) {
+            if (action >= CARGO_BASE && action < CARGO_BASE + 8192) {
                 ship.openMovingCargo(player, action - CARGO_BASE);
                 return;
             }
@@ -147,7 +201,7 @@ public final class FirstShipNetwork {
                 ship.packWithKey(player);
             // MODULE_* retained as historical protocol ids, but real chests
             // now use normal vanilla right-click and physical BlockEntities.
-        });
+        }));
     }
 
     private FirstShipNetwork() {}

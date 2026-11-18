@@ -1,10 +1,10 @@
 package org.slavicmyths.ships.client;
 
 import java.util.Map;
+import java.util.WeakHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,6 +14,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipHull;
@@ -29,15 +30,40 @@ import org.slavicmyths.ships.RaftContent;
  */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class FirstShipInteractionClient {
+    private record Palette(String key, Map<BlockPos, BlockState> blocks) {}
+    private static final Map<FirstShipEntity, Palette> MOVING_PALETTES = new WeakHashMap<>();
+
+    private static Map<BlockPos, BlockState> palette(FirstShipEntity ship) {
+        ShipBuildConfiguration config = ship.modularConfiguration();
+        if (config == null) return Map.of();
+        String key = config.wire() + ':' + ship.movingCargoView();
+        Palette cached = MOVING_PALETTES.get(ship);
+        if (cached != null && cached.key().equals(key)) return cached.blocks();
+        Map<BlockPos, BlockState> blocks = ShipModularBlockHull.localVisualPalette(
+                config, ShipModularBlockHull.decodeVisibleCargo(ship.movingCargoView()));
+        MOVING_PALETTES.put(ship, new Palette(key, blocks));
+        return blocks;
+    }
     @SubscribeEvent
     public static void onUse(InputEvent.InteractionKeyMappingTriggered event) {
+        boolean qaLog = "true".equals(System.getenv("GITHUB_ACTIONS"))
+                && "github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT"));
+        if (qaLog) System.out.println("SHIP_INPUT attack=" + event.isAttack()
+                + " use=" + event.isUseItem() + " hand=" + event.getHand());
+        if (event.isAttack()) {
+            breakMovingBlock(event);
+            return;
+        }
         if (!event.isUseItem() || event.getHand() != InteractionHand.MAIN_HAND) return;
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.screen != null || mc.player.isPassenger()) return;
+        if (useMovingDoor(mc, event)) return;
         boolean key = mc.player.getMainHandItem().is(RaftContent.SHIPYARD_KEY.get())
                 || mc.player.getOffhandItem().is(RaftContent.SHIPYARD_KEY.get());
-        if (!key && placeOnMovingShip(mc, event)) return;
-        if (mc.player.isShiftKeyDown() && !key) return;
+        if (mc.player.isShiftKeyDown() && !key) {
+            placeOnMovingShip(mc, event);
+            return;
+        }
 
         Vec3 eye = mc.player.getEyePosition(), direction = mc.player.getLookAngle();
         FirstShipEntity selected = null;
@@ -77,7 +103,7 @@ public final class FirstShipInteractionClient {
                 String[] cargo = ship.movingCargoView().split(";");
                 for (int i = 0; i < cargo.length; i++) {
                     String[] fields = cargo[i].split(",");
-                    if (fields.length != 4 && fields.length != 5) continue;
+                    if (fields.length < 4) continue;
                     try {
                         int x = Integer.parseInt(fields[0]);
                         int y = Integer.parseInt(fields[1]);
@@ -101,6 +127,7 @@ public final class FirstShipInteractionClient {
                     }
                 }
             }
+            if (action >= FirstShipNetwork.CARGO_BASE) break;
             // Use the same live helm geometry as the server: never infer a
             // modular captain station from the legacy 7x11 hard-coded wheel.
             double helmZ = ship.helmSeatZ(), helmY = ship.getY() + ship.helmSeatHeight();
@@ -137,10 +164,67 @@ public final class FirstShipInteractionClient {
                 }
             }
         }
-        if (selected == null) return;
+        if (selected == null) {
+            if (qaLog) System.out.println("SHIP_INPUT no-selected-ship");
+            if (!key) placeOnMovingShip(mc, event);
+            return;
+        }
+        if (qaLog) System.out.println("SHIP_INPUT command=" + action
+                + " ship=" + selected.getId() + " cargo=" + selected.movingCargoView());
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(selected.getId(), action));
         event.setSwingHand(false);
         event.setCanceled(true);
+    }
+
+    @SubscribeEvent
+    public static void onMineTick(ClientTickEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player != null && !mc.player.getAbilities().instabuild
+                && mc.options.keyAttack.isDown()) breakMovingBlock(null);
+    }
+
+    private static void breakMovingBlock(InputEvent.InteractionKeyMappingTriggered event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null || mc.level == null || mc.screen != null
+                || mc.player.isPassenger()) return;
+        Vec3 eye = mc.player.getEyePosition();
+        Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
+        for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (!ship.isMoving() || config == null) continue;
+            Map<BlockPos, BlockState> blocks = palette(ship);
+            var hit = ShipMovingCargoTarget.hit(ship, eye, end, blocks);
+            if (hit == null) continue;
+            PacketDistributor.sendToServer(new FirstShipNetwork.BreakMovingBlock(
+                    ship.getId(), hit.cell().getX(), hit.cell().getY(), hit.cell().getZ()));
+            if (event != null) {
+                event.setSwingHand(false);
+                event.setCanceled(true);
+            }
+            return;
+        }
+    }
+
+    private static boolean useMovingDoor(Minecraft mc,
+            InputEvent.InteractionKeyMappingTriggered event) {
+        Vec3 eye = mc.player.getEyePosition();
+        Vec3 end = eye.add(mc.player.getLookAngle().scale(5D));
+        for (FirstShipEntity ship : mc.level.getEntitiesOfClass(
+                FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
+            ShipBuildConfiguration config = ship.modularConfiguration();
+            if (!ship.isMoving() || config == null) continue;
+            Map<BlockPos, BlockState> blocks = palette(ship);
+            var hit = ShipMovingCargoTarget.hit(ship, eye, end, blocks);
+            if (hit == null || !(blocks.get(hit.cell()).getBlock()
+                    instanceof net.minecraft.world.level.block.DoorBlock)) continue;
+            PacketDistributor.sendToServer(new FirstShipNetwork.UseMovingDoor(
+                    ship.getId(), hit.cell().getX(), hit.cell().getY(), hit.cell().getZ()));
+            event.setSwingHand(false);
+            event.setCanceled(true);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -166,11 +250,8 @@ public final class FirstShipInteractionClient {
                 FirstShipEntity.class, mc.player.getBoundingBox().inflate(46D, 50D, 46D))) {
             ShipBuildConfiguration config = ship.modularConfiguration();
             if (ship.isRemoved() || !ship.isMoving() || config == null) continue;
-            ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
-                    ship.movingCargoView());
-            Map<BlockPos, BlockState> palette =
-                    ShipModularBlockHull.localVisualPalette(config, cargo);
-            BlockPos cell = ShipMovingCargoTarget.target(ship, eye, end, palette);
+            Map<BlockPos, BlockState> blocks = palette(ship);
+            BlockPos cell = ShipMovingCargoTarget.target(ship, eye, end, blocks);
             if (cell == null) continue;
             FirstShipHull.Point world = FirstShipHull.toWorld(
                     cell.getX(), cell.getZ(), ship.getX(), ship.getZ(), ship.shipYaw());
@@ -183,9 +264,7 @@ public final class FirstShipInteractionClient {
             }
         }
         if (nearestShip == null) return false;
-        if (selectedCell != null
-                && ShipModularBlockHull.movingCargoCell(
-                        nearestShip.modularConfiguration(), selectedCell)) {
+        if (selectedCell != null) {
             PacketDistributor.sendToServer(new FirstShipNetwork.PlaceCargo(
                     nearestShip.getId(), selectedCell.getX(), selectedCell.getY(),
                     selectedCell.getZ(), hand == InteractionHand.MAIN_HAND ? 0 : 1));

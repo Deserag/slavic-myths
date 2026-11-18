@@ -1,0 +1,94 @@
+name: Ship sails #507 - isolated actual Minecraft visual QA
+
+on:
+  pull_request:
+    branches:
+      - fix/ships-3-4-wip
+    paths:
+      - 'tools/ship-sail-visual/**'
+      - 'tools/ship-sail-visual.gradle'
+      - '.github/workflows/ship-sail-507-visual.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolated-ship-client:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install isolated framebuffer and software OpenGL
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1
+      - name: Build production JAR and independent visual QA mod
+        run: |
+          chmod +x gradlew
+          mkdir -p /tmp/ship-sail-visual
+          ./gradlew --no-daemon -I tools/ship-sail-visual.gradle clean build compileShipSailVisualJava --console=plain
+          sha256sum build/libs/*.jar | tee /tmp/ship-sail-visual/jar.sha256
+          git rev-parse HEAD | tee /tmp/ship-sail-visual/source.txt
+      - name: Actual client interactions in a separate temporary singleplayer world
+        run: |
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 12m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/client.log
+      - name: Reopen the saved world in a fresh client process
+        run: |
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 8m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailRelog=true runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/relog.log
+      - name: Two real clients on the moving ship over loopback TCP
+        run: |
+          set -euo pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 9m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailMp=host runShipSailVisual --console=plain > /tmp/ship-sail-visual/mp-host.log 2>&1 &
+          host_pid=$!
+          trap 'kill "$host_pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 180); do
+            if [ -f build/ship-sail-visual/multiplayer/listening.txt ]; then break; fi
+            if ! kill -0 "$host_pid" 2>/dev/null; then cat /tmp/ship-sail-visual/mp-host.log; exit 1; fi
+            sleep 1
+          done
+          test -f build/ship-sail-visual/multiplayer/listening.txt
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 7m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailMp=guest runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/mp-guest.log
+          wait "$host_pid"
+          cat /tmp/ship-sail-visual/mp-host.log
+      - name: Verify all 72 genuine framebuffer captures
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('build/ship-sail-visual/frames')
+          receipt=json.loads((root/'finished.json').read_text())
+          assert receipt['captured'] == 72
+          assert receipt['status']=='CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'
+          assert len(receipt['frames'])==72
+          assert len(receipt['motion_frames'])==3
+          assert receipt['chest_opened_by_client']
+          assert receipt['door_opened_by_client']
+          assert receipt['plank_broken_by_client']
+          assert receipt['chest_placed_by_client']
+          assert receipt['relog_chest_opened_by_client']
+          assert receipt['relog_door_toggled_by_client']
+          assert all((root/frame['file']).is_file()
+                     for frame in receipt['motion_frames'])
+          assert all((root/frame['file']).is_file() for frame in receipt['frames'])
+          assert all(frame['pressure_source']=='SIMULATED_PRESSURE_VISUAL_ONLY'
+                     for frame in receipt['frames'])
+          print('All 72 actual-client screenshots exist. Pressure is simulated.')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ship-sails-507-real-client-frames-${{ github.sha }}
+          path: |
+            /tmp/ship-sail-visual/
+            build/ship-sail-visual/
+            work/ship-sail-visual-isolated/logs/
+          retention-days: 14

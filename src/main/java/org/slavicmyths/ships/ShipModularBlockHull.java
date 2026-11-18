@@ -188,6 +188,12 @@ public final class ShipModularBlockHull {
                     || y < 1 || y > 48) continue;
             BlockPos local = new BlockPos(x, y, z);
             int type = row.getInt("Kind");
+            if (type == 7) {
+                BlockState door = result.get(local);
+                if (door != null && door.getBlock() instanceof DoorBlock)
+                    result.put(local, door.setValue(DoorBlock.OPEN, true));
+                continue;
+            }
             if (type == MISSING_HULL) {
                 result.remove(local);
                 continue;
@@ -641,6 +647,16 @@ public final class ShipModularBlockHull {
             return null;
         List<Cargo> old = decode(config, entries);
         if (old == null) return null;
+        for (Cargo entry : old)
+            if (entry.kind() == MISSING_HULL && entry.x() == local.getX()
+                    && entry.y() == local.getY() && entry.z() == local.getZ()) {
+                BlockState expected = localPalette(config).get(local);
+                if (expected == null || expected.getBlock() != requested.getBlock())
+                    return null;
+                List<Cargo> repaired = new ArrayList<>(old);
+                repaired.remove(entry);
+                return encode(repaired);
+            }
         Map<ShipHullVoxelLayout.Cell, ShipHullVoxelLayout.Part> plan =
                 ShipHullVoxelLayout.generate(config.structure());
         List<Map.Entry<BlockPos, BlockState>> pieces = new ArrayList<>();
@@ -675,6 +691,45 @@ public final class ShipModularBlockHull {
         }
         ListTag encoded = encode(next);
         return decode(config, encoded) == null ? null : encoded;
+    }
+
+    /** Creative editing of a detached ship uses the same validated cargo format. */
+    public static ListTag withoutMovingBlock(ShipBuildConfiguration config,
+            ListTag entries, BlockPos local) {
+        if (config == null || entries == null || local == null) return null;
+        List<Cargo> old = decode(config, entries);
+        if (old == null) return null;
+        List<Cargo> next = new ArrayList<>(old);
+        Cargo placed = null;
+        for (Cargo entry : old)
+            if (entry.x() == local.getX() && entry.y() == local.getY()
+                    && entry.z() == local.getZ() && entry.kind() != MISSING_HULL) {
+                placed = entry;
+                break;
+            }
+        if (placed != null) {
+            next.remove(placed);
+            if (placed.state().getBlock() instanceof BedBlock) {
+                Block bedBlock = placed.state().getBlock();
+                Direction facing = placed.state().getValue(BedBlock.FACING);
+                BlockPos partner = placed.state().getValue(BedBlock.PART) == BedPart.FOOT
+                        ? local.relative(facing) : local.relative(facing.getOpposite());
+                next.removeIf(entry -> entry.x() == partner.getX()
+                        && entry.y() == partner.getY() && entry.z() == partner.getZ()
+                        && entry.state().getBlock() == bedBlock);
+            }
+        } else {
+            Map<BlockPos, BlockState> fixture = localPalette(config);
+            BlockState supported = fixture.get(local.above());
+            if (!fixture.containsKey(local)
+                    || fixture.get(local).getBlock() instanceof DoorBlock
+                    || supported != null && supported.getBlock() instanceof DoorBlock
+                    || old.stream().anyMatch(entry -> entry.kind() == MISSING_HULL)) return null;
+            next.add(new Cargo(local.getX(), local.getY(), local.getZ(),
+                    MISSING_HULL, Blocks.AIR.defaultBlockState(), new CompoundTag()));
+        }
+        ListTag result = encode(next);
+        return decode(config, result) == null ? null : result;
     }
 
     /** Rotate saved cargo states when a moving hull parks on a new heading. */

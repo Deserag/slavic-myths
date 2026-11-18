@@ -16,7 +16,15 @@ import net.minecraft.world.phys.Vec3;
 public final class ShipMovingCargoTarget {
     private ShipMovingCargoTarget() {}
 
+    public record Hit(BlockPos cell, Direction face) {}
+
     public static BlockPos target(FirstShipEntity ship, Vec3 worldEye,
+            Vec3 worldEnd, Map<BlockPos, BlockState> palette) {
+        Hit hit = hit(ship, worldEye, worldEnd, palette);
+        return hit == null ? null : hit.cell().relative(hit.face());
+    }
+
+    public static Hit hit(FirstShipEntity ship, Vec3 worldEye,
             Vec3 worldEnd, Map<BlockPos, BlockState> palette) {
         if (ship == null || worldEye == null || worldEnd == null
                 || palette == null || palette.isEmpty()
@@ -34,7 +42,7 @@ public final class ShipMovingCargoTarget {
         int minZ = (int)Math.floor(Math.min(a.z, b.z) - 1D);
         int maxZ = (int)Math.ceil(Math.max(a.z, b.z) + 1D);
         double nearest = Double.POSITIVE_INFINITY;
-        BlockPos selected = null;
+        Hit selected = null;
         for (int x = minX; x <= maxX; x++)
             for (int y = minY; y <= maxY; y++)
                 for (int z = minZ; z <= maxZ; z++) {
@@ -60,7 +68,7 @@ public final class ShipMovingCargoTarget {
                     d = Math.abs(point.z - (z + .5D));
                     if (d < faceDistance) face = Direction.SOUTH;
                     nearest = distance;
-                    selected = cell.relative(face);
+                    selected = new Hit(cell, face);
                 }
         return selected;
     }
