@@ -515,8 +515,8 @@ public final class BuyanShrine {
                 ||!blocks.getOrDefault(p(-34,13,3),AIR).is(GOLD.getBlock())
                 ||!blocks.getOrDefault(p(-34,1,1),AIR).is(Blocks.STONE_BRICK_STAIRS)
                 ||!blocks.getOrDefault(p(0,-40,1),AIR).isAir()
-                ||!blocks.getOrDefault(p(-64,-40,2),AIR).is(RED.getBlock())
-                ||!blocks.getOrDefault(p(64,-40,2),AIR).is(RED.getBlock()))
+                ||!blocks.getOrDefault(p(-64,-40,2),AIR).is(WHITE.getBlock())
+                ||!blocks.getOrDefault(p(64,-40,2),AIR).is(WHITE.getBlock()))
                 return false;
             int chains=0,leaves=0;
             int minX=Integer.MAX_VALUE,maxX=Integer.MIN_VALUE;
