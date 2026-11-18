@@ -109,6 +109,7 @@ public final class ShipSailCapture {
     private static int relogAge;
     private static boolean relogChestOpened;
     private static boolean relogDoorWorked;
+    private static String placementDiagnostic = "not attempted";
     private static String chestClientDiagnostic = "not observed";
     private static volatile String chestServerDiagnostic = "not observed";
 
@@ -610,6 +611,20 @@ public final class ShipSailCapture {
         if (interactionPhase == 8) {
             if (interactionAge < 25) return;
             aimClientAt(mc, placementBase);
+            FirstShipEntity visible = mc.level.getEntity(expectedShipId)
+                    instanceof FirstShipEntity ship ? ship : null;
+            Vec3 eye = mc.player.getEyePosition();
+            BlockPos target = visible == null ? null
+                    : org.slavicmyths.ships.ShipMovingCargoTarget.target(visible,
+                            eye, eye.add(mc.player.getLookAngle().scale(5D)),
+                            org.slavicmyths.ships.ShipModularBlockHull.localVisualPalette(
+                                    blueprint(new Case(4, 3)),
+                                    org.slavicmyths.ships.ShipModularBlockHull.decodeVisibleCargo(
+                                            visible.movingCargoView())));
+            placementDiagnostic = "client target=" + target + " expected="
+                    + placementBase.above() + " item=" + mc.player.getMainHandItem()
+                    + " player=" + mc.player.position();
+            System.out.println("SHIP_PLACE_CLIENT " + placementDiagnostic);
             mc.options.keyShift.setDown(true);
             net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             interactionPhase = 9; interactionAge = 0;
@@ -626,14 +641,33 @@ public final class ShipSailCapture {
         }
         if (interactionPhase == 10) {
             if (interactionAge < 5) return;
-            if (!chestPlacedByClient)
-                throw new AssertionError("Client could not place detached IV chest");
+            if (!chestPlacedByClient) {
+                server.execute(() -> {
+                    ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
+                    Vec3 eye = player.getEyePosition();
+                    BlockPos target = org.slavicmyths.ships.ShipMovingCargoTarget.target(
+                            serverShip, eye,
+                            eye.add(player.getLookAngle().scale(5.5D)),
+                            serverShip.serverMovingPalette());
+                    System.out.println("SHIP_PLACE_SERVER target=" + target
+                            + " item=" + player.getMainHandItem()
+                            + " player=" + player.position() + " expected="
+                            + placementBase.above() + " direct="
+                            + serverShip.placeMovingCargo(player, placementBase.above(),
+                                    net.minecraft.world.InteractionHand.MAIN_HAND));
+                });
+                interactionPhase = 11; interactionAge = 0;
+                return;
+            }
             reloadingWorld = true;
             mc.disconnect(new TitleScreen());
             mc.createWorldOpenFlows().openWorld(isolatedWorldName,
                     () -> { throw new AssertionError("Isolated IV world could not reload"); });
             return;
         }
+        if (interactionPhase == 11 && interactionAge >= 5)
+            throw new AssertionError("Client could not place detached IV chest: "
+                    + placementDiagnostic);
     }
 
     private static void relogTick(Minecraft mc) throws Exception {
