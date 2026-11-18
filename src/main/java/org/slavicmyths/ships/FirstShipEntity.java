@@ -1074,7 +1074,8 @@ public final class FirstShipEntity extends Boat {
         Vec3 eye = player.getEyePosition();
         BlockPos aimed = ShipMovingCargoTarget.target(this, eye,
                 eye.add(player.getLookAngle().scale(5.5D)), movingBody.palette());
-        if (!local.equals(aimed)) return false;
+        if (!local.equals(aimed)
+                && !movingCellWithinPoseLag(player, local, aimed)) return false;
         var state = blockItem.getBlock().defaultBlockState();
         if (ShipCargoPlacementGuard.forbidden(state)) return false;
         FirstShipHull.Point direction = FirstShipHull.toLocal(
@@ -1159,6 +1160,19 @@ public final class FirstShipEntity extends Boat {
                 || eye.distanceToSqr(hit.getLocation()) + .5D >= eye.distanceToSqr(target);
     }
 
+    /** Permit a nearby palette hit while the server hull pose catches up to the client. */
+    private boolean movingCellWithinPoseLag(ServerPlayer player, BlockPos local,
+            BlockPos serverHit) {
+        if (serverHit == null || local.distSqr(serverHit) > 6D
+                || !visibleMovingCell(player, local)) return false;
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 aim = new Vec3(point.x(), getY() + local.getY() + .5D,
+                point.z()).subtract(player.getEyePosition());
+        return aim.lengthSqr() <= 36D && aim.lengthSqr() > .01D
+                && aim.normalize().dot(player.getLookAngle()) >= .70D;
+    }
+
     public boolean openMovingCargo(ServerPlayer player, int index) {
         if (!isMoving() || movingBody == null || player.isPassenger()
                 || player.containerMenu != player.inventoryMenu) return false;
@@ -1202,7 +1216,8 @@ public final class FirstShipEntity extends Boat {
         Vec3 eye = player.getEyePosition();
         var hit = ShipMovingCargoTarget.hit(this, eye,
                 eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
-        if (hit == null || !local.equals(hit.cell())
+        if (hit == null || (!local.equals(hit.cell())
+                && !movingCellWithinPoseLag(player, local, hit.cell()))
                 || !visibleMovingCell(player, local)
                 || !movingBody.toggleDoor(local)) return false;
         syncMovingCargo();
@@ -1216,7 +1231,8 @@ public final class FirstShipEntity extends Boat {
         Vec3 eye = player.getEyePosition();
         var hit = ShipMovingCargoTarget.hit(this, eye,
                 eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
-        if (hit == null || !local.equals(hit.cell())
+        if (hit == null || (!local.equals(hit.cell())
+                && !movingCellWithinPoseLag(player, local, hit.cell()))
                 || !visibleMovingCell(player, local)) return false;
         var state = movingBody.palette().get(local);
         if (state == null || state.isAir()) return false;
