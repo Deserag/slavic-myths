@@ -332,10 +332,6 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         fabricVertex(out, pose, light, b, red, green, blue, 0F, 1F, normal, 1F);
         fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, 1F);
         fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, 1F);
-        fabricVertex(out, pose, light, c, red, green, blue, 1F, 1F, normal, -1F);
-        fabricVertex(out, pose, light, b, red, green, blue, 0F, 1F, normal, -1F);
-        fabricVertex(out, pose, light, a, red, green, blue, 0F, 0F, normal, -1F);
-        fabricVertex(out, pose, light, a, red, green, blue, 0F, 0F, normal, -1F);
     }
 
     private void renderQuad(VertexConsumer out, PoseStack pose, int light,
@@ -348,10 +344,6 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         fabricVertex(out, pose, light, b, red, green, blue, u1, v0, normal, 1F);
         fabricVertex(out, pose, light, c, red, green, blue, u1, v1, normal, 1F);
         fabricVertex(out, pose, light, d, red, green, blue, u0, v1, normal, 1F);
-        fabricVertex(out, pose, light, d, red, green, blue, u0, v1, normal, -1F);
-        fabricVertex(out, pose, light, c, red, green, blue, u1, v1, normal, -1F);
-        fabricVertex(out, pose, light, b, red, green, blue, u1, v0, normal, -1F);
-        fabricVertex(out, pose, light, a, red, green, blue, u0, v0, normal, -1F);
     }
 
     private static float[] surfaceNormal(ShipSailRigGeometry.Point a,
