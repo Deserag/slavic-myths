@@ -1,0 +1,60 @@
+name: Buyan 2.6.2.2 nature - Java 21 verification
+
+on:
+  push:
+    branches:
+      - feature/buyan-2.6.2.2-nature
+    paths:
+      - "src/main/java/org/slavicmyths/buyan/**"
+      - "tools/buyan-outpost-tests/**"
+      - "build.gradle"
+      - "src/main/resources/data/slavicmyths/worldgen/flat_level_generator_preset/**"
+      - "src/main/resources/data/minecraft/tags/worldgen/flat_level_generator_preset/**"
+      - "src/main/resources/assets/slavicmyths/lang/ru_ru.json"
+      - ".github/workflows/buyan-nature-2622-java21.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  buyan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Validate isolated shallow ocean preset
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('src/main/resources/data/slavicmyths/worldgen/flat_level_generator_preset/buyan_shallow_ocean.json')
+          d = json.loads(p.read_text('utf-8'))
+          settings = d['settings']
+          assert settings['biome'] == 'minecraft:deep_ocean'
+          assert settings['features'] is False
+          assert settings['structure_overrides'] == []
+          assert sum(layer['height'] for layer in settings['layers']) == 128
+          assert settings['layers'][-1] == {'block': 'minecraft:water', 'height': 4}
+          print('Shallow ocean: Y=60..63, 4 water layers, ocean biome')
+          PY
+      - name: Clean NeoForge build (Java 21)
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Isolated Buyan outpost NeoForge GameTests (new world)
+        run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+      - name: Repeat GameTests on persisted world (regression)
+        run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+      - name: Publish tested Minecraft mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: slavicmyths-buyan-tested-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
