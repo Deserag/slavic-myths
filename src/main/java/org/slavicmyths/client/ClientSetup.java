@@ -34,6 +34,7 @@ public final class ClientSetup {
         bus.addListener(NetherTrophyKeys.Registration::register);
 
         bus.addListener(PosadBossRenderer::register);
+        bus.addListener(PharaohkaRenderer::register);
 
         bus.addListener(org.slavicmyths.losthalls.client.HallsClient::register);
 
