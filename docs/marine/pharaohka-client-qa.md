@@ -1,11 +1,11 @@
 # Фараонки — клиентская проверка (Slavic Myths 2.5.x)
 
-**Рабочая ветка:** \`фараонка\` (потомок \`морские-чудища\`, база \`release-2.5\`).
+**Рабочая ветка:** `фараонка` (потомок `морские-чудища`, база `release-2.5`).
 
 ## Что автоматически проверено
 
-- \`./gradlew clean build\` — Java 21, NeoForge 1.21.1
-- \`./gradlew -PpharaohkaCheck runPharaohkaTests\` — 9 серверных тестов
+- `./gradlew clean build` — Java 21, NeoForge 1.21.1
+- `./gradlew -PpharaohkaCheck runPharaohkaTests` — 9 серверных тестов
 - Регистрация двух существ и яиц, 550/32 HP, 50%-й детерминированный шанс встречи у ванильного кораблекрушения
 - Бой под водой: движущийся удар, плавательный рывок с подготовкой, удар щитом, водяной импульс, призыв
 - Ограничение помощниц и исчезновение после гибели командира, сухопутная гибель и поверхностная вода
@@ -15,11 +15,11 @@
 
 ## Запуск для клиента
 
-1. Переключиться на ветку \`фараонка\` (не сливать в \`release-2.5\` до визуального одобрения).
-2. Запустить \`gradlew.bat runClient\` (Windows) или \`./gradlew runClient\` (Linux).
+1. Переключиться на ветку `фараонка` (не сливать в `release-2.5` до визуального одобрения).
+2. Запустить `gradlew.bat runClient` (Windows) или `./gradlew runClient` (Linux).
 3. В творческом режиме получить два яйца в группе «Яйца призыва» либо командами:
-   - \`/give @p slavicmyths:pharaohka_spawn_egg\`
-   - \`/give @p slavicmyths:pharaohka_leader_spawn_egg\`
+   - `/give @p slavicmyths:pharaohka_spawn_egg`
+   - `/give @p slavicmyths:pharaohka_leader_spawn_egg`
 4. Создать глубокий бассейн с открытой поверхностью и отдельно испытать мобов рядом с ванильным затонувшим кораблём.
 
 ## Визуальные критерии принятия
@@ -47,10 +47,10 @@
 
 ### Команды быстрого просмотра
 
-\`\`\`mcfunction
+```mcfunction
 /give @p slavicmyths:pharaohka_spawn_egg
 /give @p slavicmyths:pharaohka_leader_spawn_egg
 /summon slavicmyths:pharaohka_leader ~ ~ ~
-\`\`\`
+```
 
 Все фотографии и видеоклипы сравнивать с утверждённой технической моделью фараонок V3, а не с нарисованными концепт-артами.
