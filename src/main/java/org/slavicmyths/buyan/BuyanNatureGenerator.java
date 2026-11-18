@@ -481,8 +481,21 @@ public final class BuyanNatureGenerator {
                         return;
                     }
                     state.finish();
-                    boolean harborPlaced=BuyanHarbor.placeOnce(world,
-                        new BuyanState.Site(state.centerX,state.centerZ,state.radius,state.waterLevel));
+                    BuyanState.Site completedSite = new BuyanState.Site(
+                        state.centerX, state.centerZ, state.radius, state.waterLevel);
+                    boolean cityPlaced;
+                    try {
+                        cityPlaced = BuyanCityPlan.placeOnce(world, completedSite);
+                    } catch (RuntimeException cityFailure) {
+                        cityPlaced = false;
+                        LogUtils.getLogger().error("Buyan city masterplan failed safely", cityFailure);
+                    }
+                    if (!cityPlaced)
+                        world.getServer().getPlayerList().broadcastSystemMessage(
+                            Component.literal("[Буян] Городская площадь не построена: "
+                                + "местность или существующие структуры не прошли проверку."),
+                            false);
+                    boolean harborPlaced=BuyanHarbor.placeOnce(world, completedSite);
                     if(!harborPlaced)world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Портовые здания не размещены: проверьте участок через /slavicmyths dev buyan harbor."),false);
                     if(harborPlaced && !BuyanOutpost.placeOnce(world,
