@@ -24,6 +24,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
     private final ModelPart skin,head,hair,hair2,armor,trim,cloth,eye,pupil;
     private final ModelPart armL,guardL,armR,guardR,spear,shield,shieldTrim,crown;
     private final ModelPart tailA,tailB,tailC,fin;
+    private ModelPart coralCrown;
 
     private ModelPart create(int color,float x,float y,float z) {
         // Large parts (shield and trident) must not sample outside the white source texture.
@@ -146,6 +147,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             box(crown,-4.8F,-17,-4.1F,9.6F,1.8F,8.2F);
             box(crown,-2.2F,-20,-4.5F,4.4F,4,1.3F);
             ModelPart coral=create(CORAL,0,-9,0);
+            coralCrown=coral;
             for(int s:new int[]{-1,1})for(int i=0;i<3;i++)
                 box(coral,s*(2.2F+i*1.35F)-.55F,-20-i*.8F,-2.2F,1.1F,3.8F+i*.8F,1.2F);
             // The large shield is articulated with the right forearm.
@@ -170,12 +172,29 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         float w=Mth.sin(age*.16F),speed=Mth.clamp((float)entity.getDeltaMovement().length()*5,0,1);
         head.yRot=yaw*.012F;
         head.xRot=pitch*.009F;
-        hair.yRot=head.yRot*.5F;
-        hair2.yRot=head.yRot*.5F;
-        tailA.yRot=w*.12F;
-        tailB.yRot=Mth.sin(age*.16F-.7F)*(.14F+speed*.13F);
-        tailC.yRot=Mth.sin(age*.16F-1.4F)*(.19F+speed*.21F);
-        fin.yRot=Mth.sin(age*.16F-2.1F)*(.24F+speed*.28F);
+        // Facial details and tiara share the same pivot as the head.
+        // Back braids trail slightly behind the head during steering.
+        eye.yRot=pupil.yRot=crown.yRot=head.yRot;
+        eye.xRot=pupil.xRot=crown.xRot=head.xRot;
+        if (coralCrown!=null) {
+            coralCrown.yRot=head.yRot;
+            coralCrown.xRot=head.xRot;
+        }
+        hair.yRot=head.yRot*.78F+Mth.sin(age*.055F)*.025F;
+        hair2.yRot=head.yRot*.9F+Mth.sin(age*.063F-.6F)*.03F;
+        hair.xRot=head.xRot*.5F+Mth.sin(age*.075F)*.025F;
+        hair2.xRot=head.xRot*.65F+Mth.sin(age*.07F-.5F)*.03F;
+
+        // The four unparented colored tail sections follow a single curved centerline.
+        // Overlap at every hinge prevents visible openings when swimming fast.
+        float phase=age*.16F;
+        tailA.yRot=Mth.sin(phase)*(.09F+speed*.05F);
+        tailB.yRot=tailA.yRot+Mth.sin(phase-.7F)*(.12F+speed*.13F);
+        tailC.yRot=tailB.yRot+Mth.sin(phase-1.4F)*(.13F+speed*.16F);
+        fin.yRot=tailC.yRot+Mth.sin(phase-2.1F)*(.12F+speed*.15F);
+        tailB.x=7F*Mth.sin(tailA.yRot)*.42F;
+        tailC.x=tailB.x+7F*Mth.sin(tailB.yRot)*.34F;
+        fin.x=tailC.x+4F*Mth.sin(tailC.yRot)*.28F;
         armL.xRot=guardL.xRot=spear.xRot=-.12F+w*.1F;
         armR.xRot=guardR.xRot=shield.xRot=shieldTrim.xRot=.1F-w*.1F;
         switch(entity.action()) {
@@ -184,10 +203,11 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
                 armL.xRot=guardL.xRot=spear.xRot=-1.2F*t;
             }
             case PharaohkaEntity.DASH -> {
-                armor.xRot=-.22F;
+                // The whole torso inclines together so the armor never peels from the skin.
+                armor.xRot=skin.xRot=trim.xRot=cloth.xRot=-.22F;
                 armL.xRot=guardL.xRot=spear.xRot=-1.5F;
                 armR.xRot=guardR.xRot=shield.xRot=shieldTrim.xRot=-.35F;
-                tailB.yRot*=1.6F;tailC.yRot*=1.7F;fin.yRot*=1.8F;
+                tailB.yRot*=1.18F;tailC.yRot*=1.22F;fin.yRot*=1.28F;
             }
             case PharaohkaEntity.SUMMON -> {
                 armL.xRot=guardL.xRot=spear.xRot=-1.9F;
