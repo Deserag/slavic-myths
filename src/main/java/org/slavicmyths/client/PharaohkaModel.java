@@ -199,6 +199,13 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             case PharaohkaEntity.BLOCK -> {
                 armR.xRot=guardR.xRot=shield.xRot=shieldTrim.xRot=-1.2F;
             }
+            case PharaohkaEntity.BASH -> {
+                float t=Math.min(1.0F,entity.actionTicks()/9.0F);
+                float reach=Mth.sin(t*3.1415927F*.8F);
+                armR.xRot=guardR.xRot=shield.xRot=shieldTrim.xRot=-.4F-.9F*reach;
+                armR.zRot=guardR.zRot=shield.zRot=shieldTrim.zRot=-.25F*reach;
+                tailB.yRot*=1.35F;fin.yRot*=1.2F;
+            }
             default -> { }
         }
     }
