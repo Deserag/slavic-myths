@@ -105,14 +105,17 @@ public final class BuyanCityPlan {
             if(ground==Integer.MIN_VALUE)return Integer.MIN_VALUE;
             // The wide plaza boundary follows the local natural surface.
             boolean avenue=Math.abs(x)<=5&&(z>=-35||z<=-73);
-            return avenue?Math.min(ground+3,
-                Math.max(ground+1,grade.getOrDefault(z,ground+1)))
-                :ground+1;
+            // Paving REPLACES the surface; placing everything at top+1
+            // produced a raised one-block strip along the entire island.
+            // Keep earthwork strictly local (no more than two fill layers).
+            return avenue?Math.min(ground+2,
+                Math.max(ground,grade.getOrDefault(z,ground+1)-1))
+                :ground;
         }
         void pave(int x,int z,BlockState tile) {
             int natural=natural(x,z),height=plannedHeight(x,z);
             if(natural==Integer.MIN_VALUE||natural<=site.waterLevel()+4
-                ||height-natural-1>4)
+                ||height-natural>2)
                 throw new IllegalStateException("City street requires unsafe earthwork at "
                     +x+","+z);
             for(int y=natural+1;y<height;y++)at(x,y,z,FOUNDATION);
