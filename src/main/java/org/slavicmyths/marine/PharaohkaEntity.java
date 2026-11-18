@@ -151,7 +151,11 @@ public final class PharaohkaEntity extends Monster {
             target=null;
         }
         if (strikeTicks>0) {
-            getNavigation().stop();
+            // Spear and claw sweeps are executed while gliding toward the target.
+            if (target!=null && isTargetInWater(target)) {
+                getMoveControl().setWantedPosition(target.getX(),
+                    target.getY()+target.getBbHeight()*.45,target.getZ(),leader()?.85:.7);
+            }
             --strikeTicks;
             if (strikeTicks==5 && target!=null && hasLineOfSight(target)
                 && distanceToSqr(target)<(leader()?9.0:5.5))
@@ -211,8 +215,7 @@ public final class PharaohkaEntity extends Monster {
         if (distance < (leader()?8.5:5.0) && meleeCooldown==0) {
             animate(STRIKE);
             meleeCooldown=leader()?27:36;
-            strikeTicks=12; // Impact occurs midway through the animated spear/arm sweep.
-            getNavigation().stop();
+            strikeTicks=12; // Impact occurs midway through the moving spear/arm sweep.
         } else if ((action()==SUMMON || action()==BLOCK) && actionTicks()>20) animate(IDLE);
     }
 
