@@ -169,6 +169,11 @@ public final class FirstShipNetwork {
             double reach = configuration == null ? 14D : configuration.length() / 2D + 7D;
             if (player.distanceToSqr(ship) > reach * reach) return;
             int action = packet.action();
+            if ("true".equals(System.getenv("GITHUB_ACTIONS"))
+                    && "github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT"))
+                    && action >= CARGO_BASE)
+                System.out.println("SHIP_COMMAND_SERVER action=" + action
+                        + " ship=" + ship.getId() + " player=" + player.position());
             if (action == DISMOUNT_ACK) {
                 ship.confirmDismount(player);
                 return;

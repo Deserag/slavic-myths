@@ -46,6 +46,10 @@ public final class FirstShipInteractionClient {
     }
     @SubscribeEvent
     public static void onUse(InputEvent.InteractionKeyMappingTriggered event) {
+        boolean qaLog = "true".equals(System.getenv("GITHUB_ACTIONS"))
+                && "github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT"));
+        if (qaLog) System.out.println("SHIP_INPUT attack=" + event.isAttack()
+                + " use=" + event.isUseItem() + " hand=" + event.getHand());
         if (event.isAttack()) {
             breakMovingBlock(event);
             return;
@@ -160,9 +164,12 @@ public final class FirstShipInteractionClient {
             }
         }
         if (selected == null) {
+            if (qaLog) System.out.println("SHIP_INPUT no-selected-ship");
             if (!key) placeOnMovingShip(mc, event);
             return;
         }
+        if (qaLog) System.out.println("SHIP_INPUT command=" + action
+                + " ship=" + selected.getId() + " cargo=" + selected.movingCargoView());
         PacketDistributor.sendToServer(new FirstShipNetwork.Command(selected.getId(), action));
         event.setSwingHand(false);
         event.setCanceled(true);
