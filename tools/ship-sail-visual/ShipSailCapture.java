@@ -106,6 +106,7 @@ public final class ShipSailCapture {
     private static boolean chestPlacedByClient;
     private static String isolatedWorldName;
     private static boolean reloadingWorld;
+    private static boolean relogOpenRequested;
     private static int relogAge;
     private static boolean relogChestOpened;
     private static boolean relogDoorWorked;
@@ -661,8 +662,6 @@ public final class ShipSailCapture {
             }
             reloadingWorld = true;
             mc.disconnect(new TitleScreen());
-            mc.createWorldOpenFlows().openWorld(isolatedWorldName,
-                    () -> { throw new AssertionError("Isolated IV world could not reload"); });
             return;
         }
         if (interactionPhase == 11 && interactionAge >= 5)
@@ -726,6 +725,14 @@ public final class ShipSailCapture {
             throw new IllegalStateException(
                     "Only an isolated GitHub-hosted runner may run the visual test");
         Minecraft mc = Minecraft.getInstance();
+        if (reloadingWorld && !relogOpenRequested && mc.level == null
+                && mc.getSingleplayerServer() == null
+                && mc.screen instanceof TitleScreen) {
+            relogOpenRequested = true;
+            mc.createWorldOpenFlows().openWorld(isolatedWorldName,
+                    () -> { throw new AssertionError("Isolated IV world could not reload"); });
+            return;
+        }
         if (mc.screen != null && mc.screen.getClass().getSimpleName()
                 .equals("AccessibilityOnboardingScreen")) {
             mc.setScreen(new TitleScreen());
