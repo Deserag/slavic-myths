@@ -271,7 +271,7 @@ public final class BuyanCityPlan {
         // The approved palace's real volume is 67x41; the lot reserves
         // its towers, front stairs, approach and surrounding clearance.
         lots.add(plot(site, seed, "TEREM", cx - 40, cx + 40,
-            cz + 43, cz + 103, Direction.NORTH));
+            cz + 43, cz + 103, Direction.SOUTH));
         // 129x81 is the sanctuary's enclosed complex. Reserve exterior
         // clearance for the crown, roots, chains and ritual court as well.
         lots.add(plot(site, seed, "SANCTUARY_AND_OAK", cx + side * 35,
