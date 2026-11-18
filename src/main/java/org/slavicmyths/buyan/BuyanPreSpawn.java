@@ -71,7 +71,7 @@ public final class BuyanPreSpawn {
             try {
                 constructOrResume(world);
                 state.finished();
-                world.setDefaultSpawnPos(BuyanTerem.spawn(world,
+                world.setDefaultSpawnPos(BuyanCityPlan.spawn(world,
                     new BuyanState.Site(0,0,R,63)),0.0F);
             } catch(RuntimeException exception) {
                 LogUtils.getLogger().error(
@@ -83,7 +83,7 @@ public final class BuyanPreSpawn {
         try{
             constructOrResume(world);
             state.finished();
-            world.setDefaultSpawnPos(BuyanTerem.spawn(world,new BuyanState.Site(0,0,R,63)),0.0F);
+            world.setDefaultSpawnPos(BuyanCityPlan.spawn(world,new BuyanState.Site(0,0,R,63)),0.0F);
             LogUtils.getLogger().info("Slavic Oceans ready before player spawn; elapsed {} ms",
                 (System.nanoTime()-begin)/1_000_000L);
         }catch(RuntimeException exception){
@@ -91,7 +91,7 @@ public final class BuyanPreSpawn {
             // cannot be safely placed. Ready remains false so recovery can
             // retry on the next world opening without rebuilding the terrain.
             LogUtils.getLogger().error(
-                "Slavic Oceans city is incomplete; placement was stopped safely. "
+                "Slavic Oceans masterplan is incomplete; placement was stopped safely. "
                     + "This save is NOT a completed Buyan.",exception);
             int ground=BuyanNature.top(world.getSeed(),0,0,R,0,-40,63);
             if(ground!=Integer.MIN_VALUE)
@@ -113,18 +113,11 @@ public final class BuyanPreSpawn {
             if(!nature.finishedAt(site))
                 throw new IllegalStateException(
                     "Buyan foundation exists without completed nature; cannot regenerate it");
-            if(!BuyanTerem.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: central palace incomplete");
-            if(!BuyanHarbor.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: harbor incomplete");
-            if(!BuyanOutpost.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: hill outpost incomplete");
-            if(!BuyanShrine.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: sanctuary incomplete");
-            if(!BuyanCraftQuarter.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: craft quarter incomplete");
-            if(!BuyanCityPlan.placeOnce(world,site))
-                throw new IllegalStateException("Buyan resume: central roads incomplete");
+            // Old saves are not reworked automatically. Only an already saved
+            // masterplan may be acknowledged after an interrupted startup.
+            if(!BuyanCityPlan.hasBuilt(world,site))
+                throw new IllegalStateException(
+                    "Legacy Buyan detected; automatic city retrofitting is disabled");
             return;
         }
         if(!terrain.completedSites().isEmpty()||terrain.active||nature.active
@@ -224,22 +217,17 @@ public final class BuyanPreSpawn {
         nature.nextPhase();
         nature.finish();
 
-        // A completed central palace is the prerequisite for all outer
-        // districts. Existing preflights protect its walls and roads.
-        if(!BuyanTerem.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain is ready but central terem placement failed");
-        if(!BuyanHarbor.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain and terem are ready but harbor placement failed");
-        if(!BuyanOutpost.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain, terem and harbor are ready but hill outpost placement failed");
-        // Reserve the complete sanctuary and sacred oak before secondary
-        // districts search the remaining land around the city.
-        if(!BuyanShrine.placeOnce(world,site))
-            throw new IllegalStateException("Buyan sanctuary failed safe placement");
-        if(!BuyanCraftQuarter.placeOnce(world,site))
-            throw new IllegalStateException("Buyan craft quarter failed peripheral placement");
+        // The city foundation is completed BEFORE any secondary districts.
+        // Approved palace, sanctuary and oak generators remain untouched,
+        // but are deliberately not called during this preparation stage.
         if(!BuyanCityPlan.placeOnce(world,site))
-            throw new IllegalStateException("Buyan central boulevard/plaza safe placement failed");
+            throw new IllegalStateException("White City masterplan could not be placed safely");
+        if(!BuyanHarbor.placeOnce(world,site))
+            LogUtils.getLogger().warn("Buyan harbor requires a separate safe placement");
+        if(!BuyanOutpost.placeOnce(world,site))
+            LogUtils.getLogger().warn("Buyan outpost requires a separate safe placement");
+        if(!BuyanCraftQuarter.placeOnce(world,site))
+            LogUtils.getLogger().warn("Buyan craft quarter requires a separate safe placement");
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
