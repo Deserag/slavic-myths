@@ -158,7 +158,7 @@ public final class BuyanCityPlan {
         boolean geometryCheck() {
             if(!blocks.getOrDefault(pos(0,level(-25),-25),AIR).is(Blocks.BLUE_TERRACOTTA)
                 ||!blocks.getOrDefault(pos(0,level(-85),-85),AIR).is(Blocks.BLUE_TERRACOTTA)
-                ||!blocks.getOrDefault(pos(20,level(-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
+                ||!blocks.getOrDefault(pos(19,level(-54),-54),AIR).is(Blocks.SMOOTH_QUARTZ))
                 return false;
             for(BlockPos p:blocks.keySet()) {
                 int x=p.getX()-site.x(),z=p.getZ()-site.z();
