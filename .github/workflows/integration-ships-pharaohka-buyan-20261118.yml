@@ -90,3 +90,44 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Run island housing, port, shrine and flora tests
         run: chmod +x gradlew && ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+
+  integration-report:
+    name: Record combined CI result
+    if: ${{ always() }}
+    needs: [clean-build, ocean-gametests, pharaohka-gametests, buyan-gametests]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      CLEAN_BUILD: ${{ needs.clean-build.result }}
+      OCEAN_TESTS: ${{ needs.ocean-gametests.result }}
+      PHARAOHKA_TESTS: ${{ needs.pharaohka-gametests.result }}
+      BUYAN_TESTS: ${{ needs.buyan-gametests.result }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Commit status report into integration branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin integration/release-ships-pharaohka-buyan-20261118
+          git checkout -B integration-status origin/integration/release-ships-pharaohka-buyan-20261118
+          mkdir -p docs/integration
+          {
+            echo '# Integration verification'
+            echo
+            echo "- Workflow run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo "- Tested commit: \`${GITHUB_SHA}\`"
+            echo "- Java 21 clean build and ship geometry: **${CLEAN_BUILD}**"
+            echo "- Ship GameTests: **${OCEAN_TESTS}**"
+            echo "- Pharaohka GameTests: **${PHARAOHKA_TESTS}**"
+            echo "- Buyan GameTests: **${BUYAN_TESTS}**"
+          } > docs/integration/VERIFICATION-20261118.md
+          git add docs/integration/VERIFICATION-20261118.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record integrated Java 21 CI verification results'
+            git push origin HEAD:refs/heads/integration/release-ships-pharaohka-buyan-20261118
+          fi
