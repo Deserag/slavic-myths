@@ -78,8 +78,8 @@ public final class BuyanPreSpawn {
                     &&BuyanTerem.placeOnce(world,site)
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
-                    &&BuyanCraftQuarter.placeOnce(world,site)
                     &&BuyanShrine.placeOnce(world,site)
+                    &&BuyanCraftQuarter.placeOnce(world,site)
                     &&BuyanCityPlan.placeOnce(world,site)){
                     state.finished();
                     world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
@@ -207,10 +207,12 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain and terem are ready but harbor placement failed");
         if(!BuyanOutpost.placeOnce(world,site))
             throw new IllegalStateException("Buyan terrain, terem and harbor are ready but hill outpost placement failed");
-        if(!BuyanCraftQuarter.placeOnce(world,site))
-            throw new IllegalStateException("Buyan terrain and central terem are ready but craft forge placement failed");
+        // Reserve the complete sanctuary and sacred oak before secondary
+        // districts search the remaining land around the city.
         if(!BuyanShrine.placeOnce(world,site))
             throw new IllegalStateException("Buyan sanctuary failed safe placement");
+        if(!BuyanCraftQuarter.placeOnce(world,site))
+            throw new IllegalStateException("Buyan craft quarter failed peripheral placement");
         if(!BuyanCityPlan.placeOnce(world,site))
             throw new IllegalStateException("Buyan central boulevard/plaza safe placement failed");
     }

@@ -625,6 +625,10 @@ public final class BuyanShrine {
             anchor.getZ()-40*Integer.signum(dz));
     }
 
+    static boolean hasBuilt(ServerLevel world,BuyanState.Site site) {
+        return Record.get(world).built.containsKey(key(site));
+    }
+
     /** Existing saves are not silently rebuilt. Explicit operator command is safe. */
     static boolean placeOnce(ServerLevel world,BuyanState.Site site) {
         if(world.dimension()!=Level.OVERWORLD
