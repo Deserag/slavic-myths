@@ -1,4 +1,8 @@
 {
+  "entity.slavicmyths.pharaohka": "Pharaohka",
+  "entity.slavicmyths.pharaohka_leader": "Pharaohka Matriarch",
+  "item.slavicmyths.pharaohka_spawn_egg": "Pharaohka Spawn Egg",
+  "item.slavicmyths.pharaohka_leader_spawn_egg": "Pharaohka Matriarch Spawn Egg",
   "itemGroup.slavicmyths": "Slavic Myths",
   "item.slavicmyths.birch_bark_scroll": "Birch Bark Scroll",
   "item.slavicmyths.thunder_stone": "Thunder Stone",
