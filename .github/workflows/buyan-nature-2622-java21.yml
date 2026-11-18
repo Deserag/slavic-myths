@@ -51,3 +51,10 @@ jobs:
         run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
       - name: Repeat GameTests on persisted world (regression)
         run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+      - name: Publish tested Minecraft mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: slavicmyths-buyan-tested-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
