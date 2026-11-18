@@ -18,6 +18,41 @@ public final class BuyanFullCityGameTests {
         if (!ok) throw new IllegalStateException("White City stage one: " + message);
     }
 
+    private static boolean road(BlockState state) {
+        return state.is(Blocks.SMOOTH_QUARTZ)
+            || state.is(Blocks.POLISHED_DIORITE)
+            || state.is(Blocks.BLUE_TERRACOTTA);
+    }
+
+    private static void checkEntrance(GameTestHelper helper, BuyanCityPlan.Plot plot) {
+        int centerX = (plot.minX() + plot.maxX()) / 2;
+        int centerZ = (plot.minZ() + plot.maxZ()) / 2;
+        int success = 0;
+        for (int offset = -2; offset <= 2; offset++) {
+            int x = switch (plot.facade()) {
+                case EAST -> plot.maxX() + 1;
+                case WEST -> plot.minX() - 1;
+                default -> centerX + offset;
+            };
+            int z = switch (plot.facade()) {
+                case SOUTH -> plot.maxZ() + 1;
+                case NORTH -> plot.minZ() - 1;
+                default -> centerZ + offset;
+            };
+            int bestDelta = Integer.MAX_VALUE;
+            for (int y = plot.level() - 25; y <= plot.level() + 25; y++) {
+                BlockPos at = new BlockPos(x, y, z);
+                if (road(helper.getLevel().getBlockState(at))
+                    && helper.getLevel().getBlockState(at.above()).isAir()) {
+                    bestDelta = Math.min(bestDelta, Math.abs(y - plot.level()));
+                }
+            }
+            if (bestDelta <= 1) success++;
+        }
+        require(success >= 3, "plot " + plot.name()
+            + " has no 3-block traversable entry onto its reserved road");
+    }
+
     @GameTest(template = "empty", timeoutTicks = 3000)
     public static void fullBuyanCityBuildsInSingleWorld(GameTestHelper helper) {
         BuyanPreSpawn.constructOrResume(helper.getLevel());
@@ -32,6 +67,12 @@ public final class BuyanFullCityGameTests {
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(helper.getLevel(), island);
         require(layout != null, "persisted layout missing");
         require(layout.plots().size() == 6, "expected six reserved plots");
+        for (BuyanCityPlan.Plot lot : layout.plots()) {
+            if ("TEREM".equals(lot.name()))
+                require(lot.facade() == net.minecraft.core.Direction.SOUTH,
+                    "terem facade does not face the plaza");
+            checkEntrance(helper, lot);
+        }
         long small = layout.plots().stream()
             .filter(p -> p.width() == 25 && p.depth() == 25).count();
         long large = layout.plots().stream()
