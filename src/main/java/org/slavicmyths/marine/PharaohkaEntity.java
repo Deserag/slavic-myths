@@ -1,6 +1,7 @@
 package org.slavicmyths.marine;
 
 import java.util.List;
+import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -48,6 +49,8 @@ public final class PharaohkaEntity extends Monster {
     private int dryTicks, meleeCooldown, dashCooldown=90, summonCooldown=220, currentCooldown=145, shieldCooldown=125;
     private int dashTicks, currentTicks, aiWander, strikeTicks, shieldTicks;
     private boolean dashHit;
+    private UUID summoner;
+    private int minionLife;
 
     public PharaohkaEntity(EntityType<? extends PharaohkaEntity> type, Level level) {
         super(type, level);
@@ -123,6 +126,14 @@ public final class PharaohkaEntity extends Monster {
             return;
         }
         dryTicks=0;
+        if (summoner!=null) {
+            if (--minionLife<=0) { discard(); return; }
+            if (tickCount%40==0 && level() instanceof ServerLevel server
+                && !(server.getEntity(summoner) instanceof PharaohkaEntity owner && owner.isAlive())) {
+                discard();
+                return;
+            }
+        }
         if (isInWater() && getTarget()==null) setDeltaMovement(getDeltaMovement().add(0, .003, 0));
         if (meleeCooldown>0) meleeCooldown--;
         if (dashCooldown>0) dashCooldown--;
@@ -232,7 +243,7 @@ public final class PharaohkaEntity extends Monster {
     private void summon() {
         if (!(level() instanceof ServerLevel world)) return;
         List<PharaohkaEntity> allies=world.getEntitiesOfClass(PharaohkaEntity.class,
-            getBoundingBox().inflate(14), entity->entity!=this && !entity.leader() && entity.isAlive());
+            getBoundingBox().inflate(36), entity->!entity.leader() && getUUID().equals(entity.summoner) && entity.isAlive());
         summonCooldown=260+random.nextInt(100);
         if (allies.size()>=4) return;
         animate(SUMMON);
@@ -240,12 +251,18 @@ public final class PharaohkaEntity extends Monster {
         for (int i=0;i<count;i++) {
             PharaohkaEntity minion=PharaohkaContent.PHARAOHKA.get().create(world);
             if (minion==null) continue;
-            double ox=(random.nextDouble()-.5)*6, oz=(random.nextDouble()-.5)*6;
-            minion.setPos(getX()+ox,getY(),getZ()+oz);
-            if (!world.getFluidState(minion.blockPosition()).is(FluidTags.WATER) || !world.noCollision(minion)) continue;
-            minion.setTarget(getTarget());
-            minion.setPersistenceRequired();
-            world.addFreshEntity(minion);
+            for (int attempt=0;attempt<12;attempt++) {
+                double ox=(random.nextDouble()-.5)*9, oz=(random.nextDouble()-.5)*9;
+                double oy=(random.nextDouble()-.5)*3;
+                minion.setPos(getX()+ox,getY()+oy,getZ()+oz);
+                if (!world.hasChunkAt(minion.blockPosition()) ||
+                    !world.getFluidState(minion.blockPosition()).is(FluidTags.WATER) ||
+                    !world.noCollision(minion)) continue;
+                minion.summoner=getUUID();
+                minion.minionLife=1200;
+                minion.setTarget(getTarget());
+                if (world.addFreshEntity(minion)) { minion.setPersistenceRequired(); break; }
+            }
         }
     }
 
@@ -284,6 +301,7 @@ public final class PharaohkaEntity extends Monster {
         tag.putInt("DryTicks",dryTicks);
         tag.putInt("MeleeCooldown",meleeCooldown);
         tag.putInt("ShieldCooldown",shieldCooldown);
+        if(summoner!=null) {tag.putUUID("Summoner",summoner);tag.putInt("MinionLife",minionLife);}
         tag.putInt("DashCooldown",dashCooldown);
         tag.putInt("SummonCooldown",summonCooldown);
         tag.putInt("CurrentCooldown",currentCooldown);
@@ -293,6 +311,8 @@ public final class PharaohkaEntity extends Monster {
         dryTicks=tag.getInt("DryTicks");
         meleeCooldown=Math.max(0,tag.getInt("MeleeCooldown"));
         shieldCooldown=Math.max(0,tag.getInt("ShieldCooldown"));
+        summoner=tag.hasUUID("Summoner")?tag.getUUID("Summoner"):null;
+        minionLife=Math.max(0,tag.getInt("MinionLife"));
         strikeTicks=0;
         shieldTicks=0;
         dashCooldown=Math.max(0,tag.getInt("DashCooldown"));
