@@ -330,6 +330,10 @@ public final class BuyanCityPlan {
 
         void plots() {
             for (Plot plot : layout.plots) {
+                // Distinguish the two reserved monuments with low, temporary
+                // ground-level borders; neither structure is built in stage one.
+                BlockState boundary = plot.name.equals("TEREM") ? BLUE
+                    : plot.name.equals("SANCTUARY_AND_OAK") ? RED : STONE;
                 for (int x = plot.minX; x <= plot.maxX; x++)
                     for (int z = plot.minZ; z <= plot.maxZ; z++) {
                         boolean edge = x == plot.minX || x == plot.maxX
@@ -337,7 +341,7 @@ public final class BuyanCityPlan {
                         boolean corner = (x == plot.minX || x == plot.maxX)
                             && (z == plot.minZ || z == plot.maxZ);
                         put(x, z, plot.level,
-                            corner ? GOLD : edge ? STONE : Blocks.GRASS_BLOCK.defaultBlockState(),
+                            corner ? GOLD : edge ? boundary : Blocks.GRASS_BLOCK.defaultBlockState(),
                             16);
                     }
             }
@@ -430,10 +434,15 @@ public final class BuyanCityPlan {
                 // rubble core, reinforced masonry, smooth levelling bed,
                 // then the visible paving/temporary plot marker.
                 for (int y = bottom; y < tile.y; y++) {
+                    boolean border = tile.block.is(Blocks.RED_TERRACOTTA)
+                        || tile.block.is(Blocks.BLUE_TERRACOTTA)
+                        || tile.block.is(Blocks.POLISHED_DIORITE)
+                        || tile.block.is(Blocks.STONE_BRICKS);
                     BlockState support = y == tile.y - 1
                         ? Blocks.SMOOTH_STONE.defaultBlockState()
-                        : y == tile.y - 2
-                            ? STONE : Blocks.COBBLESTONE.defaultBlockState();
+                        : border && tile.y > ground + 2 ? STONE
+                        : y == tile.y - 2 ? STONE
+                        : Blocks.COBBLESTONE.defaultBlockState();
                     blocks.put(new BlockPos(x, y, z), support);
                 }
                 blocks.put(new BlockPos(x, tile.y, z), tile.block);
