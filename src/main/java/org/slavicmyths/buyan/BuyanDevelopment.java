@@ -483,12 +483,10 @@ public final class BuyanDevelopment {
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
         if (layout == null || layout.centerX() != site.x() || layout.centerZ() != site.z())
             return false;
-        // Housing architecture is explicitly deferred for the compact city.
-        // Keep legacy furnishing upgrades available for old worlds only.
-        if (layout.plots().stream().anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK"))) {
-            LogUtils.getLogger().info("Buyan: residential quarters kept as empty reserves");
-            return true;
-        }
+        // New compact city: one atomic generation of eight variant-four
+        // three-storey communal houses. Legacy saves retain their old upgrade path.
+        if (layout.plots().stream().anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK")))
+            return BuyanCityHousing.placeOnce(world, site, layout);
         Plan p = new Plan(world, site, layout.centerY());
         if (record.houses.contains(id)) {
             p.retrofitTown();
@@ -585,11 +583,9 @@ public final class BuyanDevelopment {
         boolean harbor = attempt("harbor", () -> BuyanHarbor.placeOnce(world, site));
         boolean craft = attempt("forge and armory", () -> BuyanCraftQuarter.placeOnce(world, site));
         boolean outpost = attempt("military outpost", () -> BuyanOutpost.placeOnce(world, site));
-        boolean compact = BuyanCityPlan.savedLayout(world, site).plots().stream()
-            .anyMatch(p -> p.name().equals("SANCTUARY_AND_OAK"));
         return "святилище=" + shrine + ", дуб=" + oak
             + ", культовый сектор=" + precinct + ", терем=" + palace
-            + ", жильё/торговля=" + (compact && housing ? "резерв" : housing)
+            + ", жильё/торговля=" + housing
             + ", порт=" + harbor
             + ", мастерские=" + craft + ", аванпост=" + outpost;
     }

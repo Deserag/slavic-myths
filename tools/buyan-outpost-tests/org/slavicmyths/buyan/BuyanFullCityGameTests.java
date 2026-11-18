@@ -106,6 +106,66 @@ public final class BuyanFullCityGameTests {
             "expected 15 furnished homes/inns and 9 shops/workshops");
     }
 
+    private static void checkVariantFourHomes(GameTestHelper helper, BuyanCityPlan.Layout city) {
+        int y = city.centerY(), cx = city.centerX(), cz = city.centerZ();
+        int houses = 0, shops = 0;
+        for (BuyanCityHousing.Building house : BuyanCityHousing.buildings()) {
+            int mid = house.width() / 2;
+            int doorX = house.x() + (house.mirror()
+                ? house.width() - mid : mid - 1);
+            int frontZ = house.frontZ();
+            BlockPos entrance = new BlockPos(cx + doorX, y + 1, cz + frontZ);
+            BlockState lower = helper.getLevel().getBlockState(entrance);
+            BlockState upper = helper.getLevel().getBlockState(entrance.above());
+            require(lower.is(Blocks.DARK_OAK_DOOR) && upper.is(Blocks.DARK_OAK_DOOR),
+                "variant 4 entry door missing at " + entrance);
+            for (int floor : new int[]{0, 7, 14}) {
+                int z7 = house.z() + (house.facesSouth() ? house.depth() - 8 : 7);
+                BlockPos hall = new BlockPos(cx + house.x() + mid, y + floor, cz + z7);
+                require(helper.getLevel().getBlockState(hall).is(Blocks.SPRUCE_PLANKS),
+                    "third-floor corridor/floor missing at " + hall);
+                int x4 = house.x() + (house.mirror() ? house.width() - 5 : 4);
+                BlockPos light = new BlockPos(cx + x4, y + floor + 5, cz + z7);
+                require(helper.getLevel().getBlockState(light).is(Blocks.LANTERN),
+                    "variant 4 missing interior lantern at " + light);
+                require(helper.getLevel().getBlockState(light.above()).is(Blocks.CHAIN),
+                    "variant 4 unsupported lantern at " + light);
+            }
+            int roofZ = house.z() + (house.facesSouth() ? house.depth() - 7 : 6);
+            BlockPos roof = new BlockPos(cx + house.x() + mid, y + 28, cz + roofZ);
+            require(helper.getLevel().getBlockState(roof).is(Blocks.RED_NETHER_BRICKS)
+                    || helper.getLevel().getBlockState(roof).is(Blocks.NETHER_BRICKS),
+                "burgundy gabled roof missing at " + roof);
+            // A real furnished room on floor 2 and a three-floor staircase.
+            int bedX = house.x() + (house.mirror() ? house.width() - 4 : 3);
+            int bedZ = house.z() + (house.facesSouth() ? house.depth() - 3 : 2);
+            require(helper.getLevel().getBlockState(new BlockPos(
+                cx + bedX, y + 8, cz + bedZ)).getBlock()
+                    instanceof net.minecraft.world.level.block.BedBlock,
+                "furnished second floor missing in " + house);
+            int stairX = house.x() + (house.mirror() ? 8 : house.width() - 9);
+            int stairZ = house.z() + (house.facesSouth() ? house.depth() - 3 : 2);
+            require(helper.getLevel().getBlockState(new BlockPos(
+                cx + stairX, y + 1, cz + stairZ)).is(Blocks.SPRUCE_STAIRS),
+                "variant 4 ground-to-first stair missing " + house);
+            int secondX = house.x() + (house.mirror() ? 4 : house.width() - 5);
+            int secondZ = house.z() + (house.facesSouth() ? house.depth() - 10 : 9);
+            require(helper.getLevel().getBlockState(new BlockPos(
+                cx + secondX, y + 8, cz + secondZ)).is(Blocks.SPRUCE_STAIRS),
+                "variant 4 first-to-second stair missing " + house);
+            if (house.commerce()) {
+                shops++;
+                int shopX = house.x() + (house.mirror() ? house.width() - 3 : 2);
+                int shopZ = house.z() + (house.facesSouth() ? house.depth() - 12 : 11);
+                require(helper.getLevel().getBlockState(new BlockPos(
+                    cx + shopX, y + 1, cz + shopZ)).is(Blocks.LECTERN),
+                    "ground-floor shop missing " + house);
+            } else houses++;
+        }
+        require(houses == 6 && shops == 2,
+            "expected six three-storey homes and two residential shop-houses");
+    }
+
     private static void checkAllCityRoadSurfaces(GameTestHelper helper,
                                                 BuyanCityPlan.Layout city) {
         // After all structures: verify every part of all four main axes and
@@ -205,7 +265,7 @@ public final class BuyanFullCityGameTests {
         require(BuyanDevelopment.placeSacredPrecinct(helper.getLevel(), island),
             "ritual court and walkways were not generated");
         require(BuyanDevelopment.placeHouses(helper.getLevel(), island),
-            "future residential reserves were not prepared");
+            "variant-four three-storey housing was not generated");
         require(BuyanHarbor.placeOnce(helper.getLevel(), island),
             "harbor was not generated");
         require(BuyanCraftQuarter.placeOnce(helper.getLevel(), island),
@@ -236,6 +296,7 @@ public final class BuyanFullCityGameTests {
                     "building plots overlap");
 
         checkStreetGrades(helper, layout);
+        checkVariantFourHomes(helper, layout);
         checkAllCityRoadSurfaces(helper, layout);
         BuyanCityPlan.Street southern = layout.streets().stream()
             .filter(s -> s.name().equals("MAIN_SOUTH")).findFirst().orElseThrow();
@@ -255,10 +316,10 @@ public final class BuyanFullCityGameTests {
             layout.centerX() - 10, cityY, layout.centerZ() - 53))
                 .is(Blocks.POLISHED_ANDESITE),
             "sanctuary processional walkway missing");
-        require(!helper.getLevel().getBlockState(new BlockPos(
-            layout.centerX() - 95, cityY + 2, layout.centerZ() + 32))
-                .is(Blocks.SPRUCE_PLANKS),
-            "old compact houses were generated despite deferred architecture");
+        require(helper.getLevel().getBlockState(new BlockPos(
+            layout.centerX() - 95, cityY + 21, layout.centerZ() + 32))
+                .is(Blocks.RED_TERRACOTTA),
+            "new three-floor white city housing facade missing");
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
         for (int dx = -22; dx <= 22; dx++)
             for (int dz = -22; dz <= 22; dz++) {
