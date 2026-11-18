@@ -53,6 +53,39 @@ public final class BuyanFullCityGameTests {
             + " has no 3-block traversable entry onto its reserved road");
     }
 
+    private static int pavedHeight(GameTestHelper helper, int x, int z, int referenceY) {
+        for (int y = referenceY + 62; y >= referenceY - 62; y--) {
+            BlockPos at = new BlockPos(x, y, z);
+            if (road(helper.getLevel().getBlockState(at))
+                && helper.getLevel().getBlockState(at.above()).isAir()
+                && !helper.getLevel().getBlockState(at.below()).isAir())
+                return y;
+        }
+        throw new IllegalStateException("Missing backed road surface at " + x + "," + z);
+    }
+
+    private static void checkStreetGrades(GameTestHelper helper, BuyanCityPlan.Layout city) {
+        for (BuyanCityPlan.Street street : city.streets()) {
+            boolean alongX = street.maxX() - street.minX()
+                >= street.maxZ() - street.minZ();
+            int last = Integer.MIN_VALUE;
+            int length = alongX ? street.maxX() - street.minX()
+                : street.maxZ() - street.minZ();
+            for (int n = 0; n <= length; n++) {
+                int x = alongX ? street.minX() + n
+                    : (street.minX() + street.maxX()) / 2;
+                int z = alongX ? (street.minZ() + street.maxZ()) / 2
+                    : street.minZ() + n;
+                int actual = pavedHeight(helper, x, z, city.centerY());
+                if (last != Integer.MIN_VALUE)
+                    require(Math.abs(actual - last) <= 1,
+                        "steep street " + street.name() + " at " + x + "," + z
+                            + " jumps from Y=" + last + " to Y=" + actual);
+                last = actual;
+            }
+        }
+    }
+
     @GameTest(template = "empty", timeoutTicks = 3000)
     public static void fullBuyanCityBuildsInSingleWorld(GameTestHelper helper) {
         BuyanPreSpawn.constructOrResume(helper.getLevel());
@@ -83,6 +116,7 @@ public final class BuyanFullCityGameTests {
                 require(!layout.plots().get(i).overlaps(layout.plots().get(j)),
                     "building plots overlap");
 
+        checkStreetGrades(helper, layout);
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
         for (int dx = -22; dx <= 22; dx++)
             for (int dz = -22; dz <= 22; dz++) {
