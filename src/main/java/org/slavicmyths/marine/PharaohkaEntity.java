@@ -129,7 +129,7 @@ public final class PharaohkaEntity extends Monster {
         if (dashTicks>0) { dash(); return; }
         if (currentTicks>0) { currentPulse(); }
         LivingEntity target=getTarget();
-        if (target != null && (!target.isAlive() || target.isCreative() && target instanceof Player
+        if (target != null && (!target.isAlive() || target instanceof Player p && p.isCreative()
                 || target.isSpectator() || !isTargetInWater(target))) {
             setTarget(null);
             target=null;
