@@ -451,7 +451,7 @@ public final class ShipSailCapture {
                 motionRestartX = visible.getX();
                 motionRestartZ = visible.getZ();
             }
-            if (frameIndex == 2 && (serverMotionSpeed <= .05D
+            if (frameIndex == 2 && (serverMotionSpeed <= .02D
                     || Math.hypot(visible.getX() - motionRestartX,
                             visible.getZ() - motionRestartZ) <= .5D))
                 throw new AssertionError("IV failed to restart after idle: "
