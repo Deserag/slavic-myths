@@ -139,7 +139,7 @@ public final class PharaohkaEntity extends Monster {
                 aiWander=35+random.nextInt(55);
                 BlockPos near=blockPosition().offset(random.nextInt(13)-6, random.nextInt(7)-3, random.nextInt(13)-6);
                 if (level().getFluidState(near).is(FluidTags.WATER))
-                    getMoveControl().setWantedPosition(near.getX()+.5,near.getY()+.5,near.getZ()+.5,.8);
+                    getNavigation().moveTo(near.getX()+.5,near.getY()+.5,near.getZ()+.5,.8);
             }
             if (action()!=IDLE && actionTicks()>20) animate(IDLE);
             return;
@@ -147,6 +147,7 @@ public final class PharaohkaEntity extends Monster {
 
         getLookControl().setLookAt(target, 30, 30);
         double distance=distanceToSqr(target);
+        getNavigation().moveTo(target,leader()?1.3:1.05);
         getMoveControl().setWantedPosition(target.getX(),target.getY()+target.getBbHeight()*.45,
             target.getZ(),leader()?1.3:1.05);
 
