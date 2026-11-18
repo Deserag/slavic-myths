@@ -230,7 +230,7 @@ public final class PharaohkaEntity extends Monster {
         dashCooldown=105+random.nextInt(36);
         dashHit=false;
         animate(DASH);
-        playSound(SoundEvents.TRIDENT_RIPTIDE_1,1.0F,.85F);
+        playSound(SoundEvents.TRIDENT_RIPTIDE_1.value(),1.0F,.85F);
         if (level() instanceof ServerLevel world)
             world.sendParticles(ParticleTypes.BUBBLE,getX(),getY()+1,getZ(),16,.7,.8,.7,.08);
         getNavigation().stop();
