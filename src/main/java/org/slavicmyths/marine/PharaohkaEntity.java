@@ -46,7 +46,7 @@ public final class PharaohkaEntity extends Monster {
         Component.translatable("entity.slavicmyths.pharaohka_leader"),
         BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private int dryTicks, meleeCooldown, dashCooldown=90, summonCooldown=220, currentCooldown=145;
-    private int dashTicks, currentTicks, aiWander;
+    private int dashTicks, currentTicks, aiWander, strikeTicks;
     private boolean dashHit;
 
     public PharaohkaEntity(EntityType<? extends PharaohkaEntity> type, Level level) {
@@ -112,9 +112,11 @@ public final class PharaohkaEntity extends Monster {
     @Override public void aiStep() {
         super.aiStep();
         if (level().isClientSide) return;
+        if (leader()) bossBar.setProgress(getHealth()/getMaxHealth());
         boolean wet=inHabitat();
         setNoGravity(wet);
         if (!wet) {
+            strikeTicks=0;
             if (++dryTicks > 100) hurt(damageSources().dryOut(), getMaxHealth()+1F);
             getNavigation().stop();
             return;
@@ -133,6 +135,15 @@ public final class PharaohkaEntity extends Monster {
             setTarget(null);
             target=null;
         }
+        if (strikeTicks>0) {
+            getNavigation().stop();
+            --strikeTicks;
+            if (strikeTicks==5 && target!=null && hasLineOfSight(target)
+                && distanceToSqr(target)<(leader()?9.0:5.5))
+                doHurtTarget(target);
+            if (strikeTicks==0) animate(IDLE);
+            return;
+        }
         if (target==null) {
             if (--aiWander<=0) {
                 aiWander=35+random.nextInt(55);
@@ -146,19 +157,20 @@ public final class PharaohkaEntity extends Monster {
 
         getLookControl().setLookAt(target, 30, 30);
         double distance=distanceToSqr(target);
-        getNavigation().moveTo(target,leader()?1.3:1.05);
+        if (tickCount%10==0 || getNavigation().isDone())
+            getNavigation().moveTo(target,leader()?1.3:1.05);
         getMoveControl().setWantedPosition(target.getX(),target.getY()+target.getBbHeight()*.45,
             target.getZ(),leader()?1.3:1.05);
 
         if (leader() && summonCooldown==0 && distance<400) { summon(); return; }
         if (leader() && dashCooldown==0 && distance>6 && distance<196) { beginDash(target); return; }
         if (leader() && currentCooldown==0 && distance<100) { currentTicks=24;currentCooldown=190;animate(CURRENT); }
-        if (distance < (leader()?8.5:5.0) && meleeCooldown==0 && !level().isClientSide) {
+        if (distance < (leader()?8.5:5.0) && meleeCooldown==0) {
             animate(STRIKE);
-            meleeCooldown=leader()?25:34;
-            if (hasLineOfSight(target)) doHurtTarget(target);
-        } else if (action()==STRIKE && actionTicks()>12 && currentTicks==0) animate(IDLE);
-        bossBar.setProgress(getHealth()/getMaxHealth());
+            meleeCooldown=leader()?27:36;
+            strikeTicks=12; // Impact occurs midway through the animated spear/arm sweep.
+            getNavigation().stop();
+        } else if ((action()==SUMMON || action()==BLOCK) && actionTicks()>20) animate(IDLE);
     }
 
     private boolean isTargetInWater(LivingEntity target) {
@@ -244,6 +256,7 @@ public final class PharaohkaEntity extends Monster {
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("DryTicks",dryTicks);
+        tag.putInt("MeleeCooldown",meleeCooldown);
         tag.putInt("DashCooldown",dashCooldown);
         tag.putInt("SummonCooldown",summonCooldown);
         tag.putInt("CurrentCooldown",currentCooldown);
@@ -251,6 +264,8 @@ public final class PharaohkaEntity extends Monster {
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         dryTicks=tag.getInt("DryTicks");
+        meleeCooldown=Math.max(0,tag.getInt("MeleeCooldown"));
+        strikeTicks=0;
         dashCooldown=Math.max(0,tag.getInt("DashCooldown"));
         summonCooldown=Math.max(0,tag.getInt("SummonCooldown"));
         currentCooldown=Math.max(0,tag.getInt("CurrentCooldown"));
