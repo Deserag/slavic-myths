@@ -47,7 +47,7 @@ public final class ShipDynamicCollision {
     /** Avoid allocating a copied vanilla collision list on unrelated entity moves. */
     public static boolean hasNearbyMovingShip(Entity entity, Level level, AABB region) {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
-                || player.getAbilities().flying || player.isFallFlying() || player.isPassenger())
+                || player.isFallFlying() || player.isPassenger())
             return false;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
@@ -96,7 +96,7 @@ public final class ShipDynamicCollision {
     public static void collect(Entity entity, Level level, AABB region,
                                List<VoxelShape> collisions) {
         if (!(entity instanceof Player player) || !player.isAlive() || player.isSpectator()
-                || player.getAbilities().flying || player.isFallFlying() || player.isPassenger()) return;
+                || player.isFallFlying() || player.isPassenger()) return;
         Carry carry = CARRY.get();
         for (FirstShipEntity ship : level.getEntitiesOfClass(FirstShipEntity.class,
                 region.inflate(46D, 50D, 46D))) {
