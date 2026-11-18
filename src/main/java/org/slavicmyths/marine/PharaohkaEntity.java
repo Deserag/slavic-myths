@@ -36,7 +36,7 @@ import net.minecraft.nbt.CompoundTag;
 
 /** Amphibious-surface visual, but water-only survival and combat. Server owns all damage. */
 public final class PharaohkaEntity extends Monster {
-    public static final int IDLE=0, STRIKE=1, DASH=2, SUMMON=3, CURRENT=4, BLOCK=5;
+    public static final int IDLE=0, STRIKE=1, DASH=2, SUMMON=3, CURRENT=4, BLOCK=5, BASH=6;
     private static final EntityDataAccessor<Integer> ACTION =
         SynchedEntityData.defineId(PharaohkaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ACTION_STARTED =
@@ -45,8 +45,8 @@ public final class PharaohkaEntity extends Monster {
     private final ServerBossEvent bossBar = new ServerBossEvent(
         Component.translatable("entity.slavicmyths.pharaohka_leader"),
         BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
-    private int dryTicks, meleeCooldown, dashCooldown=90, summonCooldown=220, currentCooldown=145;
-    private int dashTicks, currentTicks, aiWander, strikeTicks;
+    private int dryTicks, meleeCooldown, dashCooldown=90, summonCooldown=220, currentCooldown=145, shieldCooldown=125;
+    private int dashTicks, currentTicks, aiWander, strikeTicks, shieldTicks;
     private boolean dashHit;
 
     public PharaohkaEntity(EntityType<? extends PharaohkaEntity> type, Level level) {
@@ -117,6 +117,7 @@ public final class PharaohkaEntity extends Monster {
         setNoGravity(wet);
         if (!wet) {
             strikeTicks=0;
+            shieldTicks=0;
             if (++dryTicks > 100) hurt(damageSources().dryOut(), getMaxHealth()+1F);
             getNavigation().stop();
             return;
@@ -127,6 +128,7 @@ public final class PharaohkaEntity extends Monster {
         if (dashCooldown>0) dashCooldown--;
         if (summonCooldown>0) summonCooldown--;
         if (currentCooldown>0) currentCooldown--;
+        if (shieldCooldown>0) shieldCooldown--;
         if (dashTicks>0) { dash(); return; }
         if (currentTicks>0) { currentPulse(); }
         LivingEntity target=getTarget();
@@ -142,6 +144,21 @@ public final class PharaohkaEntity extends Monster {
                 && distanceToSqr(target)<(leader()?9.0:5.5))
                 doHurtTarget(target);
             if (strikeTicks==0) animate(IDLE);
+            return;
+        }
+        if (shieldTicks>0) {
+            getNavigation().stop();
+            --shieldTicks;
+            if (shieldTicks==6 && target!=null && hasLineOfSight(target) && distanceToSqr(target)<9.0) {
+                target.hurt(damageSources().mobAttack(this),8F);
+                Vec3 away=target.position().subtract(position()).multiply(1,0,1);
+                if (away.lengthSqr()>.01) {
+                    Vec3 impulse=away.normalize();
+                    target.push(impulse.x*1.1, .24, impulse.z*1.1);
+                    target.hurtMarked=true;
+                }
+            }
+            if (shieldTicks==0) animate(IDLE);
             return;
         }
         if (target==null) {
@@ -164,7 +181,16 @@ public final class PharaohkaEntity extends Monster {
 
         if (leader() && summonCooldown==0 && distance<400) { summon(); return; }
         if (leader() && dashCooldown==0 && distance>6 && distance<196) { beginDash(target); return; }
-        if (leader() && currentCooldown==0 && distance<100) { currentTicks=24;currentCooldown=190;animate(CURRENT); }
+        if (leader() && currentCooldown==0 && distance<100) {
+            currentTicks=24;currentCooldown=190;animate(CURRENT);
+        }
+        if (leader() && shieldCooldown==0 && distance<8.0) {
+            shieldTicks=15;
+            shieldCooldown=115+random.nextInt(65);
+            animate(BASH);
+            getNavigation().stop();
+            return;
+        }
         if (distance < (leader()?8.5:5.0) && meleeCooldown==0) {
             animate(STRIKE);
             meleeCooldown=leader()?27:36;
@@ -257,6 +283,7 @@ public final class PharaohkaEntity extends Monster {
         super.addAdditionalSaveData(tag);
         tag.putInt("DryTicks",dryTicks);
         tag.putInt("MeleeCooldown",meleeCooldown);
+        tag.putInt("ShieldCooldown",shieldCooldown);
         tag.putInt("DashCooldown",dashCooldown);
         tag.putInt("SummonCooldown",summonCooldown);
         tag.putInt("CurrentCooldown",currentCooldown);
@@ -265,7 +292,9 @@ public final class PharaohkaEntity extends Monster {
         super.readAdditionalSaveData(tag);
         dryTicks=tag.getInt("DryTicks");
         meleeCooldown=Math.max(0,tag.getInt("MeleeCooldown"));
+        shieldCooldown=Math.max(0,tag.getInt("ShieldCooldown"));
         strikeTicks=0;
+        shieldTicks=0;
         dashCooldown=Math.max(0,tag.getInt("DashCooldown"));
         summonCooldown=Math.max(0,tag.getInt("SummonCooldown"));
         currentCooldown=Math.max(0,tag.getInt("CurrentCooldown"));
