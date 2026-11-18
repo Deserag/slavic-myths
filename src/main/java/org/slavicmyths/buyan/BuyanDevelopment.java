@@ -47,6 +47,8 @@ public final class BuyanDevelopment {
     private static final class Record extends SavedData {
         final Set<Long> oaks = new HashSet<>();
         final Set<Long> houses = new HashSet<>();
+        // Older saves may have houses but no furnished-home upgrade marker.
+        final Set<Long> furnishedHouses = new HashSet<>();
 
         static Record get(ServerLevel level) {
             return level.getDataStorage().computeIfAbsent(
@@ -57,6 +59,8 @@ public final class BuyanDevelopment {
             Record r = new Record();
             for (long id : tag.getLongArray("Oaks")) r.oaks.add(id);
             for (long id : tag.getLongArray("Houses")) r.houses.add(id);
+            for (long id : tag.getLongArray("FurnishedHouses"))
+                r.furnishedHouses.add(id);
             return r;
         }
 
@@ -64,11 +68,14 @@ public final class BuyanDevelopment {
         public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
             tag.putLongArray("Oaks", oaks.stream().mapToLong(Long::longValue).toArray());
             tag.putLongArray("Houses", houses.stream().mapToLong(Long::longValue).toArray());
+            tag.putLongArray("FurnishedHouses",
+                furnishedHouses.stream().mapToLong(Long::longValue).toArray());
             return tag;
         }
 
         void markOak(long site) { oaks.add(site); setDirty(); }
         void markHouses(long site) { houses.add(site); setDirty(); }
+        void markFurnished(long site) { furnishedHouses.add(site); setDirty(); }
     }
 
     private static final class Plan {
@@ -307,6 +314,63 @@ public final class BuyanDevelopment {
             }
         }
 
+        /**
+         * Only add missing beds, chains and roof hangers to previously built
+         * houses. Never regenerate walls, doors, paving or furnishings.
+         */
+        void retrofitTown() {
+            int[] west = {-101, -82, -58, -39};
+            int[] east = {28, 47, 71, 90};
+            int[] rows = {27, 50, 79};
+            for (int row = 0; row < 3; row++)
+                for (int col = 0; col < 8; col++) {
+                    int x = col < 4 ? west[col] : east[col - 4];
+                    int z = rows[row];
+                    int variant = row * 4 + (col < 4 ? col : col - 4)
+                        + (col < 4 ? 0 : 1);
+                    String kind = col < 4 ? "house" : row == 0 ? "shop"
+                        : row == 1 ? (col == 5 ? "inn" : "shop")
+                        : (col - 4) % 2 == 0 ? "workshop" : "house";
+                    if (kind.equals("inn")) {
+                        bed(x + 3, z + 5, Blocks.BLUE_BED.defaultBlockState());
+                        bed(x + 8, z + 5, Blocks.RED_BED.defaultBlockState());
+                    } else if (kind.equals("house"))
+                        bed(x + 8, z + 5,
+                            variant % 2 == 0 ? Blocks.BLUE_BED.defaultBlockState()
+                                : Blocks.RED_BED.defaultBlockState());
+
+                    for (int y = floor + 5; y <= floor + 7; y++)
+                        at(x + 2, y, z + 2, BEAM);
+                    at(x + 2, floor + 4, z + 2, Blocks.CHAIN.defaultBlockState());
+                    at(x + 2, floor + 3, z + 2,
+                        Blocks.LANTERN.defaultBlockState()
+                            .setValue(net.minecraft.world.level.block.LanternBlock.HANGING, true));
+                }
+        }
+
+        boolean safeRetrofit() {
+            Set<Long> chunks = new HashSet<>();
+            for (var entry : blocks.entrySet()) {
+                BlockPos p = entry.getKey();
+                if (p.getY() <= world.getMinBuildHeight()
+                    || p.getY() >= world.getMaxBuildHeight() - 1
+                    || !world.getWorldBorder().isWithinBounds(p)) return false;
+                long chunk = ChunkPos.asLong(p.getX() >> 4, p.getZ() >> 4);
+                if (chunks.add(chunk)) world.getChunk(p.getX() >> 4, p.getZ() >> 4);
+                BlockState old = world.getBlockState(p);
+                BlockState target = entry.getValue();
+                // The original standing lantern may be changed to hanging;
+                // all other coordinates must still be empty or already upgraded.
+                if (!old.equals(target) && !old.isAir()
+                    && !(old.is(Blocks.LANTERN) && target.is(Blocks.LANTERN))) {
+                    LogUtils.getLogger().warn("Buyan home upgrade skipped: changed block {}: {}",
+                        p, old);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         boolean safe() {
             Set<Long> chunks = new HashSet<>();
             for (Map.Entry<BlockPos, BlockState> entry : blocks.entrySet()) {
@@ -350,17 +414,38 @@ public final class BuyanDevelopment {
     static boolean placeHouses(ServerLevel world, BuyanState.Site site) {
         Record record = Record.get(world);
         long id = key(site);
-        if (record.houses.contains(id)) return true;
+        if (record.houses.contains(id) && record.furnishedHouses.contains(id))
+            return true;
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(world, site);
         if (layout == null || layout.centerX() != site.x() || layout.centerZ() != site.z())
             return false;
         Plan p = new Plan(world, site, layout.centerY());
+        if (record.houses.contains(id)) {
+            p.retrofitTown();
+            // An occupied or player-modified room is never changed silently.
+            if (!p.safeRetrofit()) return false;
+            p.commit();
+            record.markFurnished(id);
+            LogUtils.getLogger().info("Buyan: upgraded old homes with beds and roof-supported lights");
+            return true;
+        }
         p.town();
         if (!p.safe()) return false;
         p.commit();
         record.markHouses(id);
+        record.markFurnished(id);
         LogUtils.getLogger().info("Buyan: 24 new town buildings placed");
         return true;
+    }
+
+    /** Disposable GameTest: exercise the legacy save migration on real city blocks. */
+    static boolean verifyLegacyFurnishingUpgrade(ServerLevel world, BuyanState.Site site) {
+        Record record = Record.get(world);
+        long id = key(site);
+        if (!record.houses.contains(id)) return false;
+        record.furnishedHouses.remove(id);
+        record.setDirty();
+        return placeHouses(world, site);
     }
 
     static boolean placeOak(ServerLevel world, BuyanState.Site site) {

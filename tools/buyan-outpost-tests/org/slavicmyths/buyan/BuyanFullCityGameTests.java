@@ -24,6 +24,31 @@ public final class BuyanFullCityGameTests {
             || state.is(Blocks.BLUE_TERRACOTTA);
     }
 
+    /**
+     * Simulate a save written before beds and supported lanterns existed.
+     * The live retrofit must restore these without rebuilding any houses.
+     */
+    private static void checkExistingHouseUpgrade(GameTestHelper helper,
+                                                   BuyanState.Site island,
+                                                   BuyanCityPlan.Layout city) {
+        int cx = city.centerX(), cz = city.centerZ(), y = city.centerY();
+        BlockPos lamp = new BlockPos(cx - 99, y + 3, cz + 29);
+        BlockPos bed = new BlockPos(cx - 93, y + 1, cz + 32);
+        helper.getLevel().setBlock(lamp, Blocks.LANTERN.defaultBlockState(), 2);
+        for (int h = 1; h <= 4; h++)
+            helper.getLevel().setBlock(lamp.above(h), Blocks.AIR.defaultBlockState(), 2);
+        helper.getLevel().setBlock(bed, Blocks.AIR.defaultBlockState(), 2);
+        helper.getLevel().setBlock(bed.south(), Blocks.AIR.defaultBlockState(), 2);
+        require(BuyanDevelopment.verifyLegacyFurnishingUpgrade(helper.getLevel(), island),
+            "legacy furnished house migration failed");
+        require(helper.getLevel().getBlockState(lamp.above()).is(Blocks.CHAIN)
+            && helper.getLevel().getBlockState(lamp).is(Blocks.LANTERN),
+            "legacy lantern was not supported after migration");
+        require(helper.getLevel().getBlockState(bed).getBlock()
+            instanceof net.minecraft.world.level.block.BedBlock,
+            "legacy house bed was not restored");
+    }
+
     private static void checkTownBuildings(GameTestHelper helper, BuyanCityPlan.Layout city) {
         int cx = city.centerX(), cz = city.centerZ(), y = city.centerY();
         int homes = 0, markets = 0;
@@ -209,6 +234,7 @@ public final class BuyanFullCityGameTests {
                     "building plots overlap");
 
         checkStreetGrades(helper, layout);
+        checkExistingHouseUpgrade(helper, island, layout);
         checkTownBuildings(helper, layout);
         checkAllCityRoadSurfaces(helper, layout);
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
