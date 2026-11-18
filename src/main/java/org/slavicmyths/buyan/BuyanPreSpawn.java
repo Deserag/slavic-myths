@@ -67,31 +67,21 @@ public final class BuyanPreSpawn {
         Record state=Record.get(world);
         if(state.ready)return;
         if(!BuyanState.get(world).completedSites().isEmpty()){
-            // A crash after terrain creation but before harbor completion must never
-            // regenerate the entire island or destroy an existing player's work.
-            for(BuyanState.Site site:BuyanState.get(world).completedSites()){
-                if(site.x()==0&&site.z()==0
-                    &&BuyanNatureState.get(world).finishedAt(site)
-                    // The palace must be the first constructed building:
-                    // both hill-outpost roads and craft plots can otherwise
-                    // occupy its protected central-clearing positions.
-                    &&BuyanTerem.placeOnce(world,site)
-                    &&BuyanHarbor.placeOnce(world,site)
-                    &&BuyanOutpost.placeOnce(world,site)
-                    &&BuyanShrine.placeOnce(world,site)
-                    &&BuyanCraftQuarter.placeOnce(world,site)
-                    &&BuyanCityPlan.placeOnce(world,site)){
-                    state.finished();
-                    world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
-                    return;
-                }
+            // Recover missing stages only; never repeat terrain or nature.
+            try {
+                constructOrResume(world);
+                state.finished();
+                world.setDefaultSpawnPos(BuyanTerem.spawn(world,
+                    new BuyanState.Site(0,0,R,63)),0.0F);
+            } catch(RuntimeException exception) {
+                LogUtils.getLogger().error(
+                    "Slavic Oceans: existing Buyan could not be completed safely",exception);
             }
-            LogUtils.getLogger().warn("Slavic Oceans: an existing Buyan could not be recovered; avoiding terrain overwrite.");
             return;
         }
         long begin=System.nanoTime();
         try{
-            construct(world);
+            constructOrResume(world);
             state.finished();
             world.setDefaultSpawnPos(BuyanTerem.spawn(world,new BuyanState.Site(0,0,R,63)),0.0F);
             LogUtils.getLogger().info("Slavic Oceans ready before player spawn; elapsed {} ms",
@@ -107,6 +97,41 @@ public final class BuyanPreSpawn {
             if(ground!=Integer.MIN_VALUE)
                 world.setDefaultSpawnPos(new BlockPos(0,ground+2,-40),0.0F);
         }
+    }
+
+    /**
+     * Reentrant construction shared by the actual spawn handler and GameTests.
+     * The GameTest server reuses its save between Gradle invocations.
+     * A previously completed nature stage must never be executed twice.
+     */
+    static void constructOrResume(ServerLevel world) {
+        BuyanState terrain=BuyanState.get(world);
+        BuyanNatureState nature=BuyanNatureState.get(world);
+        for(BuyanState.Site site:terrain.completedSites()) {
+            if(site.x()!=0||site.z()!=0||site.radius()!=R||site.waterLevel()!=63)
+                continue;
+            if(!nature.finishedAt(site))
+                throw new IllegalStateException(
+                    "Buyan foundation exists without completed nature; cannot regenerate it");
+            if(!BuyanTerem.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: central palace incomplete");
+            if(!BuyanHarbor.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: harbor incomplete");
+            if(!BuyanOutpost.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: hill outpost incomplete");
+            if(!BuyanShrine.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: sanctuary incomplete");
+            if(!BuyanCraftQuarter.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: craft quarter incomplete");
+            if(!BuyanCityPlan.placeOnce(world,site))
+                throw new IllegalStateException("Buyan resume: central roads incomplete");
+            return;
+        }
+        if(!terrain.completedSites().isEmpty()||terrain.active||nature.active
+            ||nature.hasCompletedSites())
+            throw new IllegalStateException(
+                "Incompatible or active Buyan generation exists; refusing overwrite");
+        construct(world);
     }
 
     // Package access for the isolated integration GameTest: this executes
