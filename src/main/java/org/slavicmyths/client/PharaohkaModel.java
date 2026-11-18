@@ -26,7 +26,8 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
     private final ModelPart tailA,tailB,tailC,fin;
 
     private ModelPart create(int color,float x,float y,float z) {
-        ModelPart p=geometry.part(16,16);
+        // Large parts (shield and trident) must not sample outside the white source texture.
+        ModelPart p=geometry.part(256,256);
         p.setPos(x,y,z);
         p.setInitialPose(PartPose.offset(x,y,z));
         colored.add(new Colored(p,color));
