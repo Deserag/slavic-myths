@@ -3,6 +3,7 @@ package org.slavicmyths.shipsailvisual;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
@@ -63,6 +64,7 @@ import org.slavicmyths.ships.client.FirstShipRenderer;
 public final class ShipSailCapture {
     private static final Path OUT = Path.of(
             System.getProperty("shipsailvisual.output", "build/ship-sail-visual/frames"));
+    private static final boolean RELOG_RUN = Boolean.getBoolean("shipsailvisual.relog");
     private static final BlockPos ANCHOR = new BlockPos(0, 81, 0);
     private static final int BASIN_MIN_X = -80, BASIN_MAX_X = 80;
     private static final int BASIN_MIN_Z = -75, BASIN_MAX_Z = 115;
@@ -106,7 +108,6 @@ public final class ShipSailCapture {
     private static boolean chestPlacedByClient;
     private static String isolatedWorldName;
     private static boolean reloadingWorld;
-    private static boolean relogOpenRequested;
     private static int relogAge;
     private static boolean relogChestOpened;
     private static boolean relogDoorWorked;
@@ -115,6 +116,39 @@ public final class ShipSailCapture {
     private static volatile String chestServerDiagnostic = "not observed";
     private static String doorClientDiagnostic = "not attempted";
     private static volatile String doorServerDiagnostic = "not observed";
+
+    private static void checkpoint(Minecraft mc) throws Exception {
+        JsonObject state = new JsonObject();
+        state.addProperty("world", isolatedWorldName);
+        state.addProperty("jar_sha256", loadedSha);
+        state.addProperty("door", interactionDoor.asLong());
+        state.addProperty("chest_opened", chestOpened);
+        state.addProperty("door_opened", doorOpened);
+        state.addProperty("plank_broken", plankBroken);
+        state.addProperty("chest_placed", chestPlacedByClient);
+        state.add("frames", FRAMES);
+        state.add("motion_frames", MOTION_FRAMES);
+        Files.writeString(OUT.resolve("checkpoint.json"),
+                new GsonBuilder().setPrettyPrinting().create().toJson(state));
+        System.out.println("SHIP_RELOG_CHECKPOINT world=" + isolatedWorldName);
+        finished = true;
+        mc.stop();
+    }
+
+    private static void restoreCheckpoint() throws Exception {
+        JsonObject state = JsonParser.parseString(
+                Files.readString(OUT.resolve("checkpoint.json"))).getAsJsonObject();
+        isolatedWorldName = state.get("world").getAsString();
+        loadedSha = state.get("jar_sha256").getAsString();
+        interactionDoor = BlockPos.of(state.get("door").getAsLong());
+        chestOpened = state.get("chest_opened").getAsBoolean();
+        doorOpened = state.get("door_opened").getAsBoolean();
+        plankBroken = state.get("plank_broken").getAsBoolean();
+        chestPlacedByClient = state.get("chest_placed").getAsBoolean();
+        state.getAsJsonArray("frames").forEach(FRAMES::add);
+        state.getAsJsonArray("motion_frames").forEach(MOTION_FRAMES::add);
+        reloadingWorld = true;
+    }
 
     private record Case(int shipLevel, int tier) {}
 
@@ -690,8 +724,7 @@ public final class ShipSailCapture {
                 interactionPhase = 11; interactionAge = 0;
                 return;
             }
-            reloadingWorld = true;
-            mc.disconnect(new TitleScreen());
+            checkpoint(mc);
             return;
         }
         if (interactionPhase == 11 && interactionAge >= 5)
@@ -755,14 +788,6 @@ public final class ShipSailCapture {
             throw new IllegalStateException(
                     "Only an isolated GitHub-hosted runner may run the visual test");
         Minecraft mc = Minecraft.getInstance();
-        if (reloadingWorld && !relogOpenRequested && mc.level == null
-                && mc.getSingleplayerServer() == null
-                && mc.screen instanceof TitleScreen) {
-            relogOpenRequested = true;
-            mc.createWorldOpenFlows().openWorld(isolatedWorldName,
-                    () -> { throw new AssertionError("Isolated IV world could not reload"); });
-            return;
-        }
         if (mc.screen != null && mc.screen.getClass().getSimpleName()
                 .equals("AccessibilityOnboardingScreen")) {
             mc.setScreen(new TitleScreen());
@@ -778,6 +803,16 @@ public final class ShipSailCapture {
             loadedSha = HexFormat.of().formatHex(
                     MessageDigest.getInstance("SHA-256")
                     .digest(Files.readAllBytes(jar)));
+            if (RELOG_RUN) {
+                restoreCheckpoint();
+                if (!loadedSha.equals(HexFormat.of().formatHex(
+                        MessageDigest.getInstance("SHA-256")
+                        .digest(Files.readAllBytes(jar)))))
+                    throw new AssertionError("Production JAR changed between relog runs");
+                mc.createWorldOpenFlows().openWorld(isolatedWorldName,
+                        () -> { throw new AssertionError("Isolated IV world could not reload"); });
+                return;
+            }
             mc.options.pauseOnLostFocus = false;
             mc.options.renderDistance().set(10);
             mc.options.simulationDistance().set(8);

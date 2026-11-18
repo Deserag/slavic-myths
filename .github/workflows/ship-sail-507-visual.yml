@@ -36,10 +36,14 @@ jobs:
           ./gradlew --no-daemon -I tools/ship-sail-visual.gradle clean build compileShipSailVisualJava --console=plain
           sha256sum build/libs/*.jar | tee /tmp/ship-sail-visual/jar.sha256
           git rev-parse HEAD | tee /tmp/ship-sail-visual/source.txt
-      - name: One actual test client in separate temporary singleplayer world
+      - name: Actual client interactions in a separate temporary singleplayer world
         run: |
           set -o pipefail
-          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 22m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/client.log
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 12m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/client.log
+      - name: Reopen the saved world in a fresh client process
+        run: |
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 8m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailRelog=true runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/relog.log
       - name: Verify all 72 genuine framebuffer captures
         run: |
           python3 - <<'PY'
@@ -51,6 +55,12 @@ jobs:
           assert receipt['status']=='CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'
           assert len(receipt['frames'])==72
           assert len(receipt['motion_frames'])==3
+          assert receipt['chest_opened_by_client']
+          assert receipt['door_opened_by_client']
+          assert receipt['plank_broken_by_client']
+          assert receipt['chest_placed_by_client']
+          assert receipt['relog_chest_opened_by_client']
+          assert receipt['relog_door_toggled_by_client']
           assert all((root/frame['file']).is_file()
                      for frame in receipt['motion_frames'])
           assert all((root/frame['file']).is_file() for frame in receipt['frames'])

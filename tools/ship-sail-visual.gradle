@@ -23,6 +23,8 @@ allprojects { afterEvaluate {
       jvmArgument '-XX:ActiveProcessorCount=2'
       systemProperty 'shipsailvisual.output',
           file('build/ship-sail-visual/frames').absolutePath
+      systemProperty 'shipsailvisual.relog',
+          (project.findProperty('shipSailRelog') ?: 'false').toString()
     }
   }
   tasks.named('runShipSailVisual') {
@@ -40,10 +42,13 @@ allprojects { afterEvaluate {
       }
     }
     doLast {
-      def receipt = file('build/ship-sail-visual/frames/finished.json')
-      if (!receipt.isFile() ||
-          !receipt.text.contains('CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'))
-        throw new GradleException('Ship visual capture missing or incomplete')
+      if (project.hasProperty('shipSailRelog')) {
+        def receipt = file('build/ship-sail-visual/frames/finished.json')
+        if (!receipt.isFile() ||
+            !receipt.text.contains('CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'))
+          throw new GradleException('Ship relog receipt missing or incomplete')
+      } else if (!file('build/ship-sail-visual/frames/checkpoint.json').isFile())
+        throw new GradleException('Ship relog checkpoint missing')
     }
   }
 } }
