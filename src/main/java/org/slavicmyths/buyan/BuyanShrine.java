@@ -510,7 +510,7 @@ public final class BuyanShrine {
             // The monument foundations and the entrance gate
             // must remain in the finished staged geometry.
             if(!blocks.getOrDefault(p(29,8,20),AIR).is(Blocks.OAK_WOOD)
-                ||!blocks.getOrDefault(p(29,-13,13),AIR).is(Blocks.LANTERN)
+                ||!blocks.getOrDefault(p(29,-13,13),AIR).is(GOLD.getBlock())
                 ||!blocks.getOrDefault(p(-27,13,2),AIR).is(Blocks.CHEST)
                 ||!blocks.getOrDefault(p(-34,13,3),AIR).is(GOLD.getBlock())
                 ||!blocks.getOrDefault(p(-34,1,1),AIR).is(Blocks.STONE_BRICK_STAIRS)
