@@ -180,6 +180,60 @@ public final class BuyanOutpost {
         return List.copyOf(candidates);
     }
 
+    /**
+     * The new city occupies the old outpost search area. As a fallback, find
+     * gentle outer hills with all 11 buildings clear of the 150-block core.
+     * Only a hillside with natural terrain support is considered; this method
+     * never levels or modifies a candidate.
+     */
+    private static List<Hill> selectGentleHills(long seed, BuyanState.Site site) {
+        List<Candidate> matches = new ArrayList<>();
+        for (int dx = -240; dx <= 240; dx += 12)
+            for (int dz = -240; dz <= 240; dz += 12) {
+                int dist2 = dx * dx + dz * dz;
+                if (dist2 < 180 * 180 || dist2 > 235 * 235) continue;
+                int centerY = BuyanNature.top(seed, site.x(), site.z(),
+                    site.radius(), site.x() + dx, site.z() + dz, site.waterLevel());
+                if (centerY < site.waterLevel() + 14
+                    || centerY > site.waterLevel() + 33) continue;
+                for (int[] dir : new int[][]{{1,0},{0,1},{-1,0},{0,-1}}) {
+                    Hill hill = new Hill(site, site.x() + dx, site.z() + dz,
+                        dir[0], dir[1]);
+                    int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE;
+                    boolean valid = true;
+                    // Check the actual long access route and all outward plots,
+                    // not just seven blocks around a steep hilltop.
+                    for (int x = -44; x <= 44 && valid; x += 11)
+                        for (int z = -98; z <= 30; z += 16) {
+                            BlockPos at = hill.at(x, 0, z);
+                            double radius = Math.hypot(
+                                (double) at.getX() - site.x(),
+                                (double) at.getZ() - site.z());
+                            int y = hill.ground(seed, x, z);
+                            if (radius < 155.0 || y == Integer.MIN_VALUE
+                                || y < site.waterLevel() + 8) {
+                                valid = false;
+                                break;
+                            }
+                            low = Math.min(low, y);
+                            high = Math.max(high, y);
+                        }
+                    if (!valid || high - low > 24) continue;
+                    double score = 150.0 - (high - low) * 5.0
+                        - Math.abs(centerY - site.waterLevel() - 22) * 0.6
+                        - Math.abs(Math.sqrt(dist2) - 205.0) * 0.1;
+                    matches.add(new Candidate(hill, score));
+                }
+            }
+        matches.sort((a, b) -> Double.compare(b.score(), a.score()));
+        List<Hill> selected = new ArrayList<>();
+        for (Candidate candidate : matches) {
+            selected.add(candidate.hill());
+            if (selected.size() >= 120) break;
+        }
+        return selected;
+    }
+
     private static final class Plan {
         final ServerLevel world;
         final Hill hill;
@@ -1133,7 +1187,10 @@ public final class BuyanOutpost {
         if (record.built.containsKey(key)) return true;
         if (BuyanState.get(world).active || BuyanNatureState.get(world).active
             || !BuyanNatureState.get(world).finishedAt(site)) return false;
-        for (Hill hill : selectHills(world.getSeed(), site)) {
+        List<Hill> hills = new ArrayList<>(selectHills(world.getSeed(), site));
+        if (BuyanCityPlan.savedLayout(world, site) != null)
+            hills.addAll(selectGentleHills(world.getSeed(), site));
+        for (Hill hill : hills) {
             Plan plan = new Plan(world, hill);
             try {
                 plan.build();

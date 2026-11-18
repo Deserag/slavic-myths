@@ -101,6 +101,12 @@ public final class BuyanFullCityGameTests {
             "north-east sacred oak was not generated");
         require(BuyanDevelopment.placeHouses(helper.getLevel(), island),
             "residential and trading blocks were not generated");
+        require(BuyanHarbor.placeOnce(helper.getLevel(), island),
+            "harbor was not generated");
+        require(BuyanCraftQuarter.placeOnce(helper.getLevel(), island),
+            "forge and armory were not generated");
+        require(BuyanOutpost.placeOnce(helper.getLevel(), island),
+            "eleven-building military outpost was not generated");
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(helper.getLevel(), island);
         require(layout != null, "persisted layout missing");
         require(layout.plots().size() == 5, "expected five reserved districts");
