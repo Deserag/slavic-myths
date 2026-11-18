@@ -105,7 +105,8 @@ public final class BuyanCityPlan {
             if(ground==Integer.MIN_VALUE)return Integer.MIN_VALUE;
             // The wide plaza boundary follows the local natural surface.
             boolean avenue=Math.abs(x)<=5&&(z>=-35||z<=-73);
-            return avenue?Math.max(ground+1,grade.getOrDefault(z,ground+1))
+            return avenue?Math.min(ground+3,
+                Math.max(ground+1,grade.getOrDefault(z,ground+1)))
                 :ground+1;
         }
         void pave(int x,int z,BlockState tile) {
