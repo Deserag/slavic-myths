@@ -97,7 +97,6 @@ public final class PharaohkaEntity extends Monster {
             || level().getFluidState(pos).is(FluidTags.WATER)
             || level().getFluidState(pos.below()).is(FluidTags.WATER);
     }
-    @Override public boolean canBreatheUnderwater() { return true; }
     @Override public boolean removeWhenFarAway(double distance) { return !leader() && super.removeWhenFarAway(distance); }
 
     @Override public void travel(Vec3 input) {
