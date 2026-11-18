@@ -73,11 +73,11 @@ public final class PharaohkaEntity extends Monster {
         builder.define(ACTION_STARTED, 0);
     }
     public int action() { return entityData.get(ACTION); }
-    public int actionTicks() { return Math.max(0, tickCount-entityData.get(ACTION_STARTED)); }
+    public int actionTicks() { return Math.max(0, (int)level().getGameTime()-entityData.get(ACTION_STARTED)); }
     private void animate(int action) {
         if (entityData.get(ACTION) != action) {
             entityData.set(ACTION, action);
-            entityData.set(ACTION_STARTED, tickCount);
+            entityData.set(ACTION_STARTED, (int)level().getGameTime());
         }
     }
 
