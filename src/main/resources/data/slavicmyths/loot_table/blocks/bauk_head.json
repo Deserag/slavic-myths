@@ -8,6 +8,15 @@
           "type": "minecraft:item",
           "name": "slavicmyths:bauk_head"
         }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slavicmyths:bauk_head",
+          "properties": {
+            "front": "false"
+          }
+        }
       ]
     }
   ]

@@ -81,17 +81,17 @@ public final class SistersArmor {
         }
         @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> lines,TooltipFlag flags) {
             super.appendHoverText(stack,context,lines,flags);
-            lines.add(Component.literal("Дополнительное здоровье: +"+bonusHealth/2+" сердца").withStyle(ChatFormatting.RED));
-            String effect=switch(id){
-                case "tryaseya_boots"->"Ускорение и усиленный прыжок Сапог ветра";
-                case "gneteya_chestplate"->"30% шанс полностью отразить негативный эффект";
-                case "ledeya_helmet"->"Шанс усиленного критического удара: 25%";
-                default->"Постепенно восполняет голод и насыщение";
-            };
-            lines.add(Component.literal(effect).withStyle(ChatFormatting.AQUA));
-            lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal("Комплект: +10 сердец, полёт, Скорость III–IV").withStyle(ChatFormatting.LIGHT_PURPLE));
-            lines.add(Component.literal("Аура: Shift + ПКМ по блоку с пустой рукой (+10% защита от дебаффов)").withStyle(ChatFormatting.GRAY));
+            lines.add(Component.literal("✦ НАСЛЕДИЕ СЕСТЁР").withStyle(ChatFormatting.DARK_PURPLE));
+            switch(id) {
+                case "tryaseya_boots" -> lines.add(Component.literal("Ветер: +40% скорости и усиленный прыжок").withStyle(ChatFormatting.AQUA));
+                case "gneteya_chestplate" -> lines.add(Component.literal("Очищение: 30% шанс предотвратить негативный эффект").withStyle(ChatFormatting.AQUA));
+                case "ledeya_helmet" -> lines.add(Component.literal("Точный удар: 25% шанс увеличить урон в 1,5 раза").withStyle(ChatFormatting.AQUA));
+                case "agneya_leggings" -> lines.add(Component.literal("Сытость: +1 ед. голода каждые 1,75 сек. при необходимости").withStyle(ChatFormatting.AQUA));
+                default -> {}
+            }
+            lines.add(Component.literal("Комплект 4/4: +10 сердец • полёт • Скорость III").withStyle(ChatFormatting.LIGHT_PURPLE));
+            if(getType()==Type.CHESTPLATE)
+                lines.add(Component.literal("Аура: Shift+ПКМ пустой рукой • 20 сек. / 60 сек.").withStyle(ChatFormatting.GRAY));
         }
     }
     private SistersArmor() {}

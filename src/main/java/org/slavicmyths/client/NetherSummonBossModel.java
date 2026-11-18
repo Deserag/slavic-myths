@@ -197,8 +197,12 @@ public final class NetherSummonBossModel extends EntityModel<NetherSummonBoss> {
         for(int i=0;i<8;i++)geometry.box(chains,0,224,-6.3F+i*1.7F,9.5F+(i%2)*.5F,-5.55F,.65F,2.2F,.6F);
         body=part_body;head=part_head;leftArm=part_left_arm;rightArm=part_right_arm;leftLeg=part_left_leg;rightLeg=part_right_leg;cape=part_cape;
         }
+        // These parts are built directly, not baked from PartPose; retain authored pivots.
+        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
     @Override public void setupAnim(NetherSummonBoss e,float walk,float walkAmount,float age,float yaw,float pitch){
+        // Prevent previous attack, stagger or transition transforms leaking into idle.
+        root.getAllParts().forEach(ModelPart::resetPose);
         head.xRot=pitch*((float)Math.PI/180F);head.yRot=yaw*((float)Math.PI/180F);
         float stride=Mth.clamp(walkAmount,0,1);
         leftLeg.xRot=Mth.cos(walk*.6662F)*1.1F*stride;rightLeg.xRot=Mth.cos(walk*.6662F+(float)Math.PI)*1.1F*stride;

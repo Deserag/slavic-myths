@@ -5,6 +5,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -26,10 +30,24 @@ public final class NineMorContent {
                 .sized(.42F, .42F).clientTrackingRange(18).updateInterval(1)
                 .build("slavicmyths:nine_mor_shot"));
 
-    /** No spawn egg and no crafting recipe until the ritual ingredients are designed. */
+    /** Short-lived tracked skill choreography; each attack uses the actual 3D weapon model. */
+    public static final DeferredHolder<EntityType<?>, EntityType<NineMorSkillEffect>> SKILL =
+        ModEntities.ENTITIES.register("nine_mor_skill_effect", () ->
+            EntityType.Builder.<NineMorSkillEffect>of(NineMorSkillEffect::new,MobCategory.MISC)
+                .sized(.3F,.3F).clientTrackingRange(18).updateInterval(1).build("slavicmyths:nine_mor_skill_effect"));
+
+    /** No spawn egg; the late-game seal is crafted using Viy and Morovoy boss rewards. */
     public static final DeferredHolder<Item, Item> SEAL =
         ModItems.ITEMS.register("pechat_devyati_morov", () ->
             new NineMorSealItem(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1).fireResistant()));
+
+    public static final DeferredHolder<Item, Item> SPEAR = ModItems.ITEMS.register("nine_mor_spear", () -> new NineMorNamedItems.Spear(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 6, -2.0F))));
+    public static final DeferredHolder<Item, Item> AXE = ModItems.ITEMS.register("nine_mor_axe", () -> new NineMorNamedItems.Axe(Tiers.NETHERITE, new Item.Properties().rarity(Rarity.EPIC).fireResistant().attributes(AxeItem.createAttributes(Tiers.NETHERITE, 22.0F, -3.5F))));
+    public static final DeferredHolder<Item, Item> SHIELD = ModItems.ITEMS.register("nine_mor_shield", () -> new NineMorNamedItems.Shield(new Item.Properties().durability(2048).rarity(Rarity.EPIC).fireResistant()));
+    public static final DeferredHolder<Item, Item> AMULET = ModItems.ITEMS.register("nine_mor_amulet", () -> new NineMorNamedItems.Amulet(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final DeferredHolder<Item, Item> HEART = ModItems.ITEMS.register("nine_mor_heart", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Сердце Девяти Моров"));
+    public static final DeferredHolder<Item, Item> SCALE = ModItems.ITEMS.register("nine_mor_scale", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Чешуя Девяти Моров"));
+    public static final DeferredHolder<Item, Item> FANG = ModItems.ITEMS.register("nine_mor_fang", () -> new NineMorNamedItems.Reward(new Item.Properties().rarity(Rarity.EPIC).fireResistant(), "Клык Девяти Моров"));
 
     public static final DeferredHolder<SoundEvent, SoundEvent> SUMMON_SOUND =
         ModSounds.SOUNDS.register("nine_mor_serpent.summon", () ->

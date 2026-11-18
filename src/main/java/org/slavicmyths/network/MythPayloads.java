@@ -28,6 +28,13 @@ public final class MythPayloads {
         public static final StreamCodec<FriendlyByteBuf,NetherTrophy> CODEC=StreamCodec.of((b,v)->b.writeBoolean(v.pendant()),b->new NetherTrophy(b.readBoolean()));
         @Override public Type<NetherTrophy> type(){return TYPE;}
     }
+    /** Staff action: 0 switch element, 1 summon ravens, 2 area blast. */
+    public record StaffAction(int action) implements CustomPacketPayload {
+        public static final Type<StaffAction> TYPE=MythPayloads.type("morovoy_staff_action");
+        public static final StreamCodec<FriendlyByteBuf,StaffAction> CODEC=StreamCodec.of(
+            (buffer,value)->buffer.writeVarInt(value.action()),buffer->new StaffAction(buffer.readVarInt()));
+        @Override public Type<StaffAction> type(){return TYPE;}
+    }
     public record Activate() implements CustomPacketPayload {
         public static final Type<Activate> TYPE = MythPayloads.type("rpg_activate");
         public static final StreamCodec<FriendlyByteBuf, Activate> CODEC = StreamCodec.unit(new Activate());

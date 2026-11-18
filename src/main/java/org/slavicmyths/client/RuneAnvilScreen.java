@@ -21,7 +21,7 @@ public final class RuneAnvilScreen extends AbstractContainerScreen<RpgMenu> {
         recipeButton=button(8,79,186,tr("recipe"),b->recipeList=!recipeList);
         operationButton=button(8,79,116,tr("execute"),b->send(menu.mode==2?2+socket:menu.mode));
         removeButton=button(128,79,66,tr("remove"),b->send(menu.mode==2?101:102));
-        for(int n=0;n<3;n++){final int index=n;socketButtons.add(button(110+n*27,105,24,Component.literal(new String[]{"I","II","III"}[n]),b->socket=index));}
+        for(int n=0;n<4;n++){final int index=n;socketButtons.add(button(101+n*23,105,22,Component.literal(new String[]{"I","II","III","IV"}[n]),b->socket=index));}
     }
     @Override protected void renderBg(GuiGraphics g,float partial,int mx,int my){
         g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xffc6c6c6);

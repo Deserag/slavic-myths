@@ -54,7 +54,7 @@ public final class RpgMenu extends AbstractContainerMenu {
  @Override public void removed(Player p){super.removed(p);if(!p.level().isClientSide){updating=true;clearContainer(p,input);clearContainer(p,crafting);if(committed)clearContainer(p,result);result.clearContent();}}
  @Override public boolean clickMenuButton(Player p,int action){
   if(!(p instanceof ServerPlayer)||!stillValid(p))return false;
-  if(anvil){if(action>=100&&action<=103){if(committed&&!result.isEmpty())return false;mode=action-100;updateResult();}else if(action>=200){int index=action-200;if(mode!=3||index>=recipes().size()||committed)return false;recipeIndex=index;updateResult();}else if(action>=0&&action<=4&&mode!=3)Runes.operation((ServerPlayer)p,input,action);else return false;}
+  if(anvil){if(action>=100&&action<=103){if(committed&&!result.isEmpty())return false;mode=action-100;updateResult();}else if(action>=200){int index=action-200;if(mode!=3||index>=recipes().size()||committed)return false;recipeIndex=index;updateResult();}else if(action>=0&&action<=5&&mode!=3)Runes.operation((ServerPlayer)p,input,action);else return false;}
   else if(action>=0&&action<4)PathData.choose((ServerPlayer)p,action);
   else if(action>=10&&action<34)PathData.buy((ServerPlayer)p,action-10);
   else if(action>=50&&action<74&&PathData.has(p,PathData.SKILLS[action-50])&&Abilities.active(action-50))PathData.data(p).putInt("Active",action-50+1);

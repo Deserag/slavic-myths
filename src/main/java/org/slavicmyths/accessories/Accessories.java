@@ -47,7 +47,12 @@ public final class Accessories {
             swim(c.entity(),c.entity().isInWater()&&(next.is(this)||other));
         }
         @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> text,TooltipFlag flags){
-            text.add(id.equals("gneteya_amulet")?Component.literal("Спасает от смертельного удара, даёт защиту и поглощение (перезарядка 90 сек.)").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE):Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
+            if(id.equals("gneteya_amulet")) {
+                text.add(Component.literal("✦ ПОСЛЕДНИЙ ОБЕРЕГ").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
+                text.add(Component.literal("Спасает от смертельного удара • оставляет 1 HP").withStyle(net.minecraft.ChatFormatting.AQUA));
+                text.add(Component.literal("Поглощение III — 8 с • Сопротивление II — 5 с").withStyle(net.minecraft.ChatFormatting.GRAY));
+                text.add(Component.literal("Восстановление: 90 секунд • слот: ожерелье").withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
+            } else text.add(Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
         }
     }
     private Accessories(){}

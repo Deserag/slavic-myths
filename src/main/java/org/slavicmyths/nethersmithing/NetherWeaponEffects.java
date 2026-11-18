@@ -50,6 +50,6 @@ public final class NetherWeaponEffects {
    p.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,target.getX(),target.getY()+.6,target.getZ(),8,.2,.3,.2,.01);
   }
  }
- @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){if(NetherWeapons.owns(e.getItemStack())){String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem()).getPath();e.getToolTip().add(net.minecraft.network.chat.Component.translatable("netherweapons.tip."+id).withStyle(net.minecraft.ChatFormatting.GRAY));}}
+ @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){if(!(e.getItemStack().getItem() instanceof InfernalBow)&&NetherWeapons.owns(e.getItemStack())){String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem()).getPath();e.getToolTip().add(net.minecraft.network.chat.Component.translatable("netherweapons.tip."+id).withStyle(net.minecraft.ChatFormatting.GRAY));}}
  private NetherWeaponEffects(){}
 }

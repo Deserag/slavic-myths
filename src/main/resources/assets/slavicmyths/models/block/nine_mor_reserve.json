@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "slavicmyths:block/nine_mor_graphite"
+  }
+}

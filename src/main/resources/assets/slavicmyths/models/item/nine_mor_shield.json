@@ -1,0 +1,11 @@
+{
+  "parent": "slavicmyths:item/nine_mor_shield_held",
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "slavicmyths:item/nine_mor_shield_blocking"
+    }
+  ]
+}

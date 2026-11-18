@@ -15,7 +15,7 @@ import org.slavicmyths.sisters.SisterBoss;
 
 /** Gneteya V8 preview NeoForge 1.21.1 articulated model.
  * ALL cubes come from the compilable pure Java GneteyaGeometryV8 class, also used for GLB/Python.
- * This version is a preview source; not installed into the production renderer until approved. */
+ * Used by SistersModel in the live renderer; UV layout must match gneteya_v5.png (512x256). */
 public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
     public static final String[] MATERIALS={"black","black_hi","red","red_hi","red_dark","red_shadow","bone","bone_shadow","bone_dark","skin","hair","hair_hi","hair_dark","socket","red_eye","eye_glint","shaft","shaft_hi"};
     private static final List<GneteyaGeometryV8.Box> GEOMETRY=GneteyaGeometryV8.build();
@@ -65,8 +65,10 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
         for(GneteyaGeometryV8.Box box:GEOMETRY){
             if(!parts.contains(box.part()))continue;
             int id=material(box.material());
-            int u=id%8*128;
-            int v=id/8*128;
+            // The deployed gneteya_v5.png is a 512x256 swatch atlas (64px cells).
+            // V8 previously assumed 1024x512, causing incorrect sampled materials.
+            int u=id%8*64;
+            int v=id/8*64;
             builder.texOffs(u,v).addBox((float)(box.x()-px),(float)(-box.y()-box.h()+py),(float)(box.z()-pz),(float)box.w(),(float)box.h(),(float)box.d());
         }
         return builder;
@@ -95,11 +97,13 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
         PartDefinition leftForearm=left.addOrReplaceChild("left_forearm",cubes(Set.of("left_forearm"),-6.55,41.1,-.20),offset(-6.55,41.1,-.20,-5.10,47.9,0));
         right.addOrReplaceChild("right_forearm",cubes(Set.of("right_forearm"),5.55,39.5,-.20),offset(5.55,39.5,-.20,5.10,47.9,0));
         leftForearm.addOrReplaceChild("scythe",cubes(Set.of("scythe"),-7.5,36.0,-3.50),offset(-7.5,36.0,-3.50,-6.55,41.1,-.20));
-        return LayerDefinition.create(mesh,1024,512);
+        return LayerDefinition.create(mesh,512,256);
     }
     private static float sin(float f){return (float)Math.sin(f);}
     private static float clamp(float v,float lo,float hi){return Math.max(lo,Math.min(hi,v));}
     @Override public void setupAnim(SisterBoss boss,float walk,float stride,float age,float yaw,float pitch){
+        // Restore the baked pose, including hidden rotation/scale axes after combat.
+        root.getAllParts().forEach(ModelPart::resetPose);
         // Absolute poses every frame: no cumulative drifting bones.
         float moving=clamp(stride,0,1);
         float step=sin(walk*.73F);
@@ -122,8 +126,8 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
         head.xRot=clamp(pitch*.0174532925F,-.32F,.32F)*.32F;
         head.yRot=clamp(yaw*.0174532925F,-.42F,.42F)*.39F;
         head.zRot=sin(age*.06F)*.013F;
-        braid.xRot=sin(age*.085F)*.055F+step*moving*.06F;
-        braid.zRot=sin(age*.09F)*.045F;
+        braid.xRot=sin(age*.085F)*.025F+step*moving*.035F;
+        braid.zRot=sin(age*.09F)*.020F;
         panelLeft.xRot=-step*.32F*moving;
         panelLeft.yScale=1.0F+.13F*moving*Math.max(0F,step);
         panelRight.xRot=step*.32F*moving;
@@ -194,7 +198,7 @@ public final class GneteyaModelV8 extends EntityModel<SisterBoss> {
             braid.zRot+=.06F*power;
         }
         if(boss.hurtTime>0){head.zRot+=sin(age*.7F)*.09F;upper.zRot+=.06F;}
-        if(boss.enraged()){braid.xRot*=1.5F;panelLeft.zRot*=1.8F;panelRight.zRot*=1.8F;}
+        if(boss.enraged()){braid.xRot*=1.25F;panelLeft.zRot*=1.5F;panelRight.zRot*=1.5F;}
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){root.render(pose,out,light,overlay,color);}
 }

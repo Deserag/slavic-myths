@@ -1,0 +1,162 @@
+package org.slavicmyths.ninemor;
+
+import java.util.UUID;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import top.theillusivec4.curios.api.CuriosApi;
+import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
+import net.neoforged.neoforge.event.entity.player.CriticalHitEvent;
+import org.joml.Vector3f;
+
+@EventBusSubscriber(modid="slavicmyths")
+public final class NineMorRewardAbilities {
+ private static final String LAST="SlavicNineMorLastVictim";
+ private static final String BARRIER="SlavicNineMorBarrierReady";
+ private static final String DOME="SlavicNineMorDomeReady";
+ private static final String NINTH_LIFE="SlavicNineMorNinthLifeReady";
+ private static final DustParticleOptions MOR=new DustParticleOptions(new Vector3f(.44F,.13F,.72F),1.25F);
+
+ @SubscribeEvent public static void critical(CriticalHitEvent event){
+  Player player=event.getEntity();
+  if(!(player instanceof ServerPlayer)||!player.getMainHandItem().is(NineMorContent.SPEAR.get()))return;
+  event.setCriticalHit(true);
+  event.setDamageMultiplier(Math.max(1.5F,event.getDamageMultiplier()));
+ }
+
+ @SubscribeEvent public static void remember(LivingDamageEvent.Post event){
+  if(!(event.getSource().getEntity() instanceof ServerPlayer player)||!event.getSource().is(DamageTypes.PLAYER_ATTACK)
+      ||!player.getMainHandItem().is(NineMorContent.SPEAR.get())||event.getEntity()==player)return;
+  if(event.getEntity().isAlive())player.getPersistentData().putUUID(LAST,event.getEntity().getUUID());
+ }
+
+ static boolean eligible(ServerPlayer player,LivingEntity victim){
+  return victim!=player&&victim.isAlive()&&!victim.isAlliedTo(player)&&!player.isAlliedTo(victim)
+      &&!victim.getPersistentData().getBoolean("SlavicViySummoned")
+      &&!(victim instanceof Player p&&(p.isCreative()||p.isSpectator()||!player.canHarmPlayer(p)));
+ }
+
+ public static InteractionResultHolder<ItemStack> spear(Level world,Player player,InteractionHand hand){
+  ItemStack stack=player.getItemInHand(hand);
+  if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
+  if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
+  if(server.isShiftKeyDown()){
+   boolean nearby=!server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(4.3D),
+       e->eligible(server,e)&&e.distanceToSqr(server)<=20D).isEmpty();
+   if(!nearby)return InteractionResultHolder.fail(stack);
+   NineMorSkillEffect.spawn(server,NineMorSkillEffect.SWEEP,null);
+   server.getCooldowns().addCooldown(stack.getItem(),125);
+   server.playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.2F,.65F);
+   return InteractionResultHolder.consume(stack);
+  }
+  if(!server.getPersistentData().hasUUID(LAST))return InteractionResultHolder.fail(stack);
+  UUID id=server.getPersistentData().getUUID(LAST);
+  if(!(server.serverLevel().getEntity(id) instanceof LivingEntity target)||!eligible(server,target)||target.distanceToSqr(server)>36D*36D||!server.hasLineOfSight(target))return InteractionResultHolder.fail(stack);
+  Vec3 look=server.getLookAngle().multiply(1D,0D,1D).normalize();
+  if(look.lengthSqr()<.01D)look=new Vec3(0D,0D,1D);
+  Vec3 right=new Vec3(-look.z,0,look.x);
+  for(int i=0;i<4;i++){
+   Vec3 from=server.position().add(0,2.65D+(i%2)*.33D,0).subtract(look.scale(2.3D)).add(right.scale((i-1.5D)*1.05D));
+   NineMorShot shot=new NineMorShot(server.level(),server,9);
+   shot.setPos(from.x,from.y,from.z);
+   shot.summonBehind(target,i);
+   server.serverLevel().addFreshEntity(shot);
+  }
+  server.getCooldowns().addCooldown(stack.getItem(),185);
+  server.playSound(SoundEvents.TRIDENT_THROW.value(),1.2F,.7F);
+  return InteractionResultHolder.consume(stack);
+ }
+
+ public static InteractionResultHolder<ItemStack> axe(Level world,Player player,InteractionHand hand){
+  ItemStack stack=player.getItemInHand(hand);
+  if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
+  if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
+  Vec3 look=server.getLookAngle().multiply(1D,0D,1D);
+  if(look.lengthSqr()<.01D)return InteractionResultHolder.fail(stack);
+  look=look.normalize();
+  if(server.isShiftKeyDown()){
+   LivingEntity best=null;double bestDistance=Double.MAX_VALUE;
+   for(LivingEntity target:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(8D),e->eligible(server,e))){
+    Vec3 delta=target.position().subtract(server.position());
+    double forward=delta.x*look.x+delta.z*look.z,side=Math.abs(delta.x*look.z-delta.z*look.x);
+    if(forward<0||forward>8D||side>1.8D||!server.hasLineOfSight(target)||forward>=bestDistance)continue;
+    best=target;bestDistance=forward;
+   }
+   if(best==null||best.getHealth()>best.getMaxHealth()*.35F)return InteractionResultHolder.fail(stack);
+   NineMorSkillEffect.spawn(server,NineMorSkillEffect.EXECUTION,best);
+   server.getCooldowns().addCooldown(stack.getItem(),300);
+   server.playSound(SoundEvents.WITHER_BREAK_BLOCK,1.0F,.65F);
+   return InteractionResultHolder.consume(stack);
+  }
+  NineMorSkillEffect.spawn(server,NineMorSkillEffect.RIFT,null);
+  server.getCooldowns().addCooldown(stack.getItem(),175);
+  server.playSound(SoundEvents.WITHER_SHOOT,1F,.7F);
+  return InteractionResultHolder.consume(stack);
+ }
+
+ public static InteractionResultHolder<ItemStack> shield(Level world,Player player,InteractionHand hand){
+  ItemStack stack=player.getItemInHand(hand);
+  if(!player.isShiftKeyDown())return null;
+  if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
+  long now=server.serverLevel().getGameTime();
+  if(now<server.getPersistentData().getLong(DOME))return InteractionResultHolder.fail(stack);
+  server.getPersistentData().putLong(DOME,now+300L);
+  for(LivingEntity ally:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(5D),e->e==server||e instanceof Player p&&server.isAlliedTo(p))){
+   ally.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,120,1));
+   ally.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
+  }
+  server.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,120,1));
+  server.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
+  NineMorSkillEffect.spawn(server,NineMorSkillEffect.DOME,null);
+  server.playSound(SoundEvents.SHIELD_BLOCK,1.1F,.85F);
+  return InteractionResultHolder.consume(stack);
+ }
+
+ @SubscribeEvent public static void ninthLife(LivingDamageEvent.Pre event){
+  if(!(event.getEntity() instanceof ServerPlayer player)||player.isCreative()||player.isSpectator()||event.getNewDamage()<=0)return;
+  if(event.getNewDamage()<player.getHealth()+player.getAbsorptionAmount())return;
+  long now=player.serverLevel().getServer().overworld().getGameTime();
+  var saved=org.slavicmyths.rpg.PathData.data(player);
+  long previous=player.getPersistentData().getLong(NINTH_LIFE);
+  if(previous>saved.getLong(NINTH_LIFE))saved.putLong(NINTH_LIFE,previous);
+  player.getPersistentData().remove(NINTH_LIFE);
+  if(now<saved.getLong(NINTH_LIFE))return;
+  boolean equipped=CuriosApi.getCuriosInventory(player)
+      .map(inv->inv.findCurios(stack->stack.is(NineMorContent.AMULET.get())).stream()
+          .anyMatch(curio->"necklace".equals(curio.slotContext().identifier()))).orElse(false);
+  if(!equipped)return;
+  saved.putLong(NINTH_LIFE,now+6000L);
+  event.setNewDamage(0F);
+  player.setHealth(Math.max(1F,player.getHealth()));
+  player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,100,1));
+  player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
+  player.serverLevel().sendParticles(MOR,player.getX(),player.getEyeY(),player.getZ(),65,.7D,1.2D,.7D,.05D);
+  player.playSound(SoundEvents.TOTEM_USE,1F,.7F);
+ }
+
+ @SubscribeEvent public static void barrier(LivingShieldBlockEvent event){
+  if(!event.getOriginalBlock()||!(event.getEntity() instanceof ServerPlayer player)
+     ||!player.getUseItem().is(NineMorContent.SHIELD.get()))return;
+  long now=player.serverLevel().getGameTime();
+  if(now<player.getPersistentData().getLong(BARRIER))return;
+  player.getPersistentData().putLong(BARRIER,now+120L);
+  player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,65,0));
+  player.serverLevel().sendParticles(MOR,player.getX(),player.getEyeY(),player.getZ(),16,.65D,.6D,.65D,.012D);
+ }
+
+ private NineMorRewardAbilities(){}
+}

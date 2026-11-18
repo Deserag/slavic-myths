@@ -39,6 +39,18 @@ public final class MorovoyStaff {
     });
     public static void init(){}
 
+    /** All client packets are resolved against the actual equipped item, never a client-supplied stack. */
+    public static void handleAction(ServerPlayer player,int action) {
+        if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator())return;
+        ItemStack held=player.getMainHandItem();
+        switch(action) {
+            case 0 -> staff.switchMode(player,held);
+            case 1 -> staff.summon(player,held);
+            case 2 -> staff.area(player,staff.aimPoint(player),held);
+            default -> {}
+        }
+    }
+
     private static ItemAttributeModifiers weaponAttributes() {
         return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,6,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
@@ -61,27 +73,47 @@ public final class MorovoyStaff {
             return target!=player&&target.isAlive()&&!player.isAlliedTo(target)&&org.slavicmyths.rpg.Abilities.canHit(player,target);
         }
 
+        private void switchMode(ServerPlayer player,ItemStack held) {
+            int next=1-mode(held);
+            mode(held,next);
+            player.displayClientMessage(Component.literal("Посох Мора • ").withStyle(ChatFormatting.GRAY)
+                .append(Component.literal(next==0?"МОР — Иссушение и слабость":"ОГОНЬ — Урон и поджог")
+                .withStyle(next==0?ChatFormatting.DARK_PURPLE:ChatFormatting.GOLD)),true);
+            player.serverLevel().sendParticles(next==0?ParticleTypes.SOUL_FIRE_FLAME:ParticleTypes.FLAME,
+                player.getX(),player.getEyeY()-.2,player.getZ(),10,.24,.22,.24,.015);
+        }
+
         @Override public InteractionResultHolder<ItemStack> use(Level level,net.minecraft.world.entity.player.Player player,InteractionHand hand) {
             ItemStack held=player.getItemInHand(hand);
             if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(held);
-            if(player instanceof ServerPlayer server){
-                if(player.isShiftKeyDown())summon(server,held);
+            if(player instanceof ServerPlayer server) {
+                if(server.isShiftKeyDown())switchMode(server,held);
                 else bolt(server,held);
             }
-            return InteractionResultHolder.success(held);
+            return InteractionResultHolder.sidedSuccess(held,level.isClientSide);
         }
 
         @Override public InteractionResult useOn(UseOnContext context) {
-            if(context.getHand()!=InteractionHand.MAIN_HAND)return InteractionResult.PASS;
-            if(context.getPlayer() instanceof ServerPlayer player) {
-                if(player.isShiftKeyDown())area(player,context.getClickLocation(),context.getItemInHand());
-                else{
-                    int value=mode(context.getItemInHand())==0?1:0;
-                    mode(context.getItemInHand(),value);
-                    player.displayClientMessage(Component.literal("Посох Мора: "+(value==0?"Мор":"Огонь")),true);
+            if(context.getHand()!=InteractionHand.MAIN_HAND||context.getPlayer()==null||!context.getPlayer().isShiftKeyDown())return InteractionResult.PASS;
+            if(context.getPlayer() instanceof ServerPlayer player) switchMode(player,context.getItemInHand());
+            return InteractionResult.SUCCESS;
+        }
+
+        private Vec3 aimPoint(ServerPlayer player) {
+            Vec3 eye=player.getEyePosition(),end=eye.add(player.getLookAngle().scale(16));
+            ServerLevel world=player.serverLevel();
+            var wall=world.clip(new ClipContext(eye,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,player));
+            if(wall.getType()!=net.minecraft.world.phys.HitResult.Type.MISS)end=wall.getLocation();
+            LivingEntity chosen=null;
+            double nearest=eye.distanceToSqr(end);
+            for(LivingEntity target:world.getEntitiesOfClass(LivingEntity.class,new AABB(eye,end).inflate(.5),target->legal(player,target))) {
+                var intersection=target.getBoundingBox().inflate(.25).clip(eye,end);
+                if(intersection.isPresent()&&eye.distanceToSqr(intersection.get())<nearest) {
+                    nearest=eye.distanceToSqr(intersection.get());
+                    chosen=target;
                 }
             }
-            return InteractionResult.SUCCESS;
+            return chosen==null?end:chosen.position();
         }
 
         private void bolt(ServerPlayer player,ItemStack held) {
@@ -153,12 +185,10 @@ public final class MorovoyStaff {
 
         @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> lines,TooltipFlag flag) {
             super.appendHoverText(stack,context,lines,flag);
-            lines.add(Component.literal("Режим: "+(mode(stack)==0?"Мор (Иссушение I, Слабость)":"Огонь (поджог)")).withStyle(ChatFormatting.GOLD));
-            lines.add(Component.literal("ПКМ в воздухе: магический выстрел (8/11 урона)").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal("Shift + ПКМ в воздухе: 2–3 боевых ворона (45 сек.)").withStyle(ChatFormatting.DARK_PURPLE));
-            lines.add(Component.literal("ПКМ по блоку: сменить режим").withStyle(ChatFormatting.AQUA));
-            lines.add(Component.literal("Shift + ПКМ по блоку: удар огнём и мором по области").withStyle(ChatFormatting.RED));
-            lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(ChatFormatting.GRAY));
+            boolean fire=mode(stack)==1;
+            lines.add(Component.literal(fire?"✦ СТИХИЯ: ОГОНЬ":"✦ СТИХИЯ: МОР").withStyle(fire?ChatFormatting.GOLD:ChatFormatting.DARK_PURPLE));
+            lines.add(Component.literal(fire?"11 урона • поджог на 5 секунд":"8 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
+            lines.add(Component.literal("Стая: до 3 воронов (45 с)   |   Буря: 12 урона в радиусе 5 (40 с)").withStyle(ChatFormatting.DARK_AQUA));
         }
     }
     private MorovoyStaff(){}

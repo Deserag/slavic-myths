@@ -85,7 +85,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
             rightArm.setPos(-6.5F, -43, 0);
             leftArm.setPos(6.5F, -43, 0);
             leftSickle.setPos(0, 17, -1.2F);
-            leftSickle.zRot = .90F;
+            leftSickle.zRot = .24F;
             chain.setPos(0, 13.4F, -1.2F);
 
             cub(root, 0, 0, -4.5F, -44, -2.6F, 9, 20, 5.4F);
@@ -124,7 +124,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
                 cub(arm, 96, 0, -.62F, 16.1F, -.45F, 1.24F, 1.6F, .6F);
             }
             chainSickle.setPos(0, 3.6F, 0);
-            chainSickle.zRot = -.90F;
+            chainSickle.zRot = -.24F;
             sickle(leftSickle, 1);
             sickle(chainSickle, -1);
         }
@@ -143,12 +143,21 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         }
     }
     private void sickle(ModelPart part, int side) {
-        cub(part, 64, 64, -.35F, -3, -.35F, .7F, 6, .7F);
-        int[] height = {-4, -5, -5, -4, -3};
-        for (int step = 0; step < height.length; step++) {
-            float x = side > 0 ? step - .4F : -step - .8F;
-            cub(part, 96, 96, x, height[step], -.42F, 1.2F, 1.4F, .84F);
+        // Wrist rests on the ferrule. Two different outward-facing hooked blades,
+        // with actual curved steel volume rather than a five-pixel flat rake.
+        cub(part, 64, 64, -.55F, -3.5F, -.57F, 1.1F, 9F, 1.14F);
+        cub(part, 96, 64, -.8F, -3.85F, -.82F, 1.6F, 1.55F, 1.64F);
+        cub(part, 64, 64, -.72F, 4.4F, -.72F, 1.44F, 1.65F, 1.44F);
+        for(int step=0;step<9;step++){
+            float t=step/8F;
+            float x=side*(.25F+6.7F*t);
+            float y=-3.5F-3.4F*(float)Math.sin(t*Math.PI*.88F)+1.7F*t;
+            float depth=.95F-.23F*t,thickness=1.23F-.33F*t;
+            cub(part, 96, 96, x-thickness*.5F,y,-depth*.5F,thickness,1.4F,depth);
         }
+        float tip=side*7.3F;
+        cub(part, 120, 112, tip-.38F,-2.25F,-.31F,.76F,2.7F,.62F);
+        cub(part, 120, 112, tip-side*.60F-.24F,-.40F,-.26F,.48F,1.35F,.52F);
     }
 
     private static float attackPose(float remaining, float duration, float impact, float windup, float strike) {
@@ -209,7 +218,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
                 extension = 38F * Math.min(Mth.clamp((24F - remaining) / 10F, 0F, 1F),
                     Mth.clamp(remaining / 14F, 0F, 1F));
                 rightArm.zRot *= 1F - Mth.clamp(extension / 8F, 0F, 1F);
-                chainSickle.zRot = -.90F * (1F - Mth.clamp(extension / 5F, 0F, 1F));
+                chainSickle.zRot = -.24F * (1F - Mth.clamp(extension / 5F, 0F, 1F));
                 chain.xRot = (-rightArm.xRot - 1.57F) * Mth.clamp(extension / 4F, 0F, 1F);
                 chainSickle.xRot = -chain.xRot;
             }

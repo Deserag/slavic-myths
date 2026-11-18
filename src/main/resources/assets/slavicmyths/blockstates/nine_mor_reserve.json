@@ -1,0 +1,379 @@
+{
+  "variants": {
+    "cell=a,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=b,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=c,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=d,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=e,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=f,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=g,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=h,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=i,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=j,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=k,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=l,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=m,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=n,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=o,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=p,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=q,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=r,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=s,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=t,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=u,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=v,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=w,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=x,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=y,y_offset=1": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=a,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=b,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=c,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=d,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=e,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=f,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=g,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=h,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=i,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=j,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=k,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=l,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=m,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=n,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=o,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=p,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=q,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=r,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=s,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=t,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=u,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=v,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=w,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=x,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=y,y_offset=2": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=a,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=b,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=c,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=d,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=e,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=f,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=g,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=h,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=i,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=j,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=k,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=l,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=m,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=n,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=o,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=p,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=q,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=r,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=s,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=t,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=u,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=v,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=w,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=x,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=y,y_offset=3": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=a,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=b,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=c,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=d,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=e,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=f,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=g,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=h,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=i,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=j,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=k,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=l,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=m,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=n,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=o,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=p,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=q,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=r,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=s,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=t,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=u,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=v,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=w,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=x,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=y,y_offset=4": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=a,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=b,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=c,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=d,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=e,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=f,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=g,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=h,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=i,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=j,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=k,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=l,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=m,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=n,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=o,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=p,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=q,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=r,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=s,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=t,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=u,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=v,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=w,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=x,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    },
+    "cell=y,y_offset=5": {
+      "model": "slavicmyths:block/nine_mor_reserve"
+    }
+  }
+}

@@ -54,7 +54,7 @@ public final class SerpentCrossbow extends CrossbowItem {
   }
   shot.getPersistentData().putUUID(CrossbowDamage.VOLLEY,volley);
   shot.getPersistentData().putInt("GorynychMuzzleLane",lane);
-  if(shot instanceof AbstractArrow arrow){arrow.setBaseDamage(arrow.getBaseDamage()*1.18);if(ammo.has(DataComponents.INTANGIBLE_PROJECTILE)||owner instanceof Player p&&p.hasInfiniteMaterials())arrow.pickup=AbstractArrow.Pickup.CREATIVE_ONLY;}
+  if(shot instanceof AbstractArrow arrow){if(ammo.has(DataComponents.INTANGIBLE_PROJECTILE)||owner instanceof Player p&&p.hasInfiniteMaterials())arrow.pickup=AbstractArrow.Pickup.CREATIVE_ONLY;}
   shot.getPersistentData().putInt("GorynychSpecial",mode+1);
   shot.getPersistentData().putInt("GorynychImpactMode",mode+1);
   w.addFreshEntity(shot);weapon.hurtAndBreak(getDurabilityUse(ammo),owner,LivingEntity.getSlotForHand(hand));
