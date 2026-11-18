@@ -317,10 +317,21 @@ public final class BuyanShrine {
                     .setValue(LanternBlock.HANGING,true));
             }
             // Wall lights near the ritual axis and near the main entrance.
-            for(int dx:new int[]{-9,9})for(int dz:new int[]{-4,4})
-                at(x+dx,z+dz,6,Blocks.LANTERN.defaultBlockState());
-            for(int dx:new int[]{-4,4})
-                at(x+dx,z-5,6,Blocks.LANTERN.defaultBlockState());
+            for(int dx:new int[]{-9,9})for(int dz:new int[]{-4,4}) {
+                // Short inner-wall brackets attach each lantern to masonry.
+                at(x+dx+Integer.signum(dx),z+dz,9,IVORY);
+                at(x+dx,z+dz,9,IVORY);
+                for(int h=7;h<=8;h++)at(x+dx,z+dz,h,CHAIN);
+                at(x+dx,z+dz,6,Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING,true));
+            }
+            for(int dx:new int[]{-4,4}) {
+                at(x+dx,z-6,9,IVORY);
+                at(x+dx,z-5,9,IVORY);
+                for(int h=7;h<=8;h++)at(x+dx,z-5,h,CHAIN);
+                at(x+dx,z-5,6,Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING,true));
+            }
             brazier(x-6,z-9);brazier(x+6,z-9);
         }
         void root(int x,int z,int h,int r) {
