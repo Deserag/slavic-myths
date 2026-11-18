@@ -166,6 +166,44 @@ public final class PharaohkaGameTests {
         });
     }
 
+
+    @GameTest(template="empty",timeoutTicks=90)
+    @SuppressWarnings("unchecked")
+    public static void shipwreckCreatesExactlyOneLeader(GameTestHelper test) {
+        tank(test);
+        test.runAfterDelay(5,()->{
+            var world=test.getLevel();
+            var first=test.absolutePos(new BlockPos(7,2,7));
+            var last=test.absolutePos(new BlockPos(10,4,10));
+            var box=net.minecraft.world.level.levelgen.structure.BoundingBox.fromCorners(first,last);
+            var saved=PharaohkaShipwreckSpawns.get(world);
+            try {
+                var pendingField=PharaohkaShipwreckSpawns.class.getDeclaredField("pending");
+                pendingField.setAccessible(true);
+                var pending=(java.util.Map<Long,net.minecraft.world.level.levelgen.structure.BoundingBox>)
+                    pendingField.get(saved);
+                long key=first.asLong();
+                pending.put(key,box);
+                saved.setDirty();
+                var process=PharaohkaShipwreckSpawns.class.getDeclaredMethod("process",
+                    net.minecraft.server.level.ServerLevel.class);
+                process.setAccessible(true);
+                process.invoke(saved,world);
+                var area=new net.minecraft.world.phys.AABB(first,last).inflate(18);
+                var found=world.getEntitiesOfClass(PharaohkaEntity.class,area,PharaohkaEntity::leader);
+                test.assertTrue(found.size()==1,"Shipwreck did not produce exactly one leader");
+                test.assertTrue(!pending.containsKey(key),"Spawned shipwreck remained pending");
+                found.getFirst().discard();
+                process.invoke(saved,world);
+                var repeated=world.getEntitiesOfClass(PharaohkaEntity.class,area,PharaohkaEntity::leader);
+                test.assertTrue(repeated.isEmpty(),"Leader respawned after encounter consumed");
+                test.succeed();
+            } catch (ReflectiveOperationException ex) {
+                throw new IllegalStateException("Shipwreck server encounter fixture failed",ex);
+            }
+        });
+    }
+
     @GameTest(template="empty",timeoutTicks=20)
     public static void shipwreckChance(GameTestHelper test) {
         int spawns=0;
