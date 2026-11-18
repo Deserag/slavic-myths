@@ -79,7 +79,8 @@ public final class BuyanPreSpawn {
                     &&BuyanHarbor.placeOnce(world,site)
                     &&BuyanOutpost.placeOnce(world,site)
                     &&BuyanCraftQuarter.placeOnce(world,site)
-                    &&BuyanShrine.placeOnce(world,site)){
+                    &&BuyanShrine.placeOnce(world,site)
+                    &&BuyanCityPlan.placeOnce(world,site)){
                     state.finished();
                     world.setDefaultSpawnPos(BuyanTerem.spawn(world,site),0.0F);
                     return;

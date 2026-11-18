@@ -171,33 +171,6 @@ public final class BuyanShrine {
                     pavement(x0==x1?x+w:x,z0==z1?z+w:z,w==0?BLUE:IVORY);
             }
         }
-        void exteriorTile(int x,int z,int y,BlockState tile) {
-            int g=top(x,z);
-            if(g==Integer.MIN_VALUE||g<site.waterLevel()+5||y<=g)
-                throw new IllegalStateException("Sanctuary approach crosses coast or slope");
-            for(int h=g+1;h<y;h++)absolute(x,h,z,STONE);
-            absolute(x,y,z,tile);
-            for(int h=y+1;h<=y+3;h++)absolute(x,h,z,AIR);
-        }
-        void street(int x0,int z0,int x1,int z1) {
-            if(x0!=x1&&z0!=z1)
-                throw new IllegalArgumentException("Sanctuary road is not axis aligned");
-            int n=Math.max(Math.abs(x1-x0),Math.abs(z1-z0));
-            int last=Integer.MIN_VALUE;
-            for(int i=0;i<=n;i++) {
-                int x=x0+i*Integer.signum(x1-x0);
-                int z=z0+i*Integer.signum(z1-z0);
-                int h=top(x,z);
-                if(h==Integer.MIN_VALUE||h<site.waterLevel()+5
-                    ||last!=Integer.MIN_VALUE&&Math.abs(h-last)>1)
-                    throw new IllegalStateException("Sanctuary road cannot follow safe walkable grade");
-                last=h;
-                for(int w=-1;w<=1;w++) {
-                    int wx=x0==x1?x+w:x,wz=x0==x1?z:z+w;
-                    exteriorTile(wx,wz,top(wx,wz)+1,w==0?GRAY:IVORY);
-                }
-            }
-        }
         void roof(int x0,int x1,int z0,int z1,int y0,BlockState main,BlockState alt) {
             for(int x=x0;x<=x1;x++) {
                 int y=y0+Math.min(x-x0,x1-x);
@@ -496,30 +469,9 @@ public final class BuyanShrine {
             for(int[] b:new int[][]{{-17,-27},{13,-27},{-17,30}})
                 brazier(b[0],b[1]);
         }
-        void cityRoad() {
-            BlockPos gate=p(0,-40,0);
-            // Always leave the GATE toward the outside of the fence.
-            // Going along its inner side would trap the road behind a wall.
-            int dx=0,dz=0;
-            switch(rotation) {
-                case COUNTERCLOCKWISE_90 -> dx=-1;
-                case CLOCKWISE_90 -> dx=1;
-                case NONE -> dz=-1;
-                case CLOCKWISE_180 -> dz=1;
-            }
-            int outerX=gate.getX()+3*dx;
-            int outerZ=gate.getZ()+3*dz;
-            street(gate.getX(),gate.getZ(),outerX,outerZ);
-
-            int side=rotation==Rotation.CLOCKWISE_90?-1:1;
-            int bypass=dz==0?outerX:site.x()+41;
-            int rim=site.x()+side*34;
-            int squareZ=site.z()-54;
-            street(outerX,outerZ,bypass,outerZ);
-            street(bypass,outerZ,bypass,squareZ);
-            street(bypass,squareZ,rim,squareZ);
-        }
-        void build() {courtyard();shrine();oak();fence();cityRoad();}
+        // City streets are staged after all districts, never as a condition
+        // for fitting this large sanctuary onto a natural hillside.
+        void build() {courtyard();shrine();oak();fence();}
         boolean geometryCheck() {
             // Check all 391 main roof positions, not merely whether a map
             // key exists: planned AIR is still a hole in the finished roof.
@@ -555,10 +507,10 @@ public final class BuyanShrine {
                 if(!blocks.getOrDefault(p(29+hanging[0],8+hanging[1],
                     hanging[2]-hanging[3]),AIR).is(Blocks.LANTERN))return false;
             }
-            // Both monument foundations and the actual road-connected gate
+            // The monument foundations and the entrance gate
             // must remain in the finished staged geometry.
             if(!blocks.getOrDefault(p(29,8,20),AIR).is(Blocks.OAK_WOOD)
-                ||!blocks.getOrDefault(p(29,-13,13),AIR).is(GOLD.getBlock())
+                ||!blocks.getOrDefault(p(29,-13,13),AIR).is(Blocks.LANTERN)
                 ||!blocks.getOrDefault(p(-27,13,2),AIR).is(Blocks.CHEST)
                 ||!blocks.getOrDefault(p(-34,13,3),AIR).is(GOLD.getBlock())
                 ||!blocks.getOrDefault(p(-34,1,1),AIR).is(Blocks.STONE_BRICK_STAIRS)
