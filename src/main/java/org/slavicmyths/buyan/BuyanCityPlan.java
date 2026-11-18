@@ -398,8 +398,16 @@ public final class BuyanCityPlan {
                 if (Math.abs(tile.y - ground) > 52)
                     throw new IllegalStateException("Excessive earthwork " + x + "," + z);
                 int bottom = Math.min(ground - 2, tile.y - 3);
-                for (int y = bottom; y < tile.y; y++)
-                    blocks.put(new BlockPos(x, y, z), STONE);
+                // Load-bearing layers: natural compacted subsoil below,
+                // rubble core, reinforced masonry, smooth levelling bed,
+                // then the visible paving/temporary plot marker.
+                for (int y = bottom; y < tile.y; y++) {
+                    BlockState support = y == tile.y - 1
+                        ? Blocks.SMOOTH_STONE.defaultBlockState()
+                        : y == tile.y - 2
+                            ? STONE : Blocks.COBBLESTONE.defaultBlockState();
+                    blocks.put(new BlockPos(x, y, z), support);
+                }
                 blocks.put(new BlockPos(x, tile.y, z), tile.block);
                 for (int y = tile.y + 1; y <= Math.max(tile.y + tile.clearance,
                     ground + tile.clearance); y++)
