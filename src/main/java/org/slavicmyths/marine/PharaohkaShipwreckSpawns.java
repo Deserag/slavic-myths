@@ -23,6 +23,7 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 public final class PharaohkaShipwreckSpawns extends SavedData {
     private final Set<Long> visited=new HashSet<>();
     private final Map<Long, BoundingBox> pending=new LinkedHashMap<>();
+    private int pendingCursor;
     public static PharaohkaShipwreckSpawns get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
             new SavedData.Factory<>(PharaohkaShipwreckSpawns::new, PharaohkaShipwreckSpawns::load, null),
@@ -31,6 +32,7 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
     private static PharaohkaShipwreckSpawns load(CompoundTag tag, HolderLookup.Provider provider) {
         PharaohkaShipwreckSpawns data=new PharaohkaShipwreckSpawns();
         for (long key:tag.getLongArray("Visited")) data.visited.add(key);
+        data.pendingCursor=Math.max(0,tag.getInt("PendingCursor"));
         for (Tag entry:tag.getList("Pending",Tag.TAG_COMPOUND)) {
             CompoundTag p=(CompoundTag)entry;
             int[] a=p.getIntArray("Box");
@@ -41,6 +43,7 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
     }
     @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider provider) {
         tag.putLongArray("Visited",visited.stream().mapToLong(Long::longValue).toArray());
+        tag.putInt("PendingCursor",pendingCursor);
         ListTag list=new ListTag();
         pending.forEach((key,box)->{
             CompoundTag entry=new CompoundTag();
@@ -63,11 +66,15 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
                 if (id==null || !id.getPath().startsWith("shipwreck") || !id.getNamespace().equals("minecraft")) continue;
                 long key=start.getChunkPos().toLong();
                 if (!data.visited.add(key)) continue;
-                if (RandomSource.create(level.getSeed() ^ (key*0x9E3779B97F4A7C15L)).nextBoolean())
+                if (shouldSpawn(level.getSeed(), key))
                     data.pending.put(key,start.getBoundingBox());
                 data.setDirty();
             }
         });
+    }
+    /** Deterministic 50% chance based on the shipwreck start chunk and world seed. */
+    public static boolean shouldSpawn(long worldSeed,long shipwreckKey) {
+        return RandomSource.create(worldSeed ^ (shipwreckKey*0x9E3779B97F4A7C15L)).nextBoolean();
     }
     @SubscribeEvent public static void levelTick(LevelTickEvent.Post event) {
         if (!(event.getLevel() instanceof ServerLevel level) || level.getGameTime()%40!=0
@@ -75,12 +82,17 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
         get(level).process(level);
     }
     private void process(ServerLevel level) {
-        int budget=0;
-        for (var entry:List.copyOf(pending.entrySet())) {
-            if (budget++>=4) break;
+        if (pending.isEmpty()) return;
+        // Rotate over all entries so unloaded wrecks cannot block newer encounters.
+        var entries=List.copyOf(pending.entrySet());
+        int scans=Math.min(entries.size(),64);
+        int attempts=0;
+        for (int i=0;i<scans && attempts<4;i++) {
+            var entry=entries.get((pendingCursor+i)%entries.size());
             BoundingBox box=entry.getValue();
             BlockPos middle=box.getCenter();
             if (level.getChunkSource().getChunkNow(middle.getX()>>4,middle.getZ()>>4)==null) continue;
+            attempts++;
             PharaohkaEntity boss=PharaohkaContent.LEADER.get().create(level);
             if (boss==null) continue;
             boolean placed=false;
@@ -105,5 +117,6 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
                 setDirty();
             }
         }
+        pendingCursor=pending.isEmpty()?0:(pendingCursor+scans)%pending.size();
     }
 }
