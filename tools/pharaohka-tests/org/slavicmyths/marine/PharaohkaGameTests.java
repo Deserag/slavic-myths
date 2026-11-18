@@ -106,6 +106,62 @@ public final class PharaohkaGameTests {
             boss.discard();dummy.discard();test.succeed();
         });
     }
+
+    @GameTest(template="empty",timeoutTicks=115)
+    public static void shieldBashDamagesAfterWindup(GameTestHelper test) {
+        tank(test);
+        var boss=spawn(test,true,8,3,8);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Bash victim missing");
+        target.setNoAi(true);
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(300);
+        target.setHealth(300);
+        target.moveTo(test.absoluteVec(new Vec3(8.5,3.2,10.5)));
+        test.getLevel().addFreshEntity(target);
+        boss.setTarget(target);
+        var data=new CompoundTag();
+        boss.addAdditionalSaveData(data);
+        data.putInt("ShieldCooldown",1);
+        data.putInt("MeleeCooldown",300);
+        data.putInt("DashCooldown",300);
+        data.putInt("SummonCooldown",300);
+        data.putInt("CurrentCooldown",300);
+        boss.readAdditionalSaveData(data);
+        test.runAfterDelay(4,()->test.assertTrue(target.getHealth()==300,"Shield damaged before windup"));
+        test.runAfterDelay(35,()->{
+            test.assertTrue(target.getHealth()<300,"Shield bash did no physical damage");
+            boss.discard();target.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty",timeoutTicks=120)
+    public static void swimmingDashApproachesTarget(GameTestHelper test) {
+        tank(test);
+        var boss=spawn(test,true,5,3,6);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Dash victim missing");
+        target.setNoAi(true);
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(300);
+        target.setHealth(300);
+        target.moveTo(test.absoluteVec(new Vec3(5.5,3.2,13.5)));
+        test.getLevel().addFreshEntity(target);
+        boss.setTarget(target);
+        var data=new CompoundTag();
+        boss.addAdditionalSaveData(data);
+        data.putInt("DashCooldown",1);
+        data.putInt("ShieldCooldown",300);
+        data.putInt("MeleeCooldown",300);
+        data.putInt("SummonCooldown",300);
+        data.putInt("CurrentCooldown",300);
+        boss.readAdditionalSaveData(data);
+        double start=boss.distanceToSqr(target);
+        test.runAfterDelay(5,()->test.assertTrue(boss.action()==PharaohkaEntity.DASH,"Dash not entered"));
+        test.runAfterDelay(60,()->{
+            test.assertTrue(boss.distanceToSqr(target)<start || target.getHealth()<300,
+                "Dash did not approach or hit its underwater target");
+            boss.discard();target.discard();test.succeed();
+        });
+    }
+
     @GameTest(template="empty",timeoutTicks=20)
     public static void shipwreckChance(GameTestHelper test) {
         int spawns=0;
