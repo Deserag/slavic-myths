@@ -530,7 +530,7 @@ public final class BuyanShrine {
                 return false;
             BlockState step=blocks.getOrDefault(p(-34,1,1),AIR);
             if(!step.is(Blocks.STONE_BRICK_STAIRS)
-                ||step.getValue(StairBlock.FACING)!=Direction.SOUTH)
+                ||step.getValue(StairBlock.FACING)!=rotation.rotate(Direction.SOUTH))
                 return false;
             if(!blocks.getOrDefault(p(-34,7,8),AIR).is(Blocks.LANTERN))
                 return false;
