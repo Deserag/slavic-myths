@@ -317,9 +317,9 @@ public final class BuyanFullCityGameTests {
                 .is(Blocks.POLISHED_ANDESITE),
             "sanctuary processional walkway missing");
         require(helper.getLevel().getBlockState(new BlockPos(
-            layout.centerX() - 95, cityY + 21, layout.centerZ() + 32))
-                .is(Blocks.RED_TERRACOTTA),
-            "new three-floor white city housing facade missing");
+            layout.centerX() - 101, cityY + 20, layout.centerZ() + 32))
+                .is(Blocks.YELLOW_TERRACOTTA),
+            "new three-floor white city housing exterior cornice missing");
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
         for (int dx = -22; dx <= 22; dx++)
             for (int dz = -22; dz <= 22; dz++) {
