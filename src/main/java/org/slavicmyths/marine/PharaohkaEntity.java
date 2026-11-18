@@ -115,7 +115,7 @@ public final class PharaohkaEntity extends Monster {
         boolean wet=inHabitat();
         setNoGravity(wet);
         if (!wet) {
-            if (++dryTicks > 60 && tickCount % 20 == 0) hurt(damageSources().dryOut(), 3F);
+            if (++dryTicks > 100) hurt(damageSources().dryOut(), getMaxHealth()+1F);
             getNavigation().stop();
             return;
         }
