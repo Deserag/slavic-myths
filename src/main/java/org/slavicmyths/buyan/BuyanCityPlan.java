@@ -68,7 +68,7 @@ public final class BuyanCityPlan {
             Math.max(first.maxZ, second.maxZ), first.level, first.facade);
     }
 
-    private record Street(String name, int minX, int maxX, int minZ, int maxZ,
+    public record Street(String name, int minX, int maxX, int minZ, int maxZ,
                           int width) {}
 
     public record Layout(int centerX, int centerY, int centerZ, int side,
@@ -288,14 +288,14 @@ public final class BuyanCityPlan {
                 Direction.valueOf(side == 1 ? "EAST" : "WEST")));
         }
         List<Street> streets = new ArrayList<>();
-        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4,
-            cz - 90, cz - 23, MAIN_WIDTH));
         streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4,
+            cz - 90, cz - 23, MAIN_WIDTH));
+        streets.add(new Street("MAIN_SOUTH", cx - 4, cx + 4,
             cz + 23, cz + 42, MAIN_WIDTH));
         streets.add(new Street("SANCTUARY_APPROACH",
             Math.min(cx + side * 23, cx + side * 34),
             Math.max(cx + side * 23, cx + side * 34), cz - 2, cz + 2, 5));
-        streets.add(new Street("WEST_CROSS_STREET",
+        streets.add(new Street("RESIDENTIAL_CROSS_STREET",
             Math.min(cx - side * 97, cx - side * 23),
             Math.max(cx - side * 97, cx - side * 23), cz - 2, cz + 2, 5));
         // Five-wide north/south feeders touch BOTH plot families, and join
