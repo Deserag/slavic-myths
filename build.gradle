@@ -781,3 +781,24 @@ tasks.register('verifyShipIVGeometry', JavaExec) {
     classpath = sourceSets.shipIVCheck.runtimeClasspath
     mainClass = 'org.slavicmyths.ships.ShipIVGeometryHeadless'
 }
+
+// Opt-in isolated marine encounter GameTests; never ship test fixtures in the production JAR.
+if (project.hasProperty('pharaohkaCheck')) {
+    sourceSets {
+        pharaohkaCheck {
+            java.srcDir 'tools/pharaohka-tests'
+            resources.srcDir 'tools/pharaohka-test-resources'
+        }
+    }
+    sourceSets.pharaohkaCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.pharaohkaCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compilePharaohkaCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.pharaohkaCheck)
+    neoForge.runs {
+        pharaohkaTests {
+            type = 'gameTestServer'
+            gameDirectory = file('run-pharaohka-check')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_pharaohka'
+        }
+    }
+}
