@@ -15,6 +15,12 @@ public final class BuyanOutpostGameTests {
     private BuyanOutpostGameTests() {}
 
     @GameTest(template = "empty", timeoutTicks = 1200)
+    public static void variantFourHousingGeometryFitsExistingStreetGrid(GameTestHelper helper) {
+        BuyanCityHousing.verifyBlueprintFixture(helper.getLevel());
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 1200)
     public static void outpostPathsRoofsLaddersAndLoot(GameTestHelper helper) {
         BuyanOutpost.verifyGeometryFixture(helper.getLevel());
         helper.succeed();
