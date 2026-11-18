@@ -276,6 +276,11 @@ public final class ShipSailMultiplayer {
             if (startedAt == 0L) startedAt = System.nanoTime();
             if (System.nanoTime() - startedAt > 360_000_000_000L)
                 throw new AssertionError("Two-client ship test timed out");
+            if (mc.screen != null && mc.screen.getClass().getSimpleName()
+                    .equals("AccessibilityOnboardingScreen")) {
+                mc.setScreen(new TitleScreen());
+                return;
+            }
             if (!opened && mc.screen instanceof TitleScreen) {
                 opened = true;
                 Files.createDirectories(OUT);
