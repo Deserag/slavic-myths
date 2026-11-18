@@ -117,6 +117,7 @@ public final class PharaohkaShipwreckSpawns extends SavedData {
                 setDirty();
             }
         }
-        pendingCursor=pending.isEmpty()?0:(pendingCursor+scans)%pending.size();
+        // Advance one slot at a time: scanning in multiples of 64 must not starve every other batch.
+        pendingCursor=pending.isEmpty()?0:(pendingCursor+1)%pending.size();
     }
 }
