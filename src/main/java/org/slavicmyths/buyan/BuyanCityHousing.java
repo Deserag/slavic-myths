@@ -149,6 +149,9 @@ final class BuyanCityHousing {
                     door(b, x, 5, floor, north(b), DoorHingeSide.LEFT);
                     door(b, x, 9, floor, south(b), DoorHingeSide.RIGHT);
                 }
+                // Corridor access to the L-wing and the stair-service bay.
+                door(b, 6, 9, floor, south(b), DoorHingeSide.LEFT);
+                door(b, b.width - 2, 5, floor, north(b), DoorHingeSide.RIGHT);
                 for (int z = 14; z < b.depth - 1; z++)
                     for (int x : new int[]{4, 8})
                         fill(b, x, x, z, z, floor + 1, floor + 5,
@@ -193,6 +196,10 @@ final class BuyanCityHousing {
                         at(b, 17, z, floor + 1, Blocks.SPRUCE_FENCE.defaultBlockState());
                 }
             }
+            // Clear first-floor landing headroom before fitting the two
+            // flights. Otherwise the old z=9 room partition seals the stairs.
+            for (int x = b.width - 9; x <= b.width - 3; x++)
+                for (int h = 8; h <= 10; h++) at(b, x, 9, h, AIR);
             // Paired 7-step switchback staircase; floor-to-floor travel is physical.
             for (int flight = 0; flight < 2; flight++)
                 for (int step = 0; step < 7; step++) {
@@ -218,8 +225,11 @@ final class BuyanCityHousing {
             }
             for (int x = mid - 4; x <= mid + 3; x++)
                 at(b, x, -1, 7, ROOF);
-            for (int x : new int[]{mid - 3, mid + 2})
-                at(b, x, -1, 5, Blocks.LANTERN.defaultBlockState());
+            for (int x : new int[]{mid - 3, mid + 2}) {
+                at(b, x, -1, 6, Blocks.CHAIN.defaultBlockState());
+                at(b, x, -1, 5, Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING, true));
+            }
             door(b, 0, b.depth - 5, 0, east(b).getOpposite(), DoorHingeSide.LEFT);
             // Lit glazing every floor, retaining doorways and stair structural bays.
             for (int floor : new int[]{0, 7, 14})
