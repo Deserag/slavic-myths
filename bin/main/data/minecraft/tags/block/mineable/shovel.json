@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:mor_dirt",
+    "slavicmyths:mor_grass_block",
+    "slavicmyths:mor_sand",
+    "slavicmyths:mor_gravel",
+    "slavicmyths:navya_soil",
+    "slavicmyths:mossy_navya_soil",
+    "slavicmyths:black_cinder_soil",
+    "slavicmyths:ash_crust"
+  ]
+}

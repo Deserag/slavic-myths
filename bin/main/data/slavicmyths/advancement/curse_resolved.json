@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "victory": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "victory"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:grey_wolf_likho",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:warding_charm"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancement.slavicmyths.curse_resolved.title"
+    },
+    "description": {
+      "translate": "advancement.slavicmyths.curse_resolved.description"
+    }
+  }
+}

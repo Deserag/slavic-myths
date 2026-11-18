@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RLR",
+    "ASA",
+    "RLR"
+  ],
+  "key": {
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "L": {
+      "item": "slavicmyths:ledeya_ingot"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "S": {
+      "item": "slavicmyths:nether_soul_iv"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:hunter_bow_core",
+    "count": 1
+  }
+}

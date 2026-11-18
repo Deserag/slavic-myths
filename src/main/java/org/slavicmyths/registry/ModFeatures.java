@@ -9,6 +9,7 @@ import org.slavicmyths.world.ShrineFeature;
 
 public final class ModFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, "slavicmyths");
+    public static final DeferredHolder<Feature<?>,org.slavicmyths.netherstructures.BridgeClearanceFeature> BRIDGE_CLEARANCE=FEATURES.register("bridge_clearance",org.slavicmyths.netherstructures.BridgeClearanceFeature::new);
     public static final DeferredHolder<Feature<?>,org.slavicmyths.industry.BogIronFeature> BOG_IRON=FEATURES.register("bog_iron",org.slavicmyths.industry.BogIronFeature::new);
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SHRINE = FEATURES.register("ancient_shrine", ShrineFeature::new);
     public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PATH_SHRINE=FEATURES.register("path_shrine",org.slavicmyths.world.PathShrineFeature::new);

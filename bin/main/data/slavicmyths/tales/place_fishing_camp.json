@@ -1,0 +1,15 @@
+{
+  "part": "places",
+  "chapter": "water",
+  "section": "catalogue",
+  "title": "tales.entry.place_fishing_camp.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:fishing_camp"
+  ],
+  "advancements": [
+    "slavicmyths:explore_fishing_camp"
+  ],
+  "links": []
+}

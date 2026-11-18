@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.serpent_hill.title",
+  "icon": "slavicmyths:serpent_bas_relief",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:serpent_hill"
+  ],
+  "advancements": [],
+  "links": []
+}

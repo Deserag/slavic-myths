@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:broken_nether_bridge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 26,
+    "separation": 10,
+    "salt": 21012021,
+    "frequency": 0.85
+  }
+}

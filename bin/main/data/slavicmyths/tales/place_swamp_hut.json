@@ -1,0 +1,15 @@
+{
+  "part": "places",
+  "chapter": "water",
+  "section": "catalogue",
+  "title": "tales.entry.place_swamp_hut.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:swamp_hut"
+  ],
+  "advancements": [
+    "slavicmyths:explore_swamp_hut"
+  ],
+  "links": []
+}

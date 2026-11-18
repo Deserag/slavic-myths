@@ -50,7 +50,7 @@ public final class ShrineFeature extends Feature<NoneFeatureConfiguration> {
         set(world, center.offset(-2, 0, 0), Blocks.CAMPFIRE);
         set(world, center.offset(2, 0, -2), Blocks.CHEST);
         BlockEntity chest = world.getBlockEntity(center.offset(2, 0, -2));
-        if (chest instanceof ChestBlockEntity) ((ChestBlockEntity) chest).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths", "chests/ancient_shrine")), random.nextLong());
+        if (chest instanceof ChestBlockEntity) ((ChestBlockEntity) chest).setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths", "rewards276/overworld/ancient_shrine")), random.nextLong());
         for (int dy = 0; dy < 3; dy++) set(world, center.offset(-3, dy, -2), Blocks.OAK_LOG);
         for (BlockPos leaf : new BlockPos[]{center.offset(-3, 3, -2), center.offset(-2, 2, -2), center.offset(-4, 2, -2)})
             world.setBlock(leaf, Blocks.OAK_LEAVES.defaultBlockState().setValue(net.minecraft.world.level.block.LeavesBlock.PERSISTENT, true), 2);

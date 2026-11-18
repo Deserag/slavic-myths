@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:group_depths",
+  "criteria": {
+    "table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:armorer_table"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

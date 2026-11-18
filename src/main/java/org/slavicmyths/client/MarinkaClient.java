@@ -18,8 +18,7 @@ import org.slavicmyths.marinka.*;
 /** Shared renderer for all three witches; never reads server-only original pointer. */
 public final class MarinkaClient {
  private static ResourceLocation texture(String name){return MarinkaContent.id("textures/entity/"+name+".png");}
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {
+  public static final class Registration {
   @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(MarinkaContent.DOBRYNYA.get(),HeroRenderer::new);e.registerEntityRenderer(MarinkaContent.MARINKA.get(),WitchRenderer::new);e.registerEntityRenderer(MarinkaContent.TUR.get(),TurRenderer::new);e.registerEntityRenderer(MarinkaContent.ANCHOR.get(),AnchorRenderer::new);e.registerEntityRenderer(MarinkaContent.BOLT.get(),BoltRenderer::new);e.registerEntityRenderer(MarinkaContent.RUNE.get(),RuneRenderer::new);}
  }
  

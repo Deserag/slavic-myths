@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test fixture only"
+[[mods]]
+modId="slavicmyths_hellvisualqa"
+version="1"
+displayName="Isolated Hell visual QA fixture"
+[[dependencies.slavicmyths_hellvisualqa]]
+modId="slavicmyths"
+type="required"
+versionRange="[2.1.6-HELL,)"
+ordering="AFTER"
+side="CLIENT"

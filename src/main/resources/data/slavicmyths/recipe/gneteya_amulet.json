@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " G ",
+    "GSG",
+    " C "
+  ],
+  "key": {
+    "G": {
+      "item": "slavicmyths:gneteya_ingot"
+    },
+    "S": {
+      "item": "slavicmyths:nether_soul_iv"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:gneteya_amulet",
+    "count": 1
+  }
+}

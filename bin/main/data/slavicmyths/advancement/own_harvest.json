@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:first_neighbors",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:flax"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.own_harvest.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.own_harvest.description"
+    }
+  }
+}

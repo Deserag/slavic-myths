@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "slavicmyths:block/mor_sand"
+      },
+      {
+        "model": "slavicmyths:block/mor_sand",
+        "y": 90
+      },
+      {
+        "model": "slavicmyths:block/mor_sand",
+        "y": 180
+      },
+      {
+        "model": "slavicmyths:block/mor_sand",
+        "y": 270
+      }
+    ]
+  }
+}

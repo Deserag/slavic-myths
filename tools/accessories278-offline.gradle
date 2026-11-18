@@ -1,0 +1,4 @@
+allprojects { plugins.withId('java') {
+ sourceSets { accessories278Offline { java.srcDir 'tools/accessories278-offline';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.register('verifyAccessories278Offline',JavaExec){dependsOn 'accessories278OfflineClasses';classpath=sourceSets.accessories278Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Accessories278Offline';maxHeapSize='384m';jvmArgs '-XX:ActiveProcessorCount=2';workingDir project.projectDir}
+} }

@@ -1,0 +1,14 @@
+{
+  "part": "creatures",
+  "chapter": "forest",
+  "section": "inhabitants",
+  "title": "tales.entry.great_poloz.title",
+  "icon": "slavicmyths:poloz_core",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:poloz_core",
+    "item/slavicmyths:poloz_scale"
+  ],
+  "advancements": [],
+  "links": []
+}

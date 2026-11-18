@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "slavicmyths:block/cracked_lost_hall_stone",
+    "top": "slavicmyths:block/cracked_lost_hall_stone_top",
+    "bottom": "slavicmyths:block/cracked_lost_hall_stone_top"
+  }
+}

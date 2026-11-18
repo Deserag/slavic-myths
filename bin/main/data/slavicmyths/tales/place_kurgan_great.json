@@ -1,0 +1,13 @@
+{
+  "part": "places",
+  "chapter": "burial",
+  "section": "catalogue",
+  "title": "tales.entry.place_kurgan_great.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:kurgan_great"
+  ],
+  "advancements": [],
+  "links": []
+}

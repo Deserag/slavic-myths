@@ -1,0 +1,392 @@
+{
+  "textures": {
+    "growth": "slavicmyths:block/mor_stone",
+    "particle": "slavicmyths:block/mor_stone"
+  },
+  "elements": [
+    {
+      "from": [
+        3.0,
+        0,
+        3.0
+      ],
+      "to": [
+        7.0,
+        3,
+        7.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        3.0,
+        3,
+        3.0
+      ],
+      "to": [
+        7.0,
+        6,
+        7.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        3.5,
+        6,
+        3.5
+      ],
+      "to": [
+        6.5,
+        9,
+        6.5
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        4.0,
+        9,
+        4.0
+      ],
+      "to": [
+        6.0,
+        12,
+        6.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        4.5,
+        12,
+        4.5
+      ],
+      "to": [
+        5.5,
+        14,
+        5.5
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        9.0,
+        0,
+        8.0
+      ],
+      "to": [
+        13.0,
+        3,
+        12.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        9.0,
+        3,
+        8.0
+      ],
+      "to": [
+        13.0,
+        6,
+        12.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        9.5,
+        6,
+        8.5
+      ],
+      "to": [
+        12.5,
+        9,
+        11.5
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        10.0,
+        9,
+        9.0
+      ],
+      "to": [
+        12.0,
+        10,
+        11.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        3.0,
+        0,
+        10.0
+      ],
+      "to": [
+        7.0,
+        3,
+        14.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        3.0,
+        3,
+        10.0
+      ],
+      "to": [
+        7.0,
+        6,
+        14.0
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    },
+    {
+      "from": [
+        3.5,
+        6,
+        10.5
+      ],
+      "to": [
+        6.5,
+        7,
+        13.5
+      ],
+      "faces": {
+        "up": {
+          "texture": "#growth"
+        },
+        "down": {
+          "texture": "#growth"
+        },
+        "north": {
+          "texture": "#growth"
+        },
+        "south": {
+          "texture": "#growth"
+        },
+        "east": {
+          "texture": "#growth"
+        },
+        "west": {
+          "texture": "#growth"
+        }
+      }
+    }
+  ]
+}

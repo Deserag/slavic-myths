@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.abode_pure_spring.title",
+  "icon": "slavicmyths:pure_spring_drop",
+  "initial": 0,
+  "subjects": [
+    "structure/slavicmyths:abode_pure_spring"
+  ],
+  "advancements": [
+    "slavicmyths:found_ancient_sanctuary"
+  ],
+  "links": []
+}

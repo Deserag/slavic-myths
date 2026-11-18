@@ -1,0 +1,23 @@
+name: Ocean 2.6 - first ship static model and Creative audit
+on:
+  push:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "src/main/java/org/slavicmyths/registry/ModItemGroup.java"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_wooden_7x11.json"
+      - "experimental/raft26/audit_first_ship.py"
+      - ".github/workflows/first-ship-assets-audit.yml"
+  pull_request:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "src/main/java/org/slavicmyths/registry/ModItemGroup.java"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_wooden_7x11.json"
+      - "experimental/raft26/audit_first_ship.py"
+      - ".github/workflows/first-ship-assets-audit.yml"
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check first ship Creative registration, model bounds and interactions
+        run: python3 experimental/raft26/audit_first_ship.py

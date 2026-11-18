@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "slavicmyths:block/apple_leaves"
+  }
+}

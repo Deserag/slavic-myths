@@ -1,0 +1,9 @@
+gradle.projectsEvaluated {
+ def p=gradle.rootProject
+ p.sourceSets { onDemandOffline { java.srcDir 'tools/on-demand-tests' } }
+ p.sourceSets.onDemandOffline.java.srcDir 'tools/kurgan-tests'
+ p.sourceSets.onDemandOffline.java.include 'OnDemandChecks.java','org/slavicmyths/verify/YagaPlacementHeadless.java','org/slavicmyths/chud/RasterChecks.java'
+ p.sourceSets.onDemandOffline.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.onDemandOffline.runtimeClasspath += p.sourceSets.main.output+p.sourceSets.main.runtimeClasspath
+ p.tasks.register('checkOnDemandOffline',JavaExec){dependsOn 'onDemandOfflineClasses';classpath=p.sourceSets.onDemandOffline.runtimeClasspath;mainClass='OnDemandChecks';maxHeapSize='512m'}
+}

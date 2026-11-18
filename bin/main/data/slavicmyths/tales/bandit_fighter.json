@@ -1,0 +1,13 @@
+{
+  "part": "people",
+  "chapter": "roads",
+  "section": "inhabitants",
+  "title": "tales.entry.bandit_fighter.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:bandit_fighter"
+  ],
+  "advancements": [],
+  "links": []
+}

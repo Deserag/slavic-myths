@@ -1,0 +1,17 @@
+allprojects { p ->
+    p.plugins.withId('java') {
+        p.sourceSets.create('navyaOffline') { java.srcDir('tools/navya-tests') }
+        p.sourceSets.navyaOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+        p.sourceSets.navyaOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+        p.tasks.register('surveyNavyaClimate',JavaExec) {
+            dependsOn p.tasks.named('navyaOfflineClasses')
+            classpath=p.sourceSets.navyaOffline.runtimeClasspath
+            mainClass='org.slavicmyths.verify.NavyaClimate'
+        }
+        p.tasks.register('exportNavyaRigs',JavaExec) {
+            dependsOn p.tasks.named('navyaOfflineClasses')
+            classpath=p.sourceSets.navyaOffline.runtimeClasspath
+            mainClass='org.slavicmyths.verify.NavyaRigExport'
+        }
+    }
+}

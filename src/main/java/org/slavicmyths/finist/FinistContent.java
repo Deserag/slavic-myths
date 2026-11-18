@@ -9,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class FinistContent {
  public static final DeferredHolder<EntityType<?>,EntityType<FinistEntity>> FINIST=ModEntities.ENTITIES.register("finist",()->EntityType.Builder.of(FinistEntity::new,MobCategory.CREATURE).sized(.76F,2.2F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:finist"));
  public static final DeferredHolder<EntityType<?>,EntityType<KartausEntity>> KARTAUS=ModEntities.ENTITIES.register("kartaus",()->EntityType.Builder.of(KartausEntity::new,MobCategory.MONSTER).sized(.92F,2.65F).clientTrackingRange(14).updateInterval(1).build("slavicmyths:kartaus"));

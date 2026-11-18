@@ -39,8 +39,7 @@ public final class CampCommands {
         if(teleport)source.getPlayerOrException();BlockPos origin=BlockPos.containing(source.getPosition());
         var known=org.slavicmyths.worldgen.ManualStructureRecords.get(w).entries().stream().filter(e->e.family().equals("bandit_camp")&&(size.equals("any")||e.tier()==(size.equals("small")?0:size.equals("medium")?1:2))).map(org.slavicmyths.worldgen.ManualStructureRecords.Entry::arrival).filter(p->horizontal(origin,p)>=96*96).sorted(Comparator.comparingDouble(p->horizontal(origin,p))).toList();
         int knownIndex=next&&!size.equals("large")?1:0;if(!size.equals("nightingale")&&known.size()>knownIndex)return org.slavicmyths.worldgen.BoundedStructureSearch.deliver(source,known.get(knownIndex),teleport,p->report(source,size,teleport,p));
-        var types=new java.util.ArrayList<Structure>();for(String id:new String[]{"bandit_camp_small","bandit_camp_medium","bandit_camp_large"})if(size.equals("any")||id.equals("bandit_camp_"+(size.equals("nightingale")?"large":size)))types.add(org.slavicmyths.swamp.SwampStructures.get(w,id));
-        int[] seen={0};return org.slavicmyths.worldgen.BoundedStructureSearch.start(source,types,start->{if(size.equals("nightingale"))for(var piece:start.getPieces())if(piece instanceof LargeCampPiece large){var arrival=large.nightingaleArrival();if(arrival!=null)return arrival;}return StructureCandidates.locate(start);},p->horizontal(origin,p)>=96*96&&(!next||seen[0]++>0),p->report(source,size,teleport,p));
+        return org.slavicmyths.worldgen.OnDemandStructures.create(source,"bandit_camp",size.equals("small")?0:size.equals("medium")?1:2,result->{if(result.success())report(source,size,teleport,result.entrance());});
     }
     private static void report(CommandSourceStack source,String size,boolean teleport,BlockPos pos){
         ServerLevel w=source.getLevel();

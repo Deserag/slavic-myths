@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:group_forest",
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:raw_venison"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

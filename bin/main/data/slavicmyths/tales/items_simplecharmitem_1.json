@@ -1,0 +1,19 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_simplecharmitem_1.title",
+  "icon": "slavicmyths:forest_charm",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:forest_charm",
+    "item/slavicmyths:hunter_charm",
+    "item/slavicmyths:traveler_charm",
+    "recipe/slavicmyths:button_charm",
+    "recipe/slavicmyths:forest_charm",
+    "recipe/slavicmyths:hunter_charm",
+    "recipe/slavicmyths:traveler_charm"
+  ],
+  "advancements": [],
+  "links": []
+}

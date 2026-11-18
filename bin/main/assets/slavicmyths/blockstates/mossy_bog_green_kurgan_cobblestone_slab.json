@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/mossy_bog_green_kurgan_cobblestone_slab"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/mossy_bog_green_kurgan_cobblestone_slab_top"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/mossy_bog_green_kurgan_cobblestone"
+    }
+  }
+}

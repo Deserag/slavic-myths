@@ -15,7 +15,7 @@ public class Morozko extends PathfinderMob implements Enemy {
  protected static final EntityDataAccessor<Integer> PHASE=SynchedEntityData.defineId(Morozko.class,EntityDataSerializers.INT),ACTION=SynchedEntityData.defineId(Morozko.class,EntityDataSerializers.INT),AGE=SynchedEntityData.defineId(Morozko.class,EntityDataSerializers.INT);
  public UUID session,owner;public Vec3 anchor=Vec3.ZERO;protected int battleTicks,absent;private int stageAge;protected final long[] ready=new long[10];private boolean finalStorm;
  private int stormTicks,enhancedTicks;private Vec3 stormCenter;private final Set<UUID> children=new HashSet<>();
- private final ServerBossEvent bar=new ServerBossEvent(FrostContent.text("boss"),BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(FrostContent.text("boss"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
  public Morozko(EntityType<? extends Morozko> t,net.minecraft.world.level.Level w){super(t,w);setPersistenceRequired();xpReward=0;}
  public static AttributeSupplier.Builder attributes(){return createMobAttributes().add(Attributes.MAX_HEALTH,FrostRules.BOSS_HP).add(Attributes.MOVEMENT_SPEED,.22).add(Attributes.ARMOR,8).add(Attributes.ATTACK_DAMAGE,FrostRules.MELEE).add(Attributes.FOLLOW_RANGE,28).add(Attributes.KNOCKBACK_RESISTANCE,.8);}
  /** Species-local ceiling; IceDouble retains vanilla capped attributes. No new wire fields. */

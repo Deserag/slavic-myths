@@ -1,0 +1,8 @@
+{
+  "parent": "slavicmyths:find_the_hut",
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

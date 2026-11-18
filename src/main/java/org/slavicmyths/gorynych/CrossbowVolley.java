@@ -32,8 +32,7 @@ public final class CrossbowVolley {
   public static final StreamCodec<RegistryFriendlyByteBuf,Toggle> CODEC=StreamCodec.unit(new Toggle());
   public Type<Toggle> type(){return TYPE;}
  }
- @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {
+  public static final class Registration {
   @SubscribeEvent public static void register(net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent e){e.registrar("1").playToServer(Toggle.TYPE,Toggle.CODEC,(v,c)->{
    if(!(c.player() instanceof ServerPlayer p)||!p.isAlive()||p.isSpectator()||!p.isShiftKeyDown()||p.containerMenu!=p.inventoryMenu)return;
    var s=p.getMainHandItem();if(!(s.getItem() instanceof SerpentCrossbow bow)||!bow.special||active(p))return;

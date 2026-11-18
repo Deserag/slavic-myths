@@ -26,7 +26,7 @@ public final class FlailMotion {
             anchor=anchor.add(direction,reach);
         }
         // Last half-link plus eyelet-to-core offset: the core remains beyond the chain, never on top.
-        return new Pose(links,directions,anchor.add(directions[LINKS-1],2.0+contact*1.0));
+        return new Pose(links,directions,anchor.add(directions[LINKS-1],2.0));
     }
     private FlailMotion() {}
 }

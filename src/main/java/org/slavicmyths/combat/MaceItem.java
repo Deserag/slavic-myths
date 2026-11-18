@@ -13,11 +13,12 @@ import net.minecraft.world.item.enchantment.Enchantments;
 public class MaceItem extends TieredItem {
  public final float pressure,push;
  public MaceItem(Tier tier,float damage,float speed,float pressure,float push,Properties properties) {
-  super(tier,properties.attributes(ItemAttributeModifiers.builder()
-   .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(BASE_ATTACK_DAMAGE_ID,damage-1,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
-   .add(Attributes.ATTACK_SPEED,new AttributeModifier(BASE_ATTACK_SPEED_ID,speed-4,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND).build()));
+  super(tier,properties.attributes(attributes(damage,speed)));
   this.pressure=pressure;this.push=push;
  }
+ public static ItemAttributeModifiers attributes(float damage,float speed){return ItemAttributeModifiers.builder()
+   .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(BASE_ATTACK_DAMAGE_ID,damage-1,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
+   .add(Attributes.ATTACK_SPEED,new AttributeModifier(BASE_ATTACK_SPEED_ID,speed-4,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND).build();}
  @Override public boolean hurtEnemy(ItemStack stack,LivingEntity target,LivingEntity attacker) {
   if(!attacker.level().isClientSide){var d=target.position().subtract(attacker.position());target.knockback(push,-d.x,-d.z);stack.hurtAndBreak(1,attacker,EquipmentSlot.MAINHAND);}return true;
  }

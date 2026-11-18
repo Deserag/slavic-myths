@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "KK ",
+    " DK",
+    "GKK"
+  ],
+  "key": {
+    "K": {
+      "item": "slavicmyths:mat_royal_iron"
+    },
+    "D": {
+      "item": "minecraft:diamond_sword"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:trophy_kalin_sabre",
+    "count": 1
+  }
+}

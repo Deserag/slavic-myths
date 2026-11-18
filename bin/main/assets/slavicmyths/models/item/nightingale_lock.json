@@ -1,0 +1,394 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "steel": "slavicmyths:item/nightingale_steel",
+    "edge": "slavicmyths:item/nightingale_edge",
+    "leather": "slavicmyths:item/nightingale_leather",
+    "hair": "slavicmyths:item/nightingale_hair",
+    "silver": "slavicmyths:item/nightingale_silver",
+    "bone": "slavicmyths:item/nightingale_bone",
+    "dark": "slavicmyths:item/nightingale_dark",
+    "particle": "slavicmyths:item/nightingale_steel"
+  },
+  "elements": [
+    {
+      "from": [
+        5.0,
+        3,
+        7.0
+      ],
+      "to": [
+        5.7,
+        12,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        5.9,
+        4,
+        7.4
+      ],
+      "to": [
+        6.6000000000000005,
+        11,
+        8.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        6.8,
+        5,
+        7.0
+      ],
+      "to": [
+        7.5,
+        12,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        7.7,
+        3,
+        7.4
+      ],
+      "to": [
+        8.4,
+        11,
+        8.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        8.6,
+        4,
+        7.0
+      ],
+      "to": [
+        9.299999999999999,
+        12,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        9.5,
+        5,
+        7.4
+      ],
+      "to": [
+        10.2,
+        11,
+        8.1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hair"
+        },
+        "south": {
+          "texture": "#hair"
+        },
+        "east": {
+          "texture": "#hair"
+        },
+        "west": {
+          "texture": "#hair"
+        },
+        "up": {
+          "texture": "#hair"
+        },
+        "down": {
+          "texture": "#hair"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          10,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "from": [
+        4.8,
+        10,
+        6.8
+      ],
+      "to": [
+        10.5,
+        11,
+        8.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#leather"
+        },
+        "south": {
+          "texture": "#leather"
+        },
+        "east": {
+          "texture": "#leather"
+        },
+        "west": {
+          "texture": "#leather"
+        },
+        "up": {
+          "texture": "#leather"
+        },
+        "down": {
+          "texture": "#leather"
+        }
+      }
+    },
+    {
+      "from": [
+        9.8,
+        8,
+        7
+      ],
+      "to": [
+        10.4,
+        11,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#leather"
+        },
+        "south": {
+          "texture": "#leather"
+        },
+        "east": {
+          "texture": "#leather"
+        },
+        "west": {
+          "texture": "#leather"
+        },
+        "up": {
+          "texture": "#leather"
+        },
+        "down": {
+          "texture": "#leather"
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        15,
+        135,
+        -12
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -12
+      ],
+      "translation": [
+        1,
+        2,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  }
+}

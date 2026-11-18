@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "slavicmyths:block/mor_sandstone_bottom",
+    "side": "slavicmyths:block/mor_sandstone",
+    "top": "slavicmyths:block/mor_sandstone_top"
+  }
+}

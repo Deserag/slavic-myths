@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_cranberry_garden_patch.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:cranberry_bush",
+    "feature/slavicmyths:cranberry_garden_patch",
+    "item/slavicmyths:cranberry_bush"
+  ],
+  "advancements": [],
+  "links": []
+}

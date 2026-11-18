@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "slavicmyths:serpent_masonry"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:serpent_torch",
+    "count": 2
+  }
+}

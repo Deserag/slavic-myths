@@ -14,6 +14,7 @@ TAB_NAMES = {
     'magic': ('Магия и ритуалы', 'Magic & Rituals'),
     'mobs': ('Существа', 'Creatures'),
     'accessories': ('Украшения и аксессуары', 'Jewelry & Accessories'),
+    'heads': ('Головы боссов', 'Boss Heads & Trophies'),
 }
 
 def apply_tab_names(data, lang):

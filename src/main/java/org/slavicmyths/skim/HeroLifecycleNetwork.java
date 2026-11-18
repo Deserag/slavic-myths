@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 /** Owner-only view. SavedData and all authoritative decisions remain on the server. */
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class HeroLifecycleNetwork {
  public record View(CompoundTag tag) implements CustomPacketPayload {
   public View {tag=tag.copy();}

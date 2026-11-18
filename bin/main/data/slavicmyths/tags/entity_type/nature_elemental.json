@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:extinguished_flame_guardian",
+    "slavicmyths:fire_serpent",
+    "slavicmyths:guardian_water_echo",
+    "slavicmyths:morozko_ice_double",
+    "slavicmyths:player_ice_double",
+    "slavicmyths:guardian_water_prison",
+    "minecraft:blaze",
+    "minecraft:breeze",
+    "minecraft:magma_cube",
+    "slavicmyths:coal_crawler",
+    "slavicmyths:pekelnik",
+    "slavicmyths:sparkling",
+    "slavicmyths:zharenitsa",
+    "slavicmyths:magma_lord"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "slavicmyths:block/grove_bone_block",
+    "end": "slavicmyths:block/grove_bone_block_top"
+  }
+}

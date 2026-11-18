@@ -1,3 +1,0 @@
-before/** -text -whitespace
-*.json -text -whitespace
-*.log -text -whitespace

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "tryaseya",
+    "simulation_ticks": 610,
+    "entity_ticks": 610,
+    "wall_seconds": 30.4154685,
+    "accepted_native_player_hits": 60,
+    "state_changes": 13,
+    "states": "action:0;action:10;action:6;action:7;action:8;action:9",
+    "alive": true,
+    "removed": false,
+    "health_end": 744.1861,
+    "no_gravity": true,
+    "y_delta": 0.0,
+    "horizontal_distance": 150.73914122252538,
+    "legal_pressure_mode": true,
+    "extra_route_chunks": 6,
+    "min_attack_strength": 0.75999993,
+    "max_attack_strength": 1.0,
+    "attack_damage_attribute": 4.0,
+    "held_item": "1 minecraft:wooden_sword",
+    "fixture": "129x129 platform;289 forced chunks; invulnerable Survival proxy follows boss at1.2 beyond AABB; wooden sword every10ticks;NoGravity player; explicitly advanced native ServerPlayer.doTick (no network transport); native boss AI;20TPS; not network MP/damage-output acceptance"
+  }
+]

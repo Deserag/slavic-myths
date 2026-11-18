@@ -1,0 +1,4 @@
+allprojects { plugins.withId('java') {
+ sourceSets { placement269Offline { java.srcDir 'tools/placement269-offline';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.register('verifyPlacement269Offline',JavaExec){dependsOn 'placement269OfflineClasses';classpath=sourceSets.placement269Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Placement269Offline';maxHeapSize='384m';jvmArgs '-XX:ActiveProcessorCount=2';workingDir project.projectDir}
+} }

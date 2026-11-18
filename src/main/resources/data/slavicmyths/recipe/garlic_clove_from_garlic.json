@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:garlic"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:garlic_clove",
+    "count": 2
+  }
+}

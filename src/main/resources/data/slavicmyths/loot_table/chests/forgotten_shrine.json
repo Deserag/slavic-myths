@@ -1,0 +1,203 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_strength",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_speed",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_resilience",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_heat",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_strength",
+          "weight": 84
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_speed",
+          "weight": 84
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_resilience",
+          "weight": 84
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_heat",
+          "weight": 84
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_crushing",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_wind",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_blood",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_fortitude",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_counterstrike_iii",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_hunter_iii",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_last_stand_iii",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:rune_depths_iii",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:warding_charm",
+          "weight": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.06
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:grave_ward",
+          "weight": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.03
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:perun_charm",
+          "weight": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.02
+        }
+      ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_0",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:faded_rite_seal"
+        }
+      ]
+    },
+    {
+      "name": "slavicmyths:boss_components_21x_1",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:nameless_ashes"
+        }
+      ]
+    }
+  ]
+}

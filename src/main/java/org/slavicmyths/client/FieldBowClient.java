@@ -11,8 +11,8 @@ import org.slavicmyths.combat.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class FieldBowClient {
     public static void properties() {
-        for(String id:new String[]{"short_bow","heavy_bow"}) {
-            var bow=(FieldBowItem)WeaponCatalog.item(id);
+        for(String id:new String[]{"short_bow","heavy_bow","infernal_bow"}) {
+            var bow=(FieldBowItem)net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id));
             ItemProperties.register(bow,ResourceLocation.withDefaultNamespace("pull"),(stack,level,user,seed)->user==null||user.getUseItem()!=stack?0:bow.drawPower(stack.getUseDuration(user)-user.getUseItemRemainingTicks()));
             ItemProperties.register(bow,ResourceLocation.withDefaultNamespace("pulling"),(stack,level,user,seed)->user!=null&&user.isUsingItem()&&user.getUseItem()==stack?1:0);
         }

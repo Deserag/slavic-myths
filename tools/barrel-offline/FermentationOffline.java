@@ -33,7 +33,9 @@ public final class FermentationOffline {
                         need(total == servings && BrewRules.pourCount(container, pitcher, mug, remaining) == 0);
                     }
                 }
-                CompoundTag saved = new CompoundTag(); first.save(saved); need(saved.equals(legacy));
+                CompoundTag saved = new CompoundTag(); first.save(saved);
+                CompoundTag expected = legacy.copy(); expected.getCompound("Fermentation").putBoolean("JourneyAwarded", false);
+                need(saved.equals(expected));
                 Fermentation second = new Fermentation(); second.load(saved, drinks);
                 need(second.servings == servings && second.age == ages[a] && second.beverage.equals(beverage));
                 // Partially drained legacy batches must persist their exact remaining count.
@@ -61,9 +63,16 @@ public final class FermentationOffline {
         legacyBrew.putString("Beverage", "kvass"); legacyBrew.putInt("Age", 8400); legacyBrew.putInt("Servings", 3);
         household.put("Fermentation", legacyBrew);
         CompoundTag before = household.copy(); f.load(household, drinks); f.save(household);
+        before.getCompound("Fermentation").putBoolean("JourneyAwarded", false);
         need(household.equals(before)); need(f.servings == 3 && f.age == 8400);
         f.servings = 2; f.save(household);
         need(household.getList("Items", 10).equals(inventory)); need(household.getInt("DataVersion") == 1);
+        CompoundTag tracked = new CompoundTag(), trackedBrew = new CompoundTag();
+        trackedBrew.putString("Beverage", "light_beer"); trackedBrew.putInt("Age", 2400); trackedBrew.putInt("Servings", 8);
+        UUID owner = UUID.fromString("dace75c4-06ba-39a8-b9bf-c66b92ee16f0");
+        trackedBrew.putUUID("JourneyStarter", owner); trackedBrew.putBoolean("JourneyAwarded", true); tracked.put("Fermentation", trackedBrew);
+        f.load(tracked, drinks); CompoundTag trackedSaved = new CompoundTag(); f.save(trackedSaved); need(trackedSaved.equals(tracked));
+        trackedBrew.putBoolean("JourneyAwarded", false); f.load(tracked, drinks); trackedSaved = new CompoundTag(); f.save(trackedSaved); need(trackedSaved.equals(tracked));
         System.out.println("Fermentation offline NBT/quality assertions: " + checks + "; game launches: 0");
     }
 }

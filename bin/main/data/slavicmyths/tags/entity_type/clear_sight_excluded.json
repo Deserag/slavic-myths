@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:armor_stand",
+    {
+      "id": "slavicmyths:rune_visual",
+      "required": false
+    }
+  ]
+}

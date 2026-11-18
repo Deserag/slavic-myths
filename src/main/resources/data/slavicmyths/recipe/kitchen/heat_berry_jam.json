@@ -1,0 +1,43 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:heat_berries"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:honey_bottle"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:heat_berry_jam",
+    "count": 1
+  },
+  "servings": 2,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    },
+    {
+      "id": "minecraft:glass_bottle",
+      "count": 1
+    }
+  ]
+}

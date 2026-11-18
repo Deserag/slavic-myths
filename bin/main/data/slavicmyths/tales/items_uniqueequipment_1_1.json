@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_uniqueequipment_1_1.title",
+  "icon": "slavicmyths:hardened_iron",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:hardened_iron"
+  ],
+  "advancements": [],
+  "links": []
+}

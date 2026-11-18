@@ -26,27 +26,33 @@ import net.neoforged.neoforge.client.model.BakedModelWrapper;
 import org.slavicmyths.gorynych.SerpentCrossbow;
 
 /** Player-held 3P animation; vanilla arms keep their native movement and equipment renderer. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class ThirdPersonWeaponMotion {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF, KNIFE, SULITSA, CROSSBOW, BOW }
     private static final Map<String,Shape> IDS=new HashMap<>();
     static {
         register(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword");
         register(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan");
-        register(Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
+        register(Shape.HEAVY,"ashen_greatsword");
+        register(Shape.SPEAR,"navya_ostroga","ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
         register(Shape.POLEAXE,"berdysh");
         register(Shape.SICKLE,"noon_sickle");
         register(Shape.STAFF,"carved_staff","veles_staff","storm_staff");
-        register(Shape.KNIFE,"stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
-        register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","perunite_sulitsa","netherite_sulitsa");
+        register(Shape.KNIFE,"shadow_throwing_knife","stone_throwing_knife","gold_throwing_knife","iron_throwing_knife","silver_throwing_knife","diamond_throwing_knife","zhara_throwing_knife","perunite_throwing_knife","netherite_throwing_knife");
+        register(Shape.SULITSA,"stone_sulitsa","gold_sulitsa","iron_sulitsa","silver_sulitsa","diamond_sulitsa","zhara_sulitsa","perunite_sulitsa","netherite_sulitsa");
         register(Shape.CROSSBOW,"serpent_crossbow","three_breath_crossbow");
-        register(Shape.BOW,"short_bow","heavy_bow","finist_bow");
+        register(Shape.BOW,"infernal_bow","empowered_infernal_bow","short_bow","heavy_bow","finist_bow");
     }
     private static void register(Shape shape,String... ids){
         for(String name:ids)if(IDS.put(name,shape)!=null)throw new IllegalStateException("Duplicate 3P weapon ID: "+name);
     }
     private static ResourceLocation id(String name){return ResourceLocation.fromNamespaceAndPath("slavicmyths",name);}
+    @SubscribeEvent public static void additional(ModelEvent.RegisterAdditional event) {
+        for(String n:org.slavicmyths.nethersmithing.NetherWeaponRules.IDS)if(!n.equals("volcanic_heart_flail"))event.register(ModelResourceLocation.standalone(id("item/"+n+"_icon")));
+    }
+    private static final Map<String,BakedModel> ICONS=new HashMap<>();
     @SubscribeEvent public static void bake(ModelEvent.ModifyBakingResult event) {
+        ICONS.clear();
+        for(String n:org.slavicmyths.nethersmithing.NetherWeaponRules.IDS)if(!n.equals("volcanic_heart_flail")){BakedModel icon=event.getModels().get(ModelResourceLocation.standalone(id("item/"+n+"_icon")));if(icon!=null)ICONS.put(n,icon);}
         for(var entry:IDS.entrySet()){
             var item=BuiltInRegistries.ITEM.getOptional(id(entry.getKey()));
             if(item.isEmpty())continue;
@@ -72,6 +78,9 @@ public final class ThirdPersonWeaponMotion {
         }
         @Override public java.util.List<BakedModel> getRenderPasses(ItemStack stack,boolean fabulous){return java.util.List.of(this);}
         @Override public BakedModel applyTransform(ItemDisplayContext context,PoseStack pose,boolean left) {
+            if(context==ItemDisplayContext.GUI&&stack!=null&&org.slavicmyths.nethersmithing.NetherWeapons.owns(stack)){
+                BakedModel icon=ICONS.get(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath());if(icon!=null)return icon.applyTransform(context,pose,left);
+            }
             BakedModel selected=originalModel.applyTransform(context,pose,left);
             if(context!=ItemDisplayContext.THIRD_PERSON_LEFT_HAND&&context!=ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)return selected;
             if(owner==null||stack==null||owner.isRemoved()||owner.level()==null)return this;

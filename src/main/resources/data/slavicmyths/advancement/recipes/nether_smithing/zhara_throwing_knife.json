@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "material": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "slavicmyths:diamond_throwing_knife"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "material"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "slavicmyths:zhara_throwing_knife"
+    ]
+  }
+}

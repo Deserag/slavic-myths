@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "slavicmyths:block/cracked_bog_green_kurgan_cobblestone"
+  }
+}

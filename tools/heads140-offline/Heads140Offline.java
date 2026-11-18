@@ -14,7 +14,8 @@ public final class Heads140Offline {
  public static void main(String[] args)throws Exception {
   var entries=new ArrayList<Map<String,Object>>();
   var boundsIssues=new ArrayList<String>();
-  for(var kind:TrophyHeads.Kind.values()){
+  // Historical six-head regression; Magma Lord uses burning-islands-tests native poses.
+  for(var kind:java.util.EnumSet.range(TrophyHeads.Kind.TUGARIN,TrophyHeads.Kind.PODZEMNIK)){
    var h=TrophyHeadsClient.create(kind);var raw=new TrophyHeadsClient.Capture();h.part.render(new PoseStack(),raw,0,0);
    var placed=new TrophyHeadsClient.Capture();h.render(new PoseStack(),placed,0,0);
    if(kind==TrophyHeads.Kind.SKIM){

@@ -1,0 +1,290 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "wood": "slavicmyths:item/burial_wood",
+    "iron": "slavicmyths:item/burial_iron",
+    "rust": "slavicmyths:item/burial_rust",
+    "edge": "slavicmyths:item/burial_edge",
+    "leather": "slavicmyths:item/burial_leather",
+    "silver": "slavicmyths:item/burial_silver",
+    "bone": "slavicmyths:item/burial_bone",
+    "clay": "slavicmyths:item/burial_clay",
+    "red": "slavicmyths:item/burial_red",
+    "blue": "slavicmyths:item/burial_blue",
+    "amber": "slavicmyths:item/burial_amber",
+    "patina": "slavicmyths:item/burial_patina",
+    "particle": "slavicmyths:item/burial_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        8,
+        7.5
+      ],
+      "to": [
+        14,
+        8.5,
+        8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#leather"
+        },
+        "south": {
+          "texture": "#leather"
+        },
+        "east": {
+          "texture": "#leather"
+        },
+        "west": {
+          "texture": "#leather"
+        },
+        "up": {
+          "texture": "#leather"
+        },
+        "down": {
+          "texture": "#leather"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        6.5,
+        7
+      ],
+      "to": [
+        3.5,
+        9.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#red"
+        },
+        "south": {
+          "texture": "#red"
+        },
+        "east": {
+          "texture": "#red"
+        },
+        "west": {
+          "texture": "#red"
+        },
+        "up": {
+          "texture": "#red"
+        },
+        "down": {
+          "texture": "#red"
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        7.5,
+        7
+      ],
+      "to": [
+        5.5,
+        10.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#blue"
+        },
+        "south": {
+          "texture": "#blue"
+        },
+        "east": {
+          "texture": "#blue"
+        },
+        "west": {
+          "texture": "#blue"
+        },
+        "up": {
+          "texture": "#blue"
+        },
+        "down": {
+          "texture": "#blue"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        6.5,
+        7
+      ],
+      "to": [
+        7.5,
+        9.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#amber"
+        },
+        "south": {
+          "texture": "#amber"
+        },
+        "east": {
+          "texture": "#amber"
+        },
+        "west": {
+          "texture": "#amber"
+        },
+        "up": {
+          "texture": "#amber"
+        },
+        "down": {
+          "texture": "#amber"
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        7.5,
+        7
+      ],
+      "to": [
+        9.5,
+        10.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#red"
+        },
+        "south": {
+          "texture": "#red"
+        },
+        "east": {
+          "texture": "#red"
+        },
+        "west": {
+          "texture": "#red"
+        },
+        "up": {
+          "texture": "#red"
+        },
+        "down": {
+          "texture": "#red"
+        }
+      }
+    },
+    {
+      "from": [
+        10,
+        6.5,
+        7
+      ],
+      "to": [
+        11.5,
+        9.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#blue"
+        },
+        "south": {
+          "texture": "#blue"
+        },
+        "east": {
+          "texture": "#blue"
+        },
+        "west": {
+          "texture": "#blue"
+        },
+        "up": {
+          "texture": "#blue"
+        },
+        "down": {
+          "texture": "#blue"
+        }
+      }
+    },
+    {
+      "from": [
+        12,
+        7.5,
+        7
+      ],
+      "to": [
+        13.5,
+        10.5,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#amber"
+        },
+        "south": {
+          "texture": "#amber"
+        },
+        "east": {
+          "texture": "#amber"
+        },
+        "west": {
+          "texture": "#amber"
+        },
+        "up": {
+          "texture": "#amber"
+        },
+        "down": {
+          "texture": "#amber"
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        15,
+        135,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:flooded_shrine",
+  "biomes": "#slavicmyths:structures/flooded_shrine",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

@@ -1,0 +1,149 @@
+{
+  "textures": {
+    "wood": "slavicmyths:block/household_wood",
+    "weave": "slavicmyths:block/household_weave",
+    "cloth": "slavicmyths:block/household_cloth",
+    "ornament": "slavicmyths:block/household_ornament",
+    "metal": "slavicmyths:block/household_metal",
+    "hay": "slavicmyths:block/household_hay",
+    "particle": "slavicmyths:block/household_wood"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        11.600000000000001,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            11.600000000000001
+          ]
+        },
+        "south": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            11.600000000000001
+          ]
+        },
+        "east": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            11.600000000000001
+          ]
+        },
+        "west": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            11.600000000000001
+          ]
+        },
+        "up": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        },
+        "down": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        11.600000000000001,
+        3
+      ],
+      "to": [
+        13,
+        16,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.399999999999999
+          ]
+        },
+        "south": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.399999999999999
+          ]
+        },
+        "east": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.399999999999999
+          ]
+        },
+        "west": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            4.399999999999999
+          ]
+        },
+        "up": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#hay",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        }
+      }
+    }
+  ]
+}

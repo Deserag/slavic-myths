@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tale.slavicmyths.zmey_gorynych.title",
+  "icon": "slavicmyths:gorynych_scale",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:zmey_gorynych"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -1,7 +1,0 @@
-{
-  "slavicmyths:veles_staff": {
-    "recipes": [],
-    "loot_tables": [],
-    "resolution": "recipe/loot sources; dynamic rewards in audit-68.json"
-  }
-}

@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alatyrite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "slavicmyths:roasted_alatyrite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alatyrite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "slavicmyths:alatyr_ingot"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "slavicmyths:block/mor_grass_block"
+      },
+      {
+        "model": "slavicmyths:block/mor_grass_block",
+        "y": 90
+      },
+      {
+        "model": "slavicmyths:block/mor_grass_block",
+        "y": 180
+      },
+      {
+        "model": "slavicmyths:block/mor_grass_block",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "slavicmyths:block/mor_grass_block_snow"
+    }
+  }
+}

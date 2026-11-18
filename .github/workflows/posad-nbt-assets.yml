@@ -1,0 +1,74 @@
+name: Posad 2.2 exact R1 NBT assets (hell only)
+on:
+  push:
+    branches: [hell]
+    paths:
+      - 'tools/generate_posad_buildings.py'
+      - 'tools/posad-tests/verify_generated_building_nbt.py'
+      - 'docs/concepts/nether-settlement-2.2/2.2_VECHE_HALL_VOXELS_R1.py'
+      - 'docs/concepts/nether-settlement-2.2/communal-house-2.2.3/2.2_COMMUNAL_HOUSE_MODEL_R1.json'
+      - 'docs/concepts/nether-settlement-2.2/communal-house-2.2.3/loot_drafts/**'
+      - '.github/workflows/posad-nbt-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: posad-nbt-hell
+  cancel-in-progress: false
+jobs:
+  generate-and-publish:
+    if: github.repository == 'Deserag/slavic-myths' && github.ref == 'refs/heads/hell'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build exact approved R1 NBT with Python stdlib
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/generate_posad_buildings.py
+          python3 tools/posad-tests/verify_city_buildings.py
+          python3 tools/posad-tests/verify_generated_building_nbt.py
+          # The generator re-formats the four already-approved JSON loot files.
+          # Their semantic equality was checked above; clean only these CI-created
+          # text diffs so a concurrent fast-forward-only rebase stays possible.
+          git restore --worktree -- \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_pantry.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_utility.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_personal.json \
+            src/main/resources/data/slavicmyths/loot_table/chests/nether_communal_elder.json
+      - name: Commit only the two checked binary templates to hell (no force)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- src/main/resources/data/slavicmyths/structure/posad/veche_hall_2_2_2.nbt src/main/resources/data/slavicmyths/structure/posad/communal_house_2_2_3.nbt
+          if git diff --cached --quiet; then
+            echo 'PASS: tracked NBT files are already reproducible and unchanged'
+            exit 0
+          fi
+          git diff --cached --name-only
+          git config user.name "slavic-myths-posad-assets[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "assets(posad): commit verified exact R1 hall and communal house NBT"
+          # Never force-push. The runner may start from a stale HEAD while other
+          # code work advances hell; replay only this own generated-assets commit.
+          original_base="$(git rev-parse HEAD^)"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/hell; then
+              exit 0
+            fi
+            git fetch origin hell
+            if ! git diff --quiet "$original_base" origin/hell -- \
+              tools/generate_posad_buildings.py \
+              docs/concepts/nether-settlement-2.2/2.2_VECHE_HALL_VOXELS_R1.py \
+              docs/concepts/nether-settlement-2.2/communal-house-2.2.3/2.2_COMMUNAL_HOUSE_MODEL_R1.json \
+              docs/concepts/nether-settlement-2.2/communal-house-2.2.3/loot_drafts; then
+              echo 'FAIL: approved source changed during generation; refuse stale asset publication'
+              exit 1
+            fi
+            git rebase origin/hell
+          done
+          echo 'FAIL: hell advanced repeatedly; no force push was attempted'
+          exit 1

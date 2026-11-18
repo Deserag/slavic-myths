@@ -86,7 +86,7 @@ public final class WintersEvents {
  }
  public static void aura(ServerPlayer p){
   var n=data(p);
-  if(!p.isAlive()||p.level().dimension()!=Level.NETHER||present(p)||p.isCreative()||p.isSpectator()||p.getAbilities().invulnerable){n.remove("AuraStart");n.remove("AuraStage");n.remove("AuraHit");p.removeEffect(WintersContent.AURA);return;}
+  if(!p.isAlive()||p.level().dimension()!=Level.NETHER||present(p)||WintersContent.ward(p)||p.isCreative()||p.isSpectator()||p.getAbilities().invulnerable){n.remove("AuraStart");n.remove("AuraStage");n.remove("AuraHit");p.removeEffect(WintersContent.AURA);return;}
   long time=now(p);if(!n.contains("AuraStart")){n.putLong("AuraStart",time);n.putInt("AuraStage",-1);}
   long elapsed=time-n.getLong("AuraStart");int stage=WintersRules.stage(elapsed);
   if(stage!=n.getInt("AuraStage")){n.putInt("AuraStage",stage);n.putLong("AuraHit",time);message(p,"aura_"+stage);sound(p,SoundEvents.SOUL_SAND_STEP,.6f);}
@@ -109,6 +109,7 @@ public final class WintersEvents {
   if(e.getEntity().level().isClientSide||e.getNewDamage()<=0||WAVE.get())return;
   if(e.getSource().getDirectEntity()!=null&&e.getSource().getEntity() instanceof ServerPlayer p&&present(p)&&dark(p)&&enemy(e.getEntity(),p)&&!boss(e.getEntity())&&p.getRandom().nextFloat()<.15f)e.getEntity().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),p);
  }
+ @SubscribeEvent public static void auraWard(MobEffectEvent.Applicable e){if(e.getEffectInstance().is(WintersContent.AURA)&&WintersContent.ward(e.getEntity()))e.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);}
  @SubscribeEvent public static void effect(MobEffectEvent.Added e){var effect=e.getEffectInstance();if(e.getEntity() instanceof ServerPlayer p&&present(p)&&dark(p)&&effect.is(MobEffects.WITHER)&&!effect.isInfiniteDuration())((org.slavicmyths.equipment.mixin.GorynychEffectDuration)effect).slavicmyths$gorynychDuration(Math.max(1,(int)Math.ceil(effect.getDuration()*.65)));}
  @SubscribeEvent public static void crafted(PlayerEvent.ItemCraftedEvent e){
   if(!(e.getEntity() instanceof ServerPlayer p)||!WintersRecipe.original(e.getCrafting()))return;

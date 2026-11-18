@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "slavicmyths:willow_stripped_log"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "slavicmyths:willow_stripped_wood"
+  }
+}

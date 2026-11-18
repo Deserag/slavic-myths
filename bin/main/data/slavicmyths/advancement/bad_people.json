@@ -1,0 +1,49 @@
+{
+  "parent": "slavicmyths:group_roads",
+  "criteria": {
+    "small": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld",
+                "structures": [
+                  "slavicmyths:bandit_camp_small"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "medium": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:overworld",
+                "structures": [
+                  "slavicmyths:bandit_camp_medium"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "small",
+      "medium"
+    ]
+  ]
+}

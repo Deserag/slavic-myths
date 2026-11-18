@@ -1,0 +1,45 @@
+{
+  "minecraft": "1.21.1",
+  "DataVersion": 3955,
+  "format": "gzip structure template, stored deflate",
+  "origin_city": {
+    "x": 76,
+    "y": 0,
+    "z": 44
+  },
+  "size": {
+    "u": 25,
+    "y": 13,
+    "v": 26
+  },
+  "non_air_blocks": 1599,
+  "palette_states": 33,
+  "chests": [
+    {
+      "position": "6,1,7",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_brewing"
+    },
+    {
+      "position": "6,1,13",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_preparation"
+    },
+    {
+      "position": "14,1,7",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_drying"
+    },
+    {
+      "position": "14,1,13",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_pantry"
+    },
+    {
+      "position": "22,1,7",
+      "loot_table": "slavicmyths:chests/posad_zeleynaya_storehouse"
+    }
+  ],
+  "uncompressed_bytes": 60637,
+  "gzip_bytes": 60660,
+  "crc32": "ed527591",
+  "generated_from": "MODEL_R1.json",
+  "worldgen_integration": false,
+  "game_test_validated": false
+}

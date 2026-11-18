@@ -9,7 +9,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class SkimContent {
  public static final DeferredHolder<EntityType<?>,EntityType<AlyoshaEntity>> ALYOSHA=ModEntities.ENTITIES.register("alyosha_popovich",()->EntityType.Builder.of(AlyoshaEntity::new,MobCategory.CREATURE).sized(.72F,2.15F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:alyosha_popovich"));
  public static final DeferredHolder<EntityType<?>,EntityType<SkimBeastEntity>> SKIM=ModEntities.ENTITIES.register("skim_beast",()->EntityType.Builder.of(SkimBeastEntity::new,MobCategory.MONSTER).sized(2.1F,2.95F).clientTrackingRange(14).updateInterval(1).build("slavicmyths:skim_beast"));

@@ -1,0 +1,20 @@
+{
+  "feature": "slavicmyths:burning_islands_terrain",
+  "placement": [
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "absolute": 34
+        },
+        "max_inclusive": {
+          "absolute": 34
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

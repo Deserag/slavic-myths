@@ -1,0 +1,27 @@
+{
+  "part": "crafts",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.guide_brewing.title",
+  "icon": "slavicmyths:fermentation_vat",
+  "initial": 1,
+  "subjects": [
+    "recipe/slavicmyths:vat/berry_mors",
+    "recipe/slavicmyths:vat/cider_must",
+    "recipe/slavicmyths:vat/dark_beer_wort",
+    "recipe/slavicmyths:vat/forest_beer_wort",
+    "recipe/slavicmyths:vat/forest_herbal_infusion",
+    "recipe/slavicmyths:vat/honey_beer_wort",
+    "recipe/slavicmyths:vat/honey_infusion",
+    "recipe/slavicmyths:vat/hopped_beer_wort",
+    "recipe/slavicmyths:vat/kvass_wort",
+    "recipe/slavicmyths:vat/light_beer_wort",
+    "recipe/slavicmyths:vat/malted_barley",
+    "recipe/slavicmyths:vat/mead_must",
+    "recipe/slavicmyths:vat/thunder_beer_wort",
+    "recipe/slavicmyths:vat/veles_dark_wort",
+    "recipe/slavicmyths:vat/witch_berry_wort"
+  ],
+  "advancements": [],
+  "links": []
+}

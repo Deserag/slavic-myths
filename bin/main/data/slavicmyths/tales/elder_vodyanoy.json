@@ -1,0 +1,17 @@
+{
+  "part": "creatures",
+  "chapter": "water",
+  "section": "inhabitants",
+  "title": "tales.entry.elder_vodyanoy.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:elder_vodyanoy"
+  ],
+  "advancements": [
+    "slavicmyths:defeat_depth_master",
+    "slavicmyths:depth_clue",
+    "slavicmyths:wake_depth_master"
+  ],
+  "links": []
+}

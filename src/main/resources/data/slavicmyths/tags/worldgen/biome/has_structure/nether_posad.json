@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_nether",
+    "slavicmyths:black_cinder",
+    "slavicmyths:burning_islands",
+    "slavicmyths:lost_halls"
+  ]
+}

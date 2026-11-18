@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:pustoy_ritualny_sosud"
+    },
+    {
+      "item": "slavicmyths:uzel_podveya"
+    },
+    {
+      "item": "slavicmyths:vihrevaya_nit"
+    },
+    {
+      "item": "slavicmyths:vihrevaya_nit"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:sosud_podveya"
+  }
+}

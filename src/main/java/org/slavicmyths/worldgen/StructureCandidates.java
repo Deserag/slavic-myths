@@ -49,11 +49,19 @@ public final class StructureCandidates {
                 // The new underground city yields to every existing planner. Keeping it out of
                 // their dependency graph preserves prior placements and prevents recursive plans.
                 if(otherId!=null&&otherId.getNamespace().equals("slavicmyths")&&(otherId.getPath().equals("chud_city")||otherId.getPath().equals("chud_abandoned")||otherId.getPath().equals("serpent_hill")))continue;
+                // Both weighted arena variants yield to existing structures (including
+                // Posad). Resolving the zmey variant from Posad would recurse back into
+                // Posad when their candidate footprints overlap.
+                if(otherId!=null&&(otherId.toString().equals("slavicmyths:morovoy_raven_arena")
+                    ||otherId.toString().equals("slavicmyths:morovoy_fire_zmey_arena")))continue;
                 if(margin.applyAsInt(otherId)<=0)continue;
                 if(c.biomeSource().possibleBiomes().stream().noneMatch(other.biomes()::contains))continue;
                 for(int gx=Math.floorDiv(minX-8,spacing);gx<=Math.floorDiv(maxX+8,spacing);gx++)for(int gz=Math.floorDiv(minZ-8,spacing);gz<=Math.floorDiv(maxZ+8,spacing);gz++){
                     ChunkPos neighbor=placement.getPotentialStructureChunk(c.seed(),gx*spacing,gz*spacing);
                     if(neighbor.x<minX-8||neighbor.x>maxX+8||neighbor.z<minZ-8||neighbor.z>maxZ+8)continue;
+                    // Disabled/reduced-frequency cells own no footprint when native placement rejects them.
+                    // Keep datapack frequencies unchanged; use the same native predicate as generation.
+                    if(!placement.applyAdditionalChunkRestrictions(neighbor.x,neighbor.z,c.seed()))continue;
                     var accepted=StructureCoverageService.neighborFootprints(c,other,neighbor);
                     for(var part:proposed)for(var existing:accepted)if(part.getBoundingBox().intersects(existing))return false;
                 }

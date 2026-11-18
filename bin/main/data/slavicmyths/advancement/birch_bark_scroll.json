@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:birch_bark_scroll"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:birch_bark"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:silver_ingot"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:ritual_bowl"
+  }
+}

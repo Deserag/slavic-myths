@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "slavicmyths:bauk_wool"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:bauk_cloak",
+    "count": 1
+  }
+}

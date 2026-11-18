@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "FSF",
+    " N ",
+    " L "
+  ],
+  "key": {
+    "F": {
+      "item": "slavicmyths:mat_skim_fang"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:trophy_skim_necklace",
+    "count": 1
+  }
+}

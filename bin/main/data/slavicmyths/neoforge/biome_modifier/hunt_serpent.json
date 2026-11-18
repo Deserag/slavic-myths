@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_serpent",
+  "spawners": [
+    {
+      "type": "slavicmyths:fire_serpent",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

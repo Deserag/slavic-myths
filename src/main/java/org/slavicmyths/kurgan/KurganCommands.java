@@ -43,8 +43,7 @@ public final class KurganCommands {
   java.util.function.Predicate<BlockPos> allowed=p->!next||(distance(origin,p)>=192*192&&p.asLong()!=previous);
   var known=BurialRecords.get(w).instances.values().stream().filter(i->i.plan.tier==kind).map(i->i.origin.offset(0,1,i.plan.radius+2)).filter(allowed).min(Comparator.comparingDouble(p->distance(origin,p)));
   if(known.isPresent())return org.slavicmyths.worldgen.BoundedStructureSearch.deliver(source,known.get(),teleport,p->report(source,kind,teleport,p));
-  Structure type=org.slavicmyths.swamp.SwampStructures.get(w,KurganStructures.id(kind));
-  return org.slavicmyths.worldgen.BoundedStructureSearch.start(source,java.util.Collections.singletonList(type),start->{for(var piece:start.getPieces()){if(piece instanceof KurganPiece k)return k.arrival();if(piece instanceof KurganDungeonPiece k)return k.arrival();}return StructureCandidates.locate(start);},allowed,p->report(source,kind,teleport,p));
+  return org.slavicmyths.worldgen.OnDemandStructures.create(source,"kurgan",kind,result->{if(result.success())report(source,kind,teleport,result.entrance());});
  }
  private static void report(CommandSourceStack source,int kind,boolean teleport,BlockPos pos){
   ServerLevel w=source.getLevel();BlockPos origin=BlockPos.containing(source.getPosition());

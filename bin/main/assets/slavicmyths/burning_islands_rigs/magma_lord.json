@@ -1,0 +1,1603 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        -20,
+        0
+      ],
+      "size": [
+        7,
+        29,
+        7
+      ],
+      "offset": [
+        -3.5,
+        -14.5,
+        -3.5
+      ],
+      "hot": false,
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "core",
+      "parent": "body",
+      "pivot": [
+        0,
+        -3,
+        -2
+      ],
+      "size": [
+        6,
+        9,
+        6
+      ],
+      "offset": [
+        -3.0,
+        -4.5,
+        -3.0
+      ],
+      "hot": true,
+      "rotation": [
+        0,
+        0,
+        0.65
+      ],
+      "uv": [
+        30,
+        0
+      ]
+    },
+    {
+      "name": "pelvis",
+      "parent": "body",
+      "pivot": [
+        0,
+        16,
+        0
+      ],
+      "size": [
+        12,
+        6,
+        9
+      ],
+      "offset": [
+        -6.0,
+        -3.0,
+        -4.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.12
+      ],
+      "uv": [
+        56,
+        0
+      ]
+    },
+    {
+      "name": "shell0",
+      "parent": "body",
+      "pivot": [
+        -7,
+        -3,
+        -4
+      ],
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -8.5,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.16
+      ],
+      "uv": [
+        100,
+        0
+      ]
+    },
+    {
+      "name": "rib00",
+      "parent": "body",
+      "pivot": [
+        -6,
+        -11,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        122,
+        0
+      ]
+    },
+    {
+      "name": "rib01",
+      "parent": "body",
+      "pivot": [
+        -7,
+        -3,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.0
+      ],
+      "uv": [
+        156,
+        0
+      ]
+    },
+    {
+      "name": "rib02",
+      "parent": "body",
+      "pivot": [
+        -6,
+        5,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        190,
+        0
+      ]
+    },
+    {
+      "name": "shoulder_rock0",
+      "parent": "body",
+      "pivot": [
+        -13,
+        -16,
+        1
+      ],
+      "size": [
+        10,
+        8,
+        11
+      ],
+      "offset": [
+        -5.0,
+        -4.0,
+        -5.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.15,
+        0,
+        0.45
+      ],
+      "uv": [
+        224,
+        0
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "body",
+      "pivot": [
+        -17,
+        -8,
+        1
+      ],
+      "size": [
+        6,
+        17,
+        6
+      ],
+      "offset": [
+        -3.0,
+        -8.5,
+        -3.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.1,
+        0,
+        -0.2
+      ],
+      "uv": [
+        268,
+        0
+      ]
+    },
+    {
+      "name": "backarm0",
+      "parent": "body",
+      "pivot": [
+        -10,
+        -12,
+        8
+      ],
+      "size": [
+        4,
+        24,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -12.0,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.4,
+        0,
+        -0.9
+      ],
+      "uv": [
+        294,
+        0
+      ]
+    },
+    {
+      "name": "leg0",
+      "parent": "body",
+      "pivot": [
+        -6,
+        27,
+        1
+      ],
+      "size": [
+        6,
+        14,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -7.0,
+        -3.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.2,
+        0,
+        0.15
+      ],
+      "uv": [
+        312,
+        0
+      ]
+    },
+    {
+      "name": "shard0",
+      "parent": "body",
+      "pivot": [
+        -15,
+        18,
+        2
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -6.0,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.4
+      ],
+      "uv": [
+        340,
+        0
+      ]
+    },
+    {
+      "name": "shard_back0",
+      "parent": "body",
+      "pivot": [
+        -9,
+        -20,
+        11
+      ],
+      "size": [
+        4,
+        14,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -7.0,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.3,
+        0,
+        -0.3
+      ],
+      "uv": [
+        360,
+        0
+      ]
+    },
+    {
+      "name": "shell1",
+      "parent": "body",
+      "pivot": [
+        7,
+        -3,
+        -4
+      ],
+      "size": [
+        5,
+        17,
+        5
+      ],
+      "offset": [
+        -2.5,
+        -8.5,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.16
+      ],
+      "uv": [
+        378,
+        0
+      ]
+    },
+    {
+      "name": "rib10",
+      "parent": "body",
+      "pivot": [
+        6,
+        -11,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        400,
+        0
+      ]
+    },
+    {
+      "name": "rib11",
+      "parent": "body",
+      "pivot": [
+        7,
+        -3,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.0
+      ],
+      "uv": [
+        434,
+        0
+      ]
+    },
+    {
+      "name": "rib12",
+      "parent": "body",
+      "pivot": [
+        6,
+        5,
+        1
+      ],
+      "size": [
+        6,
+        4,
+        10
+      ],
+      "offset": [
+        -3.0,
+        -2.0,
+        -5.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        468,
+        0
+      ]
+    },
+    {
+      "name": "shoulder_rock1",
+      "parent": "body",
+      "pivot": [
+        13,
+        -16,
+        1
+      ],
+      "size": [
+        10,
+        8,
+        11
+      ],
+      "offset": [
+        -5.0,
+        -4.0,
+        -5.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.15,
+        0,
+        -0.45
+      ],
+      "uv": [
+        0,
+        38
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "body",
+      "pivot": [
+        17,
+        -8,
+        1
+      ],
+      "size": [
+        6,
+        17,
+        6
+      ],
+      "offset": [
+        -3.0,
+        -8.5,
+        -3.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.1,
+        0,
+        0.2
+      ],
+      "uv": [
+        44,
+        38
+      ]
+    },
+    {
+      "name": "backarm1",
+      "parent": "body",
+      "pivot": [
+        10,
+        -12,
+        8
+      ],
+      "size": [
+        4,
+        24,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -12.0,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.4,
+        0,
+        0.9
+      ],
+      "uv": [
+        70,
+        38
+      ]
+    },
+    {
+      "name": "leg1",
+      "parent": "body",
+      "pivot": [
+        6,
+        27,
+        1
+      ],
+      "size": [
+        6,
+        14,
+        7
+      ],
+      "offset": [
+        -3.0,
+        -7.0,
+        -3.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.2,
+        0,
+        -0.15
+      ],
+      "uv": [
+        88,
+        38
+      ]
+    },
+    {
+      "name": "shard1",
+      "parent": "body",
+      "pivot": [
+        15,
+        18,
+        2
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -6.0,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.4
+      ],
+      "uv": [
+        116,
+        38
+      ]
+    },
+    {
+      "name": "shard_back1",
+      "parent": "body",
+      "pivot": [
+        9,
+        -20,
+        11
+      ],
+      "size": [
+        4,
+        14,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -7.0,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.3,
+        0,
+        0.3
+      ],
+      "uv": [
+        136,
+        38
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "pivot": [
+        0,
+        -25,
+        -1
+      ],
+      "size": [
+        11,
+        13,
+        9
+      ],
+      "offset": [
+        -5.5,
+        -6.5,
+        -4.5
+      ],
+      "hot": false,
+      "uv": [
+        154,
+        38
+      ]
+    },
+    {
+      "name": "back_crest",
+      "parent": "body",
+      "pivot": [
+        0,
+        -16,
+        7
+      ],
+      "size": [
+        4,
+        16,
+        6
+      ],
+      "offset": [
+        -2.0,
+        -8.0,
+        -3.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.5,
+        0,
+        0
+      ],
+      "uv": [
+        196,
+        38
+      ]
+    },
+    {
+      "name": "core_inner",
+      "parent": "core",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        4,
+        12,
+        4
+      ],
+      "offset": [
+        -2.0,
+        -6.0,
+        -2.0
+      ],
+      "hot": true,
+      "rotation": [
+        0,
+        0.6,
+        -0.65
+      ],
+      "uv": [
+        218,
+        38
+      ]
+    },
+    {
+      "name": "shoulder_spire0",
+      "parent": "shoulder_rock0",
+      "pivot": [
+        -2,
+        -6,
+        1
+      ],
+      "size": [
+        4,
+        15,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -7.5,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.35
+      ],
+      "uv": [
+        236,
+        38
+      ]
+    },
+    {
+      "name": "forearm0",
+      "parent": "arm0",
+      "pivot": [
+        0,
+        17,
+        -1
+      ],
+      "size": [
+        8,
+        14,
+        8
+      ],
+      "offset": [
+        -4.0,
+        -7.0,
+        -4.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.25,
+        0,
+        0.15
+      ],
+      "uv": [
+        256,
+        38
+      ]
+    },
+    {
+      "name": "backtalon0",
+      "parent": "backarm0",
+      "pivot": [
+        -2,
+        17,
+        -2
+      ],
+      "size": [
+        3,
+        12,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -6.0,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.4,
+        0,
+        0
+      ],
+      "uv": [
+        290,
+        38
+      ]
+    },
+    {
+      "name": "shin0",
+      "parent": "leg0",
+      "pivot": [
+        -2,
+        14,
+        0
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -6.0,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        -0.1,
+        0,
+        -0.32
+      ],
+      "uv": [
+        304,
+        38
+      ]
+    },
+    {
+      "name": "shoulder_spire1",
+      "parent": "shoulder_rock1",
+      "pivot": [
+        2,
+        -6,
+        1
+      ],
+      "size": [
+        4,
+        18,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -9.0,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.35
+      ],
+      "uv": [
+        324,
+        38
+      ]
+    },
+    {
+      "name": "forearm1",
+      "parent": "arm1",
+      "pivot": [
+        0,
+        17,
+        -1
+      ],
+      "size": [
+        8,
+        14,
+        8
+      ],
+      "offset": [
+        -4.0,
+        -7.0,
+        -4.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.25,
+        0,
+        -0.15
+      ],
+      "uv": [
+        344,
+        38
+      ]
+    },
+    {
+      "name": "backtalon1",
+      "parent": "backarm1",
+      "pivot": [
+        2,
+        17,
+        -2
+      ],
+      "size": [
+        3,
+        12,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -6.0,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.4,
+        0,
+        0
+      ],
+      "uv": [
+        378,
+        38
+      ]
+    },
+    {
+      "name": "shin1",
+      "parent": "leg1",
+      "pivot": [
+        2,
+        14,
+        0
+      ],
+      "size": [
+        4,
+        12,
+        5
+      ],
+      "offset": [
+        -2.0,
+        -6.0,
+        -2.5
+      ],
+      "hot": false,
+      "rotation": [
+        -0.1,
+        0,
+        0.32
+      ],
+      "uv": [
+        392,
+        38
+      ]
+    },
+    {
+      "name": "jaw",
+      "parent": "head",
+      "pivot": [
+        0,
+        6,
+        -1
+      ],
+      "size": [
+        10,
+        4,
+        8
+      ],
+      "offset": [
+        -5.0,
+        -2.0,
+        -4.0
+      ],
+      "hot": false,
+      "uv": [
+        412,
+        38
+      ]
+    },
+    {
+      "name": "brow0",
+      "parent": "head",
+      "pivot": [
+        -3,
+        -2,
+        -4
+      ],
+      "size": [
+        6,
+        3,
+        3
+      ],
+      "offset": [
+        -3.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.27
+      ],
+      "uv": [
+        450,
+        38
+      ]
+    },
+    {
+      "name": "eye0",
+      "parent": "head",
+      "pivot": [
+        -3,
+        0,
+        -4.6
+      ],
+      "size": [
+        3,
+        1,
+        1
+      ],
+      "offset": [
+        -1.5,
+        -0.5,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        470,
+        38
+      ]
+    },
+    {
+      "name": "cheek0",
+      "parent": "head",
+      "pivot": [
+        -5,
+        2,
+        -1
+      ],
+      "size": [
+        3,
+        7,
+        6
+      ],
+      "offset": [
+        -1.5,
+        -3.5,
+        -3.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.18
+      ],
+      "uv": [
+        480,
+        38
+      ]
+    },
+    {
+      "name": "horn0",
+      "parent": "head",
+      "pivot": [
+        -6,
+        -11,
+        1
+      ],
+      "size": [
+        3,
+        15,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -7.5,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.2,
+        0,
+        -0.3
+      ],
+      "uv": [
+        0,
+        68
+      ]
+    },
+    {
+      "name": "horn_back0",
+      "parent": "head",
+      "pivot": [
+        -4,
+        -8,
+        5
+      ],
+      "size": [
+        3,
+        10,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -5.0,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "uv": [
+        16,
+        68
+      ]
+    },
+    {
+      "name": "shard_head0",
+      "parent": "head",
+      "pivot": [
+        -10,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        30,
+        68
+      ]
+    },
+    {
+      "name": "brow1",
+      "parent": "head",
+      "pivot": [
+        3,
+        -2,
+        -4
+      ],
+      "size": [
+        6,
+        3,
+        3
+      ],
+      "offset": [
+        -3.0,
+        -1.5,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        -0.27
+      ],
+      "uv": [
+        46,
+        68
+      ]
+    },
+    {
+      "name": "eye1",
+      "parent": "head",
+      "pivot": [
+        3,
+        0,
+        -4.6
+      ],
+      "size": [
+        3,
+        1,
+        1
+      ],
+      "offset": [
+        -1.5,
+        -0.5,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        66,
+        68
+      ]
+    },
+    {
+      "name": "cheek1",
+      "parent": "head",
+      "pivot": [
+        5,
+        2,
+        -1
+      ],
+      "size": [
+        3,
+        7,
+        6
+      ],
+      "offset": [
+        -1.5,
+        -3.5,
+        -3.0
+      ],
+      "hot": false,
+      "rotation": [
+        0,
+        0,
+        0.18
+      ],
+      "uv": [
+        76,
+        68
+      ]
+    },
+    {
+      "name": "horn1",
+      "parent": "head",
+      "pivot": [
+        6,
+        -11,
+        1
+      ],
+      "size": [
+        3,
+        19,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -9.5,
+        -2.0
+      ],
+      "hot": false,
+      "rotation": [
+        0.2,
+        0,
+        0.3
+      ],
+      "uv": [
+        96,
+        68
+      ]
+    },
+    {
+      "name": "horn_back1",
+      "parent": "head",
+      "pivot": [
+        4,
+        -8,
+        5
+      ],
+      "size": [
+        3,
+        10,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -5.0,
+        -1.5
+      ],
+      "hot": false,
+      "rotation": [
+        0.35,
+        0,
+        0
+      ],
+      "uv": [
+        112,
+        68
+      ]
+    },
+    {
+      "name": "shard_head1",
+      "parent": "head",
+      "pivot": [
+        10,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "hot": false,
+      "uv": [
+        126,
+        68
+      ]
+    },
+    {
+      "name": "crown",
+      "parent": "head",
+      "pivot": [
+        0,
+        -10,
+        2
+      ],
+      "size": [
+        3,
+        7,
+        3
+      ],
+      "offset": [
+        -1.5,
+        -3.5,
+        -1.5
+      ],
+      "hot": false,
+      "uv": [
+        142,
+        68
+      ]
+    },
+    {
+      "name": "claw0",
+      "parent": "forearm0",
+      "pivot": [
+        0,
+        12,
+        -2
+      ],
+      "size": [
+        7,
+        8,
+        6
+      ],
+      "offset": [
+        -3.5,
+        -4.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        156,
+        68
+      ]
+    },
+    {
+      "name": "claw1",
+      "parent": "forearm1",
+      "pivot": [
+        0,
+        12,
+        -2
+      ],
+      "size": [
+        7,
+        8,
+        6
+      ],
+      "offset": [
+        -3.5,
+        -4.0,
+        -3.0
+      ],
+      "hot": false,
+      "uv": [
+        184,
+        68
+      ]
+    },
+    {
+      "name": "mouth",
+      "parent": "jaw",
+      "pivot": [
+        0,
+        0,
+        -4.3
+      ],
+      "size": [
+        7,
+        1,
+        1
+      ],
+      "offset": [
+        -3.5,
+        -0.5,
+        -0.5
+      ],
+      "hot": true,
+      "uv": [
+        212,
+        68
+      ]
+    },
+    {
+      "name": "finger0_0",
+      "parent": "claw0",
+      "pivot": [
+        -3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        10,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -5.0,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        -0.15
+      ],
+      "uv": [
+        230,
+        68
+      ]
+    },
+    {
+      "name": "finger0_1",
+      "parent": "claw0",
+      "pivot": [
+        0,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        9,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.5,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        0.0
+      ],
+      "uv": [
+        240,
+        68
+      ]
+    },
+    {
+      "name": "finger0_2",
+      "parent": "claw0",
+      "pivot": [
+        3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        0.15
+      ],
+      "uv": [
+        250,
+        68
+      ]
+    },
+    {
+      "name": "finger1_0",
+      "parent": "claw1",
+      "pivot": [
+        -3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        10,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -5.0,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        -0.15
+      ],
+      "uv": [
+        260,
+        68
+      ]
+    },
+    {
+      "name": "finger1_1",
+      "parent": "claw1",
+      "pivot": [
+        0,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        9,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.5,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        0.0
+      ],
+      "uv": [
+        270,
+        68
+      ]
+    },
+    {
+      "name": "finger1_2",
+      "parent": "claw1",
+      "pivot": [
+        3,
+        7,
+        -1
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "offset": [
+        -1.0,
+        -4.0,
+        -1.0
+      ],
+      "hot": false,
+      "rotation": [
+        -0.15,
+        0,
+        0.15
+      ],
+      "uv": [
+        280,
+        68
+      ]
+    }
+  ]
+}

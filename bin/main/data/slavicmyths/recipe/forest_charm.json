@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "LHL",
+    " C "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:herb_pouch"
+    },
+    "L": {
+      "item": "slavicmyths:linen_thread"
+    },
+    "H": {
+      "item": "slavicmyths:leshy_heart"
+    },
+    "C": {
+      "item": "slavicmyths:linen_cloth"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:forest_charm"
+  }
+}

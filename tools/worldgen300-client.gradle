@@ -1,0 +1,10 @@
+allprojects { afterEvaluate {
+ sourceSets { worldgen300Client { java.srcDir 'tools/worldgen300-client';resources.srcDir 'tools/worldgen300-client-resources';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.named('compileWorldgen300ClientJava'){dependsOn 'classes'}
+ def qa=neoForge.mods.create('worldgen300client'){sourceSet sourceSets.worldgen300Client}
+ neoForge.runs { worldgen300Client {
+  type='client';sourceSet=sourceSets.worldgen300Client;loadedMods.set([neoForge.mods.slavicmyths,qa]);gameDirectory=file(project.findProperty('qa300ClientDir') ?: 'work/issue300-client')
+  programArguments.addAll('--width','1280','--height','800','--username','QA300Walker');jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=3'
+  systemProperty 'slavicmyths.qa300.clientMode',project.findProperty('qa300ClientMode') ?: 'walk'
+ } }
+} }

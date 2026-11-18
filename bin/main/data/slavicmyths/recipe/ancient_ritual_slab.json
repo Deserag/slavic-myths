@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:serpent_masonry"
+    },
+    {
+      "item": "slavicmyths:serpent_masonry"
+    },
+    {
+      "item": "slavicmyths:serpent_masonry"
+    },
+    {
+      "item": "slavicmyths:serpent_masonry"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:ancient_ritual_slab",
+    "count": 4
+  }
+}

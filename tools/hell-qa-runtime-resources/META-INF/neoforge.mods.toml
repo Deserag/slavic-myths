@@ -1,0 +1,15 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Test fixture only"
+[[mods]]
+modId="slavicmyths_hellqa"
+version="1"
+displayName="Disposable headless Hell QA"
+[[dependencies.slavicmyths_hellqa]]
+modId="slavicmyths"
+type="required"
+versionRange="[2.0.10-HELL,)"
+ordering="AFTER"
+side="SERVER"
+[[mixins]]
+config="hellqa.mixins.json"

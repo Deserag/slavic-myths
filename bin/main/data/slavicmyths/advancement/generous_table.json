@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "dish": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#slavicmyths:complex_dishes"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dish"
+    ]
+  ]
+}

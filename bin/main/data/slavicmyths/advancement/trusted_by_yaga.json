@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:yaga_thread_earned",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.trusted_by_yaga.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.trusted_by_yaga.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

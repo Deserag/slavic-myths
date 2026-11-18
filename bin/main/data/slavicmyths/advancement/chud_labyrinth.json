@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:explore_chud_abandoned",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:silver_ingot"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.chud_labyrinth.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.chud_labyrinth.description"
+    }
+  }
+}

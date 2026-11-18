@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "slavicmyths:block/charred_blackwood_leaves"
+  }
+}

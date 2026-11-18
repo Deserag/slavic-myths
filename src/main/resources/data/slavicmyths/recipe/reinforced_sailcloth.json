@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " L ",
+    "LWL",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:linen_cloth"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:reinforced_sailcloth",
+    "count": 1
+  }
+}

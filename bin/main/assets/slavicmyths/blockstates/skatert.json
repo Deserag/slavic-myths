@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "portions=0": {
+      "model": "slavicmyths:block/skatert_0"
+    },
+    "portions=1": {
+      "model": "slavicmyths:block/skatert_1"
+    },
+    "portions=2": {
+      "model": "slavicmyths:block/skatert_2"
+    },
+    "portions=3": {
+      "model": "slavicmyths:block/skatert_3"
+    },
+    "portions=4": {
+      "model": "slavicmyths:block/skatert_4"
+    },
+    "portions=5": {
+      "model": "slavicmyths:block/skatert_5"
+    },
+    "portions=6": {
+      "model": "slavicmyths:block/skatert_6"
+    }
+  }
+}

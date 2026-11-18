@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "slavicmyths:block/linden_door_bottom",
+    "top": "slavicmyths:block/linden_door_top"
+  }
+}

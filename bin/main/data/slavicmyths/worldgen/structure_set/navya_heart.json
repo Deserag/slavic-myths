@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:navya_heart",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 16,
+    "salt": 2022026,
+    "frequency": 0.6
+  }
+}

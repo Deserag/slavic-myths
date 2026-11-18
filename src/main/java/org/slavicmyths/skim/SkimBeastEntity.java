@@ -17,7 +17,7 @@ public final class SkimBeastEntity extends SkimActor {
  private static final EntityDataAccessor<BlockPos> LANDING=SynchedEntityData.defineId(SkimBeastEntity.class,EntityDataSerializers.BLOCK_POS);
  private static final EntityDataAccessor<Integer> PHASE=SynchedEntityData.defineId(SkimBeastEntity.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> REAR=SynchedEntityData.defineId(SkimBeastEntity.class,EntityDataSerializers.BOOLEAN);
- private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.skim_beast"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.skim_beast"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  public UUID arena,owner,encounter=UUID.randomUUID(),victim;public int stamina=100,phase=1;public boolean rageUsed,recorded;
  public final Map<UUID,Double> threat=new HashMap<>();public final Map<UUID,Integer> attendance=new HashMap<>();public final Set<UUID> contributors=new HashSet<>();
  private final Deque<Long> misses=new ArrayDeque<>();private long lastTarget,lastValid,adaptUntil,tauntUntil,exhaustLock,majorAt;private UUID taunter;private Vec3 leapFrom,locked,flank;private float rescue;private int deathAge;

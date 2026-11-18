@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/large_podzemnik_head_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/large_podzemnik_head"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/large_podzemnik_head"
+  }
+}

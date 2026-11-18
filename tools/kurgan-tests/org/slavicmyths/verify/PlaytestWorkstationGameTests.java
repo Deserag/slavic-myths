@@ -3,7 +3,14 @@ package org.slavicmyths.verify;
 import java.util.*;
 import net.minecraft.gametest.framework.*;
 import net.neoforged.neoforge.gametest.*;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import io.netty.channel.Channel;
+import io.netty.channel.embedded.EmbeddedChannel;
+import net.minecraft.network.Connection;
+import net.minecraft.network.PacketSendListener;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.server.network.CommonListenerCookie;
+import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.*;
@@ -22,9 +29,27 @@ import org.slavicmyths.navigation.*;
 /** Real server interactions and inventories, isolated fixtures; no client/window bootstrap. */
 @GameTestHolder("slavicmyths_hotfix") @PrefixGameTestTemplate(false)
 public final class PlaytestWorkstationGameTests {
+ // A FakePlayerFactory connection has no Netty channel. Real menu opening
+ // touches Connection.channel().attr(...) and must not use that stub.
+ private static final class LocalConnection extends Connection {
+  private final EmbeddedChannel wire=new EmbeddedChannel();
+  LocalConnection(){super(PacketFlow.SERVERBOUND);}
+  @Override public Channel channel(){return wire;}
+ }
+ private static final class SilentListener extends ServerGamePacketListenerImpl {
+  SilentListener(ServerPlayer p){
+   super(p.getServer(),new LocalConnection(),p,CommonListenerCookie.createInitial(p.getGameProfile(),false));
+  }
+  @Override public void send(Packet<?> packet){}
+  @Override public void send(Packet<?> packet,PacketSendListener listener){}
+ }
  private static ServerPlayer player(GameTestHelper t,String name){
   var w=t.getLevel();var p=new ServerPlayer(w.getServer(),w,new com.mojang.authlib.GameProfile(UUID.randomUUID(),name),net.minecraft.server.level.ClientInformation.createDefault());
-  p.connection=FakePlayerFactory.get(w,p.getGameProfile()).connection;p.setGameMode(GameType.SURVIVAL);p.setNoGravity(true);p.moveTo(Vec3.atBottomCenterOf(t.absolutePos(new BlockPos(2,2,2))));return p;
+  p.connection=new SilentListener(p);
+  p.setGameMode(GameType.SURVIVAL);p.setNoGravity(true);
+  p.moveTo(Vec3.atBottomCenterOf(t.absolutePos(new BlockPos(2,2,2))));
+  w.addNewPlayer(p);
+  return p;
  }
  private static void open(GameTestHelper t,ServerPlayer p,net.minecraft.world.level.block.Block block){
   var pos=t.absolutePos(new BlockPos(2,1,2));t.getLevel().setBlock(pos,block.defaultBlockState(),3);
@@ -76,21 +101,85 @@ public final class PlaytestWorkstationGameTests {
  }
  @GameTest(template="port_empty",timeoutTicks=200)
  public static void kitchenServer(GameTestHelper t){
-  var p=player(t,"RCKitchen");open(t,p,ModBlocks.KITCHEN_TABLE.get());t.assertTrue(p.containerMenu instanceof KitchenMenu,"Kitchen failed to open");var m=(KitchenMenu)p.containerMenu;
-  for(int id=0;id<KitchenRecipes.COUNT;id++){
-   for(int n=0;n<5;n++)m.input.setItem(n,ItemStack.EMPTY);
-   var ingredients=KitchenRecipes.ingredients(id);for(int n=0;n<3;n++)m.input.setItem(n,new ItemStack(ingredients[n],KitchenRecipes.count(id,n)));
-   t.assertTrue(m.unavailable(id)!=null&&!m.clickMenuButton(p,id),"Missing tool craft succeeded");
-   var tool=new ItemStack(KitchenRecipes.tool(id));m.input.setItem(3,tool);m.input.setItem(4,new ItemStack(Items.DIRT));
-   t.assertTrue(!m.clickMenuButton(p,id)&&m.input.getItem(0).getCount()==KitchenRecipes.count(id,0)&&tool.getDamageValue()==0,"Blocked output consumed ingredients");m.input.setItem(4,ItemStack.EMPTY);
-   t.assertTrue(m.unavailable(id)==null&&m.clickMenuButton(p,id),"Valid recipe failed "+id);var result=m.input.getItem(4);
-   t.assertTrue(result.is(KitchenRecipes.output(id))&&result.getCount()==KitchenRecipes.amount(id)&&tool.getDamageValue()==1,"Recipe result/tool wear wrong "+id);
-   if(id==4)t.assertTrue(m.input.getItem(1).is(Items.BUCKET),"Water bucket remainder lost");
-   var saved=ItemStack.parseOptional(t.getLevel().registryAccess(),(CompoundTag)result.saveOptional(t.getLevel().registryAccess()));t.assertTrue(ItemStack.isSameItemSameComponents(result,saved),"Food component persistence failed");
-   t.assertTrue(!m.quickMoveStack(p,4).isEmpty()&&m.input.getItem(4).isEmpty(),"Result shift-click failed");
+  var level=t.getLevel();var p=player(t,"RCKitchen");
+  open(t,p,ModBlocks.KITCHEN_TABLE.get());
+  t.assertTrue(p.containerMenu instanceof KitchenMenu,"Kitchen failed to open server menu");
+  var menu=(KitchenMenu)p.containerMenu;BlockPos pos=t.absolutePos(new BlockPos(2,1,2));
+  t.assertTrue(level.getBlockEntity(pos) instanceof KitchenTile,"Real kitchen BlockEntity missing");
+  var tile=(KitchenTile)level.getBlockEntity(pos);Container input=menu.inventory;
+  t.assertTrue(input==tile.inventory&&input.getContainerSize()==9
+    &&menu.slots.size()==45,"Kitchen inventory/menu is not the current nine-slot implementation");
+  var doughHolder=level.getRecipeManager().byKey(
+    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","kitchen/dough"));
+  t.assertTrue(doughHolder.isPresent()&&doughHolder.get().value() instanceof KitchenRecipe,
+    "Actual dough recipe failed to load");
+  KitchenRecipe dough=(KitchenRecipe)doughHolder.get().value();
+  t.assertTrue(dough.mode().equals("ROLLING")&&dough.time()>0
+    &&dough.result().is(KitchenII.item("dough")),"Loaded rolling recipe differs from fixture");
+
+  // Rolling slot 0, cooking pot slot 1, ingredients slots 2..5,
+  // finished dishes slot 6, by-products slots 7..8.
+  input.setItem(2,new ItemStack(KitchenII.item("wheat_flour"),2));
+  input.setItem(3,new ItemStack(Items.WATER_BUCKET));
+  KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  t.assertTrue(!tile.busy()&&input.getItem(2).getCount()==2
+    &&input.getItem(3).is(Items.WATER_BUCKET),"Missing rolling pin consumed ingredients");
+  input.setItem(0,new ItemStack(KitchenII.item("rolling_pin")));
+  input.setItem(6,new ItemStack(Items.DIRT));
+  KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  t.assertTrue(!tile.busy()&&input.getItem(2).getCount()==2
+    &&input.getItem(6).is(Items.DIRT),"Blocked output consumed ingredients");
+  input.setItem(6,ItemStack.EMPTY);
+  KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  t.assertTrue(tile.busy()&&tile.total==dough.time()
+    &&input.getItem(2).isEmpty()&&input.getItem(3).isEmpty()
+    &&input.getItem(7).is(Items.BUCKET)&&tile.toolLocked(0),
+    "Rolling recipe did not consume exact ingredients, preserve remainder or lock tool");
+  for(int tick=0;tick<dough.time();tick++)KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  ItemStack result=input.getItem(6);
+  t.assertTrue(!tile.busy()&&result.is(KitchenII.item("dough"))
+    &&result.getCount()==dough.result().getCount()
+    &&input.getItem(0).is(KitchenII.item("rolling_pin")),
+    "Completed dough result or persistent rolling pin wrong");
+  var saved=ItemStack.parseOptional(level.registryAccess(),
+    (CompoundTag)result.saveOptional(level.registryAccess()));
+  t.assertTrue(ItemStack.isSameItemSameComponents(result,saved),"Food item components lost in NBT");
+  t.assertTrue(!menu.quickMoveStack(p,6).isEmpty()&&input.getItem(6).isEmpty()
+    &&count(p,KitchenII.item("dough"))==2,"Dough output shift-click failed");
+
+  // Current POT recipe makes three servings, not an instant clickable craft.
+  var porridgeHolder=level.getRecipeManager().byKey(
+    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","kitchen/barley_porridge"));
+  t.assertTrue(porridgeHolder.isPresent()&&porridgeHolder.get().value() instanceof KitchenRecipe,
+    "Actual barley-porridge recipe failed to load");
+  KitchenRecipe porridge=(KitchenRecipe)porridgeHolder.get().value();
+  t.assertTrue(porridge.pot()&&porridge.servings()==3,"Pot recipe fixture is inconsistent");
+  input.setItem(0,ItemStack.EMPTY);
+  input.setItem(7,ItemStack.EMPTY);
+  input.setItem(1,new ItemStack(KitchenII.item("metal_pot")));
+  input.setItem(2,new ItemStack(KitchenII.item("barley_groats"),2));
+  input.setItem(3,new ItemStack(Items.WATER_BUCKET));
+  KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  t.assertTrue(tile.busy()&&tile.activePot&&tile.total==porridge.time()
+    &&input.getItem(2).isEmpty()&&input.getItem(3).isEmpty()
+    &&input.getItem(7).is(Items.BUCKET),"Pot cooking or bucket remainder failed");
+  for(int tick=0;tick<porridge.time();tick++)KitchenTile.tick(level,pos,level.getBlockState(pos),tile);
+  t.assertTrue(!tile.busy()&&tile.servings==3&&tile.maxServings==3
+    &&tile.dish.is(KitchenII.item("barley_porridge"))&&tile.toolLocked(1),
+    "Pot did not finish exactly three stored servings");
+  t.assertTrue(!menu.clickMenuButton(p,-1)&&!menu.clickMenuButton(p,1)
+    &&!menu.clickMenuButton(p,0),"Invalid serving request or serving without bowl was accepted");
+  p.getInventory().setItem(5,new ItemStack(Items.BOWL,3));
+  for(int n=1;n<=3;n++){
+   t.assertTrue(menu.clickMenuButton(p,0)&&tile.servings==3-n
+      &&count(p,KitchenII.item("barley_porridge"))==n,
+      "Serving transaction failed at portion "+n);
   }
-  t.assertTrue(!m.clickMenuButton(p,-1)&&!m.clickMenuButton(p,KitchenRecipes.COUNT),"Invalid packet accepted");p.closeContainer();
-  System.out.println("RC2_KITCHEN_SERVER_PASS recipes=12 RMB=true toolGuard=true outputGuard=true consumption=true wear=true remainder=true shiftClick=true itemNBT=true");t.succeed();
+  t.assertTrue(input.getItem(1).is(KitchenII.item("metal_pot"))
+    &&tile.dish.isEmpty()&&!tile.toolLocked(1)
+    &&count(p,Items.BOWL)==0,"Cookware/portion conservation failed");
+  p.closeContainer();
+  System.out.println("RC2_KITCHEN_SERVER_PASS recipeRegistry=true slots9=true rolling=true outputGuard=true toolGuard=true remainders=true tickCook=true itemNBT=true shiftClick=true potServings3=true");t.succeed();
  }
  @GameTest(template="port_empty",timeoutTicks=200)
  public static void shieldServer(GameTestHelper t){

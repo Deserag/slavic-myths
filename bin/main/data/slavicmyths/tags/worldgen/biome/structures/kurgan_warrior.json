@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:worldgen/core_plains",
+    "minecraft:birch_forest"
+  ]
+}

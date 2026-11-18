@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:tales_come_alive",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:lore_book"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.mor_invitation.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.mor_invitation.description"
+    }
+  }
+}

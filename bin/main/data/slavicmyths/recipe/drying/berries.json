@@ -1,0 +1,11 @@
+{
+  "type": "slavicmyths:drying",
+  "ingredient": {
+    "tag": "slavicmyths:berries"
+  },
+  "result": {
+    "id": "slavicmyths:dried_berries",
+    "count": 1
+  },
+  "drying_time": 2400
+}

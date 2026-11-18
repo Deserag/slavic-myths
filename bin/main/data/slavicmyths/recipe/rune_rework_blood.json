@@ -1,0 +1,32 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:blank_rune_2"
+      },
+      "count": 1,
+      "base": {
+        "tier": 2,
+        "material": "perunite"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:perunite_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:soul_fragment"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_blood",
+    "count": 1
+  },
+  "chisel": false
+}

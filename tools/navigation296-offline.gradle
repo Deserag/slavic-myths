@@ -1,0 +1,4 @@
+allprojects { plugins.withId('java') {
+ sourceSets { navigation296Offline { java.srcDir 'tools/navigation296-offline';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.register('verifyNavigation296Offline',JavaExec){dependsOn 'navigation296OfflineClasses';classpath=sourceSets.navigation296Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Navigation296Offline';maxHeapSize='384m';jvmArgs '-XX:ActiveProcessorCount=2';workingDir project.projectDir}
+} }

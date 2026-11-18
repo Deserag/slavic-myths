@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=y,weathered=false": {
+      "model": "slavicmyths:block/stripped_navya_wood"
+    },
+    "axis=x,weathered=false": {
+      "model": "slavicmyths:block/stripped_navya_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z,weathered=false": {
+      "model": "slavicmyths:block/stripped_navya_wood",
+      "x": 90
+    },
+    "axis=y,weathered=true": {
+      "model": "slavicmyths:block/stripped_navya_wood"
+    },
+    "axis=x,weathered=true": {
+      "model": "slavicmyths:block/stripped_navya_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z,weathered=true": {
+      "model": "slavicmyths:block/stripped_navya_wood",
+      "x": 90
+    }
+  }
+}

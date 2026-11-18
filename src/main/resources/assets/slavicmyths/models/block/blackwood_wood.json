@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "slavicmyths:block/blackwood_log",
+    "end": "slavicmyths:block/blackwood_log"
+  }
+}

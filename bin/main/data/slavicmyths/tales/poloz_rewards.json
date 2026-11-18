@@ -1,0 +1,17 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.poloz_rewards.title",
+  "icon": "slavicmyths:poloz_head",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:poloz_head",
+    "item/slavicmyths:poloz_whip",
+    "item/slavicmyths:rune_earth_lord_iv"
+  ],
+  "advancements": [],
+  "links": [
+    "slavicmyths:great_poloz"
+  ]
+}

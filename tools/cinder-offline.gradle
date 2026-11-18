@@ -1,0 +1,17 @@
+allprojects { p ->
+ p.plugins.withId('java') {
+  p.sourceSets.create('cinderOffline') { java.srcDir('tools/cinder-tests') }
+  p.sourceSets.cinderOffline.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+  p.sourceSets.cinderOffline.runtimeClasspath += p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+  p.tasks.register('exportCinderRigs',JavaExec) {
+   dependsOn p.tasks.named('cinderOfflineClasses')
+   classpath=p.sourceSets.cinderOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.CinderOffline'
+  }
+  p.tasks.register('surveyCinderClimate',JavaExec) {
+   dependsOn p.tasks.named('cinderOfflineClasses')
+   classpath=p.sourceSets.cinderOffline.runtimeClasspath
+   mainClass='org.slavicmyths.verify.CinderClimate'
+  }
+ }
+}

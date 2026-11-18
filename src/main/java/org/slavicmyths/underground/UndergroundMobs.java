@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.*;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class UndergroundMobs {
  public static final DeferredHolder<EntityType<?>,EntityType<Podzemnik>> PODZEMNIK=ModEntities.ENTITIES.register("podzemnik",()->EntityType.Builder.of(Podzemnik::new,MobCategory.MONSTER).sized(.68F,1.68F).clientTrackingRange(10).build("slavicmyths:podzemnik"));
  public static final DeferredHolder<EntityType<?>,EntityType<Kladovik>> KLADOVIK=ModEntities.ENTITIES.register("kladovik",()->EntityType.Builder.of(Kladovik::new,MobCategory.MONSTER).sized(.82F,1.4F).clientTrackingRange(12).build("slavicmyths:kladovik"));
@@ -23,7 +22,7 @@ public final class UndergroundMobs {
  static {egg("podzemnik",PODZEMNIK,0x665f53,0x302d29);egg("kladovik",KLADOVIK,0x402e2e,0xba933d);egg("large_podzemnik",LARGE,0x44454a,0xd87b3a);}
  private static void egg(String n,DeferredHolder<EntityType<?>,? extends EntityType<? extends Mob>> type,int a,int b){ModItems.ITEMS.register(n+"_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(type,a,b,new Item.Properties()));}
  public static ResourceLocation id(String n){return ResourceLocation.fromNamespaceAndPath("slavicmyths",n);}
- public static void init(IEventBus bus){EFFECTS.register(bus);org.slavicmyths.rpg.RuneDefinition.ALL.put("ominous_aura",new org.slavicmyths.rpg.RuneDefinition("ominous_aura",java.util.Map.of(),java.util.Set.of("sword","dagger","spear","heavy","bow","shield","staff","pickaxe")));}
+ public static void init(IEventBus bus){org.slavicmyths.rpg.RuneDefinition.ALL.put("ominous_aura",new org.slavicmyths.rpg.RuneDefinition("ominous_aura",java.util.Map.of(),java.util.Set.of("sword","dagger","spear","heavy","bow","shield","staff","pickaxe")));}
  @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){e.put(PODZEMNIK.get(),EncounterMob.attributes(28,.25,5,20,.1).build());e.put(KLADOVIK.get(),EncounterMob.attributes(200,.26,6,32,.3).build());e.put(LARGE.get(),EncounterMob.attributes(300,.22,10,28,.75).build());}
  private UndergroundMobs(){}
 }

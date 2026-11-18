@@ -15,7 +15,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import org.slavicmyths.industry.*;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class MiningGogglesRenderer implements ICurioRenderer {
     private final ModelPart model;
     public MiningGogglesRenderer(){var mesh=new MeshDefinition();var b=CubeListBuilder.create();

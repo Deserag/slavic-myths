@@ -10,7 +10,8 @@
     "BarracksLimitMixin",
     "BanditThreatMixin",
     "BossGolemTargetMixin",
-    "JourneyVillagerMixin"
+    "JourneyVillagerMixin",
+    "YagaGameModeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

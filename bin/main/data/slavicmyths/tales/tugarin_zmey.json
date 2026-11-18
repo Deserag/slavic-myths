@@ -1,0 +1,17 @@
+{
+  "part": "creatures",
+  "chapter": "roads",
+  "section": "inhabitants",
+  "title": "tales.entry.tugarin_zmey.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:serpent_projection",
+    "entity/slavicmyths:tugarin_stone",
+    "entity/slavicmyths:tugarin_zmey"
+  ],
+  "advancements": [
+    "slavicmyths:steppe_champion"
+  ],
+  "links": []
+}

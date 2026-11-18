@@ -1,0 +1,162 @@
+{
+  "ok": true,
+  "model_block_count": 1349,
+  "levels": [
+    {
+      "y": 0,
+      "blocks": 506
+    },
+    {
+      "y": 1,
+      "blocks": 221
+    },
+    {
+      "y": 2,
+      "blocks": 74
+    },
+    {
+      "y": 3,
+      "blocks": 74
+    },
+    {
+      "y": 4,
+      "blocks": 68
+    },
+    {
+      "y": 5,
+      "blocks": 94
+    },
+    {
+      "y": 6,
+      "blocks": 108
+    },
+    {
+      "y": 7,
+      "blocks": 80
+    },
+    {
+      "y": 8,
+      "blocks": 72
+    },
+    {
+      "y": 9,
+      "blocks": 26
+    },
+    {
+      "y": 10,
+      "blocks": 26
+    }
+  ],
+  "unique_positions": 1349,
+  "site_box": {
+    "u": [
+      0,
+      24
+    ],
+    "v": [
+      0,
+      27
+    ],
+    "y": [
+      0,
+      10
+    ]
+  },
+  "reachable_walkable_y1": 297,
+  "walkability_checks": [
+    {
+      "name": "west_grain",
+      "front": [
+        5,
+        5
+      ],
+      "accessible": true
+    },
+    {
+      "name": "east_grain",
+      "front": [
+        10,
+        5
+      ],
+      "accessible": true
+    },
+    {
+      "name": "west_supplies",
+      "front": [
+        5,
+        9
+      ],
+      "accessible": true
+    },
+    {
+      "name": "east_supplies",
+      "front": [
+        10,
+        9
+      ],
+      "accessible": true
+    },
+    {
+      "name": "shed_tools",
+      "front": [
+        8,
+        23
+      ],
+      "accessible": true
+    },
+    {
+      "name": "barn",
+      "point": [
+        7,
+        11
+      ],
+      "accessible": true
+    },
+    {
+      "name": "shed",
+      "point": [
+        7,
+        21
+      ],
+      "accessible": true
+    },
+    {
+      "name": "wart_greenhouse",
+      "point": [
+        19,
+        8
+      ],
+      "accessible": true
+    },
+    {
+      "name": "fungus_greenhouse",
+      "point": [
+        19,
+        20
+      ],
+      "accessible": true
+    },
+    {
+      "name": "central_yard",
+      "point": [
+        9,
+        16
+      ],
+      "accessible": true
+    }
+  ],
+  "loot_ids": [
+    "west_grain",
+    "east_grain",
+    "west_supplies",
+    "east_supplies",
+    "shed_tools"
+  ],
+  "metadata": {
+    "runtime_test": false,
+    "lighting_block_support": true,
+    "head_clearance_y1_y2_only": true,
+    "blockstates_checked_by_schema": false,
+    "skylight_nether_false": true
+  }
+}

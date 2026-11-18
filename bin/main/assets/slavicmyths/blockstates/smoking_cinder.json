@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "slavicmyths:block/smoking_cinder",
+        "y": 0
+      },
+      {
+        "model": "slavicmyths:block/smoking_cinder",
+        "y": 90
+      },
+      {
+        "model": "slavicmyths:block/smoking_cinder",
+        "y": 180
+      },
+      {
+        "model": "slavicmyths:block/smoking_cinder",
+        "y": 270
+      }
+    ]
+  }
+}

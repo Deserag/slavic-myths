@@ -26,7 +26,7 @@ public final class CursedVolkolak extends Monster {
  private static final EntityDataAccessor<Integer> MOVE=SynchedEntityData.defineId(CursedVolkolak.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(CursedVolkolak.class,EntityDataSerializers.INT),PHASE=SynchedEntityData.defineId(CursedVolkolak.class,EntityDataSerializers.INT),HELD=SynchedEntityData.defineId(CursedVolkolak.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> UPRIGHT=SynchedEntityData.defineId(CursedVolkolak.class,EntityDataSerializers.BOOLEAN);
  private final EnumMap<Move,Integer> cooldowns=new EnumMap<>(Move.class);
- private final ServerBossEvent bossbar=new ServerBossEvent(Component.translatable("entity.slavicmyths.cursed_volkolak"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bossbar=new ServerBossEvent(Component.translatable("entity.slavicmyths.cursed_volkolak"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
  public UUID encounter;public BlockPos home;
  private UUID lockedTarget,alertedTarget;private Vec3 aim=Vec3.ZERO,flank=Vec3.ZERO,launchOrigin=Vec3.ZERO;private double launchRange;private int hitMask;private int heldTicks,cycles,outside,unseen,recovery,stanceLockedUntil;private boolean connected,escapeCommitted;private long nextAmbient,nextHurt,nextIdle;
  public CursedVolkolak(EntityType<? extends CursedVolkolak> type,Level level){super(type,level);xpReward=0;setPersistenceRequired();}

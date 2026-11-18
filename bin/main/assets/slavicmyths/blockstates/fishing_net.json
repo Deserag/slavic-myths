@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "filled=false": {
+      "model": "slavicmyths:block/fishing_net_false"
+    },
+    "filled=true": {
+      "model": "slavicmyths:block/fishing_net_true"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QAQ",
+    "MGB",
+    "SAI"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "A": {
+      "item": "slavicmyths:roasted_alatyrite"
+    },
+    "M": {
+      "item": "minecraft:magma_cream"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "S": {
+      "item": "slavicmyths:sulfur"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:alatyr_ingot",
+    "count": 1
+  }
+}

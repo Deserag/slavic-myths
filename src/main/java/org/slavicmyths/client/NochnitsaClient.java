@@ -16,7 +16,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.nochnitsa.*;
 import org.slavicmyths.nochnitsa.NochnitsaRules.State;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class NochnitsaClient {
     @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(NochnitsaContent.ENTITY.get(),Renderer::new);}
     public static final class Renderer extends MobRenderer<NochnitsaEntity,Model>{

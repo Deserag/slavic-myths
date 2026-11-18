@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:rune_magma_1"
+    },
+    {
+      "item": "slavicmyths:rune_magma_1"
+    },
+    {
+      "item": "slavicmyths:magma_core"
+    },
+    {
+      "item": "slavicmyths:magma_core"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_magma_2",
+    "count": 1
+  }
+}

@@ -101,7 +101,7 @@ def emit(r):
   uv={'west':[u,v+d,u+d,v+d+h],'north':[u+d,v+d,u+d+w,v+d+h],'east':[u+d+w,v+d,u+2*d+w,v+d+h],'south':[u+2*d+w,v+d,u+2*d+2*w,v+d+h],'up':[u+d,v,u+d+w,v+d],'down':[u+d+w,v,u+d+2*w,v+d]}
   held.append({'from':lo,'to':hi,'faces':{face:{'texture':'#surface','uv':[value*16/512 for value in values]} for face,values in uv.items()}})
  write(A/'models/item/morozko_staff_held.json',{'texture_size':[512,512],'textures':{'surface':'slavicmyths:entity/morozko'},'elements':held,'display':{'thirdperson_righthand':{'rotation':[0,0,0],'translation':[0,2,0],'scale':[1,1,1]},'firstperson_righthand':{'rotation':[0,-20,0],'translation':[1,1,-2],'scale':[.8,.8,.8]}}})
- write(A/'models/item/morozko_staff.json',{'parent':'builtin/entity','gui_light':'front'});write(A/'models/item/morozko_staff_icon.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/morozko_staff'}})
+ write(A/'models/item/morozko_staff.json',{'parent':'builtin/entity','gui_light':'front','textures':{'particle':'slavicmyths:item/morozko_staff'}});write(A/'models/item/morozko_staff_icon.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/morozko_staff'}})
 def icons():
  for name in ['morozko_staff','frost_mirror','frost_resistance_rune','frost_rune','heart_of_eternal_cold','morozko_trial_totem']:
   im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im);ice='#AEE8FF';white='#E9FCFF';silver='#A7B4C6';blue='#418ABD';dark='#34435D'
@@ -176,7 +176,7 @@ def resources():
  for lo,hi in [([4,8,5],[8,12,10]),([8,8,5],[12,12,10]),([3,6,5],[13,9,10]),([4,4,5.5],[12,7,9.5]),([5,2,6],[11,5,9]),([7,1,6.5],[9,3,8.5]),([6,6,4.5],[10,10,5.5]),([1,7,7],[2,10,8]),([14,6,7],[15,9,8]),([7,14,7],[9,16,9])]:heart.append({'from':lo,'to':hi,'faces':{f:{'texture':'#surface','uv':[0,0,4,4]} for f in ['up','down','north','south','east','west']}})
  write(A/'models/item/heart_of_eternal_cold_held.json',{'textures':{'surface':'slavicmyths:entity/morozko_crystal'},'elements':heart,'display':{'thirdperson_righthand':{'rotation':[0,90,0],'translation':[0,1,0],'scale':[.7,.7,.7]},'firstperson_righthand':{'rotation':[0,45,0],'translation':[0,2,0],'scale':[.7,.7,.7]}}})
  write(A/'models/item/heart_of_eternal_cold_icon.json',{'parent':'minecraft:item/generated','textures':{'layer0':'slavicmyths:item/heart_of_eternal_cold'}})
- write(A/'models/item/heart_of_eternal_cold.json',{'parent':'builtin/entity','gui_light':'front'})
+ write(A/'models/item/heart_of_eternal_cold.json',{'parent':'builtin/entity','gui_light':'front','textures':{'particle':'slavicmyths:item/heart_of_eternal_cold'}})
 def add_tag(path,item):
  old=json.loads(path.read_text()) if path.exists() else {'replace':False,'values':[]};old['values']=list(dict.fromkeys(old['values']+[item]));return old
 def main():

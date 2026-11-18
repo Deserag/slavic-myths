@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "obtained": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:wormwood"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "slavicmyths:flax"
+}

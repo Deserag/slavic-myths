@@ -1,0 +1,13 @@
+{
+  "part": "quests",
+  "chapter": "home",
+  "section": "catalogue",
+  "title": "tales.entry.dobrynya_nikitich_introduction.title",
+  "icon": "slavicmyths:dobrynya_call_emblem",
+  "initial": 0,
+  "subjects": [
+    "recipe/slavicmyths:dobrynya_call_emblem"
+  ],
+  "advancements": [],
+  "links": []
+}

@@ -26,7 +26,7 @@ public final class WindBootsMomentum {
     }
     public static int charge(Player p){var s=STATES.get(p);return s==null?0:s.charge;}
     public static void clear(Player p){STATES.remove(p);var a=p.getAttribute(Attributes.JUMP_STRENGTH);if(a!=null)a.removeModifier(BOOST);}
-    private static boolean eligible(Player p){return p.isAlive()&&!p.isSpectator()&&!p.getAbilities().flying&&!p.isFallFlying()&&!p.isPassenger()&&!p.isInWaterOrBubble()&&!p.isInLava()&&!p.onClimbable()&&UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get());}
+    private static boolean eligible(Player p){return p.isAlive()&&!p.isSpectator()&&!p.getAbilities().flying&&!p.isFallFlying()&&!p.isPassenger()&&!p.isInWaterOrBubble()&&!p.isInLava()&&!p.onClimbable()&&(UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get())||p.getItemBySlot(EquipmentSlot.FEET).is(org.slavicmyths.sisters.SistersArmor.TRYASEYA_BOOTS.get()));}
     private static void apply(Player p,State s){
         int step=UniqueEquipmentRules.windStep(s.charge);if(step==s.step)return;s.step=step;
         var a=p.getAttribute(Attributes.JUMP_STRENGTH);if(a==null)return;a.removeModifier(BOOST);
@@ -57,7 +57,7 @@ public final class WindBootsMomentum {
         if(!(event.getEntity() instanceof Player p)||p.level().isClientSide)return;
         var s=STATES.get(p);if(s==null)return;
         double credit=Math.min(s.extraFall,Math.max(0,s.peakRise-UniqueEquipmentRules.windApex(UniqueEquipmentRules.WIND_BASE_IMPULSE)));
-        if(UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get()))event.setDistance(Math.max(0,event.getDistance()-(float)credit));
+        if((UniqueEquipmentEvents.wears(p,EquipmentSlot.FEET,UniqueEquipment.WIND_BOOTS.get())||p.getItemBySlot(EquipmentSlot.FEET).is(org.slavicmyths.sisters.SistersArmor.TRYASEYA_BOOTS.get())))event.setDistance(Math.max(0,event.getDistance()-(float)credit));
         s.extraFall=0;s.jumped=false;
     }
     @SubscribeEvent public static void equipment(LivingEquipmentChangeEvent event){if(event.getEntity() instanceof Player p&&!p.level().isClientSide&&event.getSlot()==EquipmentSlot.FEET)clear(p);}

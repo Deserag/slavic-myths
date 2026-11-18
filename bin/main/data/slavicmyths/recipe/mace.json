@@ -1,0 +1,27 @@
+{
+  "type": "slavicmyths:armorer_shaped",
+  "pattern": [
+    " I  ",
+    "IRI ",
+    " LS ",
+    "  S "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "slavicmyths:iron_rings"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:mace"
+  }
+}

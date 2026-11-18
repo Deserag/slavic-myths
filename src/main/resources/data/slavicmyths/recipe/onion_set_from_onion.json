@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:onion"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:onion_set",
+    "count": 2
+  }
+}

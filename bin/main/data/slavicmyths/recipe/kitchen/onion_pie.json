@@ -1,0 +1,34 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:dough"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:onion"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:ground_mustard"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:onion_pie",
+    "count": 1
+  },
+  "servings": 0,
+  "remainders": []
+}

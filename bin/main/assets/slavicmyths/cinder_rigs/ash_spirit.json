@@ -1,0 +1,271 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "face",
+      "parent": "root",
+      "pivot": [
+        0,
+        2,
+        -1
+      ],
+      "size": [
+        10,
+        9,
+        8
+      ],
+      "material": "coal",
+      "uv": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "cloud",
+      "parent": "root",
+      "pivot": [
+        0,
+        5,
+        2
+      ],
+      "size": [
+        17,
+        10,
+        13
+      ],
+      "material": "ash",
+      "uv": [
+        40,
+        2
+      ]
+    },
+    {
+      "name": "whorl",
+      "parent": "root",
+      "pivot": [
+        0,
+        15,
+        0
+      ],
+      "size": [
+        7,
+        11,
+        7
+      ],
+      "material": "ash",
+      "uv": [
+        102,
+        2
+      ]
+    },
+    {
+      "name": "cloud0",
+      "parent": "root",
+      "pivot": [
+        11.0,
+        3,
+        0.0
+      ],
+      "size": [
+        4,
+        4,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        132,
+        2
+      ]
+    },
+    {
+      "name": "cloud1",
+      "parent": "root",
+      "pivot": [
+        -8.111330870953699,
+        8,
+        6.75463180551151
+      ],
+      "size": [
+        5,
+        5,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        150,
+        2
+      ]
+    },
+    {
+      "name": "cloud2",
+      "parent": "root",
+      "pivot": [
+        0.9624888178339104,
+        13,
+        -9.961646088358407
+      ],
+      "size": [
+        6,
+        4,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        170,
+        2
+      ]
+    },
+    {
+      "name": "cloud3",
+      "parent": "root",
+      "pivot": [
+        6.691864459854807,
+        18,
+        7.936678638491527
+      ],
+      "size": [
+        4,
+        5,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        192,
+        2
+      ]
+    },
+    {
+      "name": "cloud4",
+      "parent": "root",
+      "pivot": [
+        -10.831566413735397,
+        3,
+        -1.7432678122297964
+      ],
+      "size": [
+        5,
+        4,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        210,
+        2
+      ]
+    },
+    {
+      "name": "cloud5",
+      "parent": "root",
+      "pivot": [
+        9.282393546057413,
+        8,
+        -5.365729180004349
+      ],
+      "size": [
+        6,
+        5,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        230,
+        2
+      ]
+    },
+    {
+      "name": "cloud6",
+      "parent": "root",
+      "pivot": [
+        -2.8579909183512955,
+        13,
+        9.65657776549278
+      ],
+      "size": [
+        4,
+        4,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        252,
+        2
+      ]
+    },
+    {
+      "name": "cloud7",
+      "parent": "root",
+      "pivot": [
+        -5.067464461524988,
+        18,
+        -8.875670335815046
+      ],
+      "size": [
+        5,
+        5,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        270,
+        2
+      ]
+    },
+    {
+      "name": "cloud8",
+      "parent": "root",
+      "pivot": [
+        10.331423813665578,
+        3,
+        3.433149288198954
+      ],
+      "size": [
+        6,
+        4,
+        4
+      ],
+      "material": "ash",
+      "uv": [
+        290,
+        2
+      ]
+    },
+    {
+      "name": "eye-3",
+      "parent": "face",
+      "pivot": [
+        -3,
+        -2,
+        -4.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        312,
+        2
+      ]
+    },
+    {
+      "name": "eye3",
+      "parent": "face",
+      "pivot": [
+        3,
+        -2,
+        -4.5
+      ],
+      "size": [
+        2,
+        2,
+        1
+      ],
+      "material": "ember",
+      "uv": [
+        320,
+        2
+      ]
+    }
+  ]
+}

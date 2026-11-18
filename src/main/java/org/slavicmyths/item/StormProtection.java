@@ -16,20 +16,20 @@ public final class StormProtection {
     private static final net.minecraft.tags.TagKey<net.minecraft.world.entity.EntityType<?>> FOREST_SPIRITS =
             net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,ResourceLocation.fromNamespaceAndPath(SlavicMyths.MOD_ID, "forest_spirits"));
     @SubscribeEvent public static void onHurt(LivingIncomingDamageEvent event) {
-        if (!(event.getEntity() instanceof Player)) return;
+        if (event.getEntity().level().isClientSide || !(event.getEntity() instanceof Player)) return;
         Player player = (Player) event.getEntity();
-        if (player.getOffhandItem().getItem() == ModItems.AMBER_CHARM.get() && event.getSource().is(net.minecraft.tags.DamageTypeTags.IS_FIRE)) {
+        if (PassiveCharm.protects(player, ModItems.AMBER_CHARM.get()) && event.getSource().is(net.minecraft.tags.DamageTypeTags.IS_FIRE)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
-        if (player.getOffhandItem().getItem() == ModItems.TRAVELER_CHARM.get() && event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALL)) {
+        if (PassiveCharm.protects(player, ModItems.TRAVELER_CHARM.get()) && event.getSource().is(net.minecraft.world.damagesource.DamageTypes.FALL)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
-        if (player.getOffhandItem().getItem() == ModItems.FOREST_CHARM.get()
+        if (PassiveCharm.protects(player, ModItems.FOREST_CHARM.get())
                 && event.getSource().getEntity() != null && event.getSource().getEntity().getType().is(FOREST_SPIRITS)) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.8F:0.85F));
         }
         if (!event.getSource().is(net.minecraft.world.damagesource.DamageTypes.LIGHTNING_BOLT)) return;
-        if (player.getOffhandItem().getItem() == ModItems.PERUN_CHARM.get()) {
+        if (PassiveCharm.protects(player, ModItems.PERUN_CHARM.get())) {
             event.setAmount(event.getAmount() * (org.slavicmyths.rpg.PathData.has(player,"charm_power")?0.65F:0.7F));
         }
         if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.PERUNITE_HELMET.get()

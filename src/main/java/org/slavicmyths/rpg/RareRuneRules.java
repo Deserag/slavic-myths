@@ -6,8 +6,8 @@ import java.util.List;
 public final class RareRuneRules {
     public static final List<String> IDS=List.of("floating_weapon","flight","rare_protection","death","berserker","sacrifice");
     public static final List<String> ACTIVE=List.of("floating_weapon","flight","sacrifice");
-    public static int cooldown(String id){return switch(id){case "floating_weapon"->700;case "flight"->900;case "rare_protection"->1200;case "death"->400;case "sacrifice"->800;default->0;};}
-    public static int duration(String id){return switch(id){case "floating_weapon"->120;case "flight"->100;case "rare_protection"->400;case "sacrifice"->160;default->0;};}
+    public static int cooldown(String id){return switch(id){case "shadow_face"->1500;case "floating_weapon"->700;case "flight"->900;case "rare_protection"->1200;case "death"->400;case "sacrifice"->800;default->0;};}
+    public static int duration(String id){return switch(id){case "shadow_face"->80;case "floating_weapon"->120;case "flight"->100;case "rare_protection"->400;case "sacrifice"->160;default->0;};}
     public static int tier(double health,double max){if(max<=0||health<=0)return 0;double f=health/max;return f<=.15?3:f<=.30?2:f<=.50?1:0;}
     public static double damage(int tier){return Math.clamp(tier,0,3)*.10;}
     public static double speed(int tier){return Math.clamp(tier,0,3)*.05;}

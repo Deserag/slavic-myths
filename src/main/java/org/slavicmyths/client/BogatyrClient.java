@@ -27,8 +27,7 @@ import org.slavicmyths.bogatyr.BogatyrRules.State;
 public final class BogatyrClient {
     public static final KeyMapping OPEN=new KeyMapping("key.slavicmyths.bogatyr_menu",76,"key.categories.slavicmyths");
     public static final KeyMapping ESCAPE=new KeyMapping("key.slavicmyths.grab_escape",82,"key.categories.slavicmyths");
-    @EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
-    public static final class Registration {
+        public static final class Registration {
         @SubscribeEvent public static void keys(RegisterKeyMappingsEvent e){e.register(OPEN);e.register(ESCAPE);}
         @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(BogatyrContent.ILYA.get(),HeroRenderer::new);e.registerEntityRenderer(BogatyrContent.IDOL.get(),BossRenderer::new);}
     }

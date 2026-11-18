@@ -1,0 +1,59 @@
+name: Agneya V7 - Java 21 / branch 2.4
+on:
+  push:
+    branches: ['2.4']
+  pull_request:
+    branches: ['2.4']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Validate V6 geometry and Blockbench
+        run: |
+          mkdir -p build/agneya-smoke
+          javac -encoding UTF-8 -d build/agneya-smoke src/main/java/org/slavicmyths/client/AgneyaGeometryV6.java
+          java -cp build/agneya-smoke org.slavicmyths.client.AgneyaGeometryV6 build/agneya-smoke/geometry.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('build/agneya-smoke/geometry.json').read_text())['cuboids']
+          b=json.loads(Path('src/main/resources/assets/slavicmyths/geometry/agneya_v6.json').read_text())['cuboids']
+          c=json.loads(Path('tools/agneya/v6/agneya_v6_rig.bbmodel').read_text())
+          assert len(a)==len(b)==len(c['elements'])==120
+          assert all(x['part']!='aura' for x in a)
+          PY
+      - name: Validate V7 real cuboids, hollow dress and collision height
+        run: |
+          mkdir -p build/agneya-v7
+          javac -encoding UTF-8 -d build/agneya-v7 src/main/java/org/slavicmyths/client/AgneyaGeometryV7.java
+          java -cp build/agneya-v7 org.slavicmyths.client.AgneyaGeometryV7 build/agneya-v7/geometry.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('build/agneya-v7/geometry.json').read_text())['cuboids']
+          b=json.loads(Path('src/main/resources/assets/slavicmyths/geometry/agneya_v7.json').read_text())['cuboids']
+          bb=json.loads(Path('tools/agneya/v7/agneya_v7_rig.bbmodel').read_text())
+          assert a==b and len(a)==len(bb['elements'])==129
+          assert len([v for v in a if v['part']=='dress'])==15
+          assert min(v['y'] for v in a if v['part'].endswith('leg'))==0
+          assert max(v['y']+v['h'] for v in a if v['part']=='head') < 5.10*16
+          assert all(v['part']!='aura' for v in a)
+          PY
+      - name: Full NeoForge clean build
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: slavic-myths-2-4-agneya-v7
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 14

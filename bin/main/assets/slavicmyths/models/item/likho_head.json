@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/likho_head_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/likho_head"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/likho_head"
+  }
+}

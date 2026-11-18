@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:nether_mineral_biomes",
+  "features": [
+    "slavicmyths:nether_minerals"
+  ],
+  "step": "top_layer_modification"
+}

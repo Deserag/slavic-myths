@@ -1,0 +1,45 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:crimson_fungus"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:barley_groats"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:sernica"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:infernal_mushroom_soup",
+    "count": 1
+  },
+  "servings": 3,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

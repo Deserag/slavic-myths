@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:lost_hall_stone"
+    },
+    {
+      "item": "slavicmyths:lost_hall_stone"
+    },
+    {
+      "item": "slavicmyths:lost_hall_stone"
+    },
+    {
+      "item": "slavicmyths:lost_hall_stone"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:polished_lost_hall_stone",
+    "count": 4
+  }
+}

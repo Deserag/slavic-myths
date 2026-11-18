@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:alyosha_call_whistle"
+    },
+    "title": {
+      "translate": "hero_intro.alyosha_popovich.title"
+    },
+    "description": {
+      "translate": "hero_intro.alyosha_popovich.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "help": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

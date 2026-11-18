@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:purifying_ash"
+    },
+    {
+      "item": "slavicmyths:sacred_ember"
+    },
+    {
+      "item": "slavicmyths:purification_stone"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "slavicmyths:ancient_rune_fragment"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:fading_flame_charm",
+    "count": 1
+  }
+}

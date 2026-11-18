@@ -1,0 +1,14 @@
+allprojects { p ->
+    p.plugins.withId('java') {
+        p.sourceSets.create('hellOffline') { java.srcDir('tools/hell-offline') }
+        p.sourceSets.hellOffline.compileClasspath += p.sourceSets.main.compileClasspath
+        p.sourceSets.hellOffline.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+        p.tasks.register('sampleHellOffline', JavaExec) {
+            dependsOn p.tasks.named('hellOfflineClasses')
+            classpath = p.sourceSets.hellOffline.runtimeClasspath
+            mainClass = 'org.slavicmyths.verify.HellColumns'
+            maxHeapSize = '2G'
+            args p.findProperty('hellSettings') ?: 'vanilla'
+        }
+    }
+}

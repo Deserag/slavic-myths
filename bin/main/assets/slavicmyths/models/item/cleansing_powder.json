@@ -1,0 +1,6 @@
+{
+  "parent": "builtin/entity",
+  "textures": {
+    "particle": "slavicmyths:item/cleansing_powder"
+  }
+}

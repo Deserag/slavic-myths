@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:berry_mors_pitcher",
+    "slavicmyths:cider_must",
+    "slavicmyths:dark_beer_wort",
+    "slavicmyths:forest_beer_wort",
+    "slavicmyths:forest_herbal_infusion",
+    "slavicmyths:honey_beer_wort",
+    "slavicmyths:honey_infusion",
+    "slavicmyths:hopped_beer_wort",
+    "slavicmyths:kvass_wort",
+    "slavicmyths:light_beer_wort",
+    "slavicmyths:malted_barley",
+    "slavicmyths:mead_must",
+    "slavicmyths:thunder_beer_wort",
+    "slavicmyths:veles_dark_wort",
+    "slavicmyths:witch_berry_wort"
+  ]
+}

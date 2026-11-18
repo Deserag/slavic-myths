@@ -1,0 +1,11 @@
+{
+  "part": "quests",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.chud_research_yaga.title",
+  "icon": "slavicmyths:ancient_sign",
+  "initial": 0,
+  "subjects": [],
+  "advancements": [],
+  "links": []
+}

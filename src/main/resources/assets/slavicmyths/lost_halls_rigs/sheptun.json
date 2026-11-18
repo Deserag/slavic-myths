@@ -1,0 +1,498 @@
+{
+  "atlas": 512,
+  "parts": [
+    {
+      "name": "body",
+      "parent": "root",
+      "pivot": [
+        0,
+        3,
+        0
+      ],
+      "size": [
+        10,
+        19,
+        7
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -5.0,
+        -9.5,
+        -3.5
+      ],
+      "uv": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "root",
+      "pivot": [
+        0,
+        -11,
+        0
+      ],
+      "size": [
+        8,
+        9,
+        7
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -4.0,
+        -4.5,
+        -3.5
+      ],
+      "uv": [
+        36,
+        0
+      ]
+    },
+    {
+      "name": "hood",
+      "parent": "head",
+      "pivot": [
+        0,
+        -2,
+        0
+      ],
+      "size": [
+        10,
+        11,
+        9
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -5.0,
+        -5.5,
+        -4.5
+      ],
+      "uv": [
+        68,
+        0
+      ]
+    },
+    {
+      "name": "face",
+      "parent": "head",
+      "pivot": [
+        0,
+        0,
+        -5
+      ],
+      "size": [
+        6,
+        6,
+        1
+      ],
+      "material": "dark",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -3.0,
+        -3.0,
+        -0.5
+      ],
+      "uv": [
+        108,
+        0
+      ]
+    },
+    {
+      "name": "arm0",
+      "parent": "root",
+      "pivot": [
+        -8,
+        0,
+        0
+      ],
+      "size": [
+        4,
+        20,
+        4
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        -0.13
+      ],
+      "offset": [
+        -2.0,
+        -10.0,
+        -2.0
+      ],
+      "uv": [
+        124,
+        0
+      ]
+    },
+    {
+      "name": "eye0",
+      "parent": "head",
+      "pivot": [
+        -2,
+        -1,
+        -5.6
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        142,
+        0
+      ]
+    },
+    {
+      "name": "arm1",
+      "parent": "root",
+      "pivot": [
+        8,
+        0,
+        0
+      ],
+      "size": [
+        4,
+        20,
+        4
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0.13
+      ],
+      "offset": [
+        -2.0,
+        -10.0,
+        -2.0
+      ],
+      "uv": [
+        148,
+        0
+      ]
+    },
+    {
+      "name": "eye1",
+      "parent": "head",
+      "pivot": [
+        2,
+        -1,
+        -5.6
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "material": "light",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "uv": [
+        166,
+        0
+      ]
+    },
+    {
+      "name": "ribbon0",
+      "parent": "root",
+      "pivot": [
+        -4,
+        12,
+        0
+      ],
+      "size": [
+        2,
+        10,
+        3
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1,
+        0,
+        -1.5
+      ],
+      "uv": [
+        172,
+        0
+      ]
+    },
+    {
+      "name": "ribbon1",
+      "parent": "root",
+      "pivot": [
+        -2,
+        12,
+        0
+      ],
+      "size": [
+        2,
+        13,
+        3
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1,
+        0,
+        -1.5
+      ],
+      "uv": [
+        184,
+        0
+      ]
+    },
+    {
+      "name": "ribbon2",
+      "parent": "root",
+      "pivot": [
+        0,
+        12,
+        0
+      ],
+      "size": [
+        2,
+        16,
+        3
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1,
+        0,
+        -1.5
+      ],
+      "uv": [
+        196,
+        0
+      ]
+    },
+    {
+      "name": "ribbon3",
+      "parent": "root",
+      "pivot": [
+        2,
+        12,
+        0
+      ],
+      "size": [
+        2,
+        10,
+        3
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1,
+        0,
+        -1.5
+      ],
+      "uv": [
+        208,
+        0
+      ]
+    },
+    {
+      "name": "ribbon4",
+      "parent": "root",
+      "pivot": [
+        4,
+        12,
+        0
+      ],
+      "size": [
+        2,
+        13,
+        3
+      ],
+      "material": "cloth",
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        -1,
+        0,
+        -1.5
+      ],
+      "uv": [
+        220,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood0",
+      "parent": "head",
+      "pivot": [
+        -3,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        232,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood1",
+      "parent": "head",
+      "pivot": [
+        -1,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -4.0,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        248,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood2",
+      "parent": "head",
+      "pivot": [
+        1,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        5,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -2.5,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        264,
+        0
+      ]
+    },
+    {
+      "name": "variant_hood3",
+      "parent": "head",
+      "pivot": [
+        3,
+        -7,
+        0
+      ],
+      "size": [
+        3,
+        8,
+        4
+      ],
+      "material": "cloth",
+      "offset": [
+        -1.5,
+        -4.0,
+        -2.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "uv": [
+        280,
+        0
+      ]
+    }
+  ]
+}

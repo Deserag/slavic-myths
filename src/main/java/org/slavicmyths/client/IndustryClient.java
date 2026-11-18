@@ -9,7 +9,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slavicmyths.industry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class IndustryClient {
     @SubscribeEvent public static void screens(RegisterMenuScreensEvent e){e.register(MachineMenu.BLOOMERY.get(),MachineScreen::new);e.register(MachineMenu.HEARTH.get(),MachineScreen::new);}
     public static final class MachineScreen extends AbstractContainerScreen<MachineMenu> {

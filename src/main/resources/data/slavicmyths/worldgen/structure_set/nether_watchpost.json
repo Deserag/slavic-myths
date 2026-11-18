@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:nether_watchpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 12,
+    "salt": 21011021,
+    "frequency": 0.8
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "part": "crafts",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.guide_farming.title",
+  "icon": "slavicmyths:blackcurrant_sapling",
+  "initial": 1,
+  "subjects": [
+    "recipe/slavicmyths:raspberry_sapling_from_berries",
+    "recipe/slavicmyths:blueberry_sapling_from_berries",
+    "recipe/slavicmyths:blackcurrant_sapling_from_berries",
+    "recipe/slavicmyths:lingonberry_sapling_from_berries",
+    "recipe/slavicmyths:cranberry_sapling_from_berries"
+  ],
+  "advancements": [],
+  "links": []
+}

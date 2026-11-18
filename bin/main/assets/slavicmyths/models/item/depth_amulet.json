@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/depth_amulet_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/depth_amulet"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/depth_amulet"
+  }
+}

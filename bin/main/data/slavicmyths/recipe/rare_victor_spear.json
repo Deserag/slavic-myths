@@ -1,0 +1,25 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:diamond_spear"
+    },
+    {
+      "item": "slavicmyths:princely_seal"
+    },
+    {
+      "item": "slavicmyths:druzhinnik_blade_fragment"
+    },
+    {
+      "item": "slavicmyths:silver_fitting"
+    },
+    {
+      "item": "slavicmyths:weapon_wrap"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:victor_spear",
+    "count": 1
+  }
+}

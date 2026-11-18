@@ -1,0 +1,36 @@
+allprojects { afterEvaluate {
+ sourceSets { posadNative { java.srcDir 'tools/posad-native-dedicated';resources.srcDir 'tools/posad-native-resources' } }
+ def biome=project.findProperty('posadNativeBiome')
+ if(biome){
+  if(!(biome in ['slavicmyths:black_cinder','slavicmyths:burning_islands','slavicmyths:lost_halls','slavicmyths:navya_grove']))throw new GradleException('Unknown fixture biome')
+  def root=file('build/posad-native-biome-data');def preset=new File(root,'data/minecraft/worldgen/world_preset/flat.json');preset.parentFile.mkdirs()
+  def flat=[type:'minecraft:overworld',generator:[type:'minecraft:flat',settings:[biome:'minecraft:plains',lakes:false,features:false,structure_overrides:[],layers:[[block:'minecraft:bedrock',height:1],[block:'minecraft:dirt',height:2],[block:'minecraft:grass_block',height:1]]]]]
+  def nether=[type:'minecraft:the_nether',generator:[type:'minecraft:noise',settings:'minecraft:nether',biome_source:[type:'minecraft:fixed',biome:biome]]]
+  def end=[type:'minecraft:the_end',generator:[type:'minecraft:noise',settings:'minecraft:end',biome_source:[type:'minecraft:the_end']]]
+  preset.text=groovy.json.JsonOutput.toJson([dimensions:['minecraft:overworld':flat,'minecraft:the_nether':nether,'minecraft:the_end':end]])
+  sourceSets.posadNative.resources.srcDir root
+  tasks.named('processPosadNativeResources'){inputs.property('fixtureBiome',biome)}
+ }
+ sourceSets.posadNative.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.posadNative.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+ def qa=neoForge.mods.create('slavicmyths_posadnative'){sourceSet sourceSets.posadNative}
+ neoForge.runs { posadNative {
+  type='server';sourceSet=sourceSets.posadNative;loadedMods.set([qa]);programArgument '--nogui'
+  jvmArgument '-Xmx1800M';jvmArgument '-XX:ActiveProcessorCount=2';jvmArgument '-Djava.awt.headless=true'
+  gameDirectory=file(project.findProperty('posadNativeDir') ?: 'work/posad-native-dedicated')
+  systemProperty 'posadnative.biome',biome ?: ''
+  systemProperty 'posadnative.population',project.findProperty('posadNativePopulation') ?: 'false'
+  systemProperty 'posadnative.stage',project.findProperty('posadNativeStage') ?: 'write'
+ } }
+ tasks.named('runPosadNative'){dependsOn tasks.named('jar');doFirst {
+  def dir=neoForge.runs.posadNative.gameDirectory.get().asFile;dir.mkdirs()
+  def result=new File(dir,'world/posad-native.result');result.parentFile.mkdirs();result.text='PENDING'
+  copy {from tasks.named('jar').get().archiveFile;into new File(dir,'mods')}
+  new File(dir,'eula.txt').text='eula=true\n'
+  def seed=project.findProperty('posadNativeSeed') ?: '29'
+  new File(dir,'server.properties').text='server-ip=127.0.0.1\nserver-port=25593\nonline-mode=false\nview-distance=2\nsimulation-distance=2\nspawn-protection=0\nlevel-type=minecraft:flat\ngenerate-structures=true\nmax-players=2\nmax-tick-time=180000\nlevel-seed='+seed+'\n'
+ };doLast {
+  def result=new File(neoForge.runs.posadNative.gameDirectory.get().asFile,'world/posad-native.result')
+  if(!result.isFile()||result.text.trim()!='PASS')throw new GradleException('Native Posad probe did not PASS: '+(result.isFile()?result.text:'missing result'))
+ }}
+} }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:echo_vial"
+    },
+    {
+      "item": "slavicmyths:lightvein_shard"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:lost_halls_tuning_fork",
+    "count": 1
+  }
+}

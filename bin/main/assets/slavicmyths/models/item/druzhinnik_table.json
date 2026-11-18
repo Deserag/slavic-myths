@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:block/druzhinnik_table",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  }
+}

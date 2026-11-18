@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:mustard_seeds"
+    },
+    {
+      "item": "slavicmyths:mustard_seeds"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:ground_mustard",
+    "count": 1
+  }
+}

@@ -1,0 +1,1972 @@
+package org.slavicmyths.ships;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.FurnaceMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+
+/**
+ * First independent two-deck ship. Does NOT change the four saved raft formats.
+ * A native-sized collision hull supplies boat motion; separate local geometry
+ * supplies the floor, below-deck walls and distinct helmsman's attachment.
+ *
+ * Runtime multiplayer acceptance is required before enabling this on a release.
+ */
+public final class FirstShipEntity extends Boat {
+    private static final EntityDataAccessor<Float> SURFACE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> MODULES = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> NATIVE = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    /** Authoritative world-block anchor; unlike Boat.setPos, synced on EVERY voxel step. */
+    private static final EntityDataAccessor<BlockPos> ANCHOR = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BLOCK_POS);
+    private static final EntityDataAccessor<Integer> TURNS = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> RIG = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> FABRIC = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> GEOMETRY = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<String> MODULAR_BLUEPRINT = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> MOVING = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<String> MOTION_CARGO_VIEW = SynchedEntityData.defineId(FirstShipEntity.class, EntityDataSerializers.STRING);
+    private static final float NO_SURFACE = -10000F;
+    private static final double DRAFT = 0.14D;
+    private static final int CELLS = FirstShipHull.WIDTH * FirstShipHull.LENGTH;
+    private final Map<Integer, SimpleContainer> inventory = new HashMap<>();
+    private final Map<Integer, Integer> kind = new HashMap<>();
+    private final Map<Integer, SimpleContainerData> furnaces = new HashMap<>();
+    private final Map<Integer, SimpleContainer> movingCargoSlots = new HashMap<>();
+    private final Map<Integer, SimpleContainerData> movingCargoHeat = new HashMap<>();
+    private final Set<Integer> loadingMovingCargo = new HashSet<>();
+    private record Mining(BlockPos cell, long tick, float progress) {}
+    private final Map<java.util.UUID, Mining> movingMining = new HashMap<>();
+    private boolean packing;
+    /** Malformed saved inventories are retained byte-for-byte; packing is blocked. */
+    private ListTag quarantinedModules;
+    private ListTag pendingBlockCargo = new ListTag();
+    private BlockPos blockAnchor = BlockPos.ZERO;
+    private int quarterTurns;
+    private boolean nativeHull;
+    private int rigLevel;
+    private int fabricQuality;
+    private int geometryVersion = 5;
+    private ShipDesign design = ShipDesign.defaults();
+    private ShipBuildConfiguration modularConfiguration;
+    private double nextHelmAllowedTick = -100D;
+    private boolean legacyConversionTried;
+    private boolean legacySailUpgradePending;
+    private boolean visualSailUpgradeTried;
+    /** New ships opt into the new body; older worlds stay in their proven mode. */
+    private boolean smoothEnabled;
+    private ShipMovingContraption movingBody;
+    private ShipRigidMotion.Control helmControl = ShipRigidMotion.Control.IDLE;
+    private long helmControlTick = -100L;
+    private record PendingDismount(double localX, double localZ,
+                                   double deckOffsetY, long expires) {}
+    private final java.util.Map<java.util.UUID, PendingDismount> pendingDismounts =
+            new java.util.HashMap<>();
+    private int clientMotionSteps;
+    private double clientMotionX, clientMotionY, clientMotionZ;
+    private float clientMotionYaw;
+    private double clientMotionSpeed, clientMotionTurn;
+    private int clientThrottleDirection;
+    private long clientPoseFrame;
+    private double clientPreviousX, clientPreviousZ;
+    private float clientPreviousYaw;
+
+    public long clientPoseFrame() { return clientPoseFrame; }
+    public double clientPreviousX() { return clientPreviousX; }
+    public double clientPreviousZ() { return clientPreviousZ; }
+    public float clientPreviousYaw() { return clientPreviousYaw; }
+
+    /** Nearby clients receive an explicit pose even around a rider dismount. */
+    public void acceptCaptainMotionPose(double x, double y, double z, float yaw,
+                                        double speed, double turn) {
+        if (!level().isClientSide || !isMoving() || !Double.isFinite(x)
+                || !Double.isFinite(y) || !Double.isFinite(z) || !Float.isFinite(yaw)
+                || !Double.isFinite(speed) || !Double.isFinite(turn)) return;
+        clientMotionX = x;
+        clientMotionY = y;
+        clientMotionZ = z;
+        clientMotionYaw = yaw;
+        clientMotionSpeed = Math.max(-ShipRigidMotion.MAX_REVERSE,
+                Math.min(ShipRigidMotion.MAX_IV_FORWARD, speed));
+        clientMotionTurn = Math.max(-ShipRigidMotion.MAX_ANGULAR,
+                Math.min(ShipRigidMotion.MAX_ANGULAR, turn));
+        // Tracking may pause when the rider dismounts or the camera moves far
+        // from the hull. A stale velocity must never carry the client copy
+        // away from the server copy and make all block interactions miss.
+        if (position().distanceToSqr(x, y, z) > 9D) {
+            setPos(x, y, z);
+            xo = x; yo = y; zo = z;
+            setYRot(yaw);
+            yRotO = yaw;
+        }
+        clientMotionSteps = 3;
+    }
+
+    @Override public void lerpTo(double x, double y, double z, float yaw, float pitch, int steps) {
+        if (!level().isClientSide || !isMoving()) {
+            super.lerpTo(x, y, z, yaw, pitch, steps);
+            return;
+        }
+        // Continuous ships use MotionPose as their sole client pose stream.
+        // Vanilla Boat tracking can arrive late and must not reverse it.
+    }
+    public boolean isMoving() { return entityData.get(MOVING); }
+    public void setClientThrottleDirection(int direction) {
+        if (level().isClientSide) clientThrottleDirection = Integer.compare(direction, 0);
+    }
+    public String movingCargoView() { return entityData.get(MOTION_CARGO_VIEW); }
+    public Map<BlockPos, net.minecraft.world.level.block.state.BlockState> serverMovingPalette() {
+        return movingBody == null ? null : movingBody.palette();
+    }
+    public double serverMovingSpeed() {
+        return movingBody == null ? 0D : movingBody.motion().speed();
+    }
+    /** Visual-only interpolation input for client rigging. */
+    public double visualMotionSpeed() {
+        return level().isClientSide ? clientMotionSpeed : serverMovingSpeed();
+    }
+    public double serverMovingTurn() {
+        return movingBody == null ? 0D : movingBody.motion().angularVelocity();
+    }
+    public void enableSmoothMotion() { smoothEnabled = true; }
+    public void equipStarterSail() { setRigging(1, 1); setGeometryVersion(8); }
+    public void equipUpdatedStarterSail() { setRigging(1, 1); setGeometryVersion(10); }
+
+
+    public BlockPos blockAnchor() {
+        // Both logical sides read the same replicated anchor. The saved field
+        // is only the server-side transactional source for hull relocation.
+        return isMoving() ? BlockPos.containing(getX(), getY(), getZ())
+                : isNativeHull() ? entityData.get(ANCHOR) : blockAnchor;
+    }
+    public int quarterTurns() { return entityData.get(TURNS); }
+    /** Synced cardinal heading: client yaw interpolation must not move the wheel seat. */
+    public float shipYaw() { return isMoving() ? getYRot() : quarterTurns() * 90F; }
+    public boolean isNativeHull() { return entityData.get(NATIVE); }
+    public int rigLevel() { return entityData.get(RIG); }
+    public int fabricQuality() { return entityData.get(FABRIC); }
+    public int geometryVersion() { return level().isClientSide ? entityData.get(GEOMETRY) : geometryVersion; }
+    public ShipBuildConfiguration modularConfiguration() {
+        if (!level().isClientSide) return modularConfiguration;
+        String encoded = entityData.get(MODULAR_BLUEPRINT);
+        if (encoded.isEmpty()) return null;
+        try { return ShipBuildConfiguration.fromWire(encoded); }
+        catch (RuntimeException invalid) { return null; }
+    }
+    public double helmSeatZ() {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config == null) return FirstShipHull.HELM_Z - 1D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4) return -(config.length() / 2) + 6D;
+        if (config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3) return -(config.length() / 2) + 4D;
+        return -config.length() / 2 + (config.bridge() ? 3D
+                : config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && (config.cabin() || config.decks() >= 2) ? 3D
+                : config.cabin() ? 8D : 2D);
+    }
+
+    public double helmWheelZ() {
+        return helmSeatZ() + (modularConfiguration() == null ? .75D : 1D);
+    }
+
+    public double helmSeatHeight() {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return config.bridge() || config.decks() >= 2 ? 22D : 17D;
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3)
+            return ShipHullVoxelLayout.brigantineTopDeck(config.structure()) + 1D;
+        return config != null && config.bridge() ? 10D
+                : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && (config.cabin() || config.decks() >= 2)
+                ? 9D : FirstShipHull.MAIN_DECK;
+    }
+
+    private int helmFloorIndex() {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4)
+            return config.bridge() || config.decks() >= 2 ? 4 : 3;
+        if (config != null && config.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && config.hullRevision() == 3) {
+            int top = ShipHullVoxelLayout.brigantineTopDeck(config.structure());
+            return top == 20 ? 4 : top == 15 ? 3 : 2;
+        }
+        return config != null && config.bridge() ? 4
+                : config != null && config.shipClass() == ShipSectionPlan.ShipClass.MEDIUM
+                        && (config.cabin() || config.decks() >= 2) ? 2 : 1;
+    }
+
+    public boolean withinShip(double x, double z) {
+        ShipBuildConfiguration config = modularConfiguration();
+        if (config == null) return FirstShipHull.withinHull(x, z, .1D);
+        if (Math.abs(z) > config.length() / 2D + .49D) return false;
+        int half = ShipHullVoxelLayout.halfBeam(config.structure(), (int)Math.round(z));
+        return half >= 0 && Math.abs(x) <= half + .49D;
+    }
+
+    private void setModularConfiguration(ShipBuildConfiguration configuration) {
+        modularConfiguration = configuration;
+        entityData.set(MODULAR_BLUEPRINT, configuration == null ? "" : configuration.wire());
+    }
+    private void setGeometryVersion(int value) {
+        geometryVersion = value;
+        entityData.set(GEOMETRY, value);
+    }
+    /** Future customizer fields stay stable across a voyage and item packing. */
+    public ShipDesign design() { return design; }
+    private void setRigging(int level, int fabric) {
+        new ShipRigging(level, fabric); // validate before changing live state
+        rigLevel = level;
+        fabricQuality = fabric;
+        entityData.set(RIG, level);
+        entityData.set(FABRIC, fabric);
+    }
+    public ListTag pendingBlockCargo() { return pendingBlockCargo.copy(); }
+
+    public void initializeNativeHull(BlockPos anchor, int turns) {
+        blockAnchor = anchor.immutable();
+        quarterTurns = Math.floorMod(turns, 4);
+        nativeHull = true;
+        entityData.set(NATIVE, true);
+        entityData.set(ANCHOR, blockAnchor);
+        entityData.set(TURNS, quarterTurns);
+        setYRot(quarterTurns * 90F);
+        setYHeadRot(quarterTurns * 90F);
+        setPos(anchor.getX() + .5D, anchor.getY(), anchor.getZ() + .5D);
+        setDeltaMovement(Vec3.ZERO);
+    }
+
+    public FirstShipEntity(EntityType<? extends FirstShipEntity> type, Level world) {
+        super(type, world);
+        setVariant(Type.SPRUCE);
+        setInvulnerable(true);
+    }
+
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(SURFACE, NO_SURFACE);
+        builder.define(MODULES, "0".repeat(CELLS * 2));
+        builder.define(NATIVE, false);
+        builder.define(ANCHOR, BlockPos.ZERO);
+        builder.define(TURNS, 0);
+        builder.define(RIG, 0);
+        builder.define(FABRIC, 0);
+        builder.define(GEOMETRY, 5);
+        builder.define(MODULAR_BLUEPRINT, "");
+        builder.define(MOVING, false);
+        builder.define(MOTION_CARGO_VIEW, "");
+    }
+
+    public double deckY() {
+        ShipBuildConfiguration c = modularConfiguration();
+        if (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && c.hullRevision() == 4) return getY() + 12D;
+        if (c != null && c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                && c.hullRevision() == 3) return getY() + 11D;
+        return getY() + FirstShipHull.MAIN_DECK;
+    }
+    public double holdY() {
+        ShipBuildConfiguration c = modularConfiguration();
+        return getY() + (c != null
+                && (c.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && c.hullRevision() == 3
+                    || c.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && c.hullRevision() == 4) ? 2D : FirstShipHull.HOLD_FLOOR);
+    }
+    public int moduleKind(int floor, int x, int z) {
+        int tile = tileId(floor, x, z);
+        if (tile < 0) return 0;
+        String state = entityData.get(MODULES);
+        return tile < state.length() ? state.charAt(tile) - '0' : 0;
+    }
+
+    private static int tileId(int floor, int x, int z) {
+        return floor < 0 || floor > 1 || x < 0 || x >= FirstShipHull.WIDTH
+                || z < 0 || z >= FirstShipHull.LENGTH ? -1 : floor * CELLS + z * FirstShipHull.WIDTH + x;
+    }
+
+    public static int tileAt(double localX, double localZ, int floor) {
+        int x = (int)Math.floor(localX + FirstShipHull.WIDTH / 2D);
+        int z = (int)Math.floor(localZ + FirstShipHull.LENGTH / 2D);
+        if (floor < 0 || floor > 1 || !FirstShipHull.withinHull(localX, localZ, 0.46D)) return -1;
+        double centerX = x + .5D - FirstShipHull.WIDTH / 2D;
+        double centerZ = z + .5D - FirstShipHull.LENGTH / 2D;
+        // Cargo must be placed on a REAL rendered plank cell, never in a hatch,
+        // outside the tapered hold or on the missing end of the curved bow.
+        if (floor == 0 ? !FirstShipHull.holdSupports(localX, localZ)
+                || !FirstShipHull.holdSupports(centerX, centerZ)
+                : !FirstShipHull.mainDeckSupports(localX, localZ)
+                || !FirstShipHull.mainDeckSupports(centerX, centerZ)) return -1;
+        return tileId(floor, x, z);
+    }
+
+    private static boolean structuralCell(int tile) {
+        int floor = tile / CELLS;
+        int x = tile % FirstShipHull.WIDTH;
+        int z = (tile % CELLS) / FirstShipHull.WIDTH;
+        double cx = x + .5D - FirstShipHull.WIDTH / 2D;
+        double cz = z + .5D - FirstShipHull.LENGTH / 2D;
+        if (floor == 0) return FirstShipHull.onLadder(cx, cz);
+        return (Math.abs(cx) < .80D && Math.abs(cz - FirstShipHull.MAST_Z) < .8D)
+                || (Math.abs(cx) < 1.0D && Math.abs(cz - FirstShipHull.HELM_Z) < 1.0D);
+    }
+
+    private void syncModules() {
+        char[] buffer = "0".repeat(CELLS * 2).toCharArray();
+        for (var entry : kind.entrySet()) if (entry.getKey() >= 0 && entry.getKey() < buffer.length) {
+            buffer[entry.getKey()] = (char)('0' + entry.getValue());
+        }
+        entityData.set(MODULES, new String(buffer));
+    }
+
+    public void setWaterSurface(double y) {
+        if (Double.isFinite(y) && y > level().getMinBuildHeight() && y < level().getMaxBuildHeight()) {
+            entityData.set(SURFACE, (float)y);
+        }
+    }
+
+    private boolean afloat() {
+        float surface = entityData.get(SURFACE);
+        if (surface == NO_SURFACE) return false;
+        BlockPos pos = BlockPos.containing(getX(), surface - DRAFT, getZ());
+        return level().hasChunkAt(pos) && level().getFluidState(pos).is(FluidTags.WATER);
+    }
+
+    @Override protected int getMaxPassengers() { return 1; }
+
+    /** The captain operates the wheel upright; rafts keep their normal seats. */
+    @Override public boolean shouldRiderSit() {
+        return !isNativeHull();
+    }
+
+    /** The one genuine helm seat is on the STERN, not a fake free-walking passenger. */
+    @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger, EntityDimensions dimensions, float partialTick) {
+        return new Vec3(0D, helmSeatHeight() + .08D, helmSeatZ());
+    }
+
+    /**
+     * Boat has a special rider offset of its own. Native ships must instead use
+     * the real helm position in WORLD space, rotating around the block anchor.
+     * Both logical sides MUST use the SynchedEntityData flag. The local
+     * nativeHull field is deserialized only on the server and is false on
+     * freshly spawned clients; using it applied vanilla Boat seating there.
+     * Vanilla's passenger update invokes this every client tick as well.
+     */
+    @Override protected void positionRider(Entity passenger, Entity.MoveFunction move) {
+        if (!isNativeHull()) {
+            super.positionRider(passenger, move);
+            return;
+        }
+        if (!hasPassenger(passenger)) return;
+        if (isMoving()) {
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmSeatZ(),
+                    getX(), getZ(), getYRot());
+            move.accept(passenger, seat.x(), getY() + helmSeatHeight() + .08D, seat.z());
+        } else {
+            BlockPos anchor = blockAnchor();
+            FirstShipHull.Point seat = FirstShipHull.toWorld(0D, helmSeatZ(),
+                    anchor.getX() + .5D, anchor.getZ() + .5D, shipYaw());
+            move.accept(passenger, seat.x(), anchor.getY() + helmSeatHeight() + .08D, seat.z());
+        }
+        // The rider is carried by the hull transform. Retaining vanilla
+        // player/Boat velocity makes the camera drift between passenger
+        // updates and snap back to this seat every tick.
+        passenger.setDeltaMovement(Vec3.ZERO);
+        passenger.fallDistance = 0F;
+    }
+
+    /**
+     * Vanilla boats dismount next to their little waterline hitbox: on a ship
+     * that is INSIDE the hold. Select a clear supported deck cell instead.
+     */
+    @Override public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
+        if (!isNativeHull()) return super.getDismountLocationForPassenger(passenger);
+        if (modularConfiguration() != null) {
+            int floorIndex = helmFloorIndex();
+            // Helm seats may sit on half coordinates for odd-length hulls;
+            // support cells are integer local block positions.
+            double baseZ = Math.round(helmSeatZ());
+            for (double z : new double[]{baseZ + 1D, baseZ + 2D, baseZ - 1D, baseZ}) {
+                for (double x : new double[]{1D, -1D, 2D, -2D, 0D}) {
+                    if (!ShipDeckContact.supports(this, x, z, floorIndex)) continue;
+                    FirstShipHull.Point point = FirstShipHull.toWorld(
+                            x, z, getX(), getZ(), getYRot());
+                    Vec3 target = new Vec3(point.x(), getY() + helmSeatHeight() + .05D,
+                            point.z());
+                    AABB bounds = passenger.getBoundingBox().move(
+                            target.subtract(passenger.position()));
+                    if (level().noCollision(passenger, bounds)) return target;
+                }
+            }
+            FirstShipHull.Point fallback = FirstShipHull.toWorld(0D,
+                    baseZ + 2D, getX(), getZ(), getYRot());
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Modular ship dismount used elevated fallback: ship={} bridge={} baseZ={} pos={}",
+                    getUUID(), modularConfiguration().bridge(), baseZ, position());
+            return new Vec3(fallback.x(), getY() + helmSeatHeight() + 3D, fallback.z());
+        }
+        double[][] safeCells = {{1D, -2D}, {-1D, -2D}, {0D, -2D},
+                {1D, -3D}, {-1D, -3D}, {0D, -3D},
+                {2D, -2D}, {-2D, -2D}, {0D, 0D}, {1D, 0D}, {-1D, 0D}};
+        for (double[] cell : safeCells) {
+            if (!FirstShipHull.mainDeckSupports(cell[0], cell[1])) continue;
+            FirstShipHull.Point point = FirstShipHull.toWorld(cell[0], cell[1],
+                    getX(), getZ(), getYRot());
+            Vec3 target = new Vec3(point.x(), deckY() + 0.05D, point.z());
+            BlockPos floor = BlockPos.containing(point.x(), deckY() - .15D, point.z());
+            if (!level().hasChunkAt(floor) || (!isMoving() && level().getBlockState(floor).isAir())) continue;
+            AABB area = passenger.getBoundingBox().move(target.subtract(passenger.position()));
+            if (level().noCollision(passenger, area)) return target;
+        }
+        // Never return the entity's waterline centre inside solid hold blocks.
+        // A high, unobstructed point above the deck is safer than suffocation.
+        FirstShipHull.Point stern = FirstShipHull.toWorld(1D, -2D,
+                getX(), getZ(), getYRot());
+        for (int above = 1; above <= 8; above++) {
+            Vec3 fallback = new Vec3(stern.x(), deckY() + above + .05D, stern.z());
+            if (level().noCollision(passenger,
+                    passenger.getBoundingBox().move(fallback.subtract(passenger.position()))))
+                return fallback;
+        }
+        return new Vec3(stern.x(), deckY() + 16D, stern.z());
+    }
+
+    @Override protected void removePassenger(Entity passenger) {
+        super.removePassenger(passenger);
+        if (isNativeHull()) {
+            nextHelmAllowedTick = -100D;
+            helmControl = ShipRigidMotion.Control.IDLE;
+            helmControlTick = -100L;
+            if (isMoving() && passenger instanceof ServerPlayer player) {
+                Vec3 target = getDismountLocationForPassenger(player);
+                FirstShipHull.Point local = FirstShipHull.toLocal(target.x, target.z,
+                        getX(), getZ(), getYRot());
+                if (ShipDeckContact.supports(this, local.x(), local.z(),
+                        helmFloorIndex()))
+                    pendingDismounts.put(player.getUUID(), new PendingDismount(
+                            local.x(), local.z(), target.y - (getY() + helmSeatHeight()),
+                            level().getGameTime() + 40L));
+            }
+        }
+    }
+
+    /** Resolve the one-time Shift handoff after the client has left the vehicle. */
+    public boolean confirmDismount(ServerPlayer player) {
+        PendingDismount landing = pendingDismounts.remove(player.getUUID());
+        if (landing == null || !isMoving() || player.isPassenger()
+                || level().getGameTime() > landing.expires()) return false;
+        FirstShipHull.Point world = FirstShipHull.toWorld(landing.localX(), landing.localZ(),
+                getX(), getZ(), getYRot());
+        Vec3 target = new Vec3(world.x(), getY() + helmSeatHeight()
+                + landing.deckOffsetY(), world.z());
+        AABB area = player.getBoundingBox().move(target.subtract(player.position()));
+        if (!level().noCollision(player, area))
+            target = getDismountLocationForPassenger(player);
+        player.connection.teleport(target.x, target.y, target.z,
+                player.getYRot(), player.getXRot());
+        return true;
+    }
+
+    @Override protected boolean canAddPassenger(Entity passenger) {
+        // Boat rejects boarding when its water-state check sees the ship's
+        // waterline inside water. This hull has a dry wheel above the deck.
+        return isNativeHull() ? passenger instanceof Player && !isVehicle()
+                && !isRemoved() : super.canAddPassenger(passenger);
+    }
+
+    @Override public boolean canCollideWith(Entity other) {
+        return !(other instanceof Player) && super.canCollideWith(other);
+    }
+
+    @Override public boolean hurt(DamageSource source, float damage) { return false; }
+    @Override public ItemStack getPickResult() { return new ItemStack(RaftContent.FIRST_SHIP_ITEM.get()); }
+    @Override public Item getDropItem() { return RaftContent.FIRST_SHIP_ITEM.get(); }
+    @Override protected Component getTypeName() { return Component.literal("Деревянный корабль 7×11"); }
+
+    private ListTag storeModules(HolderLookup.Provider registries) {
+        ListTag list = new ListTag();
+        for (var entry : kind.entrySet()) {
+            int tile = entry.getKey(), type = entry.getValue();
+            SimpleContainer slots = inventory.get(tile);
+            if (slots == null) continue;
+            CompoundTag data = new CompoundTag();
+            data.putInt("Cell", tile);
+            data.putInt("Kind", type);
+            data.put("Items", slots.createTag(registries));
+            SimpleContainerData heat = furnaces.get(tile);
+            if (heat != null) data.putIntArray("Heat", new int[]{heat.get(0), heat.get(1), heat.get(2), heat.get(3)});
+            list.add(data);
+        }
+        return list;
+    }
+
+    /** Validate the complete payload before changing a live entity or consuming an item. */
+    public boolean loadPacked(ItemStack item) {
+        CustomData custom = item.get(DataComponents.CUSTOM_DATA);
+        if (custom == null) return true;
+        CompoundTag root = custom.copyTag();
+        if (!root.contains("FirstShipPack", Tag.TAG_COMPOUND)) return true;
+        CompoundTag pack = root.getCompound("FirstShipPack");
+        int packVersion = pack.getInt("Version");
+        if ((packVersion != 1 && packVersion != 2)
+                || !pack.contains("Modules", Tag.TAG_LIST)) return false;
+        int loadedGeometry = pack.contains("GeometryVersion", Tag.TAG_INT)
+                ? pack.getInt("GeometryVersion") : 2;
+        if (loadedGeometry < 2 || loadedGeometry > 10) return false;
+        ShipBuildConfiguration loadedModular = null;
+        if (pack.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
+            try { loadedModular = ShipBuildConfiguration.load(pack.getCompound(ShipBuildConfiguration.NBT_KEY)); }
+            catch (RuntimeException invalid) { return false; }
+        }
+        if ((loadedGeometry == 9) != (loadedModular != null)) return false;
+        int loadedRig = packVersion == 1 ? 1 : pack.getInt("RigLevel");
+        int loadedFabric = packVersion == 1 ? 1 : pack.getInt("FabricQuality");
+        try { new ShipRigging(loadedRig, loadedFabric); }
+        catch (IllegalArgumentException invalid) { return false; }
+        ShipDesign loadedDesign;
+        try {
+            loadedDesign = pack.contains("Design", Tag.TAG_COMPOUND)
+                    ? ShipDesign.load(pack.getCompound("Design")) : ShipDesign.defaults();
+            // This entity implements a real small hull only. Never interpret a
+            // saved future medium/large vessel as a small one.
+            if (!loadedDesign.hullSize().equals("small")) return false;
+        } catch (IllegalArgumentException invalid) { return false; }
+        ListTag list = pack.getList("Modules", Tag.TAG_COMPOUND);
+        if (list.size() > CELLS * 2) return false;
+        Map<Integer, SimpleContainer> loaded = new HashMap<>();
+        Map<Integer, Integer> types = new HashMap<>();
+        Map<Integer, SimpleContainerData> heatMap = new HashMap<>();
+        Set<Integer> seen = new HashSet<>();
+        try {
+            for (int i = 0; i < list.size(); i++) {
+                CompoundTag value = list.getCompound(i);
+                int tile = value.getInt("Cell"), type = value.getInt("Kind");
+                if (tile < 0 || tile >= CELLS * 2 || type < 1 || type > 4 || !seen.add(tile)
+                        || !value.contains("Items", Tag.TAG_LIST)) return false;
+                int x = tile % FirstShipHull.WIDTH, z = (tile % CELLS) / FirstShipHull.WIDTH;
+                double localX = x + .5D - FirstShipHull.WIDTH / 2D;
+                double localZ = z + .5D - FirstShipHull.LENGTH / 2D;
+                if (tileAt(localX, localZ, tile / CELLS) != tile) return false;
+                ListTag stored = value.getList("Items", Tag.TAG_COMPOUND);
+                if (stored.size() > (type == 4 ? 3 : 27)) return false;
+                SimpleContainer slots = new SimpleContainer(type == 4 ? 3 : 27);
+                slots.fromTag(stored, registryAccess());
+                if (!stored.equals(slots.createTag(registryAccess()))) return false;
+                loaded.put(tile, slots);
+                types.put(tile, type);
+                if (type == 4) {
+                    SimpleContainerData heat = new SimpleContainerData(4);
+                    int[] ticks = value.getIntArray("Heat");
+                    for (int n = 0; n < Math.min(4, ticks.length); n++) heat.set(n, Math.max(0, ticks[n]));
+                    heatMap.put(tile, heat);
+                }
+            }
+        } catch (RuntimeException malformed) { return false; }
+        if (pack.contains("BlockCargo", Tag.TAG_LIST)) {
+            pendingBlockCargo = pack.getList("BlockCargo", Tag.TAG_COMPOUND).copy();
+            if (pendingBlockCargo.size() > (loadedModular == null ? CELLS * 2 : loadedModular.width() * loadedModular.length() * loadedModular.decks())) return false;
+        } else pendingBlockCargo = new ListTag();
+        quarantinedModules = null;
+        setRigging(loadedRig, loadedFabric);
+        setGeometryVersion(loadedGeometry);
+        setModularConfiguration(loadedModular);
+        design = loadedDesign;
+        inventory.clear(); inventory.putAll(loaded);
+        kind.clear(); kind.putAll(types);
+        furnaces.clear(); furnaces.putAll(heatMap);
+        syncModules();
+        return true;
+    }
+
+    private ItemStack packed() {
+        ItemStack stack = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 2);
+        pack.putInt("RigLevel", rigLevel);
+        pack.putInt("FabricQuality", fabricQuality);
+        pack.putInt("GeometryVersion", geometryVersion);
+        if (modularConfiguration != null)
+            pack.put(ShipBuildConfiguration.NBT_KEY, modularConfiguration.save());
+        pack.put("Design", design.save());
+        pack.putUUID("VesselId", getUUID());
+        pack.put("Modules", storeModules(registryAccess()));
+        if (isMoving() && movingBody != null) pack.put("BlockCargo", movingBody.cargo());
+        else if (nativeHull && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            ListTag cargo = modularConfiguration == null
+                    ? FirstShipBlockHull.pack(server, blockAnchor, quarterTurns,
+                            rigLevel, fabricQuality, geometryVersion)
+                    : ShipModularBlockHull.pack(server, blockAnchor, quarterTurns,
+                            modularConfiguration);
+            if (cargo == null) return ItemStack.EMPTY;
+            pack.put("BlockCargo", cargo);
+        }
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        return stack;
+    }
+
+    /**
+     * Apply an already-server-validated shipyard change to a stationary ship.
+     * Materials are debited only after the complete geometry transaction
+     * succeeds. The entity's synchronized configuration updates last.
+     */
+    public boolean upgradeModularInWorld(ServerPlayer customer,
+            ShipBuildConfiguration next) {
+        if (customer == null || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || modularConfiguration == null || next == null
+                || !ShipyardModular.compatibleUpgrade(modularConfiguration, next)
+                || next.equals(modularConfiguration) || isRemoved() || !isNativeHull()
+                || isMoving() || isVehicle() || packing
+                || quarantinedModules != null || movingBody != null) {
+            if (customer != null)
+                customer.displayClientMessage(Component.literal(
+                        "Нельзя улучшить корабль: судно движется, занято или недоступно"), true);
+            return false;
+        }
+        if (hasWalkers()) {
+            customer.displayClientMessage(Component.literal(
+                    "Нельзя перестроить корабль, пока на палубах или внутри находятся игроки"), true);
+            return false;
+        }
+        ShipyardModular.Materials bill = ShipyardModular.costs(modularConfiguration, next);
+        if (!ShipyardModular.canPay(customer, bill)) {
+            customer.displayClientMessage(Component.literal(
+                    "Недостаточно материалов для модификации корабля"), true);
+            return false;
+        }
+        if (!ShipModularBlockHull.rebuild(server, blockAnchor, quarterTurns,
+                modularConfiguration, blockAnchor, quarterTurns, next)) {
+            customer.displayClientMessage(Component.literal(
+                    "Перестройка отклонена: корпус не совпадает с сохранённой схемой или место занято"), true);
+            return false;
+        }
+        setModularConfiguration(next);
+        ShipyardModular.pay(customer, bill);
+        return true;
+    }
+
+    /** No packing while anybody stands in the hold or on the deck. */
+    private boolean hasWalkers() {
+        ShipBuildConfiguration config = modularConfiguration();
+        double beam = config == null ? 8D : config.width() / 2D + 3D;
+        double length = config == null ? 8D : config.length() / 2D + 3D;
+        double vertical = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4 ? 50D : 18D;
+        AABB area = getBoundingBox().inflate(Math.max(beam, length), vertical,
+                Math.max(beam, length));
+        for (Player player : level().getEntitiesOfClass(Player.class, area)) {
+            if (player.isPassenger()) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(
+                    player.getX(), player.getZ(), getX(), getZ(), getYRot());
+            if (withinShip(local.x(), local.z())
+                    && player.getY() >= holdY() - .55D
+                    && player.getY() <= getY() + (config == null ? 7.2D
+                            : config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && config.hullRevision() == 4 ? 28.2D : 16.2D))
+                return true;
+        }
+        return false;
+    }
+
+    public InteractionResult packWithKey(Player player) {
+        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (!(player instanceof ServerPlayer) || quarantinedModules != null || packing || isRemoved() || isVehicle()
+                || hasWalkers() || getDeltaMovement().horizontalDistanceSqr() > .0005D
+                || (movingBody != null && (Math.abs(movingBody.motion().speed()) > .008D
+                    || Math.abs(movingBody.motion().angularVelocity()) > .15D))) {
+            player.displayClientMessage(Component.literal("Судно должно стоять без экипажа и пассажиров"), true);
+            return InteractionResult.FAIL;
+        }
+        if (level() instanceof net.minecraft.server.level.ServerLevel server) {
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    getBoundingBox().inflate(
+                            modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D,
+                            modularConfiguration != null
+                                    && modularConfiguration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                    && modularConfiguration.hullRevision() == 4 ? 50D : 18D,
+                            modularConfiguration == null ? 10D : modularConfiguration.length() / 2D + 6D))) {
+                if (nearby.containerMenu != nearby.inventoryMenu) {
+                    player.displayClientMessage(Component.literal(
+                            "Перед упаковкой все грузовые окна должны быть закрыты"), true);
+                    return InteractionResult.FAIL;
+                }
+            }
+        }
+        ItemStack stack = packed();
+        if (stack.isEmpty()) return InteractionResult.FAIL;
+        if (nativeHull && !isMoving()) {
+            if (!(level() instanceof net.minecraft.server.level.ServerLevel server)
+                    || !(modularConfiguration == null
+                        ? FirstShipBlockHull.remove(server, blockAnchor, quarterTurns,
+                                rigLevel, fabricQuality, geometryVersion)
+                        : ShipModularBlockHull.remove(server, blockAnchor,
+                                quarterTurns, modularConfiguration))) {
+                player.displayClientMessage(Component.literal("Корпус изменён или груз повреждён: упаковка заблокирована"), true);
+                return InteractionResult.FAIL;
+            }
+        }
+        packing = true;
+        discard(); // Remove real blocks and ship before granting an inventory item.
+        if (!player.getInventory().add(stack)) player.drop(stack, false);
+        player.displayClientMessage(Component.literal("Корабль упакован вместе с грузом"), true);
+        return InteractionResult.CONSUME;
+    }
+
+
+    /**
+     * The visible helm is ~3.6 blocks aft of the entity center; vanilla Boat
+     * interaction range targets only its ~3-block core. A validated action
+     * allows the actual painted helm to be used from its stern position.
+     */
+    /** Exact physical modular helm block click, validated on the server. */
+    public boolean tryHelmFromBlock(ServerPlayer player, BlockPos clicked) {
+        if (player == null || clicked == null || player.level() != level()
+                || !isNativeHull() || isMoving() || isRemoved()
+                || modularConfiguration() == null || isVehicle()
+                || player.isPassenger() || player.isSpectator()
+                || player.isSecondaryUseActive()) return false;
+        ShipBuildConfiguration config = modularConfiguration();
+        int physicalZ = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4
+                ? -config.length() / 2 + 8 : (int)helmWheelZ();
+        int physicalY = config != null
+                && config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && config.hullRevision() == 4
+                ? (config.bridge() || config.decks() >= 2 ? 22 : 17)
+                : (int)helmSeatHeight();
+        BlockPos expected = FirstShipBlockHull.world(blockAnchor(), quarterTurns(),
+                0, physicalY, physicalZ);
+        if (!expected.equals(clicked)
+                || !level().getBlockState(expected).is(Blocks.DARK_OAK_FENCE)
+                || player.distanceToSqr(Vec3.atCenterOf(expected)) > 36D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > 2.4D) return false;
+        if (!player.startRiding(this)) return false;
+        positionRider(player);
+        player.displayClientMessage(Component.literal(
+                "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        return true;
+    }
+
+    public boolean tryHelm(ServerPlayer player) {
+        if (isVehicle() || player.isPassenger() || player.isSpectator()) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), shipYaw());
+        if (Math.abs(local.x()) > 1.65D
+                || Math.abs(local.z() - helmSeatZ()) > 2.5D
+                || Math.abs(player.getY() - (getY() + helmSeatHeight())) > .9D) return false;
+        FirstShipHull.Point wheel = FirstShipHull.toWorld(0D, helmWheelZ(),
+                getX(), getZ(), shipYaw());
+        Vec3 ring = new Vec3(wheel.x(), getY() + helmSeatHeight() + 1.78D, wheel.z())
+                .subtract(player.getEyePosition());
+        Vec3 post = new Vec3(wheel.x(), getY() + helmSeatHeight() + .58D, wheel.z())
+                .subtract(player.getEyePosition());
+        boolean aimsRing = ring.lengthSqr() >= .09D && ring.lengthSqr() <= 25D
+                && ring.normalize().dot(player.getLookAngle()) >= .30D;
+        boolean aimsPost = post.lengthSqr() >= .09D && post.lengthSqr() <= 25D
+                && post.normalize().dot(player.getLookAngle()) >= .30D;
+        if (!aimsRing && !aimsPost) return false;
+        boolean mounted = player.startRiding(this);
+        if (mounted) {
+            positionRider(player);
+            player.displayClientMessage(Component.literal(
+                    "Штурвал захвачен: W/S — ход, A/D — поворот, Shift — сойти"), true);
+        }
+        return mounted;
+    }
+
+    /**
+     * Install or replace sail material with a genuine crafted kit, extend the
+     * mast by one tier with a rigging kit, or remove one tier with Shift+ПКМ.
+     * BlockHull verifies the whole replacement footprint before mutation.
+     * Inventory only changes after that transaction succeeds.
+     */
+    public boolean configureRigging(ServerPlayer player, int action) {
+        if (modularConfiguration != null || !nativeHull || isVehicle()
+                || player.isPassenger() || player.isSpectator()
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || player.containerMenu != player.inventoryMenu) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (Math.abs(local.x()) > 2.5D
+                || Math.abs(local.z() - FirstShipHull.MAST_Z) > 2.5D
+                || Math.abs(player.getY() - deckY()) > 1.0D) return false;
+        FirstShipHull.Point mast = FirstShipHull.toWorld(0D, FirstShipHull.MAST_Z,
+                getX(), getZ(), getYRot());
+        Vec3 aim = new Vec3(mast.x(), deckY() + 2.5D, mast.z()).subtract(player.getEyePosition());
+        if (aim.lengthSqr() < .25D || aim.lengthSqr() > 36D
+                || aim.normalize().dot(player.getLookAngle()) < .62D) return false;
+
+        int nextLevel = rigLevel, nextFabric = fabricQuality, cost = 0;
+        ItemStack hand = player.getMainHandItem();
+        Item consumed = null, refunded = null;
+        Item additionalSailCost = null, additionalSailRefund = null;
+        int refundCount = 0;
+        if (action == FirstShipNetwork.RIG_REMOVE) {
+            if (rigLevel == 0 || !hand.isEmpty() || !player.isShiftKeyDown()) return false;
+            if (rigLevel == 1) {
+                nextLevel = 0;
+                nextFabric = 0;
+                refunded = sailModule(fabricQuality);
+            } else {
+                nextLevel--;
+                refunded = RaftContent.SAIL_RIGGING_KIT.get();
+                additionalSailRefund = sailModule(fabricQuality);
+            }
+            refundCount = 1;
+        } else if (action == FirstShipNetwork.RIG_CONFIGURE) {
+            if (hand.is(RaftContent.SAIL_RIGGING_KIT.get())) {
+                if (rigLevel == 0 || rigLevel >= 4) return false;
+                nextLevel++;
+                consumed = RaftContent.SAIL_RIGGING_KIT.get();
+                additionalSailCost = sailModule(fabricQuality);
+                cost = 1;
+            } else {
+                int requested = hand.is(RaftContent.SAIL_MODULE.get()) ? 1
+                        : hand.is(RaftContent.SAIL_LINEN_MODULE.get()) ? 2
+                        : hand.is(RaftContent.SAIL_REINFORCED_MODULE.get()) ? 3 : 0;
+                if (requested == 0 || requested == fabricQuality) return false;
+                nextLevel = Math.max(1, rigLevel);
+                nextFabric = requested;
+                consumed = sailModule(requested);
+                cost = nextLevel; // Larger canvas consumes proportional fabric.
+                if (rigLevel > 0) {
+                    refunded = sailModule(fabricQuality);
+                    refundCount = rigLevel;
+                }
+            }
+        } else return false;
+        if (consumed != null && !player.getAbilities().instabuild
+                && player.getInventory().countItem(consumed) < cost) {
+            player.displayClientMessage(Component.literal("Нужно больше комплектов ткани для парусов"), true);
+            return false;
+        }
+        if (additionalSailCost != null && !player.getAbilities().instabuild
+                && player.getInventory().countItem(additionalSailCost) < 1) {
+            player.displayClientMessage(Component.literal(
+                    "Для дополнительного яруса нужен также комплект парусной ткани"), true);
+            return false;
+        }
+        // Changing real blocks while another player accesses a chest is unsafe.
+        for (ServerPlayer other : server.getEntitiesOfClass(ServerPlayer.class,
+                new AABB(blockAnchor).inflate(11D, 24D, 11D))) {
+            if (other.containerMenu != other.inventoryMenu) return false;
+        }
+        if (!FirstShipBlockHull.move(server, blockAnchor, quarterTurns,
+                blockAnchor, quarterTurns, rigLevel, fabricQuality, nextLevel, nextFabric, geometryVersion)) {
+            player.displayClientMessage(Component.literal("Оснащение не установлено: мачта повреждена или нет свободного места"), true);
+            return false;
+        }
+        setRigging(nextLevel, nextFabric);
+        if (consumed != null && !player.getAbilities().instabuild) {
+            int remaining = cost;
+            for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (!stack.is(consumed)) continue;
+                int taken = Math.min(stack.getCount(), remaining);
+                stack.shrink(taken);
+                remaining -= taken;
+            }
+        }
+        if (additionalSailCost != null && !player.getAbilities().instabuild) {
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                ItemStack stack = player.getInventory().getItem(i);
+                if (stack.is(additionalSailCost)) { stack.shrink(1); break; }
+            }
+        }
+        if (refunded != null && !player.getAbilities().instabuild) {
+            for (int i = 0; i < refundCount; i++)
+                if (!player.getInventory().add(new ItemStack(refunded)))
+                    player.drop(new ItemStack(refunded), false);
+        }
+        if (additionalSailRefund != null && !player.getAbilities().instabuild
+                && !player.getInventory().add(new ItemStack(additionalSailRefund)))
+            player.drop(new ItemStack(additionalSailRefund), false);
+        player.displayClientMessage(Component.literal("Паруса: уровень " + nextLevel
+                + "/4, ткань " + nextFabric + "/3, интервал "
+                + String.format(java.util.Locale.ROOT, "%.2f",
+                        new ShipRigging(nextLevel, nextFabric).exactCooldownTicks())
+                + " тиков"), true);
+        return true;
+    }
+
+    private static Item sailModule(int fabric) {
+        return switch (fabric) {
+            case 1 -> RaftContent.SAIL_MODULE.get();
+            case 2 -> RaftContent.SAIL_LINEN_MODULE.get();
+            case 3 -> RaftContent.SAIL_REINFORCED_MODULE.get();
+            default -> throw new IllegalArgumentException("No sail fabric");
+        };
+    }
+
+    /**
+     * A single explicit boarding step from water to the open deck.
+     * Once on deck the player is NOT mounted or moved between fake seats.
+     */
+    public boolean tryBoard(ServerPlayer player) {
+        if (player.isPassenger() || player.isSpectator()
+                || getDeltaMovement().horizontalDistanceSqr() > .0025D
+                || player.getY() >= deckY() - 1.1D) return false;
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        ShipBuildConfiguration configuration = modularConfiguration();
+        if (configuration != null) {
+            double zValue = FirstShipHull.clamp(local.z(),
+                    -configuration.length() / 2D + 1D,
+                    configuration.length() / 2D - 1D);
+            int beam = ShipHullVoxelLayout.halfBeam(
+                    configuration.structure(), (int)Math.round(zValue));
+            if (beam < 1 || Math.abs(local.x()) > beam + 1.7D
+                    || Math.abs(local.x()) < beam - 1D) return false;
+            boolean iv = configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                    && configuration.hullRevision() == 4;
+            double xValue = FirstShipHull.clamp(local.x(),
+                    -beam + (iv ? 2D : 1D), beam - (iv ? 2D : 1D));
+            int landingFloor = iv || configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                    && configuration.hullRevision() == 3 ? 2 : 1;
+            if (!ShipDeckContact.supports(this, xValue, zValue, landingFloor)) return false;
+            FirstShipHull.Point point = FirstShipHull.toWorld(xValue, zValue,
+                    getX(), getZ(), getYRot());
+            Vec3 target = new Vec3(point.x(), deckY() + .02D, point.z());
+            if (!level().noCollision(player,
+                    player.getBoundingBox().move(target.subtract(player.position()))))
+                return false;
+            player.teleportTo(target.x(), target.y(), target.z());
+            player.setDeltaMovement(Vec3.ZERO);
+            player.fallDistance = 0F;
+            return true;
+        }
+        double z = FirstShipHull.clamp(local.z(), -4.7D, 4.7D);
+        double half = FirstShipHull.halfBeam(z);
+        if (Math.abs(local.z()) > 6.25D || Math.abs(local.x()) > half + 1.60D
+                || Math.abs(local.x()) < half - 1.1D && Math.abs(local.z()) < 4.9D) return false;
+        double landingX = FirstShipHull.clamp(local.x(), -half + .82D, half - .82D);
+        if (!FirstShipHull.mainDeckSupports(landingX, z)) return false;
+        FirstShipHull.Point target = FirstShipHull.toWorld(landingX, z,
+                getX(), getZ(), getYRot());
+        Vec3 delta = new Vec3(target.x() - player.getX(), deckY() - player.getY(),
+                target.z() - player.getZ());
+        if (!player.level().noCollision(player, player.getBoundingBox().move(delta))) return false;
+        player.teleportTo(target.x(), deckY() + .01D, target.z());
+        player.setDeltaMovement(Vec3.ZERO);
+        player.fallDistance = 0F;
+        return true;
+    }
+
+    @Override public InteractionResult interact(Player player, InteractionHand hand) {
+        ItemStack held = player.getItemInHand(hand);
+        if (held.is(RaftContent.SHIPYARD_KEY.get())) return packWithKey(player);
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        // Helm can only be activated at the stern, on the MAIN deck.
+        if (!player.isSecondaryUseActive() && Math.abs(local.x()) < 1.35D
+                && Math.abs(local.z() - helmSeatZ()) < 1.65D
+                && Math.abs(player.getY() - (getY() + helmSeatHeight())) < 1.3D) {
+            if (!level().isClientSide && player.startRiding(this)) positionRider(player);
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        if (!player.isSecondaryUseActive()) return InteractionResult.PASS;
+        return interactFromDeck(player, hand);
+    }
+
+    /** Also called by air-right-click while standing on any part of this large ship. */
+    public InteractionResult interactFromDeck(Player player, InteractionHand hand) {
+        if (modularConfiguration() != null) return InteractionResult.PASS;
+        ItemStack held = player.getItemInHand(hand);
+        FirstShipHull.Point local = FirstShipHull.toLocal(
+                player.getX(), player.getZ(), getX(), getZ(), getYRot());
+        int floor = player.getY() > getY() + 1.8D ? 1 : 0;
+        int tile = tileAt(local.x(), local.z(), floor);
+        if (tile < 0 || Math.abs(player.getY() - (floor == 1 ? deckY() : holdY())) > .72D)
+            return InteractionResult.FAIL;
+        if (level().isClientSide) return InteractionResult.SUCCESS;
+        if (held.is(Items.CHEST) || held.is(Items.BARREL)
+                || held.is(Items.CRAFTING_TABLE) || held.is(Items.FURNACE)) {
+            if (kind.containsKey(tile) || structuralCell(tile)) return InteractionResult.FAIL;
+            int type = held.is(Items.CHEST) ? 1 : held.is(Items.BARREL) ? 2
+                    : held.is(Items.CRAFTING_TABLE) ? 3 : 4;
+            kind.put(tile, type);
+            inventory.put(tile, new SimpleContainer(type == 4 ? 3 : 27));
+            if (type == 4) furnaces.put(tile, new SimpleContainerData(4));
+            syncModules();
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            return InteractionResult.CONSUME;
+        }
+        SimpleContainer slots = inventory.get(tile);
+        if (slots == null || !(player instanceof ServerPlayer serverPlayer)) return InteractionResult.FAIL;
+        int type = kind.get(tile);
+        Component label = Component.literal(type == 1 ? "Корабельный сундук" :
+                type == 2 ? "Корабельная бочка" : type == 3 ? "Верстак" : "Корабельная печь");
+        if (type == 3) {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    new net.minecraft.world.inventory.CraftingMenu(id, inv,
+                            net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
+                        @Override public boolean stillValid(Player viewer) {
+                            return !FirstShipEntity.this.isRemoved() && viewer.distanceToSqr(FirstShipEntity.this) < 100D;
+                        }
+                    }, label));
+        } else if (type == 4) {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    new FurnaceMenu(id, inv, slots, furnaces.get(tile)), label));
+        } else {
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    ChestMenu.threeRows(id, inv, slots), label));
+        }
+        return InteractionResult.CONSUME;
+    }
+
+    /**
+     * Server-authoritative placement on the active, non-physical modular hull.
+     * The client only selects a local cell. Item type, distance, permissions,
+     * support, stair clearance, collision and cargo serialization are checked
+     * here before a single item can be consumed.
+     */
+    public boolean placeMovingCargo(ServerPlayer player, BlockPos local,
+            InteractionHand hand) {
+        if (!isMoving() || movingBody == null || modularConfiguration == null
+                || player == null || local == null || player.isPassenger()
+                || player.isSpectator() || !player.isAlive()
+                || player.containerMenu != player.inventoryMenu
+                || !(level() instanceof net.minecraft.server.level.ServerLevel world))
+            return false;
+        ItemStack stack = player.getItemInHand(hand);
+        if (!(stack.getItem() instanceof BlockItem blockItem)
+                || stack.isEmpty()) return false;
+        Vec3 eye = player.getEyePosition();
+        BlockPos aimed = ShipMovingCargoTarget.target(this, eye,
+                eye.add(player.getLookAngle().scale(5.5D)), movingBody.palette());
+        if (!local.equals(aimed)
+                && !movingCellWithinPoseLag(player, local, aimed)) return false;
+        var state = blockItem.getBlock().defaultBlockState();
+        if (ShipCargoPlacementGuard.forbidden(state)) return false;
+        FirstShipHull.Point direction = FirstShipHull.toLocal(
+                player.getX() + player.getLookAngle().x,
+                player.getZ() + player.getLookAngle().z,
+                getX(), getZ(), shipYaw());
+        FirstShipHull.Point origin = FirstShipHull.toLocal(player.getX(),
+                player.getZ(), getX(), getZ(), shipYaw());
+        double localDX = direction.x() - origin.x(), localDZ = direction.z() - origin.z();
+        net.minecraft.core.Direction forward = Math.abs(localDX) > Math.abs(localDZ)
+                ? (localDX >= 0D ? net.minecraft.core.Direction.EAST
+                        : net.minecraft.core.Direction.WEST)
+                : (localDZ >= 0D ? net.minecraft.core.Direction.SOUTH
+                        : net.minecraft.core.Direction.NORTH);
+        if (state.hasProperty(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING))
+            state = state.setValue(
+                    net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING,
+                    state.getBlock() instanceof net.minecraft.world.level.block.StairBlock
+                            || state.getBlock() instanceof net.minecraft.world.level.block.BedBlock
+                            ? forward : forward.getOpposite());
+        if (Math.abs(local.getX()) > modularConfiguration.width() / 2
+                || Math.abs(local.getZ()) > modularConfiguration.length() / 2
+                || local.getY() < 1 || local.getY() > 48) return false;
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 target = new Vec3(point.x(), getY() + local.getY() + .5D, point.z());
+        if (player.getEyePosition().distanceToSqr(target) > 36D) return false;
+        var hit = world.clip(new net.minecraft.world.level.ClipContext(
+                player.getEyePosition(), target,
+                net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                net.minecraft.world.level.ClipContext.Fluid.NONE, player));
+        if (hit.getType() == net.minecraft.world.phys.HitResult.Type.BLOCK
+                && player.getEyePosition().distanceToSqr(hit.getLocation())
+                        + .5D < player.getEyePosition().distanceToSqr(target))
+            return false;
+        java.util.List<BlockPos> placements = new java.util.ArrayList<>();
+        placements.add(local);
+        if (state.getBlock() instanceof net.minecraft.world.level.block.BedBlock)
+            placements.add(local.relative(state.getValue(
+                    net.minecraft.world.level.block.BedBlock.FACING)));
+        for (BlockPos cell : placements) {
+            FirstShipHull.Point placement = FirstShipHull.toWorld(
+                    cell.getX(), cell.getZ(), getX(), getZ(), shipYaw());
+            AABB occupied = new AABB(placement.x() - .49D, getY() + cell.getY(),
+                    placement.z() - .49D, placement.x() + .49D,
+                    getY() + cell.getY() + 1D, placement.z() + .49D);
+            if (!world.getEntitiesOfClass(ServerPlayer.class, occupied,
+                    other -> other.isAlive() && !other.isSpectator()).isEmpty())
+                return false;
+        }
+        if (!movingBody.placeMovingCargo(world, local, state)) return false;
+        if (!player.getAbilities().instabuild) stack.shrink(1);
+        syncMovingCargo();
+        return true;
+    }
+
+    /** Open a detached palette container; writes go back into the saved body. */
+    private boolean aboardMovingShip(Player player) {
+        if (player == null || !isMoving()) return false;
+        FirstShipHull.Point aboard = FirstShipHull.toLocal(player.getX(), player.getZ(),
+                getX(), getZ(), getYRot());
+        if (modularConfiguration == null)
+            return FirstShipHull.withinHull(aboard.x(), aboard.z(), .1D)
+                    && player.getY() >= holdY() - .4D
+                    && player.getY() <= deckY() + 2.2D;
+        return Math.abs(aboard.x()) <= modularConfiguration.width() / 2D + .6D
+                && Math.abs(aboard.z()) <= modularConfiguration.length() / 2D + .6D
+                && player.getY() >= holdY() - .4D
+                && player.getY() <= getY() + 48D;
+    }
+
+    private boolean visibleMovingCell(ServerPlayer player, BlockPos local) {
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 eye = player.getEyePosition();
+        Vec3 target = new Vec3(point.x(), getY() + local.getY() + .5D, point.z());
+        if (eye.distanceToSqr(target) > 36D) return false;
+        var hit = level().clip(new net.minecraft.world.level.ClipContext(eye, target,
+                net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                net.minecraft.world.level.ClipContext.Fluid.NONE, player));
+        return hit.getType() != net.minecraft.world.phys.HitResult.Type.BLOCK
+                || eye.distanceToSqr(hit.getLocation()) + .5D >= eye.distanceToSqr(target);
+    }
+
+    /** Permit a nearby palette hit while the server hull pose catches up to the client. */
+    private boolean movingCellWithinPoseLag(ServerPlayer player, BlockPos local,
+            BlockPos serverHit) {
+        if (serverHit == null || local.distSqr(serverHit) > 6D
+                || !visibleMovingCell(player, local)) return false;
+        FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                getX(), getZ(), getYRot());
+        Vec3 aim = new Vec3(point.x(), getY() + local.getY() + .5D,
+                point.z()).subtract(player.getEyePosition());
+        return aim.lengthSqr() <= 36D && aim.lengthSqr() > .01D
+                && aim.normalize().dot(player.getLookAngle()) >= .70D;
+    }
+
+    public boolean openMovingCargo(ServerPlayer player, int index) {
+        if (!isMoving() || movingBody == null || player.isPassenger()
+                || player.containerMenu != player.inventoryMenu) return false;
+        CompoundTag entry = movingBody.cargoEntry(index);
+        if (entry == null) return false;
+        int type = entry.getInt("Kind");
+        if (type < 1 || type > 4) return false;
+        if (!aboardMovingShip(player)) return false;
+        int x = entry.getInt("X"), y = entry.getInt("Y"), z = entry.getInt("Z");
+        FirstShipHull.Point point = FirstShipHull.toWorld(x, z,
+                getX(), getZ(), getYRot());
+        if (player.distanceToSqr(point.x(), getY() + y + .5D, point.z()) > 36D)
+            return false;
+        if (!visibleMovingCell(player, new BlockPos(x, y, z))) return false;
+        CompoundTag blockEntity = entry.getCompound("BlockEntity").copy();
+        SimpleContainer slots = movingCargoSlots(index, type, blockEntity);
+        Component label = Component.literal(type == 1 ? "Корабельный сундук"
+                : type == 2 ? "Корабельная бочка" : type == 3 ? "Верстак" : "Корабельная печь");
+        if (type == 3) {
+            player.openMenu(new SimpleMenuProvider((id, inv, viewer) ->
+                    new net.minecraft.world.inventory.CraftingMenu(id, inv,
+                            net.minecraft.world.inventory.ContainerLevelAccess.create(level(), blockPosition())) {
+                        @Override public boolean stillValid(Player p) {
+                            return !FirstShipEntity.this.isRemoved() && isMoving()
+                                    && aboardMovingShip(p);
+                        }
+                    }, label));
+        } else if (type == 4) {
+            player.openMenu(new SimpleMenuProvider((id, inv, viewer) ->
+                    new FurnaceMenu(id, inv, slots, movingCargoHeat(index, blockEntity)), label));
+        } else {
+            player.openMenu(new SimpleMenuProvider((id, inv, viewer) ->
+                    ChestMenu.threeRows(id, inv, slots), label));
+        }
+        return true;
+    }
+
+    public boolean useMovingDoor(ServerPlayer player, BlockPos local) {
+        if (!isMoving() || movingBody == null || player == null || local == null
+                || player.isPassenger() || player.isSpectator()) return false;
+        Vec3 eye = player.getEyePosition();
+        var hit = ShipMovingCargoTarget.hit(this, eye,
+                eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
+        if (hit == null || (!local.equals(hit.cell())
+                && !movingCellWithinPoseLag(player, local, hit.cell()))
+                || !visibleMovingCell(player, local)
+                || !movingBody.toggleDoor(local)) return false;
+        syncMovingCargo();
+        return true;
+    }
+
+    public boolean breakMovingBlock(ServerPlayer player, BlockPos local) {
+        if (!isMoving() || movingBody == null || player == null || local == null
+                || player.isPassenger() || player.isSpectator()
+                || !aboardMovingShip(player) || !player.getAbilities().mayBuild) return false;
+        Vec3 eye = player.getEyePosition();
+        var hit = ShipMovingCargoTarget.hit(this, eye,
+                eye.add(player.getLookAngle().scale(5D)), movingBody.palette());
+        if (hit == null || (!local.equals(hit.cell())
+                && !movingCellWithinPoseLag(player, local, hit.cell()))
+                || !visibleMovingCell(player, local)) return false;
+        var state = movingBody.palette().get(local);
+        if (state == null || state.isAir()) return false;
+        if (level() instanceof net.minecraft.server.level.ServerLevel server
+                && hasOpenShipMenus(server)) return false;
+        if (!player.getAbilities().instabuild) {
+            long tick = level().getGameTime();
+            Mining previous = movingMining.get(player.getUUID());
+            float progress = previous != null && previous.cell().equals(local)
+                    && tick - previous.tick() <= 3L
+                    ? previous.progress() : 0F;
+            if (previous != null && previous.tick() == tick) return false;
+            FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                    getX(), getZ(), getYRot());
+            BlockPos worldPos = BlockPos.containing(point.x(), getY() + local.getY(), point.z());
+            float step = state.getDestroyProgress(player, level(), worldPos);
+            if (step <= 0F) return false;
+            progress += step;
+            if (progress < 1F) {
+                movingMining.put(player.getUUID(), new Mining(local, tick, progress));
+                return false;
+            }
+            movingMining.remove(player.getUUID());
+        }
+        CompoundTag cargoData = null;
+        for (int index = 0; index < movingBody.cargoCount(); index++) {
+            CompoundTag entry = movingBody.cargoEntry(index);
+            if (entry.getInt("X") == local.getX() && entry.getInt("Y") == local.getY()
+                    && entry.getInt("Z") == local.getZ()
+                    && entry.contains("BlockEntity", Tag.TAG_COMPOUND)) {
+                cargoData = entry.getCompound("BlockEntity").copy();
+                break;
+            }
+        }
+        if (!movingBody.removeMovingBlock(local)) return false;
+        clearMovingCargoCache();
+        if (level() instanceof net.minecraft.server.level.ServerLevel world
+                && world.getGameRules().getBoolean(
+                        net.minecraft.world.level.GameRules.RULE_DOBLOCKDROPS)) {
+            FirstShipHull.Point point = FirstShipHull.toWorld(local.getX(), local.getZ(),
+                    getX(), getZ(), getYRot());
+            BlockPos drop = BlockPos.containing(point.x(), getY() + local.getY(), point.z());
+            boolean looseInventory = state.is(Blocks.CHEST)
+                    || state.is(Blocks.BARREL) || state.is(Blocks.FURNACE);
+            if (looseInventory && cargoData != null
+                    && cargoData.contains("Items", Tag.TAG_LIST)) {
+                var contents = net.minecraft.core.NonNullList.withSize(256, ItemStack.EMPTY);
+                net.minecraft.world.ContainerHelper.loadAllItems(cargoData, contents,
+                        registryAccess());
+                for (ItemStack item : contents)
+                    if (!item.isEmpty())
+                        net.minecraft.world.level.block.Block.popResource(world, drop, item);
+            }
+            net.minecraft.world.level.block.entity.BlockEntity savedBlockEntity = null;
+            if (cargoData != null && state.hasBlockEntity())
+                savedBlockEntity = net.minecraft.world.level.block.entity.BlockEntity
+                        .loadStatic(drop, state, cargoData, registryAccess());
+            if (!player.getAbilities().instabuild || state.hasBlockEntity() && !looseInventory)
+                for (ItemStack item : net.minecraft.world.level.block.Block.getDrops(
+                        state, world, drop, savedBlockEntity, player,
+                        player.getMainHandItem()))
+                    net.minecraft.world.level.block.Block.popResource(world, drop, item);
+        }
+        syncMovingCargo();
+        return true;
+    }
+
+    private SimpleContainer movingCargoSlots(int index, int type, CompoundTag initial) {
+        SimpleContainer existing = movingCargoSlots.get(index);
+        if (existing != null) return existing;
+        SimpleContainer slots = new SimpleContainer(type == 4 ? 3 : 27) {
+            @Override public boolean stillValid(Player viewer) {
+                return movingBody != null && !FirstShipEntity.this.isRemoved()
+                        && aboardMovingShip(viewer);
+            }
+            @Override public void setChanged() {
+                super.setChanged();
+                if (loadingMovingCargo.contains(index) || movingBody == null) return;
+                CompoundTag entry = movingBody.cargoEntry(index);
+                if (entry == null) return;
+                CompoundTag be = entry.getCompound("BlockEntity").copy();
+                writeMovingItems(be, this);
+                movingBody.updateCargoEntry(index, be);
+            }
+        };
+        loadingMovingCargo.add(index);
+        net.minecraft.core.NonNullList<ItemStack> items = net.minecraft.core.NonNullList.withSize(
+                slots.getContainerSize(), ItemStack.EMPTY);
+        net.minecraft.world.ContainerHelper.loadAllItems(initial, items, registryAccess());
+        for (int i = 0; i < items.size(); i++) slots.setItem(i, items.get(i));
+        loadingMovingCargo.remove(index);
+        movingCargoSlots.put(index, slots);
+        return slots;
+    }
+
+    private void writeMovingItems(CompoundTag be, SimpleContainer slots) {
+        net.minecraft.core.NonNullList<ItemStack> items = net.minecraft.core.NonNullList.withSize(
+                slots.getContainerSize(), ItemStack.EMPTY);
+        for (int i = 0; i < items.size(); i++) items.set(i, slots.getItem(i).copy());
+        net.minecraft.world.ContainerHelper.saveAllItems(be, items, registryAccess());
+    }
+
+    private SimpleContainerData movingCargoHeat(int index, CompoundTag initial) {
+        return movingCargoHeat.computeIfAbsent(index, ignored -> {
+            SimpleContainerData data = new SimpleContainerData(4);
+            int[] values = initial.getIntArray("FirstShipHeat");
+            if (values.length == 0) values = new int[]{
+                    initial.getShort("BurnTime"), initial.getShort("BurnTime"),
+                    initial.getShort("CookTime"), initial.getShort("CookTimeTotal")};
+            for (int i = 0; i < Math.min(4, values.length); i++) data.set(i, values[i]);
+            return data;
+        });
+    }
+
+
+    /** Same conservative, three-slot smelting semantics as the existing rafts. */
+    private static int fuelTicks(ItemStack fuel) {
+        if (fuel.is(Items.COAL) || fuel.is(Items.CHARCOAL)) return 1600;
+        if (fuel.is(Items.BLAZE_ROD)) return 2400;
+        if (fuel.is(net.minecraft.tags.ItemTags.LOGS)
+                || fuel.is(net.minecraft.tags.ItemTags.PLANKS)) return 300;
+        if (fuel.is(Items.STICK)) return 100;
+        return 0; // no untested container fuel, no disappearing buckets
+    }
+
+    private void tickShipFurnaces() {
+        for (var entry : furnaces.entrySet()) {
+            SimpleContainer slots = inventory.get(entry.getKey());
+            if (slots == null || slots.getContainerSize() != 3) continue;
+            tickFurnace(slots, entry.getValue());
+        }
+        if (movingBody == null) return;
+        for (int index = 0; index < movingBody.cargoCount(); index++) {
+            CompoundTag entry = movingBody.cargoEntry(index);
+            if (entry.getInt("Kind") != 4) continue;
+            CompoundTag be = entry.getCompound("BlockEntity").copy();
+            SimpleContainer slots = movingCargoSlots(index, 4, be);
+            SimpleContainerData heat = movingCargoHeat(index, be);
+            if (slots.getItem(0).isEmpty() && heat.get(0) == 0 && heat.get(2) == 0)
+                continue;
+            tickFurnace(slots, heat);
+            writeMovingItems(be, slots);
+            be.putIntArray("FirstShipHeat", new int[]{heat.get(0), heat.get(1),
+                    heat.get(2), heat.get(3)});
+            be.putShort("BurnTime", (short)heat.get(0));
+            be.putShort("CookTime", (short)heat.get(2));
+            be.putShort("CookTimeTotal", (short)heat.get(3));
+            movingBody.updateCargoEntry(index, be);
+        }
+    }
+
+    private void tickFurnace(SimpleContainer slots, SimpleContainerData heat) {
+            int lit = Math.max(0, heat.get(0) - 1);
+            heat.set(0, lit);
+            ItemStack source = slots.getItem(0), fuel = slots.getItem(1), output = slots.getItem(2);
+            if (source.isEmpty()) { heat.set(2, 0); return; }
+            var match = level().getRecipeManager().getRecipeFor(
+                    net.minecraft.world.item.crafting.RecipeType.SMELTING,
+                    new net.minecraft.world.item.crafting.SingleRecipeInput(source), level());
+            if (match.isEmpty()) { heat.set(2, 0); return; }
+            net.minecraft.world.item.crafting.SmeltingRecipe recipe = match.get().value();
+            ItemStack result = recipe.assemble(
+                    new net.minecraft.world.item.crafting.SingleRecipeInput(source), registryAccess());
+            if (result.isEmpty() || (!output.isEmpty()
+                    && (!ItemStack.isSameItemSameComponents(output, result)
+                    || output.getCount() + result.getCount() > output.getMaxStackSize()))) {
+                heat.set(2, 0);
+                return;
+            }
+            if (lit == 0 && !fuel.isEmpty()) {
+                int burn = fuelTicks(fuel);
+                if (burn > 0) {
+                    fuel.shrink(1);
+                    heat.set(0, burn);
+                    heat.set(1, burn);
+                    lit = burn;
+                }
+            }
+            if (lit > 0) {
+                int progress = heat.get(2) + 1;
+                int required = Math.max(1, recipe.getCookingTime());
+                heat.set(3, required);
+                if (progress >= required) {
+                    source.shrink(1);
+                    if (output.isEmpty()) slots.setItem(2, result.copy());
+                    else output.grow(result.getCount());
+                    heat.set(2, 0);
+                    slots.setChanged();
+                } else heat.set(2, progress);
+            } else heat.set(2, 0);
+    }
+
+    /**
+     * Native ship is a STATIC world-block structure between helm commands.
+     * Never invoke Boat.tick() movement/float code: it was responsible for
+     * dragging people off the fake floors. Vanilla blocks provide real collision.
+     */
+    @Override public void tick() {
+        // Worlds created with the rejected fake-entity ship contain no world
+        // blocks. Try a one-time safe upgrade if the former module grid is
+        // empty and the 7x11 water site is still unobstructed. Never overwrite
+        // land, delete NBT cargo, or silently claim an unsafe conversion.
+        if (!isNativeHull() && !level().isClientSide && !legacyConversionTried) {
+            legacyConversionTried = true;
+            if (!isVehicle() && kind.isEmpty() && quarantinedModules == null
+                    && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                BlockPos proposed = BlockPos.containing(getX(), getY(), getZ());
+                int turn = FirstShipBlockHull.rotationFromYaw(getYRot());
+                if (FirstShipBlockHull.place(server, proposed, turn, new ListTag(), 1, 1)) {
+                    initializeNativeHull(proposed, turn);
+                    setRigging(1, 1);
+                    setCustomName(null);
+                    setCustomNameVisible(false);
+                }
+            }
+            if (!isNativeHull()) {
+                setCustomName(Component.literal("СТАРЫЙ КОРАБЛЬ — УПАКУЙТЕ КЛЮЧОМ И ПОСТАВЬТЕ ЗАНОВО"));
+                setCustomNameVisible(true);
+            }
+        }
+        // Existing 52c8d72 worlds have an older physical layout. Upgrade
+        // in place exactly once if its saved structure and cargo are intact.
+        if (nativeHull && geometryVersion == 1
+                && level() instanceof net.minecraft.server.level.ServerLevel server && !isVehicle()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(10D, 9D, 10D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateLegacy(server, blockAnchor, quarterTurns))
+                setGeometryVersion(2);
+        }
+        // V5 uses the existing registered helm item's 3D mesh instead
+        // of constructing a wheel from vanilla fences and slabs.
+        if (nativeHull && geometryVersion == 4
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateGeometryV4(server, blockAnchor,
+                    quarterTurns, rigLevel, fabricQuality)) {
+                setGeometryVersion(5);
+                setCustomName(null);
+                setCustomNameVisible(false);
+            }
+        }
+        // V4 replaces the former fence cluster with an actual wheel silhouette.
+        // Do not reinterpret V3 block worlds as V4 until the old source has
+        // been verified and the ship is empty: full cargo preservation is required.
+        if (nativeHull && geometryVersion == 3
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy && FirstShipBlockHull.migrateGeometryV3(server, blockAnchor,
+                    quarterTurns, rigLevel, fabricQuality)) {
+                setGeometryVersion(4);
+                setCustomName(null);
+                setCustomNameVisible(false);
+            }
+        }
+        if (nativeHull && geometryVersion == 2
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !isVehicle() && !hasWalkers()) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy) {
+                if (FirstShipBlockHull.migrateGeometryV2(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality)) {
+                    setGeometryVersion(3);
+                    setCustomName(null);
+                    setCustomNameVisible(false);
+                } else {
+                    setCustomName(Component.literal(
+                            "КОРПУС V2: переход отложен — мешают блоки или повреждена конструкция"));
+                    setCustomNameVisible(true);
+                }
+            }
+        }
+        if (legacySailUpgradePending && nativeHull && geometryVersion == 5
+                && rigLevel <= 1 && !isMoving() && !isVehicle() && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy) {
+                legacySailUpgradePending = false;
+                if (FirstShipBlockHull.upgradeStarterSailV6(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality)) {
+                    setRigging(1, 1);
+                    setGeometryVersion(6);
+                }
+            }
+        }
+        if (!level().isClientSide && !visualSailUpgradeTried && nativeHull
+                && geometryVersion == 6 && rigLevel > 0 && !isMoving()
+                && !isVehicle() && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server) {
+            boolean busy = false;
+            for (ServerPlayer nearby : server.getEntitiesOfClass(ServerPlayer.class,
+                    new AABB(blockAnchor).inflate(11D, 24D, 11D)))
+                if (nearby.containerMenu != nearby.inventoryMenu) { busy = true; break; }
+            if (!busy) {
+                visualSailUpgradeTried = true;
+                if (FirstShipBlockHull.migrateVisualSailV7(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality)) setGeometryVersion(7);
+            }
+        }
+        if (!level().isClientSide && nativeHull && modularConfiguration == null
+                && (geometryVersion == 7 || geometryVersion == 8)
+                && !isMoving() && !isVehicle() && !hasWalkers()
+                && level() instanceof net.minecraft.server.level.ServerLevel server
+                && !hasOpenShipMenus(server)
+                && FirstShipBlockHull.migrateGeometryToV10(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality, geometryVersion))
+            setGeometryVersion(10);
+        if (isMoving()) {
+            // The body is a rigid palette entity; do not spawn any chunk blocks
+            // during travel. Only the authoritative server advances physics.
+            // Unlike Boat.tick(), baseTick() does not preserve the previous
+            // render pose. Both the palette and the captain must interpolate
+            // from this same previous transform, especially during turns.
+            xo = getX();
+            yo = getY();
+            zo = getZ();
+            yRotO = getYRot();
+            baseTick();
+            setDeltaMovement(Vec3.ZERO);
+            if (level().isClientSide && clientMotionSteps > 0) {
+                clientMotionSteps--;
+                clientPreviousX = getX();
+                clientPreviousZ = getZ();
+                clientPreviousYaw = getYRot();
+                // Integrate the server's velocity every client tick. Repeated
+                // three-step chasing of delayed positions made the camera
+                // alternately accelerate and brake under steady W input.
+                double yawStep = clientMotionTurn;
+                double heading = Math.toRadians(getYRot() + yawStep * .5D);
+                double forwardX = -Math.sin(heading), forwardZ = Math.cos(heading);
+                double errorX = clientMotionX - getX();
+                double errorZ = clientMotionZ - getZ();
+                double longitudinal = errorX * forwardX + errorZ * forwardZ;
+                double lateralX = errorX - longitudinal * forwardX;
+                double lateralZ = errorZ - longitudinal * forwardZ;
+                // Server pose packets describe a past tick. Chasing each one
+                // while the ship turns alternately speeds up and slows down
+                // the camera at the stern. Integrate the authoritative speed
+                // and turn; reconcile only a genuinely large drift.
+                double correction = Math.abs(longitudinal) > .45D
+                        ? Math.max(-.01D, Math.min(.01D, longitudinal * .02D)) : 0D;
+                if (clientThrottleDirection > 0) correction = Math.max(0D, correction);
+                double dx = forwardX * (clientMotionSpeed + correction)
+                        + (Math.abs(lateralX) > .45D
+                            ? Math.max(-.01D, Math.min(.01D, lateralX * .02D)) : 0D);
+                double dz = forwardZ * (clientMotionSpeed + correction)
+                        + (Math.abs(lateralZ) > .45D
+                            ? Math.max(-.01D, Math.min(.01D, lateralZ * .02D)) : 0D);
+                double yawError = ShipRigidMotion.wrapDegrees(clientMotionYaw - getYRot());
+                if (Math.abs(yawError) > 4D)
+                    yawStep += Math.max(-.05D, Math.min(.05D, yawError * .02D));
+                setPos(getX() + dx, clientMotionY, getZ() + dz);
+                setYRot(getYRot() + (float)yawStep);
+                setYHeadRot(getYRot());
+                if (Math.abs(getX() - clientPreviousX) > 1E-6D
+                        || Math.abs(getZ() - clientPreviousZ) > 1E-6D
+                        || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - clientPreviousYaw)) > 1E-5D)
+                    clientPoseFrame++;
+            }
+            if (!level().isClientSide && movingBody != null
+                    && level() instanceof net.minecraft.server.level.ServerLevel server) {
+                if (level().getGameTime() % 40L == 0L) {
+                    pendingDismounts.values().removeIf(
+                            landing -> level().getGameTime() > landing.expires());
+                    movingMining.values().removeIf(
+                            mining -> level().getGameTime() - mining.tick() > 40L);
+                }
+                ShipRigidMotion.Control control = level().getGameTime() - helmControlTick <= 10L
+                        ? helmControl : ShipRigidMotion.Control.IDLE;
+                double oldX = getX(), oldZ = getZ();
+                float oldYaw = getYRot();
+                ShipRigidMotion.Control propulsion = modularConfiguration == null
+                        ? ShipSailMotion.apply(control, rigLevel, fabricQuality)
+                        : new ShipRigidMotion.Control(control.throttle() *
+                                Math.max(.16D, modularConfiguration.structure().propulsionFactor()),
+                                control.rudder());
+                ShipRigidMotion.Frame frame = movingBody.tick(server, propulsion);
+                ShipRigidMotion.Pose next = movingBody.pose();
+                if (frame.blocked() && !hasOpenShipMenus(server) && movingBody.park(server)) {
+                    BlockPos restored = BlockPos.containing(next.x(), movingBody.waterlineY(), next.z());
+                    int restoredTurns = Math.floorMod((int)Math.round(next.yaw() / 90D), 4);
+                    initializeNativeHull(restored, restoredTurns);
+                    movingBody = null;
+                    clearMovingCargoCache();
+                    entityData.set(MOVING, false);
+                    syncMovingCargo();
+                    helmControl = ShipRigidMotion.Control.IDLE;
+                    if (getFirstPassenger() instanceof ServerPlayer driver)
+                        driver.displayClientMessage(Component.literal(
+                                "Корабль остановлен и восстановлен: впереди препятствие или мелководье"), true);
+                } else {
+                    setPos(next.x(), movingBody.waterlineY(), next.z());
+                    setYRot((float)next.yaw());
+                    setYHeadRot((float)next.yaw());
+                    if (Math.abs(getX() - oldX) > 1E-6D
+                            || Math.abs(getZ() - oldZ) > 1E-6D
+                            || Math.abs(ShipRigidMotion.wrapDegrees(getYRot() - oldYaw)) > 1E-5D) {
+                        FirstShipMovingDeckEvents.carryServerCrew(this, oldX, oldZ, oldYaw);
+                    }
+                    FirstShipNetwork.sendMotionPose(this);
+                    if (frame.blocked() && getFirstPassenger() instanceof ServerPlayer driver
+                            && level().getGameTime() % 40L == 0L)
+                        driver.displayClientMessage(Component.literal(
+                                "Движение заблокировано берегом, мелководьем или сооружением"), true);
+                }
+            }
+            if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+        } else if (isNativeHull()) {
+            // Boat.tick is incompatible with actual in-world hull blocks, but
+            // baseTick alone does not deliver normal Boat client movement.
+            baseTick();
+            setDeltaMovement(Vec3.ZERO);
+            BlockPos anchor = blockAnchor();
+            double x = anchor.getX() + .5D, y = anchor.getY(), z = anchor.getZ() + .5D;
+            // Keep the proven server-side Boat entity tracking refresh each
+            // tick. The CLIENT additionally snaps from the synced anchor.
+            if (!level().isClientSide || position().distanceToSqr(x, y, z) > 1.0E-6D)
+                setPos(x, y, z);
+            if (level().isClientSide) {
+                // Entity tracking may arrive AFTER chunk block updates. The
+                // synced anchor, not the delayed boat interpolation, owns pose.
+                setYRot(shipYaw());
+                setYHeadRot(shipYaw());
+                if (getFirstPassenger() != null) positionRider(getFirstPassenger());
+            }
+        } else {
+            // Legacy experimental entities remain identifiable for safe packing;
+            // they are deliberately not silently converted mid-save.
+            super.tick();
+        }
+        if (!level().isClientSide) tickShipFurnaces();
+    }
+
+    /** Encodes only installed cargo TYPES to clients; contents stay server-side. */
+    private void syncMovingCargo() {
+        if (movingBody == null) { entityData.set(MOTION_CARGO_VIEW, ""); return; }
+        StringBuilder view = new StringBuilder();
+        for (int n = 0; n < movingBody.cargoCount(); n++) {
+            CompoundTag c = movingBody.cargoEntry(n);
+            if (view.length() > 0) view.append(';');
+            view.append(c.getInt("X")).append(',').append(c.getInt("Y")).append(',')
+                    .append(c.getInt("Z")).append(',').append(c.getInt("Kind"));
+            // BlockId and the serialized vanilla block properties are public;
+            // inventories remain exclusively on the server in the body NBT.
+            view.append(',');
+            if (c.getInt("Kind") == 6) view.append(c.getString("BlockId"));
+            view.append(',');
+            CompoundTag properties = c.getCompound("State");
+            java.util.List<String> keys = new java.util.ArrayList<>(properties.getAllKeys());
+            java.util.Collections.sort(keys);
+            for (String key : keys) {
+                if (!properties.contains(key, Tag.TAG_STRING)) continue;
+                if (view.charAt(view.length() - 1) != ',') view.append('|');
+                view.append(key).append('=').append(properties.getString(key));
+            }
+        }
+        for (BlockPos door : movingBody.openDoors()) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                if (view.length() > 0) view.append(';');
+                view.append(half.getX()).append(',').append(half.getY()).append(',')
+                        .append(half.getZ()).append(",7,,open=true");
+            }
+        }
+        entityData.set(MOTION_CARGO_VIEW, view.toString());
+    }
+
+    private boolean hasOpenShipMenus(net.minecraft.server.level.ServerLevel server) {
+        double radius = modularConfiguration == null ? 10D
+                : Math.hypot(modularConfiguration.width() / 2D,
+                        modularConfiguration.length() / 2D) + 5D;
+        double vertical = modularConfiguration != null
+                && modularConfiguration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                && modularConfiguration.hullRevision() == 4 ? 50D : 18D;
+        for (ServerPlayer player : server.getEntitiesOfClass(ServerPlayer.class,
+                getBoundingBox().inflate(radius, vertical, radius)))
+            if (player.containerMenu != player.inventoryMenu) return true;
+        return false;
+    }
+
+    private void clearMovingCargoCache() {
+        movingCargoSlots.clear();
+        movingCargoHeat.clear();
+        loadingMovingCargo.clear();
+        movingMining.clear();
+    }
+
+    /** Stage new bodies only after validating the real hull and all cargo. */
+    private boolean beginContinuousMotion(net.minecraft.server.level.ServerLevel server) {
+        if (!smoothEnabled || geometryVersion < 5 || quarantinedModules != null
+                || movingBody != null) return false;
+        if (hasOpenShipMenus(server)) return false;
+        ShipMovingContraption prepared = modularConfiguration == null
+                ? ShipMovingContraption.prepare(server, blockAnchor,
+                        quarterTurns, rigLevel, fabricQuality, geometryVersion)
+                : ShipMovingContraption.prepare(server, blockAnchor,
+                        quarterTurns, modularConfiguration);
+        if (prepared == null) {
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Ship motion assembly rejected: source inspection failed at {} geometry={} rig={} fabric={} modular={}",
+                    blockAnchor, geometryVersion, rigLevel, fabricQuality, modularConfiguration != null);
+            return false;
+        }
+        if (!prepared.detach(server, blockAnchor)) {
+            org.slf4j.LoggerFactory.getLogger(FirstShipEntity.class).warn(
+                    "Ship motion assembly rejected: detach failed at {} geometry={} modular={}",
+                    blockAnchor, geometryVersion, modularConfiguration != null);
+            return false;
+        }
+        // Install the durable moving state before any attempt at restoration:
+        // even an unexpected blocked restore must NEVER orphan the cargo.
+        movingBody = prepared;
+        clearMovingCargoCache();
+        entityData.set(MOVING, true);
+        syncMovingCargo();
+        helmControlTick = -100L;
+        if (!ShipMovingClearance.clearPose(server, prepared.pose(),
+                prepared.waterlineY(), prepared.palette())) {
+            if (prepared.park(server)) {
+                movingBody = null;
+                clearMovingCargoCache();
+                entityData.set(MOVING, false);
+                syncMovingCargo();
+                return false;
+            }
+            // A failed restore is recoverable: retain its saved palette/NBT
+            // rather than abandoning the detached structure.
+            helmControl = ShipRigidMotion.Control.IDLE;
+        }
+        return true;
+    }
+
+    private boolean continuousHelm(ServerPlayer driver, int action) {
+        if (movingBody == null) return false;
+        int throttle = 0, rudder = 0;
+        switch (action) {
+            case FirstShipNetwork.FORWARD -> throttle = 1;
+            case FirstShipNetwork.BACKWARD -> throttle = -1;
+            case FirstShipNetwork.LEFT -> rudder = -1;
+            case FirstShipNetwork.RIGHT -> rudder = 1;
+            case FirstShipNetwork.FORWARD_LEFT -> { throttle = 1; rudder = -1; }
+            case FirstShipNetwork.FORWARD_RIGHT -> { throttle = 1; rudder = 1; }
+            case FirstShipNetwork.BACKWARD_LEFT -> { throttle = -1; rudder = -1; }
+            case FirstShipNetwork.BACKWARD_RIGHT -> { throttle = -1; rudder = 1; }
+            case FirstShipNetwork.HELM_IDLE -> {}
+            default -> { return false; }
+        }
+        helmControl = new ShipRigidMotion.Control(throttle, rudder);
+        helmControlTick = level().getGameTime();
+        return true;
+    }
+
+    /**
+     * One step per helm command. Validates an actual rider, cooldown, source
+     * integrity and destination BEFORE moving any vanilla block.
+     */
+    public boolean helmStep(ServerPlayer driver, int action) {
+        if (!isNativeHull() || driver.getVehicle() != this || getFirstPassenger() != driver
+                || !(level() instanceof net.minecraft.server.level.ServerLevel server)
+                || action < FirstShipNetwork.FORWARD || action > FirstShipNetwork.HELM_IDLE)
+            return false;
+        if (isMoving()) return continuousHelm(driver, action);
+        if (smoothEnabled) {
+            if (beginContinuousMotion(server)) return continuousHelm(driver, action);
+            driver.displayClientMessage(Component.literal(
+                    "Сборка движущегося корпуса не прошла проверку: движение запрещено для сохранности груза"), true);
+            return false;
+        }
+        if (action > FirstShipNetwork.RIGHT
+                || level().getGameTime() + 1e-6D < nextHelmAllowedTick) return false;
+        int nextTurn = quarterTurns;
+        BlockPos nextAnchor = blockAnchor;
+        if (action == FirstShipNetwork.LEFT) nextTurn = Math.floorMod(quarterTurns - 1, 4);
+        else if (action == FirstShipNetwork.RIGHT) nextTurn = (quarterTurns + 1) % 4;
+        else {
+            int signed = action == FirstShipNetwork.FORWARD ? 1 : -1;
+            int dx = quarterTurns == 1 ? -signed : quarterTurns == 3 ? signed : 0;
+            int dz = quarterTurns == 0 ? signed : quarterTurns == 2 ? -signed : 0;
+            nextAnchor = blockAnchor.offset(dx, 0, dz);
+        }
+        if (nextTurn == quarterTurns && nextAnchor.equals(blockAnchor)) return false;
+        BlockPos oldAnchor = blockAnchor;
+        int oldTurn = quarterTurns;
+        java.util.List<ServerPlayer> walkers = new java.util.ArrayList<>();
+        java.util.Map<ServerPlayer, FirstShipHull.Point> localPositions = new java.util.HashMap<>();
+        double reach = modularConfiguration == null ? 9D
+                : Math.hypot(modularConfiguration.width() / 2D,
+                        modularConfiguration.length() / 2D) + 3D;
+        AABB nearby = new AABB(oldAnchor).inflate(reach, 20D, reach);
+        for (ServerPlayer p : server.getEntitiesOfClass(ServerPlayer.class, nearby)) {
+            if (p.containerMenu != p.inventoryMenu) {
+                driver.displayClientMessage(Component.literal(
+                        "Закройте все окна сундуков/печей перед перемещением корабля"), true);
+                return false;
+            }
+            if (p == driver || p.isPassenger() || p.isSpectator() || p.getAbilities().flying) continue;
+            FirstShipHull.Point local = FirstShipHull.toLocal(p.getX(), p.getZ(),
+                    getX(), getZ(), getYRot());
+            boolean onShip = modularConfiguration == null
+                    ? FirstShipHull.withinHull(local.x(), local.z(), .1D)
+                        && ((p.getY() >= holdY() - .25D && p.getY() <= holdY() + 2.9D)
+                        || (p.getY() >= deckY() - .25D && p.getY() <= deckY() + 2.3D))
+                    : ShipDeckContact.contactFloor(this, local.x(), local.z(), p.getY()) >= 0;
+            if (onShip) { walkers.add(p); localPositions.put(p, local); }
+        }
+        boolean moved = modularConfiguration == null
+                ? FirstShipBlockHull.move(server, oldAnchor, oldTurn, nextAnchor, nextTurn,
+                        rigLevel, fabricQuality, rigLevel, fabricQuality, geometryVersion)
+                : ShipModularBlockHull.rebuild(server, oldAnchor, oldTurn,
+                        modularConfiguration, nextAnchor, nextTurn, modularConfiguration);
+        if (!moved) {
+            driver.displayClientMessage(Component.literal(
+                    "Ход заблокирован: мелководье, препятствие, изменённый корпус или груз"), true);
+            nextHelmAllowedTick = level().getGameTime() + 3D;
+            return false;
+        }
+        initializeNativeHull(nextAnchor, nextTurn);
+        // The captain was intentionally excluded from free-walker transfers;
+        // update the MOUNTED seat explicitly to keep the captain on deck.
+        positionRider(driver);
+        // Fractional tick scheduling produces 10/8.70/7.69 tick steps
+        // (tier I fabrics). Do not round every step or the bonuses vanish.
+        nextHelmAllowedTick = new ShipRigging(rigLevel, fabricQuality)
+                .nextAvailableTick(nextHelmAllowedTick, level().getGameTime());
+        for (ServerPlayer p : walkers) {
+            FirstShipHull.Point oldLocal = localPositions.get(p);
+            FirstShipHull.Point target = FirstShipHull.toWorld(
+                    oldLocal.x(), oldLocal.z(), getX(), getZ(), getYRot());
+            // A server-player teleport emits an authoritative position packet;
+            // Entity.setPos alone only moves the server and rubber-bands clients.
+            p.teleportTo(target.x(), p.getY(), target.z());
+            p.fallDistance = 0F;
+        }
+        return true;
+    }
+
+    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putFloat("FirstShipSurface", entityData.get(SURFACE));
+        tag.putBoolean("FirstShipNative", nativeHull);
+        tag.putBoolean("FirstShipSmoothEnabled", smoothEnabled);
+        tag.putBoolean("FirstShipSailUpgradeChecked", !legacySailUpgradePending);
+        if (movingBody != null) tag.put("FirstShipMovingBody", movingBody.save());
+        if (nativeHull) {
+            tag.putLong("FirstShipAnchor", blockAnchor.asLong());
+            tag.putInt("FirstShipTurns", quarterTurns);
+            tag.putInt("FirstShipRigLevel", rigLevel);
+            tag.putInt("FirstShipFabricQuality", fabricQuality);
+            tag.putInt("FirstShipGeometryVersion", geometryVersion);
+        }
+        tag.put("FirstShipDesign", design.save());
+        if (modularConfiguration != null)
+            tag.put(ShipBuildConfiguration.NBT_KEY, modularConfiguration.save());
+        tag.put("FirstShipModules", quarantinedModules != null ? quarantinedModules.copy() : storeModules(registryAccess()));
+    }
+
+    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        setModularConfiguration(null);
+        if (tag.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
+            try { setModularConfiguration(ShipBuildConfiguration.load(
+                    tag.getCompound(ShipBuildConfiguration.NBT_KEY))); }
+            catch (RuntimeException invalid) { quarantinedModules = new ListTag(); }
+        }
+        clearMovingCargoCache();
+        nativeHull = tag.getBoolean("FirstShipNative");
+        smoothEnabled = tag.getBoolean("FirstShipSmoothEnabled");
+        if (nativeHull) {
+            initializeNativeHull(BlockPos.of(tag.getLong("FirstShipAnchor")),
+                    tag.getInt("FirstShipTurns"));
+            // Old pre-sail saves physically contain the original single wool sail.
+            int rig = tag.contains("FirstShipRigLevel", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipRigLevel") : 1;
+            int fabric = tag.contains("FirstShipFabricQuality", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipFabricQuality") : 1;
+            try { setRigging(rig, fabric); }
+            catch (IllegalArgumentException invalid) { setRigging(1, 1); }
+            setGeometryVersion(tag.contains("FirstShipGeometryVersion", Tag.TAG_INT)
+                    ? tag.getInt("FirstShipGeometryVersion") : 1);
+            // V5/V6 world-block hulls can be validated and detached by the
+            // current contraption path. Older saves predate the opt-in flag.
+            smoothEnabled |= geometryVersion >= 5;
+        }
+        if (tag.contains("FirstShipMovingBody", Tag.TAG_COMPOUND)) {
+            movingBody = ShipMovingContraption.load(tag.getCompound("FirstShipMovingBody"));
+            if (movingBody != null && movingBody.detached()) {
+                entityData.set(MOVING, true);
+                syncMovingCargo();
+                ShipRigidMotion.Pose p = movingBody.pose();
+                setPos(p.x(), movingBody.waterlineY(), p.z());
+                setYRot((float)p.yaw());
+                setYHeadRot((float)p.yaw());
+                smoothEnabled = true;
+            } else movingBody = null;
+        }
+        legacySailUpgradePending = nativeHull && geometryVersion == 5 && rigLevel <= 1
+                && !tag.getBoolean("FirstShipSailUpgradeChecked") && movingBody == null;
+        if (tag.contains("FirstShipSurface", Tag.TAG_FLOAT)) setWaterSurface(tag.getFloat("FirstShipSurface"));
+        CompoundTag pack = new CompoundTag();
+        pack.putInt("Version", 2);
+        pack.putInt("RigLevel", rigLevel);
+        pack.putInt("FabricQuality", fabricQuality);
+        pack.putInt("GeometryVersion", geometryVersion);
+        if (modularConfiguration != null)
+            pack.put(ShipBuildConfiguration.NBT_KEY, modularConfiguration.save());
+        if (tag.contains("FirstShipDesign", Tag.TAG_COMPOUND))
+            pack.put("Design", tag.getCompound("FirstShipDesign").copy());
+        pack.put("Modules", tag.getList("FirstShipModules", Tag.TAG_COMPOUND));
+        CompoundTag root = new CompoundTag();
+        root.put("FirstShipPack", pack);
+        ItemStack temporary = new ItemStack(RaftContent.FIRST_SHIP_ITEM.get());
+        temporary.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+        if (!loadPacked(temporary)) {
+            // Preserve malformed raw ItemStack tags during autosave. The ship
+            // stays in-world but the key must never pack a partial empty copy.
+            quarantinedModules = tag.getList("FirstShipModules", Tag.TAG_COMPOUND).copy();
+            inventory.clear();
+            kind.clear();
+            furnaces.clear();
+            syncModules();
+        }
+    }
+}

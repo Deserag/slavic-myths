@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/iron_sulitsa_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/iron_sulitsa_icon"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/iron_sulitsa_icon"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/iron_sulitsa_icon"
+    }
+  }
+}

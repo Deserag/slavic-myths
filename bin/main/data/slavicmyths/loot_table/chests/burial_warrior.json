@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.55
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 10,
+          "value": "slavicmyths:chests/burial_common"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.28
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 6,
+          "value": "slavicmyths:chests/burial_common"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 4,
+          "value": "slavicmyths:chests/burial_jewelry"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 5,
+          "value": "slavicmyths:chests/burial_weapons"
+        }
+      ]
+    }
+  ]
+}

@@ -13,7 +13,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class FurnitureClient {
  @SubscribeEvent public static void setup(EntityRenderersEvent.RegisterRenderers e){
   e.registerBlockEntityRenderer(Furniture.RACK.get(),RackRenderer::new);

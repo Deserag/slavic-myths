@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:group_home",
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:karavai"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

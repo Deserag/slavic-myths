@@ -1,0 +1,33 @@
+name: Ocean 2.6 - isolated real-world GameTest
+on:
+  workflow_dispatch:
+  push:
+    branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109"]
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "gradle/wrapper/**"
+      - "src/main/resources/assets/slavicmyths/models/item/ship_*.json"
+      - "tools/ocean26-tests/**"
+      - "tools/ocean26-test-resources/**"
+      - "build.gradle"
+      - ".github/workflows/ocean-26-gametest.yml"
+permissions:
+  contents: read
+concurrency:
+  group: ocean-gametest-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  compile-and-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile isolated NeoForge 1.21.1 Ocean tests
+        run: chmod +x gradlew && ./gradlew -Pocean26Check --no-daemon compileOcean26CheckJava --console=plain
+      - name: Execute headless GameTest server with two players and real block cargo
+        run: ./gradlew -Pocean26Check --no-daemon runOcean26Checks --console=plain

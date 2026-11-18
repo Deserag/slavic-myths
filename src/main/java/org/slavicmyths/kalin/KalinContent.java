@@ -10,7 +10,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class KalinContent {
  public static final DeferredHolder<EntityType<?>,EntityType<KalinEntity>> KALIN=ModEntities.ENTITIES.register("kalin_tsar",()->EntityType.Builder.of(KalinEntity::new,MobCategory.MONSTER).sized(1.05F,2.8F).clientTrackingRange(16).updateInterval(1).build("slavicmyths:kalin_tsar"));
  public static final DeferredHolder<EntityType<?>,EntityType<WarHorse>> HORSE=ModEntities.ENTITIES.register("kalin_war_horse",()->EntityType.Builder.of(WarHorse::new,MobCategory.CREATURE).sized(1.65F,3.2F).clientTrackingRange(16).updateInterval(1).build("slavicmyths:kalin_war_horse"));

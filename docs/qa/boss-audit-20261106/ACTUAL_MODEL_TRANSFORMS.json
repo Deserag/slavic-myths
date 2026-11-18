@@ -1,0 +1,3039 @@
+{
+  "agneya": {
+    "model_class": "org.slavicmyths.client.AgneyaModelV7",
+    "unique_model_parts": 13,
+    "cuboids": 129,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "AgneyaModelV7.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "AgneyaModelV7.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -43.0,
+        "z": 0.0
+      },
+      {
+        "field": "AgneyaModelV7.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -20.0,
+        "z": 0.0
+      },
+      {
+        "field": "AgneyaModelV7.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -7.25,
+        "y": -15.5,
+        "z": -0.2
+      },
+      {
+        "field": "AgneyaModelV7.leftForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 11.299999,
+        "z": 0.1
+      },
+      {
+        "field": "AgneyaModelV7.leftHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.05000019,
+        "y": 8.200001,
+        "z": -0.20000002
+      },
+      {
+        "field": "AgneyaModelV7.shield",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -3.25,
+        "y": 4.200001,
+        "z": -4.4
+      },
+      {
+        "field": "AgneyaModelV7.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 7.25,
+        "y": -15.5,
+        "z": -0.2
+      },
+      {
+        "field": "AgneyaModelV7.rightForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.05000019,
+        "y": 11.299999,
+        "z": 0.1
+      },
+      {
+        "field": "AgneyaModelV7.rightHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.5,
+        "y": 8.200001,
+        "z": -0.20000002
+      },
+      {
+        "field": "AgneyaModelV7.mace",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.14999962,
+        "y": 0.0,
+        "z": -0.7
+      },
+      {
+        "field": "AgneyaModelV7.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.75,
+        "y": -38.0,
+        "z": 0.0
+      },
+      {
+        "field": "AgneyaModelV7.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.75,
+        "y": -38.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "ataman": {
+    "model_class": "org.slavicmyths.client.BanditModel",
+    "unique_model_parts": 16,
+    "cuboids": 16,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "BanditModel.apron",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.hat",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -5.0,
+        "y": 2.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 5.0,
+        "y": 2.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.9,
+        "y": 12.0,
+        "z": 0.0
+      },
+      {
+        "field": "HumanoidModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.9,
+        "y": 12.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "bauk": {
+    "model_class": "org.slavicmyths.client.PosadBossModel",
+    "unique_model_parts": 15,
+    "cuboids": 45,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "PosadBossModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -32.0,
+        "z": -32.0
+      },
+      {
+        "field": "PosadBossModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": -10.0
+      },
+      {
+        "field": "PosadBossModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leftSickle",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.chain",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.chainSickle",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.cloth",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.mane",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -34.0,
+        "z": -13.0
+      },
+      {
+        "field": "PosadBossModel.tail",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -24.0,
+        "z": 37.0
+      },
+      {
+        "field": "PosadBossModel.leg0",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 17.0,
+        "y": -19.0,
+        "z": -23.0
+      },
+      {
+        "field": "PosadBossModel.leg1",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -17.0,
+        "y": -19.0,
+        "z": -23.0
+      },
+      {
+        "field": "PosadBossModel.leg2",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 17.0,
+        "y": -19.0,
+        "z": 27.0
+      },
+      {
+        "field": "PosadBossModel.leg3",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -17.0,
+        "y": -19.0,
+        "z": 27.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "brown_bear": {
+    "model_class": "org.slavicmyths.client.WildlifeModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "buried_volkhv": {
+    "model_class": "org.slavicmyths.client.KurganCreatureModel",
+    "unique_model_parts": 56,
+    "cuboids": 53,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "KurganCreatureModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -13.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.eyes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 4.5,
+        "y": -11.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -4.5,
+        "y": -11.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.5,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.5,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.cape",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -12.0,
+        "z": 3.2
+      },
+      {
+        "field": "KurganCreatureModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.weapon",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 7.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.shield",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.0,
+        "y": 5.0,
+        "z": -2.5
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "cursed_mytar": {
+    "model_class": "org.slavicmyths.client.PosadBossModel",
+    "unique_model_parts": 85,
+    "cuboids": 119,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "PosadBossModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 23.92464,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -46.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -6.5,
+        "y": -43.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 6.5,
+        "y": -43.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leftSickle",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 17.0,
+        "z": -1.2
+      },
+      {
+        "field": "PosadBossModel.chain",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 13.4,
+        "z": -1.2
+      },
+      {
+        "field": "PosadBossModel.chainSickle",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.6,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.cloth",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.mane",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.tail",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leg0",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leg1",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leg2",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "PosadBossModel.leg3",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "cursed_volkolak": {
+    "model_class": "org.slavicmyths.client.CursedVolkolakModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "defiled_spring_keeper": {
+    "model_class": "org.slavicmyths.client.GuardianModel",
+    "unique_model_parts": 35,
+    "cuboids": 119,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "GuardianModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 11.584,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.pelvis",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 4.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -5.0,
+        "z": -0.5
+      },
+      {
+        "field": "GuardianModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -8.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 8.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "earth_spirit": {
+    "model_class": "org.slavicmyths.client.EarthClient$BossModel",
+    "unique_model_parts": 98,
+    "cuboids": 95,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "BossModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "BossModel.pelvis",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -12.83402,
+        "z": 0.0
+      },
+      {
+        "field": "BossModel.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.49624723,
+        "z": 0.0
+      },
+      {
+        "field": "BossModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -1.0,
+        "z": -1.0
+      },
+      {
+        "field": "BossModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -2.0,
+        "z": -1.0
+      },
+      {
+        "field": "BossModel.core",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 2.0,
+        "z": -3.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "elder_vodyanoy": {
+    "model_class": "org.slavicmyths.client.ElderVodyanoyModel",
+    "unique_model_parts": 32,
+    "cuboids": 31,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "ElderVodyanoyModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElderVodyanoyModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElderVodyanoyModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -25.0,
+        "z": -4.0
+      },
+      {
+        "field": "ElderVodyanoyModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 10.0,
+        "y": -23.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElderVodyanoyModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -10.0,
+        "y": -23.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElderVodyanoyModel.legL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 4.0,
+        "y": -9.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElderVodyanoyModel.legR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -4.0,
+        "y": -9.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "extinguished_flame_guardian": {
+    "model_class": "org.slavicmyths.client.GuardianModel",
+    "unique_model_parts": 15,
+    "cuboids": 92,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "GuardianModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.pelvis",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 2.166163,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -21.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -4.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -14.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "GuardianModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 14.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "fire_serpent": {
+    "model_class": "org.slavicmyths.client.ElementModel",
+    "unique_model_parts": 24,
+    "cuboids": 33,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "ElementModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.glow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -1.0,
+        "z": -16.0
+      },
+      {
+        "field": "ElementModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.0,
+        "z": -1.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "gneteya": {
+    "model_class": "org.slavicmyths.client.SistersModel",
+    "unique_model_parts": 18,
+    "cuboids": 2215,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "SistersModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "great_poloz": {
+    "status": "NO_STANDARD_ENTITY_MODEL"
+  },
+  "grey_wolf": {
+    "model_class": "org.slavicmyths.client.GreyWolfModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "grove_guardian": {
+    "model_class": "org.slavicmyths.navya.client.NavyaModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "idolishche_poganoe": {
+    "model_class": "org.slavicmyths.client.BogatyrClient$Model",
+    "unique_model_parts": 40,
+    "cuboids": 131,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "Model.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "kalin_tsar": {
+    "model_class": "org.slavicmyths.client.KalinModel",
+    "unique_model_parts": 16,
+    "cuboids": 69,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "KalinModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "karachun": {
+    "model_class": "org.slavicmyths.client.KarachunModel",
+    "unique_model_parts": 27,
+    "cuboids": 299,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "KarachunModel.root",
+        "xScale": 1.0,
+        "yScale": 0.625,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KarachunModel.pelvis",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KarachunModel.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -24.0,
+        "z": 0.0
+      },
+      {
+        "field": "KarachunModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -4.0,
+        "z": -2.0
+      },
+      {
+        "field": "KarachunModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -11.0,
+        "y": 2.0,
+        "z": 0.0
+      },
+      {
+        "field": "KarachunModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 11.0,
+        "y": 2.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "kartaus": {
+    "model_class": "org.slavicmyths.client.FinistModel",
+    "unique_model_parts": 22,
+    "cuboids": 114,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "FinistModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "kladovik": {
+    "model_class": "org.slavicmyths.client.UndergroundClient$Model",
+    "unique_model_parts": 21,
+    "cuboids": 28,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "Model.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 19.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -9.0,
+        "z": -2.0
+      },
+      {
+        "field": "Model.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -5.5,
+        "y": -7.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 5.5,
+        "y": -7.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.rf",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.lf",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.legR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.5,
+        "y": 19.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.legL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.5,
+        "y": 19.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.held",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "kurgan_voevoda": {
+    "model_class": "org.slavicmyths.client.KurganCreatureModel",
+    "unique_model_parts": 75,
+    "cuboids": 71,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "KurganCreatureModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.eyes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 6.5,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -6.5,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.5,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.5,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.cape",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -13.0,
+        "z": 3.2
+      },
+      {
+        "field": "KurganCreatureModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.weapon",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 7.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.shield",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.0,
+        "y": 5.0,
+        "z": -2.5
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "large_podzemnik": {
+    "model_class": "org.slavicmyths.client.UndergroundClient$Model",
+    "unique_model_parts": 20,
+    "cuboids": 25,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "Model.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -19.0,
+        "z": -1.0
+      },
+      {
+        "field": "Model.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -11.0,
+        "y": -17.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 11.0,
+        "y": -17.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.rf",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.lf",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.legR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -4.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.legL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 4.0,
+        "y": 10.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "Model.held",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "ledeya": {
+    "model_class": "org.slavicmyths.client.LedeyaRenderer$Model",
+    "unique_model_parts": 20,
+    "cuboids": 148,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "Model.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "likho_one_eyed": {
+    "model_class": "org.slavicmyths.client.WorldBossModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "lomeya": {
+    "model_class": "org.slavicmyths.client.LomeyaModel",
+    "unique_model_parts": 13,
+    "cuboids": 132,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "LomeyaModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -87.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.giant",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -58.0,
+        "z": -11.0
+      },
+      {
+        "field": "LomeyaModel.leftUpper",
+        "xScale": 1.0,
+        "yScale": 1.8822594,
+        "zScale": 1.0,
+        "x": -7.7,
+        "y": -78.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.leftLower",
+        "xScale": 1.0,
+        "yScale": 1.2165525,
+        "zScale": 1.0,
+        "x": -10.0,
+        "y": -60.0,
+        "z": -5.0
+      },
+      {
+        "field": "LomeyaModel.leftHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -12.0,
+        "y": -60.0,
+        "z": -17.0
+      },
+      {
+        "field": "LomeyaModel.rightUpper",
+        "xScale": 1.0,
+        "yScale": 1.8822594,
+        "zScale": 1.0,
+        "x": 7.7,
+        "y": -78.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.rightLower",
+        "xScale": 1.0,
+        "yScale": 1.2165525,
+        "zScale": 1.0,
+        "x": 10.0,
+        "y": -60.0,
+        "z": -5.0
+      },
+      {
+        "field": "LomeyaModel.rightHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 12.0,
+        "y": -60.0,
+        "z": -17.0
+      },
+      {
+        "field": "LomeyaModel.smallL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.smallR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -3.4,
+        "y": -49.0,
+        "z": 0.0
+      },
+      {
+        "field": "LomeyaModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 3.4,
+        "y": -49.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "magma_lord": {
+    "model_class": "org.slavicmyths.burningislands.client.IslandsModel",
+    "unique_model_parts": 58,
+    "cuboids": 57,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "IslandsModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.6662489,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "marinka": {
+    "model_class": "org.slavicmyths.client.WitchModel",
+    "unique_model_parts": 33,
+    "cuboids": 86,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "WitchModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "morova_deva": {
+    "model_class": "org.slavicmyths.client.NetherSummonBossModel",
+    "unique_model_parts": 32,
+    "cuboids": 53,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "NetherSummonBossModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -3.296,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -7.845,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 6.0,
+        "y": -6.026,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -6.0,
+        "y": -6.026,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.0,
+        "y": 7.622,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.0,
+        "y": 7.622,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.cape",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 2.163,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 9.099,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 9.099,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "morovoy_fire_zmey": {
+    "model_class": "org.slavicmyths.morovoy.MorovoyFireZmeyModel",
+    "unique_model_parts": 540,
+    "cuboids": 3303,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "MorovoyFireZmeyModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 17.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.morBase",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -5.5,
+        "y": -5.0,
+        "z": -10.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.morMid",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.0,
+        "y": -0.5,
+        "z": -8.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.morTip",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 0.0,
+        "z": -8.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.morHead",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -0.3,
+        "z": -7.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.fireBase",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 5.5,
+        "y": -5.0,
+        "z": -10.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.fireMid",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.0,
+        "y": -0.5,
+        "z": -8.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.fireTip",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 0.0,
+        "z": -8.0
+      },
+      {
+        "field": "MorovoyFireZmeyModel.fireHead",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -0.3,
+        "z": -7.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "morovoy_raven": {
+    "model_class": "org.slavicmyths.client.MorovoyRavenModel",
+    "unique_model_parts": 180,
+    "cuboids": 165,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "MorovoyRavenModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyRavenModel.bird",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -19.0,
+        "z": -6.0
+      },
+      {
+        "field": "MorovoyRavenModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -31.0,
+        "z": -30.0
+      },
+      {
+        "field": "MorovoyRavenModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 4.0,
+        "z": -13.0
+      },
+      {
+        "field": "MorovoyRavenModel.tail",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -7.0,
+        "z": 42.0
+      },
+      {
+        "field": "MorovoyRavenModel.leftFoot",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -8.0,
+        "y": 2.0,
+        "z": 23.0
+      },
+      {
+        "field": "MorovoyRavenModel.rightFoot",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 8.0,
+        "y": 2.0,
+        "z": 23.0
+      },
+      {
+        "field": "MorovoyRavenModel.mainLeft",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -13.0,
+        "y": -22.0,
+        "z": -6.0
+      },
+      {
+        "field": "MorovoyRavenModel.mainRight",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 13.0,
+        "y": -22.0,
+        "z": -6.0
+      },
+      {
+        "field": "MorovoyRavenModel.upperLeft",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -7.5,
+        "y": -35.0,
+        "z": 5.0
+      },
+      {
+        "field": "MorovoyRavenModel.upperRight",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 7.5,
+        "y": -35.0,
+        "z": 5.0
+      },
+      {
+        "field": "MorovoyRavenModel.mainLeftOuter",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -54.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyRavenModel.mainRightOuter",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 54.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyRavenModel.upperLeftOuter",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -40.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorovoyRavenModel.upperRightOuter",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 40.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "morozko": {
+    "model_class": "org.slavicmyths.client.MorozkoModel",
+    "unique_model_parts": 31,
+    "cuboids": 201,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "MorozkoModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorozkoModel.pelvis",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorozkoModel.torso",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -18.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorozkoModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -2.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorozkoModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -14.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      {
+        "field": "MorozkoModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 14.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "neveya": {
+    "model_class": "org.slavicmyths.client.NeveyaModel",
+    "unique_model_parts": 8,
+    "cuboids": 1296,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "NeveyaModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "NeveyaModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -94.0,
+        "z": 0.0
+      },
+      {
+        "field": "NeveyaModel.scythe",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -18.0,
+        "y": -75.0,
+        "z": -8.0
+      },
+      {
+        "field": "NeveyaModel.legL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.6,
+        "y": -42.0,
+        "z": 0.0
+      },
+      {
+        "field": "NeveyaModel.legR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.6,
+        "y": -42.0,
+        "z": 0.0
+      },
+      {
+        "field": "NeveyaModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 7.0,
+        "y": -87.0,
+        "z": -2.0
+      },
+      {
+        "field": "NeveyaModel.hair",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NeveyaModel.veil",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "nightingale": {
+    "model_class": "org.slavicmyths.client.NightingaleModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "nine_mor_serpent": {
+    "model_class": "org.slavicmyths.ninemor.NineMorModel",
+    "unique_model_parts": 195,
+    "cuboids": 2099,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "NineMorModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.15740253,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.dorsalPlates",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.spineSpurs",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.lateralScales",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.bellyScutes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NineMorModel.chestGuard",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "ovinnik": {
+    "model_class": "org.slavicmyths.client.HuntModel",
+    "unique_model_parts": 39,
+    "cuboids": 40,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "HuntModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -19.0,
+        "z": -1.0
+      },
+      {
+        "field": "HuntModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 8.0,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -8.0,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 8.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 8.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 3.8,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -3.8,
+        "y": -12.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 1.0
+      },
+      {
+        "field": "HuntModel.rightShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 1.0
+      },
+      {
+        "field": "HuntModel.eyes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.chestGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "podvey": {
+    "model_class": "org.slavicmyths.client.ElementModel",
+    "unique_model_parts": 36,
+    "cuboids": 56,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "ElementModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 25.818594,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.glow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 25.818594,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -31.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -5.0,
+        "y": -28.0,
+        "z": 0.0
+      },
+      {
+        "field": "ElementModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 5.0,
+        "y": -28.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "posten": {
+    "model_class": "org.slavicmyths.losthalls.client.PostenRenderer$Model",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "skim_beast": {
+    "model_class": "org.slavicmyths.client.SkimModel",
+    "unique_model_parts": 60,
+    "cuboids": 231,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "SkimModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "trizna_prince": {
+    "model_class": "org.slavicmyths.client.NetherSummonBossModel",
+    "unique_model_parts": 32,
+    "cuboids": 69,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "NetherSummonBossModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -15.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 8.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightArm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -8.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 4.0,
+        "y": 5.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -4.0,
+        "y": 5.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.cape",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -12.0,
+        "z": 5.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 9.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightForearm",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 9.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightHand",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 3.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.leftShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 12.0,
+        "z": 0.0
+      },
+      {
+        "field": "NetherSummonBossModel.rightShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 12.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "tryaseya": {
+    "model_class": "org.slavicmyths.client.SistersModel",
+    "unique_model_parts": 20,
+    "cuboids": 1194,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "SistersModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.24844423,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "tugarin_zmey": {
+    "model_class": "org.slavicmyths.client.WorldBossModel",
+    "unique_model_parts": 0,
+    "cuboids": 0,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "unresting_prince": {
+    "model_class": "org.slavicmyths.client.KurganCreatureModel",
+    "unique_model_parts": 86,
+    "cuboids": 81,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "KurganCreatureModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.eyes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 7.0,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -7.0,
+        "y": -14.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 7.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 7.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.5,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -2.5,
+        "y": -16.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.cape",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -15.0,
+        "z": 3.2
+      },
+      {
+        "field": "KurganCreatureModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.weapon",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 7.0,
+        "z": 0.0
+      },
+      {
+        "field": "KurganCreatureModel.shield",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 2.0,
+        "y": 5.0,
+        "z": -2.5
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "viy": {
+    "model_class": "org.slavicmyths.client.ViyModel",
+    "unique_model_parts": 8,
+    "cuboids": 896,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "ViyModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -39.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.armL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -23.0,
+        "y": -45.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.armR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 23.0,
+        "y": -45.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.legL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -9.0,
+        "y": -17.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.legR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 9.0,
+        "y": -17.0,
+        "z": 0.0
+      },
+      {
+        "field": "ViyModel.lidL",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -6.75,
+        "y": -15.0,
+        "z": -16.5
+      },
+      {
+        "field": "ViyModel.lidR",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 6.75,
+        "y": -15.0,
+        "z": -16.5
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "volkolak": {
+    "model_class": "org.slavicmyths.client.HuntModel",
+    "unique_model_parts": 48,
+    "cuboids": 45,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "HuntModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 24.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -13.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.head",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -14.0,
+        "z": -3.0
+      },
+      {
+        "field": "HuntModel.jaw",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.left",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 7.0,
+        "y": -11.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.right",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -7.0,
+        "y": -11.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 1.5,
+        "y": 6.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightFore",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -1.5,
+        "y": 6.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 3.0,
+        "y": -13.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightLeg",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": -3.0,
+        "y": -13.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 1.0
+      },
+      {
+        "field": "HuntModel.rightShin",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 5.0,
+        "z": 1.0
+      },
+      {
+        "field": "HuntModel.eyes",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.chestGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.leftGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "HuntModel.rightGlow",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "zharenitsa": {
+    "model_class": "org.slavicmyths.blackcinder.client.CinderModel",
+    "unique_model_parts": 68,
+    "cuboids": 67,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "CinderModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.9986066,
+        "z": 0.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  },
+  "zmey_gorynych": {
+    "model_class": "org.slavicmyths.client.GorynychModel",
+    "unique_model_parts": 41,
+    "cuboids": 292,
+    "near_zero_dimension_cuboids": 0,
+    "named_part_transforms": [
+      {
+        "field": "GorynychModel.root",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "field": "GorynychModel.body",
+        "xScale": 1.0,
+        "yScale": 1.0,
+        "zScale": 1.0,
+        "x": 0.0,
+        "y": -19.490248,
+        "z": 12.0
+      }
+    ],
+    "note": "Actual renderer model after captured frame; not exact world-space mesh bounds or visual acceptance"
+  }
+}

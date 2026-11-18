@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "slavicmyths:block/earth_gate_stone"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "tip_direction=up": {
+      "model": "slavicmyths:block/grove_bone_spike"
+    },
+    "tip_direction=down": {
+      "model": "slavicmyths:block/grove_bone_spike",
+      "x": 180
+    }
+  }
+}

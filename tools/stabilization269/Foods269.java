@@ -1,0 +1,10 @@
+package org.slavicmyths.verify;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.*;
+import static org.slavicmyths.verify.Stabilization269.*;
+/** Actual completion of use; ingredient acquisition, cooking timers and manual use animation remain separate. */
+final class Foods269 {
+ static void run(){current="native_food_consumption";int foods=0,drinks=0;for(var item:BuiltInRegistries.ITEM){var id=BuiltInRegistries.ITEM.getKey(item);if(!id.getNamespace().equals("slavicmyths"))continue;var stack=new ItemStack(item);var food=stack.get(DataComponents.FOOD);boolean drink=item instanceof org.slavicmyths.brewing.BeverageItem&&(id.getPath().endsWith("_mug")||id.getPath().endsWith("_bottle")||id.getPath().equals("spoiled_brew"));if(food==null&&!drink)continue;p.removeAllEffects();p.getInventory().clearContent();p.getFoodData().setFoodLevel(0);p.getFoodData().setSaturation(0);p.setData(org.slavicmyths.brewing.Brewing.LOAD,new net.minecraft.nbt.CompoundTag());var result=stack.finishUsingItem(w,p);check(stack.isEmpty(),"actual Survival consumes one serving "+id);check(result.isEmpty()||result.getCount()>0&&result.getCount()<=result.getMaxStackSize(),"native legal remainder "+id);if(food!=null){foods++;check(p.getFoodData().getFoodLevel()==Math.min(20,food.nutrition()),"actual nutrition matches food component "+id);}if(drink){drinks++;String beverage=org.slavicmyths.brewing.BeverageItem.beverage(new ItemStack(item));int load=org.slavicmyths.brewing.BeverageItem.load(beverage);check(p.getData(org.slavicmyths.brewing.Brewing.LOAD).getInt("Points")==load,"native alcohol load matches beverage "+id);check(result.is(org.slavicmyths.brewing.Brewing.item(org.slavicmyths.brewing.BeverageItem.empty(new ItemStack(item)))),"correct mug/bottle returned "+id);}}
+ out.put("native_food_components_tested",foods);out.put("native_drinks_tested",drinks);check(foods>0&&drinks>0,"real registered foods and drinks exercised");p.removeAllEffects();}
+}

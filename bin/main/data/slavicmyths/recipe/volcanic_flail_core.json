@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CKC",
+    "IAI",
+    "MRM"
+  ],
+  "key": {
+    "C": {
+      "item": "slavicmyths:crab_claw"
+    },
+    "K": {
+      "item": "slavicmyths:magma_core"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_infernal_shard"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "M": {
+      "item": "slavicmyths:magma_clot"
+    },
+    "R": {
+      "item": "slavicmyths:magma_rune_fragment"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:volcanic_flail_core",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/zhara_sulitsa_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/zhara_sulitsa_icon"
+    },
+    "ground": {
+      "parent": "slavicmyths:item/zhara_sulitsa_icon"
+    },
+    "fixed": {
+      "parent": "slavicmyths:item/zhara_sulitsa_icon"
+    }
+  }
+}

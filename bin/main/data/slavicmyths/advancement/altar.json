@@ -1,0 +1,8 @@
+{
+  "parent": "slavicmyths:shrine",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

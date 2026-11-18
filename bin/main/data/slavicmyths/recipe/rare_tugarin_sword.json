@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "slavicmyths:tugarinova_kozha"
+    },
+    {
+      "item": "slavicmyths:tugarinova_kozha"
+    },
+    {
+      "item": "slavicmyths:tugarinova_kozha"
+    },
+    {
+      "item": "slavicmyths:weapon_wrap"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:tugarin_sword",
+    "count": 1
+  }
+}

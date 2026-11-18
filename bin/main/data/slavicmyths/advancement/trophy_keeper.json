@@ -1,0 +1,8 @@
+{
+  "parent": "slavicmyths:group_knowledge",
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

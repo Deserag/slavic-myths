@@ -1,0 +1,16 @@
+{
+  "type": "slavicmyths:rune_crafting",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "minecraft:diamond"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:diamond_dust",
+    "count": 4
+  },
+  "chisel": true
+}

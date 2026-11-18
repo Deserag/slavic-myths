@@ -1,0 +1,15 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.cleansed_flame_guardian.title",
+  "icon": "slavicmyths:mor_fire_amulet_fragment",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:extinguished_flame_guardian"
+  ],
+  "advancements": [
+    "slavicmyths:claimed_fire_fragment"
+  ],
+  "links": []
+}

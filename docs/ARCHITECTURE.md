@@ -1,3 +1,365 @@
+> 2026-11-06 — QA-only boss audit of release-2.5@5738a403 published in codex/qa-bosses-release25-20261106. Production JAR unchanged (SHA0e77f1da); clean build/resources PASS structural scope.47encounter candidates, real hosted frames, native arrow flights,30s pressure and two-process restart evidence recorded.3confirmed P2 findings; full combat/model/MP acceptance remains incomplete, with NOT_RUN cells explicit. No production fixes/merge. [Report](qa/boss-audit-20261106/REPORT.md).
+
+> 2026-11-06 — Owner-requested PolyMC update: separate Integration Testing profile now displays “Slavic Myths 2.5 RELEASE - Posad Food Viy TEST”; exact tested release-2.5@5738a403 JAR installed, SHA2560e77f1da9fecffacd5a54dbfb78539b7250d88ce9e7c9cdf1d395a28273d10a7, backup under profile/mod-backups/release25-20261106, one Slavic Myths JAR, other mod files/worlds/configs/old profiles preserved.0launches during installation. Owner reserves branch2.5.1-fix for subsequent instructions; no new gameplay work started. Receipt: work/polymc-release25-install.json.
+
+> 2026-11-06 — Owner-authorized Posad integration into release-2.5 @06102bd8, backup codex/backup-posad-20261106 @9a0c58dd preserved. Merge conflict en_us resolved without key loss; new Nine Mor code and generated-doc cleanup retained. Clean build/resources and31/31 GameTests PASS; two release-base client runs PASS; PR/CI gates in progress. [Report](implementation/release25-posad-integration/REPORT.md).
+
+> 2026-11-06 — Viy delivery candidate verified after preserving upstream UI/CI through75acb404. Combined source includes local Posad/food fix2 plus Viy and newer upstream bossbar/nameplate fixes. Final clean build/resources/JAR PASS; SHA256917be1b54b1e53dbb39b22b94b9b6c6a4b089fae9851b53e1809cef55ad50860, version2.5-INTEGRATION-20261105-viy-fix3. New dedicated Viy tests2/2 PASS after upstream union;34bossbar-owner source checks PASS. Three actual client processes across this integration (including final upstream-union JAR) reached world, spawned Viy2800HP, captured closed/open eyelids, phase2 and saved/shut down. Two completed GameTest server processes; fixture compile failure and interrupted build were not game launches. Full combat/MP/restart/art acceptance NOT_RUN;2800HP/30damage provisional. Existing recipe/subtitle errors remain. Git publication requires owner's explicit commit/push permission (AGENTS.md48); current local HEAD2326c398, remote75acb404, preserved union snapshot work/viy-publication-ready.zip. Second-PC commands prepared in SECOND_PC_BUILD_VIY.md, not yet usable for fetching unpublished local work. Installed fix2 PolyMC unchanged; candidate is not installed there. #416 remains open/in progress.
+
+> 2026-11-05 — Viy integration requested by owner. Imported the18-path delta from integration/2.5-viy-416-20261105@056107e73b3760a2fa7f9118074076d987376181 onto the existing dirty #416 worktree; Posad/food changes preserved, pre-import ZIP in ignored work/viy-integration-before.zip. Four real compile errors repaired: two float radius literals; public save/load overrides for ViyServant. Final Java21 clean build and source/production resource gate PASS, version2.5-INTEGRATION-20261105-viy-fix3, SHA25676e07874791f1567e3670c6d821161848680f901e48b1bf4c5c11ac2f0186edd. Actual GameTest server2/2 PASS (phase/eyelids and three servants' owner cleanup). Actual isolated client PASS for title/world/spawn2800HP/closed-open eyelids/phase2/save; final-version repeat PASS. This is NOT full combat/animation/art/MP/restart acceptance;2800HP/30 damage remain provisional. Existing recipe mytar_shackled_sickle and Sisters subtitle errors remain outside this integration. No new natural Viy spawn/arena/rewards implemented. Commit/push pending owner's explicit permission per AGENTS; remote codex/416 currently2326c398, so second computer cannot yet fetch local repairs/food changes. Installed fix2 PolyMC profile left unchanged.
+
+> 2026-11-05 — Owner screenshot follow-up: candidate2.5-INTEGRATION-20261105-fix2 installed in separate PolyMC Integration Testing with backup/one JAR/hash55b32c21311dc30761cc99c0ae89695d8606424469b362cf8bd174e05d534777; older profiles/worlds untouched. Schema28: coherent council throne, quartz brick/chiseled/pillar/smooth foundations, four closed shop fronts/doors,18 safe cots, targeted removal of improvised room blocks; no old-city retrofit. Kitchen: five ordinary crops now register/plant, crimson pepper grows on crimson nylium, vanilla bone meal0/1/2 advances and mature stage refuses, nine foods restored, approved16px atlas extracted reproducibly, malformed seasoning repaired, farmer seed offers and proportional one-bowl shchi sale. Java21 clean build and current resources/JAR PASS;29/29 GameTests PASS; two actual hidden client processes with fresh cities/final three close-ups PASS for captures. Seven dedicated/GameTest processes in this follow-up; no network MP or launcher process. Earlier failures and stale-fixture captures remain in work/owner-*.log; generator drift0. Packaging verifier accounts for the two existing build-transformed Sisters atlases (size/alpha/output parity), no new Sisters art edits. Full Survival cooking/eating, actual process restart/MP, exterior-access fix and owner acceptance remain NOT_RUN/open; preexisting mytar_shackled_sickle recipe error remains. No commit/push/issue closure.
+>
+> Owner check: launch “Slavic Myths 2.5 INTEGRATION fix2 - Posad and Food TEST”; create a NEW city in a separate test world with `/slavicmyths dev generate nether_posad`; inspect council throne/quartz, four shop doors and18 cots; buy seeds from a tier5 farmer and apply bone meal through all stages (pepper: crimson nylium; other five: farmland/light); cook/eat new dishes, cancel eating, re-enter the world and check no duplicate villagers/items. Existing saved cities remain unchanged; fallback is the previous fix1 JAR in profile/mod-backups/owner-feedback-fix2-20261105. #416 remains IN_PROGRESS.
+
+> 2026-11-05 — Owner screenshot follow-up IN_PROGRESS (#416 + authorized kitchen #363/#371). Owner approved closed market shops with doors, coherent council throne, removal of improvised wooden furniture, more house cots and quartz council foundations. Schema28 draft implements these; kitchen draft restores five crop registrations/planting items, nine foods, approved74-sprite atlas and malformed seasoning JSON. Crimson pepper crop added as recipe dependency. Earlier broad test failures are retained; final gates/client/installation NOT complete. New owner permission supersedes prior kitchen deferral; no completion, commit, push or acceptance claimed. Logs: work/owner-*.log.
+
+> 2026-11-05 — #416 resumed after integration fix1. Native seed29 Black Cinder exposed a sealed bridge exit (8/8 centreline cells netherrack at Y44). An experimental schema28 shore reservation passed seed29 in four mod biomes and Black Cinder101/2026/22022026, but FAILED seed11 due to missing physical footing; experimental production changes were reverted, schema27 retained. This is NOT a fixed exterior-access gate. Proof GameTests4/4 and isolated physical7/7 PASS. Broad suite initially27/28 failed at a gate with concurrent oversized fixtures; physical test moved to its own batch, final28/28 PASS. Kitchen remains BLOCKED; no completion/owner acceptance claimed. Evidence: ignored work/resume416-*.log. Final clean build and scoped resources/JAR PASS (SHA256289e3edd6ebba921e82a468dd02dd1eafaf6ab8a3bbf9925a93a8eca47bb2269). Two real hidden client processes: first inspected historical cities only; second generated four fresh cities at X1500/1800/2100/2400,Y-61,Z0. Fresh throne screenshot confirms cleared front table; bedroom furniture renders crimson. Spectator frames do not prove Survival walking/trading or network MP. No new installation/commit/push. During this resumed pass15 dedicated/GameTest server processes and2 clients/integrated servers; no performance/MSPT claim.
+
+> 2026-11-05 — Integration startup fix1: duplicate alias registration of ModEffects removed; actual isolated client title/world/four-boss render/save PASS; PolyMC test profile JAR updated. Combat/MP acceptance pending; kitchen resource errors remain deferred. [Evidence](implementation/integration-20261105/LAUNCH_FIX.md).
+
+> 2026-11-05 — Owner-requested branch integration into `codex/416-posad-fixes-20261105`: Mytar/Bauk, Agneya/Ledeya and cumulative Lomeya/Neveya preserved. Viy NOT implemented. Java21 build PASS; gameplay NOT_RUN; #416 remains IN_PROGRESS. [Integration and next-chat handoff](implementation/integration-20261105/REPORT.md).
+
+> **ARCHIVAL STATUS DATA — NOT AN EXECUTION OR BRANCH-SELECTION INSTRUCTION.** Any branch references, old instructions, version names or commands below are historic snapshots only. **MANDATORY for every NEW task:** use [the strict owner execution contract](OWNER_EXECUTION_CONTRACT.md), [active branch policy](BRANCH_POLICY.md), [AGENTS.md](../AGENTS.md) and the latest owner-approved GitHub Issue. The current paired-sisters integration target is `3.3`, subject to real HEAD verification; `main` is protected. Old notes must never override these requirements.
+
+> 30.10.2026 — существующий Testing обновлён до2.1.6.2-TEST: импортированы боссы из71ad5754, канонический `dev generate`, общая классификация грунта лагерей, подготовка снега/деревьев/неровностей. Настоящий default superflat Y=-61 проверен; targeted7/7 иboss17/17. [Актуальные SHA, исходники, ограничения и backup](implementation/terrain-and-boss-sync-20261030/REPORT.md). Общая owner-приёмка IN_PROGRESS.
+
+> 30.10.2026 — исправление ручных команд по жалобе владельца: сняты posad-qa/OP4/dimension gates; отдельные здания и6построек2.1 получили явные OP2-команды с preflight и сохранением исходного art/loot. [Матрица, фактические тесты и установка](implementation/manual-posad-commands-20261030/REPORT.md). Естественный worldgen/релиз не объявлены принятыми.
+
+> 30.10.2026 — 2.2 Пекельный посад, реализационный checkpoint: #347 Вечевая палата (3598 точных R1 блоков) + #348 Общинный корпус (1992 R1 блока, четыре lazy loot-сундука) подключены к PosadPiece в новых schema-2 городах; Schema 0/1 не ретрофитится. [Отчёт](implementation/posad-runtime-20261030/BUILDINGS_2_2_2_AND_2_2_3.md). Offline model CI PASS, Java21 production build PASS, физический NeoForge GameTest 6/6 PASS ([лог](https://github.com/Deserag/slavic-myths/actions/runs/41042304195)); визуальная приёмка и worldgen/performance gate не пройдены, StructureSet ещё не активирован. #347/#348/#358 IN_PROGRESS, main не менялась.
+
+> 30.10.2026 — Posad terrain/shore checkpoint: baseline утверждён, foundations/bridge NBT, 5/5 GameTest; реальный Nether noise planner принял5/40 на5seed. Performance gate НЕ ПРОЙДЕН; physical native starts/commands/retrofit не завершены, StructureSet не активирован. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
+
+> 30.10.2026 — частичный runtime checkpoint посада: native types и shell placement, Java21 build/resources PASS, 3/3 GameTest (физические блоки/4 поворота). Естественная генерация, lava/bridge, commands и retrofit ещё НЕ реализованы. [Отчёт](implementation/posad-runtime-20261030/REPORT.md).
+
+> Текущая техническая стабилизация 29.10.2026: [актуальный отчёт, SHA, матрица и ограничения](implementation/home-desktop-sync-20261029/CURRENT.md). Исправления плаща/луков,36/36 headless и изолированные SLIM/WIDE кадры; original art/audio отложены владельцем, общий IN_PROGRESS. Нижеследующие checkpoint записи исторические.
+
+> 29.10.2026 — домашняя стабилизация IN_PROGRESS: hell e760aabb, Java21 clean build/resources PASS; структуры105/105 на5seed, физические биомы20/20 на5seed, общий35/35 и CI35/35. Исправлены RU heads и устаревшие Creative QA; Xvfb GUI выполняется только в GitHub-hosted VM. Testing JAR установлен с квитанцией. Art/audio/owner acceptance не получены. [Матрица и доказательства](implementation/home-desktop-sync-20261029/REPORT.md).
+
+> Актуальный checkpoint 29.10.2026: 2.1.4/2.1.6 реализованы с разрешением всех девяти биомов Незера; редкость подобрана на пяти seed. Исправлена native generation 2.1.5. Итоговый 2.1.6-HELL установлен в тестовый PolyMC, GUI 0; headless 105/105 и 32/32, оба GitHub CI SUCCESS. [Код, SHA, отчёт, NOT_RUN и checklist](implementation/2.1.6-trizna-pyre/STATUS.md). Старые BLOCKED_TZ для 2.1.4/2.1.6 и FAIL natural 2.1.5 ниже — исторические. 2.1.7 без ТЗ; 2.1.8/2.1.9 исключены.
+
+> 29.10.2026: 2.1.5 native generation repaired; five-seed headless85/85, crafted floor protection from delta/basalt features, exact source designs retained. [Evidence and limitations](implementation/2.1.5-ancestor-shrine/STATUS.md). 2.1.4 implemented;2.1.6 authorized all9biomes;2.1.7 blocked specification;2.1.8/9 excluded.
+
+> 29.10.2026: BridgeClearanceFeature выполняет bounded очистку свежей декорации
+> над существующим настилом, пропуская FULL-чанки/жидкости/BE. WayfarerPiece
+> атомарно отвергает небезопасную площадку через INVALID_START и публикует
+> окончательные starts в vanilla StructureCheck на серверном потоке (адресный AT).
+> Нет tick polling/ретрогена; [evidence и ограничения](implementation/home-sync-20261029/REPORT.md).
+
+> 28.10.2026 #337: ресурсный блок #324, Nature/Traits20мобов#328 и
+> 6обычныхкузнечныхupgrades добавленывhell. МастерзадачаНЕзавершена;
+> [фактический журнал](implementation/2026-10-28-hell-all-tasks/STATUS.md).
+
+> 28.10.2026 #332–#336: manual Posten изолирован; ordinary ModelPart IK/material/poses.
+> Офлайн gates и ограничения: [mob332 REPORT](implementation/mob332/REPORT.md).
+> Gameplay/MP NOT_RUN, original art BLOCKED_REFERENCE; Issues OPEN.
+
+## 28.10.2026 — #331: доработки боссов, головы и реальные клиентские кадры
+
+Пересобраны3boss rigs/UV/PNG; полный skull Сторожа, jaw/6–8proximityFX,
+увеличенный отдельный трофей Постеня4маски; loaded-only missingTile repair Жареницы.
+Vanilla audio cues17events, явная причина no-arena loot; HP/registryIDs сохранены.
+Java21 clean build/native/resources PASS;4разрешённых devclient запуска в новых
+отдельных мирах,20финальных реальных кадров;4BlockItem placement/Tile/render и
+break→1предмет PASS. Это не survival/MP/старыймир/ARToriginal приёмка.
+Кандидат2.0.10-HELL установлен с backup/однимJAR; SHA256
+e84bb45be63bfd04134373f524eb34bcd10a714292e37dee9c41e99a5f7d6953.
+Изменения локальны, безcommit/push/Issueclose; originalPNG BLOCKED/OWNER_PENDING.
+[Реальные скриншоты, исходники, матрица и ограничения](implementation/boss331-rework/REPORT.md).
+
+## 28.10.2026 — #331: повторный аудит визуала, без production-исправлений
+
+origin/hell=d97a625f; установлен2.0.9-HELL SHA d5fbefe1e0041dc3d2c3b32779c4c8f5eee23274089a811fb7843c209f0991f9.
+Журнал владельца20:36МСК подтверждает запуск2.0.9; старыйJAR не объясняет последний тест.
+Подтверждены source-различия3моделей, плоский guardian trophy и Posten .85scale.
+Четыреheadпути упакованы; manualZharenitsaбезhome не выдаёт награды, oldBE migration рискNOT_RUN.
+Арт владельцем отвергнут/originalPNG BLOCKED; собственных игровых запусков0.
+[Аудит, реальные before/after и план следующего патча](implementation/boss-audit-331/REPORT.md).
+
+## 28.10.2026 — номер кандидата обновлён до 2.0.9-HELL
+
+По поручению владельца изменён только mod_version в gradle.properties.
+Java21 clean build PASS1m47s; resources/JAR PASS; все2090classes и игровые
+ресурсы побайтово равны предыдущему кандидату (различаются только два metadata).
+2.0.9-HELL установлен в привычный HELL-инстанс с backup и однимJAR.
+Minecraft/PolyMC/сервер/GameTest0; прежние ограничения2.0.5/ART/audio сохраняются.
+[Квитанция/SHA/build](implementation/version-209-20261028/installation.json).
+
+## 28.10.2026 — домашний ПК: актуальный hell собран и установлен
+
+Fast-forward877b7d69→d97a625f; production без локальных правок. Java21 clean build
+PASS2m17s, offline journals/native models/legacy heads PASS; runtime launches0.
+Кандидат2.0.8-HELL установлен в реальный выбранный Slavic-Myths-2.0.0-HELL,
+backup/одинJAR/SHA совпадают:4a76d2198a7c3dbad006774586ef8d041bb8df8dfefb5d02f6935896bcec830b.
+Чертоги и #327 присутствуют в коде; старые записи ниже о backend-only исторические.
+2.0.5 ocean-only worldgen/вулкан/арена отсутствуют; originalPNG/audio BLOCKED,
+игровые/MP/старыймир NOT_RUN. Полная приёмка не заявляется.
+[Текущий отчёт/матрица/установка/checklist](implementation/home-update-20261028/REPORT.md).
+
+## 28.10.2026 — Ревизия первых трёх биомов Незера, только hell (2.0.2–2.0.4)
+
+Новые адресные исправления **без изменения четвёртого биома 2.0.5**: Навья роща — preflight `navya_heart` до генерации и chunk-local проверки при размещении; Чёрная гарь — запрещён reward claim незарегистрированной арены и лут Жареницы без home; Чертоги — сверка канонических UUID и фазы копий при восстановлении Постеня. Негативные офлайн-тесты для двух последних подготовлены, **НЕ ЗАПУЩЕНЫ**. Общий [report/source matrix](implementation/nether-first-three-review-20261028/REPORT.md). Java/Gradle NOT_RUN, Minecraft/PolyMC/MP 0 запусков. Чертоги **НЕ ГОТОВЫ**: реальные модели/мобы/биом/worldgen/loot/руна/головы ещё отсутствуют. Арт BLOCKED_REFERENCE по отсутствующим доступным raw PNG/SHA, ссылки на архивы в Library не равны реальным бинарным файлам. Игровую проверку первых трёх биомов проведёт владелец совместно после завершения; никакие Issues не закрыты.
+
+## 28.10.2026 — Чертоги: независимый production backend, IN_PROGRESS
+
+По уточнению владельца отсутствие PNG блокирует ART, но не независимый код.
+Добавлены LostHallsRooms (saved metadata/nearest48blocks без chunk loads),
+PostenEncounters (650→260→4×65, stable UUID/NBT/одно разрешение reward batch)
+и LostHallsRouteCheck (bounded проверка конечного voxel snapshot).
+Consumers пока отсутствуют: предмет/мобы/генератор/боевые атаки/реальная выдача
+не подключены. Это инфраструктура, не готовый третий биом.
+Java21 clean build+offline logic PASS21s с точным localCurios fallback;
+11755assertions/200расчётныхбоёв/binaryNBT/5000дальнихузлов, не игровые тесты.
+Resource/JAR PASS8254resources/2019classes; SHA256
+9ab1c2e7c68208b4d8dfdac077023b6859e8c7fd84ffcc670919113f7dffafa6.
+9457прежнихproductionфайлов сохранены. Minecraft/сервер/GameTest/PolyMC=0;
+не установлено, ART BLOCKED_REFERENCE, runtime NOT_RUN. Архивы обнаружены
+в библиотеке ChatGPT, но физически ещё не переданы в эту сессию.
+Следующий шаг: получить4архива, SHA-проверка и #289/#290; затем подключить
+готовую геометрию/сущность к backend. Commit/push/Issues Status не менялись.
+[Отчёт и матрица](implementation/lost-halls-2.0.4/REPORT.md),
+[checkpoint для продолжения](implementation/lost-halls-2.0.4/PROGRESS.md).
+
+## 28.10.2026 — Чертоги 2.0.4: начато исполнение, SOURCE BLOCKED_REFERENCE
+
+Рабочая `hell` на 877b7d69 получена в отдельный worktree; старая локальная
+`master` и её пользовательские изменения сохранены. Из origin/main e7fcd0e2
+адресно перенесены 14 контрактов/чертежей, без merge. Добавлены source inventory,
+SHA256/PNG/ZIP validator и 8 успешных тестов самого validator. Ни один из пяти
+original PNG не найден среди 469 просмотренных кандидатов. Третий биом,
+новые блоки/мобы/босс/руна пока НЕ реализованы; арт BLOCKED_REFERENCE.
+Production src/main не менялся (9457 файлов в manifest). В build.gradle добавлены
+Maven group filters; обычный clean build FAIL из-за timeout Curios Maven.
+Java21 clean build с локальным точным Curios 9.5.1 (Modrinth, SHA512 проверен)
+PASS за28s; resources/JAR PASS:8254resources/2004classes. JAR2.0.8-HELL,
+SHA256872c3f468b5c626faafc4aeb32b500da2b7214f685905178ac93d9c52778be18.
+Minecraft/client/server/GameTest/PolyMC:0запусков; установка не выполнялась.
+Следующий шаг: получить оригиналы, пройти SOURCE и завершить #289, затем #290
+в рамках уже порученной цепочки. Commit/push/GitHub Status не выполнялись.
+[Матрица, baseline, ограничения и ручной checklist](implementation/lost-halls-source-gate/REPORT.md).
+
+## 27.10.2026 — Чёрная гарь #261–#267: код и ресурсы реализованы, IN_PROGRESS
+
+По восстановленному паспорту в hell добавлены 26 блоков/чернодрево/3 формы деревьев,
+4 жителя с отдельными 3D rigs/атаками/анимациями, Жареница 750 HP с 2 фазами,
+4 приёмами и 4 обязательными наградами. Печати из main перенесены адресно,
+руна связана с существующими armor sockets, journal сохраняет defeated/one-shot claim.
+Добавлены biome black_cinder, natural tables, bounded geology/nature, структура
+zharenitsa_arena и native locate IDs; существующий Nether payload сохранён.
+Гарантия арены пока условная по безопасному ядру 512×512; реальный connected
+coverage/проходимость/спавны ещё не измерены. Java21 clean build/native/JAR PASS,
+230 baked poses, 1500 связных tree plans, 5-seed offline climate сохраняет 7 biome
+категорий. Это не игровые проверки: Minecraft/сервер/GameTest/PolyMC launches=0;
+ART_ORIGINAL_COMPARE_NOT_RUN, OWNER_PENDING. Кандидат 2.0.8-HELL с контентом2.0.3
+установлен по прямому поручению с backup/одним JAR; SHA64b042ae3def10952a0c120d8dac9b16c95658070450bb0b323fd48afad3084e.
+Новых commit/push/PR/Project Status нет, Issues OPEN с IN_PROGRESS комментариями.
+[Матрицы/исходники/evidence/ручной checklist](implementation/black-cinder-production/REPORT.md),
+[installed receipt](implementation/black-cinder-production/installation-receipt.json).
+
+## 27.10.2026 — единое поручение #261–#267, актуализация источников
+
+Прочитаны обновлённые верхние разделы от17:55UTC. Без merge получена свежая
+origin/main ba5c07cb: частичная ZharenitsaSeals найдена именно там, в hell её нет.
+ZIP/полное новое ТЗ физически не поступили: доступно57TXT+1JSON, ZIP0/PNG0;
+повторный SOURCE gate BLOCKED_REFERENCE. Запрошен путь/ссылка, новые поручения
+между этапами не нужны. Gameplay не добавлялся; Minecraft/установка/commit/push/
+Project Status не выполнялись. [Точная матрица #262–#267 и свидетельства](implementation/black-cinder262-20261027/single-run-update/REPORT.md).
+
+## 27.10.2026 — продолжение #262, build blocker устранён
+
+Переименованы только внешние локальные x/z в SerpentHillStructure, поведение
+не менялось. Java21 clean build1m42s/resources8032/production JAR PASS;
+SHA03547c81efaf364a09d2d72732e59d91c0c3de675641928d7e507d4b4faead53.
+Расширенный поиск9119PNG не нашёл ни одного из4approved SHA. SOURCE gate
+BLOCKED_REFERENCE, #263–#267 не реализованы, команда поиска ещё не существует.
+Сборка не установлена, Minecraft/сервер/GameTest=0; финальная приёмка не заявлена.
+[Квитанция/матрица/ограничения](implementation/black-cinder262-20261027/REPORT.md).
+
+## 27.10.2026 — Чёрная гарь #262, начат первый этап
+
+Прямое поручение на второй биом: прочитаны #261–#267, восстановлен strict2.0.3,
+добавлены технический контракт и рабочая SHA/PNG/ZIP проверка четырёх оригиналов.
+Негативные проверки PASS; реальные оригиналы отсутствуют — BLOCKED_REFERENCE.
+Production не менялся: #263–#267 заблокированы зависимостью первого этапа.
+Повторный Java21 clean build FAIL на прежних x/z в SerpentHillStructure:15,
+нового JAR нет. Minecraft/PolyMC/сервер/GameTest=0, установка не выполнялась.
+Project статусы «Анализ» проверены, не менялись; Issues OPEN, OWNER_PENDING.
+[Матрица/контракт/следующий шаг](implementation/black-cinder262-20261027/REPORT.md).
+
+## 27.10.2026 — #252, техническая подготовка Навьей рощи, IN_PROGRESS
+
+По прямому поручению проверены #251–#257, main/hell и существующая реализация.
+Добавлены воспроизводимая source-инвентаризация (33 блока/7 entity types), лист
+фактических текстур восьми материалов, три вспомогательных разреза и локальная
+копия STRICT_ACCEPTANCE_2.0.2. Production/worldgen не менялись; дубли не создавались.
+SOURCE+DESIGN gate: BLOCKED_REFERENCE, оригиналы PNG недоступны. Java21 clean build
+FAIL на исходном SerpentHillStructure:15 (повторные x/z); production JAR gate
+BLOCKED. Minecraft/PolyMC/сервер/GameTest=0, POLYMC_NOT_INSTALLED для этой работы.
+Переход к #253 заблокирован, прочие этапы не запускались; GitHub статусы уже
+«В работе», не менялись. Матрица, артефакты, installed SHA и ручной checklist:
+[отчёт #252](implementation/navya252-20261027/REPORT.md).
+
+## 27.10.2026 — #300, генерация Чуди и площадка Яги, IN_PROGRESS
+
+Работа ведётся в `hell`, без commit/push и изменения установленного PolyMC. Новые
+планы получают отдельную сохраняемую лестницу до поверхности, точную проверку
+покрытия кровли и защиту соседних построек; старые планы читаются без ретрогена.
+Участок Яги подготавливается целиком с переходом к рельефу и откатом транзакции.
+В реальном новом мире обнаружено перезаписывание склада ванильной жеодой;
+добавлена адресная защита от конфликтующих подземных features, повторный прогон идёт.
+Фикстуры участка Яги и настоящий перезапуск прошли; полный набор пяти seed,
+пешие маршруты и оба поручения ещё не засчитаны. Версия пока 2.0.8-HELL;
+повышение версии — после завершения исправлений. Issue OPEN, приёмки нет.
+[Матрица и доказательства](implementation/worldgen-chud-yaga/REPORT.md).
+
+## 27.10.2026 — продолжение стабилизации, 2.0.8-HELL, IN_PROGRESS
+
+Сохранён воспроизводимый production baseline 2.0.7 (a08a19d6), затем исправлены выбор известного природного города Чуди и повторное создание после награды; исправлены портрет, контекстная помощь и модальный слой Яги. Source кандидата 2.0.8: 23c2728f. Шесть последовательных dev-client прогонов подтверждают только описанные сценарии и реальные перезапуски; отдельные preview-прогоны #298 не меняют production art. Владелец дал новый текстовый референс, принятие конкретного PNG ещё требуется. Частотная диагностика трёх seed неполна: UNKNOWN и пропущенные кандидаты запрещают сравнение редкости с курганом III. Исправлена ошибка старого аудита: боссы abandoned уже существуют в underground, их реальное появление ещё не подтверждено. Полный Survival/редкие встречи/босс III/станки/equipment/MP остаются NOT_RUN. Installed PolyMC остаётся 2.0.7; 2.0.8 не устанавливалась. Issues OPEN, main не менялась. [Матрица, доказательства, ограничения и ручные шаги](implementation/stabilization269-next-20261027/REPORT.md), [build/source/SHA](implementation/stabilization269-next-20261027/BUILD_RESULT.json), [preview #298](implementation/chud298-preview-20261027/APPROVED_REFERENCE.md).
+
+Позднейшая поправка имеет приоритет над историческими записями ниже: утверждение «нет готового босса abandoned» было ошибочным; см. [ERRATA](implementation/stabilization269-next-20261027/ERRATA.md).
+
+## 27.10.2026 — разведка Чуди/Яга/крепость/городище, IN_PROGRESS
+
+Один отдельный normal QA-мир seed2692026,5последовательных client/integrated-server запусков, максимум1одновременно. До поручений native city0; запрос Яге из12000,12000 создал город с входом12132,79,11790 на248.04XZ, затем настоящий restart/menu повтор сохранил цель/одну запись. Защищённая tuff_bricks площадка первой попытки отклонена без цели. Расчёт100ячеек каждого крупного типа: по1accepted start крепости/городища, оба подтверждены native FULL/saved MCA реальными блоками.8соседних регионов Чуди дали4города(variant0/2) и4MEDIUM/GREAT, всеnative FULL; полные footprint/бои/Survival не засчитаны. Нет маршрутов Яги/Чуди к abandoned/крепости/городищу и готового боссаabandoned; предложения отдельно, не реализованы. Глобальная частота/сравнение фактической редкостиIII NOT_RUN. Production/баланс не менялись, installed2.0.7не заменялся; Java21clean build/resources/7457offline PASS. [Матрица, координаты, ограничения и checklist](implementation/scouting269-20261027/REPORT.md). Все Minecraft завершены, Issues OPEN, main/Project/commit/push не менялись.
+
+## 27.10.2026 — #269: брожение, один клиент и 2.0.7-HELL, IN_PROGRESS
+
+Подтверждена и исправлена потеря существующего self_brewed_beer после переноса брожения в чан: BrewTile вызывает прежний completed при смене качества; RU/EN описание исправлено, legacy barrels не включались. Три успешных последовательных client/integrated-server прогона: 48 ограниченных checks PASS, реальные 2400/8400/12000 ticks без ускорения, наливание/пресс/тара/бочонок/разрушение и два настоящих перезапуска. Ошибки QA fixture и earlydisplay crash сохранены в отчёте; полный Survival/MP/#299 не объявлены пройденными. Java21 clean build57s, 7457 offline assertions, 8031 resources/1950 classes PASS. 2.0.7-HELL установлена в PolyMC, один JAR, SHA/backup2.0.6/source+patch подтверждены. [Матрица, ограничения и ручные шаги](implementation/stabilization269-brewing-20261026/REPORT.md). Все игровые процессы завершены; Issues OPEN, main/Project не менялись, commit/push нет. Общий остаток — 14 широких частичных направлений, не 14 отдельных тестов.
+
+## 26.10.2026 — #269: один клиент, кухня и2.0.6-HELL, IN_PROGRESS
+
+По решению владельца игровые процессы строго по одному; MP-повторы отложены.3последовательных client/integrated-server запуска с30FPS/render2/JVM2CPU/heap1536MiB:34 функциональные проверки кухни PASS (реальные ticker/расход/тара/menu packets/active cooking restart/три порции) и2 контрольные проверки открытия экрана после правки. Подтверждён и исправлен двойной сдвиг подписи «Инвентарь» в KitchenScreen, actual до/после сохранены. Java21 clean build3m31s/resources8031/classes1950 PASS; установлена2.0.6-HELL, один JAR, backup2.0.5 проверен. [Матрица, source/SHA/backup/ручные шаги](implementation/stabilization269-kitchen-20261026/REPORT.md). [Остаток:16направлений,2 scoped technical gates пройдены,14 имеют остаток/owner review](implementation/stabilization269-kitchen-20261026/REMAINING.md) — не14 коротких тестов и не процент готовности. Все процессы завершены; Issues OPEN, main/Project не менялись, commit/push нет.
+
+## 26.10.2026 — #269/#276: network ritual + restart, IN_PROGRESS
+
+Два настоящих Minecraft-клиента/TCP loopback проверили оба ритуала: доступ до/после, duplicate requests с расходом одного реагента на действие мира, общий component-aware loot без дублирования; затем оба клиента перезапущены, тайники пусты и повторный ритуал не расходует новые реагенты.4client/2integrated-server старта,54 ограниченные проверки PASS;0ERROR/Exception/Connection reset в4логах. Все процессы завершены. Только QA fixture с выданными реагентами — не full Survival/natural acquisition/same-server-tick proof. [Матрица, логи/SHA/квитанции и manual checklist](implementation/stabilization269-mp-ritual-20261026/REPORT.md). Все1950mainклассов совпали с установленным2.0.5-HELL;8031resources PASS. Production/PolyMC не менялись, Issues OPEN, main/Project не менялись, commit/push нет. Остаток — Survival/AI/редкие встречи/остальные сети, не новые задачи.
+
+## 26.10.2026 — #269/#276: установлена тестовая2.0.5-HELL, IN_PROGRESS
+
+По прямому поручению владельца 2.0.5-HELL установлена в PolyMC: один JAR, SHA1746acf792f1599f8d36dbc855c88823e7ecd71bf072053cefd01f823dbd55df; backup установленной2.0.4 проверен. Java21 clean build55s,8031resources/1950classes,415 actual-JAR save-checks PASS. Все1950 игровых классов совпали с ранее проверенным developer snapshot2.0.4; bump меняет только metadata. Native курганIII (seed12345) и святилище огня (seed−269) теперь подтверждены: полные footprint-чанки, main1, настоящий locate без стройки. Обитель чистого ключа также подтверждена (seed8675309,42 footprint-чанка,main1). Оба природных ритуала и новый процесс после каждого прошли32 проверки. В этой серии467 ограниченных проверок,9 server стартов (включая QA отказ); все процессы завершены. Весь Survival/AI/MP не объявляется завершённым. [Матрица, installed path/SHA/source+patch/backup и ручной чек-лист](implementation/stabilization269-205-20261026/REPORT.md). Issues OPEN, main/Project не менялись, автоматических commit/push нет.
+
+## 26.10.2026 — #269: изолированные native runtime и клиентские сцены
+
+Opt-in `tools/stabilization269*.gradle` подключают отдельные QA sourceSets для normal server/настоящего клиента; QA исключён из production JAR. Native FULL chunks не создаются dev-командами; отдельные metadata probes не считаются миром. Ключи клиента проходят production SivkaNetwork, MP использует два реальных процесса/TCP loopback. Громкость0.3 и видимое без начального захвата фокуса окно относятся только к отдельным тестовым профилям; запуски повторно разрешены владельцем, личные профили не затрагиваются.
+
+Sivka server motion сохраняет IDs/bond/RootVehicle; mounted goals приостанавливаются, idle продлевается взаимодействием и не отсчитывается offline. Точка всадника следует общим SivkaPoses/bob/pitch/bank без клиентских классов на сервере. ExistingSiteSearch заменяет создающий fallback locate. Перед neighborFootprints проверяется native frequency predicate; значения placement не меняются. Existing entity sprites явно подключены к block atlas, три builtin/entity particle references дополнены без новой графики. [Доказательства и ограничения](implementation/stabilization269-20261026/REPORT.md); RESUME теперь самостоятельно выбирает QA Controls269; квитанции сверяются с фактическими строками текущих логов. Актуальная runtime-регрессия: [возобновление](implementation/stabilization269-resume-20261026/REPORT.md).
+
+## 26.10.2026 — #276: изолированная проверка установленного JAR
+
+`tools/loot276-runtime.gradle` подключает отдельный тестовый mod/sourceSet; production загружается из точной копии установленного 2.0.4-HELL JAR в mods, CodeSource проверяется. Новый flat server world находится только в work/loot276-runtime-20261026-run5. Production pieces, loot engine, heart.interact и DepthsService работают в настоящем Minecraft. Два последовательных FakePlayer не заменяют network MP. Стенд получает актуальный BlockEntity и удерживает только тестовые reward chunks до save; новый Java-процесс проверяет сохранённые inventories, ritual flags и повторную обработку saved piece markers. Ловушки и декор отделены от 130 наградных позиций. QA не входит в production JAR. [Матрица, исходники и границы доказательств](implementation/loot276-runtime-20261026/REPORT.md); production / IDs / баланс неизменны.
+
+## 26.10.2026 — bounded Overworld reward routing (#276)
+
+`loot/OverworldRewards276` назначает новые `rewards276/overworld/*` только новым контейнерам. У святилища один locked cache + внешние ritual supplies; у fortress фактический HillPlan перечисляет6chests+5authored barrels, main фиксирован локально45,81,44; у swamp21exact template/local selectors, остальные markers используют старые tables. Existing ChestMarkers/SeededChests/SanctuaryMarkers/SlavicSwampLoot/DepthsId и проверки loot/inventory сохраняют receipts, без нового ledger/tick polling. ShrineFeature меняет только assigned table; DepthsService — второй новый сундук с прежним coin pool. Старые таблицы/IDs/story callbacks не переписаны. `tools/rewards276_all_resources.py` воспроизводит16 scoped tables; `verify_rewards276_all.py` считает finite nested whole-site distributions, `rewards276_city_corpus.py` использует actual CityPlan с API doubles (не worldgen runtime), inventory verifier учитывает direct Items и package preservation. [Доказательства/совместимость/ручной regression](implementation/loot276-all-20261026/REPORT.md); игровой runtime NOT_RUN, owner pending.
+
+## 26.10.2026 — #287: расширение проверки до28/28, IN_PROGRESS
+
+[Дополнение аудита](implementation/armor287-20261026/REPORT.md): после #277 ещё20/20 и28/28native cases, всего6изолированных armor server запусков/client0. Добавлены trophy3, Perunite lightning, SevenLeague ramp, Ward shield negative cases, Wind charge/native arc/fall-credit. Armor production не менялся. Natural full acquisition/GUI/real relog/MP и остальные shield procs NOT_RUN; owner acceptance ожидается. [Итоговый JAR/source/SHA](implementation/armor287-20261026/extended-receipt.json), POLYMC_NOT_INSTALLED; Issues OPEN, main не менялся.
+
+## 26.10.2026 — #277: реакция князя на дальние попадания, IN_PROGRESS / OWNER_PENDING
+
+Только KurganCreature: PRINCE запоминает допустимого attacker после принятого урона; target вне арены ведёт к внутреннему краю вместо home; видимый дальний projectile attacker разрешает прежние конечные окна guard. Stats/фазы/move release/leash/geometry/loot/save/остальные kinds не менялись. [Baseline3FAIL, финальные11/11 native GameTest, trace, source guards и owner checklist](implementation/prince277-20261026/REPORT.md). Пять изолированных server запусков,0клиентов; natural полный курган/реальный relog/network MP NOT_RUN. Java21 clean build,15source/package guards и8001resources PASS. #277 OPEN/«В работе», Project fields не менялись, POLYMC_NOT_INSTALLED. #278/#284/production броня сохранены; owner acceptance ожидается.
+
+## 26.10.2026 — #287: native-аудит брони, IN_PROGRESS / OWNER_PENDING
+
+В hell проверены34 catalog IDs:22 ArmorItem/7 ClothingItem/4 ShieldItem/1 BeltItem. Production-код/ресурсы/баланс не менялись: доказанных дефектов в проверенных сценариях нет. [Каталог,14/14 GameTest, матрица ограничений и owner checklist](implementation/armor287-20261026/REPORT.md). Реальные четыре изолированных server запуска; client0. Native equip/remove/repeat,22 anvil calculations,6sets physical damage, selected unique/dragon effects PASS; полный trophy/charge/lightning/GUI/relog/MP NOT_RUN. Отдельный opt-in harness исключён из JAR. #287 OPEN, Project Status не менялся; POLYMC_NOT_INSTALLED. Следующая разрешённая часть — #277 отдельным коммитом, не готовый релиз цепочки.
+
+## 26.10.2026 — #284: аудит34 реликвий и пять транзакционных исправлений (IN_PROGRESS)
+
+В `hell` исправлен расход при отклонённом projectile/effect у mor_flask, fading_flame_charm, mor_ward, tracker_sense и spring_tear. Только3 production Java files и2страницы книгиRU/EN: убран ложный совет искать отсутствующие рецепты гуслей/скатерти. Успешные параметры/gates/баланс/IDs/loot/art/полёт/оружие сохранены. [Поимённый реестр24+10, настоящие GameTest logs, матрица, JAR/SHA и owner checklist](implementation/artifacts284-20261025/REPORT.md). #278 сохранён ранее939cbfbf/4fba8ac1, повторная server regression7/7PASS.
+
+Java21 clean build --no-build-cache1m4s,10 artifact+10 accessory offline checks,17source/package guards,8001ресурс/1948Java21classes PASS. Четыре изолированных GameTest #284: baseline7PASS/7FAIL, run2 13PASS/1FAIL, run3 15/15PASS, run4 19/19PASS. Клиент0; natural acquisition/full story/GUI/real relog/respawn/dimension/network MP NOT_RUN. Gusli/skatert/kartaus_black_seal/kalin_battle_seal: BLOCKED_NEEDS_ACQUISITION_APPROVAL — текущий survival source не найден, новые recipes/rewards не придуманы. Mor flask явно diagnostic по tooltip; bottles — upgrade ingredients. #284 OPEN/«В работе»/OWNER_PENDING, Project field не менялся, итоговая приёмка цепочки не заявлена. POLYMC_NOT_INSTALLED; main/user worlds/config/installed JAR не менялись. #286/#287 только оценены, реализация не начата.
+
+## 25.10.2026 — #278: passive charms в Curios и актуальный active slot (IN_PROGRESS)
+
+В `hell` amber/perun/forest/traveler charms надеваются в прежний единственный charm slot со щитом; старый offhand сохранён без двойного эффекта. StormProtection server-only; общий FolkAccessoryItem getter читает текущий active declared slot вместо Curios item-cache, устраняя stale смену внутри тика. RU/EN tooltip/book/legacy-skill и hunter detector text соответствуют коду. Число мест/IDs/loot/recipes/art/баланс неизменны. [Поимённый реестр37, матрица, реальные GameTest logs, JAR/SHA и Survival/MP checklist](implementation/accessories278-20261025/REPORT.md).
+
+Java21 clean build --no-build-cache 1m4s,10 native production-rule checks,31 package/source guards,8001 current resources и1948 Java21 classes PASS. Три изолированных GameTest запуска по прямому разрешению владельца: run1 2PASS/4FAIL, run2 6/6PASS, run3 7/7PASS. Все37 server slot APIs и damage четырёх charms/Perun Ring подтверждены; GUI/natural acquisition/остальные эффекты/настоящий relog/respawn/dimension/network MP NOT_RUN. Curios NBT не равен relog. #278 OPEN/OWNER_PENDING, Project Status не изменён. POLYMC_NOT_INSTALLED, main и пользовательские worlds/config/installed JAR не менялись. Технические результаты сохранены; #284 разрешён отдельным scope исходного поручения, #276/#286/#287 автоматически не реализуются.
+
+## 25.10.2026 — #296: числовая поисковая навигация (IN_PROGRESS)
+
+В `hell` книга и маркеры показывают dimension, фактические центр X/Z/radius, границы круга и inside/outside/state. Книга использует свои public Hints, NavigationScreen — свой SearchArea; приватные Anchor/Target и неизвестный Y не подставляются. Полный текст прокручивается, компоненты/font split кешируются; подсказки обновляются/удаляются через прежний snapshot. Saved models/protocols/worldgen/registry и #295 не менялись. [Отчёт, исходники, native offline примеры, JAR/SHA и ручной checklist](implementation/navigation296-20261025/REPORT.md).
+
+Java21 clean build3m51s,5068 новых bare-JVM checks,76 регрессий #272,50289 старых book-cache/line/viewport checks, scope/resource/JAR8001 PASS. Minecraft/client/server/GameTest0; реальный GUI854×480/1920×1080, relog/старый мир/MP/FPS NOT_RUN. NBT roundtrip не заменяет игровой перезаход. #296 OPEN/«В работе»/OWNER_PENDING; POLYMC_NOT_INSTALLED, прежние пользовательские config/saves/JAR не менялись. Main не изменён; передача #278 подготовлена без начала реализации.
+
+## 25.10.2026 — #295 + часть #275: read-only locate и реальные генерационные прогоны (IN_PROGRESS)
+
+В `hell` search/locate Чуди, городища/горы/святилищ отделены от явного create. Чудь загружает raster footprint (city99/98 вместо bounding289), не перебирает6площадок; natural raw ores/cave plants разрешены, dungeon/container/portal protections сохранены. Городище построено в superflat; Яга не обходит slope limit. По прямому согласованию владельца новые дома Баюна имеют минимум1024 по горизонтали, старые UUID не удаляются. [Отчёт, 27 реальных dedicated запусков, матрица, source/JAR SHA и survival-checklist](implementation/generation295-20261025/REPORT.md), [очередь передачи](implementation/generation295-20261025/HANDOFF.md).
+
+Java21 clean build2m40s,99852offline регрессий и8001resource/JAR PASS. Реально созданы два города/medium на3seed и разныхY, городищеFlat, две контролируемые избушки и два разных Баюна; 32 блока города и UUID Баюнов пережили настоящий restart. Cancel/partial reservation/native tickets0 проверены. Из27запусков15PASS,11FAIL,1startupFAIL (включая исправленные fixtures и защитные отказы), не27PASS. Полное Survival/MP/client render/случайные частоты/исходные3маркера владельца NOT_RUN; universal claims/старые природные player blocks и полный rollback/resume не решены. #295/#275 фактически «В работе», OPEN/OWNER_PENDING. POLYMC_NOT_INSTALLED; основной инстанс/миры/JAR не менялись. Main не изменяется, следующие реализации не начаты.
+
+## 25.10.2026 — #273: связки двух ритуалов (IN_PROGRESS)
+
+В `hell` активация чаши/узлов фиксирует флаг и расход только после успешного изменения блока; pool принимает только0/1. Оба обряда сразу переводят прежний encounter в READY и открывают загруженные seal blocks; старые выполненные flags учитываются без нового обряда. Водная дверь/предмет в руке и RU/EN книга ведут через хранителя к очищению/личному постаменту; описан уже существующий рецепт двух частей + Око Мора. Геометрия, баланс, loot tables, registry IDs, #271/#275/#272/#274 сохранены. [Матрица, source/offline evidence, JAR/SHA и два подробных Survival-чек-листа](implementation/rituals273-20261025/REPORT.md).
+
+Java21 clean build3м14с и201новая native offline проверка + регрессии PASS; actual combat/проходы/лут/выдача/перезаход/MP NOT_RUN. Игровых запусков0, POLYMC_NOT_INSTALLED, OWNER_PENDING, #273 OPEN/«В работе». Main не изменяется. Передача #278 подготовлена, реализация не начата; #276 баланс отдельно.
+
+## 25.10.2026 — #274: source performance fixes (IN_PROGRESS)
+
+В `hell` устранены повторный полный перебор Fill при растеризации Чуди, полный rebuild индекса при одной изменённой записи, лишний suffix rollback и повторная по высоте формула кожи горы. Worker Чуди получает фиксированный план и cooperative cancel; добавлена очистка владельцев/очередей при unload. Геометрия/ресурсы/registry IDs, #271/#275/#272 сохранены. [Причины, before/after, матрица, offline gates и подробный Survival/MP чек-лист](implementation/performance274-20261025/REPORT.md).
+
+Java21 clean build/точные counts/SHA — в квитанции отчёта. Gameplay startup/save/MSPT/FPS, actual tickets/NPC/restart и MP NOT_RUN; игровых запусков 0. POLYMC_NOT_INSTALLED, OWNER_PENDING, #274 OPEN/«В работе». Vanilla locate fallthrough и атомарный postProcess остаются потенциально тяжёлыми: всех причин задержек без профиля не установлено. Main не изменяется. Передача #273 подготовлена, реализация не начата.
+
+## 25.10.2026 — #272: доступ к Яге и сюжетный прогресс (IN_PROGRESS)
+
+В `hell` по уточнению владельца победы Survival над Лихом/Тугарином из яйца/команды теперь засчитываются без encounter; непустой природный ledger по-прежнему проверяется. Creative-доступ сохраняется синхронно после успешного переключения, без combat/trust rewards. Добавлены причинный credit вспомогательного урона, четыре сохраняемых состояния поиска и обновление кеша книги; первая беседа признаёт прежнюю победу один раз. Отношения Яги читаются из canonical Overworld. Геометрия/резервации #275 и встречи #271 сохранены. [Причина, матрица, native offline evidence, JAR/SHA и ручной сценарий](implementation/yaga272-20261025/REPORT.md).
+
+Java21 clean build и native #272/#271/#275 gates PASS (границы в отчёте); настоящие death/event/mixin/network/NPC/GUI/перезаход/сюжет — NOT_RUN. Runtime0, POLYMC_NOT_INSTALLED, OWNER_PENDING. #272 OPEN/IN_PROGRESS, Project Status не менялся, main не изменяется. #274 передан отдельным будущим пакетом, реализация не начата.
+
+## 25.10.2026 — #275: транзакция Баюна и сохранность мест (IN_PROGRESS)
+
+В `hell` исправлены подготовка места Баюна, откат отказа NPC и обновление карты; добавлены общие construction reservations Яги/Баюна и исправлено ownership записи Cursor при исключении после setBlock. Сохранены прежние family names горы и двух святилищ при NBT reload. SiteChunks учитывает всех фактических держателей билетов и закрывает их при остановке. Высокое Сердце Навьи не отклоняется из-за лавы ниже всей конструкции. Чудь получает честное сообщение об ошибке; её геометрия, #271 и доступ #272 сохранены. Spacing/биомы/лут не менялись.
+
+[Отчёт, каталог 21 структур/30 мест, 5-seed расчёты, JAR/SHA и survival-чек-лист](implementation/structures275-20261025/REPORT.md). Java 21 clean build, 8001 resource/JAR и native offline gates PASS; настоящая генерация/NPC/MP/restart/tickets/MSPT — NOT_RUN. Игровых запусков 0, POLYMC_NOT_INSTALLED, OWNER_PENDING. #275 OPEN/IN_PROGRESS, Project Status не менялся. Следующий отдельный пакет — #272, performance #274 отдельно. `main` не изменяется.
+
+## 25.10.2026 — #271: сохраняемая первая возможность Сивки и исправления natural spawn (IN_PROGRESS)
+
+В `hell` реализован принятый владельцем вариант A: персональные активные дни, q=2–15%, pending к дню40, сохранение RNG/UUID/прогресса, одна ограниченная серверная попытка поиска и отсутствие локальных дублей. Natural predicates четырёх мини-боссов и perch Жар-птицы проверяют actual body вместо завышенного clearing; Волк повторяет временные отказы и вытесняет старые ключи из кеша8192. Прежние бои, ordinary Лихо/Тугарин, Мор, биомы/веса, ресурсы и генератор структур сохранены. [Полный отчёт, таблица124ID, параметры и сценарии](implementation/encounters271-20261025/REPORT.md).
+
+Java21 clean build2м25с,8001ресурс/JAR,39253native offline checks и2млнисторий PASS; это не игровой тест. Runtime0/GAMEPLAY_NOT_RUN, POLYMC_NOT_INSTALLED, OWNER_PENDING. #271 OPEN/IN_PROGRESS; Project Status не менялся. Структурные зависимости переданы отдельному #275, его код в этот пакет не входит. `main` не изменяется.
+
+## 25.10.2026 — допуск Яги и placement Сивки
+
+В hell добавлены отдельный creative-допуск Яги на существующем TaleData stage и push Entries/Hints после трёх прежних побед; game-mode callback читает фактический режим следующим тиком. Combat credit/trust/награды и очередь строительства сохранены. У Сивки placement проверяет фактический AABB/коллизии/жидкость вместо пустого3×4×3; веса и спорные гарантии не менялись. [#272: контракт/QA/receipt](implementation/stabilization272-20261025/REPORT.md), [#271: таблица/остаток](implementation/stabilization271-20261025/REPORT.md). Runtime0/GAMEPLAY_NOT_RUN, POLYMC_NOT_INSTALLED; Issues OPEN, Project Status не менялся, main не изменяется. Технические результаты сборки — в receipt отчёта; это не игровая приёмка.
+
+## 25.10.2026 — публикация HELL2.0.1 для аудита, IN_PROGRESS
+
+По прямому запросу владельца публикуются текущие исходники и открытые дефекты в hell, без изменения main и без заявления готовности. [Входная точка аудита, метрики и ограничения](implementation/runtime-repair-20261025/AUDIT_INDEX.md). Новый сбой доступа к Яге и creative-требование пока не исправлены.
+
+## 25.10.2026 — новый FAIL доступа к Яге; список остатка за два дня
+
+Владелец сообщил: послеcreative→survival и убийства Лиха дорога к Яге закрыта. Причина не установлена, прежний строительныйPASS её не опровергает. Новое требование: вход в креатив сразу открывает доступ к Яге без боевых/сюжетных условий. В этом запросе только фиксация, реализации/новогоJAR нет. [Полный список16пунктов и критерии](implementation/runtime-repair-20261025/OWNER_REMAINING_FIXES.md).
+
+## 25.10.2026 — HELL отвергнут владельцем; runtime-ремонт IN_PROGRESS
+
+Выполнены27реальных запусков, включая провальные и2клиентских. Исправлены воспроизведённые ошибки подготовки чанков/bootstrap, реально построены Яга/Баюн/medium/city/great Чуди и4больших места рядом. Первый запрос крупных мест всё ещё занимает8–63с; полный клиентский replay заблокирован захватом окна. Высота/туман/полный набор встреч не приняты; По прямому запросу владельца промежуточный2.0.1-HELL установлен в тестовый HELL с backup/SHA/duplicate0; это IN_PROGRESS, не итоговая сдача. [Матрица, измерения и ограничения](implementation/runtime-repair-20261025/REPORT.md).
+
+## 25.10.2026 — объединённый тестовый HELL: IN_PROGRESS
+
+Основная папка D:/slavic-myths переведена в hell; объединены Ад/Навья роща и исправления поиска/генерации/встреч/UI Яги. Clean build2м12с и8001ресурс PASS; runtime0. Main не изменяется. Hell опубликована; обе лишние рабочие копии удалены после полной архивации. Отдельный PolyMC «Slavic Myths 2.0.0 - HELL - TEST» установлен с backup/SHA/duplicate0; прежний инстанс и миры сохранены. [Матрица и receipt](implementation/hell-consolidation-20261025/REPORT.md).
+
+## 25.10.2026 — Навья роща #251–#257: IN_PROGRESS, исходники и JAR
+
+В отдельной ветке `hell` реализованы31 inventory block, одна порода/флора/три формы деревьев, четыре существа и Сторож с собственными ModelPart/UV/PNG/анимациями; утверждённый владельцем лут,35 vanilla sound aliases. Последним подключён новый biome/геология/три яруса/редкое Сердце/спавн. Java21 clean build и source/JAR gates PASS; native climate/profile5seed и source renders не являются игровыми тестами. Запусков0; runtime/прохождение/баланс/точное сравнение с недоступными оригинальными PNG/прослушивание/приёмка NOT_RUN. Все семь карточек фактически «В работе», Issues OPEN. PolyMC не изменён, POLYMC_NOT_INSTALLED; commit/push нет. [Матрица и доказательства](implementation/navya-grove/REPORT.md).
+
+Common `navya` owns registries/AI/local features/structure serialization; `navya.client` only through Dist.CLIENT subscriber owns native rigs/UV/poses/renderers. `NavyaTiming` shares server windup with client pose; action/gameTime/phase synced only on state changes. NetherParametersMixin extends only vanilla Nether climate preset. No serverwide polling/retro-generation. Scoped generators: navya_assets/audio/loot/worldgen/entity_assets; verify_navya checks legacy preservation, native UV coverage and packaged bytes.
+
+## 24.10.2026 — HELL, профиль vanilla Nether 224 (IN_PROGRESS)
+
+В отдельной ветке `hell` ресурсные overrides сохраняют dimension height256/minY0 и меняют logical_height224/noise.height224. Нативные density functions формируют нижний рельеф и высокий неровный свод; biome climate/surface rules остаются vanilla. Пять ore placements фиксируют прежние абсолютные максимумы Y после изменения relative top. Tick callbacks, миграция чанков, новые registry IDs/биомы/структуры отсутствуют. Возможны швы с прежней крышей Y127; native column sampling не заменяет surface/features/structure/portal/save/MSPT QA. Игровых запусков0, PolyMC не изменён, карточки #243/#244/#246/#247/#248 «В работе». [Профиль, источники, матрица](implementation/hell-patch1/REPORT.md). Java21 clean build47s/7747packaged resources PASS; JAR SHA348473ec…5a48374. Полные результаты в отчёте.
+
+## 25.10.2026 — генерация, встречи и интерфейс Яги: IN_PROGRESS
+
+По прямому фидбеку владельца изменяются fallback площадок Яги/Чуди/Баюна, подстройка естественного ландшафта и чрезмерные ограничения встреч Волка, Сивки, Жар-птицы и Мора; малые лагеря реже. Добавлены разделение текста/кнопок Яги и однократное признание прежних побед, исправления спавна мини-боссов и естественного Мора Лиха. Clean build 1м21с, проверки изменённой логики и 7740 ресурсов PASS; UI/частота встреч/MSPT runtime NOT_RUN. Игровых запусков 0, PolyMC не изменён. [Матрица и точные изменения](implementation/generation-encounters-20261024/REPORT.md).
+
+## 24.10.2026 — создание мест по запросу: IN_PROGRESS
+
+Явные запросы используют существующие TaleData/NavigationRecords и очереди строительства. SiteChunks подготавливает одну нативную FULL future на измерение вне потока тиков; чистая геометрия Чуди растеризуется рабочим потоком, мир изменяется только сервером порциями. Открытие книги читает загруженные чанки и не начинает мировой поиск. [Матрица и ограничения](implementation/on-demand-generation/REPORT.md).
+
+## 24.10.2026 — документация и очистка без смены 1.9.7.66
+
+README ветки release и MOD_CONTENT описывают существующие механики; каталог и управление актуализированы. Игровой Java-код и ресурсы совпадают с принятой 1.9.7.66; По последнему поручению версия сохранена, PolyMC и запущенная игра не изменяются. Старые ветки удаляются только при сохранности коммитов, локальные QA-артефакты очищаются отдельно от пользовательских данных. Игровых запусков в этой итерации нет.
+
 ## 24.10.2026 — owner-accepted second-version baseline 1.9.7.66
 
 The owner explicitly accepted installed 1.9.7.66 and authorized branch release. Source commit ba098d0da6b7c0658b9d0cc001ef236ac1d064d5; cleanup preserves production source/resources. Known worldgen stalls and unrun full campaign cases remain documented; individual Issues are not closed automatically. [Cleanup](implementation/cleanup-2.0-20261024/REPORT.md), [installation](implementation/polymc-19766/installed.json).
@@ -3220,3 +3582,68 @@ All 11 workflows for e0560924 SUCCESS; Java21 clean build + P52 source/JAR PASS:
 ## 24.10.2026 — #236 guides, flight and control combinations (IN_PROGRESS)
 
 Ветка codex/guides-236 поверх #237/#235: серверные поручения Яги/Баюна в TaleData, существующие anchors/навигация; фоновый native план полной крепости без NPC block placement/tickets. Открытие книги больше не запускает генерацию избушки: отдельная кнопка. Волк trust4 без миграции старых ключей;3обмена;ступа2места с сохранённым явным пилотом. Server runtime2:9/9 PASS после исправления нижней границы высоты; командная крепость и контрольный блок PASS, peakplacement111ms требует учёта. Natural NPC/restart/две реальные сессии ещё NOT_RUN. Дополнение владельца: Ctrl+1/2/3, captureCtrl/Shift/Alt;3строки PolyMC options изменены сbackup, JAR не установлен. [Матрица](implementation/guides236/REPORT.md), [управление](CONTROLS.md).
+
+
+## 26.10.2026 — #286 транзакции предметов и source-аудит
+WateringCanItem.useOn считает изменённую пашню после успешного server.setBlock,пропускаетmoisture7;заряд/particles/soundфиксируются только для успешного прохода. YagaUtilityItem.finishUsingItem выполняет effects/shrink/remainder только на сервере;THREAD/HERBSотклоняют finish callback. Registry/components/foodstats/цены не меняются. audit_items286.pyсоздаёт catalog triage и producer→consumer graph с literals,qualified registry aliases,tags и динамическими семействами;это не runtime registry. test_items286_offline.pyкомпилирует точные тела2production методов против doubles,check_items286.pyпроверяет pure rules и deltaJAR: только2classes+2metadata. audit_loot276.pyне вызывает Minecraft: настоящий pure KurganPlan/Layout строит60kпланов,Pythonсчитает81таблицу и6x20kнаборовконтейнеров. Source V2путь kurgan/* отличается от27legacy chests/kurgan_*;никакого перенаправления/измененияlootне сделано. Подробности: implementation/items286-20261026/REPORT.md и implementation/loot276-20261026/REPORT.md.
+
+
+## 26.10.2026 — #276 L1: выбор loot только при новом размещении
+loot.StructureRewards276 — pure String policy, без hooks/ticks/world access. KurganArchitecture вызывает kurgan(tier,room==final,index,role), CampPiece — camp(medium,name), LargeCampPiece — stronghold(name,role). Старые placement guards, seeds/filled/processed и block entities полностью сохранены; native plans/NBT подтверждают ровно одну main. Старые 7 V2 и 27 #241 tables остаются прежними; только новые III assignments используют scoped gold-for-iron role copies. Main кургана имеет максимум5 stacks без nested baseline; camp main включает исходную таблицу ровно1раз и помещается в27 slots. Existing large nightingale/feather/forge/warehouse untouched; cache copy заменяет legacy rune entries на craftable I, сохраняя их probabilities и все прочие pools. Подстройка main q=13.1972266% учитывает existing25.1176% до целевых35% any rune на large camp. Авторинг tools/loot276_l1_resources.py --write воспроизводит только14новых JSON; verifier компилирует actual pure planner/router, валидирует pinned item/enchantment tags и whole-site probabilities, моделирует6x20kбезMinecraft. NBT/registry IDs/схемы сохранений не меняются; старые containers не обновляются. [Контракт/матрица](implementation/loot276-l1-20261026/REPORT.md).
+
+
+## 28.10.2026 — локальная сборка и отдельный PolyMC Testing
+
+hell35c81997: Java21 clean build PASS26s, production2.0.8-HELL установлен в новый экземпляр1.21.1/NeoForge21.1.255/Curios9.5.1; исходники и старые1.16.5 не изменены. Один клиент загрузил ресурсы без ERROR/FATAL и закрыт, миры0; визуальное меню NOT_RUN (capture timeout), gameplay/MP NOT_RUN. Чертоги НЕ ГОТОВЫ; приёмка не заявлена. [Матрица, SHA, пути, логи и ручные шаги](implementation/build-install-20261028/REPORT.md).
+
+
+## 28.10.2026 — Горючие острова 2.0.5: независимый код, IN_PROGRESS / BLOCKED
+
+hell, source f9beb28d: зарегистрированы три нейтральных моба и босс 850 HP,
+написаны отдельные ModelPart/UV/PNG, материалы, рецепты, ответный эффект рун I/II,
+новая голова в прежней TrophyHeads и журнал/inbox наград. Native/UV, прежние шесть
+голов и resource/JAR gates PASS; Java21 clean build 21s, 8302 ресурса/2049 классов.
+Настоящих ocean-only selection, островов, вулкана и арены НЕТ: 534/1053 проб
+гипотетического climate append не имеют lava на уровне моря (5 native noise seed).
+Временная магма II, PNG match, genuine audio и cross-player crash authority BLOCKED.
+Реальные AI/бой/MP/performance NOT_RUN; игровых запусков этой задачи 0.
+Новый кандидат SHA256 102952bb4c573fcb370c13fca2e702d19fed189d6d965d89aa26cdde677cc9ab
+не установлен в PolyMC. Не DONE, приёмка владельцем отсутствует, Issues/Project не менялись.
+[Полный отчёт, матрица и ручной checklist](implementation/burning-islands-205/FINAL_QA_REPORT.md).
+
+
+## Установка кандидата 28.10.2026
+
+2.0.8-HELL установлен в тестовый PolyMC, SHA256 `102952BB4C573FCB370C13FCA2E702D19FED189D6D965D89AA26CDDE677CC9AB`; backup сохранён вне mods, один JAR. Java21 clean build и ресурсы PASS. Исходники hell актуальны относительно origin (3 локальных коммита впереди), VS Code открыт на эту копию. Игровых запусков 0, runtime NOT_RUN; блокеры Горючих островов сохраняются. Это обновляет прежнюю запись «не установлен», не означает приёмку. [Установка и проверки Ада](implementation/polymc-update-20261028/INSTALL_AND_NETHER_CHECKLIST.md).
+
+
+## P0 #327 — частичное исполнение 28.10.2026
+
+Только hell, HEAD c884e63c + uncommitted delta. В IslandsMob/IslandsContent добавлены boss-only Peaceful discard до AI/hurt, MONSTER для Повелителя и bossbar cleanup. PostenEncounters резервирует body+4 clone UUID без cross-arena/self alias; V1 conflict read-only. Новый негативный тест воспроизвёл старый дефект; затем 12077 offline assertions и Java21 clean build 13s PASS, resources/JAR PASS. Кандидат SHA256 d7521e97b1dd51df4650155072a3f4643b106178549944992e6225fa4b44c574, POLYMC_NOT_INSTALLED; прежний установленный кандидат не заменён. Игровых запусков 0 / runtime NOT_RUN. Оригинальные 8 PNG не найдены (36005 headers/126 ZIP): ART BLOCKED_REFERENCE. Модели/головы/полные Чертоги 2.0.4 не завершены, 2.0.5 WORLDGEN_NOT_INTEGRATED. Нет DONE/owner acceptance/закрытия Issue. [Фактический отчёт #327 и checklist](implementation/p0-bosses-327/REPORT.md).
+
+
+### 28.10.2026 — #327 resume / Nether 2.0.4 production candidate (hell)
+Подключены lost_halls biome/terrain/metadata,5 species, Posten entity+4 stable clones, Shadow Face rune/decoys, utility rewards,3 new TrophyHeads preserving zharenitsa_head ID; native geometry3 bosses обновлена. Reward recipient pin хранится в world/data/slavicmyths_boss_reward_authority.json; batch+receipt в player save, corrupted authority read-only. Technical gates/evidence: docs/implementation/p0-bosses-327/REPORT.md, ACCEPTANCE_MATRIX.md, final-gates.log и BUILD_DELIVERY.json. IN_PROGRESS: originals ART_SOURCE_BLOCKED, all real gameplay/relog/MP/performance NOT_RUN, zero game launches; natural full-region/arena coverage not established. PolyMC candidate NOT_INSTALLED; no owner acceptance/Issue close. #313/#320/#323 ocean islands worldgen не объявлен реализованным. Decisions and two QA passes: OPEN_QUESTIONS_AND_RESOLUTIONS.md. Commit/push hell explicitly authorized by latest user message; main/release untouched.
+
+
+### 29.10.2026 — обновление тестового PolyMC
+По прямому поручению подтянута hell@537e3a7a, clean build/resources PASS. Установлен2.0.10-HELL, SHA256 `685387c355ba9665e6921dbd1757761cfddfe75651ff6bd5b48ab50f826a77f9`, backup и единственный JAR подтверждены. Каталог инстанса2.0.8 сохранён, отображаемое имя2.0.10. Исходный код/миры не менялись; запусков0, runtime NOT_RUN, не owner acceptance. Отчёт: implementation/polymc-update-20261029/REPORT.md.
+
+G2 29.10: NetherWeapons/NetherSkills/InfernalBow расширяют существующие Sword/ThrowingWeapon/WeaponProjectile/Flail/FieldBow, без параллельной системы снарядов. Долгий persistent cooldown отдельно от обычного использования; клиентские отдельные GUI meshes, FlailClient chain и PlayerWeaponPose two-hand.
+
+InfernalFurnace (29.10) расширяет AbstractFurnaceBlockEntity и AbstractFurnaceMenu, recipe type SMELTING;2 вызова нативного serverTick, native recipebook screen, отдельный fuel-only Slot и canPlaceItem/getBurnDuration, SidedInvWrapper capabilities. Client screen изолирован Dist.CLIENT.
+
+Remaining debts29.10: native-only new-chunk mineral heat sampling (bounded343, no chunk loads), read-only one-loaded-chunk ore diagnostic; Nether Aura Ward uses existing FolkAccessory/Curios active necklace slots and existing aura exclusion; no Two Winters replacement. NETHER_CURRENT_ACTION_BUDGETS source records do not alter mob HP/damage.
+
+29.10.2026 home desktop: hell a5def9a9 synchronized; Java21 clean build/resources PASS; native baseline32/32 seed20261024 PASS; Testing PolyMC2.1.6 installed. GUI BLOCKED_ISOLATION, survival/MP/relog NOT_RUN; master scope IN_PROGRESS. See implementation/home-desktop-sync-20261029/REPORT.md.
+
+
+## 2026-11-04 — Nether Posad
+
+Posad schema 25 overlays the authored structure at placement time. Native terrain selection checks individual deck elevations and permits removal of up to three layers of natural terrain inside the city footprint. Manual placement retains its separate preflight. The locate command uses the native structure registry ID.
+
+Schema 26 places functional crimson seating and tables in the Posad, with warped variants in the herbalist district. Schema 25 retains its previous block plan. Furniture resource links were checked offline. In-game placement and player interaction remain NOT_RUN.
+
+## #507 — клиентский рендер парусов III/IV, 2026-11-16
+ShipSailRigGeometry определяет поверхности и точки такелажа отдельно от серверной палитры корпуса; FirstShipRenderer отображает их без изменения NBT или registry IDs. Детальные результаты/ограничения: docs/implementation/ships-507/VERIFICATION.md.
+

@@ -1,0 +1,12 @@
+{
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/zhara_spear_held"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "slavicmyths:item/zhara_spear_icon"
+    }
+  }
+}

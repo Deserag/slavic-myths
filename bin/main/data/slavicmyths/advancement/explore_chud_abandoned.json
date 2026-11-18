@@ -1,0 +1,44 @@
+{
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": [
+                  "slavicmyths:chud_abandoned"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "event"
+    ]
+  ],
+  "rewards": {},
+  "parent": "slavicmyths:explore_chud_city",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:silver_ingot"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "title": {
+      "translate": "advancements.slavicmyths.explore_chud_abandoned.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.explore_chud_abandoned.description"
+    }
+  }
+}

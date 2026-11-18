@@ -1,0 +1,20 @@
+{
+  "type": "slavicmyths:armorer_shaped",
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:chekan",
+    "count": 1
+  }
+}

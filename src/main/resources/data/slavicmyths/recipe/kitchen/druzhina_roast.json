@@ -1,0 +1,40 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "POT",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:raw_boar_meat"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:garlic"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "slavicmyths:onion"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "slavicmyths:cooking/spicy_seasoning"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:metal_pot"
+  },
+  "time": 160,
+  "result": {
+    "id": "slavicmyths:druzhina_roast",
+    "count": 1
+  },
+  "servings": 2,
+  "remainders": []
+}

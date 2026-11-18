@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SBS",
+    "RAR",
+    "DLD"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:salamander_hide"
+    },
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "R": {
+      "item": "slavicmyths:magma_rune_fragment"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "L": {
+      "item": "slavicmyths:roasted_alatyrite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:infernal_bow_core",
+    "count": 1
+  }
+}

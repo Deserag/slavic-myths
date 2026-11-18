@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:darkened_planks"
+    },
+    "L": {
+      "item": "slavicmyths:darkened_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:darkened_wardrobe"
+  }
+}

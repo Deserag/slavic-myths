@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "slavicmyths:block/radish_stage1"
+  }
+}

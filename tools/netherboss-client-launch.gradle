@@ -1,0 +1,10 @@
+allprojects { afterEvaluate { tasks.register('exportBossClientLaunch') { dependsOn 'prepareHellVisualQaRun','writeHellVisualQaLegacyClasspath','hellVisualQaClasses','jar'; doLast {
+ def r=tasks.named('runHellVisualQa').get();r.classpath(r.classpathProvider)
+ def javaBin=r.javaLauncher.get().executablePath.asFile.absolutePath
+ def out=file('build/netherboss-client-launch.json')
+ def args=[javaBin]+r.allJvmArgs+r.jvmArgumentProviders.collectMany{it.asArguments().toList()}+r.argumentProviders.collectMany{it.asArguments().toList()}+r.args
+ if(r.mainModule.present)args+=['--module',r.mainModule.get()+(r.mainClass.present?'/'+r.mainClass.get():'')]
+ else if(r.mainClass.present)args.add(r.mainClass.get())
+ out.text=groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([java:javaBin,jvm:r.allJvmArgs,jvmProviders:r.jvmArgumentProviders.collectMany{it.asArguments().toList()},program:r.args,providers:r.argumentProviders.collectMany{it.asArguments().toList()},mainModule:r.mainModule.orNull,mainClass:r.mainClass.orNull,classpath:r.classpath.asPath,environment:r.environmentProperty.get(),gameDirectory:r.gameDirectory.get().asFile.absolutePath]))
+ println('EXPORTED '+out)
+} } } }

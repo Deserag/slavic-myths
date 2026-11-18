@@ -1,0 +1,8 @@
+{
+  "feature": "slavicmyths:lost_halls_terrain",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

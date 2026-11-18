@@ -1,0 +1,16 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:diamond_throwing_knife"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:netherite_throwing_knife",
+    "count": 1
+  },
+  "copy_components": true
+}

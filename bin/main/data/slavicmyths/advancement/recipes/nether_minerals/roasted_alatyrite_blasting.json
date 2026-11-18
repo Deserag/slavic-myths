@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "slavicmyths:raw_alatyrite"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "slavicmyths:roasted_alatyrite_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw",
+      "has_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "slavicmyths:roasted_alatyrite_blasting"
+    ]
+  }
+}

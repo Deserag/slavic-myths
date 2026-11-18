@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_plains_forest",
+  "features": [
+    "slavicmyths:path_shrine"
+  ],
+  "step": "surface_structures"
+}

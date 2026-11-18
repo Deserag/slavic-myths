@@ -1,0 +1,19 @@
+// Opt-in plain JVM checks. No NeoForge run configuration, Bootstrap, server or world.
+allprojects {
+    plugins.withId('java') {
+        sourceSets {
+            encounters271Offline {
+                java.srcDir 'tools/encounters271-offline'
+                compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+                runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+            }
+        }
+        tasks.register('verifyEncounters271Offline', JavaExec) {
+            dependsOn 'encounters271OfflineClasses'
+            classpath = sourceSets.encounters271Offline.runtimeClasspath
+            mainClass = 'org.slavicmyths.verify.Encounters271Offline'
+            maxHeapSize = '256m'
+            jvmArgs '-XX:ActiveProcessorCount=2'
+        }
+    }
+}

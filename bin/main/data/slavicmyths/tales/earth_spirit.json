@@ -1,0 +1,17 @@
+{
+  "part": "creatures",
+  "chapter": "depths",
+  "section": "inhabitants",
+  "title": "tales.entry.earth_spirit.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "entity/slavicmyths:earth_encounter_actor",
+    "entity/slavicmyths:earth_spirit",
+    "entity/slavicmyths:hot_stone"
+  ],
+  "advancements": [
+    "slavicmyths:earth_heart"
+  ],
+  "links": []
+}

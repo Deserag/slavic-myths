@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.guide_workshops.title",
+  "icon": "slavicmyths:armorer_table",
+  "initial": 1,
+  "subjects": [
+    "recipe/slavicmyths:armorer_table",
+    "recipe/slavicmyths:chekan"
+  ],
+  "advancements": [],
+  "links": []
+}

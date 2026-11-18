@@ -2,6 +2,10 @@ modLoader="javafml"
 loaderVersion="[4,)"
 license="All Rights Reserved"
 [[mixins]]
+config="slavicmyths.chud_worldgen.mixins.json"
+[[mixins]]
+config="slavicmyths.ships.mixins.json"
+[[mixins]]
 config="slavicmyths.work.mixins.json"
 [[mixins]]
 config="slavicmyths.equipment.mixins.json"
@@ -48,3 +52,7 @@ config="slavicmyths.physiology.mixins.json"
 
 [[mixins]]
 config="slavicmyths.rune_glow.mixins.json"
+[[mixins]]
+config="slavicmyths.navya.mixins.json"
+[[mixins]]
+config="slavicmyths.nether_structures.mixins.json"

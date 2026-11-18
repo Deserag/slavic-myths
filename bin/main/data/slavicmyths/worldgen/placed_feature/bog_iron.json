@@ -1,0 +1,8 @@
+{
+  "feature": "slavicmyths:bog_iron",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

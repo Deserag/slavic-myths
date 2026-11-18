@@ -1,0 +1,8 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="slavicmyths_shipsailvisual"
+version="1.0.0"
+displayName="Isolated Ship Sail Visual QA"

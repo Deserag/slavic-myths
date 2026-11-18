@@ -1,0 +1,11 @@
+{
+  "part": "quests",
+  "chapter": "home",
+  "section": "catalogue",
+  "title": "tales.entry.guide_tugarin_zmey.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [],
+  "advancements": [],
+  "links": []
+}

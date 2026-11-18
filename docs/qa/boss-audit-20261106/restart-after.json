@@ -1,0 +1,79 @@
+[
+  {
+    "id": "gneteya",
+    "uuid": "cec3e8a8-eee8-4d9c-a477-f395bad51f75",
+    "present_alive_after_real_restart": true,
+    "health_after": 630.0,
+    "phase_after": "enraged:false",
+    "action_after": "action:0",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "tryaseya",
+    "uuid": "ca19c168-bb8c-4609-93a7-cb6b3453d7de",
+    "present_alive_after_real_restart": true,
+    "health_after": 405.0,
+    "phase_after": "enraged:false",
+    "action_after": "action:0",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "agneya",
+    "uuid": "06f44dde-80d3-427c-9254-73866027acd9",
+    "present_alive_after_real_restart": true,
+    "health_after": 135.0,
+    "phase_after": "NO_STANDARD_PHASE_ACCESSOR",
+    "action_after": "swing:-1",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "ledeya",
+    "uuid": "7ebd7e35-65e0-41dd-9600-15bf1af3d1f1",
+    "present_alive_after_real_restart": true,
+    "health_after": 108.0,
+    "phase_after": "NO_STANDARD_PHASE_ACCESSOR",
+    "action_after": "IDLE",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "lomeya",
+    "uuid": "445f6ae0-9313-41f7-b712-e8beac29d294",
+    "present_alive_after_real_restart": true,
+    "health_after": 900.0,
+    "phase_after": "phaseTwo:true",
+    "action_after": "action:0",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "neveya",
+    "uuid": "316ad453-7dee-46e7-9d5d-5c7c9028f344",
+    "present_alive_after_real_restart": true,
+    "health_after": 1080.0,
+    "phase_after": "phaseTwo:true",
+    "action_after": "action:0",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  },
+  {
+    "id": "viy",
+    "uuid": "9f30f04c-0430-4dfa-9daa-aa9bdd5f68db",
+    "present_alive_after_real_restart": true,
+    "health_after": 1260.0,
+    "phase_after": "phaseTwo:true",
+    "action_after": "action:0",
+    "health_preserved": true,
+    "phase_preserved": true,
+    "scope": "Two dedicated JVMs and saved disposable world; NoGravity fixture with native AI, no player target; not real client reconnect, active encounter sessions, attack resume or network multiplayer"
+  }
+]

@@ -41,6 +41,7 @@ public final class CommandTree {
         if(p.equals("smclass")||p.startsWith("smclass "))p="slavicmyths dev class"+p.substring(7);
         else if(p.startsWith("locate structure slavicmyths:chud_"))
             p=p.endsWith("chud_city")?"slavicmyths dev city search":"slavicmyths dev abandoned search";
+        else if(p.startsWith("locate structure slavicmyths:"))p="slavicmyths dev site locate "+p.substring("locate structure slavicmyths:".length());
         else {
             if(p.equals("sm")||p.startsWith("sm "))p="slavicmyths"+p.substring(2);
             String[] parts=p.split(" ",3);

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X",
+    "X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:stone_spearhead",
+    "count": 1
+  }
+}

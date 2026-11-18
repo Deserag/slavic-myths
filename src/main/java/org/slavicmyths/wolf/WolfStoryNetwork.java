@@ -11,7 +11,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.slavicmyths.military.GreyWolfStory;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class WolfStoryNetwork {
  private record Session(UUID wolf,UUID nonce,long expires){}
  private static final Map<UUID,Session> SESSIONS=new HashMap<>();

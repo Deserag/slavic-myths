@@ -1,0 +1,19 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:morovoy_raven_arena",
+      "weight": 1
+    },
+    {
+      "structure": "slavicmyths:morovoy_fire_zmey_arena",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 128,
+    "separation": 80,
+    "salt": 2301391,
+    "frequency": 1
+  }
+}

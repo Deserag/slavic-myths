@@ -1,0 +1,21 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:carved_staff"
+    },
+    {
+      "item": "slavicmyths:leshy_heart"
+    },
+    {
+      "item": "slavicmyths:fern_flower"
+    },
+    {
+      "item": "slavicmyths:silver_fitting"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:veles_staff",
+    "count": 1
+  }
+}

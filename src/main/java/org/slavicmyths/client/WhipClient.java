@@ -21,7 +21,6 @@ import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.model.BakedModelWrapper;
 
 /** One bounded model bank shared by visible whips. No entities, ticks or packets stored globally. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class WhipClient {
  private static final int PHASES=64,SWAY=16;
  private static ResourceLocation id(String path){return ResourceLocation.fromNamespaceAndPath("slavicmyths",path);}

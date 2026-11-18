@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:ancient_rune_fragment"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:blank_rune_1",
+    "count": 1
+  }
+}

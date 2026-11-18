@@ -6,7 +6,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class ChudPeople {
     public static final DeferredHolder<EntityType<?>,EntityType<ChudPerson>> RESIDENT=type("chud_resident"),ARTISAN=type("chud_artisan"),GUARD=type("chud_guard");
     private static DeferredHolder<EntityType<?>,EntityType<ChudPerson>> type(String name){return ModEntities.ENTITIES.register(name,()->EntityType.Builder.of(ChudPerson::new,MobCategory.CREATURE).sized(.6F,1.75F).clientTrackingRange(8).build("slavicmyths:"+name));}

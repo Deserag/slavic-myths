@@ -13,15 +13,16 @@ def link(p):
 def main():
     lang=json.loads((A/'lang/ru_ru.json').read_text('utf-8-sig'))
     java={p:p.read_text('utf8') for p in sorted(J.rglob('*.java'))}
+    version=next(line.split('=',1)[1] for line in (R/'gradle.properties').read_text(encoding='utf-8').splitlines() if line.startswith('mod_version='))
     def sources(id):
         literals=('"'+id+'"','"slavicmyths:'+id+'"')
         return [p for p,t in java.items() if any(x in t for x in literals)]
     def label(key):return lang.get(key,'—').replace('|','/').replace('\n',' ')
     lines=['# Каталог текущего содержимого Slavic Myths','',
-      'Срез текущих исходников 1.9.7.5. Это статический каталог production Java и ресурсов, а не runtime registry dump и не заявление об игровой приёмке. '+
+      f'Срез текущих исходников {version}. Это статический каталог production Java и ресурсов, а не runtime registry dump и не заявление об игровой приёмке. '+
       'Модель или локализация сама по себе не доказывает регистрацию; для сущностей и предметов приведены найденные literal-ссылки Java. '+
       'Динамические семейства дополнительно перечислены в разделах систем. Проверяйте фабрику регистрации и вызов init в [SlavicMyths.java](../src/main/java/org/slavicmyths/SlavicMyths.java).', '',
-      'Пересоздание: `python tools/recovery-43/content_catalog.py`. Отдельная локальная V3 достижений и баланс PR #27 сюда не включены.','',
+      'Пересоздание: `python tools/recovery-43/content_catalog.py`. Это инвентаризация данной рабочей копии; состав соседних веток не подмешивается автоматически. Для игрового описания см. [MOD_CONTENT.md](../MOD_CONTENT.md).','',
       '## Системы и регистрация','',
       '| Система | Действующие исходники |','|---|---|']
     modules={

@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:group_home",
+  "criteria": {
+    "cloth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:linen_cloth"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

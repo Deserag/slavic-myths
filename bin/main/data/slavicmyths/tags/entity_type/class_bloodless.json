@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:blaze",
+    "minecraft:breeze",
+    "minecraft:ghast",
+    "minecraft:vex",
+    "minecraft:slime",
+    "minecraft:magma_cube",
+    {
+      "id": "slavicmyths:nav",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LBL",
+    "TRT",
+    "IAQ"
+  ],
+  "key": {
+    "L": {
+      "item": "slavicmyths:living_root"
+    },
+    "B": {
+      "item": "slavicmyths:guardian_branch"
+    },
+    "T": {
+      "item": "slavicmyths:bone_thorn"
+    },
+    "R": {
+      "item": "slavicmyths:roasted_runnik"
+    },
+    "I": {
+      "item": "slavicmyths:roasted_livingstone"
+    },
+    "A": {
+      "item": "slavicmyths:alatyr_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:navya_fork_core",
+    "count": 1
+  }
+}

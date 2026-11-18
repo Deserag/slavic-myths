@@ -17,7 +17,6 @@ import org.slavicmyths.combat.WeaponCatalog;
 import org.slavicmyths.finist.FinistItems;
 
 /** Vanilla BOW pose, timed to these bows' existing draw durations. Rendering only. */
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class BowDrawClient {
     @SubscribeEvent public static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
@@ -31,7 +30,7 @@ public final class BowDrawClient {
                 drawPose(pose,arm==HumanoidArm.LEFT,equip,ticks,duration);
                 return true;
             }
-        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get());
+        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get());
     }
 
     public static float visualPower(float ticks,int duration) {

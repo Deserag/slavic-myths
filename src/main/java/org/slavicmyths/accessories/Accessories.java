@@ -14,9 +14,9 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 public final class Accessories {
     public static final Map<String,net.neoforged.neoforge.registries.DeferredHolder<Item,Item>> ITEMS=new LinkedHashMap<>();
     public static final Map<String,String> SLOTS=Map.of("pool_ring","ring","bath_ward","charm","harvest_ring","ring",
-            "podvey_belt","belt","leshy_necklace","necklace","spark_ring","ring");
+            "podvey_belt","belt","leshy_necklace","necklace","spark_ring","ring","gneteya_amulet","necklace");
     public static final ResourceLocation SWIM=ResourceLocation.fromNamespaceAndPath("slavicmyths","pool_ring_swim");
-    static {for(var id:List.of("pool_ring","bath_ward","harvest_ring","podvey_belt","leshy_necklace","spark_ring"))
+    static {for(var id:List.of("pool_ring","bath_ward","harvest_ring","podvey_belt","leshy_necklace","spark_ring","gneteya_amulet"))
         ITEMS.put(id,ModItems.ITEMS.register(id,()->new Accessory(id,SLOTS.get(id))));}
     public static void init(){}
     public static boolean wears(net.minecraft.world.entity.LivingEntity e,String id){
@@ -31,6 +31,7 @@ public final class Accessories {
     public static final class Accessory extends Item implements ICurioItem {
         private final String id,slot;
         Accessory(String id,String slot){super(new Properties().stacksTo(1).rarity(Rarity.UNCOMMON));this.id=id;this.slot=slot;}
+        @Override public Component getName(ItemStack s){return id.equals("gneteya_amulet")?Component.literal("Оберег Гнетеи"):super.getName(s);}
         @Override public boolean canEquip(SlotContext c,ItemStack s){return c.identifier().equals(slot);}
         @Override public void onEquip(SlotContext c,ItemStack old,ItemStack s){
             if(!c.entity().level().isClientSide)org.slavicmyths.item.FolkAccessoryItem.award(c.entity(),"first_accessory");
@@ -46,7 +47,7 @@ public final class Accessories {
             swim(c.entity(),c.entity().isInWater()&&(next.is(this)||other));
         }
         @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> text,TooltipFlag flags){
-            text.add(Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
+            text.add(id.equals("gneteya_amulet")?Component.literal("Спасает от смертельного удара, даёт защиту и поглощение (перезарядка 90 сек.)").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE):Component.translatable(getDescriptionId()+".effect").withStyle(net.minecraft.ChatFormatting.GRAY));
         }
     }
     private Accessories(){}

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "slavicmyths:block/mor_stone"
+      },
+      {
+        "model": "slavicmyths:block/mor_stone_mirrored"
+      },
+      {
+        "model": "slavicmyths:block/mor_stone",
+        "y": 180
+      },
+      {
+        "model": "slavicmyths:block/mor_stone_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

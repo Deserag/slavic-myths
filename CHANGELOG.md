@@ -1,3 +1,9 @@
+## 24.10.2026 — документация и очистка без смены версии
+
+- Переписаны README в main/release, добавлен MOD_CONTENT.md, актуализированы каталог и управление.
+- Удалены интегрированные старые ветки и локальные тестовые каталоги; уникальные входные материалы сохранены отдельно.
+- По последнему поручению владельца версия остаётся 1.9.7.66. PolyMC, установленный JAR и запущенная игра не изменялись.
+
 ## 1.9.7.66 — test candidate, 24.10.2026
 
 - Four heroes now require personal help after an NPC introduction. Shared supply contributions and 15% combat contribution are tracked per player; the summon item is a reward.

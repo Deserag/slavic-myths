@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "material": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "slavicmyths:volcanic_flail_core"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "slavicmyths:volcanic_heart_flail"
+    ]
+  }
+}

@@ -140,7 +140,7 @@ public final class NavigationEvents {
         Map<net.minecraft.world.level.levelgen.structure.Structure,Map<ChunkPos,net.minecraft.world.level.levelgen.structure.StructureStart>> candidates=new HashMap<>();
         Set<Long> visitedReferences=new HashSet<>();
         for(int dx=-6;dx<=6;dx++)for(int dz=-6;dz<=6;dz++){
-            var chunk=w.getChunkSource().getChunk(center.x+dx,center.z+dz,ChunkStatus.FULL,false);if(chunk==null)continue;
+            var chunk=w.getChunkSource().getChunkNow(center.x+dx,center.z+dz);if(chunk==null)continue;
             chunk.getAllStarts().forEach((structure,start)->candidates.computeIfAbsent(structure,k->new HashMap<>()).put(start.getChunkPos(),start));
             // Near the far edge of a large dungeon its start chunk may be outside this window.
             // Follow only references already in loaded chunks; cap extra lookups and never force load.
@@ -149,7 +149,7 @@ public final class NavigationEvents {
                 for(long ref:refs.getValue()){
                     if(visitedReferences.size()>=256&&!visitedReferences.contains(ref))continue;
                     if(!visitedReferences.add(ref))continue;var origin=new ChunkPos(ref);
-                    var source=w.getChunkSource().getChunk(origin.x,origin.z,ChunkStatus.FULL,false);if(source==null)continue;
+                    var source=w.getChunkSource().getChunkNow(origin.x,origin.z);if(source==null)continue;
                     source.getAllStarts().forEach((structure,start)->candidates.computeIfAbsent(structure,k->new HashMap<>()).put(start.getChunkPos(),start));
                 }
             }

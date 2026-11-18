@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:earth_spirit",
+    "slavicmyths:earth_servant",
+    "slavicmyths:rootling",
+    "slavicmyths:grove_guardian",
+    "slavicmyths:oskolnik",
+    "slavicmyths:vent_golem"
+  ]
+}

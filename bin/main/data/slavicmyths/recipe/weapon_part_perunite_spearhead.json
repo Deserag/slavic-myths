@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X",
+    "X "
+  ],
+  "key": {
+    "X": {
+      "item": "slavicmyths:perunite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:perunite_spearhead",
+    "count": 1
+  }
+}

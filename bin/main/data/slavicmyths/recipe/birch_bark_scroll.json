@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:birch_bark"
+    },
+    {
+      "item": "slavicmyths:birch_bark"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:birch_bark_scroll"
+  }
+}

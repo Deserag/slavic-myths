@@ -1,0 +1,13 @@
+{
+  "part": "crafts",
+  "chapter": "materials",
+  "section": "catalogue",
+  "title": "tales.entry.items_finistquiver_1.title",
+  "icon": "slavicmyths:finist_quiver",
+  "initial": 0,
+  "subjects": [
+    "item/slavicmyths:finist_quiver"
+  ],
+  "advancements": [],
+  "links": []
+}

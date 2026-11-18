@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "slavicmyths:block/hanging_willow_leaves"
+  }
+}

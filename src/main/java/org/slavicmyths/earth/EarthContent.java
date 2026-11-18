@@ -14,7 +14,6 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class EarthContent {
     public static final DeferredHolder<EntityType<?>,EntityType<EarthSpirit>> BOSS=ModEntities.ENTITIES.register("earth_spirit",()->EntityType.Builder.of(EarthSpirit::new,MobCategory.MONSTER).sized(3.1F,6.35F).clientTrackingRange(16).updateInterval(1).build("slavicmyths:earth_spirit"));
     public static final DeferredHolder<EntityType<?>,EntityType<EarthServant>> SERVANT=ModEntities.ENTITIES.register("earth_servant",()->EntityType.Builder.of(EarthServant::new,MobCategory.MONSTER).sized(.85F,1.4F).clientTrackingRange(12).updateInterval(1).build("slavicmyths:earth_servant"));

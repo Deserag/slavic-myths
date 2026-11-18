@@ -1,0 +1,8 @@
+{
+  "criteria": {
+    "encounter": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "slavicmyths:group_roads"
+}

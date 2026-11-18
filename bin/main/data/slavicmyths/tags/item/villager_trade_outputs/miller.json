@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:dough",
+    "minecraft:bread",
+    "slavicmyths:rye_bread",
+    "slavicmyths:honey_flatbread",
+    "slavicmyths:bliny",
+    "slavicmyths:apple_pie",
+    "slavicmyths:cabbage_pie",
+    "slavicmyths:honey_bread",
+    "slavicmyths:honey_bliny",
+    "slavicmyths:berry_bliny",
+    "slavicmyths:apple_bliny",
+    "slavicmyths:meat_pie"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "feature": "slavicmyths:black_cinder_terrain",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

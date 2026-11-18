@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "PPP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:blackwood_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:blackwood_weapon_rack"
+  }
+}

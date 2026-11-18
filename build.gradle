@@ -8,8 +8,8 @@ base { archivesName = 'slavicmyths' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 repositories {
     maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
-    maven { url = 'https://maven.theillusivec4.top/' }
-    maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://maven.theillusivec4.top/'; content { includeGroup 'top.theillusivec4.curios' } }
+    maven { url = 'https://maven.blamejared.com'; content { includeGroup 'mezz.jei' } }
     mavenCentral()
 }
 
@@ -34,6 +34,11 @@ dependencies {
 }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 processResources {
+    // The official A + A+ voxel authoring files are copied unchanged into the production JAR.
+    from('docs/concepts/nether-settlement-2.2/posadnik-terem') {
+        include 'posadnik_terem_A_proposal.json', 'posadnik_terem_Aplus_delta.json'
+        into 'data/slavicmyths/posad'
+    }
     inputs.properties([mod_version: mod_version, neo_version: neo_version])
     filesMatching('META-INF/neoforge.mods.toml') {
         expand mod_version: mod_version, neo_version: neo_version
@@ -41,7 +46,47 @@ processResources {
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
 
-// Plain JVM, no NeoForge run configuration and no game/world construction.
+// Explicit owner-authorized disposable #278 fixture; no tests in the production JAR.
+if (project.hasProperty('accessories278Check')) {
+    sourceSets { accessories278Check { java.srcDir 'tools/accessories278-tests'; resources.srcDir 'tools/accessories278-test-resources' } }
+    sourceSets.accessories278Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.accessories278Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileAccessories278CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.accessories278Check)
+    neoForge.runs { accessories278Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-accessories278-20261025')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
+    } }
+}
+
+// Explicit owner-authorized disposable #287 server fixture; excluded from production.
+if (project.hasProperty('armor287Check')) {
+    sourceSets { armor287Check { java.srcDirs 'tools/armor287-tests','tools/unique-equipment-tests'; resources.srcDir 'tools/armor287-test-resources' } }
+    sourceSets.armor287Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.armor287Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileArmor287CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.armor287Check)
+    neoForge.runs { armor287Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-armor287-20261026')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_armor287'
+    } }
+}
+
+if (project.hasProperty('artifacts284Check')) {
+    sourceSets { artifacts284Check { java.srcDir 'tools/artifacts284-tests'; resources.srcDir 'tools/artifacts284-test-resources' } }
+    sourceSets.artifacts284Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.artifacts284Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileArtifacts284CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.artifacts284Check)
+    neoForge.runs { artifacts284Checks {
+        type = 'gameTestServer'
+        gameDirectory = file('run-artifacts284-20261025')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_artifacts284'
+    } }
+}
+
 if (project.hasProperty('barrelOfflineCheck')) {
     sourceSets { barrelOffline { java.srcDir 'tools/barrel-offline' } }
     sourceSets.barrelOffline.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
@@ -591,4 +636,148 @@ if (project.hasProperty('tugarinModelOfflineCheck')) {
   mainClass = 'org.slavicmyths.verify.Grip58Offline'
   if(project.hasProperty('grip58Baseline')) systemProperty 'slavicmyths.grip58Baseline', 'true'
  }
+}
+
+// Disposable server-side shell checks; no fixtures in the production JAR.
+if (project.hasProperty('posadCheck')) {
+ sourceSets { posadCheck { java.srcDir 'tools/posad-runtime-tests'; resources.srcDir 'tools/posad-test-resources' } }
+ sourceSets.posadCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.posadCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compilePosadCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.posadCheck)
+ neoForge.runs { posadChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-posad-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_posad'
+ } }
+}
+
+if (project.hasProperty('netherBossCheck')) {
+ sourceSets { netherBossCheck { java.srcDir 'tools/netherboss-tests'; resources.srcDir 'tools/netherboss-test-resources' } }
+ sourceSets.netherBossCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+ sourceSets.netherBossCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+ tasks.named('compileNetherBossCheckJava') { dependsOn 'classes' }
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.netherBossCheck)
+ neoForge.runs { netherBossChecks {
+  type = 'gameTestServer'
+  gameDirectory = file('run-netherboss-isolated')
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_netherboss'
+ } }
+}
+
+ 
+// Sisters 3.3 albedo micro-contrast: generated within the Gradle resource output.
+// Source PNGs stay untouched; the JAR receives seeded, repeatable +/-10% pixel grain.
+tasks.named('processResources') {
+    doLast {
+        def sisterPalettes = [
+            tryaseya: [[47,39,85], [68,47,103], [130,153,189], [35,29,65], [151,202,231]],
+            gneteya: [[43,39,48], [91,34,51], [130,119,130], [31,27,34], [193,51,74]]
+        ]
+        sisterPalettes.each { sister, palette ->
+            def file = new File(destinationDir, 'assets/slavicmyths/textures/entity/' + sister + '_albedo.png')
+            if (!file.isFile()) throw new GradleException('Missing Sisters atlas: ' + file)
+            def atlas = javax.imageio.ImageIO.read(file)
+            if (atlas == null || atlas.width != 512 || atlas.height != 512) throw new GradleException('Expected 512x512 Sisters atlas: ' + file)
+            def noise = new java.util.Random(sister == 'tryaseya' ? 33031L : 33032L)
+            for (int y = 0; y < atlas.height; y++) {
+                for (int x = 0; x < atlas.width; x++) {
+                    int argb = atlas.getRGB(x, y)
+                    int alpha = (argb >>> 24) & 255
+                    if (alpha == 0) continue
+                    int region = x < 128 ? 0 : x < 256 ? 1 : x < 384 ? 2 : x < 480 ? 3 : 4
+                    def base = palette[region]
+                    double sourceLuma = (((argb >>> 16) & 255) + ((argb >>> 8) & 255) + (argb & 255)) / 765.0d
+                    double detail = 0.83d + 0.34d * sourceLuma
+                    double variance = 0.90d + noise.nextDouble() * 0.20d
+                    int red = Math.max(0, Math.min(255, (int)Math.round(base[0] * detail * variance)))
+                    int green = Math.max(0, Math.min(255, (int)Math.round(base[1] * detail * variance)))
+                    int blue = Math.max(0, Math.min(255, (int)Math.round(base[2] * detail * variance)))
+                    atlas.setRGB(x, y, (alpha << 24) | (red << 16) | (green << 8) | blue)
+                }
+            }
+            if (!javax.imageio.ImageIO.write(atlas, 'png', file)) throw new GradleException('PNG encoder unavailable for ' + file)
+        }
+    }
+}
+
+
+// Optional Ocean 2.6 native-world GameTests; never packaged into the release JAR.
+// A dedicated isolated test world is required. This is NOT a default client run.
+if (project.hasProperty('ocean26Check')) {
+    sourceSets {
+        ocean26Check {
+            java.srcDir 'tools/ocean26-tests'
+            resources.srcDir 'tools/ocean26-test-resources'
+        }
+    }
+    sourceSets.ocean26Check.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.ocean26Check.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileOcean26CheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.ocean26Check)
+    neoForge.runs {
+        ocean26Checks {
+            type = 'gameTestServer'
+            gameDirectory = file('run-ocean26-20261108')
+            systemProperty 'neoforge.enabledGameTestNamespaces',
+                    project.hasProperty('shipPersistenceStage')
+                            ? 'slavicmyths_ship_persist'
+                            : project.hasProperty('shipIVDamageCheck')
+                            ? 'slavicmyths_ship_iv_damage' : 'slavicmyths_ocean26'
+            systemProperty 'shipPersistenceStage',
+                    project.findProperty('shipPersistenceStage') ?: 'off'
+        }
+    }
+}
+
+// Client input/network probe lives outside the production JAR. It auto-opens
+// a copied disposable world and drives only Minecraft's own test key mappings.
+if (project.hasProperty('ocean26ClientProbe')) {
+    sourceSets { ocean26ClientProbe { java.srcDir 'tools/ocean26-client-tests' } }
+    sourceSets.ocean26ClientProbe.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.ocean26ClientProbe.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileOcean26ClientProbeJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.ocean26ClientProbe)
+    neoForge.runs {
+        ocean26ClientProbe {
+            client()
+            gameDirectory = file('run-ocean26-client')
+            systemProperty 'ocean26.reverse', project.hasProperty('ocean26ReverseProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.reload', project.hasProperty('ocean26ReloadProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.saveMoving', project.hasProperty('ocean26SaveMovingProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.rail', project.hasProperty('ocean26RailProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.hold', project.hasProperty('ocean26HoldProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.visual', project.hasProperty('ocean26VisualProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.modularVisual', project.hasProperty('ocean26ModularVisualProbe') ? 'true' : 'false'
+            systemProperty 'ocean26.shipClass', project.findProperty('ocean26ShipClass') ?: 'MEDIUM'
+            systemProperty 'ocean26.longForward', project.hasProperty('ocean26LongForwardProbe') ? 'true' : 'false'
+            programArgument '--quickPlaySingleplayer'
+            programArgument (project.findProperty('ocean26ProbeWorld') ?: 'OCEAN26_WORLD_REQUIRED')
+        }
+    }
+    tasks.named('runOcean26ClientProbe') {
+        def marker = file('run-ocean26-client/ocean26-probe-result.txt')
+        doFirst {
+            if (!project.hasProperty('ocean26ProbeWorld'))
+                throw new GradleException('Pass -Pocean26ProbeWorld=<name of a disposable copied save>')
+            marker.delete()
+        }
+        doLast {
+            if (!marker.isFile() || !marker.text.startsWith('PASS '))
+                throw new GradleException('Ocean 2.6 client probe failed; inspect its log and result marker')
+        }
+    }
+}
+
+// Offline IV frigate regression: real production Java geometry and motion,
+// no generated test code enters the release JAR or touches player saves.
+sourceSets {
+    shipIVCheck { java.srcDir 'tools/ship-iv-tests' }
+}
+sourceSets.shipIVCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+sourceSets.shipIVCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+tasks.register('verifyShipIVGeometry', JavaExec) {
+    dependsOn 'shipIVCheckClasses'
+    classpath = sourceSets.shipIVCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.ships.ShipIVGeometryHeadless'
 }

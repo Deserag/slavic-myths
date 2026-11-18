@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:rowan_6",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 6
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

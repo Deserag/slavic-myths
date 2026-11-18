@@ -1,0 +1,14 @@
+allprojects { afterEvaluate {
+ sourceSets { worldgen300 { java.srcDir 'tools/worldgen300';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.named('compileWorldgen300Java'){dependsOn 'classes'}
+ neoForge.mods.slavicmyths.sourceSet(sourceSets.worldgen300)
+ neoForge.runs { worldgen300Server {
+  type='server';programArgument '--nogui';jvmArgument '-Dstdout.encoding=UTF-8';jvmArgument '-Dstderr.encoding=UTF-8';jvmArgument '-Xmx2304M';jvmArgument '-XX:ActiveProcessorCount=3'
+  gameDirectory=file('work/issue300-'+(project.findProperty('qa300Run') ?: 'baseline'))
+  systemProperty 'slavicmyths.qa300',project.findProperty('qa300Mode') ?: 'baseline'
+  systemProperty 'slavicmyths.chudPlacementDiagnostics','true'
+  systemProperty 'slavicmyths.qa300.firstRegion',project.findProperty('qa300FirstRegion') ?: '0'
+  systemProperty 'slavicmyths.qa300.storyX',project.findProperty('qa300StoryX') ?: '12000'
+  systemProperty 'slavicmyths.qa300.storyZ',project.findProperty('qa300StoryZ') ?: '12000'
+ } }
+} }

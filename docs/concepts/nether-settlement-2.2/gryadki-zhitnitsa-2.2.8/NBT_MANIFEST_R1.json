@@ -1,0 +1,47 @@
+{
+  "minecraft": "1.21.1",
+  "DataVersion": 3955,
+  "format": "gzip structure template",
+  "position": {
+    "u": 25,
+    "y": 11,
+    "v": 28
+  },
+  "blocks": 1349,
+  "palette_states": 43,
+  "block_entities": [
+    {
+      "u": 4,
+      "v": 5,
+      "y": 1,
+      "loot_table": "slavicmyths:chests/posad_granary_west_grain"
+    },
+    {
+      "u": 11,
+      "v": 5,
+      "y": 1,
+      "loot_table": "slavicmyths:chests/posad_granary_east_grain"
+    },
+    {
+      "u": 4,
+      "v": 9,
+      "y": 1,
+      "loot_table": "slavicmyths:chests/posad_granary_west_supplies"
+    },
+    {
+      "u": 11,
+      "v": 9,
+      "y": 1,
+      "loot_table": "slavicmyths:chests/posad_granary_east_supplies"
+    },
+    {
+      "u": 9,
+      "v": 23,
+      "y": 1,
+      "loot_table": "slavicmyths:chests/posad_granary_shed_tools"
+    }
+  ],
+  "uncompressed_bytes": 52241,
+  "gzip_bytes": 52264,
+  "worldgen_integration": false
+}

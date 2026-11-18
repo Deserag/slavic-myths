@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP",
+    "SS"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:pine_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:pine_bedside_cabinet"
+  }
+}

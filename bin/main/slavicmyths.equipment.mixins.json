@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.equipment.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "FrostPlayerSaveInvoker",
+    "EquipmentHealthMixin",
+    "WardBlockMixin",
+    "BadBloodFoodMixin",
+    "BadBloodInstantMixin",
+    "Quest185CraftingMixin",
+    "Quest185CrafterMixin",
+    "Quest185BlockChangeMixin",
+    "GorynychEffectDuration",
+    "WintersInventoryMixin",
+    "GorynychArrowDamageMixin",
+    "GorynychStormArrowMixin",
+    "MultipartBlockEntityMixin"
+  ],
+  "client": [
+    "PlayerWeaponPoseMixin",
+    "ClearSightMixin",
+    "Quest185ColorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

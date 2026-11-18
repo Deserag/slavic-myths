@@ -13,7 +13,6 @@ import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.registries.*;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class SivkaContent {
     public static final DeferredHolder<EntityType<?>,EntityType<SivkaEntity>> ENTITY=ModEntities.ENTITIES.register("sivka_burka",()->EntityType.Builder.of(SivkaEntity::new,MobCategory.CREATURE).sized(SivkaRules.WIDTH,SivkaRules.HEIGHT).clientTrackingRange(12).updateInterval(1).build("slavicmyths:sivka_burka"));
     public static final DeferredHolder<Item,Item> WHISTLE=ModItems.ITEMS.register("sivka_whistle",SivkaWhistle::new);
@@ -25,13 +24,17 @@ public final class SivkaContent {
     public static SoundEvent sound(String cue){return SOUNDS.get(cue).get();}
     public static void init(){}
     @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){e.put(ENTITY.get(),net.minecraft.world.entity.PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH,80).add(Attributes.MOVEMENT_SPEED,.24).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,.3).add(Attributes.STEP_HEIGHT,1).build());}
-    @SubscribeEvent public static void placements(RegisterSpawnPlacementsEvent e){e.register(ENTITY.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(type,w,reason,p,r)->{
-        if(reason!=MobSpawnType.SPAWN_EGG&&r.nextFloat()>=.002F)return false;
+    @SubscribeEvent public static void placements(RegisterSpawnPlacementsEvent e){e.register(ENTITY.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(type,w,reason,p,r)->canAppear(w,p),RegisterSpawnPlacementsEvent.Operation.REPLACE);}
+    public static boolean canAppear(net.minecraft.world.level.ServerLevelAccessor w,net.minecraft.core.BlockPos p){
         if(w.getLevel().dimension()!=net.minecraft.world.level.Level.OVERWORLD||!w.canSeeSky(p)||w.getMaxLocalRawBrightness(p)<=7)return false;
-        for(int x=-1;x<=1;x++)for(int z=-2;z<=1;z++){
-            var q=p.offset(x,0,z);if(!w.getBlockState(q.below()).is(net.minecraft.tags.BlockTags.DIRT))return false;
-            for(int y=0;y<3;y++)if(!w.getBlockState(q.above(y)).getCollisionShape(w,q.above(y)).isEmpty()||!w.getFluidState(q.above(y)).isEmpty())return false;
-        }return true;
-    },RegisterSpawnPlacementsEvent.Operation.REPLACE);}
+        // Test the actual horse volume, not a larger 3x4 clearing. Never load a border chunk.
+        var box=new net.minecraft.world.phys.AABB(p.getX()+.5-SivkaRules.WIDTH/2,p.getY(),p.getZ()+.5-SivkaRules.WIDTH/2,
+                p.getX()+.5+SivkaRules.WIDTH/2,p.getY()+SivkaRules.HEIGHT,p.getZ()+.5+SivkaRules.WIDTH/2);
+        if(!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.minX,box.minY,box.minZ))
+                ||!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.minX,box.minY,box.maxZ))
+                ||!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.maxX,box.minY,box.minZ))
+                ||!w.hasChunkAt(net.minecraft.core.BlockPos.containing(box.maxX,box.minY,box.maxZ)))return false;
+        return w.getBlockState(p.below()).is(net.minecraft.tags.BlockTags.DIRT)&&w.noCollision(box)&&!w.containsAnyLiquid(box);
+    }
     private SivkaContent(){}
 }

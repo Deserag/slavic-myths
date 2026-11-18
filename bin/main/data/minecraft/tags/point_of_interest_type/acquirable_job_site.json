@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "slavicmyths:miller",
+    "slavicmyths:brewer",
+    "slavicmyths:weaver",
+    "slavicmyths:herder",
+    "slavicmyths:hunter",
+    "slavicmyths:cook",
+    "slavicmyths:druzhinnik"
+  ]
+}

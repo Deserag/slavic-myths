@@ -18,7 +18,6 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 /** Local first-person phases only. The server's attack timing, range and damage stay vanilla. */
-@EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT, bus=EventBusSubscriber.Bus.MOD)
 public final class WeaponMotionClient {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF }
     @SubscribeEvent public static void register(RegisterClientExtensionsEvent event) {
@@ -26,8 +25,8 @@ public final class WeaponMotionClient {
                 "restored_carolingian_sword","silver_sword","perunite_sword");
         register(event,Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace",
                 "perunite_mace","battle_axe","chekan","ancient_chekan");
-        register(event,Shape.SPEAR,"ancient_spear","restored_spear","spear","gold_spear",
-                "iron_spear","silver_spear","diamond_spear","perunite_spear",
+        register(event,Shape.SPEAR,"navya_ostroga","ancient_spear","restored_spear","spear","gold_spear",
+                "iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear",
                 "netherite_spear","pool_spear","thunder_spear","victor_spear");
         register(event,Shape.POLEAXE,"berdysh");
         register(event,Shape.SICKLE,"noon_sickle");

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:noon_ear"
+    },
+    {
+      "item": "slavicmyths:ritual_charcoal"
+    },
+    {
+      "item": "slavicmyths:silver_fitting"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:thunder_stone"
+  }
+}

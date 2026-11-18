@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancient_carolingian_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancient_chekan"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:ancient_spear"
+        }
+      ]
+    }
+  ]
+}

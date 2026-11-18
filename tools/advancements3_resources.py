@@ -86,7 +86,7 @@ EVENTS = {
  'first_neighbors':('Поговорите с жителем новой профессии мода.','Talk to a villager with a mod profession.'),
  'own_harvest':('Посадите культуру мода и соберите её зрелой.','Plant a mod crop and harvest it when mature.'),
  'linen_woven':('Изготовьте льняное полотно.','Craft linen cloth.'),
- 'self_brewed_beer':('Завершите собственное брожение пива в бочке.','Complete your own beer fermentation in a barrel.'),
+ 'self_brewed_beer':('Завершите собственное брожение пива в бродильном чане.','Complete your own beer fermentation in a fermentation vat.'),
  'first_structure':('Обнаружьте любую зарегистрированную постройку мода.','Discover any registered mod structure.'),
  'explore_gorodishche':('Найдите городище.','Find a gorodishche.'),
  'explore_kurgan':('Найдите малый, воинский или великий курган.','Find a small, warrior or great burial mound.'),

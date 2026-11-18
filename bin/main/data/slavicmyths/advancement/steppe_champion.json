@@ -1,0 +1,23 @@
+{
+  "parent": "slavicmyths:meet_bandits",
+  "display": {
+    "icon": {
+      "id": "slavicmyths:iron_spear"
+    },
+    "title": {
+      "translate": "advancements.slavicmyths.steppe_champion.title"
+    },
+    "description": {
+      "translate": "advancements.slavicmyths.steppe_champion.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "event": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

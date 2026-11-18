@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:blackwood_planks"
+    },
+    "L": {
+      "item": "slavicmyths:blackwood_log"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:blackwood_wardrobe"
+  }
+}

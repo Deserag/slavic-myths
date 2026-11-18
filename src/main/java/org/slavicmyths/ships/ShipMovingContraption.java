@@ -1,0 +1,334 @@
+package org.slavicmyths.ships;
+
+import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+
+/**
+ * Server state of a DETACHED, moving rigid ship. This class is intentionally
+ * independent from FirstShipEntity so the existing native ship is never
+ * silently converted into a half-implemented moving mode.
+ *
+ * The caller must persist save() with its owning entity before detaching the
+ * source blocks. The saved cargo never lives inside the world's chunks while
+ * sailing. Unloaded chunks are treated as solid, not teleported through.
+ */
+public final class ShipMovingContraption {
+    public enum TravelMode { WATER, AIR }
+    private final FirstShipBlockHull.MotionSnapshot snapshot;
+    private final ShipBuildConfiguration modular;
+    private final int firstTurn;
+    private final ListTag cargo;
+    private final Map<BlockPos, BlockState> palette;
+    private final Set<BlockPos> openDoors = new HashSet<>();
+    private final int waterlineY;
+    private final TravelMode mode;
+    private final ShipRigidMotion motion;
+    private boolean detached;
+    private boolean parked;
+
+    private ShipMovingContraption(FirstShipBlockHull.MotionSnapshot snapshot,
+            int surfaceY, ShipRigidMotion motion, boolean detached) {
+        this.snapshot = snapshot;
+        this.modular = null;
+        this.firstTurn = snapshot.turn();
+        this.cargo = snapshot.cargo();
+        this.waterlineY = surfaceY;
+        this.mode = TravelMode.WATER;
+        this.motion = motion;
+        this.palette = FirstShipBlockHull.localMotionPalette(snapshot);
+        this.detached = detached;
+    }
+
+    private ShipMovingContraption(ShipBuildConfiguration modular, ListTag cargo,
+            int turns, int surfaceY, ShipRigidMotion motion, boolean detached) {
+        this.snapshot = null;
+        this.modular = modular;
+        this.firstTurn = Math.floorMod(turns, 4);
+        this.cargo = cargo.copy();
+        this.waterlineY = surfaceY;
+        this.mode = TravelMode.WATER;
+        this.motion = motion;
+        this.palette = new LinkedHashMap<>(
+                ShipModularBlockHull.localMotionPalette(modular, cargo));
+        if (this.palette.isEmpty()) throw new IllegalArgumentException("Invalid modular palette");
+        this.detached = detached;
+    }
+
+    /** Include the actual forward knyavdiged tip in the turning sweep radius. */
+    private static double collisionRadius(ShipBuildConfiguration configuration) {
+        double bowReach = configuration.length() / 2D
+                + (configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && configuration.hullRevision() == 4 ? 19D
+                        : configuration.shipClass() == ShipSectionPlan.ShipClass.LARGE
+                        && configuration.hullRevision() == 3 ? 4D : 1D);
+        return Math.hypot(configuration.width() / 2D + 1D, bowReach);
+    }
+
+    public static ShipMovingContraption prepare(ServerLevel level, BlockPos anchor,
+            int turns, ShipBuildConfiguration configuration) {
+        ListTag cargo = ShipModularBlockHull.pack(level, anchor, turns, configuration);
+        if (cargo == null) return null;
+        double radius = collisionRadius(configuration);
+        ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D), radius,
+                configuration.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                        && configuration.hullRevision() == 4
+                        ? ShipRigidMotion.MAX_IV_FORWARD : ShipRigidMotion.MAX_FORWARD);
+        return new ShipMovingContraption(configuration, cargo, turns,
+                anchor.getY(), motion, false);
+    }
+
+    public ShipBuildConfiguration modularConfiguration() { return modular; }
+    public ListTag cargo() { return cargo.copy(); }
+
+    /** Validate but DO NOT remove the real ship. */
+    public static ShipMovingContraption prepare(ServerLevel level, BlockPos anchor,
+            int turns, int rig, int fabric, int geometry) {
+        FirstShipBlockHull.MotionSnapshot source =
+                FirstShipBlockHull.captureForMotion(level, anchor, turns, rig, fabric, geometry);
+        if (source == null) return null;
+        ShipRigidMotion motion = new ShipRigidMotion(new ShipRigidMotion.Pose(
+                anchor.getX() + .5D, anchor.getZ() + .5D, turns * 90D));
+        return new ShipMovingContraption(source, anchor.getY(), motion, false);
+    }
+
+    /** Stage 2 of assemble: the caller must already own a durable checkpoint. */
+    public boolean detach(ServerLevel level, BlockPos original) {
+        if (detached || parked) return false;
+        if (Math.abs(motion.pose().x() - (original.getX() + .5D)) > 1E-4D
+                || Math.abs(motion.pose().z() - (original.getZ() + .5D)) > 1E-4D) return false;
+        if (modular != null) {
+            ListTag actual = ShipModularBlockHull.pack(level, original, firstTurn, modular);
+            if (actual == null || !actual.equals(cargo)
+                    || !ShipModularBlockHull.remove(level, original, firstTurn, modular))
+                return false;
+        } else if (!FirstShipBlockHull.detachForMotion(level, original, snapshot)) return false;
+        detached = true;
+        return true;
+    }
+
+    public ShipRigidMotion.Frame tick(ServerLevel world, ShipRigidMotion.Control helm) {
+        if (!detached || parked) throw new IllegalStateException("Cannot move an attached hull");
+        if (mode != TravelMode.WATER)
+            throw new IllegalStateException("Air travel requires a three-dimensional controller");
+        ShipRigidMotion.Frame frame = motion.advance(helm,
+                pose -> ShipMovingClearance.clearPose(world, pose, waterlineY, palette));
+        if (!frame.blocked() && !frame.before().equals(frame.after()))
+            ShipMovingClearance.clearSoftObstacles(world, frame.after(), waterlineY, palette);
+        return frame;
+    }
+
+    /**
+     * Restores ordinary physical blocks only at a safe integer anchor and a
+     * cardinal heading. Between angles the ship remains a moving contraption;
+     * it is never silently rounded ninety degrees while underway.
+     */
+    public boolean park(ServerLevel world) {
+        if (!detached || parked || Math.abs(motion.speed()) > .006D
+                || Math.abs(motion.angularVelocity()) > .12D) return false;
+        ShipRigidMotion.Pose pose = motion.pose();
+        int turn = Math.floorMod((int)Math.round(pose.yaw() / 90D), 4);
+        if (Math.abs(ShipRigidMotion.wrapDegrees(pose.yaw() - turn * 90D)) > 1.25D)
+            return false;
+        BlockPos target = BlockPos.containing(pose.x(), waterlineY, pose.z());
+        if (Math.abs(pose.x() - (target.getX() + .5D)) > .20D
+                || Math.abs(pose.z() - (target.getZ() + .5D)) > .20D) return false;
+        if (modular != null) {
+            ListTag rotated = ShipModularBlockHull.rotateCargo(modular, cargo, firstTurn, turn);
+            if (rotated == null || !ShipModularBlockHull.place(world, target, turn, modular, rotated))
+                return false;
+            cargo.clear();
+            cargo.addAll(rotated);
+        } else if (!FirstShipBlockHull.restoreFromMotion(world, target, turn, snapshot())) return false;
+        parked = true;
+        detached = false;
+        return true;
+    }
+
+    public ShipRigidMotion.Pose pose() { return motion.pose(); }
+    public TravelMode mode() { return mode; }
+    public ShipRigidMotion.SpatialPose spatialPose() {
+        ShipRigidMotion.Pose current = motion.pose();
+        return new ShipRigidMotion.SpatialPose(current.x(), waterlineY,
+                current.z(), current.yaw(), 0D, 0D);
+    }
+    public ShipRigidMotion motion() { return motion; }
+    public FirstShipBlockHull.MotionSnapshot snapshot() {
+        if (snapshot == null) return null;
+        return new FirstShipBlockHull.MotionSnapshot(cargo, snapshot.geometry(),
+                snapshot.rig(), snapshot.fabric(), snapshot.turn());
+    }
+    /**
+     * Add blocks to the moving rigid body itself, never to the water/air
+     * underneath it. All changes are committed atomically after cargo and
+     * swept-volume validation, and persist in the normal ship save payload.
+     */
+    public boolean placeMovingCargo(ServerLevel world, BlockPos local, BlockState state) {
+        if (modular == null || world == null || !detached || parked
+                || local == null || state == null) return false;
+        ListTag next = ShipModularBlockHull.withAddedMovingCargo(
+                world, modular, cargo, local, state);
+        if (next == null) return false;
+        Map<BlockPos, BlockState> nextPalette =
+                ShipModularBlockHull.localMotionPalette(modular, next);
+        if (nextPalette.isEmpty() || !ShipMovingClearance.clearPose(
+                world, motion.pose(), waterlineY, nextPalette)) return false;
+        cargo.clear();
+        cargo.addAll(next);
+        palette.clear();
+        palette.putAll(nextPalette);
+        for (BlockPos door : openDoors) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                BlockState piece = palette.get(half);
+                if (piece != null && piece.getBlock() instanceof DoorBlock)
+                    palette.put(half, piece.setValue(DoorBlock.OPEN, true));
+            }
+        }
+        return true;
+    }
+
+    public boolean toggleDoor(BlockPos local) {
+        if (modular == null || !detached || parked || local == null) return false;
+        BlockState state = palette.get(local);
+        if (state == null || !(state.getBlock() instanceof DoorBlock)) return false;
+        BlockPos lower = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER
+                ? local : local.below();
+        BlockState bottom = palette.get(lower), top = palette.get(lower.above());
+        if (bottom == null || top == null || !(bottom.getBlock() instanceof DoorBlock)
+                || top.getBlock() != bottom.getBlock()) return false;
+        boolean open = !openDoors.contains(lower);
+        if (open) openDoors.add(lower); else openDoors.remove(lower);
+        palette.put(lower, bottom.setValue(DoorBlock.OPEN, open));
+        palette.put(lower.above(), top.setValue(DoorBlock.OPEN, open));
+        return true;
+    }
+
+    public boolean removeMovingBlock(BlockPos local) {
+        if (modular == null || !detached || parked || local == null) return false;
+        ListTag next = ShipModularBlockHull.withoutMovingBlock(modular, cargo, local);
+        if (next == null) return false;
+        Map<BlockPos, BlockState> nextPalette =
+                ShipModularBlockHull.localMotionPalette(modular, next);
+        if (nextPalette.isEmpty()) return false;
+        cargo.clear();
+        cargo.addAll(next);
+        palette.clear();
+        palette.putAll(nextPalette);
+        for (BlockPos door : openDoors) {
+            for (BlockPos half : new BlockPos[]{door, door.above()}) {
+                BlockState piece = palette.get(half);
+                if (piece != null && piece.getBlock() instanceof DoorBlock)
+                    palette.put(half, piece.setValue(DoorBlock.OPEN, true));
+            }
+        }
+        return true;
+    }
+
+    public Set<BlockPos> openDoors() { return Set.copyOf(openDoors); }
+
+    public int cargoCount() { return cargo.size(); }
+    public CompoundTag cargoEntry(int index) {
+        return index < 0 || index >= cargo.size() ? null : cargo.getCompound(index).copy();
+    }
+    public boolean updateCargoEntry(int index, CompoundTag blockEntity) {
+        if (index < 0 || index >= cargo.size() || blockEntity == null) return false;
+        CompoundTag entry = cargo.getCompound(index).copy();
+        if (!entry.contains("BlockEntity", Tag.TAG_COMPOUND)) return false;
+        entry.put("BlockEntity", blockEntity.copy());
+        cargo.set(index, entry);
+        return true;
+    }
+    public Map<BlockPos, BlockState> palette() {
+        return Collections.unmodifiableMap(palette);
+    }
+    public int waterlineY() { return waterlineY; }
+    public boolean detached() { return detached; }
+    public boolean parked() { return parked; }
+
+    /**
+     * Entity-save payload; all numerical motion state and every container NBT
+     * field survive reload. A missing/malformed payload is rejected rather than
+     * silently manufacturing an empty vessel.
+     */
+    public CompoundTag save() {
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("Version", 1);
+        tag.putString("TravelMode", mode().name());
+        tag.putInt("Waterline", waterlineY);
+        tag.putInt("Geometry", snapshot == null ? 9 : snapshot.geometry());
+        tag.putInt("Rig", snapshot == null ? 0 : snapshot.rig());
+        tag.putInt("Fabric", snapshot == null ? 0 : snapshot.fabric());
+        tag.putInt("OriginalTurn", firstTurn);
+        if (modular != null) tag.put(ShipBuildConfiguration.NBT_KEY, modular.save());
+        tag.put("Cargo", cargo.copy());
+        tag.putDouble("X", motion.pose().x());
+        tag.putDouble("Z", motion.pose().z());
+        tag.putDouble("Yaw", motion.pose().yaw());
+        tag.putDouble("Speed", motion.speed());
+        tag.putDouble("TurnSpeed", motion.angularVelocity());
+        tag.putBoolean("Detached", detached);
+        tag.putBoolean("Parked", parked);
+        int[] doors = new int[openDoors.size() * 3];
+        int index = 0;
+        for (BlockPos door : openDoors) {
+            doors[index++] = door.getX();
+            doors[index++] = door.getY();
+            doors[index++] = door.getZ();
+        }
+        tag.putIntArray("OpenDoors", doors);
+        return tag;
+    }
+
+    public static ShipMovingContraption load(CompoundTag tag) {
+        if (tag == null || tag.getInt("Version") != 1
+                || tag.contains("TravelMode", Tag.TAG_STRING)
+                    && !TravelMode.WATER.name().equals(tag.getString("TravelMode"))
+                || !tag.contains("Cargo", Tag.TAG_LIST)
+                || !tag.contains("X", Tag.TAG_DOUBLE)
+                || !tag.contains("Z", Tag.TAG_DOUBLE)
+                || !tag.contains("Yaw", Tag.TAG_DOUBLE)) return null;
+        try {
+            ShipRigidMotion.Pose pose = new ShipRigidMotion.Pose(
+                    tag.getDouble("X"), tag.getDouble("Z"), tag.getDouble("Yaw"));
+            boolean detached = tag.getBoolean("Detached") && !tag.getBoolean("Parked");
+            if (tag.contains(ShipBuildConfiguration.NBT_KEY, Tag.TAG_COMPOUND)) {
+                ShipBuildConfiguration config = ShipBuildConfiguration.load(
+                        tag.getCompound(ShipBuildConfiguration.NBT_KEY));
+                double radius = collisionRadius(config);
+                ShipRigidMotion modularMotion = new ShipRigidMotion(pose, radius,
+                        config.shipClass() == ShipSectionPlan.ShipClass.LARGEST
+                                && config.hullRevision() == 4
+                                ? ShipRigidMotion.MAX_IV_FORWARD : ShipRigidMotion.MAX_FORWARD);
+                modularMotion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
+                ShipMovingContraption body = new ShipMovingContraption(config,
+                        tag.getList("Cargo", Tag.TAG_COMPOUND), tag.getInt("OriginalTurn"),
+                        tag.getInt("Waterline"), modularMotion, detached);
+                int[] doors = tag.getIntArray("OpenDoors");
+                if (doors.length % 3 != 0 || doors.length > 192) return null;
+                for (int i = 0; i < doors.length; i += 3)
+                    if (!body.toggleDoor(new BlockPos(doors[i], doors[i + 1], doors[i + 2])))
+                        return null;
+                return body;
+            }
+            ShipRigidMotion motion = new ShipRigidMotion(pose);
+            motion.restore(pose, tag.getDouble("Speed"), tag.getDouble("TurnSpeed"));
+            FirstShipBlockHull.MotionSnapshot snapshot = new FirstShipBlockHull.MotionSnapshot(
+                    tag.getList("Cargo", Tag.TAG_COMPOUND), tag.getInt("Geometry"),
+                    tag.getInt("Rig"), tag.getInt("Fabric"), tag.getInt("OriginalTurn"));
+            return new ShipMovingContraption(snapshot, tag.getInt("Waterline"), motion, detached);
+        } catch (RuntimeException invalid) {
+            return null;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:feature_bathhouse",
+  "features": [
+    "slavicmyths:bathhouse"
+  ],
+  "step": "surface_structures"
+}

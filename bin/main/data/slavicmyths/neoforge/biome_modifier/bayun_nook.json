@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": "slavicmyths:bayun_nook",
+  "step": "surface_structures"
+}

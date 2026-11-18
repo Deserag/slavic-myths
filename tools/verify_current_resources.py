@@ -39,7 +39,9 @@ def main():
         lang=json.loads((A/'lang'/(language+'.json')).read_text(encoding='utf-8'))
         for line in (A/'creative_catalog.tsv').read_text(encoding='utf-8').splitlines():
             if not line or line.startswith('#'):continue
-            id=line.split('\t')[0]
+            fields=line.split('\t')
+            assert len(fields)==3 and fields[1] in ['slavicmyths','resources','farming','food','tools','armor','decor','magic','mobs','weapons','accessories','heads','furniture','hidden'] and fields[2],('invalid creative catalogue row',line)
+            id=fields[0]
             assert any(prefix+'slavicmyths.'+id in lang for prefix in ['item.','block.']),('translation',language,id)
             assert (A/'models/item'/(id+'.json')).is_file(),('catalogue model',id)
     assert json.loads((RES/'pack.mcmeta').read_text())['pack']['pack_format']==34
@@ -50,12 +52,19 @@ def main():
         for path in RES.rglob('*'):
             if not path.is_file():continue
             rel=path.relative_to(RES).as_posix();expected=R/'build/resources/main'/rel if rel=='META-INF/neoforge.mods.toml' else path
+            if rel in ['assets/slavicmyths/textures/entity/gneteya_albedo.png','assets/slavicmyths/textures/entity/tryaseya_albedo.png']:
+                expected=R/'build/resources/main'/rel
+                # build.gradle intentionally recolors these two output atlases.
+                # Check the actual processed output, not source byte parity.
+                with Image.open(path) as original, Image.open(expected) as generated:
+                    assert original.size==generated.size==(512,512)
+                    assert original.convert('RGBA').getchannel('A').tobytes()==generated.convert('RGBA').getchannel('A').tobytes()
             assert archive.read(rel)==expected.read_bytes(),('packaged source mismatch',rel);count+=1
         classes=[name for name in names if name.endswith('.class')]
         for name in classes:assert int.from_bytes(archive.read(name)[6:8],'big')==65,('not Java21',name)
-        assert not any(name.startswith(('mezz/','top/theillusivec4/','org/slavicmyths/verify/','tools/smoke/')) or 'Weapons87Continuation' in name or 'Heads140Offline' in name for name in names),'test/dependency classes in production'
+        assert not any(name.startswith(('mezz/','top/theillusivec4/','org/slavicmyths/verify/','org/slavicmyths/hellqa/','org/slavicmyths/hellvisualqa/','tools/smoke/')) or 'Weapons87Continuation' in name or 'Heads140Offline' in name for name in names),'test/dependency classes in production'
         assert 'data/slavicmyths/structure/port_empty.nbt' not in names
-    report={'scope':'CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted','version':version,'jar':str(jar.resolve()),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'resources':count,'json':json_count,'png':png_count,'models':model_count,'java21_classes':len(classes),'runtime_launches':0,'runtime':'NOT_RUN / OWNER_PENDING'}
+    report={'scope':'CURRENT_SOURCE_AND_PRODUCTION_JAR; historical port acceptance not asserted','version':version,'jar':str(jar.resolve()),'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'resources':count,'json':json_count,'png':png_count,'models':model_count,'java21_classes':len(classes),'runtime_launches':'NOT_TRACKED_BY_STATIC_CHECK','runtime':'NOT_ASSESSED_BY_RESOURCE_CHECK; see actual QA logs'}
     out=R/'build/current-resources.json';out.write_text(json.dumps(report,indent=2)+'\n')
     print('PASS current NeoForge resources:',json.dumps(report))
 if __name__=='__main__':main()

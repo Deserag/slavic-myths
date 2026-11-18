@@ -10,7 +10,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 
 /** Vanilla ammo/enchantment pipeline; draw speed, velocity and damage define the two roles. */
-public final class FieldBowItem extends BowItem {
+public class FieldBowItem extends BowItem {
     public final boolean heavy;
     public FieldBowItem(boolean heavy,Properties properties){super(properties);this.heavy=heavy;}
     public int drawTicks(){return heavy?30:12;}
@@ -18,9 +18,11 @@ public final class FieldBowItem extends BowItem {
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if(!(user instanceof Player player))return;
         ItemStack ammo=player.getProjectile(stack);
-        if(ammo.isEmpty())return;
-        int held=net.neoforged.neoforge.event.EventHooks.onArrowLoose(stack,level,player,getUseDuration(stack,user)-remaining,true);
+        boolean creative=player.hasInfiniteMaterials();
+        if(ammo.isEmpty()&&!creative)return;
+        int held=net.neoforged.neoforge.event.EventHooks.onArrowLoose(stack,level,player,getUseDuration(stack,user)-remaining,!ammo.isEmpty()||creative);
         if(held<0)return;
+        if(ammo.isEmpty())ammo=new ItemStack(Items.ARROW);
         float power=drawPower(held);if(power<.1)return;
         var list=draw(stack,ammo,player);
         if(level instanceof ServerLevel server&&!list.isEmpty())shoot(server,player,player.getUsedItemHand(),stack,list,power*(heavy?3.6F:2.4F),heavy?.7F:1.1F,power==1,null);

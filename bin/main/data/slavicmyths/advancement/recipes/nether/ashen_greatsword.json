@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "material": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "slavicmyths:ashen_blade_core"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "slavicmyths:ashen_greatsword"
+    ]
+  }
+}

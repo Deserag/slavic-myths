@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:linden_8",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

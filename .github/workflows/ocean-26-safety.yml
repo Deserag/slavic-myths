@@ -1,0 +1,35 @@
+name: Ocean 2.6 - deterministic rig, crew and resource proof
+on:
+  push:
+    branches: ["fix/2.6-ocean-crew-sails-20261108", "fix/2.6-small-ship-gameplay-visuals-20261109"]
+    paths:
+      - "src/main/java/org/slavicmyths/ships/**"
+      - "src/main/java/org/slavicmyths/registry/ModItemGroup.java"
+      - "src/main/resources/data/slavicmyths/recipe/linen_cloth.json"
+      - "src/main/resources/data/slavicmyths/recipe/reinforced_sailcloth.json"
+      - "src/main/resources/data/slavicmyths/recipe/ship_*.json"
+      - "src/main/resources/assets/slavicmyths/models/item/*.json"
+      - "src/main/resources/assets/slavicmyths/lang/ru_ru.json"
+      - "experimental/raft26/OceanRigProof.java"
+      - "experimental/raft26/audit_ocean_26.py"
+      - ".github/workflows/ocean-26-safety.yml"
+  pull_request:
+    branches: ["rewrite/2.6-native-block-ship-20261108"]
+permissions:
+  contents: read
+jobs:
+  test-rigging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Compile and run deterministic rig and captain/crew geometry proof
+        run: |
+          mkdir -p build/ocean-26-proof
+          javac -encoding UTF-8 -d build/ocean-26-proof src/main/java/org/slavicmyths/ships/ShipRigging.java src/main/java/org/slavicmyths/ships/FirstShipHull.java experimental/raft26/OceanRigProof.java
+          java -ea -cp build/ocean-26-proof OceanRigProof
+      - name: Audit registered ship items, recipes, persistence hooks and cargo integrity guards
+        run: python3 experimental/raft26/audit_ocean_26.py

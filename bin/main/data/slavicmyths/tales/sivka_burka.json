@@ -1,0 +1,13 @@
+{
+  "part": "creatures",
+  "chapter": "legends",
+  "section": "inhabitants",
+  "title": "tales.entry.sivka_burka.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 1,
+  "subjects": [
+    "entity/slavicmyths:sivka_burka"
+  ],
+  "advancements": [],
+  "links": []
+}

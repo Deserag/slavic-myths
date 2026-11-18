@@ -1,0 +1,615 @@
+{
+  "schema": "slavicmyths:nether_communal_house_blueprint_r1",
+  "status": "OWNER_APPROVED_ART; BLUEPRINT_DRAFT_PRE_GAME_TEST",
+  "grid": {
+    "x_min": -1,
+    "x_max": 21,
+    "z_min": -1,
+    "z_max": 13,
+    "y_min": 0,
+    "y_max": 16,
+    "width": 23,
+    "depth": 15,
+    "height": 17
+  },
+  "main_body": {
+    "x_min": 0,
+    "x_max": 20,
+    "z_min": 0,
+    "z_max": 12,
+    "width": 21,
+    "depth": 13
+  },
+  "city_anchor": {
+    "x": 14,
+    "z": 16
+  },
+  "city_roof_bbox": {
+    "x_min": 13,
+    "x_max": 35,
+    "z_min": 15,
+    "z_max": 29
+  },
+  "palette": {
+    ".": "minecraft:air",
+    "P": "minecraft:polished_blackstone_bricks",
+    "B": "minecraft:polished_basalt[axis=y]",
+    "F": "minecraft:polished_blackstone",
+    "W": "minecraft:nether_bricks",
+    "C": "minecraft:crimson_planks",
+    "N": "minecraft:nether_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+    "S": "minecraft:nether_brick_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]",
+    "L": "minecraft:crimson_slab[type=bottom,waterlogged=false]",
+    "T": "minecraft:crimson_trapdoor[facing=north,half=top,open=false,powered=false,waterlogged=false]",
+    "G": "minecraft:iron_bars[north=false,east=false,south=false,west=false,waterlogged=false]",
+    "H": "minecraft:chest[facing=south,type=single,waterlogged=false]",
+    "Q": "minecraft:crimson_door[facing=south,half=lower,hinge=left,open=false,powered=false]",
+    "q": "minecraft:crimson_door[facing=south,half=upper,hinge=left,open=false,powered=false]",
+    "J": "minecraft:crimson_door[facing=south,half=lower,hinge=right,open=false,powered=false]",
+    "j": "minecraft:crimson_door[facing=south,half=upper,hinge=right,open=false,powered=false]",
+    "U": "minecraft:polished_blackstone_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+    "K": "minecraft:crimson_fence[north=false,east=false,south=false,west=false,waterlogged=false]",
+    "V": "minecraft:lantern[hanging=false,waterlogged=false]"
+  },
+  "rows_y_z_x": [
+    [
+      ".......................",
+      ".PPPPPPPPPPPPPPPPPPPPP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PPPPPPPPPPPPPPPPPPPPP.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      ".P.......W...W.......P.",
+      ".P.H.....W...W.....H.P.",
+      ".P..C.C.C......L.L.L.P.",
+      ".P..CV.C.W...W..C..V.P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.L..L..W...W.L..L..P.",
+      ".P..L.L........L..L..P.",
+      ".P......HWUU.W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPPPPPPQJPPPPPPPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.T..T..W...W.T..T..P.",
+      ".G........UU.........G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPGPPPPqjPPPPPGPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.......WUU.W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPGPPPP..PPPPPGPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......WUU.W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BCCCCCCCCCCCCCCCCCCCB.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".CWWWWWWWWUU.WWWWWWWWC.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".BCCCCCCCCCCCCCCCCCCCB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCUUFCCCCCCCCP.",
+      ".BCCCCCCCC..FCCCCCCCCB.",
+      ".PCCCCCCCC..FCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".PCCCCCCCCFFFCCCCCCCCP.",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      ".P.......W...W.......P.",
+      ".P.L..L..W...W.L..L..P.",
+      ".P.L..L........L..L..P.",
+      ".P...V...W...W.....V.P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.L..L..W...W.L..L..P.",
+      ".P.L..L........L..LH.P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      ".P.T..T..W...W.T..T..P.",
+      ".P.......W...W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.T..T..W...W.T..T..P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".G...................G.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPGPPPPPBPPPPPGPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BWWWWWWWW...WWWWWWWWB.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".P.......W...W.......P.",
+      ".BPPPPPPPPPBPPPPPPPPPB.",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".BCCCCCCCCCCCCCCCCCCCB.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".CWWWWWWWW...WWWWWWWWC.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".C.......W...W.......C.",
+      ".BCCCCCCCCCCCCCCCCCCCB.",
+      "......................."
+    ],
+    [
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      "SSSSSSSSSSSSSSSSSSSSSSS"
+    ],
+    [
+      ".......................",
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      "SSSSSSSSSSSSSSSSSSSSSSS",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".......................",
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      "SSSSSSSSSSSSSSSSSSSSSSS",
+      "SSSSSSSSSSSSSSSSSSSSSSS",
+      ".......................",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      "NNNNNNNNNNNNNNNNNNNNNNN",
+      ".W...................W.",
+      ".W...................W.",
+      ".W...................W.",
+      "SSSSSSSSSSSSSSSSSSSSSSS",
+      "SSSSSSSSSSSSSSSSSSSSSSS",
+      ".......................",
+      ".......................",
+      ".......................",
+      "......................."
+    ],
+    [
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      "WWWWWWWWWWWWWWWWWWWWWWW",
+      "WWWWWWWWWWWWWWWWWWWWWWW",
+      "WWWWWWWWWWWWWWWWWWWWWWW",
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      ".......................",
+      "......................."
+    ]
+  ],
+  "loot_markers": [
+    {
+      "id": "pantry",
+      "pos": [
+        2,
+        1,
+        2
+      ],
+      "place": "R01 Кухонно-продуктовая",
+      "loot_table": "slavicmyths:chests/nether_communal_pantry",
+      "city_x": 16,
+      "city_z": 18
+    },
+    {
+      "id": "utility",
+      "pos": [
+        18,
+        1,
+        2
+      ],
+      "place": "R02 Общая столовая и инвентарь",
+      "loot_table": "slavicmyths:chests/nether_communal_utility",
+      "city_x": 32,
+      "city_z": 18
+    },
+    {
+      "id": "personal",
+      "pos": [
+        7,
+        1,
+        10
+      ],
+      "place": "R03 Спальня I",
+      "loot_table": "slavicmyths:chests/nether_communal_personal",
+      "city_x": 21,
+      "city_z": 26
+    },
+    {
+      "id": "elder",
+      "pos": [
+        18,
+        7,
+        9
+      ],
+      "place": "R08 Спальня VI / старший корпуса",
+      "loot_table": "slavicmyths:chests/nether_communal_elder",
+      "city_x": 32,
+      "city_z": 25
+    }
+  ],
+  "room_bounds": [
+    {
+      "id": "R01",
+      "name": "Кухонно-продуктовая",
+      "floor": 1,
+      "x": [
+        1,
+        7
+      ],
+      "z": [
+        1,
+        5
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R02",
+      "name": "Общая столовая",
+      "floor": 1,
+      "x": [
+        13,
+        19
+      ],
+      "z": [
+        1,
+        5
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R03",
+      "name": "Спальня I",
+      "floor": 1,
+      "x": [
+        1,
+        7
+      ],
+      "z": [
+        7,
+        11
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R04",
+      "name": "Спальня II",
+      "floor": 1,
+      "x": [
+        13,
+        19
+      ],
+      "z": [
+        7,
+        11
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R05",
+      "name": "Спальня III",
+      "floor": 2,
+      "x": [
+        1,
+        7
+      ],
+      "z": [
+        1,
+        5
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R06",
+      "name": "Спальня IV",
+      "floor": 2,
+      "x": [
+        13,
+        19
+      ],
+      "z": [
+        1,
+        5
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R07",
+      "name": "Спальня V",
+      "floor": 2,
+      "x": [
+        1,
+        7
+      ],
+      "z": [
+        7,
+        11
+      ],
+      "size": "7x5"
+    },
+    {
+      "id": "R08",
+      "name": "Спальня VI",
+      "floor": 2,
+      "x": [
+        13,
+        19
+      ],
+      "z": [
+        7,
+        11
+      ],
+      "size": "7x5"
+    }
+  ],
+  "interior": {
+    "corridor_x": [
+      9,
+      11
+    ],
+    "ground_floor_y": 0,
+    "second_floor_y": 6,
+    "stairs": [
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 10,
+        "y": 1
+      },
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 9,
+        "y": 2
+      },
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 8,
+        "y": 3
+      },
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 7,
+        "y": 4
+      },
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 6,
+        "y": 5
+      },
+      {
+        "x": [
+          9,
+          10
+        ],
+        "z": 5,
+        "y": 6
+      }
+    ],
+    "stairs_gap": {
+      "x": [
+        9,
+        10
+      ],
+      "z": [
+        6,
+        7
+      ],
+      "y": 6
+    },
+    "main_entry": {
+      "x": [
+        9,
+        10
+      ],
+      "z": 12,
+      "y": [
+        1,
+        2
+      ]
+    }
+  },
+  "non_air_block_count": 1992,
+  "by_symbol": {
+    "P": 533,
+    "C": 478,
+    "F": 60,
+    "B": 77,
+    "W": 473,
+    "H": 4,
+    "L": 27,
+    "V": 4,
+    "U": 12,
+    "Q": 1,
+    "J": 1,
+    "G": 32,
+    "T": 12,
+    "q": 1,
+    "j": 1,
+    "N": 138,
+    "S": 138
+  },
+  "notes": [
+    "Each row is X-major, each row list is Z-major, each layer list is Y-major.",
+    "A missing / dot cell is air; only apply after safe structure preflight in new chunks or verified untouched city slot.",
+    "Reference art is style guide, not block accuracy. Bed slabs are decorative; no vanilla bed placement in Nether.",
+    "Exact blockstates of connected iron bars and stairs need game-side validation."
+  ]
+}

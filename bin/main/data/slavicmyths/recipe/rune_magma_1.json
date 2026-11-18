@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slavicmyths:magma_rune_fragment"
+    },
+    {
+      "item": "slavicmyths:magma_core"
+    },
+    {
+      "item": "slavicmyths:salamander_hide"
+    },
+    {
+      "item": "slavicmyths:salamander_hide"
+    },
+    {
+      "item": "slavicmyths:crab_claw"
+    },
+    {
+      "item": "slavicmyths:blank_rune_1"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_magma_1",
+    "count": 1
+  }
+}

@@ -19,7 +19,7 @@ public final class CommandCatalogOffline {
  private static CommandTree tree;
  private static ServerPlayer identity;
  private static final com.google.gson.Gson JSON=new com.google.gson.GsonBuilder().setPrettyPrinting().create();
- private static final Path OUT=Path.of("docs/implementation/commands-74");
+ private static final Path OUT=Path.of("build/reports/commands-offline");
  private record Original(String path,CommandNode<CommandSourceStack> node,Predicate<CommandSourceStack> allowed){}
  private static CommandSourceStack source(int op,boolean player) {
   return new CommandSourceStack(CommandSource.NULL,net.minecraft.world.phys.Vec3.ZERO,net.minecraft.world.phys.Vec2.ZERO,null,op,"Offline",net.minecraft.network.chat.Component.literal("Offline"),null,player?identity:null);
@@ -59,6 +59,7 @@ public final class CommandCatalogOffline {
   check(d.getRoot().getChildren().stream().map(CommandNode::getName).collect(java.util.stream.Collectors.toSet()).equals(Set.of("slavicmyths","sm","smclass","locate")),"Only canonical/compatibility roots");
   check(d.getRoot().getChild("sm").getRedirect()==d.getRoot().getChild("slavicmyths"),"One sm redirect");
   check(!d.getRoot().getChild("locate").canUse(source(0,true)),"Compatibility locate root retains OP2");
+  for(String id:List.of("bandit_camp_small","bandit_camp_medium","bandit_camp_large","kurgan_small","kurgan_warrior","kurgan_great","swamp_hut","flooded_shrine"))check(tree.nodes().containsKey("slavicmyths dev site locate "+id),"Vanilla locate literal uses construction route: "+id);
   int leaves=0;
   for(var old:originals)if(old.node().getCommand()!=null) {
    leaves++;String path=CommandTree.canonical(old.path());var after=tree.nodes().get(path);
@@ -147,7 +148,7 @@ public final class CommandCatalogOffline {
     registrationBus.register(Class.forName(name));automatic++;check(true,"Native bus registration "+name);
    }
   }}
-  check(automatic==7,"Central registrar plus six contributors with remaining non-command events");
+  check(automatic==6,"Central registrar plus five contributors with remaining non-command events; Chud search events moved to construction queue");
   var report=new LinkedHashMap<String,Object>();report.put("status","PASS_OFFLINE");report.put("checks",checks);
   report.put("original_executables_in_contributions",leaves);report.put("tree_nodes",rows.size());report.put("compatibility_nodes",tree.aliases().size());
   report.put("tests","Real builders/Brigadier OP0-4, player/console identity, callback identity, bounds/UUID, class/help completion, one-action parsing spies");

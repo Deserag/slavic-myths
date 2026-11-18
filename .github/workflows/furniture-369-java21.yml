@@ -1,0 +1,42 @@
+name: Furniture #369 Java 21 and resources
+on:
+  push:
+    branches: [feat/furniture-wood-variants-issue-369-20261031]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  furniture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - name: Validate all 56 furniture variants, models, recipes and loot
+        run: python tools/furniture-expansion/verify_furniture.py
+      - name: Ensure furniture generator reproduces committed resources
+        run: |
+          python tools/furniture-expansion/generate.py
+          git diff --exit-code -- src/main/resources/assets/slavicmyths/blockstates src/main/resources/assets/slavicmyths/models/block src/main/resources/assets/slavicmyths/models/item src/main/resources/data/slavicmyths/recipe src/main/resources/data/slavicmyths/loot_table/blocks
+      - name: Validate creative category order (pure Java)
+        run: |
+          mkdir -p build/furniture369
+          javac -encoding UTF-8 -d build/furniture369 src/main/java/org/slavicmyths/registry/CreativeCatalog.java tools/creative-tests/CreativeCatalogChecks.java
+          java -cp build/furniture369:src/main/resources org.slavicmyths.verify.CreativeCatalogChecks
+      - name: Clean Java 21 production build
+        run: chmod +x gradlew && ./gradlew --no-daemon clean build --console=plain
+      - name: Source resources and production JAR
+        run: python tools/verify_current_resources.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: furniture-369-java21-jar
+          path: build/libs/slavicmyths-*.jar
+          if-no-files-found: error
+          retention-days: 14

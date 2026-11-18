@@ -1,0 +1,13 @@
+{
+  "parent": "slavicmyths:bad_people",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

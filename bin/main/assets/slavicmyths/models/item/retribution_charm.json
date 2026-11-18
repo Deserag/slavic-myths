@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "slavicmyths:item/retribution_charm_held148"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/retribution_charm"
+      }
+    }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/retribution_charm"
+  }
+}

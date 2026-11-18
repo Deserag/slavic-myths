@@ -1,0 +1,15 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:short_shaft"
+    },
+    {
+      "item": "slavicmyths:stone_light_spearhead"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:stone_sulitsa",
+    "count": 1
+  }
+}

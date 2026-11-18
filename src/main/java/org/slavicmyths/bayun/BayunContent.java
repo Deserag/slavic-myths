@@ -12,7 +12,6 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.*;
 
-@EventBusSubscriber(modid="slavicmyths",bus=EventBusSubscriber.Bus.MOD)
 public final class BayunContent {
     public static final DeferredHolder<EntityType<?>,EntityType<BayunEntity>> ENTITY=ModEntities.ENTITIES.register("kot_bayun",()->EntityType.Builder.of(BayunEntity::new,MobCategory.CREATURE).sized(1.25F,1.65F).clientTrackingRange(12).updateInterval(2).build("slavicmyths:kot_bayun"));
     public static final DeferredHolder<Item,Item> EGG=ModItems.ITEMS.register("kot_bayun_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(ENTITY,0x302e36,0xeaa23f,new Item.Properties()));

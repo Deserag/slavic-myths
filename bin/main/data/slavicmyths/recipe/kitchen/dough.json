@@ -1,0 +1,33 @@
+{
+  "type": "slavicmyths:kitchen",
+  "mode": "ROLLING",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "slavicmyths:wheat_flour"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:water_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "tool": {
+    "item": "slavicmyths:rolling_pin"
+  },
+  "time": 80,
+  "result": {
+    "id": "slavicmyths:dough",
+    "count": 2
+  },
+  "servings": 0,
+  "remainders": [
+    {
+      "id": "minecraft:bucket",
+      "count": 1
+    }
+  ]
+}

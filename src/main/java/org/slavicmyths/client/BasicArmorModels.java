@@ -13,7 +13,6 @@ import net.neoforged.neoforge.client.extensions.common.*;
 import org.slavicmyths.registry.ModItems;
 
 /** Individual padded coat, forged cuirass and travelling boots; client geometry only. */
-@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=net.neoforged.fml.common.EventBusSubscriber.Bus.MOD)
 public final class BasicArmorModels implements IClientItemExtensions {
  private final String id;
  private final HumanoidModel<?> normal,slim;

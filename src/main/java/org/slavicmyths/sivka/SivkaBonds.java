@@ -56,7 +56,7 @@ public final class SivkaBonds extends SavedData {
         if(b==null){b=new Bond(p.getUUID());bonds.put(p.getUUID(),b);}
         if(renew){var old=loaded(p.serverLevel(),b);b.generation++;b.entity=null;if(old!=null&&old!=h){old.ejectPassengers();old.discard();}b.token++;}else b.stage++;
         b.expired=false;b.expiry=b.stage==7?0:b.play+SivkaRules.TEMP_TICKS;b.lastFeed=b.play;b.entity=h.getUUID();b.dimension=p.level().dimension().location().toString();b.last=h.blockPosition();
-        h.owner=b.owner;h.bond=b.id;h.generation=b.generation;h.react(1,30);
+        h.owner=b.owner;h.bond=b.id;h.generation=b.generation;h.renewedInteraction();h.react(1,30);
         if(!p.getAbilities().instabuild){boolean honey=held.is(Items.HONEY_BOTTLE);held.shrink(1);if(honey&&!p.getInventory().add(new ItemStack(Items.GLASS_BOTTLE)))p.drop(new ItemStack(Items.GLASS_BOTTLE),false);}
         if(b.stage==1||renew)give(p,b);
         h.cue("feed_chew",.4F);h.cue(b.stage==7?"bond_complete":"bond_progress",.55F);if(b.stage==3||b.stage==6)h.cue("whinny_soft",.6F);h.spark(b.stage==7?20:10);
@@ -69,5 +69,5 @@ public final class SivkaBonds extends SavedData {
         if(p.tickCount%20==0){for(var s:p.getInventory().items)reconcile(s,p,b);for(var s:p.getInventory().offhand)reconcile(s,p,b);}
     }
     private static void reconcile(ItemStack s,ServerPlayer p,Bond b){if(!s.is(SivkaContent.WHISTLE.get()))return;var n=token(s);if(n.hasUUID("Owner")&&n.getUUID("Owner").equals(p.getUUID())){if(!matches(s,b,p.getUUID())||!b.valid())s.setCount(0);else stamp(s,b);}}
-    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){var d=get(p.serverLevel());var b=d.bonds.get(p.getUUID());if(b!=null)d.retire(p.serverLevel(),b);}}
+    @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){var d=get(p.serverLevel());var b=d.bonds.get(p.getUUID());if(b!=null){var h=d.loaded(p.serverLevel(),b);if(h!=null){h.renewedInteraction();b.health=h.getHealth();b.last=h.blockPosition();}d.setDirty();}}}
 }

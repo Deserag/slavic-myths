@@ -1,0 +1,13 @@
+{
+  "part": "quests",
+  "chapter": "mor",
+  "section": "investigation",
+  "title": "tales.entry.mor_investigation.title",
+  "icon": "slavicmyths:wolf_call",
+  "initial": 0,
+  "subjects": [],
+  "advancements": [],
+  "links": [
+    "slavicmyths:great_poloz"
+  ]
+}

@@ -36,6 +36,8 @@ public final class SivkaEntity extends PathfinderMob {
     public void spark(int count){if(level() instanceof ServerLevel w)w.sendParticles(ParticleTypes.WAX_ON,getX(),getY()+1.6,getZ(),count,.7,.6,.7,.04);}
     public boolean owns(Player p){if(owner==null||!owner.equals(p.getUUID())||!(level() instanceof ServerLevel w))return false;var b=SivkaBonds.get(w).bonds.get(owner);return b!=null&&b.id.equals(bond)&&b.generation==generation&&b.stage==7&&b.valid();}
     public void arrive(ServerPlayer p){navigation.moveTo(p,1.2);arrivalTicks=160;departTicks=0;idleTicks=0;}
+    public void renewedInteraction(){idleTicks=departTicks=0;}
+    @Override protected void addPassenger(Entity passenger){super.addPassenger(passenger);lastSequence=-1;inputTime=-100;forward=strafe=0;sprint=jump=down=priorJump=false;wantedYaw=passenger.getYRot();navigation.stop();renewedInteraction();}
     public void input(SivkaNetwork.Input i){long now=level().getGameTime();if(now-inputTime<2||i.sequence()<=lastSequence)return;lastSequence=i.sequence();inputTime=now;forward=i.forward();strafe=i.strafe();wantedYaw=Mth.wrapDegrees(i.yaw());sprint=i.sprint();jump=i.jump();down=i.down();}
     @Override public InteractionResult mobInteract(Player p,InteractionHand hand){var s=p.getItemInHand(hand);if(s.is(Items.LEAD)||s.is(Items.SADDLE)||s.is(Items.IRON_HORSE_ARMOR)||s.is(Items.GOLDEN_HORSE_ARMOR)||s.is(Items.DIAMOND_HORSE_ARMOR)||s.is(Items.LEATHER_HORSE_ARMOR)){if(!level().isClientSide)SivkaBonds.message(p,"free_horse");return InteractionResult.sidedSuccess(level().isClientSide);}
         if(level().isClientSide)return InteractionResult.SUCCESS;
@@ -49,7 +51,20 @@ public final class SivkaEntity extends PathfinderMob {
     @Override public boolean startRiding(Entity e,boolean force){return false;}
     @Override protected boolean canAddPassenger(Entity e){return !isVehicle()&&e instanceof Player p&&owns(p);}
     @Override @Nullable public LivingEntity getControllingPassenger(){return null;}
-    @Override public Vec3 getPassengerRidingPosition(Entity rider){return position().add(Math.sin(Math.toRadians(getYRot()))*.08,2.18,-Math.cos(Math.toRadians(getYRot()))*.08);}
+    @Override public Vec3 getPassengerRidingPosition(Entity rider){
+        // Follow the actual body animation rather than leaving the rider at a fixed world height.
+        // SivkaMesh body pivot is 25.92/16 above the feet; vanilla seated player hips are
+        // .75 above player feet, with a .6 vehicle attachment. Model/UV and gait curves stay intact.
+        boolean air=flying();double fast=Math.clamp((actualSpeed()-6)/3,0,1);
+        double bob=SivkaPoses.sample(air,gait(),2)*(air?1:fast);
+        double pitch=-SivkaPoses.sample(air,gait(),1)*(air?1:fast)-lift()*50;
+        if(mode()==1)pitch-=14*Math.sin(Math.clamp(modeAge()/16.0,0,1)*Math.PI);
+        double tilt=Math.toRadians(pitch),roll=Math.toRadians(bank()),yaw=Math.toRadians(getYRot());
+        double hip=.71*Math.cos(roll),side=-.71*Math.sin(roll);
+        double back=-.08*Math.cos(tilt)+hip*Math.sin(tilt);
+        double height=1.47+bob+hip*Math.cos(tilt)+.08*Math.sin(tilt);
+        return position().add(side*Math.cos(yaw)-back*Math.sin(yaw),height,side*Math.sin(yaw)+back*Math.cos(yaw));
+    }
     @Override protected void positionRider(Entity e,Entity.MoveFunction f){super.positionRider(e,f);e.fallDistance=0;}
     @Override public Vec3 getDismountLocationForPassenger(LivingEntity rider){
         if(flying()&&level() instanceof ServerLevel){rider.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,80,0,false,true));}
@@ -64,18 +79,19 @@ public final class SivkaEntity extends PathfinderMob {
         boolean edge=jump&&!priorJump;priorJump=jump;double actual=actualSpeed();
         if(onGround()&&sprint&&forward>.5&&actual>=9){if(readyTicks++==0)cue("gallop_burst",.4F);}else if(!flying())readyTicks=0;
         if(!flying()&&edge&&onGround()){
-            if(SivkaRules.ready(actual,readyTicks,true,sprint)&&!isInWater()&&headClear(1.8)){setMode(1);vertical=.14;}
-            else {setDeltaMovement(getDeltaMovement().x,.42,getDeltaMovement().z);if(mounted&&getFirstPassenger() instanceof Player p)SivkaBonds.message(p,readyTicks>=50?"obstacle":"not_ready");}
+            if(forward>.5&&SivkaRules.ready(actual,readyTicks,true,sprint)&&!isInWater()&&headClear(1.8)){setMode(1);vertical=.24;}
+            else {setDeltaMovement(getDeltaMovement().x,SivkaRules.GROUND_JUMP,getDeltaMovement().z);}
         }
-        float turn=Mth.clamp(Mth.wrapDegrees(wantedYaw-getYRot())+strafe*2,flying()?-3F:-3.5F,flying()?3F:3.5F);if(mounted){setYRot(getYRot()+turn);yBodyRot=getYRot();yHeadRot=getYRot();}
-        double target=flying()?(forward>0?16:forward<0?3:Math.max(3,speed-.08)):(forward>0?(sprint?12:6):forward<0?2:0);
-        speed=SivkaRules.approach(speed,target,(flying()?5:target>speed?4:5.5)/20);
+        float turn=Mth.clamp(Mth.wrapDegrees(wantedYaw-getYRot()),flying()?-6F:-12F,flying()?6F:12F);if(mounted){setYRot(getYRot()+turn);yBodyRot=getYRot();yHeadRot=getYRot();}
+        double target=flying()?(forward>0?SivkaRules.AIR_SPEED:forward<0?6:0):(forward>0?(sprint?12:6):forward<0?2:0);
+        speed=SivkaRules.approach(speed,target,(flying()?(target>speed?SivkaRules.AIR_ACCELERATION:SivkaRules.AIR_BRAKING):target>speed?4:5.5)/20);
         if(flying()&&speed<=3.1)slowTicks++;else slowTicks=0;
-        double rad=Math.toRadians(getYRot()),vx=-Math.sin(rad)*speed/20,vz=Math.cos(rad)*speed/20;if(!flying()&&forward<0){vx=-vx;vz=-vz;}
+        double rad=Math.toRadians(getYRot()),vx=-Math.sin(rad)*speed/20,vz=Math.cos(rad)*speed/20;if(forward<0){vx=-vx;vz=-vz;}
+        if(mounted&&Math.abs(strafe)>0){double side=(flying()?6:3)*strafe/20;vx+=Math.cos(rad)*side;vz+=Math.sin(rad)*side;}
         double vy;
         if(flying()){
             if(mode()==1&&modeTicks>=16)setMode(2);
-            double desired=mode()==1?.14:down||!mounted||slowTicks>30?-.15:jump?.15:0;vertical=SivkaRules.approach(vertical,desired,.01875);
+            double desired=mode()==1?.24:down||!mounted?-.18:jump?.18:0;vertical=SivkaRules.approach(vertical,desired,.025);
             double nextPhase=(phase+1/14.4)%1;vy=vertical+SivkaRules.physicalWave(nextPhase)-SivkaRules.physicalWave(phase);
             if(getY()>level().getMaxBuildHeight()-5&&vy>0)vy=0;
             if(horizontalCollision){vx*=.3;vz*=.3;vy=-.08;}
@@ -90,12 +106,12 @@ public final class SivkaEntity extends PathfinderMob {
         if(mode()==3&&modeTicks>=20)setMode(0);
         if(flying())fallDistance=0;entityData.set(BANK,bank()+(-turn*1.8F-bank())*.2F);entityData.set(LIFT,(float)vertical);
     }
-    @Override public void tick(){super.tick();if(level().isClientSide)return;
+    @Override public void tick(){if(!level().isClientSide){boolean ai=!isVehicle()&&!flying();for(var flag:new Goal.Flag[]{Goal.Flag.MOVE,Goal.Flag.LOOK,Goal.Flag.JUMP})goalSelector.setControlFlag(flag,ai);}super.tick();if(level().isClientSide)return;
         modeTicks++;if(scared>0)scared--;if(reaction()!=0&&tickCount>=reactionEnd)entityData.set(REACTION,0);
         if(owner!=null&&level() instanceof ServerLevel w){var d=SivkaBonds.get(w);var b=d.bonds.get(owner);if(b==null||!b.id.equals(bond)||b.generation!=generation||!getUUID().equals(b.entity)||!b.valid()){ejectPassengers();discard();return;}
             if(tickCount%20==0){b.health=getHealth();b.last=blockPosition();d.setDirty();}
             if(wasMounted&&!isVehicle()){idleTicks=0;react(5,7);}wasMounted=isVehicle();
-            if(!isVehicle())idleTicks++;else {idleTicks=departTicks=0;navigation.stop();}
+            if(!isVehicle()&&w.getServer().getPlayerList().getPlayer(owner)!=null)idleTicks++;else {idleTicks=departTicks=0;navigation.stop();}
             if(idleTicks>=SivkaRules.DEPART_DELAY&&!isVehicle()){
                 if(departTicks++==0){react(6,48);cue("depart",.5F);var away=net.minecraft.world.entity.ai.util.DefaultRandomPos.getPos(this,8,2);if(away!=null)navigation.moveTo(away.x,away.y,away.z,1.4);}
                 if(departTicks==32)spark(12);if(departTicks>=48){b.entity=null;d.setDirty();discard();return;}

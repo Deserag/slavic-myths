@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    " S ",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:mor_oak_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:mor_oak_table"
+  }
+}

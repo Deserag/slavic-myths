@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:oat_sheaf"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:oat_grain",
+    "count": 9
+  }
+}

@@ -155,3 +155,6 @@ if __name__=='__main__':
  main()
  import rare_weapon_resources_1322
  rare_weapon_resources_1322.main()
+ # Preserve the current +X-to-vanilla bow basis when this legacy generator is explicitly run.
+ from hell_bow_orientation import main as repair_bow_display
+ repair_bow_display()

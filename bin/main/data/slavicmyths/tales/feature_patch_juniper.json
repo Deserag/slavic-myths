@@ -1,0 +1,15 @@
+{
+  "part": "nature",
+  "chapter": "plants",
+  "section": "catalogue",
+  "title": "tales.entry.feature_patch_juniper.title",
+  "icon": "slavicmyths:lore_book",
+  "initial": 0,
+  "subjects": [
+    "block/slavicmyths:juniper_berries",
+    "feature/slavicmyths:patch_juniper",
+    "item/slavicmyths:juniper_berries"
+  ],
+  "advancements": [],
+  "links": []
+}

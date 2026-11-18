@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F",
+    " I",
+    "S "
+  ],
+  "key": {
+    "F": {
+      "item": "slavicmyths:idol_fragment"
+    },
+    "I": {
+      "item": "slavicmyths:silver_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "slavicmyths:ritual_knife"
+  }
+}

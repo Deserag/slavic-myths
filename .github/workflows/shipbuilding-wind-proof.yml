@@ -1,0 +1,31 @@
+name: Shipbuilding 2.6 - pure wind proof
+
+on:
+  push:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/RaftWind.java"
+      - "src/main/java/org/slavicmyths/ships/RaftSize.java"
+      - "experimental/raft26/RaftWindProof.java"
+      - ".github/workflows/shipbuilding-wind-proof.yml"
+  pull_request:
+    paths:
+      - "src/main/java/org/slavicmyths/ships/RaftWind.java"
+      - "src/main/java/org/slavicmyths/ships/RaftSize.java"
+      - "experimental/raft26/RaftWindProof.java"
+      - ".github/workflows/shipbuilding-wind-proof.yml"
+
+jobs:
+  verify-wind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Compile Java 21 pure sea-wind test
+        run: |
+          mkdir -p build/raft-wind-proof
+          javac -encoding UTF-8 -d build/raft-wind-proof src/main/java/org/slavicmyths/ships/RaftSize.java src/main/java/org/slavicmyths/ships/RaftWind.java experimental/raft26/RaftWindProof.java
+      - name: Prove headwind, tailwind, two-sail and deterministic rules
+        run: java -ea -cp build/raft-wind-proof org.slavicmyths.ships.RaftWindProof

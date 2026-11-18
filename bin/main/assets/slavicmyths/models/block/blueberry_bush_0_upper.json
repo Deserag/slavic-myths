@@ -1,0 +1,146 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "stem": "minecraft:block/dark_oak_log",
+    "leaf": "minecraft:block/spruce_leaves",
+    "berry": "minecraft:block/blue_terracotta",
+    "particle": "minecraft:block/spruce_leaves"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        7
+      ],
+      "to": [
+        5,
+        3,
+        8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stem"
+        },
+        "south": {
+          "texture": "#stem"
+        },
+        "east": {
+          "texture": "#stem"
+        },
+        "west": {
+          "texture": "#stem"
+        },
+        "up": {
+          "texture": "#stem"
+        },
+        "down": {
+          "texture": "#stem"
+        }
+      }
+    },
+    {
+      "from": [
+        9,
+        0,
+        5
+      ],
+      "to": [
+        10,
+        3,
+        6
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stem"
+        },
+        "south": {
+          "texture": "#stem"
+        },
+        "east": {
+          "texture": "#stem"
+        },
+        "west": {
+          "texture": "#stem"
+        },
+        "up": {
+          "texture": "#stem"
+        },
+        "down": {
+          "texture": "#stem"
+        }
+      }
+    },
+    {
+      "from": [
+        10,
+        0,
+        10
+      ],
+      "to": [
+        11,
+        3,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stem"
+        },
+        "south": {
+          "texture": "#stem"
+        },
+        "east": {
+          "texture": "#stem"
+        },
+        "west": {
+          "texture": "#stem"
+        },
+        "up": {
+          "texture": "#stem"
+        },
+        "down": {
+          "texture": "#stem"
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        2,
+        4
+      ],
+      "to": [
+        12,
+        5,
+        9.6
+      ],
+      "faces": {
+        "north": {
+          "texture": "#leaf",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#leaf",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#leaf",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#leaf",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#leaf",
+          "tintindex": 0
+        },
+        "down": {
+          "texture": "#leaf",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

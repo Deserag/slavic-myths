@@ -1,0 +1,17 @@
+{
+  "parent": "slavicmyths:birch_bark_scroll",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:lore_book"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

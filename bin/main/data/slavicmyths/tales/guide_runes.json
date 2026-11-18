@@ -1,0 +1,14 @@
+{
+  "part": "crafts",
+  "chapter": "skills",
+  "section": "catalogue",
+  "title": "tales.entry.guide_runes.title",
+  "icon": "slavicmyths:runic_anvil",
+  "initial": 1,
+  "subjects": [
+    "recipe/slavicmyths:runic_anvil",
+    "recipe/slavicmyths:silver_block"
+  ],
+  "advancements": [],
+  "links": []
+}

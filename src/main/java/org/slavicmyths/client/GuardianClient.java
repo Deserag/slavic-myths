@@ -12,8 +12,7 @@ import org.slavicmyths.guardians.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class GuardianClient {
  private static final net.minecraft.resources.ResourceLocation WATER=GuardianContent.id("textures/entity/guardian_water_surface.png");
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {
+  public static final class Registration {
   @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(GuardianContent.FIRE.get(),c->new GuardianRenderer<FireGuardian>(c,false));e.registerEntityRenderer(GuardianContent.WATER.get(),c->new GuardianRenderer<SpringKeeper>(c,true));e.registerEntityRenderer(GuardianContent.PRISON.get(),PrisonRenderer::new);e.registerEntityRenderer(GuardianContent.ECHO.get(),EchoRenderer::new);}
  }
  /** Emit the original six quads in their original order without per-cube face/normal arrays. */

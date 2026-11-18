@@ -1,0 +1,4 @@
+allprojects { plugins.withId('java') {
+ sourceSets { artifacts284Offline { java.srcDir 'tools/artifacts284-offline';compileClasspath += sourceSets.main.output+sourceSets.main.compileClasspath;runtimeClasspath += sourceSets.main.output+sourceSets.main.runtimeClasspath } }
+ tasks.register('verifyArtifacts284Offline',JavaExec){dependsOn 'artifacts284OfflineClasses';classpath=sourceSets.artifacts284Offline.runtimeClasspath;mainClass='org.slavicmyths.verify.Artifacts284Offline';maxHeapSize='384m';jvmArgs '-XX:ActiveProcessorCount=2';workingDir project.projectDir}
+} }

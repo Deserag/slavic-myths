@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_forest_taiga",
+  "spawners": [
+    {
+      "type": "slavicmyths:volkolak",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

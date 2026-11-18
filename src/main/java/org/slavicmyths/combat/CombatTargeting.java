@@ -41,6 +41,7 @@ public final class CombatTargeting {
     public enum Relation { FORBIDDEN, ALLY, NEUTRAL, ENEMY }
     public enum Intent { PEACEFUL, NEUTRAL, HOSTILE, DEFENDER }
     public static java.util.UUID affiliation(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e.getPersistentData().hasUUID("summonedByPolozUUID"))return e.getPersistentData().getUUID("summonedByPolozUUID");
         if(e.getPersistentData().hasUUID("GreyPackOwner"))return e.getPersistentData().getUUID("GreyPackOwner");
         for(String key:SUMMON_OWNER_KEYS)if(e.getPersistentData().hasUUID(key))return e.getPersistentData().getUUID(key);
@@ -59,6 +60,7 @@ public final class CombatTargeting {
         return org.slavicmyths.kalin.KalinParty.owner(e);
     }
     private static java.util.UUID playerOwner(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e instanceof Player p)return p.getUUID();
         if(e instanceof TamableAnimal pet)return pet.getOwnerUUID();
         if(e instanceof org.slavicmyths.morozko.PlayerDouble d)return d.owner();
@@ -112,7 +114,13 @@ public final class CombatTargeting {
         return e instanceof Mob m&&m.getTarget()!=null;
     }
     public static Intent intent(LivingEntity e){
+        if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.playerOwned()?Intent.DEFENDER:Intent.HOSTILE;
         if(e.getType().is(PROXY))return Intent.NEUTRAL;
+        // Explicit biome roles precede Enemy/tag fallbacks. Traits must not provoke neutrals.
+        if(e instanceof org.slavicmyths.navya.NavyaMob mob)return mob.kind==org.slavicmyths.navya.NavyaContent.Kind.WISP?Intent.PEACEFUL:Intent.HOSTILE;
+        if(e instanceof org.slavicmyths.blackcinder.CinderMob mob)return switch(mob.kind){case SPARKLING->Intent.PEACEFUL;case ASH_SPIRIT->mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;default->Intent.HOSTILE;};
+        if(e instanceof org.slavicmyths.burningislands.IslandsMob mob)return mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;
+        if(e instanceof org.slavicmyths.losthalls.HallsMob mob)return switch(mob.kind){case GRIBOSHMYG->Intent.PEACEFUL;case GULOKRYL->mob.isTame()?Intent.DEFENDER:Intent.NEUTRAL;case EKHOVIK->mob.getTarget()==null?Intent.NEUTRAL:Intent.HOSTILE;default->Intent.HOSTILE;};
         if(e instanceof org.slavicmyths.industry.ChudPerson p)return p.role()==3?Intent.DEFENDER:Intent.PEACEFUL;
         if(e instanceof net.minecraft.world.entity.npc.Villager v)return org.slavicmyths.military.Military.guard(v)?Intent.DEFENDER:Intent.PEACEFUL;
         if(e instanceof net.minecraft.world.entity.npc.WanderingTrader)return Intent.PEACEFUL;

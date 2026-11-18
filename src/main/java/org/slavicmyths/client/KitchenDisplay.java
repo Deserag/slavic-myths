@@ -16,7 +16,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import org.slavicmyths.kitchen.*;
 import org.slavicmyths.block.KitchenTableBlock;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class KitchenDisplay {
  public static final Set<String> FOOD=Set.of("rye_bread","karavai","baked_turnip","stewed_turnip","stewed_cabbage","oat_porridge","barley_porridge","berry_porridge","vegetable_stew","meat_stew","pea_soup","mushroom_stew_slavic","ukha","bliny","berry_bliny","meat_bliny","apple_bliny","honey_bliny","apple_pie","berry_pie","meat_pie","cabbage_pie");
  private static ModelResourceLocation model(String name){return ModelResourceLocation.standalone(KitchenII.id("table_food/"+name));}

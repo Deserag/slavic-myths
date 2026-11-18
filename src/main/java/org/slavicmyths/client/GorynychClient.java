@@ -7,7 +7,6 @@ import com.mojang.blaze3d.vertex.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.api.distmarker.Dist;
-@EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class GorynychClient {
  @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(GorynychContent.BOSS.get(),GorynychRenderer::new);e.registerEntityRenderer(GorynychContent.CLOUD.get(),Effects::new);e.registerEntityRenderer(GorynychContent.SHOT.get(),Effects::new);}
  @SubscribeEvent public static void extensions(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new DragonArmor(),GorynychContent.ARMOR.values().stream().map(h->h.get()).toArray(net.minecraft.world.item.Item[]::new));}
