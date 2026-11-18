@@ -20,6 +20,8 @@ public final class BuyanFullCityGameTests {
         BuyanState.Site island = new BuyanState.Site(0, 0, BuyanTerrain.MAX_RADIUS, 63);
         if (!BuyanNatureState.get(helper.getLevel()).finishedAt(island))
             throw new IllegalStateException("End-to-end Buyan: nature not marked complete");
+        if (!BuyanCityPlan.hasBuilt(helper.getLevel(), island))
+            throw new IllegalStateException("End-to-end Buyan: central city axis missing");
         helper.succeed();
     }
 }

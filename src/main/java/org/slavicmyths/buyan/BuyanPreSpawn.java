@@ -210,6 +210,8 @@ public final class BuyanPreSpawn {
             throw new IllegalStateException("Buyan terrain and central terem are ready but craft forge placement failed");
         if(!BuyanShrine.placeOnce(world,site))
             throw new IllegalStateException("Buyan sanctuary failed safe placement");
+        if(!BuyanCityPlan.placeOnce(world,site))
+            throw new IllegalStateException("Buyan central boulevard/plaza safe placement failed");
     }
 
     private static BlockState wood(BuyanNature.TreeKind type){
