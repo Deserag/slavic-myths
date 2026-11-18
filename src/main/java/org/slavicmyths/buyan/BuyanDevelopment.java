@@ -20,8 +20,11 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.saveddata.SavedData;
 
 /**
@@ -99,6 +102,13 @@ public final class BuyanDevelopment {
                 lower.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER));
         }
 
+        void bed(int x, int z, BlockState color) {
+            BlockState foot = color.setValue(BedBlock.FACING, Direction.SOUTH)
+                .setValue(BedBlock.PART, BedPart.FOOT);
+            at(x, floor + 1, z, foot);
+            at(x, floor + 1, z + 1, foot.setValue(BedBlock.PART, BedPart.HEAD));
+        }
+
         void house(int x, int z, int width, int depth, String kind, int variant,
                    Direction entrance) {
             int right = x + width - 1, back = z + depth - 1;
@@ -173,11 +183,24 @@ public final class BuyanDevelopment {
             } else if (kind.equals("inn")) {
                 at(right - 3, floor + 1, z + 3, Blocks.BOOKSHELF.defaultBlockState());
                 at(x + 3, floor + 1, back - 3, Blocks.CHEST.defaultBlockState());
+                bed(x + 3, z + 5, Blocks.BLUE_BED.defaultBlockState());
+                bed(right - 3, z + 5, Blocks.RED_BED.defaultBlockState());
             } else {
                 at(right - 3, floor + 1, z + 3, Blocks.BOOKSHELF.defaultBlockState());
                 at(x + 3, floor + 1, back - 3, Blocks.FLOWER_POT.defaultBlockState());
+                bed(right - 3, z + 5,
+                    variant % 2 == 0 ? Blocks.BLUE_BED.defaultBlockState()
+                        : Blocks.RED_BED.defaultBlockState());
             }
-            at(x + 2, floor + 3, z + 2, Blocks.LANTERN.defaultBlockState());
+
+            // Hanging lantern is supported by a timber hanger connected
+            // directly to the sealed roof, rather than floating in a room.
+            for (int y = floor + 5; y <= floor + 7; y++)
+                at(x + 2, y, z + 2, BEAM);
+            at(x + 2, floor + 4, z + 2, Blocks.CHAIN.defaultBlockState());
+            at(x + 2, floor + 3, z + 2,
+                Blocks.LANTERN.defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.LanternBlock.HANGING, true));
             int start = entrance == Direction.NORTH ? front - 1 : front + 1;
             // Stop outside the existing five-block cross street instead
             // of replacing its polished-diorite shoulder.

@@ -24,6 +24,84 @@ public final class BuyanFullCityGameTests {
             || state.is(Blocks.BLUE_TERRACOTTA);
     }
 
+    private static void checkTownBuildings(GameTestHelper helper, BuyanCityPlan.Layout city) {
+        int cx = city.centerX(), cz = city.centerZ(), y = city.centerY();
+        int homes = 0, markets = 0;
+        for (int row = 0; row < 3; row++) {
+            int z = new int[]{27, 50, 79}[row];
+            int depth = new int[]{13, 19, 14}[row];
+            for (int col = 0; col < 8; col++) {
+                int x = col < 4
+                    ? new int[]{-101, -82, -58, -39}[col]
+                    : new int[]{28, 47, 71, 90}[col - 4];
+                boolean residential = col < 4;
+                String kind = residential ? "house" : row == 0 ? "shop"
+                    : row == 1 ? (col == 5 ? "inn" : "shop")
+                        : (col - 4) % 2 == 0 ? "workshop" : "house";
+                int frontZ = row == 0 ? z + depth - 1 : z;
+                BlockPos door = new BlockPos(cx + x + 6, y + 1, cz + frontZ);
+                BlockState lower = helper.getLevel().getBlockState(door);
+                BlockState upper = helper.getLevel().getBlockState(door.above());
+                require(lower.is(Blocks.SPRUCE_DOOR)
+                    && lower.getValue(net.minecraft.world.level.block.DoorBlock.HALF)
+                        == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER
+                    && upper.is(Blocks.SPRUCE_DOOR)
+                    && upper.getValue(net.minecraft.world.level.block.DoorBlock.HALF)
+                        == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER,
+                    "town door missing or wrong half at " + door);
+                BlockPos lantern = new BlockPos(cx + x + 2, y + 3, cz + z + 2);
+                require(helper.getLevel().getBlockState(lantern).is(Blocks.LANTERN)
+                    && helper.getLevel().getBlockState(lantern.above()).is(Blocks.CHAIN)
+                    && helper.getLevel().getBlockState(lantern.above(2))
+                        .is(Blocks.STRIPPED_SPRUCE_LOG),
+                    "hanging lantern has no real roof support at " + lantern);
+                int roofX = x + 6;
+                int roofY = y + 5 + Math.min(roofX - (x - 1), x + 12 - roofX);
+                BlockPos roof = new BlockPos(cx + roofX, roofY, cz + z);
+                require(!helper.getLevel().getBlockState(roof).isAir(),
+                    "town roof missing at " + roof);
+                if (kind.equals("house") || kind.equals("inn")) {
+                    int bedX = kind.equals("inn") ? x + 3 : x + 8;
+                    BlockPos foot = new BlockPos(cx + bedX, y + 1, cz + z + 5);
+                    BlockPos head = foot.south();
+                    BlockState first = helper.getLevel().getBlockState(foot);
+                    BlockState second = helper.getLevel().getBlockState(head);
+                    require(first.getBlock() instanceof net.minecraft.world.level.block.BedBlock
+                        && second.getBlock() == first.getBlock()
+                        && first.getValue(net.minecraft.world.level.block.BedBlock.PART)
+                            == net.minecraft.world.level.block.state.properties.BedPart.FOOT
+                        && second.getValue(net.minecraft.world.level.block.BedBlock.PART)
+                            == net.minecraft.world.level.block.state.properties.BedPart.HEAD,
+                        "residential bed missing or invalid at " + foot);
+                    homes++;
+                } else markets++;
+            }
+        }
+        require(homes == 15 && markets == 9,
+            "expected 15 furnished homes/inns and 9 shops/workshops");
+    }
+
+    private static void checkAllCityRoadSurfaces(GameTestHelper helper,
+                                                BuyanCityPlan.Layout city) {
+        // After all structures: verify every part of all four main axes and
+        // eight narrow streets, not only the center lines.
+        int level = city.centerY();
+        for (BuyanCityPlan.Street street : city.streets()) {
+            for (int x = street.minX(); x <= street.maxX(); x++)
+                for (int z = street.minZ(); z <= street.maxZ(); z++) {
+                    // Monument approaches may add paving beside a road, but
+                    // cannot destroy the continuous original city surface.
+                    BlockPos point = new BlockPos(x, level, z);
+                    require(road(helper.getLevel().getBlockState(point)),
+                        "city road overwritten at " + point + " (" + street.name() + ")");
+                    for (int h = 1; h <= 3; h++)
+                        require(helper.getLevel().getBlockState(point.above(h)).isAir(),
+                            "road headroom blocked at " + point.above(h)
+                                + " (" + street.name() + ")");
+                }
+        }
+    }
+
     private static void checkEntrance(GameTestHelper helper, BuyanCityPlan.Plot plot) {
         int centerX = (plot.minX() + plot.maxX()) / 2;
         int centerZ = (plot.minZ() + plot.maxZ()) / 2;
@@ -131,6 +209,8 @@ public final class BuyanFullCityGameTests {
                     "building plots overlap");
 
         checkStreetGrades(helper, layout);
+        checkTownBuildings(helper, layout);
+        checkAllCityRoadSurfaces(helper, layout);
         int cx = layout.centerX(), cy = layout.centerY(), cz = layout.centerZ();
         for (int dx = -22; dx <= 22; dx++)
             for (int dz = -22; dz <= 22; dz++) {
