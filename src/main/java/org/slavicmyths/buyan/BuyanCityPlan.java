@@ -213,7 +213,7 @@ public final class BuyanCityPlan {
                 int wx = cx + side * x, wz = cz + z;
                 double margin = BuyanNature.shoreDistance(
                     world.getSeed(), site.x(), site.z(), wx, wz);
-                if (margin < 5.0) return Double.NEGATIVE_INFINITY;
+                if (margin < 0.5) return Double.NEGATIVE_INFINITY;
                 score = Math.min(score, margin);
             }
         }
@@ -222,7 +222,7 @@ public final class BuyanCityPlan {
                 int wx = cx + side * x, wz = cz + z;
                 double margin = BuyanNature.shoreDistance(
                     world.getSeed(), site.x(), site.z(), wx, wz);
-                if (margin < 5.0) return Double.NEGATIVE_INFINITY;
+                if (margin < 0.5) return Double.NEGATIVE_INFINITY;
                 score = Math.min(score, margin);
             }
         }
