@@ -20,6 +20,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -225,6 +227,26 @@ public final class BuyanTerem {
             at(x, v, h, Blocks.LANTERN.defaultBlockState());
         }
 
+        void chandelier(int x, int v, int ceiling) {
+            // Secured to the actual upper-floor deck rather than floating in air.
+            if (!blocks.getOrDefault(pos(x, v, ceiling), AIR).is(Blocks.SPRUCE_PLANKS))
+                throw new IllegalStateException("Chandelier ceiling missing");
+            for (int h = ceiling - 2; h < ceiling; h++)
+                at(x, v, h, Blocks.CHAIN.defaultBlockState());
+            BlockState hanging = Blocks.LANTERN.defaultBlockState()
+                .setValue(LanternBlock.HANGING, true);
+            at(x, v, ceiling - 3, hanging);
+            for (Direction axis : new Direction[]{Direction.EAST,Direction.WEST,
+                Direction.NORTH,Direction.SOUTH}) {
+                int dx=axis.getStepX(), dv=axis.getStepZ();
+                BlockState link=Blocks.CHAIN.defaultBlockState().setValue(
+                    ChainBlock.AXIS,dx!=0?Direction.Axis.X:Direction.Axis.Z);
+                at(x+dx,v+dv,ceiling-2,link);
+                at(x+2*dx,v+2*dv,ceiling-2,link);
+                at(x+2*dx,v+2*dv,ceiling-3,hanging);
+            }
+        }
+
         void foundation() {
             // The 45x29 plinth is precisely the Python 0..2 stone base.
             // Support only actual occupied building columns; no island-wide pad.
@@ -275,12 +297,14 @@ public final class BuyanTerem {
             }
             for (int x = -21; x < 23; x += 7) {
                 for (int h = 2; h < 25; h++)
-                    if (h != 9 && h != 17) at(x, -1, h, LIGHT);
+                    if (h != 9 && h != 17)
+                        at(x, -1, h, Blocks.QUARTZ_PILLAR.defaultBlockState());
                 for (int h : new int[]{8, 16, 24}) at(x, -2, h, GOLD);
             }
             for (int x : new int[]{-29, -24, 25, 30})
                 for (int h = 3; h < 27; h++)
-                    if (h != 9 && h != 17 && h != 25) at(x, -2, h, LIGHT);
+                    if (h != 9 && h != 17 && h != 25)
+                        at(x, -2, h, Blocks.POLISHED_DIORITE.defaultBlockState());
             for (int h : new int[]{4, 12, 20}) {
                 for (int x : new int[]{-19, -12, 11, 18}) window(x, h, 3);
             }
@@ -423,6 +447,7 @@ public final class BuyanTerem {
                     for (int h = 3; h <= 5; h++) at(x, v, h, AIR);
             door(-1, 0, 3, DoorHingeSide.LEFT);
             door(0, 0, 3, DoorHingeSide.RIGHT);
+            for (int x = -1; x <= 0; x++) at(x, 0, 5, LIGHT);
 
             // Real stairwell A, floor 1 (h=2) to floor 2 (h=9).
             for (int i = 0; i < 7; i++) {
@@ -451,13 +476,19 @@ public final class BuyanTerem {
             box(-8, 9, -5, 0, 9, 10, WOOD);
             for (int x = -8; x <= 8; x++) {
                 at(x, -6, 10, BEAM);
-                if ((x & 1) == 0) at(x, -6, 11, GOLD);
+                at(x, -6, 11, Blocks.SPRUCE_FENCE.defaultBlockState());
+                if (Math.floorMod(x,4) == 0) at(x, -6, 12, GOLD);
+            }
+            for (int v = -5; v < 0; v++) {
+                at(-8, v, 11, Blocks.SPRUCE_FENCE.defaultBlockState());
+                at(8, v, 11, Blocks.SPRUCE_FENCE.defaultBlockState());
             }
             for (int h : new int[]{10, 11}) {
                 for (int x : new int[]{-1, 0}) at(x, 0, h, AIR);
             }
             door(-1, 0, 10, DoorHingeSide.LEFT);
             door(0, 0, 10, DoorHingeSide.RIGHT);
+            for (int x = -1; x <= 0; x++) at(x, 0, 12, LIGHT);
             // Third floor center and wing balconies use the prototype h=17 deck.
             for (int[] range : new int[][]{{-18, -17}, {16, 17}})
                 for (int x = range[0]; x <= range[1]; x++)
@@ -467,6 +498,7 @@ public final class BuyanTerem {
             door(-17, 0, 18, DoorHingeSide.RIGHT);
             door(16, 0, 18, DoorHingeSide.LEFT);
             door(17, 0, 18, DoorHingeSide.RIGHT);
+            for (int x : new int[]{-18,-17,16,17}) at(x, 0, 20, LIGHT);
             for (int x = -1; x <= 0; x++) {
                 for (int v = -5; v <= -3; v++)
                     for (int h = 19; h <= 21; h++) at(x, v, h, AIR);
@@ -475,6 +507,7 @@ public final class BuyanTerem {
             }
             door(-1, -4, 19, DoorHingeSide.LEFT);
             door(0, -4, 19, DoorHingeSide.RIGHT);
+            for (int x = -1; x <= 0; x++) at(x, -4, 21, LIGHT);
         }
 
         void roomWall(int x0, int x1, int v0, int v1, int h0, int h1) {
@@ -499,7 +532,8 @@ public final class BuyanTerem {
             at(-18, 18, 3, Blocks.FURNACE.defaultBlockState());
             at(-17, 18, 3, Blocks.CRAFTING_TABLE.defaultBlockState());
             chest(-16, 18, 3, "buyan_terem_household");
-            for (int v : new int[]{7, 14, 20}) fixture(0, v, 3);
+            chandelier(0, 7, 9);
+            chandelier(0, 20, 9);
             for (int v : new int[]{5, 12, 18}) {
                 // The service-room chest is at (-16,18,3). Its lantern
                 // used to overwrite the CHEST in the final block map,
@@ -523,7 +557,8 @@ public final class BuyanTerem {
                 at(19, v, 10, Blocks.BOOKSHELF.defaultBlockState());
             }
             chest(17, 19, 10, "buyan_terem_household");
-            fixture(0, 19, 10);
+            chandelier(0, 7, 17);
+            chandelier(0, 20, 17);
             fixture(-15, 18, 10);
             fixture(15, 18, 10);
             // Third floor: royal bedchamber, guest room, strongroom and upper hall.
@@ -662,6 +697,21 @@ public final class BuyanTerem {
                 if (!blocks.getOrDefault(pos(pair[0], pair[1], pair[2]), AIR)
                     .is(Blocks.DARK_OAK_DOOR)) return false;
             }
+            for (int x=-8;x<=8;x++)
+                if (!blocks.getOrDefault(pos(x,-6,11),AIR).is(Blocks.SPRUCE_FENCE))
+                    return false;
+            for (int v=-5;v<0;v++)
+                for (int x : new int[]{-8,8})
+                    if (!blocks.getOrDefault(pos(x,v,11),AIR).is(Blocks.SPRUCE_FENCE))
+                        return false;
+            for (int[] lintel : new int[][]{{-1,0,5},{0,0,5},
+                {-1,0,12},{0,0,12},{-18,0,20},{-17,0,20},
+                {16,0,20},{17,0,20},{-1,-4,21},{0,-4,21}})
+                if (blocks.getOrDefault(pos(lintel[0],lintel[1],lintel[2]),AIR).isAir())
+                    return false;
+            for (int[] light : new int[][]{{0,7,6},{0,20,6},{0,7,14},{0,20,14}})
+                if (!blocks.getOrDefault(pos(light[0],light[1],light[2]),AIR)
+                    .is(Blocks.LANTERN))return false;
             if (loot.size() != 4) return false;
             for (BlockPos chest : loot.keySet())
                 if (!blocks.getOrDefault(chest, AIR).is(Blocks.CHEST))

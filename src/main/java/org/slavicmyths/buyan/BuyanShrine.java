@@ -11,6 +11,8 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.saveddata.SavedData;
 
 /**
@@ -210,9 +212,10 @@ public final class BuyanShrine {
                 }
             }
         }
-        void door(int x,int z,int h) {
+        void door(int x,int z,int h,DoorHingeSide hinge) {
             BlockState state=Blocks.DARK_OAK_DOOR.defaultBlockState()
                 .setValue(DoorBlock.FACING,Direction.NORTH)
+                .setValue(DoorBlock.HINGE,hinge)
                 .setValue(DoorBlock.HALF,DoubleBlockHalf.LOWER);
             at(x,z,h,state);
             at(x,z,h+1,state.setValue(DoorBlock.HALF,DoubleBlockHalf.UPPER));
@@ -241,7 +244,8 @@ public final class BuyanShrine {
                 at(x+dx,z+dz,5,RED);at(x+dx,z+dz,8,GOLD);
             }
             box(x-9,x+9,z-7,z-7,10,10,Blocks.DARK_OAK_LOG.defaultBlockState());
-            door(x-1,z-6,2);door(x,z-6,2);
+            door(x-1,z-6,2,DoorHingeSide.LEFT);
+            door(x,z-6,2,DoorHingeSide.RIGHT);
             box(x-1,x,z-7,z-7,2,4,AIR);
             for(int dx:new int[]{-10,10})for(int dz:new int[]{-3,3}) {
                 box(x+dx,x+dx,z+dz,z+dz+1,4,6,
@@ -279,13 +283,14 @@ public final class BuyanShrine {
                 pavement(x+dx,z+dz,GRAY);
                 if(dz==-8)at(x+dx,z+dz,1,
                     Blocks.STONE_BRICK_STAIRS.defaultBlockState()
-                        .setValue(StairBlock.FACING,Direction.NORTH));
+                        .setValue(StairBlock.FACING,Direction.SOUTH));
             }
             // Furnished altar, offerings, benches, chests and hanging lights.
             box(x-3,x+3,z+3,z+5,2,2,GRAY);
             box(x-2,x+2,z+4,z+4,3,3,GOLD);
             for(int dx:new int[]{-2,0,2})
-                at(x+dx,z+4,4,Blocks.CANDLE.defaultBlockState());
+                at(x+dx,z+4,4,Blocks.CANDLE.defaultBlockState()
+                    .setValue(BlockStateProperties.LIT,true));
             for(int dx:new int[]{-7,6})for(int dz:new int[]{-2,-1,1,2})
                 at(x+dx,z+dz,2,Blocks.SPRUCE_STAIRS.defaultBlockState()
                     .setValue(StairBlock.FACING,dx<0?Direction.EAST:Direction.WEST));
@@ -297,6 +302,25 @@ public final class BuyanShrine {
                 at(x+dx,z-3,7,Blocks.LANTERN.defaultBlockState()
                     .setValue(LanternBlock.HANGING,true));
             }
+            // Main roof ridge supports the suspended five-lantern chandelier.
+            for(int h=9;h<=21;h++)at(x,z, h,CHAIN);
+            at(x,z,8,Blocks.LANTERN.defaultBlockState()
+                .setValue(LanternBlock.HANGING,true));
+            for(Direction dir:new Direction[]{Direction.NORTH,Direction.SOUTH,
+                Direction.EAST,Direction.WEST}) {
+                int sx=dir.getStepX(),sz=dir.getStepZ();
+                BlockState arm=CHAIN.setValue(ChainBlock.AXIS,
+                    sx!=0?Direction.Axis.X:Direction.Axis.Z);
+                at(x+sx,z+sz,9,arm);
+                at(x+2*sx,z+2*sz,9,arm);
+                at(x+2*sx,z+2*sz,8,Blocks.LANTERN.defaultBlockState()
+                    .setValue(LanternBlock.HANGING,true));
+            }
+            // Wall lights near the ritual axis and near the main entrance.
+            for(int dx:new int[]{-9,9})for(int dz:new int[]{-4,4})
+                at(x+dx,z+dz,6,Blocks.LANTERN.defaultBlockState());
+            for(int dx:new int[]{-4,4})
+                at(x+dx,z-5,6,Blocks.LANTERN.defaultBlockState());
             brazier(x-6,z-9);brazier(x+6,z-9);
         }
         void root(int x,int z,int h,int r) {
@@ -312,7 +336,8 @@ public final class BuyanShrine {
                         at(x+dx,z+dz,h+dy,WOOD);
         }
         void chain(int x,int z,int h,int tx,int tz,int th) {
-            at(x,z,h,CHAIN);
+            if(!blocks.getOrDefault(p(x,z,h),AIR).is(Blocks.CHAIN))
+                at(x,z,h,CHAIN);
             while(x!=tx||z!=tz||h!=th) {
                 if(x!=tx) {
                     x+=Integer.signum(tx-x);
@@ -396,9 +421,19 @@ public final class BuyanShrine {
             }
             for(int[] hanging:new int[][]{{15,8,27,10},{-14,10,27,9},
                 {15,-9,27,12},{-13,-11,27,10},{0,-17,27,10},{0,17,27,9}}) {
+                // A solid wooden fixing above every uninterrupted vertical chain.
+                at(cx+hanging[0],cz+hanging[1],hanging[2]+1,WOOD);
                 for(int i=0;i<hanging[3];i++)
                     at(cx+hanging[0],cz+hanging[1],hanging[2]-i,CHAIN);
-                at(cx+hanging[0],cz+hanging[1],hanging[2]-hanging[3],GOLD);
+                at(cx+hanging[0],cz+hanging[1],hanging[2]-hanging[3],
+                    Blocks.LANTERN.defaultBlockState()
+                        .setValue(LanternBlock.HANGING,true));
+            }
+            for(int[] rootLight:new int[][]{{19,0},{-19,0},{0,19},{0,-19}}) {
+                at(cx+rootLight[0],cz+rootLight[1],2,
+                    Blocks.STONE_BRICK_WALL.defaultBlockState());
+                at(cx+rootLight[0],cz+rootLight[1],3,
+                    Blocks.LANTERN.defaultBlockState());
             }
             for(int[] b:new int[][]{{15,15},{-15,15},{-15,-15},{15,-15}})
                 brazier(cx+b[0],cz+b[1]);
@@ -482,11 +517,33 @@ public final class BuyanShrine {
                     11+Math.min(x+11,11-x)));
                 if(roofTile==null||roofTile.isAir())return false;
             }
-            BlockState door=blocks.get(p(-35,3,2));
-            if(door==null||!door.is(Blocks.DARK_OAK_DOOR)
-                ||door.getValue(DoorBlock.HALF)!=DoubleBlockHalf.LOWER
-                ||!blocks.getOrDefault(p(-35,3,3),AIR).is(Blocks.DARK_OAK_DOOR))
+            BlockState left=blocks.get(p(-35,3,2));
+            BlockState right=blocks.get(p(-34,3,2));
+            if(left==null||right==null||!left.is(Blocks.DARK_OAK_DOOR)
+                ||!right.is(Blocks.DARK_OAK_DOOR)
+                ||left.getValue(DoorBlock.HALF)!=DoubleBlockHalf.LOWER
+                ||right.getValue(DoorBlock.HALF)!=DoubleBlockHalf.LOWER
+                ||left.getValue(DoorBlock.HINGE)!=DoorHingeSide.LEFT
+                ||right.getValue(DoorBlock.HINGE)!=DoorHingeSide.RIGHT
+                ||!blocks.getOrDefault(p(-35,3,3),AIR).is(Blocks.DARK_OAK_DOOR)
+                ||!blocks.getOrDefault(p(-34,3,3),AIR).is(Blocks.DARK_OAK_DOOR))
                 return false;
+            BlockState step=blocks.getOrDefault(p(-34,1,1),AIR);
+            if(!step.is(Blocks.STONE_BRICK_STAIRS)
+                ||step.getValue(StairBlock.FACING)!=Direction.SOUTH)
+                return false;
+            if(!blocks.getOrDefault(p(-34,7,8),AIR).is(Blocks.LANTERN))
+                return false;
+            for(int[] hanging:new int[][]{{15,8,27,10},{-14,10,27,9},
+                {15,-9,27,12},{-13,-11,27,10},{0,-17,27,10},{0,17,27,9}}) {
+                if(!blocks.getOrDefault(p(29+hanging[0],8+hanging[1],
+                    hanging[2]+1),AIR).is(Blocks.OAK_WOOD))return false;
+                for(int i=0;i<hanging[3];i++)
+                    if(!blocks.getOrDefault(p(29+hanging[0],8+hanging[1],
+                        hanging[2]-i),AIR).is(Blocks.CHAIN))return false;
+                if(!blocks.getOrDefault(p(29+hanging[0],8+hanging[1],
+                    hanging[2]-hanging[3]),AIR).is(Blocks.LANTERN))return false;
+            }
             // Both monument foundations and the actual road-connected gate
             // must remain in the finished staged geometry.
             if(!blocks.getOrDefault(p(29,8,20),AIR).is(Blocks.OAK_WOOD)
