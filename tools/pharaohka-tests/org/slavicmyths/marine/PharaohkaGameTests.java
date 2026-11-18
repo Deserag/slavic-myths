@@ -102,8 +102,12 @@ public final class PharaohkaGameTests {
         test.runAfterDelay(38,()->{
             var minions=test.getLevel().getEntitiesOfClass(PharaohkaEntity.class,boss.getBoundingBox().inflate(22),x->!x.leader());
             test.assertTrue(minions.size()>=1&&minions.size()<=4,"Summon count outside bounds");
-            minions.forEach(PharaohkaEntity::discard);
-            boss.discard();dummy.discard();test.succeed();
+            boss.discard();
+        });
+        test.runAfterDelay(101,()->{
+            var minions=test.getLevel().getEntitiesOfClass(PharaohkaEntity.class,boss.getBoundingBox().inflate(22),x->!x.leader());
+            test.assertTrue(minions.isEmpty(),"Summoned minions survived their commander");
+            dummy.discard();test.succeed();
         });
     }
 
