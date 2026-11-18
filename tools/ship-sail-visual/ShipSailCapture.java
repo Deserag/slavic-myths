@@ -782,6 +782,7 @@ public final class ShipSailCapture {
 
     @SubscribeEvent
     public static void tick(ClientTickEvent.Post ignored) throws Exception {
+        if (System.getProperty("shipsailvisual.multiplayer") != null) return;
         if (finished) return;
         if (!"true".equals(System.getenv("GITHUB_ACTIONS"))
                 || !"github-hosted".equals(System.getenv("RUNNER_ENVIRONMENT")))

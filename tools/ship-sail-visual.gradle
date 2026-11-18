@@ -18,6 +18,10 @@ allprojects { afterEvaluate {
       sourceSet = sourceSets.shipSailVisual
       loadedMods.set([qa])
       gameDirectory = file('work/ship-sail-visual-isolated')
+      if (project.findProperty('shipSailMp') == 'guest')
+        gameDirectory = file('work/ship-sail-visual-guest-isolated')
+      if (project.findProperty('shipSailMp') == 'guest')
+        programArguments.addAll('--username', 'ShipQASecond')
       programArguments.addAll('--width','1600','--height','1000')
       jvmArgument '-Xmx3G'
       jvmArgument '-XX:ActiveProcessorCount=2'
@@ -25,6 +29,8 @@ allprojects { afterEvaluate {
           file('build/ship-sail-visual/frames').absolutePath
       systemProperty 'shipsailvisual.relog',
           (project.findProperty('shipSailRelog') ?: 'false').toString()
+      if (project.hasProperty('shipSailMp'))
+        systemProperty 'shipsailvisual.multiplayer', project.property('shipSailMp').toString()
     }
   }
   tasks.named('runShipSailVisual') {
@@ -42,7 +48,12 @@ allprojects { afterEvaluate {
       }
     }
     doLast {
-      if (project.hasProperty('shipSailRelog')) {
+      if (project.hasProperty('shipSailMp')) {
+        def role = project.property('shipSailMp').toString()
+        def receipt = file("build/ship-sail-visual/multiplayer/${role}.json")
+        if (!receipt.isFile() || !receipt.text.contains('PASS_TWO_REAL_CLIENTS'))
+          throw new GradleException("Ship ${role} multiplayer proof missing")
+      } else if (project.hasProperty('shipSailRelog')) {
         def receipt = file('build/ship-sail-visual/frames/finished.json')
         if (!receipt.isFile() ||
             !receipt.text.contains('CAPTURE_COMPLETE_NOT_OWNER_ACCEPTANCE'))

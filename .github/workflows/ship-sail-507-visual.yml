@@ -44,6 +44,21 @@ jobs:
         run: |
           set -o pipefail
           xvfb-run -a -s '-screen 0 1600x1000x24' timeout 8m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailRelog=true runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/relog.log
+      - name: Two real clients on the moving ship over loopback TCP
+        run: |
+          set -euo pipefail
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 9m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailMp=host runShipSailVisual --console=plain > /tmp/ship-sail-visual/mp-host.log 2>&1 &
+          host_pid=$!
+          trap 'kill "$host_pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 180); do
+            if [ -f build/ship-sail-visual/multiplayer/listening.txt ]; then break; fi
+            if ! kill -0 "$host_pid" 2>/dev/null; then cat /tmp/ship-sail-visual/mp-host.log; exit 1; fi
+            sleep 1
+          done
+          test -f build/ship-sail-visual/multiplayer/listening.txt
+          xvfb-run -a -s '-screen 0 1600x1000x24' timeout 7m ./gradlew --no-daemon -I tools/ship-sail-visual.gradle -PshipSailMp=guest runShipSailVisual --console=plain 2>&1 | tee /tmp/ship-sail-visual/mp-guest.log
+          wait "$host_pid"
+          cat /tmp/ship-sail-visual/mp-host.log
       - name: Verify all 72 genuine framebuffer captures
         run: |
           python3 - <<'PY'
