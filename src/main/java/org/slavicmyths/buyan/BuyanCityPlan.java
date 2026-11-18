@@ -285,11 +285,13 @@ public final class BuyanCityPlan {
         streets.add(new Street("WEST_CROSS_STREET",
             Math.min(cx - side * 97, cx - side * 23),
             Math.max(cx - side * 97, cx - side * 23), cz - 2, cz + 2, 5));
-        for (int[] span : new int[][]{{-61, -59}, {-29, -27}}) {
+        // Five-wide north/south feeders touch BOTH plot families, and join
+        // the five-wide cross street at a conventional T-intersection.
+        for (int[] span : new int[][]{{-61, -57}, {-31, -27}}) {
             streets.add(new Street("RESIDENTIAL_ACCESS_" + span[0],
                 Math.min(cx + side * span[0], cx + side * span[1]),
                 Math.max(cx + side * span[0], cx + side * span[1]),
-                cz - 42, cz + 42, 3));
+                cz - 42, cz + 42, 5));
         }
         return new Layout(cx, cy, cz, side, List.copyOf(lots), List.copyOf(streets));
     }
