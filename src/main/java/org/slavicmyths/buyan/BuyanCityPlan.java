@@ -205,37 +205,55 @@ public final class BuyanCityPlan {
     }
 
     /** Layout selection uses both coasts. Do not take a dry square for granted. */
+    private static double scoreArea(ServerLevel world, BuyanState.Site site,
+                                    int minX, int maxX, int minZ, int maxZ) {
+        double score = Double.POSITIVE_INFINITY;
+        for (int x = minX; x <= maxX; x += 4)
+            for (int z = minZ; z <= maxZ; z += 4) {
+                double margin = BuyanNature.shoreDistance(world.getSeed(),
+                    site.x(), site.z(), x, z);
+                if (margin < 1.0) return Double.NEGATIVE_INFINITY;
+                score = Math.min(score, margin);
+            }
+        return score;
+    }
+
+    /** Choose a dry urban core rather than assuming a fixed square fits every seed. */
     private static double sideScore(ServerLevel world, BuyanState.Site site,
                                     int cx, int cz, int side) {
-        double score = Double.POSITIVE_INFINITY;
-        for (int x : new int[]{35, 100, 171}) {
-            for (int z : new int[]{-45, 0, 41}) {
-                int wx = cx + side * x, wz = cz + z;
-                double margin = BuyanNature.shoreDistance(
-                    world.getSeed(), site.x(), site.z(), wx, wz);
-                if (margin < 0.5) return Double.NEGATIVE_INFINITY;
-                score = Math.min(score, margin);
-            }
-        }
-        for (int x : new int[]{-96, -62, -32}) {
-            for (int z : new int[]{-41, 0, 41}) {
-                int wx = cx + side * x, wz = cz + z;
-                double margin = BuyanNature.shoreDistance(
-                    world.getSeed(), site.x(), site.z(), wx, wz);
-                if (margin < 0.5) return Double.NEGATIVE_INFINITY;
-                score = Math.min(score, margin);
-            }
-        }
+        double score = scoreArea(world, site,
+            Math.min(cx + side * 35, cx + side * 171),
+            Math.max(cx + side * 35, cx + side * 171), cz - 45, cz + 41);
+        score = Math.min(score, scoreArea(world, site,
+            Math.min(cx - side * 96, cx - side * 32),
+            Math.max(cx - side * 96, cx - side * 32), cz - 41, cz + 41));
+        score = Math.min(score, scoreArea(world, site,
+            cx - 40, cx + 40, cz + 43, cz + 103));
+        score = Math.min(score, scoreArea(world, site,
+            cx - HALF, cx + HALF, cz - HALF, cz + HALF));
+        score = Math.min(score, scoreArea(world, site,
+            cx - 4, cx + 4, cz - 90, cz + 42));
         return score;
     }
 
     static Layout calculate(ServerLevel world, BuyanState.Site site) {
-        int cx = site.x(), cz = site.z() - 54;
+        int cx = site.x(), cz = site.z() - 54, side = 1;
+        double best = Double.NEGATIVE_INFINITY;
+        for (int dx : new int[]{0, -27, 27, -54, 54})
+            for (int dz : new int[]{-54, -27, 0, 27, 54})
+                for (int mirror : new int[]{1, -1}) {
+                    int trialX = site.x() + dx, trialZ = site.z() + dz;
+                    double fit = sideScore(world, site, trialX, trialZ, mirror);
+                    if (fit > best) {
+                        best = fit;
+                        cx = trialX;
+                        cz = trialZ;
+                        side = mirror;
+                    }
+                }
+        if (!Double.isFinite(best))
+            throw new IllegalStateException("No dry city core can host the reserved districts");
         int cy = elevation(world, site, cx, cz);
-        int side = sideScore(world, site, cx, cz, 1) >=
-            sideScore(world, site, cx, cz, -1) ? 1 : -1;
-        if (!Double.isFinite(sideScore(world, site, cx, cz, side)))
-            throw new IllegalStateException("No safe side for the sanctuary reserve");
         List<Plot> lots = new ArrayList<>();
         // The approved palace's real volume is 67x41; the lot reserves
         // its towers, front stairs, approach and surrounding clearance.
