@@ -157,6 +157,7 @@ final class BuyanCityHousing {
                 // Corridor access to the L-wing and the stair-service bay.
                 door(b, 6, 9, floor, south(b), DoorHingeSide.LEFT);
                 door(b, b.width - 2, 5, floor, north(b), DoorHingeSide.RIGHT);
+                door(b, b.width - 2, 9, floor, south(b), DoorHingeSide.LEFT);
                 for (int z = 14; z < b.depth - 1; z++)
                     for (int x : new int[]{4, 8})
                         fill(b, x, x, z, z, floor + 1, floor + 5,
@@ -192,7 +193,9 @@ final class BuyanCityHousing {
                     for (int z : new int[]{3, 11}) light(b, x, z, floor);
                 if (b.depth > 19) light(b, 6, b.depth - 4, floor);
                 if (floor > 0) {
-                    // Courtyard gallery, overlooking the open inner corner.
+                    // A real balcony door from the rear room opens onto the
+                    // courtyard gallery; two full-height landings are reachable.
+                    door(b, 14, 13, floor, south(b), DoorHingeSide.LEFT);
                     fill(b, 12, 17, 14, 16, floor, floor,
                         Blocks.SPRUCE_SLAB.defaultBlockState());
                     for (int x = 12; x <= 17; x++)
