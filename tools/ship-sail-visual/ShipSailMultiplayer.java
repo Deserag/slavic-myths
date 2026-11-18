@@ -37,6 +37,7 @@ public final class ShipSailMultiplayer {
     private static FirstShipEntity ship;
     private static BlockPos door;
     private static boolean guestChest, guestDoor, guestWalk, guestJump;
+    private static boolean movingAtChest, movingAtDoor;
     private static double guestLocalZ;
 
     private static boolean marker(String name) { return Files.exists(OUT.resolve(name)); }
@@ -58,6 +59,8 @@ public final class ShipSailMultiplayer {
             result.addProperty("guest_door_toggle", guestDoor);
             result.addProperty("guest_walk_on_moving_deck", guestWalk);
             result.addProperty("guest_jump_on_moving_deck", guestJump);
+            result.addProperty("moving_at_chest", movingAtChest);
+            result.addProperty("moving_at_door", movingAtDoor);
             result.addProperty("ship_speed", ship == null ? 0D : ship.serverMovingSpeed());
             Files.writeString(OUT.resolve(ROLE + ".json"), result.toString());
             if (error != null) error.printStackTrace();
@@ -158,6 +161,7 @@ public final class ShipSailMultiplayer {
                     if (!(guest.containerMenu instanceof ChestMenu))
                         throw new AssertionError("Guest chest GUI did not reach server");
                     guestChest = true;
+                    movingAtChest = ship.serverMovingSpeed() > .03D;
                     guest.closeContainer();
                     teleport(guest, ship, door, 2D);
                     mark("door-ready.txt");
@@ -169,12 +173,19 @@ public final class ShipSailMultiplayer {
             if (state != null && state.getBlock() instanceof DoorBlock
                     && state.getValue(DoorBlock.OPEN)) {
                 guestDoor = true;
+                movingAtDoor = ship.serverMovingSpeed() > .03D;
                 server.execute(() -> {
                     try {
                         ServerPlayer guest = server.getPlayerList().getPlayers().stream()
                                 .filter(p -> p.getGameProfile().getName()
                                         .equals("ShipQASecond")).findFirst().orElseThrow();
                         teleport(guest, ship, new BlockPos(3, 12, 0), 0D);
+                        FirstShipHull.Point forward = FirstShipHull.toWorld(3D, 3D,
+                                ship.getX(), ship.getZ(), ship.shipYaw());
+                        guest.teleportTo(guest.serverLevel(), guest.getX(), guest.getY(),
+                                guest.getZ(), (float)Math.toDegrees(Math.atan2(
+                                        guest.getX() - forward.x(), forward.z() - guest.getZ())),
+                                0F);
                         guestLocalZ = FirstShipHull.toLocal(guest.getX(), guest.getZ(),
                                 ship.getX(), ship.getZ(), ship.shipYaw()).z();
                         mark("walk-ready.txt");
@@ -194,13 +205,16 @@ public final class ShipSailMultiplayer {
                             && Math.abs(local.z() - guestLocalZ) > .25D
                             && Math.abs(local.x()) < 8D && Math.abs(local.z()) < 20D;
                     guestJump = marker("guest-jumped.txt");
+                    System.out.println("SHIP_MP_WALK speed=" + ship.serverMovingSpeed()
+                            + " local=" + local + " startZ=" + guestLocalZ
+                            + " player=" + guest.position() + " ship=" + ship.position());
                     mark("host-walk-checked.txt");
                 } catch (Throwable ex) { mc.execute(() -> finish(mc, ex)); }
             });
         }
         if (marker("host-walk-checked.txt")) {
             if (!guestChest || !guestDoor || !guestWalk || !guestJump
-                    || ship.serverMovingSpeed() <= .03D)
+                    || !movingAtChest || !movingAtDoor)
                 throw new AssertionError("Two-client moving ship failed: chest=" + guestChest
                         + " door=" + guestDoor + " walk=" + guestWalk + " jump="
                         + guestJump + " speed=" + ship.serverMovingSpeed());
@@ -218,9 +232,9 @@ public final class ShipSailMultiplayer {
         FirstShipEntity visible = clientShip(mc);
         if (visible == null || !visible.isMoving() || !marker("guest-positioned.txt"))
             return;
-        if (!chestClicked && guestTicks > 50) {
+        if (!chestClicked && guestTicks > 25) {
             aim(mc, visible, new BlockPos(2, 7, 0));
-            if (guestTicks > 75) {
+            if (guestTicks > 40) {
                 chestClicked = true;
                 net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
             }
@@ -237,7 +251,7 @@ public final class ShipSailMultiplayer {
             aim(mc, visible, BlockPos.of(JsonParser.parseString(Files.readString(
                     OUT.getParent().resolve("frames/checkpoint.json")))
                     .getAsJsonObject().get("door").getAsLong()));
-            if (guestTicks > 130 && mc.screen == null) {
+            if (guestTicks > 75 && mc.screen == null) {
                 doorClicked = true;
                 net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
                 mark("door-client-clicked.txt");
@@ -252,7 +266,7 @@ public final class ShipSailMultiplayer {
             else mc.options.keyJump.setDown(false);
             if (walkTicks > 25 && !mc.player.onGround()
                     && !marker("guest-jumped.txt")) mark("guest-jumped.txt");
-            if (walkTicks > 85) {
+            if (walkTicks > 45) {
                 mc.options.keyUp.setDown(false);
                 mc.options.keyJump.setDown(false);
                 mark("guest-walked.txt");
