@@ -629,41 +629,72 @@ public final class BuyanShrine {
         return Record.get(world).built.containsKey(key(site));
     }
 
-    /** Existing saves are not silently rebuilt. Explicit operator command is safe. */
-    static boolean placeOnce(ServerLevel world,BuyanState.Site site) {
+    private static boolean fitsShrine(Plan p) {
+        int lowest = Integer.MAX_VALUE, highest = Integer.MIN_VALUE;
+        // Its carefully staged 27x24 monument fits inside the north-west lot,
+        // west of the x=-65 feeder and south of the z=-55 cross street.
+        for (int x = -49; x <= -19; x++)
+            for (int z = -5; z <= 18; z++) {
+                int ground = p.ground(x, z);
+                if (ground == Integer.MIN_VALUE
+                    || ground < p.site.waterLevel() + 7) return false;
+                lowest = Math.min(lowest, ground);
+                highest = Math.max(highest, ground);
+            }
+        if (highest - lowest > 3 || highest + 34 >= p.world.getMaxBuildHeight())
+            return false;
+        p.shrineFloor = highest + 1;
+        p.oakFloor = p.shrineFloor;
+        p.base = p.shrineFloor;
+        return true;
+    }
+
+    private static boolean safeShrine(Plan p) {
+        Set<Long> chunks = new HashSet<>();
+        for (var entry : p.blocks.entrySet()) {
+            BlockPos at = entry.getKey();
+            if (at.getY() <= p.world.getMinBuildHeight()
+                || at.getY() >= p.world.getMaxBuildHeight() - 1
+                || !p.world.getWorldBorder().isWithinBounds(at)) return false;
+            long chunk = ChunkPos.asLong(at.getX() >> 4, at.getZ() >> 4);
+            if (chunks.add(chunk)) p.world.getChunk(at.getX() >> 4, at.getZ() >> 4);
+            BlockState old = p.world.getBlockState(at);
+            if (!old.equals(entry.getValue()) && !BuyanGenerator.canReplace(old)) {
+                LogUtils.getLogger().warn("Buyan sanctuary protected block {}", at);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /** Phase-two monument only; the sacred oak is in the north-east reserve. */
+    static boolean placeOnce(ServerLevel world, BuyanState.Site site) {
         if(world.dimension()!=Level.OVERWORLD
             ||BuyanState.get(world).active||BuyanNatureState.get(world).active
-            ||!BuyanNatureState.get(world).finishedAt(site))return false;
+            ||!BuyanNatureState.get(world).finishedAt(site)
+            ||!BuyanCityPlan.hasBuilt(world,site))return false;
         Record saved=Record.get(world);
         long k=key(site);
         if(saved.built.containsKey(k))return true;
-        // Begin with near-central dry land, then expand; never clear the
-        // centre or sacrifice another existing building just to find a site.
-        for(int radius=80;radius<=176;radius+=8)
-            for(int lateral:new int[]{0,-8,8,-16,16,-24,24,-32,32,-40,40,-48,48})
-                for(int[] d:new int[][]{{1,0},{-1,0},{0,-1},{0,1}}) {
-                int x=site.x()+d[0]*radius+d[1]*lateral;
-                int z=site.z()+d[1]*radius-d[0]*lateral;
-                Rotation rotation=d[0]==1?Rotation.COUNTERCLOCKWISE_90:
-                    d[0]==-1?Rotation.CLOCKWISE_90:
-                        d[1]==-1?Rotation.CLOCKWISE_180:Rotation.NONE;
-                Plan plan=new Plan(world,site,x,z,rotation,world.getSeed());
-                if(!plan.fits())continue;
-                try {
-                    plan.build();
-                    if(!plan.geometryCheck()||!plan.safe())continue;
-                    plan.commit();
-                    saved.mark(k,new BlockPos(x,plan.base,z));
-                    LogUtils.getLogger().info("Buyan shrine placed {},{},{}",x,plan.base,z);
-                    return true;
-                } catch(IllegalStateException exception) {
-                    LogUtils.getLogger().warn("Shrine candidate {},{} rejected: {}",
-                        x,z,exception.getMessage());
-                }
-            }
-        LogUtils.getLogger().error("Buyan sanctuary: no non-overlapping site");
-        return false;
+        Plan p=new Plan(world,site,site.x()-51,site.z()-49,Rotation.NONE,world.getSeed());
+        if(!fitsShrine(p))return false;
+        p.shrine();
+        if(p.blocks.size()<1000
+            ||!p.blocks.getOrDefault(p.p(-35,3,2),AIR).is(Blocks.DARK_OAK_DOOR)
+            ||p.blocks.getOrDefault(p.p(-34,9,31),AIR).isAir())return false;
+        if(!safeShrine(p))return false;
+        try {
+            p.commit();
+        } catch(RuntimeException failure) {
+            LogUtils.getLogger().error("Buyan sanctuary placement failed",failure);
+            return false;
+        }
+        saved.mark(k,new BlockPos(p.ox,p.shrineFloor,p.oz));
+        LogUtils.getLogger().info("Buyan separate sanctuary placed at {},{}",
+            site.x()-85,site.z()-40);
+        return true;
     }
+
     public static int status(CommandSourceStack source) {
         ServerLevel world=source.getLevel();
         BuyanState.Site site=BuyanNatureGenerator.selectedFoundation(world,

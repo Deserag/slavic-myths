@@ -221,6 +221,8 @@ public final class BuyanPreSpawn {
         // Harbor, outpost and craft buildings are never placed automatically.
         if(!BuyanCityPlan.placeOnce(world,site))
             throw new IllegalStateException("White City masterplan could not be placed safely");
+        LogUtils.getLogger().info("Buyan phase two: {}",
+            BuyanDevelopment.develop(world,site));
 
     }
 

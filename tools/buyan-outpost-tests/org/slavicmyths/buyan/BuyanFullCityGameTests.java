@@ -95,8 +95,12 @@ public final class BuyanFullCityGameTests {
             "nature was not finished");
         require(BuyanCityPlan.hasBuilt(helper.getLevel(), island),
             "masterplan missing");
-        require(!BuyanShrine.hasBuilt(helper.getLevel(), island),
-            "sanctuary was built before owner approval");
+        require(BuyanShrine.hasBuilt(helper.getLevel(), island),
+            "new north-west sanctuary was not generated");
+        require(BuyanDevelopment.placeOak(helper.getLevel(), island),
+            "north-east sacred oak was not generated");
+        require(BuyanDevelopment.placeHouses(helper.getLevel(), island),
+            "residential and trading blocks were not generated");
         BuyanCityPlan.Layout layout = BuyanCityPlan.savedLayout(helper.getLevel(), island);
         require(layout != null, "persisted layout missing");
         require(layout.plots().size() == 5, "expected five reserved districts");

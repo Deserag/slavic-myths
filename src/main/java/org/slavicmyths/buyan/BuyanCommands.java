@@ -23,6 +23,8 @@ public final class BuyanCommands {
                         .executes(ctx -> BuyanGenerator.pause(ctx.getSource())))
                     .then(Commands.literal("resume")
                         .executes(ctx -> BuyanGenerator.resume(ctx.getSource())))
+                    .then(Commands.literal("develop")
+                        .executes(ctx -> BuyanDevelopment.generate(ctx.getSource())))
                     .then(Commands.literal("harbor")
                         .executes(ctx -> BuyanHarbor.generate(ctx.getSource())))
                     .then(Commands.literal("outpost")

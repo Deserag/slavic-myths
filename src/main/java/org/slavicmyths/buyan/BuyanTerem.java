@@ -638,7 +638,9 @@ public final class BuyanTerem {
             towerInteriors();
             stairsAndEntrance();
             furnishings();
-            approach();
+            // The south avenue already provides the approach for the relocated
+            // palace. Never overwrite its nine-wide quartz pavement.
+            if (oz - site.z() < 60) approach();
         }
 
         boolean preflight() {
@@ -656,7 +658,8 @@ public final class BuyanTerem {
                     world.getChunk(p.getX() >> 4, p.getZ() >> 4);
             for (var entry : blocks.entrySet()) {
                 BlockState old = world.getBlockState(entry.getKey());
-                if (!old.equals(entry.getValue()) && !BuyanGenerator.canReplace(old)) {
+                if (!old.equals(entry.getValue()) && !BuyanGenerator.canReplace(old)
+                    && !(oz - site.z() > 60 && old.is(Blocks.BLUE_TERRACOTTA))) {
                     LogUtils.getLogger().warn("Buyan terem protected block at {}: {}",
                         entry.getKey(), old);
                     return false;
@@ -775,29 +778,27 @@ public final class BuyanTerem {
         Record record = Record.get(world);
         long key = key(site);
         if (record.built.containsKey(key)) return true;
-        // Central clearing, leaving a free square to the south. Never reuse
-        // the outward coastal area of the forge, harbor or hill outpost.
-        for (int v : new int[]{10, 8, 12, 6, 14})
-            for (int x : new int[]{0, -4, 4, -8, 8}) {
-                int ox = site.x() + x, oz = site.z() + v;
-                int[] heights = fit(world, site, ox, oz);
-                if (heights == null) continue;
-                Plan p = new Plan(world, site, ox, oz, heights[1] + 1);
-                p.build();
-                if (!p.geometryCheck() || !p.preflight()) continue;
+        // The previous center-clearing search would overwrite the 45x45 plaza.
+        // The fixed southern reserve is centered 123 blocks from island origin.
+        int ox = site.x(), oz = site.z() + 123;
+        int[] heights = fit(world, site, ox, oz);
+        if (heights != null) {
+            Plan p = new Plan(world, site, ox, oz, heights[1] + 1);
+            p.build();
+            if (p.geometryCheck() && p.preflight()) {
                 try {
                     p.commit();
                 } catch (RuntimeException failure) {
-                    LogUtils.getLogger().error("Buyan terem placement failed at {},{}",
-                        ox, oz, failure);
+                    LogUtils.getLogger().error("Buyan southern terem placement failed", failure);
                     return false;
                 }
                 record.finish(key, new BlockPos(ox, p.base, oz));
-                LogUtils.getLogger().info("Buyan white-stone terem constructed at {},{},{}",
+                LogUtils.getLogger().info("Buyan southern terem placed at {},{},{}",
                     ox, p.base, oz);
                 return true;
             }
-        LogUtils.getLogger().error("Buyan terem: no safe central-clearing location found");
+        }
+        LogUtils.getLogger().error("Buyan terem: southern reserve not available");
         return false;
     }
 

@@ -497,6 +497,10 @@ public final class BuyanNatureGenerator {
                             Component.literal("[Буян] Городская площадь не построена: "
                                 + "местность или существующие структуры не прошли проверку."),
                             false);
+                    else
+                        world.getServer().getPlayerList().broadcastSystemMessage(
+                            Component.literal("[Буян] Постройки: "
+                                + BuyanDevelopment.develop(world, completedSite)), false);
                     world.getServer().getPlayerList().broadcastSystemMessage(
                         Component.literal("[Буян] Готово: основание, природный рельеф и растительность — 100%."),
                         false);

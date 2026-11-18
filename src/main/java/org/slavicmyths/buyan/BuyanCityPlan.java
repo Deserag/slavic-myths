@@ -261,8 +261,8 @@ public final class BuyanCityPlan {
             cz + 25, cz + 96, Direction.EAST));
         lots.add(plot(site, seed, "RESIDENTIAL_MARKET", cx + 25, cx + 105,
             cz + 25, cz + 96, Direction.WEST));
-        lots.add(plot(site, seed, "TEREM", cx - 32, cx + 32,
-            cz + 108, cz + 143, Direction.NORTH));
+        lots.add(plot(site, seed, "TEREM", cx - 34, cx + 34,
+            cz + 108, cz + 148, Direction.NORTH));
         List<Street> streets = new ArrayList<>();
         streets.add(new Street("MAIN_NORTH", cx - 4, cx + 4, cz - 150, cz - 23, MAIN_WIDTH));
         streets.add(new Street("MAIN_WEST", cx - 150, cx - 23, cz - 4, cz + 4, MAIN_WIDTH));
@@ -519,7 +519,7 @@ public final class BuyanCityPlan {
                 for (int x : new int[]{p.minX, p.maxX})
                     for (int z : new int[]{p.minZ, p.maxZ})
                         if (Math.hypot((double) x - site.x(), (double) z - site.z())
-                            > 150.0) return false;
+                            > (p.name.equals("TEREM") ? 155.0 : 150.0)) return false;
                 for (int j = i + 1; j < layout.plots.size(); j++)
                     if (p.overlaps(layout.plots.get(j))) return false;
             }
