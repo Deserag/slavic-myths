@@ -269,8 +269,8 @@ public final class BuyanCityPlan {
             Math.max(cx - side * 97, cx - side * 23), cz - 2, cz + 2, 5));
         for (int[] span : new int[][]{{-61, -59}, {-29, -27}}) {
             streets.add(new Street("RESIDENTIAL_ACCESS_" + span[0],
-                Math.min(cx - side * span[0], cx - side * span[1]),
-                Math.max(cx - side * span[0], cx - side * span[1]),
+                Math.min(cx + side * span[0], cx + side * span[1]),
+                Math.max(cx + side * span[0], cx + side * span[1]),
                 cz - 42, cz + 42, 3));
         }
         return new Layout(cx, cy, cz, side, List.copyOf(lots), List.copyOf(streets));
