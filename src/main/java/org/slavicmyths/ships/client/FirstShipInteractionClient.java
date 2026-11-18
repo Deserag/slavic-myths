@@ -127,6 +127,7 @@ public final class FirstShipInteractionClient {
                     }
                 }
             }
+            if (action >= FirstShipNetwork.CARGO_BASE) break;
             // Use the same live helm geometry as the server: never infer a
             // modular captain station from the legacy 7x11 hard-coded wheel.
             double helmZ = ship.helmSeatZ(), helmY = ship.getY() + ship.helmSeatHeight();
