@@ -533,6 +533,16 @@ public final class BuyanCityPlan {
             "Buyan White City masterplan: plaza {},{},{} (45x45), side {}, {} plots",
             layout.centerX, layout.centerY, layout.centerZ, layout.side,
             layout.plots.size());
+        for (Plot lot : layout.plots)
+            LogUtils.getLogger().info(
+                "Buyan city lot {} X={}..{} Z={}..{} Y={} facade={}",
+                lot.name, lot.minX, lot.maxX, lot.minZ, lot.maxZ,
+                lot.level, lot.facade);
+        for (Street street : layout.streets)
+            LogUtils.getLogger().info(
+                "Buyan city street {} X={}..{} Z={}..{} width={}",
+                street.name, street.minX, street.maxX, street.minZ, street.maxZ,
+                street.width);
         return true;
     }
 
