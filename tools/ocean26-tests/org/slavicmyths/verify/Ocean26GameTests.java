@@ -735,6 +735,25 @@ public final class Ocean26GameTests {
                             + " palette=" + (ship.serverMovingPalette() != null));
             if (largeHull && !damaged) {
                 if (largest && fullyUpgraded) {
+                    BlockPos ceiling = ship.serverMovingPalette().entrySet().stream()
+                            .filter(entry -> entry.getValue().is(Blocks.SPRUCE_PLANKS)
+                                    && entry.getKey().getY() >= 9
+                                    && !ship.serverMovingPalette().containsKey(
+                                            entry.getKey().below()))
+                            .map(java.util.Map.Entry::getKey).findFirst().orElse(null);
+                    t.assertTrue(ceiling != null, "IV moving cabin ceiling fixture missing");
+                    var roofPoint = FirstShipHull.toWorld(ceiling.getX(), ceiling.getZ(),
+                            ship.getX(), ship.getZ(), ship.getYRot());
+                    ServerPlayer flyingCrew = player(level, "IVFlyingCrew", new Vec3(
+                            roofPoint.x(), ship.getY() + ceiling.getY() - 2.15D,
+                            roofPoint.z()));
+                    flyingCrew.getAbilities().flying = true;
+                    double belowRoof = flyingCrew.getY();
+                    flyingCrew.move(net.minecraft.world.entity.MoverType.SELF,
+                            new Vec3(0D, 1.3D, 0D));
+                    t.assertTrue(flyingCrew.getY() < belowRoof + 1.2D,
+                            "Creative flyer passed through IV moving cabin ceiling");
+                    flyingCrew.discard();
                     var berth = FirstShipHull.toWorld(2D, 2D,
                             ship.getX(), ship.getZ(), ship.getYRot());
                     ServerPlayer crewA = player(level, "IVCargoCrewA", new Vec3(

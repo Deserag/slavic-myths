@@ -158,7 +158,8 @@ public final class FirstShipNetwork {
                         ship.breakMovingBlock(player,
                                 new BlockPos(packet.x(), packet.y(), packet.z()));
                 }));
-        registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) -> {
+        registrar.playToServer(Command.TYPE, Command.CODEC, (packet, context) ->
+                context.enqueueWork(() -> {
             if (!(context.player() instanceof ServerPlayer player)
                     || !player.isAlive() || player.isSpectator()) return;
             if (!(player.level().getEntity(packet.shipId()) instanceof FirstShipEntity ship)
@@ -195,7 +196,7 @@ public final class FirstShipNetwork {
                 ship.packWithKey(player);
             // MODULE_* retained as historical protocol ids, but real chests
             // now use normal vanilla right-click and physical BlockEntities.
-        });
+        }));
     }
 
     private FirstShipNetwork() {}

@@ -104,6 +104,11 @@ public final class ShipSailCapture {
     private static BlockPos interactionPlank;
     private static BlockPos placementBase;
     private static boolean chestPlacedByClient;
+    private static String isolatedWorldName;
+    private static boolean reloadingWorld;
+    private static int relogAge;
+    private static boolean relogChestOpened;
+    private static boolean relogDoorWorked;
     private static String chestClientDiagnostic = "not observed";
     private static volatile String chestServerDiagnostic = "not observed";
 
@@ -258,7 +263,8 @@ public final class ShipSailCapture {
         receipt.addProperty("scope",
                 "Actual production JAR: stationary tier matrix with test-only pressure "
                 + "preview, followed by an actual moving IV ship turn/idle/restart; "
-                + "NOT a manual player-behaviour or relog test");
+                + "automated real-client chest/door/block actions and world relog; "
+                + "NOT manual owner acceptance or two-client multiplayer");
         receipt.addProperty("seed", 5072026L);
         receipt.addProperty("jar_sha256", loadedSha);
         receipt.addProperty("captured", FRAMES.size());
@@ -266,6 +272,8 @@ public final class ShipSailCapture {
         receipt.addProperty("door_opened_by_client", doorOpened);
         receipt.addProperty("plank_broken_by_client", plankBroken);
         receipt.addProperty("chest_placed_by_client", chestPlacedByClient);
+        receipt.addProperty("relog_chest_opened_by_client", relogChestOpened);
+        receipt.addProperty("relog_door_toggled_by_client", relogDoorWorked);
         receipt.add("frames", FRAMES);
         receipt.add("motion_frames", MOTION_FRAMES);
         Files.writeString(OUT.resolve("finished.json"),
@@ -620,6 +628,58 @@ public final class ShipSailCapture {
             if (interactionAge < 5) return;
             if (!chestPlacedByClient)
                 throw new AssertionError("Client could not place detached IV chest");
+            reloadingWorld = true;
+            mc.disconnect(new TitleScreen());
+            mc.createWorldOpenFlows().openWorld(isolatedWorldName,
+                    () -> { throw new AssertionError("Isolated IV world could not reload"); });
+            return;
+        }
+    }
+
+    private static void relogTick(Minecraft mc) throws Exception {
+        relogAge++;
+        if (relogAge == 25) {
+            mc.getSingleplayerServer().execute(() -> {
+                ServerPlayer player = mc.getSingleplayerServer().getPlayerList()
+                        .getPlayers().getFirst();
+                serverShip = player.serverLevel().getEntitiesOfClass(
+                        FirstShipEntity.class, player.getBoundingBox().inflate(120D))
+                        .stream().filter(FirstShipEntity::isMoving).findFirst()
+                        .orElseThrow(() -> new AssertionError("IV ship missing after relog"));
+                expectedShipId = serverShip.getId();
+                aimAt(player, new BlockPos(2, 7, 0), 2D);
+            });
+            mc.setCameraEntity(mc.player);
+        }
+        if (relogAge == 55) {
+            aimClientAt(mc, new BlockPos(2, 7, 0));
+            net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
+        }
+        if (relogAge == 75) {
+            mc.getSingleplayerServer().execute(() -> {
+                ServerPlayer player = mc.getSingleplayerServer().getPlayerList()
+                        .getPlayers().getFirst();
+                relogChestOpened = player.containerMenu != player.inventoryMenu;
+                player.closeContainer();
+                aimAt(player, interactionDoor, 2D);
+            });
+        }
+        if (relogAge == 100) {
+            if (!relogChestOpened)
+                throw new AssertionError("Client chest failed after actual world relog");
+            aimClientAt(mc, interactionDoor);
+            net.minecraft.client.KeyMapping.click(mc.options.keyUse.getKey());
+        }
+        if (relogAge == 120) {
+            mc.getSingleplayerServer().execute(() -> {
+                BlockState door = serverShip.serverMovingPalette().get(interactionDoor);
+                relogDoorWorked = door != null && !door.getValue(
+                        net.minecraft.world.level.block.DoorBlock.OPEN);
+            });
+        }
+        if (relogAge == 125) {
+            if (!relogDoorWorked)
+                throw new AssertionError("Client door failed after actual world relog");
             finish(mc);
         }
     }
@@ -655,8 +715,9 @@ public final class ShipSailCapture {
             mc.options.guiScale().set(2);
             mc.options.fov().set(67);
             mc.options.tutorialStep = net.minecraft.client.tutorial.TutorialSteps.NONE;
+            isolatedWorldName = "ShipSail-QA-" + System.currentTimeMillis();
             mc.createWorldOpenFlows().createFreshLevel(
-                    "ShipSail-QA-" + System.currentTimeMillis(),
+                    isolatedWorldName,
                     new LevelSettings("Temporary ship sail framebuffer proof",
                             GameType.CREATIVE, false, Difficulty.PEACEFUL,
                             true, new GameRules(), WorldDataConfiguration.DEFAULT),
@@ -669,6 +730,10 @@ public final class ShipSailCapture {
         }
         if (mc.level == null || mc.player == null
                 || mc.getSingleplayerServer() == null) return;
+        if (reloadingWorld) {
+            relogTick(mc);
+            return;
+        }
         if (motionStarted) {
             motionTick(mc);
             return;
