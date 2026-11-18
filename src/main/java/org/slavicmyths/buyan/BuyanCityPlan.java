@@ -177,40 +177,49 @@ public final class BuyanCityPlan {
     }
 
     private static int natural(ServerLevel world, BuyanState.Site site, int x, int z) {
-        return BuyanNature.top(world.getSeed(), site.x(), site.z(), site.radius(),
+        return natural(site, world.getSeed(), x, z);
+    }
+
+    private static int natural(BuyanState.Site site, long seed, int x, int z) {
+        return BuyanNature.top(seed, site.x(), site.z(), site.radius(),
             x, z, site.waterLevel());
     }
 
     private static int elevation(ServerLevel world, BuyanState.Site site,
                                  int x, int z) {
-        int h = natural(world, site, x, z);
+        return elevation(site, world.getSeed(), x, z);
+    }
+
+    private static int elevation(BuyanState.Site site, long seed,
+                                 int x, int z) {
+        int h = natural(site, seed, x, z);
         if (h == Integer.MIN_VALUE) throw new IllegalStateException(
             "City masterplan intersects sea at " + x + "," + z);
         return h + 1;
     }
 
-    private static Plot plot(ServerLevel world, BuyanState.Site site, String name,
+    private static Plot plot(BuyanState.Site site, long seed, String name,
                              int x0, int x1, int z0, int z1, Direction facade) {
         int left = Math.min(x0, x1), right = Math.max(x0, x1);
         int near = Math.min(z0, z1), far = Math.max(z0, z1);
         int[] samples = {
-            elevation(world, site, left, near),
-            elevation(world, site, left, far),
-            elevation(world, site, right, near),
-            elevation(world, site, right, far),
-            elevation(world, site, (left + right) / 2, (near + far) / 2)
+            elevation(site, seed, left, near),
+            elevation(site, seed, left, far),
+            elevation(site, seed, right, near),
+            elevation(site, seed, right, far),
+            elevation(site, seed, (left + right) / 2, (near + far) / 2)
         };
         java.util.Arrays.sort(samples);
         return new Plot(name, left, right, near, far, samples[2], facade);
     }
 
     /** Layout selection uses both coasts. Do not take a dry square for granted. */
-    private static double scoreArea(ServerLevel world, BuyanState.Site site,
+    private static double scoreArea(BuyanState.Site site, long seed,
                                     int minX, int maxX, int minZ, int maxZ) {
         double score = Double.POSITIVE_INFINITY;
         for (int x = minX; x <= maxX; x += 4)
             for (int z = minZ; z <= maxZ; z += 4) {
-                double margin = BuyanNature.shoreDistance(world.getSeed(),
+                double margin = BuyanNature.shoreDistance(seed,
                     site.x(), site.z(), x, z);
                 if (margin < 1.0) return Double.NEGATIVE_INFINITY;
                 score = Math.min(score, margin);
@@ -219,31 +228,35 @@ public final class BuyanCityPlan {
     }
 
     /** Choose a dry urban core rather than assuming a fixed square fits every seed. */
-    private static double sideScore(ServerLevel world, BuyanState.Site site,
+    private static double sideScore(BuyanState.Site site, long seed,
                                     int cx, int cz, int side) {
-        double score = scoreArea(world, site,
+        double score = scoreArea(site, seed,
             Math.min(cx + side * 35, cx + side * 171),
             Math.max(cx + side * 35, cx + side * 171), cz - 45, cz + 41);
-        score = Math.min(score, scoreArea(world, site,
+        score = Math.min(score, scoreArea(site, seed,
             Math.min(cx - side * 96, cx - side * 32),
             Math.max(cx - side * 96, cx - side * 32), cz - 41, cz + 41));
-        score = Math.min(score, scoreArea(world, site,
+        score = Math.min(score, scoreArea(site, seed,
             cx - 40, cx + 40, cz + 43, cz + 103));
-        score = Math.min(score, scoreArea(world, site,
+        score = Math.min(score, scoreArea(site, seed,
             cx - HALF, cx + HALF, cz - HALF, cz + HALF));
-        score = Math.min(score, scoreArea(world, site,
+        score = Math.min(score, scoreArea(site, seed,
             cx - 4, cx + 4, cz - 90, cz + 42));
         return score;
     }
 
     static Layout calculate(ServerLevel world, BuyanState.Site site) {
+        return calculateForSeed(site, world.getSeed());
+    }
+
+    static Layout calculateForSeed(BuyanState.Site site, long seed) {
         int cx = site.x(), cz = site.z() - 54, side = 1;
         double best = Double.NEGATIVE_INFINITY;
         for (int dx : new int[]{0, -27, 27, -54, 54})
             for (int dz : new int[]{-54, -27, 0, 27, 54})
                 for (int mirror : new int[]{1, -1}) {
                     int trialX = site.x() + dx, trialZ = site.z() + dz;
-                    double fit = sideScore(world, site, trialX, trialZ, mirror);
+                    double fit = sideScore(site, seed, trialX, trialZ, mirror);
                     if (fit > best) {
                         best = fit;
                         cx = trialX;
@@ -253,24 +266,24 @@ public final class BuyanCityPlan {
                 }
         if (!Double.isFinite(best))
             throw new IllegalStateException("No dry city core can host the reserved districts");
-        int cy = elevation(world, site, cx, cz);
+        int cy = elevation(site, seed, cx, cz);
         List<Plot> lots = new ArrayList<>();
         // The approved palace's real volume is 67x41; the lot reserves
         // its towers, front stairs, approach and surrounding clearance.
-        lots.add(plot(world, site, "TEREM", cx - 40, cx + 40,
+        lots.add(plot(site, seed, "TEREM", cx - 40, cx + 40,
             cz + 43, cz + 103, Direction.NORTH));
         // 129x81 is the sanctuary's enclosed complex. Reserve exterior
         // clearance for the crown, roots, chains and ritual court as well.
-        lots.add(plot(world, site, "SANCTUARY_AND_OAK", cx + side * 35,
+        lots.add(plot(site, seed, "SANCTUARY_AND_OAK", cx + side * 35,
             cx + side * 171, cz - 45, cz + 41,
             side == 1 ? Direction.WEST : Direction.EAST));
         for (int[] z : new int[][]{{-41, -7}, {7, 41}}) {
-            lots.add(plot(world, site, "B_35_" + z[0],
+            lots.add(plot(site, seed, "B_35_" + z[0],
                 cx - side * 96, cx - side * 62, cz + z[0], cz + z[1],
                 Direction.valueOf(side == 1 ? "EAST" : "WEST")));
         }
         for (int[] z : new int[][]{{-41, -17}, {17, 41}}) {
-            lots.add(plot(world, site, "A_25_" + z[0],
+            lots.add(plot(site, seed, "A_25_" + z[0],
                 cx - side * 56, cx - side * 32, cz + z[0], cz + z[1],
                 Direction.valueOf(side == 1 ? "EAST" : "WEST")));
         }
@@ -529,5 +542,20 @@ public final class BuyanCityPlan {
         Plot combined = merge(left, right, "70x35");
         if (combined.width() != 70 || combined.depth() != 35)
             throw new IllegalStateException("Merged plot geometry invalid");
+        // The two mandatory seed regressions plus a deterministic extra seed.
+        for (long seed : new long[]{
+            -8010468109031904307L, -9047918643626153269L,
+            9083133736688572422L
+        }) {
+            Layout check = calculateForSeed(site, seed);
+            if (check.plots.size() != 6 || check.streets.size() != 6)
+                throw new IllegalStateException("City plots missing for seed " + seed);
+            for (int i = 0; i < check.plots.size(); i++)
+                for (int j = i + 1; j < check.plots.size(); j++)
+                    if (check.plots.get(i).overlaps(check.plots.get(j)))
+                        throw new IllegalStateException("City collision for seed " + seed);
+            LogUtils.getLogger().info("Buyan city fixture seed {} plaza {},{},{}",
+                seed, check.centerX, check.centerY, check.centerZ);
+        }
     }
 }
