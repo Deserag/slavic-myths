@@ -78,7 +78,7 @@ public final class BuyanCityPlan {
             this.site=site;
             seed=world.getSeed();
             int prev=Integer.MIN_VALUE;
-            for(int z=-100;z<=-14;z++) {
+            for(int z=-94;z<=-14;z++) {
                 int top=natural(0,z);
                 if(top==Integer.MIN_VALUE)
                     throw new IllegalStateException("City axis has no land at z="+z);
