@@ -396,6 +396,56 @@ public final class BuyanCityPlan {
             }
         }
 
+        void smoothFeederGrades() {
+            for (Street street : layout.streets) {
+                if (!street.name.startsWith("RESIDENTIAL_ACCESS_")) continue;
+                int midX = (street.minX + street.maxX) / 2;
+                List<int[]> anchors = new ArrayList<>();
+                Tile junction = columns.get(new BlockPos(midX, 0, layout.centerZ).asLong());
+                if (junction == null)
+                    throw new IllegalStateException("Residential feeder has no junction");
+                anchors.add(new int[]{layout.centerZ, junction.y});
+                for (Plot plot : layout.plots) {
+                    if (plot.facade != Direction.EAST && plot.facade != Direction.WEST)
+                        continue;
+                    int frontX = plot.facade == Direction.EAST
+                        ? plot.maxX + 1 : plot.minX - 1;
+                    if (frontX < street.minX || frontX > street.maxX) continue;
+                    int centerZ = (plot.minZ + plot.maxZ) / 2;
+                    for (int dz = -2; dz <= 2; dz++)
+                        anchors.add(new int[]{centerZ + dz, plot.level});
+                }
+                anchors.sort(Comparator.comparingInt(a -> a[0]));
+                for (int i = 1; i < anchors.size(); i++) {
+                    int[] a = anchors.get(i - 1), b = anchors.get(i);
+                    if (a[0] == b[0] && a[1] != b[1])
+                        throw new IllegalStateException("Conflicting street grade anchors");
+                    if (Math.abs(a[1] - b[1]) > b[0] - a[0])
+                        throw new IllegalStateException("Feeder requires an unsafe grade");
+                }
+                for (int z = street.minZ; z <= street.maxZ; z++) {
+                    int y;
+                    if (z <= anchors.get(0)[0])
+                        y = anchors.get(0)[1];
+                    else if (z >= anchors.get(anchors.size() - 1)[0])
+                        y = anchors.get(anchors.size() - 1)[1];
+                    else {
+                        int i = 0;
+                        while (anchors.get(i + 1)[0] < z) i++;
+                        int[] left = anchors.get(i), right = anchors.get(i + 1);
+                        double t = (z - left[0]) / (double) (right[0] - left[0]);
+                        y = (int) Math.round(left[1] + (right[1] - left[1]) * t);
+                    }
+                    for (int x = street.minX; x <= street.maxX; x++) {
+                        long key = new BlockPos(x, 0, z).asLong();
+                        Tile before = columns.get(key);
+                        if (before != null)
+                            columns.put(key, new Tile(before.block, y, before.clearance));
+                    }
+                }
+            }
+        }
+
         void plaza() {
             int cx = layout.centerX, cz = layout.centerZ;
             for (int dx = -HALF; dx <= HALF; dx++)
@@ -472,6 +522,7 @@ public final class BuyanCityPlan {
             plots();
             roads();
             entranceGrades();
+            smoothFeederGrades();
             plaza();
             foundation();
             lamps();
