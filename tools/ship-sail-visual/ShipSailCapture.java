@@ -109,6 +109,7 @@ public final class ShipSailCapture {
     private static String isolatedWorldName;
     private static boolean reloadingWorld;
     private static int relogAge;
+    private static long relogStartedAt;
     private static boolean relogChestOpened;
     private static boolean relogDoorWorked;
     private static String relogChestDiagnostic = "not attempted";
@@ -863,6 +864,11 @@ public final class ShipSailCapture {
         if (mc.level == null || mc.player == null
                 || mc.getSingleplayerServer() == null) return;
         if (reloadingWorld) {
+            if (relogStartedAt == 0L) relogStartedAt = System.nanoTime();
+            if (System.nanoTime() - relogStartedAt > 180_000_000_000L)
+                throw new AssertionError("Reloaded world did not finish interactions; screen="
+                        + mc.screen + " age=" + relogAge);
+            if (mc.screen != null && (relogAge < 55 || relogAge >= 75)) return;
             relogTick(mc);
             return;
         }
