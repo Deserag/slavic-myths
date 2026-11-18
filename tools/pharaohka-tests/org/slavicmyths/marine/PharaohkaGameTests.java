@@ -204,6 +204,47 @@ public final class PharaohkaGameTests {
         });
     }
 
+
+    @GameTest(template="empty",timeoutTicks=135)
+    public static void movingMeleeKeepsSwimming(GameTestHelper test) {
+        tank(test);
+        var attacker=spawn(test,true,5,3,8);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Missing swimming strike target");
+        target.setNoAi(true);
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(500);
+        target.setHealth(500);
+        target.moveTo(test.absoluteVec(new Vec3(5.5,3.2,12.5)));
+        test.getLevel().addFreshEntity(target);
+        attacker.setTarget(target);
+        var tag=new CompoundTag();
+        attacker.addAdditionalSaveData(tag);
+        tag.putInt("DashCooldown",300);
+        tag.putInt("SummonCooldown",300);
+        tag.putInt("ShieldCooldown",300);
+        tag.putInt("CurrentCooldown",300);
+        attacker.readAdditionalSaveData(tag);
+        final Vec3[] previous={attacker.position()};
+        final boolean[] movedDuringStrike={false};
+        final int[] strikeFrames={0};
+        for(int tick=1;tick<=95;tick++){
+            test.runAtTickTime(tick,()->{
+                if(attacker.action()==PharaohkaEntity.STRIKE) {
+                    strikeFrames[0]++;
+                    if(attacker.position().distanceToSqr(previous[0])>.000001)
+                        movedDuringStrike[0]=true;
+                }
+                previous[0]=attacker.position();
+            });
+        }
+        test.runAfterDelay(100,()->{
+            test.assertTrue(strikeFrames[0]>0,"No melee strike started");
+            test.assertTrue(movedDuringStrike[0],"Boss froze throughout underwater spear sweep");
+            test.assertTrue(target.getHealth()<500,"Moving spear missed stationary target");
+            attacker.discard();target.discard();test.succeed();
+        });
+    }
+
     @GameTest(template="empty",timeoutTicks=20)
     public static void shipwreckChance(GameTestHelper test) {
         int spawns=0;
