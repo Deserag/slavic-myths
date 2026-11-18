@@ -122,8 +122,9 @@ public final class BuyanFullCityGameTests {
             for (int floor : new int[]{0, 7, 14}) {
                 int z7 = house.z() + (house.facesSouth() ? house.depth() - 8 : 7);
                 BlockPos hall = new BlockPos(cx + house.x() + mid, y + floor, cz + z7);
-                require(helper.getLevel().getBlockState(hall).is(Blocks.SPRUCE_PLANKS),
-                    "third-floor corridor/floor missing at " + hall);
+                require(helper.getLevel().getBlockState(hall).is(
+                    floor == 0 ? Blocks.STONE_BRICKS : Blocks.SPRUCE_PLANKS),
+                    "corridor or floor missing at " + hall);
                 int x4 = house.x() + (house.mirror() ? house.width() - 5 : 4);
                 BlockPos light = new BlockPos(cx + x4, y + floor + 5, cz + z7);
                 require(helper.getLevel().getBlockState(light).is(Blocks.LANTERN),
