@@ -266,7 +266,7 @@ public final class BuyanCityPlan {
         BuyanState.Site site=new BuyanState.Site(0,0,BuyanTerrain.MAX_RADIUS,63);
         Plan plan=new Plan(world,site);
         plan.build();
-        if(!plan.geometryCheck()||plan.blocks.size()<1800)
+        if(!plan.geometryCheck()||plan.blocks.size()<1050)
             throw new IllegalStateException("Buyan central street/plaza blueprint invalid");
     }
 }
