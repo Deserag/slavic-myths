@@ -745,7 +745,8 @@ public final class BuyanOutpost {
                     // Use sparse, spaced stone piers and timber cross braces.
                     if (supportHeight <= 3 || (side == 0 && i % 5 == 0))
                         posts(bx, bz, floor);
-                    else if (supportHeight > 3)
+                    else if (supportHeight > 3
+                        && !blocks.containsKey(hill.at(bx,floor-1,bz)))
                         at(bx, floor - 1, bz, LOG);
                     at(bx, floor, bz, board);
                     for (int clearance = 1; clearance <= 3; clearance++)
@@ -769,7 +770,8 @@ public final class BuyanOutpost {
                         if (!crossesRoad) {
                             // Keep the safety rail attached to the bridge
                             // deck without building another tall stone wall.
-                            at(bx, floor - 1, bz, LOG);
+                            if(!blocks.containsKey(hill.at(bx,floor-1,bz)))
+                                at(bx, floor - 1, bz, LOG);
                             at(bx, floor, bz, PLANK);
                             at(bx, floor + 1, bz, Blocks.SPRUCE_FENCE.defaultBlockState());
                         }
