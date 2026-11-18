@@ -189,7 +189,7 @@ public final class PharaohkaGameTests {
                     net.minecraft.server.level.ServerLevel.class);
                 process.setAccessible(true);
                 process.invoke(saved,world);
-                var area=new net.minecraft.world.phys.AABB(first,last).inflate(18);
+                var area=new net.minecraft.world.phys.AABB(first.getX(),first.getY(),first.getZ(),last.getX()+1,last.getY()+1,last.getZ()+1).inflate(18);
                 var found=world.getEntitiesOfClass(PharaohkaEntity.class,area,PharaohkaEntity::leader);
                 test.assertTrue(found.size()==1,"Shipwreck did not produce exactly one leader");
                 test.assertTrue(!pending.containsKey(key),"Spawned shipwreck remained pending");
