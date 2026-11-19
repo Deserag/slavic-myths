@@ -182,6 +182,14 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
         tailA.pivot.yRot=Mth.sin(time*.13F*speed)*amp*.6F;
         tailB.pivot.yRot=Mth.sin(time*.13F*speed-1.1F)*amp;
         caudal.pivot.yRot=Mth.sin(time*.13F*speed-1.9F)*amp*1.6F;
+        // The tail strike is a separate wide lateral sweep, not ordinary swim motion.
+        if(fish.action()==TsarPikeEntity.TAIL_SWEEP){
+            float progress=Mth.clamp(fish.actionTicks()/19F,0F,1F);
+            float sweep=Mth.sin(progress*Mth.PI)*1.18F;
+            tailA.pivot.yRot+=sweep*.40F;
+            tailB.pivot.yRot+=sweep*.80F;
+            caudal.pivot.yRot+=sweep*1.15F;
+        }
         pectL.pivot.zRot=Mth.sin(time*.16F)*.16F;
         pectR.pivot.zRot=-pectL.pivot.zRot;
         pelvL.pivot.zRot=Mth.sin(time*.12F+.7F)*.12F;
