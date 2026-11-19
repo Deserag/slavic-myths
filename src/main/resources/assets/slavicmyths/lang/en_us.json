@@ -1,4 +1,10 @@
 {
+  "entity.slavicmyths.deep_sea_serpent": "Deep Sea Serpent",
+  "item.slavicmyths.deep_sea_serpent_spawn_egg": "Deep Sea Serpent Spawn Egg",
+  "block.slavicmyths.deep_sea_serpent_head": "Deep Sea Serpent Head",
+  "item.slavicmyths.deep_sea_serpent_head": "Deep Sea Serpent Head",
+  "block.slavicmyths.abyssal_crest": "Abyssal Crest",
+  "item.slavicmyths.abyssal_crest": "Abyssal Crest",
   "flat_world_preset.slavicmyths.buyan_shallow_ocean": "Slavic Oceans",
   "block.slavicmyths.gold_birch_log": "Buyan Golden Birch Log",
   "block.slavicmyths.gold_birch_leaves": "Buyan Golden Birch Leaves",

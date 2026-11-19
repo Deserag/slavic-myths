@@ -1,0 +1,211 @@
+{
+  "textures": {
+    "web": "minecraft:block/prismarine",
+    "light": "minecraft:block/sea_lantern"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        2,
+        2
+      ],
+      "to": [
+        10,
+        7,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#web"
+        },
+        "south": {
+          "texture": "#web"
+        },
+        "east": {
+          "texture": "#web"
+        },
+        "west": {
+          "texture": "#web"
+        },
+        "up": {
+          "texture": "#web"
+        },
+        "down": {
+          "texture": "#web"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        6,
+        2
+      ],
+      "to": [
+        9,
+        15,
+        5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#web"
+        },
+        "south": {
+          "texture": "#web"
+        },
+        "east": {
+          "texture": "#web"
+        },
+        "west": {
+          "texture": "#web"
+        },
+        "up": {
+          "texture": "#web"
+        },
+        "down": {
+          "texture": "#web"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        6,
+        6
+      ],
+      "to": [
+        9,
+        13,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#web"
+        },
+        "south": {
+          "texture": "#web"
+        },
+        "east": {
+          "texture": "#web"
+        },
+        "west": {
+          "texture": "#web"
+        },
+        "up": {
+          "texture": "#web"
+        },
+        "down": {
+          "texture": "#web"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        6,
+        10
+      ],
+      "to": [
+        9,
+        12,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#web"
+        },
+        "south": {
+          "texture": "#web"
+        },
+        "east": {
+          "texture": "#web"
+        },
+        "west": {
+          "texture": "#web"
+        },
+        "up": {
+          "texture": "#web"
+        },
+        "down": {
+          "texture": "#web"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        5,
+        6
+      ],
+      "to": [
+        10,
+        8,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#light"
+        },
+        "south": {
+          "texture": "#light"
+        },
+        "east": {
+          "texture": "#light"
+        },
+        "west": {
+          "texture": "#light"
+        },
+        "up": {
+          "texture": "#light"
+        },
+        "down": {
+          "texture": "#light"
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        28,
+        140,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  }
+}
