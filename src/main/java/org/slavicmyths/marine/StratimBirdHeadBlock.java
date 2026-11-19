@@ -93,7 +93,7 @@ public final class StratimBirdHeadBlock extends HorizontalDirectionalBlock imple
                 BlockState other=level.getBlockState(otherPos);
                 if(other.is(this)&&other.getValue(FACING)==face
                     &&other.getValue(SIDE)==x&&other.getValue(LAYER)==y
-                    &&other.getValue(DEPTH)==z)
+                    &&other.getValue(DEPTH)==z && !otherPos.equals(base))
                     level.removeBlock(otherPos,false);
             }
             // Removing a non-owner must break the owner once, never drop 12 heads.
