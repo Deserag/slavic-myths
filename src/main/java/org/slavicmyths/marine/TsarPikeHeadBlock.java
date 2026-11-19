@@ -44,7 +44,7 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
         super(properties);
         registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH).setValue(FRONT,false));
     }
-    @Override protected MapCodec<? extends HorizontalDirectionalBlock> codec(){return CODEC;}
+    @Override protected MapCodec<TsarPikeHeadBlock> codec(){return CODEC;}
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> b){
         b.add(FACING,FRONT);
     }
