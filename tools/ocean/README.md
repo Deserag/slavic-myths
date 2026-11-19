@@ -1,4 +1,4 @@
-# Slavic Myths — Ocean updates / Tsar Pike (approved V1)
+# Slavic Myths — Ocean updates / Tsar Pike (Python V1 reference; Java visual revision)
 
 This folder keeps **offline Python prototypes** for the Tsar Pike boss.
 The Java boss, natural river/ocean spawns, spawn egg, animated 1x2 trophy head and GameTests
@@ -6,7 +6,7 @@ are implemented separately in `src/main` and `tools/pharaohka-tests`.
 The Python files remain independent technical references for V1 geometry and attack poses.
 
 Approved by owner:
-- Visual model: **V1** (no geometry changes requested).
+- **Python V1** was accepted as an initial reference, but the first in-game Java rendering was rejected (too crocodile-like, poor fins); the Java model was subsequently revised. New in-game visual approval is still required.
 - Danger level: **V**, base A4 damage **18 HP**.
 - Escaping a jaw grab: **deal actual damage to the pike**, not a button-mashing QTE.
 - Other numbers (HP, armor, escape threshold, cooldowns) are proposals, not approved.
