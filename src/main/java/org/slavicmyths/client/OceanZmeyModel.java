@@ -194,21 +194,15 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
                         }
             }
         }
-        // A flexible paddle-tail: two translucent-looking volumetric veils.
+        // A narrow fin-tip follows the tapered tail instead of a comically wide paddle.
         Group tail=body[SEGMENTS-1];
         float start=SEGMENTS*SECTION_LENGTH;
-        for(int side:new int[]{-1,1}){
-            for(float z=0;z<30;z+=2.8F){
-                float profile=Mth.sin(Mth.PI*(z/30F));
-                float reach=2+16F*profile;
-                for(float across=0;across<reach;across+=2.5F){
-                    float x=side*(2+across);
-                    float bend=3F*Mth.sin(z*.11F);
-                    tail.cube(across>reach-3?FINRAY:FIN,x-1.3F,
-                        -24+bend-(across/reach)*1.5F,start+z,
-                        2.8F,2.7F,3.2F);
-                }
-            }
+        for(float z=0;z<16;z+=2.5F){
+            float t=z/16F;
+            float width=Math.max(.65F,3.1F*(1-t));
+            float height=Math.max(.75F,5.0F*(1-t));
+            tail.cube(z>11?FINRAY:FIN,-width*.5F,-24-height*.5F,
+                start+z,width,height,3.0F);
         }
     }
     private void makeCrest(){
