@@ -37,8 +37,59 @@ public final class StratimBirdEntity extends Monster {
     private int phaseTicks,patrolTicks,unseenTicks,unattendedTicks;
     private Vec3 home;
     private boolean landedOnSpawn;
+    private final HitSection[] sections=new HitSection[8];
+    /** Separate pickable zones follow the long wings, skull and tail rather than the root hitbox. */
+    public static final class HitSection extends net.neoforged.neoforge.entity.PartEntity<StratimBirdEntity> {
+        private final float width,height;
+        private HitSection(StratimBirdEntity parent,float width,float height){
+            super(parent);this.width=width;this.height=height;this.noPhysics=true;refreshDimensions();
+        }
+        @Override protected void defineSynchedData(SynchedEntityData.Builder b){}
+        @Override protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){}
+        @Override protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){}
+        @Override public EntityDimensions getDimensions(Pose pose){
+            return EntityDimensions.scalable(width,height);
+        }
+        @Override public boolean shouldBeSaved(){return false;}
+        @Override public boolean isPickable(){return true;}
+        @Override public boolean is(Entity e){return e==this||e==getParent();}
+        @Override public boolean hurt(DamageSource src,float damage){
+            return getParent().hurt(src,damage);
+        }
+    }
+    @Override public boolean isMultipartEntity(){return true;}
+    @Override public net.neoforged.neoforge.entity.PartEntity<?>[] getParts(){return sections;}
+    @Override public void setId(int id){
+        super.setId(id);
+        if(sections!=null)for(int i=0;i<sections.length;i++)
+            if(sections[i]!=null)sections[i].setId(id+i+1);
+    }
+    private static void place(HitSection part,Vec3 center){
+        part.setPos(center.x,center.y-part.getBbHeight()*.5,center.z);
+    }
+    private void updateHitSections(){
+        if(sections[0]==null)return;
+        Vec3 facing=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
+        if(facing.lengthSqr()<.1)facing=new Vec3(0,0,-1);
+        Vec3 right=new Vec3(-facing.z,0,facing.x);
+        Vec3 origin=position().add(0,2.7,0);
+        place(sections[0],origin.add(facing.scale(4.1)).add(0,1.1,0));
+        for(int sign:new int[]{-1,1})
+            for(int j=0;j<3;j++){
+                double distance=3.4+j*4.8;
+                double flap=(action()==STORM?1.5:.45)*Math.sin(tickCount*.13+sign*.2);
+                Vec3 center=origin.add(right.scale(sign*distance))
+                    .add(facing.scale(j==2?-.5:0)).add(0,flap,0);
+                place(sections[sign<0?1+j:4+j],center);
+            }
+        place(sections[7],origin.subtract(facing.scale(4.8)).add(0,-.4,0));
+    }
     public StratimBirdEntity(EntityType<? extends StratimBirdEntity> type,Level level){
         super(type,level);xpReward=120;setNoGravity(true);
+        sections[0]=new HitSection(this,2.0F,2.1F);
+        for(int i=1;i<=6;i++)sections[i]=new HitSection(this,i%3==0?3.1F:4.3F,1.85F);
+        sections[7]=new HitSection(this,2.5F,1.5F);
+        updateHitSections();
     }
     public static AttributeSupplier.Builder attributes(){
         return Monster.createMonsterAttributes()
@@ -168,6 +219,7 @@ public final class StratimBirdEntity extends Monster {
     }
     @Override public void aiStep(){
         super.aiStep();
+        updateHitSections();
         setNoGravity(true);fallDistance=0;
         if(level().isClientSide)return;
         bar.setProgress(getHealth()/Math.max(1,getMaxHealth()));
