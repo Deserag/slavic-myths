@@ -19,7 +19,7 @@ public final class PharaohkaGameTests {
     private static void tank(GameTestHelper test) {
         for (int x=1;x<=19;x++) for (int z=1;z<=19;z++) {
             test.setBlock(new BlockPos(x,1,z),Blocks.PRISMARINE);
-            for (int y=2;y<=5;y++) {
+            for (int y=2;y<=8;y++) {
                 boolean wall=x==1||z==1||x==19||z==19;
                 test.setBlock(new BlockPos(x,y,z),wall?Blocks.PRISMARINE:Blocks.WATER);
             }
