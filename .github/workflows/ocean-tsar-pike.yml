@@ -5,6 +5,7 @@ on:
     branches: [integration/ocean-updates]
     paths:
       - ".github/workflows/ocean-tsar-pike.yml"
+      - "tools/pharaohka-tests/org/slavicmyths/marine/TsarPikeGameTests.java"
       - "src/main/java/org/slavicmyths/marine/TsarPike*.java"
       - "src/main/java/org/slavicmyths/client/TsarPike*.java"
       - "src/main/java/org/slavicmyths/SlavicMyths.java"
@@ -29,6 +30,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Compile and assemble NeoForge mod
         run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Run isolated aquatic-boss GameTests
+        run: ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain
       - name: Archive test JAR
         if: success()
         uses: actions/upload-artifact@v4
