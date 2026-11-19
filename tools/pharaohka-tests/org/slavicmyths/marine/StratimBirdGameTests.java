@@ -93,4 +93,20 @@ public final class StratimBirdGameTests {
         });
     }
 
+    @GameTest(template="empty",timeoutTicks=55)
+    public static void flightWingSamplesRotateWithHeading(GameTestHelper test){
+        var center=new net.minecraft.world.phys.Vec3(0.5,64,0.5);
+        var northSouth=StratimBirdEntity.wingSample(center,
+            new net.minecraft.world.phys.Vec3(0,0,1),1,16,2);
+        var eastWest=StratimBirdEntity.wingSample(center,
+            new net.minecraft.world.phys.Vec3(1,0,0),1,16,2);
+        test.assertTrue(northSouth.getX()==-16&&northSouth.getZ()==0,
+            "North/south travel must check wing clearance along X");
+        test.assertTrue(eastWest.getX()==0&&eastWest.getZ()==16,
+            "East/west travel must check wing clearance along Z");
+        test.assertTrue(northSouth.getY()==66&&eastWest.getY()==66,
+            "Wing sample height must be preserved");
+        test.succeed();
+    }
+
 }
