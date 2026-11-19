@@ -1,7 +1,7 @@
 # Integration verification
 
-- Workflow run: https://github.com/Deserag/slavic-myths/actions/runs/44464542147
-- Tested commit: `6cbc13ebce37ec6cfaa1db148fd85d87b52ae2db`
+- Workflow run: https://github.com/Deserag/slavic-myths/actions/runs/44464598092
+- Tested commit: `37e7ffea30301dcfc3fafc1c3c2dce97c545110f`
 - Java 21 clean build and ship geometry: **success**
 - Ship GameTests: **success**
 - Pharaohka GameTests: **success**
