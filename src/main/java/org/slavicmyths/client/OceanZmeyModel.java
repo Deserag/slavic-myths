@@ -22,6 +22,7 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
     private static final int SEGMENTS=16,SECTION_LENGTH=26;
     private final FolkModelGeometry geometry=new FolkModelGeometry();
     private final Group root,head,jaw,crest;
+    private final Group wingLeft,wingRight;
     private final Group[] body=new Group[SEGMENTS];
 
     private final class Group {
@@ -57,9 +58,12 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         for(int i=0;i<SEGMENTS;i++)
             body[i]=new Group(i==0?root:body[i-1],0,-24,i*SECTION_LENGTH);
         crest=new Group(null,0,0,0);
+        wingLeft=new Group(root,-23,-34,35);
+        wingRight=new Group(root,23,-34,35);
         makeHead();
         makeBody();
         makeCrest();
+        makeWings();
     }
     private void makeHead(){
         // Ocean Zmey elongated dragon-serpent anatomy: high narrow snout and powerful rear skull.
@@ -222,6 +226,35 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         crest.cube(GLOW,-5.5F,-11F,-6F,11F,5F,11F);
         crest.cube(ABYSS,-4.4F,-10.7F,-5F,8.8F,3.5F,8.8F);
     }
+    /** Two genuinely articulated membrane wings folded close to the trunk while swimming. */
+    private void makeWings(){
+        for(int side:new int[]{-1,1}){
+            Group wing=side<0?wingLeft:wingRight;
+            float baseX=side*23F;
+            for(int rib=0;rib<5;rib++){
+                float sweepZ=35F+rib*16F;
+                float extent=105F-rib*11F;
+                for(float x=0;x<extent;x+=4.0F){
+                    float taper=1F-x/extent;
+                    float arcY=-34F-16F*Mth.sin(x/extent*Mth.PI*.8F)-rib*1.7F;
+                    float globalX=baseX+side*x;
+                    int color=(int)(x/4)%7==0?FINRAY:FIN;
+                    wing.cube(color,globalX-2.2F,arcY,
+                        sweepZ+x*.12F,4.4F,
+                        1.8F+2.6F*taper,5F);
+                    if(rib<4 && x<extent-9){
+                        // Diagonal web between structural ribs.
+                        for(int membrane=1;membrane<4;membrane++){
+                            float acrossZ=sweepZ+membrane*4F+x*.12F;
+                            float acrossY=arcY+membrane*.5F;
+                            wing.cube(membrane==3?TEAL:FIN,globalX-2F,acrossY,
+                                acrossZ,4F,1.65F,4.4F);
+                        }
+                    }
+                }
+            }
+        }
+    }
     @Override public void setupAnim(OceanZmeyEntity boss,float walk,float walkAmount,
         float age,float yaw,float pitch){
         float t=age*.085F;
@@ -232,8 +265,7 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
             float arc=.075F*Mth.sin(wave) *
                 (.3F+1.0F*i/(float)(SEGMENTS-1));
             if(action==OceanZmeyEntity.GRAB) {
-                float progress=action==OceanZmeyEntity.GRAB?1F:
-                    Mth.clamp(boss.actionTicks()/26F,0F,1F);
+                float progress=Mth.clamp(boss.actionTicks()/26F,0F,1F);
                 // Exact real hinge rotations generate the grab loop.
                 arc+= (i>2?.11F:0F)*progress;
             }
@@ -250,8 +282,10 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         head.pivot.yRot=boss.hurtTime>0?Mth.sin(age*.95F)*.20F:0F;
         head.pivot.xRot=action==OceanZmeyEntity.BITE?-.22F*Mth.sin(Mth.PI*Mth.clamp(boss.actionTicks()/32F,0F,1F)):0F;
         root.pivot.zRot=action==OceanZmeyEntity.FLIGHT?.10F*Mth.sin(age*.15F):0F;
-        root.pivot.xRot=0F;
-        root.pivot.zRot=0F;
+        root.pivot.xRot=action==OceanZmeyEntity.TAKEOFF?-.12F:action==OceanZmeyEntity.LAND?.08F:0F;
+        wingLeft.pivot.zRot=action==OceanZmeyEntity.FLIGHT || action==OceanZmeyEntity.TAKEOFF
+            ? -.32F-.22F*Mth.sin(age*.28F):.88F;
+        wingRight.pivot.zRot=-wingLeft.pivot.zRot;
         if(boss.deathTime>0) {
             float fall=Mth.clamp(boss.deathTime/20F,0F,1F);
             jaw.pivot.xRot=fall*.48F;
