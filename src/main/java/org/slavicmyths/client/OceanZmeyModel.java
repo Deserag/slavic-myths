@@ -156,7 +156,7 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
                 for(float x=-rx;x<=rx;x+=4.1F)
                     for(float dy=-ry;dy<=ry;dy+=4.1F){
                         float normalized=(x*x)/(rx*rx)+(dy*dy)/(ry*ry);
-                        if(normalized>1.06F)continue;
+                        if(normalized>1.06F || normalized<.70F)continue;
                         int color=dy<-.4F*ry?ABYSS:dy<.15F*ry?DARK:
                             dy>.57F*ry?BELLY:TEAL;
                         if(Math.floorMod((int)(i*41+x*2+dy*3+localZ*5),13)==0)
