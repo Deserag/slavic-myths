@@ -8,6 +8,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -131,6 +132,16 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
                 pos.getX()+.1+random.nextDouble()*.8,pos.getY()+.4,
                 pos.getZ()+.1+random.nextDouble()*.8,0,0,0);
         }
+        if(random.nextInt(14)==0 && (
+            level.getFluidState(pos.below()).is(FluidTags.WATER)
+            || level.getFluidState(pos.north()).is(FluidTags.WATER)
+            || level.getFluidState(pos.south()).is(FluidTags.WATER)
+            || level.getFluidState(pos.east()).is(FluidTags.WATER)
+            || level.getFluidState(pos.west()).is(FluidTags.WATER))) {
+            level.addParticle(ParticleTypes.BUBBLE,
+                pos.getX()+.5,pos.getY()+.35,pos.getZ()+.5,
+                (random.nextDouble()-.5)*.03,.025,(random.nextDouble()-.5)*.03);
+        }
         if(random.nextInt(110)==0)
             level.playLocalSound(pos.getX()+.5,pos.getY()+.6,pos.getZ()+.5,
                 SoundEvents.COD_AMBIENT,net.minecraft.sounds.SoundSource.BLOCKS,
@@ -139,10 +150,12 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
 
     public static final class Tile extends BlockEntity {
         private long activeUntil;
+        private long reactiveUntil;
         public Tile(BlockPos pos,BlockState state){
             super(TsarPikeContent.HEAD_TILE.get(),pos,state);
         }
         public boolean active(){return level!=null && level.getGameTime()<activeUntil;}
+        public boolean reactive(){return level!=null && level.getGameTime()<reactiveUntil;}
         public void activate(){
             if(level==null)return;
             activeUntil=level.getGameTime()+400;
@@ -150,7 +163,18 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
             level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
         }
         private void serverTick(){
-            if(level==null || level.getGameTime()%40!=0 || !active())return;
+            if(level==null || level.getGameTime()%20!=0)return;
+            long now=level.getGameTime();
+            boolean nearby=!level.getEntitiesOfClass(LivingEntity.class,
+                new net.minecraft.world.phys.AABB(worldPosition).inflate(5),
+                e->e.isAlive() && !e.isSpectator()).isEmpty();
+            // Visual response is automatic. The gameplay aura remains click-activated.
+            if(nearby && reactiveUntil<now+20){
+                reactiveUntil=now+55;
+                setChanged();
+                level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+            }
+            if(now%40!=0 || !active())return;
             for(Player p:level.getEntitiesOfClass(Player.class,
                 new net.minecraft.world.phys.AABB(worldPosition).inflate(8),
                 target->!target.isSpectator() && target.isInWaterOrBubble())){
@@ -163,10 +187,12 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
         @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){
             super.saveAdditional(tag,lookup);
             tag.putLong("ActiveUntil",activeUntil);
+            tag.putLong("ReactiveUntil",reactiveUntil);
         }
         @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){
             super.loadAdditional(tag,lookup);
             activeUntil=tag.getLong("ActiveUntil");
+            reactiveUntil=tag.getLong("ReactiveUntil");
         }
         @Override public CompoundTag getUpdateTag(HolderLookup.Provider lookup){
             return saveWithoutMetadata(lookup);
