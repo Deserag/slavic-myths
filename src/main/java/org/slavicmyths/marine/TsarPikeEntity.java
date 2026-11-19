@@ -90,7 +90,6 @@ public final class TsarPikeEntity extends Monster {
         // All-target selection is done explicitly. Standard team/category goals exclude prey.
     }
     @Override public boolean removeWhenFarAway(double distance){return false;}
-    @Override public boolean canBreatheUnderwater(){return true;}
     @Override public void travel(Vec3 input){
         if (isEffectiveAi() && isInWater()) {
             moveRelative(.09F,input);
@@ -155,6 +154,7 @@ public final class TsarPikeEntity extends Monster {
     @Override public void aiStep() {
         super.aiStep();
         if(level().isClientSide) return;
+        if(inWater())setAirSupply(getMaxAirSupply());
         bar.setProgress(getHealth()/Math.max(1,getMaxHealth()));
         countdown();
         boolean wet=inWater();
