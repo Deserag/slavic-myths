@@ -7,6 +7,10 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import org.slavicmyths.registry.ModBlocks;
+import org.slavicmyths.registry.ModTiles;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.IEventBus;
@@ -34,6 +38,19 @@ public final class OceanZmeyContent {
                         "item.slavicmyths.ocean_zmey_spawn_egg","Яйцо призыва Змея морских бурь");
                 }
             });
+    public static final DeferredHolder<Block,Block> HEAD=ModBlocks.BLOCKS.register(
+        "ocean_zmey_head",()->new OceanZmeyHeadBlock(true));
+    public static final DeferredHolder<Item,Item> HEAD_ITEM=ModItems.ITEMS.register(
+        "ocean_zmey_head",()->new BlockItem(HEAD.get(),new Item.Properties().rarity(Rarity.EPIC)){
+            @Override public net.minecraft.network.chat.Component getName(ItemStack stack){
+                return net.minecraft.network.chat.Component.translatableWithFallback(
+                    "block.slavicmyths.ocean_zmey_head","Голова Змея морских бурь");
+            }
+        });
+    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<OceanZmeyHeadBlock.Tile>>
+        HEAD_TILE=ModTiles.TILES.register("ocean_zmey_head",()->
+            BlockEntityType.Builder.of(OceanZmeyHeadBlock.Tile::new,HEAD.get()).build(null));
+
     public static void init(IEventBus bus){
         bus.addListener(OceanZmeyContent::attributes);
         bus.addListener(OceanZmeyContent::placements);
@@ -45,6 +62,7 @@ public final class OceanZmeyContent {
     }
     private static void creative(BuildCreativeModeTabContentsEvent e){
         if(e.getTabKey()==CreativeModeTabs.SPAWN_EGGS)e.accept(EGG.get());
+        if(e.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS)e.accept(HEAD_ITEM.get());
     }
     private static void placements(RegisterSpawnPlacementsEvent e){
         e.register(BOSS.get(),SpawnPlacementTypes.IN_WATER,
@@ -69,7 +87,7 @@ public final class OceanZmeyContent {
     private static void drops(LivingDropsEvent e){
         if(!(e.getEntity() instanceof OceanZmeyEntity boss)||boss.level().isClientSide||boss.isAlive())return;
         e.getDrops().add(new net.minecraft.world.entity.item.ItemEntity(
-            boss.level(),boss.getX(),boss.getY()+1,boss.getZ(),new ItemStack(Items.HEART_OF_THE_SEA)));
+            boss.level(),boss.getX(),boss.getY()+1,boss.getZ(),new ItemStack(HEAD_ITEM.get())));
     }
     private OceanZmeyContent(){}
 }
