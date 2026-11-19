@@ -34,7 +34,7 @@ public final class TsarPikeContent {
             new DeferredSpawnEggItem(BOSS, 0x405C3D, 0xC4BB78, new Item.Properties()));
 
     public static final DeferredHolder<Block, Block> HEAD =
-        ModBlocks.BLOCKS.register("tsar_pike_head", TsarPikeHeadBlock::new);
+        ModBlocks.BLOCKS.register("tsar_pike_head", () -> new TsarPikeHeadBlock());
 
     public static final DeferredHolder<Item, Item> HEAD_ITEM =
         ModItems.ITEMS.register("tsar_pike_head", () ->
