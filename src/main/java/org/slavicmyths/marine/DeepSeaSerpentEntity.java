@@ -4,6 +4,9 @@ import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.EntityDimensions;
+import net.neoforged.neoforge.entity.PartEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerBossEvent;
@@ -51,12 +54,91 @@ public final class DeepSeaSerpentEntity extends Monster {
     private boolean actionHit;
     private final Set<UUID> vortexHit=new HashSet<>();
     private final Map<UUID,Long> releasedUntil=new HashMap<>();
+    private static final int MODEL_SEGMENTS=16;
+    private static final double MODEL_SECTION=20.0/16.0;
+    private final Segment[] segments=new Segment[MODEL_SEGMENTS+2];
+
+    /** Pickable hitboxes follow the same moving joints as the visible voxel body. */
+    public static final class Segment extends PartEntity<DeepSeaSerpentEntity> {
+        private final float width,height;
+        private Segment(DeepSeaSerpentEntity parent,float width,float height){
+            super(parent);
+            this.width=width;
+            this.height=height;
+            this.noPhysics=true;
+            refreshDimensions();
+        }
+        @Override protected void defineSynchedData(SynchedEntityData.Builder builder){}
+        @Override protected void addAdditionalSaveData(CompoundTag tag){}
+        @Override protected void readAdditionalSaveData(CompoundTag tag){}
+        @Override public EntityDimensions getDimensions(Pose pose){
+            return EntityDimensions.scalable(Math.max(.1F,width),Math.max(.1F,height));
+        }
+        @Override public boolean isPickable(){return true;}
+        @Override public boolean shouldBeSaved(){return false;}
+        @Override public boolean is(Entity entity){return entity==this||entity==getParent();}
+        @Override public boolean hurt(DamageSource source,float amount){
+            return getParent().hurt(source,amount);
+        }
+    }
+    @Override public boolean isMultipartEntity(){return true;}
+    @Override public PartEntity<?>[] getParts(){return segments;}
+    @Override public void setId(int id){
+        super.setId(id);
+        if(segments!=null)
+            for(int i=0;i<segments.length;i++)
+                if(segments[i]!=null)segments[i].setId(id+i+1);
+    }
+    private static double sectionRadius(double t){
+        return (2.8+(18.5+6.0*Math.sin(Math.PI*t))*
+            Math.pow(Math.max(0,1-t),.67))/16.0;
+    }
+    /** Matches the articulated yaw law in DeepSeaSerpentModel.setupAnim. */
+    private void updateSegmentPositions(){
+        if(segments[0]==null)return;
+        Vec3 direction=forward();
+        Vec3 back=direction.scale(-1);
+        Vec3 right=new Vec3(back.z,0,-back.x);
+        Vec3 cursor=position().add(0,1.5,0);
+        placeSegment(segments[0],center().add(direction.scale(3.2)));
+        double age=tickCount*.085;
+        double yaw=0;
+        for(int i=0;i<MODEL_SEGMENTS;i++){
+            double wave=age*(action()==FAST?1.8:1)-i*.34;
+            double arc=.075*Math.sin(wave)*(.3+i*1.0/(MODEL_SEGMENTS-1));
+            if(action()==GRAB||action()==HOLD){
+                double progress=action()==HOLD?1:Math.min(1,actionTicks()/26.0);
+                if(i>2)arc+=.42*progress;
+            }
+            if(action()==VORTEX && i>1)
+                arc+=.35*Math.min(1,actionTicks()/22.0);
+            if(deathTime>0)
+                arc=.12*Math.sin(i*.43)*Math.min(1,deathTime/20.0);
+            yaw+=arc;
+            Vec3 tangent=back.scale(Math.cos(yaw)).add(right.scale(Math.sin(yaw)));
+            placeSegment(segments[i+1],cursor.add(tangent.scale(MODEL_SECTION*.5)));
+            cursor=cursor.add(tangent.scale(MODEL_SECTION));
+        }
+        Vec3 tangent=back.scale(Math.cos(yaw)).add(right.scale(Math.sin(yaw)));
+        placeSegment(segments[MODEL_SEGMENTS+1],cursor.add(tangent.scale(.8)));
+    }
+    private static void placeSegment(Segment part,Vec3 center){
+        part.setPos(center.x,center.y-part.getBbHeight()*.5,center.z);
+    }
 
     public DeepSeaSerpentEntity(EntityType<? extends DeepSeaSerpentEntity> type,Level level) {
         super(type,level);
         moveControl=new SmoothSwimmingMoveControl(this,90,10,.05F,.23F,true);
         setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,0);
         xpReward=90;
+        segments[0]=new Segment(this,2.5F,1.85F);
+        for(int i=0;i<MODEL_SEGMENTS;i++){
+            double r=sectionRadius((i+.5)/MODEL_SEGMENTS);
+            segments[i+1]=new Segment(this,(float)Math.max(.55,2*r),
+                (float)Math.max(.5,1.55*r));
+        }
+        segments[MODEL_SEGMENTS+1]=new Segment(this,1.55F,.7F);
+        updateSegmentPositions();
     }
     public static AttributeSupplier.Builder attributes() {
         return Monster.createMonsterAttributes()
@@ -164,6 +246,7 @@ public final class DeepSeaSerpentEntity extends Monster {
     }
     @Override public void aiStep(){
         super.aiStep();
+        updateSegmentPositions();
         if(level().isClientSide)return;
         bar.setProgress(getHealth()/Math.max(1,getMaxHealth()));
         countdown();
@@ -205,7 +288,8 @@ public final class DeepSeaSerpentEntity extends Monster {
         }
         if(grabCooldown==0 && d<5*5 && d>2*2 && target.getBbWidth()<1.7
             && target.getBbHeight()<2.5 && target.isInWaterOrBubble()
-            && !releasedUntil.containsKey(target.getUUID()) && hasLineOfSight(target)){
+            && releasedUntil.getOrDefault(target.getUUID(),0L)<=level().getGameTime()
+            && hasLineOfSight(target)){
             grabCooldown=GRAB_COOLDOWN;
             begin(GRAB,26);getNavigation().stop();bubbles(16);return;
         }
@@ -216,7 +300,7 @@ public final class DeepSeaSerpentEntity extends Monster {
     }
     private boolean mouthContact(LivingEntity e){
         if(!prey(e)||!hasLineOfSight(e))return false;
-        Vec3 mouth=center().add(forward().scale(2.4));
+        Vec3 mouth=center().add(forward().scale(3.35));
         return e.getBoundingBox().intersects(new AABB(mouth,mouth).inflate(1.35,1.0,1.35))
             && e.position().subtract(position()).dot(forward())>0;
     }
