@@ -67,4 +67,30 @@ public final class StratimBirdGameTests {
             test.succeed();
         });
     }
+    @GameTest(template="empty",timeoutTicks=75)
+    public static void auxiliarySkullBreakReturnsOneTrophy(GameTestHelper test){
+        var head=(StratimBirdHeadBlock)StratimBirdContent.HEAD.get();
+        BlockPos base=new BlockPos(5,2,5);
+        Direction face=Direction.EAST;
+        var state=head.defaultBlockState().setValue(StratimBirdHeadBlock.FACING,face);
+        for(int x=0;x<2;x++)for(int y=0;y<2;y++)for(int z=0;z<3;z++){
+            BlockPos p=cell(base,face,x,y,z);
+            test.setBlock(p,state.setValue(StratimBirdHeadBlock.SIDE,x)
+                .setValue(StratimBirdHeadBlock.LAYER,y).setValue(StratimBirdHeadBlock.DEPTH,z));
+        }
+        test.getLevel().destroyBlock(test.absolutePos(cell(base,face,1,1,2)),true);
+        test.runAfterDelay(3,()->{
+            var area=new net.minecraft.world.phys.AABB(test.absolutePos(base)).inflate(8);
+            int dropped=0;
+            for(var item:test.getLevel().getEntitiesOfClass(
+                    net.minecraft.world.entity.item.ItemEntity.class,area)){
+                if(item.getItem().is(StratimBirdContent.HEAD_ITEM.get()))
+                    dropped+=item.getItem().getCount();
+            }
+            test.assertTrue(dropped==1,
+                "Breaking a skull auxiliary cell must drop exactly one head, got "+dropped);
+            test.succeed();
+        });
+    }
+
 }
