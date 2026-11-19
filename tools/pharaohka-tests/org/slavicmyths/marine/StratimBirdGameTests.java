@@ -29,6 +29,22 @@ public final class StratimBirdGameTests {
             "Missing trophy item");
         boss.discard();test.succeed();
     }
+    @GameTest(template="empty",timeoutTicks=55)
+    public static void wingsHeadAndTailCanTakeDamage(GameTestHelper test){
+        var bird=StratimBirdContent.BOSS.get().create(test.getLevel());
+        test.assertTrue(bird!=null,"Missing Stratim boss");
+        bird.moveTo(test.absoluteVec(new net.minecraft.world.phys.Vec3(9.5,5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(bird),"Unable to spawn Stratim");
+        var segments=bird.getParts();
+        test.assertTrue(bird.isMultipartEntity()&&segments.length==8,"Missing wing/head/tail zones");
+        test.assertTrue(segments[3].isPickable()&&segments[6].isPickable(),
+            "Outer primary feathers must be targetable");
+        float old=bird.getHealth();
+        test.assertTrue(segments[3].hurt(bird.damageSources().generic(),35F),
+            "Wing damage was not forwarded");
+        test.assertTrue(bird.getHealth()<old,"Stratim HP did not decrease after wing hit");
+        bird.discard();test.succeed();
+    }
     @GameTest(template="empty",timeoutTicks=70)
     public static void skullTwelveCellsAndNoOrphans(GameTestHelper test){
         var head=(StratimBirdHeadBlock)StratimBirdContent.HEAD.get();
