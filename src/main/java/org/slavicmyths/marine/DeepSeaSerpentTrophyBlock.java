@@ -205,11 +205,17 @@ public final class DeepSeaSerpentTrophyBlock extends HorizontalDirectionalBlock 
         @Override public ClientboundBlockEntityDataPacket getUpdatePacket() {
             return ClientboundBlockEntityDataPacket.create(this);
         }
-        @Override public AABB getRenderBoundingBox() {
+        public AABB getRenderBoundingBox() {
             if(getBlockState().getBlock() instanceof DeepSeaSerpentTrophyBlock trophy) {
                 Direction f=getBlockState().getValue(FACING);
                 BlockPos last=trophy.at(worldPosition,f,trophy.width()*trophy.length()-1);
-                return new AABB(worldPosition,last.offset(1,2,1)).inflate(.75);
+                return new AABB(
+                    Math.min(worldPosition.getX(),last.getX()),
+                    worldPosition.getY(),
+                    Math.min(worldPosition.getZ(),last.getZ()),
+                    Math.max(worldPosition.getX(),last.getX())+1,
+                    Math.max(worldPosition.getY(),last.getY())+2,
+                    Math.max(worldPosition.getZ(),last.getZ())+1).inflate(.75);
             }
             return new AABB(worldPosition).inflate(2);
         }
