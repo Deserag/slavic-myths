@@ -88,6 +88,28 @@ public final class TsarPikeGameTests {
             test.succeed();
         });
     }
+    @GameTest(template="empty",timeoutTicks=80)
+    public static void trophyReactsWithoutGrantingUnactivatedAura(GameTestHelper test){
+        BlockPos anchor=new BlockPos(8,2,8);
+        var block=TsarPikeContent.HEAD.get().defaultBlockState()
+            .setValue(TsarPikeHeadBlock.FACING,Direction.NORTH)
+            .setValue(TsarPikeHeadBlock.FRONT,false);
+        test.setBlock(anchor,block);
+        var tile=test.getLevel().getBlockEntity(test.absolutePos(anchor));
+        test.assertTrue(tile instanceof TsarPikeHeadBlock.Tile,"Missing animated trophy tile");
+        var head=(TsarPikeHeadBlock.Tile)tile;
+        var cod=EntityType.COD.create(test.getLevel());
+        test.assertTrue(cod!=null,"Missing proximity prey fixture");
+        cod.setNoAi(true);
+        cod.moveTo(test.absoluteVec(new Vec3(8.5,3.1,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(cod),"Could not spawn trophy proximity fixture");
+        test.runAfterDelay(28,()->{
+            test.assertTrue(head.reactive(),"Nearby living prey did not awaken trophy jaw animation");
+            test.assertTrue(!head.active(),"Visual proximity reaction must not auto-enable the gameplay aura");
+            cod.discard();
+            test.succeed();
+        });
+    }
     @GameTest(template="empty",timeoutTicks=50)
     public static void damageBreaksJawGrab(GameTestHelper test){
         tank(test);
