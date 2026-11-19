@@ -209,23 +209,41 @@ public final class OceanZmeyEntity extends Monster {
             }
         }
     }
+    static Vec3 stormCenter(Vec3 origin,int age,int index){
+        double angle=index*Mth.TWO_PI/5+age*.03;
+        return origin.add(Math.cos(angle)*9,0,Math.sin(angle)*9);
+    }
     private void storm(){
         if(!(level() instanceof ServerLevel server))return;
-        for(int i=0;i<5;i++){
-            double angle=i*Mth.TWO_PI/5+tickCount*.03;
-            Vec3 center=position().add(Math.cos(angle)*9,0,Math.sin(angle)*9);
+        Vec3[] centers=new Vec3[5];
+        for(int i=0;i<centers.length;i++){
+            Vec3 center=stormCenter(position(),tickCount,i);
+            centers[i]=center;
             server.sendParticles(ParticleTypes.SPLASH,center.x,center.y+2,center.z,
                 30,2.4,3,2.4,.18);
             server.sendParticles(ParticleTypes.CLOUD,center.x,center.y+4,center.z,
                 18,1.4,2,1.4,.06);
         }
+        // Only the five visible funnels can damage or pull a victim.
+        // Previously every entity in a 15-block sphere was hit, including
+        // players standing safely between the telegraphed storm funnels.
         for(LivingEntity e:level().getEntitiesOfClass(LivingEntity.class,
             getBoundingBox().inflate(15,8,15),this::attackable)){
-            Vec3 from=e.position().subtract(position());
-            double dist=Math.max(1,from.length());
-            Vec3 sideways=new Vec3(-from.z,0,from.x).scale(.25/dist);
-            e.setDeltaMovement(e.getDeltaMovement().add(sideways.x,.10,sideways.z));
-            if(tickCount%20==0)e.hurt(damageSources().mobAttack(this),8);
+            for(Vec3 center:centers){
+                Vec3 from=e.position().subtract(center);
+                Vec3 horizontal=from.multiply(1,0,1);
+                double radius=horizontal.length();
+                if(radius>4.5 || Math.abs(from.y)>5)continue;
+                double strength=.12+.16*(1-radius/4.5);
+                Vec3 inward=radius>.01?horizontal.scale(-strength/radius):Vec3.ZERO;
+                Vec3 orbit=radius>.01?new Vec3(-horizontal.z,0,horizontal.x)
+                    .scale(.16/radius):Vec3.ZERO;
+                e.setDeltaMovement(e.getDeltaMovement().add(
+                    inward.x+orbit.x,.10,inward.z+orbit.z));
+                e.hurtMarked=true;
+                if(tickCount%20==0)e.hurt(damageSources().mobAttack(this),8);
+                break;
+            }
         }
     }
     private void updateParts(){
