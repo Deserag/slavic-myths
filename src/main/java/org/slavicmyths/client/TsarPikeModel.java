@@ -16,8 +16,8 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
         FLANK=0xFF869263,BELLY=0xFFB2AC85,SPOT=0xFFC4BB78,
         SKULL=0xFF3C5540,LIP=0xFF7E8561,JAW=0xFF8D8C6C,
         MOUTH=0xFF653A39,GUM=0xFFB97E6E,TEETH=0xFFF1E5C3,
-        IRIS=0xFFD5A554,PUPIL=0xFF101D19,FIN=0xFF684D36,
-        FINLIGHT=0xFF99764C,RIB=0xFFB28C56,SCAR=0xFFB9B38B;
+        IRIS=0xFFD5A554,PUPIL=0xFF101D19,FIN=0xFF5C7049,
+        FINLIGHT=0xFF879360,RIB=0xFFB4AD79,SCAR=0xFFB9B38B;
     private final FolkModelGeometry geometry=new FolkModelGeometry();
     private final Group root,head,jaw,tailA,tailB,caudal,pectL,pectR,pelvL,pelvR;
 
@@ -66,8 +66,8 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
         return values[values.length-1];
     }
     private static final float[] BODY_Z={-13,-8,2,12,22,33,44,52,61};
-    private static final float[] BODY_W={10.5F,12.6F,16.6F,17.6F,16.1F,13.7F,9.7F,6F,3.5F};
-    private static final float[] BODY_H={8.7F,10.5F,12.9F,13.2F,12.3F,10.8F,7.7F,5.1F,3.3F};
+    private static final float[] BODY_W={8.6F,10.2F,12.8F,14F,12.8F,10.2F,7.3F,4.4F,2.4F};
+    private static final float[] BODY_H={7.2F,8.8F,10.7F,11.8F,10.8F,8.5F,5.6F,3.6F,2.3F};
     private void build(){
         // Ring-by-ring anatomy: broad shoulders, narrowing waist and tail peduncle.
         for(float z=-12;z<61;z+=2.8F){
@@ -81,32 +81,32 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
                 section.box(color,x-1.4F,y-1.4F,z,2.8F,2.8F,2.8F);
             }
             // Distinct raised scales and camouflage spots, on both flanks.
-            if((int)z%4<2)for(int side:new int[]{-1,1}){
+            if(Math.floorMod((int)(z*2.0F),7)<2)for(int side:new int[]{-1,1}){
                 for(float y=-height*.65F;y<height*.6F;y+=4.8F){
                     float x=side*(width*(float)Math.sqrt(Math.max(0,1-(y*y)/(height*height)))+.1F);
-                    section.box((int)(z+y)%3==0?SPOT:FLANK,x-1,y-1.1F,z,2F,2.1F,1.8F);
+                    section.box(Math.floorMod((int)(z+y),3)==0?SPOT:FLANK,x-.7F,y-.7F,z,1.4F,1.5F,1.3F);
                 }
             }
         }
         // Wide skull narrowing into the flattened, duck-billed snout.
         float[] hz={-62,-58,-51,-44,-36,-29,-21,-14,-9};
-        float[] hw={5F,6.7F,8F,8F,9F,11.6F,12.8F,12.4F,11F};
-        float[] hh={2.2F,3.2F,3.9F,4.2F,5.1F,7.3F,9.4F,10F,9.2F};
+        float[] hw={4.4F,4.8F,5.4F,6F,6.7F,8.2F,9.6F,10.2F,9.2F};
+        float[] hh={2F,2.1F,2.3F,2.7F,3.5F,4.7F,6.3F,7.5F,7.7F};
         for(float z=-61;z< -9;z+=2.5F){
             float width=interpolate(z,hz,hw),height=interpolate(z,hz,hh);
             for(float x=-width;x<=width;x+=2.5F)for(float y=-height;y<=height;y+=2.5F){
                 if((x*x)/(width*width)+(y*y)/(height*height)>1)continue;
-                if(z< -24 && y>1.4F)continue; // hollow mouth, not a painted cavity
-                int color=y< -height*.36F?SKULL:y<0?BACK:MOUTH;
+                if(z< -24 && y>1.4F)continue; // thin upper jaw; visible void above the articulated mandible
+                int color=y< -height*.4F?SKULL:y<height*.35F?BACK:BELLY;
                 head.box(color,x-1.25F,y-1.25F,z,2.5F,2.5F,2.5F);
             }
             // Separate fleshy lower jaw, articulated from hinge at z=-14.
             float jWidth=interpolate(z,new float[]{-62,-53,-43,-33,-24,-14},
-                new float[]{4.9F,6.6F,7.8F,9F,10.2F,10.7F});
+                new float[]{4.2F,4.6F,5.3F,6.1F,7.5F,8.6F});
             for(float x=-jWidth;x<=jWidth;x+=2.5F)
-                for(float y=5.2F;y<=10.5F;y+=2.5F){
-                    if(Math.abs(x)>jWidth*(y>8?.9F:1F))continue;
-                    jaw.box(y>8?JAW:GUM,x-1.25F,y-1.25F,z,2.5F,2.5F,2.5F);
+                for(float y=3F;y<=8F;y+=2.5F){
+                    if(Math.abs(x)>jWidth*(y>5F?.9F:1F))continue;
+                    jaw.box(y>5F?JAW:GUM,x-1.25F,y-1.25F,z,2.5F,2.5F,2.5F);
                 }
         }
         // Two distinct tooth rows on the lips and an auxiliary palatal row.
@@ -115,7 +115,7 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
             float width=interpolate(z,hz,hw)*.82F;
             for(int side:new int[]{-1,1}){
                 float x=side*width;
-                float length=i%3==0?4.3F:3F;
+                float length=i%3==0?3F:2.2F;
                 head.box(TEETH,x-.95F,1.0F,z,1.9F,2.4F,1.9F);
                 head.box(TEETH,x-.44F,3.2F,z+.22F,.88F,length*.7F,.9F);
                 jaw.box(TEETH,x*.93F-1F,3.9F,z,2F,2.4F,2F);
@@ -125,51 +125,74 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
                 head.box(TEETH,side*width*.33F-.65F,1.5F,z+1.5F,1.3F,2.1F,1.3F);
         }
         for(int side:new int[]{-1,1}){
-            float x=side*12.7F;
-            head.box(SKULL,x-3.5F,-9.1F,-30,7,5,7);
-            head.box(IRIS,x-2.9F,-8.4F,-29,5.8F,4.1F,2F);
-            head.box(PUPIL,x-1.6F,-8.2F,-29.2F,3.2F,3.8F,2.2F);
-            head.box(TEETH,x-.5F,-8.4F,-29.7F,.9F,1F,1F);
-            for(float z=-17;z< -10;z+=3)
-                head.box(SCAR,side*12.4F-1,-4,z,2F,8,1.4F);
+            float x=side*8.4F;
+            // Lateral recessed eyes, rather than tall crocodile-like eye turrets.
+            head.box(SKULL,x-2.2F,-5.9F,-27.5F,4.4F,3.1F,4.5F);
+            head.box(IRIS,x-1.5F,-5.5F,-27.2F,3F,2.45F,1.1F);
+            head.box(PUPIL,x-.8F,-5.35F,-27.5F,1.6F,2.15F,1.15F);
+            head.box(TEETH,x-.3F,-5.45F,-27.8F,.6F,.65F,.7F);
+            for(float z=-18;z< -11;z+=3)
+                head.box(SCAR,side*9.3F-.65F,-3.0F,z,1.3F,5.6F,.9F);
             head.box(DARK,side*5F-.9F,-3.5F,-54,1.8F,1.3F,2F);
         }
         for(float z=12;z<20;z+=3)
-            root.box(SCAR,-16,-4+(z-12)*.18F,z,2,2,3);
-        // Extruded dorsal fin and anal fin, visibly thick, from swept volume layers.
-        for(float z=32;z<57;z+=2.2F){
-            float dorsalHeight=z<43?10+(z-32)*1.6F:Math.max(0,27-(z-43)*1.8F);
-            for(float h=10;h<dorsalHeight;h+=2.2F)
-                tailA.box(((int)(z+h)%7==0)?RIB:FIN, -2.3F,-h,z,4.6F,2.4F,2.2F);
-        }
-        for(float z=42;z<60;z+=2.2F){
-            float analHeight=z<49?8+(z-42)*2.2F:Math.max(7,23-(z-49)*1.4F);
-            for(float h=7;h<analHeight;h+=2.2F)
-                tailB.box((int)z%4==0?RIB:FINLIGHT,-2.2F,h,z,4.4F,2.4F,2.2F);
-        }
-        // Forked caudal fan with separate upper and lower lobes.
-        for(float z=59;z<74;z+=2.2F){
-            float spread=(z-59)*1.25F+3;
-            for(int sign:new int[]{-1,1}){
-                float centerY=sign*spread*.58F;
-                for(float y=centerY-spread*.40F;y<centerY+spread*.40F;y+=2.2F)
-                    caudal.box(((int)(z+y)%6)==0?RIB:FIN,-2.4F,y,z,4.8F,2.4F,2.2F);
+            root.box(SCAR,-13,-4+(z-12)*.18F,z,1.4F,1.4F,2F);
+        // Posterior dorsal and anal fins are thin, curved rays: no wooden plates or leg-like boxes.
+        for(float z=39F;z<58F;z+=1.75F){
+            float phase=(z-39F)/19F;
+            float height=2F+11F*Mth.sin(Mth.PI*phase);
+            float atBody=interpolate(z,BODY_Z,BODY_H);
+            for(float h=0;h<height;h+=1.5F){
+                float width=Math.max(1.0F,2.7F*(1F-h/height));
+                tailB.box(Math.floorMod((int)(z*3+h),11)==0?RIB:FIN,
+                    -width/2,-atBody-h,z,width,1.65F,1.75F);
             }
         }
-        // Paired pectoral and pelvic fins, with depth and ribbing.
+        for(float z=44F;z<59F;z+=1.75F){
+            float phase=(z-44F)/15F;
+            float height=1.7F+8.8F*Mth.sin(Mth.PI*phase);
+            float atBody=interpolate(z,BODY_Z,BODY_H);
+            for(float h=0;h<height;h+=1.5F){
+                float width=Math.max(1.0F,2.6F*(1F-h/height));
+                tailB.box(Math.floorMod((int)(z*2+h),9)==0?RIB:FINLIGHT,
+                    -width/2,atBody+h,z,width,1.65F,1.75F);
+            }
+        }
+        // Forked pike tail: thin upper and lower lobes, a notch between them.
+        for(float z=59F;z<75F;z+=1.65F){
+            float progress=(z-59F)/16F;
+            float spread=2F+progress*9F;
+            float half=2F+progress*3.2F;
+            for(int lobe:new int[]{-1,1}){
+                float center=lobe*spread;
+                for(float y=center-half;y<=center+half;y+=1.65F){
+                    if(progress>.52F && Math.abs(y)<1F+progress*3.5F)continue;
+                    caudal.box(Math.floorMod((int)(z+Math.abs(y)),9)==0?RIB:FINLIGHT,
+                        -1.1F,y,z,2.2F,1.75F,1.65F);
+                }
+            }
+        }
+        // Small swept-back pectorals: they start at the flank rather than projecting as paws.
         for(int sign:new int[]{-1,1}){
-            Group p=sign<0?pectL:pectR, v=sign<0?pelvL:pelvR;
-            for(float z=-9;z<14;z+=2.5F)for(float across=0;across<18;across+=2.5F){
-                if(across>5+(z+9)*.52F)continue;
-                float x=sign*(11+across);
-                p.box((int)(z+across)%5==0?RIB:FINLIGHT,x-2.3F,
-                    5+across*.23F,z,4.6F,3.2F,2.5F);
+            Group p=sign<0?pectL:pectR,v=sign<0?pelvL:pelvR;
+            for(float z=-4F;z<17F;z+=2F){
+                float progress=(z+4F)/21F;
+                float reach=1F+6.3F*Mth.sin(Mth.PI*progress);
+                for(float across=0;across<reach;across+=1.65F){
+                    float x=sign*(10.9F+across);
+                    p.box(Math.floorMod((int)(z*2+across),7)==0?RIB:FINLIGHT,
+                        x-.7F,5.6F+across*.19F,z,1.4F,1.3F,2F);
+                }
             }
-            for(float z=21;z<44;z+=2.5F)for(float across=0;across<13;across+=2.5F){
-                if(across>4+(z-21)*.45F)continue;
-                float x=sign*(9+across);
-                v.box((int)(z+across)%5==0?RIB:FIN,x-2.1F,
-                    8+across*.18F,z,4.2F,3F,2.5F);
+            // Pelvic fins are shorter and lie beside the rear third of the abdomen.
+            for(float z=27F;z<43F;z+=2F){
+                float progress=(z-27F)/16F;
+                float reach=1F+4.6F*Mth.sin(Mth.PI*progress);
+                for(float across=0;across<reach;across+=1.65F){
+                    float x=sign*(8.6F+across);
+                    v.box(Math.floorMod((int)(z+across*2),8)==0?RIB:FIN,
+                        x-.65F,6F+across*.18F,z,1.3F,1.2F,2F);
+                }
             }
         }
     }
