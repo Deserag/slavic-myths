@@ -41,6 +41,8 @@ public final class ClientSetup {
         bus.addListener(TsarPikeHeadRenderer::register);
         bus.addListener(DeepSeaSerpentRenderer::register);
         bus.addListener(DeepSeaSerpentTrophyRenderer::register);
+        bus.addListener(StratimBirdRenderer::register);
+        bus.addListener(StratimBirdHeadRenderer::register);
 
         bus.addListener(org.slavicmyths.losthalls.client.HallsClient::register);
 
