@@ -137,20 +137,22 @@ public final class StratimBirdEntity extends Monster {
         }
         if(best!=null)setTarget(best);
     }
-    static boolean hasWingClearance(Level level,Vec3 destination,Vec3 movement){
-        if(destination.y<level.getMinBuildHeight()+5
-            ||destination.y>level.getMaxBuildHeight()-7)return false;
-        Vec3 horizontal=new Vec3(movement.x,0,movement.z);
+    static BlockPos wingSample(Vec3 center,Vec3 heading,int side,int radius,int height){
+        Vec3 horizontal=new Vec3(heading.x,0,heading.z);
         if(horizontal.lengthSqr()<.0001)horizontal=new Vec3(0,0,1);
         else horizontal=horizontal.normalize();
         Vec3 sideways=new Vec3(-horizontal.z,0,horizontal.x);
-        // The root hitbox is only 4.5 wide; the articulated wings reach much farther.
-        // Sample both wing planes in the movement direction, not on the world X axis.
+        return BlockPos.containing(center.add(sideways.scale(side*radius)).add(0,height,0));
+    }
+    static boolean hasWingClearance(Level level,Vec3 destination,Vec3 heading){
+        if(destination.y<level.getMinBuildHeight()+5
+            ||destination.y>level.getMaxBuildHeight()-7)return false;
+        // The 4.5-wide root hitbox does not cover the articulated wings.
+        // Include their low flap position and high stroke, in flight-relative axes.
         for(int side=-1;side<=1;side+=2)
             for(int radius=0;radius<=16;radius+=4)
-                for(int height=2;height<=4;height+=2){
-                    Vec3 point=destination.add(sideways.scale(side*radius)).add(0,height,0);
-                    BlockPos pos=BlockPos.containing(point);
+                for(int height=0;height<=6;height+=2){
+                    BlockPos pos=wingSample(destination,heading,side,radius,height);
                     if(!level.hasChunkAt(pos)
                         ||!level.getBlockState(pos).getCollisionShape(level,pos).isEmpty()
                         ||!level.getFluidState(pos).isEmpty())return false;
@@ -159,9 +161,14 @@ public final class StratimBirdEntity extends Monster {
     }
     private boolean clear(Vec3 destination){
         Vec3 movement=destination.subtract(position());
-        if(!hasWingClearance(level(),destination,movement))return false;
-        AABB box=getBoundingBox().move(movement).inflate(.35);
-        return level().noCollision(this,box);
+        int steps=Math.max(1,Mth.ceil(movement.length()/1.5));
+        for(int i=1;i<=steps;i++){
+            Vec3 delta=movement.scale(i/(double)steps);
+            Vec3 sample=position().add(delta);
+            if(!hasWingClearance(level(),sample,movement))return false;
+            if(!level().noCollision(this,getBoundingBox().move(delta).inflate(.35)))return false;
+        }
+        return true;
     }
     private void fly(Vec3 destination,double speed){
         Vec3 delta=destination.subtract(position());
