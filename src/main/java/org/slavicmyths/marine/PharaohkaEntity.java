@@ -237,7 +237,10 @@ public final class PharaohkaEntity extends Monster {
     private boolean validTarget(LivingEntity candidate) {
         return candidate.isAlive() && !candidate.isSpectator()
             && !(candidate instanceof Player player && player.isCreative())
-            && (candidate instanceof Player || isTargetInWater(candidate));
+            && (isTargetInWater(candidate)
+                || candidate instanceof Player
+                    && distanceToSqr(candidate)<144
+                    && Math.abs(candidate.getY()-getY())<5);
     }
 
     private boolean inMeleeRange(LivingEntity target,double reach) {
@@ -249,10 +252,13 @@ public final class PharaohkaEntity extends Monster {
         boolean underwaterTarget=isTargetInWater(target);
         if (underwaterTarget && (tickCount%8==0 || getNavigation().isDone())) {
             getNavigation().moveTo(target,leader()?1.4:1.2);
+        } else if (!underwaterTarget && !getNavigation().isDone()) {
+            // Follow from water at the shoreline, not onto the dry dock.
+            getNavigation().stop();
         }
         double targetY=underwaterTarget
             ? Mth.clamp(target.getY()+target.getBbHeight()*.45,getY()-1.7,getY()+1.7)
-            : getY();
+            : Mth.clamp(target.getY()-1.0,getY()-1.2,getY()+1.15);
         getMoveControl().setWantedPosition(target.getX(),targetY,target.getZ(),
             leader()?1.4:1.2);
         // Water pathfinding alone can stall at the surface or next to a dock.
@@ -264,8 +270,13 @@ public final class PharaohkaEntity extends Monster {
                     .add(toward.normalize().scale(leader()?.07:.055));
                 double max=leader()?.35:.28;
                 if (velocity.lengthSqr()>max*max) velocity=velocity.normalize().scale(max);
-                setDeltaMovement(velocity);
-                hasImpulse=true;
+                BlockPos next=BlockPos.containing(getX()+velocity.x*2.0,
+                    getY()+velocity.y*2.0,getZ()+velocity.z*2.0);
+                if (level().getFluidState(next).is(FluidTags.WATER)
+                        || level().getFluidState(next.below()).is(FluidTags.WATER)) {
+                    setDeltaMovement(velocity);
+                    hasImpulse=true;
+                }
             }
         }
     }
