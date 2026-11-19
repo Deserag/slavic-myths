@@ -174,13 +174,13 @@ public final class TsarPikeHeadBlock extends HorizontalDirectionalBlock implemen
         @Override public ClientboundBlockEntityDataPacket getUpdatePacket(){
             return ClientboundBlockEntityDataPacket.create(this);
         }
-        @Override public net.minecraft.world.phys.AABB getRenderBoundingBox(){
+        public net.minecraft.world.phys.AABB getRenderBoundingBox(){
             if(getBlockState().getBlock() instanceof TsarPikeHeadBlock){
                 Direction f=getBlockState().getValue(FACING);
                 return new net.minecraft.world.phys.AABB(worldPosition)
                     .expandTowards(f.getStepX(),0,f.getStepZ()).inflate(.3);
             }
-            return super.getRenderBoundingBox();
+            return new net.minecraft.world.phys.AABB(worldPosition).inflate(.3);
         }
     }
 }
