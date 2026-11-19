@@ -337,7 +337,8 @@ public final class DeepSeaSerpentEntity extends Monster {
         if(holdTicks--<=0){releaseVictim();return;}
         Vec3 at=ringCenter().add(0,-e.getBbHeight()*.45,0);
         AABB moved=e.getBoundingBox().move(at.subtract(e.position()));
-        if(!level().noCollision(e,moved)){releaseVictim();return;}
+        // Only solid world geometry blocks the captive: the boss's own ring must not cancel its grab.
+        if(!level().noBlockCollision(e,moved)){releaseVictim();return;}
         e.setPos(at.x,at.y,at.z);
         e.setDeltaMovement(Vec3.ZERO);
         e.hurtMarked=true;
