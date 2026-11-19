@@ -138,9 +138,9 @@ public final class PharaohkaEntity extends Monster {
             if (--minionLife<=0) { discard(); return; }
             if (level() instanceof ServerLevel server && tickCount%10==0) {
                 if (server.getEntity(summoner) instanceof PharaohkaEntity owner && owner.isAlive()) {
-                    LivingEntity owner'sTarget=owner.getTarget();
-                    if (owner'sTarget!=null && validTarget(owner'sTarget) && getTarget()!=owner'sTarget)
-                        setTarget(owner'sTarget);
+                    LivingEntity ownerTarget=owner.getTarget();
+                    if (ownerTarget!=null && validTarget(ownerTarget) && getTarget()!=ownerTarget)
+                        setTarget(ownerTarget);
                 } else {
                     discard();
                     return;
