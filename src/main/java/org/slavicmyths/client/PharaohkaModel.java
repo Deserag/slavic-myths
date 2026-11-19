@@ -22,9 +22,10 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
     private final List<Colored> colored=new ArrayList<>();
     private final boolean leader;
     private final ModelPart skin,head,hair,hair2,armor,trim,cloth,eye,pupil;
-    private final ModelPart armL,guardL,armR,guardR,spear,shield,shieldTrim,crown;
+    private final ModelPart armL,guardL,armR,guardR,spear,shield,shieldTrim,handGripL,handGripR,crown;
     private final ModelPart tailA,tailB,tailC,fin;
     private ModelPart coralCrown;
+    private ModelPart tridentBand;
 
     private ModelPart create(int color,float x,float y,float z) {
         // Large parts (shield and trident) must not sample outside the white source texture.
@@ -52,9 +53,12 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         guardL=create(boss?ARMOR:CLOTH,-6,-8,0);
         armR=create(SKIN,6,-8,0);
         guardR=create(boss?ARMOR:CLOTH,6,-8,0);
-        spear=create(GOLD,-6,-8,0);
-        shield=create(ARMOR,6,-8,0);
-        shieldTrim=create(GOLD,6,-8,0);
+        // Weapons have independent wrist anchors, never shoulder-origin shafts.
+        spear=create(GOLD,-6,4,0);
+        shield=create(ARMOR,6,3,0);
+        shieldTrim=create(GOLD,6,3,0);
+        handGripL=create(SKIN,-6,4,0);
+        handGripR=create(SKIN,6,3,0);
         crown=create(GOLD,0,-9,0);
         tailA=create(TAIL,0,8,0);
         tailB=create(SCALE,0,15,0);
@@ -100,21 +104,29 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             box(trim,s*3.6F-.45F,-28,-3.7F,.9F,8,1);
             box(cloth,s*3.9F-1.05F,-17.3F,-3.4F,2.1F,7.8F,1.0F);
         }
-        // No scalp/side voids: close-set front, intermediate and rear strands.
-        box(hair,-4.8F,-15.7F,-3.9F,9.6F,4.7F,7.8F);
-        box(hair,-4.8F,-12.5F,2.1F,9.6F,13,2.3F);
+        // Low scalp (2.5px rather than a second head), sealed to the forehead,
+        // temples and back. Strands start inside this continuous root layer.
+        box(hair,-4.6F,-12.65F,-3.85F,9.2F,2.55F,7.85F);
+        box(hair,-4.75F,-10.65F,2.15F,9.5F,10.8F,2.25F);
         for(int i=0;i<10;i++) {
-            float x=-4.7F+i*1.05F;
-            box(hair,x,-3,2.75F,1.2F,19+(i%3)*2.7F,1.5F);
-            box(hair2,x,-13.2F+(i%3)*.4F,-4.05F,1.1F,2.9F,1.3F);
+            float x=-4.55F+i*1.01F;
+            box(hair,x,-9.7F,2.6F,1.15F,19.5F+(i%3)*2.6F,1.75F);
+            // Short, staggered forehead locks; eyes remain open.
+            if (i>0 && i<9)
+                box(hair2,x,-11.45F+(i%2)*.25F,-4.12F,.95F,2.15F+(i%3)*.22F,.75F);
         }
-        for (int s:new int[]{-1,1}) {
+        for (int side:new int[]{-1,1}) {
+            float rootX=side*4.0F;
+            // Fill the common scalp/temple gaps even while the head turns.
+            box(hair,rootX-1.05F,-11.8F,-3.5F,2.1F,5.0F,3.0F);
+            box(hair,rootX-1.05F,-11.5F,1.65F,2.1F,5.5F,2.7F);
             for (int lane=0;lane<5;lane++) {
-                float x=s*(3.65F+lane*.37F),z=-3.5F+lane*1.75F;
+                float x=side*(3.65F+lane*.37F),z=-3.5F+lane*1.75F;
                 for (int j=0;j<8+lane%2;j++) {
                     float wave=Mth.sin(j*.65F+lane)*.4F;
-                    box(hair,x+wave,-9+j*2,z,1.4F,2.55F,1.7F);
-                    if (j%2==0) box(hair2,x+wave+s*.3F,-8+j*2,z-.22F,.65F,1,1.0F);
+                    box(hair,x+wave,-9.9F+j*1.85F,z,1.3F,2.3F,1.65F);
+                    if (j%2==0)
+                        box(hair2,x+wave+side*.22F,-9.15F+j*1.85F,z-.25F,.62F,.9F,.9F);
                 }
             }
         }
@@ -150,21 +162,34 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             coralCrown=coral;
             for(int s:new int[]{-1,1})for(int i=0;i<3;i++)
                 box(coral,s*(2.2F+i*1.35F)-.55F,-20-i*.8F,-2.2F,1.1F,3.8F+i*.8F,1.2F);
-            // The large shield is articulated with the right forearm.
-            box(shield,1.0F,-5.4F,-6.4F,9.8F,19.6F,1.5F);
-            box(shieldTrim,.9F,-5.6F,-6.9F,10,1,1.1F);
-            box(shieldTrim,.9F,13.2F,-6.9F,10,1,1.1F);
-            box(shieldTrim,1,-4.7F,-7,.9F,18.5F,1.0F);
-            box(shieldTrim,10,-4.7F,-7,.9F,18.5F,1.0F);
-            box(shieldTrim,5,2,-7.4F,2.8F,3.5F,.8F);
-            // Distinct trident with three prongs attached to the left arm.
-            box(spear,-3,-23,-4.1F,1,44,1);
-            for (int s:new int[]{-1,0,1})
-                box(spear,-3+s*2.1F,-29+(s==0?-2:0),-4.3F,1,9,1);
-            ModelPart shell=create(SHELL,-6,-8,0);
-            box(shell,-4.5F,-23,-4.6F,4.7F,1.1F,1.5F);
+            // Forearm shield: plate faces forward, centered on a moving hand grip.
+            // Its supporting strap is BETWEEN the hand and the shield, not at the shoulder.
+            box(shield,-4.65F,-12.2F,-4.2F,9.3F,19.1F,1.45F);
+            box(shieldTrim,-4.8F,-12.35F,-4.65F,9.6F,.85F,.8F);
+            box(shieldTrim,-4.8F,5.95F,-4.65F,9.6F,.85F,.8F);
+            box(shieldTrim,-4.8F,-11.65F,-4.7F,.85F,17.6F,.8F);
+            box(shieldTrim,3.95F,-11.65F,-4.7F,.85F,17.6F,.8F);
+            box(shieldTrim,-1.35F,-3.15F,-4.95F,2.7F,3.2F,.72F);
+            box(shieldTrim,-.72F,-1.5F,-2.95F,1.44F,3.9F,.65F);
+            // Trident shaft runs through the closed left palm. All 3 prongs
+            // extend from the shaft, not from the upper arm.
+            box(spear,-.52F,-31.0F,-2.05F,1.05F,40.5F,1.05F);
+            box(spear,-3.0F,-32.2F,-2.25F,6.0F,1.05F,1.4F);
+            for (int prong:new int[]{-1,0,1})
+                box(spear,prong*2.4F-.5F,-40.0F+(prong==0?-1.2F:0F),
+                    -2.15F,1.0F,8.2F+(prong==0?1.2F:0F),1.15F);
+            ModelPart shell=create(SHELL,-6,4,0);
+            box(shell,-3.05F,-32.45F,-2.38F,6.1F,.65F,1.65F);
+            // A visible hand and curled fingers conceal the weapon's grip gap.
+            box(handGripL,-1.15F,-1.2F,-1.8F,2.3F,2.35F,3.1F);
+            box(handGripL,-.9F,-.75F,-2.46F,1.8F,1.25F,.58F);
+            // Right hand holds the shield handle; rear strap is visible in profile.
+            box(handGripR,-1.15F,-1.4F,-2.9F,2.3F,2.75F,1.8F);
+            box(handGripR,-.9F,-.85F,-3.08F,1.8F,1.3F,.55F);
+            tridentBand=shell;
         } else {
-            spear.visible=false;shield.visible=false;shieldTrim.visible=false;crown.visible=false;
+            spear.visible=false;shield.visible=false;shieldTrim.visible=false;
+            handGripL.visible=false;handGripR.visible=false;crown.visible=false;
         }
     }
     @Override public void setupAnim(PharaohkaEntity entity,float walk,float amount,float age,float yaw,float pitch) {
@@ -229,6 +254,27 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             }
             default -> { }
         }
+        if (leader) {
+            followWrist(spear,armL,12F);
+            followWrist(handGripL,armL,12F);
+            if (tridentBand!=null) followWrist(tridentBand,armL,12F);
+            followWrist(shield,armR,11F);
+            followWrist(shieldTrim,armR,11F);
+            followWrist(handGripR,armR,11F);
+        }
+    }
+
+    private static void followWrist(ModelPart item,ModelPart arm,float wristLength) {
+        // Explicit shoulder -> hand transform. Unlike the old independent
+        // shoulder-root weapons, the item pivot now follows a moving wrist.
+        float bend=arm.xRot,spread=arm.zRot;
+        float rollCos=Mth.cos(spread);
+        item.setPos(arm.x-wristLength*Mth.sin(spread),
+            arm.y+wristLength*Mth.cos(bend)*rollCos,
+            arm.z+wristLength*Mth.sin(bend)*rollCos);
+        item.xRot=bend;
+        item.yRot=arm.yRot;
+        item.zRot=spread;
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer consumer,int light,int overlay,int rgba) {
         int alpha=(rgba>>>24)&255;
