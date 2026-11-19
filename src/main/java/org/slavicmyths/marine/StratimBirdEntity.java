@@ -34,7 +34,7 @@ public final class StratimBirdEntity extends Monster {
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> damaged=new HashSet<>();
     private int beakCd=30,talonsCd=90,diveCd=190,gustCd=120,stormCd=420;
-    private int phaseTicks,patrolTicks,unseenTicks;
+    private int phaseTicks,patrolTicks,unseenTicks,unattendedTicks;
     private Vec3 home;
     private boolean landedOnSpawn;
     public StratimBirdEntity(EntityType<? extends StratimBirdEntity> type,Level level){
@@ -182,6 +182,12 @@ public final class StratimBirdEntity extends Monster {
         if(diveCd>0)diveCd--;if(gustCd>0)gustCd--;if(stormCd>0)stormCd--;
         findTarget();
         LivingEntity target=getTarget();
+        // Persistent ocean bosses must not accumulate indefinitely in unattended regions.
+        // A real player within the arena keeps the encounter active.
+        boolean playerNearby=!level().getEntitiesOfClass(Player.class,
+            getBoundingBox().inflate(96),p->!p.isSpectator()).isEmpty();
+        unattendedTicks=(target==null&&!playerNearby)?unattendedTicks+1:0;
+        if(unattendedTicks>12000){discard();return;}
         if(target!=null&&!hasLineOfSight(target)){
             if(++unseenTicks>100){setTarget(null);target=null;unseenTicks=0;}
         }else unseenTicks=0;
