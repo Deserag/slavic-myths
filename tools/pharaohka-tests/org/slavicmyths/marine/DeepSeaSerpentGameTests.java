@@ -106,6 +106,23 @@ public final class DeepSeaSerpentGameTests {
             test.succeed();
         });
     }
+    @GameTest(template="empty",timeoutTicks=55)
+    public static void articulatedBodyHitboxesAreDamageable(GameTestHelper test){
+        tank(test);
+        DeepSeaSerpentEntity boss=spawn(test,8,4,8);
+        var parts=boss.getParts();
+        test.assertTrue(boss.isMultipartEntity() && parts.length==18,
+            "All 16 body joints, head and tail must have real hit parts");
+        test.assertTrue(parts[0].isPickable() && parts[15].isPickable(),
+            "Multipart targets must be pickable from the client");
+        test.assertTrue(parts[15].position().distanceTo(boss.position())>11,
+            "Tail hitbox must follow the visible body, not the root collision box");
+        float hp=boss.getHealth();
+        test.assertTrue(parts[15].hurt(boss.damageSources().generic(),36F),
+            "A hit on the distant tail failed to reach the boss");
+        test.assertTrue(boss.getHealth()<hp,"Body damage did not propagate to the boss HP");
+        boss.discard();test.succeed();
+    }
     @GameTest(template="empty",timeoutTicks=50)
     public static void damageReleasesBodyGrab(GameTestHelper test){
         tank(test);
