@@ -140,7 +140,7 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
         for(float z=32;z<57;z+=2.2F){
             float dorsalHeight=z<43?10+(z-32)*1.6F:Math.max(0,27-(z-43)*1.8F);
             for(float h=10;h<dorsalHeight;h+=2.2F)
-                tailA.box(((int)(z+h)%7==0)?RIB:FIN, -2.3F,-h,z-21,4.6F,2.4F,2.2F);
+                tailA.box(((int)(z+h)%7==0)?RIB:FIN, -2.3F,-h,z,4.6F,2.4F,2.2F);
         }
         for(float z=42;z<60;z+=2.2F){
             float analHeight=z<49?8+(z-42)*2.2F:Math.max(7,23-(z-49)*1.4F);
