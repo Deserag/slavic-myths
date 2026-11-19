@@ -46,6 +46,35 @@ processResources {
 }
 jar { manifest { attributes 'Implementation-Version': project.version } }
 
+// Fail the build rather than shipping a mod whose creative catalog cannot load.
+tasks.register('verifyCreativeCatalogResource') {
+    dependsOn tasks.named('processResources')
+    doLast {
+        def resource = 'assets/slavicmyths/creative_catalog.tsv'
+        def input = file("src/main/resources/${resource}")
+        def output = layout.buildDirectory.file("resources/main/${resource}").get().asFile
+        if (!input.isFile() || !output.isFile() ||
+                !java.util.Arrays.equals(input.bytes, output.bytes)) {
+            throw new GradleException("Creative catalog missing or altered in processed resources: ${output}")
+        }
+    }
+}
+tasks.named('classes') { dependsOn tasks.named('verifyCreativeCatalogResource') }
+tasks.named('jar') {
+    dependsOn tasks.named('verifyCreativeCatalogResource')
+    doLast {
+        def archive = new java.util.zip.ZipFile(archiveFile.get().asFile)
+        try {
+            if (archive.getEntry('assets/slavicmyths/creative_catalog.tsv') == null) {
+                throw new GradleException('Creative catalog missing from assembled mod JAR')
+            }
+        } finally {
+            archive.close()
+        }
+    }
+}
+
+
 // Explicit owner-authorized disposable #278 fixture; no tests in the production JAR.
 if (project.hasProperty('accessories278Check')) {
     sourceSets { accessories278Check { java.srcDir 'tools/accessories278-tests'; resources.srcDir 'tools/accessories278-test-resources' } }
