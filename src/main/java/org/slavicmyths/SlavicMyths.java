@@ -111,6 +111,7 @@ public final class SlavicMyths {
         org.slavicmyths.marine.TsarPikeContent.init(bus);
         org.slavicmyths.marine.DeepSeaSerpentContent.init(bus);
         org.slavicmyths.marine.StratimBirdContent.init(bus);
+        org.slavicmyths.marine.OceanZmeyContent.init(bus);
         org.slavicmyths.viy.ViyContent.init(bus);
         org.slavicmyths.sanctuary.SanctuaryContent.init(bus);
         org.slavicmyths.guardians.GuardianContent.init(bus);
