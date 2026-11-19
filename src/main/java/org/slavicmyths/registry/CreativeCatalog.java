@@ -9,12 +9,53 @@ public final class CreativeCatalog {
     public static final List<String> TABS = List.of("slavicmyths", "resources", "farming", "food",
             "tools", "armor", "decor", "magic", "mobs", "weapons", "accessories", "heads", "furniture");
     public record Entry(String tab, int order, String group) { }
+    private static final String RESOURCE = "assets/slavicmyths/creative_catalog.tsv";
     private static final Map<String, Entry> ENTRIES = load();
+
     private static Map<String, Entry> load() {
-        var stream = CreativeCatalog.class.getResourceAsStream("/assets/slavicmyths/creative_catalog.tsv");
-        if (stream == null) throw new IllegalStateException("Missing creative inventory catalog");
-        try (var reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) { return read(reader); }
-        catch (IOException e) { throw new UncheckedIOException(e); }
+        try (var stream = openCatalog()) {
+            if (stream == null) {
+                throw new IllegalStateException("Missing creative inventory catalog: " + RESOURCE
+                        + " (not found in the mod classpath or development resources)");
+            }
+            return read(new InputStreamReader(stream, StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to load creative inventory catalog: " + RESOURCE, e);
+        }
+    }
+
+    private static InputStream openCatalog() throws IOException {
+        InputStream stream = CreativeCatalog.class.getResourceAsStream("/" + RESOURCE);
+        if (stream != null) return stream;
+
+        ClassLoader loader = CreativeCatalog.class.getClassLoader();
+        if (loader != null) {
+            stream = loader.getResourceAsStream(RESOURCE);
+            if (stream != null) return stream;
+        }
+
+        ClassLoader contextLoader = Thread.currentThread().getContextClassLoader();
+        if (contextLoader != null && contextLoader != loader) {
+            stream = contextLoader.getResourceAsStream(RESOURCE);
+            if (stream != null) return stream;
+        }
+
+        stream = CreativeCatalog.class.getModule().getResourceAsStream(RESOURCE);
+        if (stream != null) return stream;
+
+        // NeoForge's development launcher may load mod classes before exposing
+        // asset resources to the class loader. Look in the local build/source tree
+        // only when the catalog cannot be read from the packaged mod classpath.
+        for (var directory = java.nio.file.Path.of("").toAbsolutePath().normalize();
+                directory != null; directory = directory.getParent()) {
+            for (String root : List.of("build/resources/main", "src/main/resources")) {
+                var candidate = directory.resolve(root).resolve(RESOURCE);
+                if (java.nio.file.Files.isRegularFile(candidate)) {
+                    return java.nio.file.Files.newInputStream(candidate);
+                }
+            }
+        }
+        return null;
     }
     public static Map<String, Entry> read(Reader source) throws IOException {
         var entries = new LinkedHashMap<String, Entry>();
