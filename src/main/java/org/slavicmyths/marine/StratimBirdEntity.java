@@ -137,16 +137,31 @@ public final class StratimBirdEntity extends Monster {
         }
         if(best!=null)setTarget(best);
     }
-    private boolean clear(Vec3 destination){
-        if(destination.y<level().getMinBuildHeight()+5||destination.y>level().getMaxBuildHeight()-6)return false;
-        AABB box=getBoundingBox().move(destination.subtract(position())).inflate(.35);
-        if(!level().noCollision(this,box))return false;
-        for(int sign:new int[]{-1,1}){
-            Vec3 edge=destination.add(sign*6,0,0);
-            if(!level().getBlockState(BlockPos.containing(edge)).getCollisionShape(level(),BlockPos.containing(edge)).isEmpty())
-                return false;
-        }
+    static boolean hasWingClearance(Level level,Vec3 destination,Vec3 movement){
+        if(destination.y<level.getMinBuildHeight()+5
+            ||destination.y>level.getMaxBuildHeight()-7)return false;
+        Vec3 horizontal=new Vec3(movement.x,0,movement.z);
+        if(horizontal.lengthSqr()<.0001)horizontal=new Vec3(0,0,1);
+        else horizontal=horizontal.normalize();
+        Vec3 sideways=new Vec3(-horizontal.z,0,horizontal.x);
+        // The root hitbox is only 4.5 wide; the articulated wings reach much farther.
+        // Sample both wing planes in the movement direction, not on the world X axis.
+        for(int side=-1;side<=1;side+=2)
+            for(int radius=0;radius<=16;radius+=4)
+                for(int height=2;height<=4;height+=2){
+                    Vec3 point=destination.add(sideways.scale(side*radius)).add(0,height,0);
+                    BlockPos pos=BlockPos.containing(point);
+                    if(!level.hasChunkAt(pos)
+                        ||!level.getBlockState(pos).getCollisionShape(level,pos).isEmpty()
+                        ||!level.getFluidState(pos).isEmpty())return false;
+                }
         return true;
+    }
+    private boolean clear(Vec3 destination){
+        Vec3 movement=destination.subtract(position());
+        if(!hasWingClearance(level(),destination,movement))return false;
+        AABB box=getBoundingBox().move(movement).inflate(.35);
+        return level().noCollision(this,box);
     }
     private void fly(Vec3 destination,double speed){
         Vec3 delta=destination.subtract(position());
