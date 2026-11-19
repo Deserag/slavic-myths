@@ -30,9 +30,14 @@ public final class TsarPikeHeadRenderer implements BlockEntityRenderer<TsarPikeH
         };
         float time=tile.getLevel().getGameTime()+partial;
         pose.pushPose();
-        pose.translate(.5,.68,.94);
+        // Rotate around the rear cell center, then offset in local head coordinates.
+        // The V1 skull spans z=-62..-9 model pixels: at scale .54 its actual
+        // visible extent is approx -0.94..+0.85 blocks on the north-facing axis.
+        // This fills both reserved cells (rear and front) for ALL four facings.
+        pose.translate(.5,.72,.5);
         pose.mulPose(Axis.YP.rotationDegrees(rotation));
-        pose.scale(.51F,-.51F,.51F);
+        pose.translate(0,0,.65);
+        pose.scale(.54F,-.54F,.54F);
         model.renderHead(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE)),
             light,overlay,time,tile.active() || tile.reactive());
         pose.popPose();
