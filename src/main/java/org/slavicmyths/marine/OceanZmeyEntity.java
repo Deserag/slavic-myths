@@ -141,6 +141,9 @@ public final class OceanZmeyEntity extends Monster {
         if(d.lengthSqr()<.01)return;
         Vec3 intended=d.normalize().scale(speed);
         Vec3 blended=getDeltaMovement().scale(.76).add(intended.scale(.24));
+        if(action()==TAKEOFF || action()==FLIGHT || action()==LAND){
+            if(!clearFlight(blended))return;
+        }
         BlockPos next=BlockPos.containing(position().add(blended.scale(3)));
         if(!level().hasChunkAt(next))return;
         if(!level().getBlockState(next).getCollisionShape(level(),next).isEmpty())
@@ -148,6 +151,24 @@ public final class OceanZmeyEntity extends Monster {
         setDeltaMovement(blended);hasImpulse=true;
         setYRot((float)(Mth.atan2(-blended.x,blended.z)*Mth.RAD_TO_DEG));
         setYBodyRot(getYRot());
+    }
+    private boolean clearFlight(Vec3 velocity){
+        if(!level().noCollision(this,getBoundingBox().move(velocity).inflate(.25)))return false;
+        Vec3 horizontal=velocity.multiply(1,0,1);
+        if(horizontal.lengthSqr()<.0001)horizontal=forward();
+        else horizontal=horizontal.normalize();
+        Vec3 side=new Vec3(-horizontal.z,0,horizontal.x);
+        for(int step=1;step<=3;step++){
+            Vec3 center=position().add(velocity.scale(step));
+            for(int sign:new int[]{-1,1})
+                for(int span=4;span<=8;span+=4){
+                    BlockPos p=BlockPos.containing(center.add(side.scale(sign*span)).add(0,2,0));
+                    if(!level().hasChunkAt(p)
+                        ||!level().getBlockState(p).getCollisionShape(level(),p).isEmpty())
+                        return false;
+                }
+        }
+        return true;
     }
     private void damageArc(double distance,double width,float damage,boolean rear){
         Vec3 center=rear?position().subtract(forward().scale(5)):headPosition();
@@ -210,13 +231,15 @@ public final class OceanZmeyEntity extends Monster {
     private void updateParts(){
         Vec3 backwards=forward().scale(-1);
         Vec3 side=new Vec3(-backwards.z,0,backwards.x);
-        double yaw=0,age=tickCount*.11;
+        double yaw=0,age=tickCount*.085;
         Vec3 cursor=position().add(0,1.6,0);
         for(int i=0;i<parts.length;i++){
             double t=i/(double)SEGMENTS;
-            double arc=.035*Math.sin(age-i*.53);
-            if(action()==TAIL)arc+=.16*Math.sin(Math.PI*Mth.clamp(actionTicks()/32F,0,1));
-            if(action()==GRAB)arc+=.07*Math.sin(age*1.8-i*.42);
+            double boost=action()==FLIGHT?2.1:action()==TAIL?2.7:1;
+            double arc=.075*Math.sin(age*boost-i*.34)*(.3+i/(double)(SEGMENTS-1));
+            if(action()==TAIL)arc+=.22*Math.sin(Math.PI*Mth.clamp(actionTicks()/42F,0,1))*i/(double)SEGMENTS;
+            if(action()==GRAB && i>2)arc+=.11*Mth.clamp(actionTicks()/26F,0,1);
+            if(action()==STORM && i>1)arc+=.14*Mth.clamp(actionTicks()/22F,0,1);
             yaw+=arc;
             Vec3 tangent=backwards.scale(Math.cos(yaw)).add(side.scale(Math.sin(yaw)));
             Vec3 at=cursor.add(tangent.scale(BODY_LENGTH/SEGMENTS*.5));
@@ -290,7 +313,7 @@ public final class OceanZmeyEntity extends Monster {
         }
         if(grabCd==0 && dist<6*6){grabCd=245;begin(GRAB,55);return;}
         if(biteCd==0 && dist<7*7){biteCd=48;begin(BITE,32);return;}
-        begin(SWIM,0);
+        if(action()!=SWIM)begin(SWIM,0);
         moveToward(target.position().add(0,target.isInWater()?0:1,0),.23);
     }
     @Override public void startSeenByPlayer(ServerPlayer player){
