@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=north,front=false": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=north,front=true": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=south,front=false": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=south,front=true": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=east,front=false": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=east,front=true": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=west,front=false": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    },
+    "facing=west,front=true": {
+      "model": "slavicmyths:block/tsar_pike_head"
+    }
+  }
+}
