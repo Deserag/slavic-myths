@@ -1,0 +1,57 @@
+name: Ocean Zmey - Java 21, boss actions, trophy and GameTests
+
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - ".github/workflows/ocean-ocean-zmey.yml"
+      - "src/main/java/org/slavicmyths/marine/OceanZmey*.java"
+      - "src/main/java/org/slavicmyths/client/OceanZmey*.java"
+      - "src/main/java/org/slavicmyths/SlavicMyths.java"
+      - "src/main/java/org/slavicmyths/client/ClientSetup.java"
+      - "src/main/resources/assets/slavicmyths/blockstates/ocean_zmey_head.json"
+      - "src/main/resources/assets/slavicmyths/models/item/ocean_zmey*"
+      - "src/main/resources/data/slavicmyths/neoforge/biome_modifier/ocean_zmey_spawns.json"
+      - "src/main/resources/data/slavicmyths/tags/worldgen/biome/spawn_ocean_zmey.json"
+      - "tools/pharaohka-tests/org/slavicmyths/marine/OceanZmeyGameTests.java"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-gametest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ensure sister models and food stayed integrated
+        run: python3 tools/ocean/verify_food_and_sisters.py
+      - name: Compile and assemble NeoForge production mod
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Run isolated aquatic GameTests and reject Minecraft startup crashes
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain 2>&1 | tee /tmp/serpent-gametest.log
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed|ExceptionInInitializerError|Failed to create mod instance' /tmp/serpent-gametest.log; then
+            echo "::error::Minecraft failed during GameTests despite the Gradle task return code"
+            exit 1
+          fi
+          if ! grep -Eq 'All [0-9]+ required tests passed' /tmp/serpent-gametest.log; then
+            echo "::error::GameTests did not report a successful nonempty test run"
+            exit 1
+          fi
+      - name: Archive verified JAR
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ocean-zmey-test-jar
+          path: build/libs/slavicmyths-*.jar
+          retention-days: 7
+          if-no-files-found: error
