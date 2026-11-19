@@ -34,7 +34,7 @@ public final class TsarPikeHeadRenderer implements BlockEntityRenderer<TsarPikeH
         pose.mulPose(Axis.YP.rotationDegrees(rotation));
         pose.scale(.51F,-.51F,.51F);
         model.renderHead(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE)),
-            light,overlay,time,tile.active());
+            light,overlay,time,tile.active() || tile.reactive());
         pose.popPose();
     }
     public static void register(EntityRenderersEvent.RegisterRenderers event){
