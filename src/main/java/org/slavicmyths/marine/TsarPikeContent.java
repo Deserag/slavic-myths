@@ -63,7 +63,7 @@ public final class TsarPikeContent {
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             (type, world, reason, pos, random) -> {
                 if (world.getLevel().dimension() != net.minecraft.world.level.Level.OVERWORLD
-                    || world.getDifficulty() == Difficulty.PEACEFUL) return false;
+                    || world.getLevel().getDifficulty() == Difficulty.PEACEFUL) return false;
                 if (!world.getFluidState(pos).is(FluidTags.WATER)
                     || !world.getFluidState(pos.above()).is(FluidTags.WATER)
                     || !world.getFluidState(pos.below()).is(FluidTags.WATER)) return false;
