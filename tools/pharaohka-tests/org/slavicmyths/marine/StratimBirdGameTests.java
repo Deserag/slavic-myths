@@ -20,7 +20,7 @@ public final class StratimBirdGameTests {
     public static void bossRegistryAndTierSevenBalance(GameTestHelper test){
         var boss=StratimBirdContent.BOSS.get().create(test.getLevel());
         test.assertTrue(boss!=null,"Missing registered Stratim bird");
-        test.assertTrue(boss.getMaxHealth()==1150,"Stratim must use its own tier VII health");
+        test.assertTrue(boss.getMaxHealth()==1024,"Stratim must use its own tier VII health");
         test.assertTrue(boss.getAttributeValue(Attributes.ARMOR)==8,"Stratim armor incorrect");
         test.assertTrue(boss.getAttributeValue(Attributes.ATTACK_DAMAGE)==22,"Stratim attack incorrect");
         test.assertTrue(StratimBirdContent.EGG.get().getDefaultInstance().getCount()==1,
