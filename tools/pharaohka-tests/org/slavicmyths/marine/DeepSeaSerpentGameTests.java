@@ -37,6 +37,8 @@ public final class DeepSeaSerpentGameTests {
         tank(test);
         DeepSeaSerpentEntity boss=spawn(test,9,4,9);
         test.assertTrue(boss.getMaxHealth()==1000,"Tier VI HP incorrect");
+        test.assertTrue(boss.canBreatheUnderwater(),
+            "A deep-sea boss must not drown while patrolling underwater");
         test.assertTrue(boss.getAttributeValue(Attributes.ATTACK_DAMAGE)==20,"Tier VI A4 not applied");
         test.assertTrue(boss.getAttributeValue(Attributes.ARMOR)==9,"Missing armor");
         test.assertTrue(boss.getAttributeValue(Attributes.ARMOR_TOUGHNESS)==2,"Missing toughness");
