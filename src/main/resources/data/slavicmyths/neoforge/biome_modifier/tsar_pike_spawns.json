@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_tsar_pike",
+  "spawners": [
+    {
+      "type": "slavicmyths:tsar_pike",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}
