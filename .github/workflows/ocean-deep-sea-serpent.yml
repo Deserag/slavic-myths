@@ -36,8 +36,15 @@ jobs:
         run: python3 tools/ocean/verify_food_and_sisters.py
       - name: Compile and assemble NeoForge production mod
         run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
-      - name: Run isolated aquatic GameTests
-        run: ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain
+      - name: Run isolated aquatic GameTests and reject Minecraft startup crashes
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain 2>&1 | tee /tmp/serpent-gametest.log
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|ExceptionInInitializerError|Failed to create mod instance' /tmp/serpent-gametest.log; then
+            echo "::error::Minecraft failed during GameTests despite the Gradle task return code"
+            exit 1
+          fi
       - name: Archive verified JAR
         if: success()
         uses: actions/upload-artifact@v4
