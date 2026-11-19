@@ -126,12 +126,28 @@ public final class OceanZmeyEntity extends Monster {
         if(tickCount%15!=0)return;
         LivingEntity previous=getTarget();
         if(previous!=null && (!attackable(previous)||distanceToSqr(previous)>70*70))setTarget(null);
-        LivingEntity closest=null;double distance=64*64;
-        for(LivingEntity e:level().getEntitiesOfClass(LivingEntity.class,
+        LivingEntity closest=null;
+        double distance=64*64;
+        // A nearby player always outranks passive ocean fauna.
+        for(Player player:level().getEntitiesOfClass(Player.class,
             getBoundingBox().inflate(64),this::attackable)){
-            double d=distanceToSqr(e);
-            if(d<distance && (e.isInWaterOrBubble()||d<22*22) && hasLineOfSight(e)){
-                closest=e;distance=d;
+            double d=distanceToSqr(player);
+            if(d<distance && (player.isInWaterOrBubble()||d<22*22)
+                && hasLineOfSight(player)){
+                closest=player;
+                distance=d;
+            }
+        }
+        if(closest==null){
+            for(LivingEntity e:level().getEntitiesOfClass(LivingEntity.class,
+                getBoundingBox().inflate(64),this::attackable)){
+                if(e instanceof OceanZmeyEntity || e instanceof Player)continue;
+                double d=distanceToSqr(e);
+                if(d<distance && (e.isInWaterOrBubble()||d<22*22)
+                    && hasLineOfSight(e)){
+                    closest=e;
+                    distance=d;
+                }
             }
         }
         if(closest!=null)setTarget(closest);
