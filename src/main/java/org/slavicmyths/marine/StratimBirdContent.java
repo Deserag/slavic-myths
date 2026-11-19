@@ -33,7 +33,7 @@ public final class StratimBirdContent {
         "stratim_bird_spawn_egg",()->
             new DeferredSpawnEggItem(BOSS,0x244858,0xC7D5CC,new Item.Properties()));
     public static final DeferredHolder<Block,Block> HEAD=ModBlocks.BLOCKS.register(
-        "stratim_bird_head",StratimBirdHeadBlock::new);
+        "stratim_bird_head",()->new StratimBirdHeadBlock());
     public static final DeferredHolder<Item,Item> HEAD_ITEM=ModItems.ITEMS.register(
         "stratim_bird_head",()->
             new BlockItem(HEAD.get(),new Item.Properties().rarity(Rarity.EPIC)));
