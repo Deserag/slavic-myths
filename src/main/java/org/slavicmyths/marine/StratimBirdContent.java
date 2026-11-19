@@ -31,12 +31,22 @@ public final class StratimBirdContent {
                 .build("slavicmyths:stratim_bird"));
     public static final DeferredHolder<Item,Item> EGG=ModItems.ITEMS.register(
         "stratim_bird_spawn_egg",()->
-            new DeferredSpawnEggItem(BOSS,0x244858,0xC7D5CC,new Item.Properties()));
+            new DeferredSpawnEggItem(BOSS,0x244858,0xC7D5CC,new Item.Properties()){
+                @Override public net.minecraft.network.chat.Component getName(ItemStack stack){
+                    return net.minecraft.network.chat.Component.translatableWithFallback(
+                        "item.slavicmyths.stratim_bird_spawn_egg","Яйцо призыва Стратим-птицы");
+                }
+            });
     public static final DeferredHolder<Block,Block> HEAD=ModBlocks.BLOCKS.register(
         "stratim_bird_head",()->new StratimBirdHeadBlock());
     public static final DeferredHolder<Item,Item> HEAD_ITEM=ModItems.ITEMS.register(
         "stratim_bird_head",()->
-            new BlockItem(HEAD.get(),new Item.Properties().rarity(Rarity.EPIC)));
+            new BlockItem(HEAD.get(),new Item.Properties().rarity(Rarity.EPIC)){
+                @Override public net.minecraft.network.chat.Component getName(ItemStack stack){
+                    return net.minecraft.network.chat.Component.translatableWithFallback(
+                        "block.slavicmyths.stratim_bird_head","Голова Стратим-птицы");
+                }
+            });
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<StratimBirdHeadBlock.Tile>>
         HEAD_TILE=ModTiles.TILES.register("stratim_bird_head",()->
             BlockEntityType.Builder.of(StratimBirdHeadBlock.Tile::new,HEAD.get()).build(null));
