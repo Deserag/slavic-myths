@@ -4,7 +4,7 @@ on:
   push:
     branches: [integration/ocean-updates]
     paths:
-      - ".github/workflows/ocean-ocean-zmey.yml"
+      - ".github/workflows/ocean-zmey.yml"
       - "src/main/java/org/slavicmyths/marine/OceanZmey*.java"
       - "src/main/java/org/slavicmyths/client/OceanZmey*.java"
       - "src/main/java/org/slavicmyths/SlavicMyths.java"
