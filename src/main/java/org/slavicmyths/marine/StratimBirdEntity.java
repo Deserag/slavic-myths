@@ -42,7 +42,7 @@ public final class StratimBirdEntity extends Monster {
     }
     public static AttributeSupplier.Builder attributes(){
         return Monster.createMonsterAttributes()
-            .add(Attributes.MAX_HEALTH,1150).add(Attributes.ARMOR,8)
+            .add(Attributes.MAX_HEALTH,1024).add(Attributes.ARMOR,8)
             .add(Attributes.ARMOR_TOUGHNESS,2).add(Attributes.ATTACK_DAMAGE,22)
             .add(Attributes.MOVEMENT_SPEED,.65).add(Attributes.FLYING_SPEED,.65)
             .add(Attributes.FOLLOW_RANGE,64).add(Attributes.KNOCKBACK_RESISTANCE,.75);
