@@ -6695,5 +6695,9 @@
   "tooltip.slavicmyths.sister_power.lomeya": "Lomeya — Unbreakable",
   "key.slavicmyths.morovoy_mode": "Mor Staff: switch element",
   "key.slavicmyths.morovoy_ravens": "Mor Staff: summon ravens",
-  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast"
+  "key.slavicmyths.morovoy_blast": "Mor Staff: fire-plague blast",
+  "entity.slavicmyths.tsar_pike": "Tsar Pike",
+  "item.slavicmyths.tsar_pike_spawn_egg": "Tsar Pike Spawn Egg",
+  "block.slavicmyths.tsar_pike_head": "Tsar Pike Head",
+  "item.slavicmyths.tsar_pike_head": "Tsar Pike Head"
 }
