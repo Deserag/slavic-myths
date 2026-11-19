@@ -108,6 +108,7 @@ public final class SlavicMyths {
         org.slavicmyths.sisters.TremorRune.init();
         org.slavicmyths.sisters.SistersContent.init(bus);
         org.slavicmyths.marine.PharaohkaContent.init(bus);
+        org.slavicmyths.marine.TsarPikeContent.init(bus);
         org.slavicmyths.viy.ViyContent.init(bus);
         org.slavicmyths.sanctuary.SanctuaryContent.init(bus);
         org.slavicmyths.guardians.GuardianContent.init(bus);
