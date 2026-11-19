@@ -222,7 +222,9 @@ public final class TsarPikeEntity extends Monster {
             biteCooldown=40+random.nextInt(12);
             action(BITE,12);return;
         }
-        if(action()!=SWIM && action()!=FAST) action(SWIM,0);
+        // Fast pursuit changes the articulated body cadence without introducing extra damage.
+        int locomotion=distance>36 && distance<256?FAST:SWIM;
+        if(action()!=locomotion) action(locomotion,0);
     }
     private void tickBite(LivingEntity target){
         entityData.set(OPEN,Math.min(1F,jawOpen()+.24F));
