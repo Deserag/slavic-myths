@@ -16,12 +16,12 @@ public final class PharaohkaContent {
     public static final DeferredHolder<EntityType<?>, EntityType<PharaohkaEntity>> PHARAOHKA =
         ModEntities.ENTITIES.register("pharaohka", () ->
             EntityType.Builder.of(PharaohkaEntity::new, MobCategory.MONSTER)
-                .sized(0.9F, 2.0F).clientTrackingRange(14).updateInterval(2).build("slavicmyths:pharaohka"));
+                .sized(0.9F, 2.15F).clientTrackingRange(14).updateInterval(2).build("slavicmyths:pharaohka"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<PharaohkaEntity>> LEADER =
         ModEntities.ENTITIES.register("pharaohka_leader", () ->
             EntityType.Builder.of(PharaohkaEntity::new, MobCategory.MONSTER)
-                .sized(1.4F, 2.8F).clientTrackingRange(24).updateInterval(1).build("slavicmyths:pharaohka_leader"));
+                .sized(1.45F, 3.8F).clientTrackingRange(24).updateInterval(1).build("slavicmyths:pharaohka_leader"));
 
     public static final DeferredHolder<Item, Item> EGG =
         ModItems.ITEMS.register("pharaohka_spawn_egg", () ->
