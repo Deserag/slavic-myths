@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.marine.DeepSeaSerpentContent;
@@ -48,6 +49,10 @@ public final class DeepSeaSerpentTrophyRenderer implements BlockEntityRenderer<D
                 light,overlay,age,tile.active()||tile.reactive());
         }
         pose.popPose();
+    }
+    @Override public AABB getRenderBoundingBox(DeepSeaSerpentTrophyBlock.Tile tile) {
+        // Avoid culling the nose when only the rear-left owner cell is visible.
+        return tile.getRenderBoundingBox();
     }
     public static void register(EntityRenderersEvent.RegisterRenderers event){
         event.registerBlockEntityRenderer(DeepSeaSerpentContent.TROPHY_TILE.get(),

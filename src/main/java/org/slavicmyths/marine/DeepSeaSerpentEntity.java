@@ -42,7 +42,7 @@ public final class DeepSeaSerpentEntity extends Monster {
     private static final int VORTEX_COOLDOWN=400;
 
     private final ServerBossEvent bar=new ServerBossEvent(
-        Component.translatable("entity.slavicmyths.deep_sea_serpent"),
+        Component.translatableWithFallback("entity.slavicmyths.deep_sea_serpent","Морской змей"),
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private int biteCooldown=20,grabCooldown=100,vortexCooldown=180;
     private int phaseTicks,wanderTicks,dryTicks,holdTicks;
@@ -73,6 +73,10 @@ public final class DeepSeaSerpentEntity extends Monster {
         builder.define(ACTION,IDLE);
         builder.define(START,0);
         builder.define(JAW,0F);
+    }
+    @Override public Component getName() {
+        return hasCustomName()?super.getName():
+            Component.translatableWithFallback("entity.slavicmyths.deep_sea_serpent","Морской змей");
     }
     public int action(){return entityData.get(ACTION);}
     public float jawOpen(){return entityData.get(JAW);}
@@ -274,6 +278,17 @@ public final class DeepSeaSerpentEntity extends Monster {
         int elapsed=48-phaseTicks;
         if(elapsed==1)bubbles(15);
         if(elapsed==20)bubbles(30);
+        // A rotating ring of bubble trails distinguishes the vortex from a plain splash.
+        if(elapsed%3==0 && level() instanceof ServerLevel server){
+            for(int i=0;i<10;i++){
+                double angle=elapsed*.27+i*Math.PI*2/10.0;
+                double radius=3.0+Math.min(6.0,elapsed*.16);
+                Vec3 point=center().add(Math.cos(angle)*radius,.3*Math.sin(angle*2),
+                    Math.sin(angle)*radius);
+                server.sendParticles(ParticleTypes.BUBBLE,point.x,point.y,point.z,
+                    2,.12,.12,.12,.025);
+            }
+        }
         if(elapsed>=20 && elapsed<34){
             for(LivingEntity e:level().getEntitiesOfClass(LivingEntity.class,
                 getBoundingBox().inflate(12),this::prey)){

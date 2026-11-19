@@ -30,7 +30,13 @@ public final class DeepSeaSerpentContent {
 
     public static final DeferredHolder<Item, Item> EGG = ModItems.ITEMS.register(
         "deep_sea_serpent_spawn_egg", () ->
-            new DeferredSpawnEggItem(BOSS, 0x102E3B, 0x61C8B3, new Item.Properties()));
+            new DeferredSpawnEggItem(BOSS, 0x102E3B, 0x61C8B3, new Item.Properties()) {
+                @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
+                    return net.minecraft.network.chat.Component.translatableWithFallback(
+                        "item.slavicmyths.deep_sea_serpent_spawn_egg",
+                        "Яйцо призыва Морского змея");
+                }
+            });
 
     public static final DeferredHolder<Block, Block> HEAD =
         ModBlocks.BLOCKS.register("deep_sea_serpent_head", () -> new DeepSeaSerpentTrophyBlock(true));
@@ -39,10 +45,20 @@ public final class DeepSeaSerpentContent {
 
     public static final DeferredHolder<Item, Item> HEAD_ITEM = ModItems.ITEMS.register(
         "deep_sea_serpent_head", () ->
-            new BlockItem(HEAD.get(), new Item.Properties().rarity(Rarity.EPIC)));
+            new BlockItem(HEAD.get(), new Item.Properties().rarity(Rarity.EPIC)) {
+                @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
+                    return net.minecraft.network.chat.Component.translatableWithFallback(
+                        "block.slavicmyths.deep_sea_serpent_head","Голова Морского змея");
+                }
+            });
     public static final DeferredHolder<Item, Item> CREST_ITEM = ModItems.ITEMS.register(
         "abyssal_crest", () ->
-            new BlockItem(CREST.get(), new Item.Properties().rarity(Rarity.RARE)));
+            new BlockItem(CREST.get(), new Item.Properties().rarity(Rarity.RARE)) {
+                @Override public net.minecraft.network.chat.Component getName(ItemStack stack) {
+                    return net.minecraft.network.chat.Component.translatableWithFallback(
+                        "block.slavicmyths.abyssal_crest","Гребень Бездны");
+                }
+            });
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeepSeaSerpentTrophyBlock.Tile>>
         TROPHY_TILE = ModTiles.TILES.register("deep_sea_serpent_trophy",

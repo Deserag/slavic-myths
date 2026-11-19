@@ -228,9 +228,20 @@ public final class DeepSeaSerpentModel extends EntityModel<DeepSeaSerpentEntity>
             body[i].pivot.zRot=0;
         }
         jaw.pivot.xRot=Mth.clamp(boss.jawOpen(),0F,1F)*.72F;
-        head.pivot.yRot=action==DeepSeaSerpentEntity.HURT?
-            Mth.sin(age*.8F)*.23F:0F;
-        root.pivot.zRot=0;
+        head.pivot.yRot=boss.hurtTime>0?Mth.sin(age*.95F)*.20F:0F;
+        root.pivot.xRot=0F;
+        root.pivot.zRot=0F;
+        if(boss.deathTime>0) {
+            float fall=Mth.clamp(boss.deathTime/20F,0F,1F);
+            jaw.pivot.xRot=fall*.48F;
+            head.pivot.yRot=fall*.13F;
+            root.pivot.xRot=fall*.15F;
+            for(int i=0;i<SEGMENTS;i++){
+                body[i].pivot.yRot=.12F*Mth.sin(i*.43F)*fall;
+                body[i].pivot.xRot=(-.045F-.025F*Mth.sin(i*.33F))*fall;
+                body[i].pivot.zRot=.016F*fall*Mth.sin(i*.66F);
+            }
+        }
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
         root.draw(pose,out,light,overlay);
