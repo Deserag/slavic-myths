@@ -63,12 +63,15 @@ public final class StratimBirdContent {
                 // Require an ocean surface and an actual navigable air corridor.
                 boolean surface=world.getFluidState(pos).is(FluidTags.WATER)
                     ||world.getFluidState(pos.below()).is(FluidTags.WATER);
-                if(!surface)return false;
-                for(int x=-6;x<=6;x+=3)
-                    for(int z=-6;z<=6;z+=3)
-                        for(int y=2;y<=16;y+=3){
+                if(!surface || !level.canSeeSky(pos.above(2)))return false;
+                // Scan the full wingspan and upper air column, including loaded-neighbor safety.
+                // Avoid spawning in caves, ship cabins, under bridges or beside cliffs.
+                for(int x=-16;x<=16;x+=4)
+                    for(int z=-16;z<=16;z+=4)
+                        for(int y=2;y<=18;y+=4){
                             BlockPos p=pos.offset(x,y,z);
-                            if(!world.getBlockState(p).getCollisionShape(world,p).isEmpty()
+                            if(!level.hasChunkAt(p)
+                                ||!world.getBlockState(p).getCollisionShape(world,p).isEmpty()
                                 ||!world.getFluidState(p).isEmpty())return false;
                         }
                 if(reason==MobSpawnType.NATURAL){
