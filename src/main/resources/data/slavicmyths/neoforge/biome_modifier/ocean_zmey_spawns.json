@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:spawn_ocean_zmey",
+  "spawners": [
+    {
+      "type": "slavicmyths:ocean_zmey",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}
