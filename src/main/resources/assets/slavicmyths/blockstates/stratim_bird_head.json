@@ -1,0 +1,148 @@
+{
+  "variants": {
+    "facing=north,side=0,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=0,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=0,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=0,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=0,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=0,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=north,side=1,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=0,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=south,side=1,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=0,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=east,side=1,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=0,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=0,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=0,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=0,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=1,depth=0": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=1,depth=1": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    },
+    "facing=west,side=1,layer=1,depth=2": {
+      "model": "slavicmyths:block/stratim_bird_head"
+    }
+  }
+}
