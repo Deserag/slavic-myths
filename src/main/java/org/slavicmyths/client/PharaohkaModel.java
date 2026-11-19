@@ -205,10 +205,10 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             coralCrown.yRot=head.yRot;
             coralCrown.xRot=head.xRot;
         }
-        hair.yRot=head.yRot*.78F+Mth.sin(age*.055F)*.025F;
-        hair2.yRot=head.yRot*.9F+Mth.sin(age*.063F-.6F)*.03F;
-        hair.xRot=head.xRot*.5F+Mth.sin(age*.075F)*.025F;
-        hair2.xRot=head.xRot*.65F+Mth.sin(age*.07F-.5F)*.03F;
+        // Scalp and fringe must follow exactly the head's pivot. Lagging the
+        // full hair shell behind head rotation exposes scalp-shaped bald gaps.
+        hair.yRot=hair2.yRot=head.yRot;
+        hair.xRot=hair2.xRot=head.xRot;
 
         // The four unparented colored tail sections follow a single curved centerline.
         // Overlap at every hinge prevents visible openings when swimming fast.
