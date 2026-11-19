@@ -172,7 +172,6 @@ public final class DeepSeaSerpentEntity extends Monster {
     @Override protected PathNavigation createNavigation(Level l){return new WaterBoundPathNavigation(this,l);}
     @Override protected void registerGoals(){}
     @Override public boolean removeWhenFarAway(double distance){return false;}
-    @Override public boolean canBreatheUnderwater(){return true;}
     @Override public void travel(Vec3 input) {
         if(isEffectiveAi() && isInWater()){
             moveRelative(.09F,input);
@@ -252,6 +251,7 @@ public final class DeepSeaSerpentEntity extends Monster {
         bar.setProgress(getHealth()/Math.max(1,getMaxHealth()));
         countdown();
         boolean water=wet();
+        if(water)setAirSupply(getMaxAirSupply());
         setNoGravity(water);
         if(!water){
             if(++dryTicks>90 && tickCount%20==0)hurt(damageSources().dryOut(),5);
