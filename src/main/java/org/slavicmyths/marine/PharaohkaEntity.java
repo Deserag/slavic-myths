@@ -28,6 +28,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
@@ -48,15 +49,19 @@ public final class PharaohkaEntity extends Monster {
     private final ServerBossEvent bossBar = new ServerBossEvent(
         Component.translatable("entity.slavicmyths.pharaohka_leader"),
         BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
-    private int dryTicks, meleeCooldown, dashCooldown=90, summonCooldown=220, currentCooldown=145, shieldCooldown=125;
+    private int dryTicks, meleeCooldown, dashCooldown=55, summonCooldown=170, currentCooldown=95, shieldCooldown=70;
     private int dashTicks, currentTicks, aiWander, strikeTicks, shieldTicks;
+    // Tier V provisional balance: A4=18, A5=1.15*A4, A6=1.35*A4.
+    public static final float BOSS_BASE_DAMAGE=18F;
+    public static final float DASH_DAMAGE=BOSS_BASE_DAMAGE*1.15F;
+    public static final float SHIELD_BASH_DAMAGE=BOSS_BASE_DAMAGE*1.35F;
     private boolean dashHit;
     private UUID summoner;
     private int minionLife;
 
     public PharaohkaEntity(EntityType<? extends PharaohkaEntity> type, Level level) {
         super(type, level);
-        moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02F, 0.1F, true);
+        moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.045F, 0.18F, true);
         setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER, 0);
         xpReward = 0;
     }
@@ -65,10 +70,10 @@ public final class PharaohkaEntity extends Monster {
     public static AttributeSupplier.Builder attributes(boolean leader) {
         return Monster.createMonsterAttributes()
             .add(Attributes.MAX_HEALTH, leader ? 550.0 : 32.0)
-            .add(Attributes.MOVEMENT_SPEED, leader ? .38 : .30)
-            .add(Attributes.ATTACK_DAMAGE, leader ? 11.0 : 5.0)
+            .add(Attributes.MOVEMENT_SPEED, leader ? .44 : .35)
+            .add(Attributes.ATTACK_DAMAGE, leader ? BOSS_BASE_DAMAGE : 5.0)
             .add(Attributes.ARMOR, leader ? 12.0 : 3.0)
-            .add(Attributes.FOLLOW_RANGE, leader ? 30.0 : 18.0)
+            .add(Attributes.FOLLOW_RANGE, leader ? 40.0 : 28.0)
             .add(Attributes.KNOCKBACK_RESISTANCE, leader ? .65 : .15);
     }
 
@@ -93,6 +98,7 @@ public final class PharaohkaEntity extends Monster {
     @Override protected void registerGoals() {
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 16));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
@@ -106,7 +112,7 @@ public final class PharaohkaEntity extends Monster {
 
     @Override public void travel(Vec3 input) {
         if (isEffectiveAi() && isInWater()) {
-            moveRelative(.035F, input);
+            moveRelative(leader() ? .085F : .075F, input);
             move(MoverType.SELF, getDeltaMovement());
             setDeltaMovement(getDeltaMovement().scale(.89));
         } else {
@@ -130,10 +136,15 @@ public final class PharaohkaEntity extends Monster {
         dryTicks=0;
         if (summoner!=null) {
             if (--minionLife<=0) { discard(); return; }
-            if (tickCount%40==0 && level() instanceof ServerLevel server
-                && !(server.getEntity(summoner) instanceof PharaohkaEntity owner && owner.isAlive())) {
-                discard();
-                return;
+            if (level() instanceof ServerLevel server && tickCount%10==0) {
+                if (server.getEntity(summoner) instanceof PharaohkaEntity owner && owner.isAlive()) {
+                    LivingEntity owner'sTarget=owner.getTarget();
+                    if (owner'sTarget!=null && validTarget(owner'sTarget) && getTarget()!=owner'sTarget)
+                        setTarget(owner'sTarget);
+                } else {
+                    discard();
+                    return;
+                }
             }
         }
         if (isInWater() && getTarget()==null) setDeltaMovement(getDeltaMovement().add(0, .003, 0));
@@ -145,29 +156,25 @@ public final class PharaohkaEntity extends Monster {
         if (dashTicks>0) { dash(); return; }
         if (currentTicks>0) { currentPulse(); }
         LivingEntity target=getTarget();
-        if (target != null && (!target.isAlive() || target instanceof Player p && p.isCreative()
-                || target.isSpectator() || !isTargetInWater(target))) {
+        if (target != null && !validTarget(target)) {
             setTarget(null);
             target=null;
         }
         if (strikeTicks>0) {
-            // Spear and claw sweeps are executed while gliding toward the target.
-            if (target!=null && isTargetInWater(target)) {
-                getMoveControl().setWantedPosition(target.getX(),
-                    target.getY()+target.getBbHeight()*.45,target.getZ(),leader()?.85:.7);
-            }
+            if (target!=null) followTarget(target);
             --strikeTicks;
-            if (strikeTicks==5 && target!=null && hasLineOfSight(target)
-                && distanceToSqr(target)<(leader()?9.0:5.5))
+            if (strikeTicks==3 && target!=null && hasLineOfSight(target)
+                    && inMeleeRange(target,leader()?1.45:0.8))
                 doHurtTarget(target);
             if (strikeTicks==0) animate(IDLE);
             return;
         }
         if (shieldTicks>0) {
-            getNavigation().stop();
+            if (target!=null) followTarget(target);
             --shieldTicks;
-            if (shieldTicks==6 && target!=null && hasLineOfSight(target) && distanceToSqr(target)<9.0) {
-                target.hurt(damageSources().mobAttack(this),8F);
+            if (shieldTicks==4 && target!=null && hasLineOfSight(target)
+                    && inMeleeRange(target,1.7)) {
+                target.hurt(damageSources().mobAttack(this),SHIELD_BASH_DAMAGE);
                 if (level() instanceof ServerLevel world)
                     world.sendParticles(ParticleTypes.BUBBLE,target.getX(),target.getY()+.8,target.getZ(),12,.55,.5,.55,.06);
                 Vec3 away=target.position().subtract(position()).multiply(1,0,1);
@@ -185,38 +192,82 @@ public final class PharaohkaEntity extends Monster {
                 aiWander=35+random.nextInt(55);
                 BlockPos near=blockPosition().offset(random.nextInt(13)-6, random.nextInt(7)-3, random.nextInt(13)-6);
                 if (level().getFluidState(near).is(FluidTags.WATER))
-                    getNavigation().moveTo(near.getX()+.5,near.getY()+.5,near.getZ()+.5,.8);
+                    getNavigation().moveTo(near.getX()+.5,near.getY()+.5,near.getZ()+.5,1.0);
             }
             if (action()!=IDLE && actionTicks()>20) animate(IDLE);
             return;
         }
 
-        getLookControl().setLookAt(target, 30, 30);
+        followTarget(target);
         double distance=distanceToSqr(target);
-        if (tickCount%10==0 || getNavigation().isDone())
-            getNavigation().moveTo(target,leader()?1.3:1.05);
-        getMoveControl().setWantedPosition(target.getX(),target.getY()+target.getBbHeight()*.45,
-            target.getZ(),leader()?1.3:1.05);
-
-        if (leader() && summonCooldown==0 && distance<400) { summon(); return; }
-        if (leader() && dashCooldown==0 && distance>6 && distance<196) { beginDash(target); return; }
-        if (leader() && currentCooldown==0 && distance<100) {
-            currentTicks=24;currentCooldown=190;animate(CURRENT);
-            playSound(SoundEvents.CONDUIT_ATTACK_TARGET,1.1F,.75F);
-        }
-        if (leader() && shieldCooldown==0 && distance<8.0) {
-            shieldTicks=15;
-            shieldCooldown=115+random.nextInt(65);
-            animate(BASH);
-            playSound(SoundEvents.SHIELD_BLOCK,.85F,.65F);
-            getNavigation().stop();
+        // Direct combat always takes priority over summons and area control.
+        if (meleeCooldown==0 && inMeleeRange(target,leader()?1.45:0.8)
+                && hasLineOfSight(target)) {
+            animate(STRIKE);
+            meleeCooldown=leader()?18:22;
+            strikeTicks=10;
             return;
         }
-        if (distance < (leader()?8.5:5.0) && meleeCooldown==0) {
-            animate(STRIKE);
-            meleeCooldown=leader()?27:36;
-            strikeTicks=12; // Impact occurs midway through the moving spear/arm sweep.
-        } else if ((action()==SUMMON || action()==BLOCK) && actionTicks()>20) animate(IDLE);
+        if (leader() && shieldCooldown==0 && inMeleeRange(target,1.7)
+                && hasLineOfSight(target)) {
+            shieldTicks=12;
+            shieldCooldown=80+random.nextInt(30);
+            animate(BASH);
+            playSound(SoundEvents.SHIELD_BLOCK,.85F,.65F);
+            return;
+        }
+        if (leader() && dashCooldown==0 && isTargetInWater(target)
+                && distance>12 && distance<256) {
+            beginDash(target);
+            return;
+        }
+        if (leader() && summonCooldown==0 && distance<400) {
+            summon();
+            return;
+        }
+        if (leader() && currentCooldown==0 && distance<144) {
+            currentTicks=20;
+            currentCooldown=125;
+            animate(CURRENT);
+            playSound(SoundEvents.CONDUIT_ATTACK_TARGET,1.1F,.75F);
+        } else if ((action()==SUMMON || action()==BLOCK || action()==CURRENT)
+                && actionTicks()>20) animate(IDLE);
+    }
+
+    private boolean validTarget(LivingEntity candidate) {
+        return candidate.isAlive() && !candidate.isSpectator()
+            && !(candidate instanceof Player player && player.isCreative())
+            && (candidate instanceof Player || isTargetInWater(candidate));
+    }
+
+    private boolean inMeleeRange(LivingEntity target,double reach) {
+        return getBoundingBox().inflate(reach,0.65,reach).intersects(target.getBoundingBox());
+    }
+
+    private void followTarget(LivingEntity target) {
+        getLookControl().setLookAt(target,35,35);
+        boolean underwaterTarget=isTargetInWater(target);
+        if (underwaterTarget && (tickCount%8==0 || getNavigation().isDone())) {
+            getNavigation().moveTo(target,leader()?1.4:1.2);
+        }
+        double targetY=underwaterTarget
+            ? Mth.clamp(target.getY()+target.getBbHeight()*.45,getY()-1.7,getY()+1.7)
+            : getY();
+        getMoveControl().setWantedPosition(target.getX(),targetY,target.getZ(),
+            leader()?1.4:1.2);
+        // Water pathfinding alone can stall at the surface or next to a dock.
+        // Apply bounded, collision-aware steering when there is a visible route.
+        if (isInWater() && hasLineOfSight(target) && !inMeleeRange(target,0.55)) {
+            Vec3 toward=new Vec3(target.getX()-getX(),targetY-getY(),target.getZ()-getZ());
+            if (toward.lengthSqr()>.04) {
+                Vec3 velocity=getDeltaMovement().scale(.78)
+                    .add(toward.normalize().scale(leader()?.07:.055));
+                double max=leader()?.35:.28;
+                if (velocity.lengthSqr()>max*max) velocity=velocity.normalize().scale(max);
+                setDeltaMovement(velocity);
+                hasImpulse=true;
+            }
+        }
     }
 
     private boolean isTargetInWater(LivingEntity target) {
@@ -227,7 +278,7 @@ public final class PharaohkaEntity extends Monster {
     private void beginDash(LivingEntity target) {
         // A visible windup (7 ticks) precedes the fast swimming charge.
         dashTicks=24;
-        dashCooldown=105+random.nextInt(36);
+        dashCooldown=65+random.nextInt(20);
         dashHit=false;
         animate(DASH);
         playSound(SoundEvents.TRIDENT_RIPTIDE_1.value(),1.0F,.85F);
@@ -251,8 +302,8 @@ public final class PharaohkaEntity extends Monster {
             setDeltaMovement(getDeltaMovement().scale(.24).add(impulse));
             hasImpulse=true;
         }
-        if (!dashHit && distanceToSqr(target) < 7.5 && hasLineOfSight(target)) {
-            target.hurt(damageSources().mobAttack(this), 15F);
+        if (!dashHit && inMeleeRange(target,1.5) && hasLineOfSight(target)) {
+            target.hurt(damageSources().mobAttack(this), DASH_DAMAGE);
             target.push(target.getX()-getX(), .12, target.getZ()-getZ());
             dashHit=true;
         }
@@ -263,7 +314,7 @@ public final class PharaohkaEntity extends Monster {
         if (!(level() instanceof ServerLevel world)) return;
         List<PharaohkaEntity> allies=world.getEntitiesOfClass(PharaohkaEntity.class,
             getBoundingBox().inflate(36), entity->!entity.leader() && getUUID().equals(entity.summoner) && entity.isAlive());
-        summonCooldown=260+random.nextInt(100);
+        summonCooldown=195+random.nextInt(45);
         if (allies.size()>=4) return;
         animate(SUMMON);
         playSound(SoundEvents.CONDUIT_ACTIVATE,.95F,.8F);
@@ -281,8 +332,11 @@ public final class PharaohkaEntity extends Monster {
                     !world.noCollision(minion)) continue;
                 minion.summoner=getUUID();
                 minion.minionLife=1200;
-                minion.setTarget(getTarget());
-                if (world.addFreshEntity(minion)) { minion.setPersistenceRequired(); break; }
+                if (world.addFreshEntity(minion)) {
+                    minion.setTarget(getTarget());
+                    minion.setPersistenceRequired();
+                    break;
+                }
             }
         }
     }
