@@ -89,4 +89,28 @@ public final class OceanZmeyGameTests {
         test.assertTrue(copy.getParts().length==17,"Multipart data lost after reload");
         boss.discard();copy.discard();test.succeed();
     }
+    @GameTest(template="empty",timeoutTicks=80)
+    public static void biteDealsDamageOnlyDuringAnimatedStrike(GameTestHelper test){
+        OceanZmeyEntity boss=spawn(test);
+        var prey=net.minecraft.world.entity.EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(prey!=null,"Prey fixture missing");
+        prey.setNoAi(true);
+        prey.moveTo(test.absoluteVec(new Vec3(9.5,5,12.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(prey),"Cannot add prey");
+        float hp=prey.getHealth();
+        try{
+            var begin=OceanZmeyEntity.class.getDeclaredMethod("begin",int.class,int.class);
+            begin.setAccessible(true);
+            begin.invoke(boss,OceanZmeyEntity.BITE,32);
+        }catch(ReflectiveOperationException error){
+            throw new IllegalStateException("Bite fixture unavailable",error);
+        }
+        test.assertTrue(boss.action()==OceanZmeyEntity.BITE,"Bite action not synchronized");
+        test.runAfterDelay(24,()->{
+            test.assertTrue(prey.getHealth()<hp || !prey.isAlive(),
+                "Bite strike did not deal real server-side damage");
+            prey.discard();boss.discard();test.succeed();
+        });
+    }
+
 }
