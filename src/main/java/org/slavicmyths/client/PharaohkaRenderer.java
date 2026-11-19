@@ -11,7 +11,7 @@ public final class PharaohkaRenderer extends MobRenderer<PharaohkaEntity,Pharaoh
     private static final ResourceLocation WHITE =
         ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
     public PharaohkaRenderer(EntityRendererProvider.Context context,boolean leader) {
-        super(context,new PharaohkaModel(leader),leader?.65F:.35F);
+        super(context,new PharaohkaModel(leader),leader?.8F:.4F);
     }
     @Override protected void setupRotations(PharaohkaEntity entity,com.mojang.blaze3d.vertex.PoseStack pose,
                                             float age,float bodyYaw,float partialTick,float scaleFactor) {
@@ -31,7 +31,10 @@ public final class PharaohkaRenderer extends MobRenderer<PharaohkaEntity,Pharaoh
         }
     }
     @Override protected void scale(PharaohkaEntity entity,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick) {
-        float scale=entity.leader()?.70F:.52F;
+        // 63 model pixels from crest to tail fin -> ~3.8 blocks for the leader.
+        // Align the lowest fin to the entity's feet, avoiding a buried tail.
+        float scale=entity.leader()?.96F:.55F;
+        pose.translate(0,(34F*scale-24F)/16F,0);
         pose.scale(scale,scale,scale);
     }
     @Override public ResourceLocation getTextureLocation(PharaohkaEntity entity) {return WHITE;}
