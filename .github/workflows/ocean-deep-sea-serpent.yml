@@ -1,0 +1,48 @@
+name: Deep Sea Serpent - Java 21, head trophy, aquatic GameTests
+
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - ".github/workflows/ocean-deep-sea-serpent.yml"
+      - "src/main/java/org/slavicmyths/marine/DeepSeaSerpent*.java"
+      - "src/main/java/org/slavicmyths/client/DeepSeaSerpent*.java"
+      - "src/main/java/org/slavicmyths/SlavicMyths.java"
+      - "src/main/java/org/slavicmyths/client/ClientSetup.java"
+      - "src/main/resources/assets/slavicmyths/blockstates/deep_sea_serpent_head.json"
+      - "src/main/resources/assets/slavicmyths/blockstates/abyssal_crest.json"
+      - "src/main/resources/assets/slavicmyths/models/item/deep_sea_serpent*"
+      - "src/main/resources/assets/slavicmyths/models/item/abyssal_crest.json"
+      - "src/main/resources/data/slavicmyths/neoforge/biome_modifier/deep_sea_serpent_spawns.json"
+      - "src/main/resources/data/slavicmyths/tags/worldgen/biome/spawn_deep_sea_serpent.json"
+      - "tools/pharaohka-tests/org/slavicmyths/marine/DeepSeaSerpentGameTests.java"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-gametest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ensure sister models and food stayed integrated
+        run: python3 tools/ocean/verify_food_and_sisters.py
+      - name: Compile and assemble NeoForge production mod
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Run isolated aquatic GameTests
+        run: ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain
+      - name: Archive verified JAR
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deep-sea-serpent-test-jar
+          path: build/libs/slavicmyths-*.jar
+          retention-days: 7
+          if-no-files-found: error
