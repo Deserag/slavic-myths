@@ -45,6 +45,25 @@ public final class OceanZmeyGameTests {
         test.succeed();
     }
     @GameTest(template="empty",timeoutTicks=60)
+    public static void stormFunnelsHaveConsistentHitZones(GameTestHelper test){
+        Vec3 center=new Vec3(30,4,30);
+        for(int tick:new int[]{0,20,60,100}){
+            for(int i=0;i<5;i++){
+                Vec3 funnel=OceanZmeyEntity.stormCenter(center,tick,i);
+                Vec3 offset=funnel.subtract(center);
+                test.assertTrue(Math.abs(offset.y)<.001,"Storm height drift");
+                test.assertTrue(Math.abs(offset.horizontalDistance()-9)<.001,
+                    "Storm telegraph must orbit at 9 blocks");
+                for(int j=i+1;j<5;j++){
+                    Vec3 other=OceanZmeyEntity.stormCenter(center,tick,j);
+                    test.assertTrue(funnel.distanceTo(other)>4.5,
+                        "Storm funnels must remain independently identifiable");
+                }
+            }
+        }
+        test.succeed();
+    }
+    @GameTest(template="empty",timeoutTicks=60)
     public static void headTrophyLeavesNoOrphanCells(GameTestHelper test){
         OceanZmeyHeadBlock block=(OceanZmeyHeadBlock)OceanZmeyContent.HEAD.get();
         BlockPos anchor=new BlockPos(8,2,8);
