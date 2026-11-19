@@ -40,6 +40,12 @@ public final class PharaohkaGameTests {
         test.assertTrue(boss.getMaxHealth()==550&&boss.getHealth()==550,"Leader must have 550 HP");
         test.assertTrue(guard.getMaxHealth()==32,"Ordinary Pharaohka health");
         test.assertTrue(boss.getAttributeValue(Attributes.ARMOR)==12,"Leader armor missing");
+        test.assertTrue(Math.abs(boss.getBbHeight()-3.8F)<0.001F,"Boss must be 3.8 blocks tall");
+        test.assertTrue(Math.abs(guard.getBbHeight()-2.15F)<0.001F,"Regular Pharaohka size");
+        test.assertTrue(boss.getAttributeValue(Attributes.ATTACK_DAMAGE)==18.0,"Tier V basic attack");
+        test.assertTrue(boss.getAttributeValue(Attributes.FOLLOW_RANGE)==40.0,"Boss pursuit range");
+        test.assertTrue(PharaohkaEntity.DASH_DAMAGE>20F
+            && PharaohkaEntity.SHIELD_BASH_DAMAGE>24F,"Boss special attacks use tier V multipliers");
         test.assertTrue(boss.inHabitat()&&guard.inHabitat(),"Entities cannot inhabit water");
         test.assertTrue(PharaohkaContent.EGG.get()!=PharaohkaContent.LEADER_EGG.get(),"Spawn eggs collided");
         test.assertTrue(PharaohkaContent.EGG.get().getDefaultInstance().getCount()==1,"Missing regular spawn egg");
@@ -242,6 +248,64 @@ public final class PharaohkaGameTests {
             test.assertTrue(movedDuringStrike[0],"Boss froze throughout underwater spear sweep");
             test.assertTrue(target.getHealth()<500,"Moving spear missed stationary target");
             attacker.discard();target.discard();test.succeed();
+        });
+    }
+
+    @GameTest(template="empty",timeoutTicks=130)
+    public static void summonedGuardInheritsAggroAndMoves(GameTestHelper test) {
+        tank(test);
+        var leader=spawn(test,true,6,3,9);
+        var guard=spawn(test,false,7,3,9);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Target for summoned guard missing");
+        target.setNoAi(true);
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(300);
+        target.setHealth(300);
+        target.moveTo(test.absoluteVec(new Vec3(7.5,3.2,14.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(target),"Could not create combat target");
+        leader.setTarget(target);
+        var data=new CompoundTag();
+        guard.addAdditionalSaveData(data);
+        data.putUUID("Summoner",leader.getUUID());
+        data.putInt("MinionLife",400);
+        guard.readAdditionalSaveData(data);
+        guard.setTarget(null);
+        double startingDistance=guard.distanceToSqr(target);
+        test.runAfterDelay(27,()->{
+            test.assertTrue(guard.getTarget()==target,
+                "Summoned Pharaohka did not inherit the boss target");
+            test.assertTrue(guard.distanceToSqr(target)<startingDistance,
+                "Summoned Pharaohka failed to pursue the target in water");
+        });
+        test.runAfterDelay(110,()->{
+            test.assertTrue(target.getHealth()<300,"Summoned Pharaohka did not attack");
+            guard.discard();leader.discard();target.discard();test.succeed();
+        });
+    }
+
+    @GameTest(template="empty",timeoutTicks=115)
+    public static void repeatedCloseRangeBossAttacks(GameTestHelper test) {
+        tank(test);
+        var boss=spawn(test,true,8,3,8);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Boss melee victim missing");
+        target.setNoAi(true);
+        target.getAttribute(Attributes.MAX_HEALTH).setBaseValue(500);
+        target.setHealth(500);
+        target.moveTo(test.absoluteVec(new Vec3(8.5,3.2,10.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(target),"Missing boss test target");
+        var data=new CompoundTag();
+        boss.addAdditionalSaveData(data);
+        data.putInt("DashCooldown",250);
+        data.putInt("SummonCooldown",250);
+        data.putInt("CurrentCooldown",250);
+        data.putInt("ShieldCooldown",250);
+        boss.readAdditionalSaveData(data);
+        boss.setTarget(target);
+        test.runAfterDelay(94,()->{
+            test.assertTrue(target.getHealth()<=500-PharaohkaEntity.BOSS_BASE_DAMAGE*2,
+                "Boss must land multiple basic attacks instead of waiting idle");
+            boss.discard();target.discard();test.succeed();
         });
     }
 
