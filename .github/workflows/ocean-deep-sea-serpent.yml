@@ -41,8 +41,12 @@ jobs:
         run: |
           set -o pipefail
           ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain 2>&1 | tee /tmp/serpent-gametest.log
-          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|ExceptionInInitializerError|Failed to create mod instance' /tmp/serpent-gametest.log; then
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed|ExceptionInInitializerError|Failed to create mod instance' /tmp/serpent-gametest.log; then
             echo "::error::Minecraft failed during GameTests despite the Gradle task return code"
+            exit 1
+          fi
+          if ! grep -Eq 'All [0-9]+ required tests passed' /tmp/serpent-gametest.log; then
+            echo "::error::GameTests did not report a successful nonempty test run"
             exit 1
           fi
       - name: Archive verified JAR

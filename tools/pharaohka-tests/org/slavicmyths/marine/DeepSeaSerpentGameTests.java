@@ -94,6 +94,37 @@ public final class DeepSeaSerpentGameTests {
             test.succeed();
         });
     }
+    @GameTest(template="empty",timeoutTicks=60)
+    public static void headAllFourDirectionsUseFullFootprint(GameTestHelper test){
+        var block=(DeepSeaSerpentTrophyBlock)DeepSeaSerpentContent.HEAD.get();
+        Direction[] directions={Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST};
+        BlockPos[] anchors={
+            new BlockPos(4,2,4),new BlockPos(13,2,4),
+            new BlockPos(4,2,13),new BlockPos(13,2,13)
+        };
+        for(int d=0;d<directions.length;d++){
+            Direction face=directions[d];
+            BlockPos anchor=anchors[d];
+            var base=block.defaultBlockState().setValue(DeepSeaSerpentTrophyBlock.FACING,face);
+            for(int part=0;part<6;part++){
+                BlockPos position=block.at(anchor,face,part);
+                test.setBlock(position,base.setValue(DeepSeaSerpentTrophyBlock.PART,part));
+                test.assertTrue(test.getBlockState(position).is(block),
+                    "Missing head cell "+part+" facing "+face);
+            }
+            test.getLevel().destroyBlock(test.absolutePos(block.at(anchor,face,3)),true);
+        }
+        test.runAfterDelay(3,()->{
+            for(int d=0;d<directions.length;d++){
+                for(int i=0;i<6;i++){
+                    BlockPos p=block.at(anchors[d],directions[d],i);
+                    test.assertTrue(test.getBlockState(p).isAir(),
+                        "Orphan head footprint cell "+i+" facing "+directions[d]);
+                }
+            }
+            test.succeed();
+        });
+    }
     @GameTest(template="empty",timeoutTicks=50)
     public static void crestOccupiesBothCells(GameTestHelper test){
         BlockPos anchor=new BlockPos(9,2,9);
