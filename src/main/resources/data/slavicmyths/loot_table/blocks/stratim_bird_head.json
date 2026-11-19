@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:stratim_bird_head"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slavicmyths:stratim_bird_head",
+          "properties": {
+            "side": "0",
+            "layer": "0",
+            "depth": "0"
+          }
+        }
+      ]
+    }
+  ]
+}
