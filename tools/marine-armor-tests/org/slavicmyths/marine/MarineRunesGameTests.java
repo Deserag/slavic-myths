@@ -42,6 +42,22 @@ public final class MarineRunesGameTests {
         Runes.write(helmet,1,List.of());
         t.assertTrue(!Runes.has(helmet,"abyss") && Runes.has(copy,"abyss"),
             "Rune removal corrupted the copied stack");
+        // Test the actual runic anvil preview path, rather than only writing data directly.
+        var inventory = new net.minecraft.world.SimpleContainer(2);
+        ItemStack socketed = new ItemStack(MarineArmor.CHESTPLATE.get());
+        Runes.write(socketed, 1, List.of());
+        inventory.setItem(0, socketed);
+        inventory.setItem(1, new ItemStack(MarineRunes.ABYSS.get()));
+        ItemStack installed = Runes.preview(inventory, 1);
+        t.assertTrue(!installed.isEmpty() && Runes.has(installed, "abyss"),
+            "Runic anvil install preview lost abyss rune");
+        var saved = installed.save(t.getLevel().registryAccess());
+        var loaded = ItemStack.parseOptional(t.getLevel().registryAccess(), saved);
+        t.assertTrue(Runes.has(loaded, "abyss"), "ItemStack NBT roundtrip lost rune data");
+        inventory.setItem(0, loaded);
+        ItemStack removed = Runes.preview(inventory, 2);
+        t.assertTrue(!removed.isEmpty() && !Runes.has(removed, "abyss"),
+            "Runic anvil remove preview retained abyss rune");
         t.succeed();
     }
     @GameTest(template="empty", timeoutTicks=60)
@@ -99,6 +115,8 @@ public final class MarineRunesGameTests {
         p.setItemInHand(InteractionHand.MAIN_HAND,elixir);
         elixir.use(t.getLevel(),p,InteractionHand.MAIN_HAND);
         t.assertTrue(p.getMainHandItem().getCount()==1,"Elixir not consumed");
+        elixir.use(t.getLevel(),p,InteractionHand.MAIN_HAND);
+        t.assertTrue(p.getMainHandItem().getCount()==1,"Cooldown allowed a second drink");
         t.assertTrue(p.hasEffect(MobEffects.WATER_BREATHING)&&p.hasEffect(MobEffects.NIGHT_VISION),
             "Elixir does not grant both effects");
         t.assertTrue(p.getInventory().countItem(Items.GLASS_BOTTLE)==1,"Bottle not returned");
