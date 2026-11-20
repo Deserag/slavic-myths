@@ -6737,5 +6737,14 @@
   "item.slavicmyths.abyss_elixir.desc": "4 min water breathing and night vision",
   "item.slavicmyths.storm_tincture": "Storm Tincture",
   "item.slavicmyths.storm_tincture.desc": "3 min: 40% less lightning damage; ends on dimension change",
-  "item.slavicmyths.tsar_pike_meat": "Tsar Pike Meat"
+  "item.slavicmyths.tsar_pike_meat": "Tsar Pike Meat",
+  "item.slavicmyths.rune_tide": "Rune of the Tide",
+  "item.slavicmyths.rune_tide.desc": "In water: +10% walking speed and +15% swimming speed when equipped",
+  "item.slavicmyths.rune_tide.compatible": "Marine armor and tridents",
+  "item.slavicmyths.rune_abyss": "Rune of the Abyss",
+  "item.slavicmyths.rune_abyss.desc": "When submerged: restores air and grants night vision while equipped",
+  "item.slavicmyths.rune_abyss.compatible": "Marine armor only",
+  "item.slavicmyths.rune_storm": "Rune of the Storm",
+  "item.slavicmyths.rune_storm.desc": "Trident melee hit: +2 magic damage and up to two chain hits; 8-second cooldown",
+  "item.slavicmyths.rune_storm.compatible": "Tridents only"
 }
