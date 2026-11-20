@@ -6726,5 +6726,11 @@
   "item.slavicmyths.ocean_zmey_victory_token": "Storm Serpent Victory Token",
   "item.slavicmyths.stratim_bird_victory_token": "Stratim Victory Token",
   "item.slavicmyths.tsar_pike_victory_token": "Tsar Pike Victory Token",
-  "item.slavicmyths.zhelva_victory_token": "Zhelva Victory Token"
+  "item.slavicmyths.zhelva_victory_token": "Zhelva Victory Token",
+  "item.slavicmyths.tide_helmet": "Tide Helmet",
+  "item.slavicmyths.abyss_chestplate": "Abyss Chestplate",
+  "item.slavicmyths.storm_leggings": "Storm Leggings",
+  "item.slavicmyths.waterwalk_boots": "Waterwalker Boots",
+  "item.slavicmyths.marine_armor.set": "✦ Marine Sovereign (4-piece set)",
+  "item.slavicmyths.marine_armor.bonus": "Walk on water (Shift to dive) · Speed IV on water · water breathing, night vision, swim speed and haste underwater"
 }

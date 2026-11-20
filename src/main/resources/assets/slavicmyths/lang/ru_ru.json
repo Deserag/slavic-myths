@@ -6724,5 +6724,11 @@
   "item.slavicmyths.ocean_zmey_victory_token": "Знак победы над Змеем бурь",
   "item.slavicmyths.stratim_bird_victory_token": "Знак победы над Стратим",
   "item.slavicmyths.tsar_pike_victory_token": "Знак победы над Царём-Щукой",
-  "item.slavicmyths.zhelva_victory_token": "Знак победы над Желвой"
+  "item.slavicmyths.zhelva_victory_token": "Знак победы над Желвой",
+  "item.slavicmyths.tide_helmet": "Шлем прилива",
+  "item.slavicmyths.abyss_chestplate": "Нагрудник Бездны",
+  "item.slavicmyths.storm_leggings": "Поножи Бури",
+  "item.slavicmyths.waterwalk_boots": "Сапоги водоступа",
+  "item.slavicmyths.marine_armor.set": "✦ Морской владыка (комплект 4/4)",
+  "item.slavicmyths.marine_armor.bonus": "Ходьба по воде (Shift для погружения) · Скорость IV на воде · дыхание, зрение, ускоренное плавание и добыча под водой"
 }
