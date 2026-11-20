@@ -20,7 +20,7 @@ public final class MarineRewardDropGameTests {
             EntityType<T> type, Item material, int expectedCount, Item token) {
         var boss = type.create(t.getLevel());
         t.assertTrue(boss != null, "Boss entity was not created");
-        boss.setNoAi(true);
+        if (boss instanceof net.minecraft.world.entity.Mob mob) mob.setNoAi(true);
         boss.moveTo(t.absolutePos(new BlockPos(2, 2, 2)), 0F, 0F);
         t.assertTrue(t.getLevel().addFreshEntity(boss), "Boss could not spawn");
         boss.setHealth(0);
