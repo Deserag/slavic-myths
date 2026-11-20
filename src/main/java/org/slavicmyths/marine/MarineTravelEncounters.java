@@ -96,7 +96,7 @@ public final class MarineTravelEncounters {
                     default -> ZhelvaContent.BOSS.get().create(level);
                 };
                 if (boss == null) continue;
-                int y = selected == 2 ? sea + 3 : selected == 4 ? sea - waterDepth + 1 : sea - Math.min(7, waterDepth / 2);
+                int y = selected == 2 ? sea + 3 : selected == 4 ? sea - waterDepth : sea - Math.min(7, waterDepth / 2);
                 BlockPos pos = new BlockPos(x, y, z);
                 if (selected == 2) {
                     if (!level.canSeeSky(pos)
