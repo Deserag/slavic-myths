@@ -20,8 +20,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Check marine icons, translations and recipes
         run: python3 tools/ocean_completion_check.py
+      - name: Validate six boss tokens and material textures
+        run: python3 tools/ocean_rewards_verify.py
       - name: Clean Java 21 production build
         run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Verify packaged ocean item assets
+        run: python3 tools/ocean_jar_verify.py
       - name: Run isolated marine GameTests
         shell: bash
         run: |
