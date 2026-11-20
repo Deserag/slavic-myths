@@ -1,3 +1,14 @@
 {
-  "parent": "minecraft:item/trident"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/marine/pharaohka_trident"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "throwing": 1
+      },
+      "model": "slavicmyths:item/pharaohka_trident_throwing"
+    }
+  ]
 }
