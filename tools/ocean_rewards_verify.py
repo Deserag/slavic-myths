@@ -35,7 +35,7 @@ for item in ids:
     import struct, zlib
     png_path = resources / "textures/item/ocean519" / (item + ".png")
     png = png_path.read_bytes()
-    assert png[:8] == b"\\x89PNG\\r\\n\\x1a\\n", f"Invalid PNG: {item}"
+    assert png[:8] == b"\x89PNG\r\n\x1a\n", f"Invalid PNG: {item}"
     assert struct.unpack(">II", png[16:24]) == (16,16), f"Invalid PNG size: {item}"
     offset, compressed = 8, b""
     while offset < len(png):
