@@ -83,6 +83,38 @@ public final class ZhelvaGameTests {
             });
         });
     }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void biteMissesTargetBehindShell(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing rear victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(9.5,4.5,6.2)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Rear victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.BITE,34,null);
+        test.runAfterDelay(28,()->{
+            test.assertTrue(victim.getHealth()==before,
+                "Front bite damaged a target behind the shell");
+            victim.discard();boss.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void pressureRingLeavesInnerSafeZone(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing inner-zone victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(12.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Inner-zone victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.PRESSURE_RING,48,null);
+        test.runAfterDelay(38,()->{
+            test.assertTrue(victim.getHealth()==before,
+                "Pressure ring hit its warned inner safe zone");
+            victim.discard();boss.discard();test.succeed();
+        });
+    }
     @GameTest(template="empty", timeoutTicks=45)
     public static void guardAndVulnerableHeadWindows(GameTestHelper test) {
         ZhelvaEntity boss=spawn(test);
