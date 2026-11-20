@@ -117,6 +117,8 @@ public final class SlavicMyths {
         org.slavicmyths.marine.MarineArmor.init();
         org.slavicmyths.marine.MarineConsumables.init();
         org.slavicmyths.marine.MarineRunes.init();
+        org.slavicmyths.marine.PharaohkaTrident.init();
+        org.slavicmyths.marine.ZhelvaShield.init();
         org.slavicmyths.viy.ViyContent.init(bus);
         org.slavicmyths.sanctuary.SanctuaryContent.init(bus);
         org.slavicmyths.guardians.GuardianContent.init(bus);
