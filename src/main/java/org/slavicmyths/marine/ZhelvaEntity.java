@@ -408,6 +408,8 @@ public final class ZhelvaEntity extends Monster {
                     begin(PRESSURE_LANCE, 44, target.position().add(0, target.getBbHeight() * .45, 0));
                     return;
                 }
+                setTarget(null);
+                return;
             } else if (horizontal < 6.6 * 6.6) {
                 if (phase == 3 && selection % 5 == 0)
                     begin(SHELL_SLAM, 56, null);
