@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:root",
-  "criteria": {
-    "section": {
-      "trigger": "minecraft:tick"
-    }
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "slavicmyths:block/bog_green_kurgan_stone"
-  }
-}

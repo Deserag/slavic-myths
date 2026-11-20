@@ -1,8 +1,0 @@
-{
-  "required": true,
-  "minVersion": "0.8",
-  "package": "org.slavicmyths.client.chudlight",
-  "compatibilityLevel": "JAVA_21",
-  "client": ["LightEngineAccess", "LanternEmissionMixin"],
-  "injectors": {"defaultRequire": 1}
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:group_water",
-  "criteria": {
-    "done": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

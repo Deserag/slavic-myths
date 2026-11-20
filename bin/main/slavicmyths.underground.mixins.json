@@ -1,1 +1,0 @@
-{"required":true,"package":"org.slavicmyths.underground.mixin","compatibilityLevel":"JAVA_21","mixins":["OminousTargetMixin","OminousContinueMixin","ExhaustionMixin"],"injectors":{"defaultRequire":1}}

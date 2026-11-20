@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "slavicmyths:block/blackwood_planks",
-    "side": "slavicmyths:block/blackwood_planks",
-    "top": "slavicmyths:block/blackwood_planks"
-  }
-}

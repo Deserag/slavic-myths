@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:group_forest",
-  "criteria": {
-    "event": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

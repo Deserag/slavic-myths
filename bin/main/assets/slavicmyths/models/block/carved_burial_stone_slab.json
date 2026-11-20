@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "slavicmyths:block/carved_burial_stone",
-    "top": "slavicmyths:block/carved_burial_stone",
-    "side": "slavicmyths:block/carved_burial_stone"
-  }
-}

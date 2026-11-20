@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:hunt_begins",
-  "criteria": {
-    "event": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

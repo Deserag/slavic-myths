@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#slavicmyths:worldgen/core_plains",
-    "#slavicmyths:worldgen/core_forest",
-    "#slavicmyths:worldgen/core_taiga"
-  ]
-}

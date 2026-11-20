@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:guest_of_yaga",
-  "criteria": {
-    "event": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

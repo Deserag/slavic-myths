@@ -61,3 +61,11 @@ Thumbs.db
 /docs/verification/
 /docs/maintenance/
 /docs/audit/
+
+# Compiled IDE output and generated root diagnostics; never source-of-truth.
+/bin/
+/all_errors.txt
+/crash.txt
+
+# Temporary named backups (existing tracked backups require explicit review).
+*.backup.txt

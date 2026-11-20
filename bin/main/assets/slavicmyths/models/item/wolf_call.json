@@ -1,6 +1,0 @@
-{
-  "parent": "builtin/entity",
-  "textures": {
-    "particle": "slavicmyths:item/wolf_call"
-  }
-}

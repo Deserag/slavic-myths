@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:find_deep_pool",
-  "criteria": {
-    "done": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

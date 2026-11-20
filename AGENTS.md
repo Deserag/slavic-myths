@@ -1,128 +1,34 @@
-# SHIP 2.6 OWNER RESET — HIGHEST PRIORITY (2026-11-13)
+# Slavic Myths — правила для ChatGPT / Codex
+Обновлено: 2026-11-20. Это короткая точка входа; старые отчёты и большие документы не являются автоматическим заданием.
 
-All ship implementations AFTER accepted SHA `d965d5c845c58f14c676931ef9621499573f926f` were explicitly REJECTED. Do not restore/cherry-pick/merge/copy/reuse ANY rejected post-acceptance ship work, including hull silhouettes, mast/cloth models, GUI, rendering optimizations or camera patches. Do not start new ship code until the owner inspects the baseline and authorizes one scoped task. Canonical lock and working method: `docs/SHIP_RESTART_LOCK_20261113.md`. This new rule supersedes contradictory historical ship instructions and PRs; unrelated 2.5 work is untouched.
+## 1. Приоритет и полномочия
+- Новейшее явное решение владельца по конкретной задаче, ветке и объёму работ имеет приоритет над историческими примечаниями. При конфликте старых правил не выбирать ветку по догадке.
+- Перед записью проверять фактический HEAD рабочей ветки, целевую ветку, конкретные файлы, список IN/OUT scope. Не менять `main`, не сливать в него и не переписывать историю без отдельного явного разрешения владельца. Не использовать force-push/reset и не уничтожать параллельные изменения. Для интеграции сначала сравнить ветки и проверить конфликты.
+- Для gameplay-реализации нужны утверждённая задача/Issue, требования и оригинальные согласованные визуальные референсы, если работа визуальная. Нельзя объявлять готовым неутверждённое. Требования и ограничения берутся из `docs/OWNER_EXECUTION_CONTRACT.md`, `docs/BRANCH_POLICY.md`, `docs/PROJECT_WORKFLOW.md`, `docs/CODEX_PROJECT_PLAYBOOK.md` и применимых `docs/requirements/**`. Эти документы читать адресно для конкретной реализации, а не все подряд на старте.
+- Коммиты и изменения в GitHub допустимы в рамках прямо разрешённого владельцем задания; самостоятельного слияния, принятия релиза или закрытия Issue нет.
 
----
+## 2. Строго ограниченный контекст — ОБЯЗАТЕЛЬНО
+- По умолчанию НЕ сканировать `docs/**`, `art/**`, `tools/**`, `bin/**`, `README*`, `CHANGELOG*`, `STATUS_HANDOFF.md`, историю Git, все тесты, весь исходный код или логи «для знакомства». Старые требования «прочитать всю документацию» не отменяют это ограничение.
+- Начать с текущей задачи и известных точных путей. Найти имена нужных файлов, затем читать только соответствующие методы и фрагменты `src/main/**`, связанные ресурсы и адресные требования. Каждый следующий файл открывать лишь если найденная зависимость этого требует.
+- На один шаг: максимум 10 новых файлов; обычно не больше 100 строк из одного файла; максимум 50 совпадений поиска. Выводить результаты инструментов короткой сводкой, без рекурсивных дампов деревьев, полного diff всей ветки, массивов JSON, больших логов и повторного чтения одних и тех же файлов.
+- Крупные сборки/проверки: вывод перенаправлять во временные локальные файлы, возвращать только статус, список ошибок и короткие выдержки. Не коммитить диагностические логи или артефакты сборки.
+- При переходе к следующему шагу сохранять компактно: ветка/HEAD, цель, изменённые пути, известные ошибки, пройденные и не пройденные проверки. Не тащить весь предыдущий вывод в ответ.
+- Для морских боссов ограничивать работу конкретным боссом: его Java-классами, моделями/анимациями, ресурсами, связанными регистрациями и нужными тестами. Корабли, другие боссы, город и исторические отчёты не читать без прямой необходимости. Не делать побочных рефакторингов.
 
-# OWNER OVERRIDE — BOUNDED CONTEXT / NO BULK READING — 2026-11-06
+## 3. Безопасность проекта
+- Minecraft 1.21.1; NeoForge 21.1.x; Java 21; mod id `slavicmyths`. Проверять фактическую версию зависимости перед изменением API. Сохранять registry ID, миры и контракты старых сохранений.
+- Клиентские классы не загружать на dedicated server. Проверки наград, предметов и ритуалов — на серверной стороне. Не добавлять глобальные тяжёлые tick-проходы, бессмысленную загрузку чанков и дублирующиеся генераторы ресурсов.
+- `src/main/**` — авторитетное дерево исходников. `bin/`, `build/`, `.gradle/` и run-выводы — генерируемые копии, не источники для анализа и правок. Не удалять `src/test/**`, GameTest, `tools/**`, реальные арт-референсы и `docs/requirements/**` под видом очистки логов.
+- Для новых мобов/боссов, структуры, GUI, предметов, блоков и оружия учитывать путь обычного игрока без OP, локализации ru_ru/en_us, модели/текстуры, сохранение/MP и негативные сценарии в пределах требований.
+- Для оружия нужны различимые силуэты, не простой recolor разных классов. Для звука запрещено считать синтетические гудки/шумовые заполнители или копии с pitch-shift финальными голосами. Только разрешённые источники с подтверждаемым происхождением; отсутствие качественного исходника — `BLOCKED_NEEDS_AUDIO_SOURCE`.
+- Для фактических моделей/анимаций нужны проверяемые рендеры из реальной геометрии и UV/текстур, сопоставление до/после и движения; нейросетевой концепт не заменяет инженерный рендер или игровую проверку.
 
-**Корабли 2.6 — принятый выпуск 11.11.2026.** Перед любым изменением движения, штурвала, пассажиров, палубы или синхронизации кораблей прочитать точечный контракт `docs/SHIP_MOTION_RELEASE_20261111.md`. Владелец прямо поручил сохранить устройство принятого движения для следующих чатов. Особенно сохранить общий предыдущий кадр `xo/yo/zo/yRotO` корабля и капитана; GameTest и прямой ход не заменяют покадровую проверку поворота в Minecraft.
+## 4. Сборка, запуск, доказательства
+- Сборка: Java 21, `gradlew.bat clean build` (или `./gradlew clean build` в поддерживаемой среде); проверять ресурсы и production JAR. Сборка != игровой тест; GameTest != визуальная проверка; JAR собран != установлен.
+- Minecraft / PolyMC / GameTest / GUI запускать только при отдельном разрешении владельца. GUI исключительно в проверенно изолированном окружении, не воздействующем на активную Windows-сессию, мышь, клавиатуру, основной PolyMC или сохранения. Иначе `BLOCKED_ISOLATION` / `NOT_RUN`. Не подменять реальный игровой тест анализом кода.
+- Для реализации вести компактную матрицу `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`. Проверять поведение, естественное получение/спавн, отрицательные сценарии, сохранение и мультиплеер, когда применимо. PASS только с фактическими доказательствами.
+- Исполнитель не ставит `owner-accepted`, не закрывает Issue, не объявляет `DONE` и не считает релиз закрытым вместо владельца. Любые оставшиеся FAIL/BLOCKED/NOT_RUN указывать явно. Финальный отчёт короткий: изменено, не проверено, ссылки на commit/PR, как проверить в Minecraft и риски.
 
-**Latest explicit owner rule. This section takes precedence over older blanket instructions to read the entire documentation before starting.** It limits information retrieval; it does NOT relax branch safety, owner approval, gameplay QA, or implementation acceptance requirements.
-
-1. **Default: no documentation scan.** Do not open `docs/**`, `README*`, `CHANGELOG*`, `STATUS_HANDOFF.md`, archived reports, QA evidence, crash logs, or generated artifacts merely to understand the project. Do not read `tools/**`, tests, or unrelated source folders as general preflight. Reading an individually specified file is allowed only when the owner explicitly authorizes it for this task. Mandatory instructions already provided by the environment (including `AGENTS.md`) must still be followed; do not re-fetch them needlessly.
-2. **No automatic preflight expansion.** Older requirements to read all of `ARCHITECTURE`, `PROJECT_STATUS`, `ROADMAP`, owner contracts, playbooks, requirements directories, etc. are NOT permission for bulk-reading. Where a required implementation contract would need an explicitly restricted file, report its exact path and ask the owner to authorize that narrow read before implementation; analysis and proposed tables can proceed without it.
-3. **Scope searches.** Start with known context and exact paths. Enumerate filenames first, then read only relevant methods or nearby lines of code/resources in `src/main/**`. Use path filters, bounded output, and stop after locating the needed implementation. Do not dump recursive trees, entire Git diffs/history, bulk logs, or thousands of results.
-4. **Per analysis step limits:** at most **10 new files**, default **100 lines per excerpt**, and at most **50 search hits**. Expand only for a specific justified need, in stages, retaining compact findings instead of rereading.
-5. **No scope creep.** Do not initiate unrelated audits, testing, code changes, balance changes, refactoring, or documentation maintenance unless explicitly requested. If asked for analysis or reward correspondence tables, produce those first and await owner approval before changing gameplay.
-6. **Context reporting.** If exceptional broad inspection is truly needed, explain what will be read and why before doing it. Summarize findings compactly. Never claim a file was checked when it was not.
-
----
-
-# MANDATORY OWNER EXECUTION RULES — 2026-11-01 (READ FIRST)
-
-**Binding, strict and not optional.** Every ChatGPT/Codex/task author/reviewer MUST read [the full English execution contract](docs/OWNER_EXECUTION_CONTRACT.md), [current branch policy](docs/BRANCH_POLICY.md), [project workflow](docs/PROJECT_WORKFLOW.md), [Codex playbook](docs/CODEX_PROJECT_PLAYBOOK.md), and the entire applicable set from [docs/requirements/](docs/requirements/README.md) BEFORE any implementation or implementation prompt.
-
-**No Issue = no implementation. No reachable owner-approved original art embedded/linked within Issue = no visual implementation or acceptance. No per-detail blueprint = no discretionary invention. No verified branch/commit/target = no execution. No explicit IN/OUT scope = no extra changes. Build PASS and partial geometry alone are NOT completion. No real visual/gameplay tests = NOT_RUN. Owner acceptance is always required.**
-
-**Active owner decision (2026-11-05): integration/PR target for NEW authorized work is `release-2.5`. Older paired-sisters branches originally targeting `3.3` require explicit migration review, not an automatic merge. Verify GitHub HEAD and branch policy for every task; historical branch choices are not defaults. `main` is protected.** Branch names and exact preflight fields are mandated in the contract and branch policy. Do not infer target from task number, filename or old docs.
-
-**User responses: short, factual, no bloated reporting; engineering specifications and proof in GitHub must remain exhaustive.** Track corrections in [#406](https://github.com/Deserag/slavic-myths/issues/406).
-
----
-
-**БЕЗУСЛОВНОЕ УСЛОВИЕ:** запуск и GUI-автоматизация исключительно в независимой изолированной виртуальной машине/отдельном дисплее и с отдельными устройствами ввода или другой **доказанно не влияющей на активный рабочий стол владельца** среде. Нельзя переключать/блокировать пользовательскую Windows-сессию, фокус окон, мышь, клавиатуру, основной PolyMC и исходные сохранения. Обычный фоновый/свернутый запуск игры НЕ доказывает отсутствие вмешательства. При отсутствии безопасной среды разрешены только невмешивающиеся headless/server/offline тесты, графический QA — `BLOCKED_ISOLATION`. Каждый реальный запуск фиксировать с хэшем JAR, seed, скриншотами/логами; owner acceptance остаётся исключительно за владельцем.
-
-After authorized runtime tests the executor MUST fix verified failures within the approved Issue scope and rerun the same tests; never claim acceptance without real game/reference evidence.
-
-## Обязательный реестр требований ко ВСЕМ новым функциям — 27.10.2026
-
-**Перед созданием или изменением** структуры, биома, оружия, инструмента, предмета, моба, босса, лута, GUI, блока, ремесла, транспорта или NPC исполнитель ОБЯЗАН прочитать [docs/requirements/README.md](docs/requirements/README.md), относящиеся к типу работ файлы этой папки, конкретную Issue и актуальный исходный код/ресурсы. **Каждое** применимое требование перенести в матрицу приёмки и проверить, включая негативный сценарий, получение без OP и сохранение/MP по необходимости. **Несоблюдённое или не проверенное правило = FAIL / NOT_RUN, не DONE.** Требования папки не разрешают запуск работ из Concept/Analysis/Waiting и не отменяют утверждённые параметры владельца. Current working and target branch MUST be taken only from the latest approved task and docs/BRANCH_POLICY.md.
-
-
-**Приоритет этого блока выше старых Issue, комментариев о “PASS” и отчетов Codex. Владелец отверг синтетические голоса и неполную #49.**
-
-- Codex НЕ может объявлять Issue `DONE`, `COMPLETE`, `ACCEPTED`, `READY FOR RELEASE` или самостоятельно закрывать её, пока **ВСЕ обязательные результаты** не исполнены и владелец не принял их вручную. Отдельная построенная модель при отсутствующей песне = **НЕ ГОТОВО**. Отдельная clean build не доказывает runtime. Если хотя бы одно требование BLOCKED, FAIL, NOT_RUN — Issue должна остаться OPEN; явно указать недоделки.
-- Partial commits are IN_PROGRESS, never DONE. Only the latest explicit owner branch contract controls integration. Never modify main without owner authorization, and never deliver a supposedly final PolyMC JAR from an incomplete feature.
-- Владелец самостоятельно подтверждает итог в комментарии/явным решением; Codex не добавляет label `owner-accepted` за владельца, не подделывает согласование и не закрывает задачи. При попытке автоматически закрыть Issue GitHub Actions может переоткрыть её; даже если защита не сработала, закрытие без реальной приёмки недействительно.
-- Для звуков: **запрещено** выдавать синтетические гармонические/формантные гудки, вой от одного тона, шумовой filler или копию одного звука с pitch-shift за финальные голоса/песни. Старые отвергнутые события временно отключены в `sounds.json`. Оригинальные, законно полученные playable OGG; отличия на слух; карта event→actual file→callsite, subtitles RU/EN, динамика/громкость, доказанная упаковка в JAR, затем ручная приёмка владельцем — обязательны. Пока нет реально хорошего голосового источника, статус `BLOCKED_NEEDS_AUDIO_SOURCE`, а не DONE. Не регенерировать карантинное аудио из `tools/*audio*.py`.
-- Для моделей: предоставить исходный рендер фактических изменённых ModelPart/UV/Texture **до и после** в одинаковом масштабе и позы таймингов; концепт, статическая картинка без source и сборка НЕ принимаются как доказательство. Игровая визуальная/анимационная приёмка владельцем остаётся обязательной.
-- Для PolyMC: JAR собран ≠ JAR установлен. При сдаче требуются точные installed JAR path/version/SHA256 и source commit, backup, отсутствие двойных JAR. Если установка не состоялась — `POLYMC_NOT_INSTALLED`, никаких формулировок «обновлено». Minecraft/PolyMC/GameTest/сервер **не запускать**.
-- Для каждой исполнительной Issue обязательна матрица `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`. Если где-либо нет файла/результата, не подменять его количеством assert-ов. Only one authorized integration writer for the verified target branch, `main` не изменять без отдельного разрешения; никаких force/reset/delete чужих изменений.
-- Текущий emergency-контекст: #59 (Русалка), #60 (массовое однообразие). До появления согласованного аудио **отключение синтетики НЕ значит починили звук**. Запреты действуют для #49–#60, #42/#47/#52 и новых задач.
-
----
-# Правила следующих итераций
-
-Weapon classes MUST have visibly different silhouettes and proportions. Sword, dagger, spear, axe, mace, staff and shield cannot be represented primarily by recoloring one generic template.
-
-Before introducing a new weapon, define its silhouette, relative dimensions, materials and distinguishing visual features.
-
-Сначала прочитайте docs/PROJECT_STATUS.md, docs/ROADMAP.md, docs/ARCHITECTURE.md,
-затем фактический код и ресурсы. Если есть Git — проверьте git status.
-Не считайте запланированное реализованным. Сохраняйте изменения пользователя.
-Цель с 0.9.4: Minecraft 1.21.1 NeoForge, Java 21; сверяйте API с установленными зависимостями.
-Не реализуйте весь roadmap за раз. Не добавляйте пустые классы будущих систем.
-Не добавляйте обходы мира и игроков каждый тик без обоснования и измерений.
-Сохраняйте mod ID и registry ID: это идентификаторы сохранённых миров.
-После работы обновляйте статус и честно фиксируйте результаты build и запуска.
-Не делайте commit автоматически.
-
-## Постоянные требования
-
-- Minecraft 1.21.1, NeoForge 21.1.255, Java 21, official mappings; mod ID `slavicmyths`.
-- Перенос 0.9.4 выполняется по docs/port/PORT_STATUS_0.9.4.md. Не менять gameplay,
-  баланс, art или registry IDs; исправления Яги из исходной 0.9.3 сохраняются.
-- Перед правкой проверяйте реальный код, ресурсы и отчёты. Не удаляйте пользовательские изменения.
-- Common/server не должны загружать клиентские экраны и рендереры. Сервер проверяет
-  расход предметов, репутацию, знания и ритуалы. JEI необязателен, его классы изолированы.
-- Предпочитайте события, стандартные AI goals, ограниченные cooldown и worldgen.
-  Не добавляйте глобальный tick polling, chunk loading ради AI или поиск домов/структур каждый тик.
-- Registry ID и существующие vanilla advancements сохраняются. Новые достижения только в namespace мода.
-- Все предметы в существующей Creative Tab. Обязательны реальные модели, текстуры,
-  blockstates/loot для блоков и ru_ru/en_us. Стиль: небольшие vanilla-like pixel assets.
-  Генераторы ресурсов должны воспроизводить актуальные ресурсы без отката механик.
-- Каждый логически различный предмет должен иметь визуально соответствующий своему
-  назначению силуэт/спрайт. Recolor допустим только для предметов одной формы и
-  семейства, где изменение материала действительно является смыслом варианта.
-- Звуки только собственные, свободные либо vanilla. Не копировать звуки других игр/модов.
-- Мифологические источники, фольклор, поздние реконструкции и игровая интерпретация различаются.
-- Не реализовывать будущие milestone, классы и измерения без задания; не создавать пустые каркасы.
-- После изменений обновить PROJECT_STATUS, ROADMAP и ARCHITECTURE; ручной список проверок — краткий.
-- Выполнить `gradlew.bat clean build`, проверку ресурсов и production NeoForge JAR в `build/libs`.
-  JDK 21 находится в `C:/Program Files/Java/jdk-21.0.12`; задавайте JAVA_HOME только для команды.
-- Клиент автоматически не запускать. Старый PolyMC 1.16.5 не перезаписывать портом;
-  новая тестовая сборка 1.21.1 устанавливается только после успешных gates.
-- Если запуск разрешён, проверить dev client и runtime logs, исправить проблемы и повторить
-  запуск после runtime-изменений. Тестовый код из `tools/smoke` никогда не входит в production JAR.
-- Не выдавать компиляцию за игровой тест, меню за проверку механик, NBT roundtrip за
-  реальный перезаход или статический аудит за измеренный MSPT. Указывать число реальных запусков.
-- Не перезаписывать игровые миры ради тестов: использовать отдельную копию/тестовый мир.
-
-## GitHub Projects — обязательный рабочий процесс
-
-Основной трекер задач: GitHub Project **«Slavic Myths · Разработка»**, с единственным рабочим полем **Status** (после настройки доски). Канонические правила: [docs/PROJECT_WORKFLOW.md](docs/PROJECT_WORKFLOW.md), [docs/CODEX_PROJECT_PLAYBOOK.md](docs/CODEX_PROJECT_PLAYBOOK.md), [docs/GITHUB_PROJECT_SETUP.md](docs/GITHUB_PROJECT_SETUP.md).
-
-Статусы: **Концепция → Анализ → Ожидание → В работе → Тестирование → Готово**, отдельная петля **Тестирование → Доработка → В работе**. Возврат из любой активной стадии в **Анализ** по ошибочной предпосылке; **Отменена** по прямому решению владельца. Тестирование означает сдачу исполнителем **всего своего scope** и ожидающую игровую приёмку владельца, НЕ технический Done. В нём допустим только заранее обозначенный owner-only runtime NOT_RUN; исполнительские FAIL/BLOCKED/NOT_RUN запрещают сдачу.
-
-Codex может менять «В работе»/«Тестирование» лишь по правилам и при наличии технического доступа к Project; **не заявлять о смене статуса, если изменение поля не состоялось**. Codex НЕ ставит «Готово», «Отменена», owner-accepted и не закрывает Issue. **Только владелец** принимает готовность или отменяет остаток работы. Ничего не запускать из «Концепции»/«Анализа»/«Ожидания» без прямого поручения; следующий порядковый номер не является автоматическим заданием. Старые подтверждённые пакеты сначала проверять на наличие реализации — не выполнять заново только из-за открытого Issue. Все прежние запреты и quality gates выше сохраняются.
-
-
----
-## ПРАВИЛА ИГРОВОЙ ДОСТУПНОСТИ И ПРИЁМКИ — 25.10.2026 (решение владельца, Issue #269)
-
-**CURRENT RULE:** Determine every branch exclusively from the latest owner-approved Issue and docs/BRANCH_POLICY.md. Historical status notes cannot select a branch. The integration target for the currently scoped paired-sisters release is `3.3`. Changes to `main` require explicit owner authorization.
-
-### До реализации
-1. Прочитать текущую Issue, связанные задачи, решения владельца, фактические исходники/ресурсы, существующий `git status`, HEAD ветки и сведения об установленном PolyMC. Не перезаписывать незакоммиченную работу, сохранять стабильные registry IDs и сохранения.
-2. Сформулировать **игровой путь обычного игрока без OP**: как он узнаёт о механике → где находит или получает → что делает → какой наблюдаемый эффект → какая награда/следующий этап. Для новых мобов/боссов и структур требовать реальную естественную доступность, а не успешный `/summon` или `/locate` в креативе. Для предметов — действующий эффект/экипировку; для достижений — выдачу и читаемую ветку.
-3. Для всех пользовательских требований составить `REQUIREMENT | REAL_SOURCE | PLAYER_PATH | TEST | EXPECTED`. Когда правила встречаемости, силы, лута или дерева не согласованы — предложить параметры/визуальную схему на утверждение, НЕ выбирать самовольно окончательные числа. Сначала проверить, не исправлено ли это уже.
-
-### После каждого изменения
-4. Сделать технические gates (Java21 `clean build`, ресурсы и JAR), затем разрешённые автоматические серверные/игровые тесты с настоящим поведением. **Не запускать Minecraft/PolyMC/GameTest без соответствующего прямого разрешения владельца**; если разрешения нет, обязательно писать `NOT_RUN`, не приписывать проверку.
-5. Обязательный **игровой smoke/regression checklist для владельца** на русском, не общие советы: точная сборка/JAR/SHA; подготовка нового/старого мира; пошаговые действия БЕЗ читов; отдельно OP-команды диагностики при необходимости; ожидаемый результат каждого шага; негативный сценарий; проверка сохранения/перезахода; MP, если затронута сеть. В конце прямо перечислить, что **НЕ ПРОВЕРЕНО**, а также возможные регрессии соседних функций. Этот чек-лист обязателен в финальном ответе Codex, даже если код/сборка успешно прошли проверки.
-6. Механизмы вероятности проверять на нескольких seed/игровых днях, в т.ч. natural spawn и расстояния, а не только валидность JSON; worldgen/поиск проверять на крайних ландшафтах и сохранении после отмены; лут оценивать по целой структуре и tier; accessory/equipment проверять надевание, эффекты, снятие, relog и MP; деревья/модпаки — по реальной установленной конфигурации.
-7. Финальная матрица `REQUIREMENT | EVIDENCE | PASS/FAIL/BLOCKED/NOT_RUN`: точное подтверждение каждого PASS (seed, лог, команда, видео/скриншот/путь), честные FAIL/BLOCKED/NOT_RUN; ноль игровых запусков — значит ни один gameplay-test не PASS. Нельзя именовать итог "исправлено полностью", "готово к релизу" или передавать на окончательную приёмку при обязательных FAIL/BLOCKED/NOT_RUN; решение о готовности принимает только владелец.
-8. **Не чинить лишнее по пути и не обещать, что закрытая GitHub Issue соответствует работающему контенту.** В финале обязателен список «Исправлено», «Не сделано», «Как проверить в Minecraft», «Риски/откат», «Следующая задача»; следующий этап не запускается автоматически.
-
-Подробный шаблон: `docs/CODEX_PROJECT_PLAYBOOK.md` — раздел «ИГРОВАЯ ПРИЁМКА 25.10.2026». Источник новых P0: #269–#283, текущие частично принятые идеи — только после дополнительного решения владельца.
+## 5. Узкие исторические ограничения
+- Корабли 2.6: после принятого SHA `d965d5c845c58f14c676931ef9621499573f926f` последующие отвергнутые варианты НЕ возвращать автоматически; точный контракт `docs/SHIP_RESTART_LOCK_20261113.md`. При отдельной разрешённой работе с движением кораблей учитывать `docs/SHIP_MOTION_RELEASE_20261111.md`, в том числе общий предыдущий кадр `xo/yo/zo/yRotO`; это не повод открывать документацию кораблей при работе над морским боссом.
+- Исторические указания выбрать `release-2.5`, `3.3` или другие ветки не являются постоянным выбором. Для текущей задачи действуют только самые новые явные указания владельца и проверенный HEAD.

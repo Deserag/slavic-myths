@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "side": "slavicmyths:block/pale_blue_kurgan_cobblestone",
-    "top": "slavicmyths:block/burial_stone_top",
-    "bottom": "slavicmyths:block/burial_stone_top"
-  }
-}

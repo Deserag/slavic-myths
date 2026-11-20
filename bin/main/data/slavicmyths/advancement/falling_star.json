@@ -1,8 +1,0 @@
-{
-  "parent": "slavicmyths:group_legends",
-  "criteria": {
-    "event": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}
