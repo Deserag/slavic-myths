@@ -52,6 +52,7 @@ jobs:
       - name: Pharaohka boss encounter regression GameTests
         run: ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain
       - name: Buyan prince and island regression GameTests
+        if: always()
         run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
   dedicated-server-smoke:
     needs: build-and-tests
