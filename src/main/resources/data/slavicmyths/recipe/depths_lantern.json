@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "PLP",
+    " G "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "P": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "L": {
+      "item": "minecraft:lantern"
+    },
+    "G": {
+      "item": "minecraft:glow_ink_sac"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:depths_lantern",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "GPG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "P": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:tide_ring",
+    "count": 1
+  }
+}

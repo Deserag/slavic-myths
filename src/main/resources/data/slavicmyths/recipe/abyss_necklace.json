@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "SPS",
+    " C "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "P": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:abyss_necklace",
+    "count": 1
+  }
+}
