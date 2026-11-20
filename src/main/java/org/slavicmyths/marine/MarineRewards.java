@@ -17,20 +17,20 @@ import org.slavicmyths.registry.ModItems;
  * See GitHub issue #519 for ownership, prices and test requirements.
  */
 public final class MarineRewards {
-    public static final DeferredHolder<Item, Item> PHARAOHKA_MATERIAL = register("pharaohka_tide_pearl", "Жемчужина прилива", "Tide Pearl");
-    public static final DeferredHolder<Item, Item> DEEP_SERPENT_MATERIAL = register("deep_sea_serpent_scale", "Чешуя глубин", "Abyssal Scale");
-    public static final DeferredHolder<Item, Item> OCEAN_ZMEY_MATERIAL = register("ocean_zmey_storm_heart", "Сердце бури", "Storm Heart");
-    public static final DeferredHolder<Item, Item> STRATIM_MATERIAL = register("stratim_bird_feather", "Перо Стратим", "Stratim Feather");
-    public static final DeferredHolder<Item, Item> TSAR_PIKE_MATERIAL = register("tsar_pike_fang", "Клык Царя-Щуки", "Tsar Pike Fang");
-    public static final DeferredHolder<Item, Item> ZHELVA_MATERIAL = register("zhelva_shell_plate", "Пластина Желвы", "Zhelva Shell Plate");
-    public static final DeferredHolder<Item, Item> PHARAOHKA_TOKEN = register("pharaohka_victory_token", "Знак победы над Фараонкой", "Pharaohka Victory Token");
-    public static final DeferredHolder<Item, Item> DEEP_SERPENT_TOKEN = register("deep_sea_serpent_victory_token", "Знак победы над Морским змеем", "Deep Sea Serpent Victory Token");
-    public static final DeferredHolder<Item, Item> OCEAN_ZMEY_TOKEN = register("ocean_zmey_victory_token", "Знак победы над Змеем бурь", "Storm Serpent Victory Token");
-    public static final DeferredHolder<Item, Item> STRATIM_TOKEN = register("stratim_bird_victory_token", "Знак победы над Стратим", "Stratim Victory Token");
-    public static final DeferredHolder<Item, Item> TSAR_PIKE_TOKEN = register("tsar_pike_victory_token", "Знак победы над Царём-Щукой", "Tsar Pike Victory Token");
-    public static final DeferredHolder<Item, Item> ZHELVA_TOKEN = register("zhelva_victory_token", "Знак победы над Желвой", "Zhelva Victory Token");
+    public static final DeferredHolder<Item, Item> PHARAOHKA_MATERIAL = register("pharaohka_tide_pearl", "Жемчужина прилива");
+    public static final DeferredHolder<Item, Item> DEEP_SERPENT_MATERIAL = register("deep_sea_serpent_scale", "Чешуя глубин");
+    public static final DeferredHolder<Item, Item> OCEAN_ZMEY_MATERIAL = register("ocean_zmey_storm_heart", "Сердце бури");
+    public static final DeferredHolder<Item, Item> STRATIM_MATERIAL = register("stratim_bird_feather", "Перо Стратим");
+    public static final DeferredHolder<Item, Item> TSAR_PIKE_MATERIAL = register("tsar_pike_fang", "Клык Царя-Щуки");
+    public static final DeferredHolder<Item, Item> ZHELVA_MATERIAL = register("zhelva_shell_plate", "Пластина Желвы");
+    public static final DeferredHolder<Item, Item> PHARAOHKA_TOKEN = register("pharaohka_victory_token", "Знак победы над Фараонкой");
+    public static final DeferredHolder<Item, Item> DEEP_SERPENT_TOKEN = register("deep_sea_serpent_victory_token", "Знак победы над Морским змеем");
+    public static final DeferredHolder<Item, Item> OCEAN_ZMEY_TOKEN = register("ocean_zmey_victory_token", "Знак победы над Змеем бурь");
+    public static final DeferredHolder<Item, Item> STRATIM_TOKEN = register("stratim_bird_victory_token", "Знак победы над Стратим");
+    public static final DeferredHolder<Item, Item> TSAR_PIKE_TOKEN = register("tsar_pike_victory_token", "Знак победы над Царём-Щукой");
+    public static final DeferredHolder<Item, Item> ZHELVA_TOKEN = register("zhelva_victory_token", "Знак победы над Желвой");
 
-    private static DeferredHolder<Item, Item> register(String id, String ru, String en) {
+    private static DeferredHolder<Item, Item> register(String id, String ru) {
         return ModItems.ITEMS.register(id, () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
             @Override
             public Component getName(ItemStack stack) {

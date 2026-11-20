@@ -1,0 +1,31 @@
+name: Ocean rewards stage 1 — Java 21 and static checks
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - ".github/workflows/ocean-rewards-stage1.yml"
+      - "src/main/java/org/slavicmyths/marine/MarineRewards.java"
+      - "src/main/java/org/slavicmyths/buyan/BuyanTrades.java"
+      - "src/main/java/org/slavicmyths/SlavicMyths.java"
+      - "src/main/resources/assets/slavicmyths/models/item/*_victory_token.json"
+      - "src/main/resources/assets/slavicmyths/creative_catalog.tsv"
+      - "src/main/resources/assets/slavicmyths/lang/*.json"
+      - "tools/ocean_rewards_verify.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify localized models, catalog, ID and price contracts
+        run: python3 tools/ocean_rewards_verify.py
+      - name: Build production Java 21 mod
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain

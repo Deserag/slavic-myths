@@ -6712,5 +6712,17 @@
   "item.slavicmyths.zhelva_spawn_egg": "Яйцо призыва Желвы Каменного Дна",
   "block.slavicmyths.zhelva_head": "Голова Желвы Каменного Дна",
   "item.slavicmyths.zhelva_head": "Голова Желвы Каменного Дна",
-  "item.slavicmyths.zhelva_stone_charm": "Оберег Каменного Дна"
+  "item.slavicmyths.zhelva_stone_charm": "Оберег Каменного Дна",
+  "item.slavicmyths.pharaohka_tide_pearl": "Жемчужина прилива",
+  "item.slavicmyths.deep_sea_serpent_scale": "Чешуя глубин",
+  "item.slavicmyths.ocean_zmey_storm_heart": "Сердце бури",
+  "item.slavicmyths.stratim_bird_feather": "Перо Стратим",
+  "item.slavicmyths.tsar_pike_fang": "Клык Царя-Щуки",
+  "item.slavicmyths.zhelva_shell_plate": "Пластина Желвы",
+  "item.slavicmyths.pharaohka_victory_token": "Знак победы над Фараонкой",
+  "item.slavicmyths.deep_sea_serpent_victory_token": "Знак победы над Морским змеем",
+  "item.slavicmyths.ocean_zmey_victory_token": "Знак победы над Змеем бурь",
+  "item.slavicmyths.stratim_bird_victory_token": "Знак победы над Стратим",
+  "item.slavicmyths.tsar_pike_victory_token": "Знак победы над Царём-Щукой",
+  "item.slavicmyths.zhelva_victory_token": "Знак победы над Желвой"
 }
