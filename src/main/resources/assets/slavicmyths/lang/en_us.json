@@ -6705,5 +6705,9 @@
   "entity.slavicmyths.tsar_pike": "Tsar Pike",
   "item.slavicmyths.tsar_pike_spawn_egg": "Tsar Pike Spawn Egg",
   "block.slavicmyths.tsar_pike_head": "Tsar Pike Head",
-  "item.slavicmyths.tsar_pike_head": "Tsar Pike Head"
+  "item.slavicmyths.tsar_pike_head": "Tsar Pike Head",
+  "entity.slavicmyths.ocean_zmey": "Ocean Storm Zmey",
+  "item.slavicmyths.ocean_zmey_spawn_egg": "Ocean Storm Zmey Spawn Egg",
+  "block.slavicmyths.ocean_zmey_head": "Ocean Storm Zmey Head",
+  "item.slavicmyths.ocean_zmey_head": "Ocean Storm Zmey Head"
 }

@@ -6697,5 +6697,15 @@
   "entity.slavicmyths.tsar_pike": "Царь-Щука",
   "item.slavicmyths.tsar_pike_spawn_egg": "Яйцо призыва Царя-Щуки",
   "block.slavicmyths.tsar_pike_head": "Голова Царя-Щуки",
-  "item.slavicmyths.tsar_pike_head": "Голова Царя-Щуки"
+  "item.slavicmyths.tsar_pike_head": "Голова Царя-Щуки",
+  "entity.slavicmyths.deep_sea_serpent": "Морской змей",
+  "item.slavicmyths.deep_sea_serpent_spawn_egg": "Яйцо призыва морского змея",
+  "block.slavicmyths.deep_sea_serpent_head": "Голова морского змея",
+  "item.slavicmyths.deep_sea_serpent_head": "Голова морского змея",
+  "block.slavicmyths.abyssal_crest": "Гребень Бездны",
+  "item.slavicmyths.abyssal_crest": "Гребень Бездны",
+  "entity.slavicmyths.ocean_zmey": "Змей морских бурь",
+  "item.slavicmyths.ocean_zmey_spawn_egg": "Яйцо призыва Змея морских бурь",
+  "block.slavicmyths.ocean_zmey_head": "Голова Змея морских бурь",
+  "item.slavicmyths.ocean_zmey_head": "Голова Змея морских бурь"
 }

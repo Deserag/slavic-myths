@@ -43,7 +43,8 @@ public final class OceanZmeyContent {
     public static final DeferredHolder<Item,Item> HEAD_ITEM=ModItems.ITEMS.register(
         "ocean_zmey_head",()->new BlockItem(HEAD.get(),new Item.Properties().rarity(Rarity.EPIC)){
             @Override public net.minecraft.network.chat.Component getName(ItemStack stack){
-                return net.minecraft.network.chat.Component.literal("Голова Змея морских бурь");
+                return net.minecraft.network.chat.Component.translatableWithFallback(
+                    "block.slavicmyths.ocean_zmey_head","Голова Змея морских бурь");
             }
         });
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<OceanZmeyHeadBlock.Tile>>

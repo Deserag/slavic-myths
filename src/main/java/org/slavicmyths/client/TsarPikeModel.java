@@ -15,7 +15,7 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
     private static final int DARK=0xFF293C30,BACK=0xFF405C3D,OLIVE=0xFF667A47,
         FLANK=0xFF869263,BELLY=0xFFB2AC85,SPOT=0xFFC4BB78,
         SKULL=0xFF3C5540,LIP=0xFF7E8561,JAW=0xFF8D8C6C,
-        MOUTH=0xFF653A39,GUM=0xFFB97E6E,TEETH=0xFFF1E5C3,
+        MOUTH=0xFF532D30,GUM=0xFF845A55,TEETH=0xFFF1E5C3,
         IRIS=0xFFD5A554,PUPIL=0xFF101D19,FIN=0xFF5C7049,
         FINLIGHT=0xFF879360,RIB=0xFFB4AD79,SCAR=0xFFB9B38B;
     private final FolkModelGeometry geometry=new FolkModelGeometry();
@@ -134,6 +134,35 @@ public final class TsarPikeModel extends EntityModel<TsarPikeEntity> {
             for(float z=-18;z< -11;z+=3)
                 head.box(SCAR,side*9.3F-.65F,-3.0F,z,1.3F,5.6F,.9F);
             head.box(DARK,side*5F-.9F,-3.5F,-54,1.8F,1.3F,2F);
+        }
+        // Actual pike anatomy: long wide duckbill, nostril pairs, exposed
+        // tooth beds, and armored opercula extending behind the eye line.
+        // Every detail uses the same articulated skull as the living fish.
+        for(int side:new int[]{-1,1}){
+            for(int ring=0;ring<6;ring++){
+                float z=-24F+ring*2.6F;
+                float width=interpolate(z,hz,hw);
+                head.box(ring%3==0?SPOT:SKULL,
+                    side*(width+.25F)-1.2F,-4.0F+ring*.16F,z,
+                    2.4F,4.7F-ring*.27F,2.8F);
+            }
+            // Recessed paired nostrils on the flattened rostrum, not bird nares.
+            head.box(LIP,side*3.3F-.9F,-2.1F,-54F,1.8F,.7F,3.8F);
+            head.box(DARK,side*3.25F-.48F,-2.35F,-55F,.96F,.42F,1.8F);
+            // Gill cover bends backward into the thick base of the skull.
+            for(int plate=0;plate<5;plate++){
+                float z=-20F+plate*2.45F;
+                float x=side*(8.9F+plate*.2F);
+                head.box(plate%2==0?FLANK:OLIVE,x-1.5F,-1.8F,
+                    z,3F,5.7F-plate*.5F,3.0F);
+                head.box(DARK,x-1F,-1.5F,z+.4F,2F,3.4F,1.0F);
+            }
+            // Thin pale lip stripe runs along the sides of the real jaws.
+            for(int j=0;j<16;j++){
+                float z=-60F+j*3.0F;
+                float x=side*(interpolate(z,hz,hw)*.94F);
+                head.box(j%5==0?TEETH:LIP,x-1F,1.0F,z,2F,.8F,3F);
+            }
         }
         for(float z=12;z<20;z+=3)
             root.box(SCAR,-13,-4+(z-12)*.18F,z,1.4F,1.4F,2F);

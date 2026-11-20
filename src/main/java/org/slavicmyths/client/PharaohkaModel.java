@@ -12,11 +12,11 @@ import org.slavicmyths.marine.PharaohkaEntity;
 
 /** True colored ModelPart cuboids, based on the accepted V3 Python silhouette. */
 public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
-    private static final int SKIN=0xFF91AFAD, HAIR=0xFF15323D, HAIR2=0xFF315D68;
-    private static final int TAIL=0xFF23686C, SCALE=0xFF488E8E, FIN=0xFF7ABCB1;
-    private static final int ARMOR=0xFF89745B, BRONZE=0xFFAA8A56, GOLD=0xFFD2B879;
-    private static final int CLOTH=0xFF344B53, DARK=0xFF25383F, SHELL=0xFFD7D1AE;
-    private static final int EYE=0xFFF3DCA2, CORAL=0xFFC16A69;
+    private static final int SKIN=0xFF8EBBBB, HAIR=0xFF123A49, HAIR2=0xFF347482;
+    private static final int TAIL=0xFF185D70, SCALE=0xFF3E9B9E, FIN=0xFF7BCFC6;
+    private static final int ARMOR=0xFF326873, BRONZE=0xFFB48B63, GOLD=0xFFE6C987;
+    private static final int CLOTH=0xFF224E61, DARK=0xFF142F3E, SHELL=0xFFDDE4CC;
+    private static final int EYE=0xFFF4D998, CORAL=0xFFD77E82;
     private record Colored(ModelPart part,int color) {}
     private final FolkModelGeometry geometry=new FolkModelGeometry();
     private final List<Colored> colored=new ArrayList<>();
@@ -26,6 +26,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
     private final ModelPart tailA,tailB,tailC,fin;
     private ModelPart coralCrown;
     private ModelPart tridentBand;
+    private final ModelPart faceFins,faceMarks,bodyFins,bodyPearls,shieldShell;
 
     private ModelPart create(int color,float x,float y,float z) {
         // Large parts (shield and trident) must not sample outside the white source texture.
@@ -60,6 +61,11 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         handGripL=create(SKIN,-6,4,0);
         handGripR=create(SKIN,6,3,0);
         crown=create(GOLD,0,-9,0);
+        faceFins=create(FIN,0,-9,0);
+        faceMarks=create(CORAL,0,-9,0);
+        bodyFins=create(SCALE,0,24,0);
+        bodyPearls=create(SHELL,0,24,0);
+        shieldShell=create(SHELL,6,3,0);
         tailA=create(TAIL,0,8,0);
         tailB=create(SCALE,0,15,0);
         tailC=create(TAIL,0,22,0);
@@ -79,6 +85,20 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             for(int j=0;j<3;j++)box(head,x+side*j*.35F-.3F,-8+j,0,.7F,.65F,1.5F);
             box(eye,side*1.85F-.77F,-8.1F,-3.8F,1.55F,1.2F,.45F);
             box(pupil,side*1.85F-.32F,-8,-4.05F,.65F,.85F,.42F);
+        }
+        // Gill-frilled ears, brow crests and fine cheek markings read as an
+        // enchanted freshwater rusalka, not an ordinary armored villager.
+        for(int side:new int[]{-1,1}){
+            for(int row=0;row<4;row++){
+                float x=side*(3.7F+row*.73F);
+                float y=-8.0F+row*.9F;
+                box(faceFins,x-.62F,y,-.9F+row*.62F,
+                    1.3F,3.5F-row*.37F,2.2F);
+                if(row<3)box(faceMarks,side*(3.8F+row*.62F)-.4F,
+                    -6.35F+row*.67F,-3.45F+row*.35F,.8F,.46F,1.05F);
+            }
+            box(faceMarks,side*1.8F-1F,-8.9F,-4.11F,2F,.45F,.55F);
+            box(faceFins,side*4.3F-1.1F,-1.8F,.2F,2.2F,2F,3.3F);
         }
         // Closed corslet: chest, sides and rear share six overlapping layers.
         for (int i=0;i<6;i++) {
@@ -103,7 +123,30 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         for (int s:new int[]{-1,1}) {
             box(trim,s*3.6F-.45F,-28,-3.7F,.9F,8,1);
             box(cloth,s*3.9F-1.05F,-17.3F,-3.4F,2.1F,7.8F,1.0F);
+            // Shoulder fins join the arms, below the wavy shoulder-length hair.
+            for(int j=0;j<5;j++){
+                float x=s*(4.0F+j*1.16F);
+                float y=-32.2F+j*1.15F;
+                box(bodyFins,x-1.2F,y,-3.0F+j*.28F,2.45F,2.3F,4.0F-j*.38F);
+            }
+            // Pelvic finlets flare from the corslet into the actual fish tail.
+            for(int j=0;j<6;j++){
+                float x=s*(3.6F+j*.9F);
+                box(bodyFins,x-1.1F,-17F+j*1.45F,-2.5F+j*.2F,
+                    2.2F,3.0F-j*.22F,2.8F);
+            }
+            for(int j=0;j<3;j++)box(bodyPearls,s*(2.2F+j*1.1F)-.45F,
+                -31.5F+j*3F,-6.17F,.9F,.9F,.9F);
         }
+        // A mother-of-pearl throat collar and flowing scale patterns.
+        for(int j=0;j<7;j++){
+            float x=-3.3F+j*1.1F;
+            box(bodyPearls,x-.4F,-34.8F+1.5F*Mth.abs(x)/3.3F,-6.25F,
+                .9F,.85F,.85F);
+        }
+        for(int j=0;j<4;j++)
+            box(bodyFins,-2.1F+j*.9F,-26.5F+j*1.75F,-5.52F,
+                1.4F,2.1F,1.3F);
         // Low scalp (2.5px rather than a second head), sealed to the forehead,
         // temples and back. Strands start inside this continuous root layer.
         box(hair,-4.6F,-12.65F,-3.85F,9.2F,2.55F,7.85F);
@@ -151,26 +194,54 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             float w=3.5F-i*.3F;
             box(tailC,-w/2,-3+i*2.1F,-1.5F,w,2.5F,3);
         }
-        for(int s:new int[]{-1,1})for(int i=0;i<8;i++) {
-            float x=s*(1+i*1.05F);
-            box(fin,x-1.0F,1+i*.2F,-1,2,7.2F-i*.47F,2);
+        // Side fins at the hips and overlapping scale bands reinforce the fish
+        // silhouette even in shallow water, where the bottom fluke is hidden.
+        for(int side:new int[]{-1,1}){
+            for(int i=0;i<7;i++){
+                float x=side*(3.2F+i*1.05F);
+                box(tailA,x-1.0F,2.1F+i*.52F,-2F,2F,4.6F-i*.4F,2.8F);
+            }
+            for(int i=0;i<6;i++){
+                float x=side*(2.0F+i*1.55F);
+                box(fin,x-1.2F,1.3F+i*.25F,-1.7F,2.4F,7.9F-i*.68F,2.8F);
+            }
         }
+        for(int row=0;row<6;row++)
+            for(int x=-3;x<=3;x+=2)
+                box(tailA,x-.45F,-2F+row*2.1F,-3F+row*.15F,
+                    .95F,.85F,.75F);
         if (leader) {
-            box(crown,-4.8F,-17,-4.1F,9.6F,1.8F,8.2F);
-            box(crown,-2.2F,-20,-4.5F,4.4F,4,1.3F);
+            // Crown ring sits directly on the hair's scalp at local Y=-12.65.
+            // Coral prongs rise from the ring; none has an independent floating pivot.
+            box(crown,-4.9F,-12.7F,-4.15F,9.8F,1.55F,8.3F);
+            box(crown,-4.2F,-13.35F,-4.45F,8.4F,1.0F,1.3F);
+            box(crown,-1.85F,-15.75F,-4.65F,3.7F,3.15F,1.45F);
+            box(crown,-4.2F,-12.65F,3F,8.4F,1.1F,1.1F);
             ModelPart coral=create(CORAL,0,-9,0);
             coralCrown=coral;
-            for(int s:new int[]{-1,1})for(int i=0;i<3;i++)
-                box(coral,s*(2.2F+i*1.35F)-.55F,-20-i*.8F,-2.2F,1.1F,3.8F+i*.8F,1.2F);
-            // Forearm shield: plate faces forward, centered on a moving hand grip.
-            // Its supporting strap is BETWEEN the hand and the shield, not at the shoulder.
-            box(shield,-4.65F,-12.2F,-4.2F,9.3F,19.1F,1.45F);
-            box(shieldTrim,-4.8F,-12.35F,-4.65F,9.6F,.85F,.8F);
-            box(shieldTrim,-4.8F,5.95F,-4.65F,9.6F,.85F,.8F);
-            box(shieldTrim,-4.8F,-11.65F,-4.7F,.85F,17.6F,.8F);
-            box(shieldTrim,3.95F,-11.65F,-4.7F,.85F,17.6F,.8F);
-            box(shieldTrim,-1.35F,-3.15F,-4.95F,2.7F,3.2F,.72F);
-            box(shieldTrim,-.72F,-1.5F,-2.95F,1.44F,3.9F,.65F);
+            for(int side:new int[]{-1,1})for(int i=0;i<3;i++){
+                float x=side*(2.1F+i*1.1F);
+                box(coral,x-.56F,-14.65F-i*.52F,-2.85F,
+                    1.12F,2.8F+i*.72F,1.25F);
+                box(coral,x-.5F,-12.65F,1.7F,1.0F,1.8F+i*.4F,1.3F);
+            }
+            // An eight-ribbed scallop shield follows a wrist displaced to
+            // the side of the torso. Curved edges replace the giant rectangular plate.
+            for(int rib=0;rib<8;rib++){
+                float t=rib/7F;
+                float half=2.2F+2.25F*Mth.sin(t*Mth.PI);
+                float y=-10.0F+rib*2.0F;
+                float z=-3.8F-.7F*Mth.sin(t*Mth.PI);
+                box(shield,-half,y,z,2*half,2.15F,1.35F);
+                box(shieldTrim,-half-.25F,y-.15F,z-.36F,.65F,2.4F,.68F);
+                box(shieldTrim,half-.38F,y-.15F,z-.36F,.65F,2.4F,.68F);
+                if(rib%2==0)
+                    box(shieldShell,-half+.55F,y+.2F,z-.47F,2*half-1.1F,.42F,.45F);
+            }
+            box(shieldTrim,-2.25F,-10.2F,-4.5F,4.5F,.75F,.8F);
+            box(shieldTrim,-2.25F,5.6F,-4.5F,4.5F,.75F,.8F);
+            box(shieldShell,-1.15F,-3.8F,-5.15F,2.3F,4.5F,.62F);
+            box(shieldShell,-.48F,-6.2F,-5.2F,.96F,9.1F,.5F);
             // Trident shaft runs through the closed left palm. All 3 prongs
             // extend from the shaft, not from the upper arm.
             box(spear,-.52F,-31.0F,-2.05F,1.05F,40.5F,1.05F);
@@ -186,6 +257,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             // Right hand holds the shield handle; rear strap is visible in profile.
             box(handGripR,-1.15F,-1.4F,-2.9F,2.3F,2.75F,1.8F);
             box(handGripR,-.9F,-.85F,-3.08F,1.8F,1.3F,.55F);
+            box(shield,-5.35F,-1.2F,-2.3F,3.2F,1.6F,1.5F);
             tridentBand=shell;
         } else {
             spear.visible=false;shield.visible=false;shieldTrim.visible=false;
@@ -199,8 +271,8 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         head.xRot=pitch*.009F;
         // Facial details and tiara share the same pivot as the head.
         // Back braids trail slightly behind the head during steering.
-        eye.yRot=pupil.yRot=crown.yRot=head.yRot;
-        eye.xRot=pupil.xRot=crown.xRot=head.xRot;
+        eye.yRot=pupil.yRot=crown.yRot=faceFins.yRot=faceMarks.yRot=head.yRot;
+        eye.xRot=pupil.xRot=crown.xRot=faceFins.xRot=faceMarks.xRot=head.xRot;
         if (coralCrown!=null) {
             coralCrown.yRot=head.yRot;
             coralCrown.xRot=head.xRot;
@@ -209,6 +281,7 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
         // full hair shell behind head rotation exposes scalp-shaped bald gaps.
         hair.yRot=hair2.yRot=head.yRot;
         hair.xRot=hair2.xRot=head.xRot;
+        bodyFins.xRot=bodyPearls.xRot=skin.xRot;
 
         // The four unparented colored tail sections follow a single curved centerline.
         // Overlap at every hinge prevents visible openings when swimming fast.
@@ -229,7 +302,8 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             }
             case PharaohkaEntity.DASH -> {
                 // The whole torso inclines together so the armor never peels from the skin.
-                armor.xRot=skin.xRot=trim.xRot=cloth.xRot=-.22F;
+                armor.xRot=skin.xRot=trim.xRot=cloth.xRot=bodyFins.xRot=
+                    bodyPearls.xRot=-.22F;
                 armL.xRot=guardL.xRot=spear.xRot=-1.5F;
                 armR.xRot=guardR.xRot=shield.xRot=shieldTrim.xRot=-.35F;
                 tailB.yRot*=1.18F;tailC.yRot*=1.22F;fin.yRot*=1.28F;
@@ -258,20 +332,25 @@ public final class PharaohkaModel extends EntityModel<PharaohkaEntity> {
             followWrist(spear,armL,12F);
             followWrist(handGripL,armL,12F);
             if (tridentBand!=null) followWrist(tridentBand,armL,12F);
-            followWrist(shield,armR,11F);
-            followWrist(shieldTrim,armR,11F);
-            followWrist(handGripR,armR,11F);
+            followWrist(shield,armR,11F,5.2F,-.9F);
+            followWrist(shieldTrim,armR,11F,5.2F,-.9F);
+            followWrist(shieldShell,armR,11F,5.2F,-.9F);
+            followWrist(handGripR,armR,11F,2.7F,-.8F);
         }
     }
 
     private static void followWrist(ModelPart item,ModelPart arm,float wristLength) {
-        // Explicit shoulder -> hand transform. Unlike the old independent
-        // shoulder-root weapons, the item pivot now follows a moving wrist.
+        followWrist(item,arm,wristLength,0,0);
+    }
+    private static void followWrist(ModelPart item,ModelPart arm,float wristLength,
+                                    float sideways,float forward) {
+        // Wrist position plus a stable hand-local lateral offset. The shield
+        // remains outside the chest while pitching and bashing.
         float bend=arm.xRot,spread=arm.zRot;
-        float rollCos=Mth.cos(spread);
-        item.setPos(arm.x-wristLength*Mth.sin(spread),
-            arm.y+wristLength*Mth.cos(bend)*rollCos,
-            arm.z+wristLength*Mth.sin(bend)*rollCos);
+        float rollCos=Mth.cos(spread),rollSin=Mth.sin(spread);
+        item.setPos(arm.x-wristLength*rollSin+sideways*rollCos,
+            arm.y+wristLength*Mth.cos(bend)*rollCos+sideways*rollSin,
+            arm.z+wristLength*Mth.sin(bend)*rollCos+forward);
         item.xRot=bend;
         item.yRot=arm.yRot;
         item.zRot=spread;
