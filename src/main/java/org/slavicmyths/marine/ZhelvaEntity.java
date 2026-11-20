@@ -408,10 +408,8 @@ public final class ZhelvaEntity extends Monster {
         if (recovery == 0) {
             // A player using flight cannot force an endless impossible water pursuit.
             if (heightDifference > 5.5 || horizontal > 15 * 15) {
-                if (horizontal <= 35 * 35 && Math.abs(heightDifference) < 26) {
-                    begin(PRESSURE_LANCE, 44, target.position().add(0, target.getBbHeight() * .45, 0));
-                    return;
-                }
+                begin(PRESSURE_LANCE, 44, target.position().add(0, target.getBbHeight() * .45, 0));
+                return;
             } else if (horizontal < 6.6 * 6.6) {
                 if (phase == 3 && selection % 5 == 0)
                     begin(SHELL_SLAM, 56, null);
