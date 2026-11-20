@@ -51,7 +51,7 @@ public final class MarineRunesGameTests {
         ItemStack installed = Runes.preview(inventory, 1);
         t.assertTrue(!installed.isEmpty() && Runes.has(installed, "abyss"),
             "Runic anvil install preview lost abyss rune");
-        var saved = installed.save(t.getLevel().registryAccess());
+        var saved = (net.minecraft.nbt.CompoundTag) installed.save(t.getLevel().registryAccess());
         var loaded = ItemStack.parseOptional(t.getLevel().registryAccess(), saved);
         t.assertTrue(Runes.has(loaded, "abyss"), "ItemStack NBT roundtrip lost rune data");
         inventory.setItem(0, loaded);
