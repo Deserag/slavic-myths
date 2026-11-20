@@ -41,7 +41,7 @@ public final class ZhelvaContent {
             });
 
     public static final DeferredHolder<Block, Block> HEAD =
-        ModBlocks.BLOCKS.register("zhelva_head", ZhelvaTrophyBlock::new);
+        ModBlocks.BLOCKS.register("zhelva_head", () -> new ZhelvaTrophyBlock());
     public static final DeferredHolder<Item, Item> HEAD_ITEM =
         ModItems.ITEMS.register("zhelva_head", () ->
             new BlockItem(HEAD.get(), new Item.Properties().rarity(Rarity.EPIC)) {
