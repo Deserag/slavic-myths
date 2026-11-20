@@ -6744,5 +6744,9 @@
   "item.slavicmyths.rune_abyss.compatible": "Только морская броня",
   "item.slavicmyths.rune_storm": "Руна бури",
   "item.slavicmyths.rune_storm.desc": "Удар трезубцем: +2 магического урона и до двух цепных ударов; перезарядка 8 секунд",
-  "item.slavicmyths.rune_storm.compatible": "Только трезубцы"
+  "item.slavicmyths.rune_storm.compatible": "Только трезубцы",
+  "item.slavicmyths.pharaohka_trident": "Трезубец Фараонки",
+  "item.slavicmyths.pharaohka_trident.desc": "Приливный раскол: ударная волна до 5 противников, 4 урона, перезарядка 12 с; 3 слота рун.",
+  "item.slavicmyths.zhelva_shield": "Щит Желвы",
+  "item.slavicmyths.zhelva_shield.desc": "Панцирный заслон: при сильном блоке 3 с защиты щита и отбрасывания, перезарядка 20 с."
 }
