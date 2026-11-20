@@ -1255,3 +1255,9 @@ tide_helmet	armor	marine_set
 abyss_chestplate	armor	marine_set
 storm_leggings	armor	marine_set
 waterwalk_boots	armor	marine_set
+rune_tide	magic	marine_runes
+rune_abyss	magic	marine_runes
+rune_storm	magic	marine_runes
+abyss_elixir	magic	consumables
+storm_tincture	magic	consumables
+tsar_pike_meat	food	seafood

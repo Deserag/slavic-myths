@@ -10,6 +10,7 @@ on:
       - 'src/main/java/org/slavicmyths/rpg/RuneRework.java'
       - 'src/main/java/org/slavicmyths/SlavicMyths.java'
       - 'src/main/resources/assets/slavicmyths/lang/**'
+      - 'src/main/resources/assets/slavicmyths/creative_catalog.tsv'
       - 'src/main/resources/assets/slavicmyths/models/item/rune_*.json'
       - 'src/main/resources/assets/slavicmyths/models/item/abyss_elixir.json'
       - 'src/main/resources/assets/slavicmyths/models/item/storm_tincture.json'
@@ -37,6 +38,9 @@ jobs:
           python3 - <<'PY'
           import json, pathlib, struct
           assets=pathlib.Path('src/main/resources/assets/slavicmyths')
+          catalog=(assets/'creative_catalog.tsv').read_text(encoding='utf8')
+          for id in ('rune_tide','rune_abyss','rune_storm','abyss_elixir','storm_tincture','tsar_pike_meat'):
+              assert any(line.startswith(id+'\t') for line in catalog.splitlines()), id
           for id in ('rune_tide','rune_abyss','rune_storm','abyss_elixir','storm_tincture','tsar_pike_meat'):
               model=json.loads((assets/'models/item'/f'{id}.json').read_text())
               path=model['textures']['layer0']
