@@ -1,8 +1,9 @@
 {
-  "parent": "builtin/entity",
+  "parent": "minecraft:item/generated",
   "gui_light": "front",
   "textures": {
-    "particle": "slavicmyths:item/marine/zhelva_shield"
+    "particle": "slavicmyths:item/marine/zhelva_shield",
+    "layer0": "slavicmyths:item/marine/zhelva_shield"
   },
   "display": {
     "thirdperson_righthand": {
