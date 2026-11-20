@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    " SPS ",
-    "SDTDS",
-    " STS "
+    "SPS",
+    "DTD",
+    " S "
   ],
   "key": {
     "S": {
