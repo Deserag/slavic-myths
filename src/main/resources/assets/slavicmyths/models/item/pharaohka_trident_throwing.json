@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/trident_throwing",
+  "textures": {
+    "particle": "slavicmyths:item/marine/pharaohka_trident"
+  }
+}
