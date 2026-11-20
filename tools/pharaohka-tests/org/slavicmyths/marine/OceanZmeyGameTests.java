@@ -26,7 +26,7 @@ public final class OceanZmeyGameTests {
     @GameTest(template="empty",timeoutTicks=60)
     public static void independentRegistrationAndBalance(GameTestHelper test){
         OceanZmeyEntity boss=spawn(test);
-        test.assertTrue(boss.getMaxHealth()==1500,"Boss health was not applied");
+        test.assertTrue(boss.getMaxHealth()==1024,"Boss health was not applied");
         test.assertTrue(boss.getAttributeValue(Attributes.ATTACK_DAMAGE)==26,"Attack not registered");
         test.assertTrue(OceanZmeyContent.EGG.get().getDefaultInstance().getCount()==1,"Egg missing");
         test.assertTrue(OceanZmeyContent.HEAD_ITEM.get().getDefaultInstance().getCount()==1,"Head missing");

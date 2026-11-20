@@ -88,8 +88,8 @@ public final class OceanZmeyEntity extends Monster {
     public OceanZmeyEntity(EntityType<? extends OceanZmeyEntity> type,Level level){
         super(type,level);xpReward=170;
         if(getAttribute(Attributes.MAX_HEALTH)!=null){
-            getAttribute(Attributes.MAX_HEALTH).setBaseValue(1500);
-            setHealth(1500);
+            getAttribute(Attributes.MAX_HEALTH).setBaseValue(1024);
+            setHealth(1024);
         }
         if(getAttribute(Attributes.ATTACK_DAMAGE)!=null)
             getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(26);
@@ -100,7 +100,7 @@ public final class OceanZmeyEntity extends Monster {
     }
     public static AttributeSupplier.Builder attributes(){
         return Monster.createMonsterAttributes()
-            .add(Attributes.MAX_HEALTH,1500).add(Attributes.MOVEMENT_SPEED,.38)
+            .add(Attributes.MAX_HEALTH,1024).add(Attributes.MOVEMENT_SPEED,.38)
             .add(Attributes.ATTACK_DAMAGE,26).add(Attributes.ARMOR,13)
             .add(Attributes.ARMOR_TOUGHNESS,4).add(Attributes.FOLLOW_RANGE,64)
             .add(Attributes.KNOCKBACK_RESISTANCE,.95);
