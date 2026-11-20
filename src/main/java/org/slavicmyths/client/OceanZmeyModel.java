@@ -14,9 +14,9 @@ import org.slavicmyths.marine.OceanZmeyEntity;
  * The same geometry drives the entity and the collectible animated head.
  */
 public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
-    private static final int ABYSS=0xFF102D3B,DARK=0xFF1D4755,TEAL=0xFF316A6D,
-        SCALE=0xFF468F89,LIGHT=0xFF73B7A8,BELLY=0xFF89A49D,
-        FIN=0xFF2D7684,FINRAY=0xFF72B7BC,SKULL=0xFF234955,
+    private static final int ABYSS=0xFF173E4B,DARK=0xFF285868,TEAL=0xFF427F86,
+        SCALE=0xFF60AD9F,LIGHT=0xFFA2D5C9,BELLY=0xFF9BBDAE,
+        FIN=0xFF326F7D,FINRAY=0xFF86CDD0,SKULL=0xFF356B78,
         LIP=0xFF477F78,GUM=0xFF643A45,MAW=0xFF311C31,
         TOOTH=0xFFF3E7CB,GLOW=0xFF7CE5C8,IRIS=0xFFFFCE72,EYE=0xFF0B1522;
     private static final int SEGMENTS=16,SECTION_LENGTH=26;
@@ -69,8 +69,8 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         // Ocean Zmey elongated dragon-serpent anatomy: high narrow snout and powerful rear skull.
         for(float z=-87;z< -7;z+=3.25F){
             float t=(z+87)/80F;
-            float halfWidth=9.8F+13F*(float)Math.pow(t,.82);
-            float halfHeight=8.8F+5.5F*t;
+            float halfWidth=7.2F+15.5F*(float)Math.pow(t,1.12);
+            float halfHeight=6.8F+7.1F*t;
             for(float x=-halfWidth;x<=halfWidth;x+=3.2F)
                 for(float y=-30-halfHeight;y<=-22+halfHeight*.23F;y+=3.2F){
                     float dy=(y+30)/halfHeight;
@@ -99,7 +99,7 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         for(int i=0;i<14;i++){
             float z=-84+i*5.7F;
             float t=(z+87)/80F;
-            float width=9.8F+13*(float)Math.pow(t,.82);
+            float width=7.2F+15.5F*(float)Math.pow(t,1.12);
             for(int sign:new int[]{-1,1}){
                 float x=sign*(width*.76F);
                 head.cube(TOOTH,x-1.3F,-17,z,3.3F,9.0F,3.2F);
@@ -128,6 +128,13 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
                 }
             }
         }
+        // Layered gill plates separate the face and muscular neck from the torso.
+        for(int sign:new int[]{-1,1})
+            for(int k=0;k<8;k++){
+                float z=-42+k*4.1F;
+                float x=sign*(15F+k*.72F);
+                head.cube(k%3==0?LIGHT:SCALE,x-2F,-39-k*.2F,z,4.1F,2.7F,6.4F);
+            }
         // Inset side eyes, no protruding lizard eye stalks.
         for(int sign:new int[]{-1,1}){
             float x=sign*18.5F;
@@ -156,13 +163,20 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
                 for(float x=-rx;x<=rx;x+=4.1F)
                     for(float dy=-ry;dy<=ry;dy+=4.1F){
                         float normalized=(x*x)/(rx*rx)+(dy*dy)/(ry*ry);
-                        if(normalized>1.06F || normalized<.70F)continue;
-                        int color=dy<-.4F*ry?ABYSS:dy<.15F*ry?DARK:
-                            dy>.57F*ry?BELLY:TEAL;
-                        if(Math.floorMod((int)(i*41+x*2+dy*3+localZ*5),13)==0)
-                            color=SCALE;
+                        if(normalized>1.06F || normalized<.64F)continue;
+                        int color=dy<-.48F*ry?DARK:dy<.12F*ry?TEAL:
+                            dy>.60F*ry?BELLY:SCALE;
+                        if(Math.floorMod((int)(i*41+x*2+dy*3+localZ*5),17)<3)
+                            color=LIGHT;
                         part.cube(color,x-2.1F,-24+dy-2.1F,i*SECTION_LENGTH+localZ,
                             4.25F,4.25F,4.1F);
+                    }
+                // Small staggered armor scales instead of uniform vertical hull plates.
+                if(t<.85F && localZ<1F)
+                    for(int side:new int[]{-1,1}){
+                        float px=side*rx*.7F;
+                        part.cube(i%3==0?LIGHT:SCALE,px-2F,-24-ry*.5F,
+                            i*SECTION_LENGTH+localZ,4F,3F,8.3F);
                     }
                 // Curved, tapered dorsal web and narrow rib rays; volumetric on both sides.
                 if(i<15){
@@ -194,15 +208,16 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
                         }
             }
         }
-        // A narrow fin-tip follows the tapered tail instead of a comically wide paddle.
+        // Pointed continuation of the final body section: the last third is tail.
         Group tail=body[SEGMENTS-1];
         float start=SEGMENTS*SECTION_LENGTH;
-        for(float z=0;z<16;z+=2.5F){
-            float t=z/16F;
-            float width=Math.max(.65F,3.1F*(1-t));
-            float height=Math.max(.75F,5.0F*(1-t));
-            tail.cube(z>11?FINRAY:FIN,-width*.5F,-24-height*.5F,
-                start+z,width,height,3.0F);
+        for(float z=0;z<39;z+=2.5F){
+            float t=z/39F;
+            float width=Math.max(.4F,2.7F*(1-t));
+            float height=Math.max(.4F,7F*(1-t));
+            float bend=3.2F*Mth.sin(t*Mth.PI*.7F);
+            tail.cube(z>30?FINRAY:FIN,bend-width*.5F,-24-height*.5F,
+                start+z,width,height,3F);
         }
     }
     private void makeCrest(){
@@ -227,7 +242,7 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
             float baseX=side*23F;
             for(int rib=0;rib<5;rib++){
                 float sweepZ=35F+rib*16F;
-                float extent=105F-rib*11F;
+                float extent=72F-rib*9F;
                 for(float x=0;x<extent;x+=4.0F){
                     float taper=1F-x/extent;
                     float arcY=-34F-16F*Mth.sin(x/extent*Mth.PI*.8F)-rib*1.7F;
@@ -277,8 +292,8 @@ public final class OceanZmeyModel extends EntityModel<OceanZmeyEntity> {
         head.pivot.xRot=action==OceanZmeyEntity.BITE?-.22F*Mth.sin(Mth.PI*Mth.clamp(boss.actionTicks()/32F,0F,1F)):0F;
         root.pivot.zRot=action==OceanZmeyEntity.FLIGHT?.10F*Mth.sin(age*.15F):0F;
         root.pivot.xRot=action==OceanZmeyEntity.TAKEOFF?-.12F:action==OceanZmeyEntity.LAND?.08F:0F;
-        wingLeft.pivot.zRot=action==OceanZmeyEntity.FLIGHT || action==OceanZmeyEntity.TAKEOFF
-            ? -.32F-.22F*Mth.sin(age*.28F):.88F;
+        wingLeft.pivot.zRot=boss.airborne()
+            ? -.30F-.20F*Mth.sin(age*.28F):.72F;
         wingRight.pivot.zRot=-wingLeft.pivot.zRot;
         if(boss.deathTime>0) {
             float fall=Mth.clamp(boss.deathTime/20F,0F,1F);
