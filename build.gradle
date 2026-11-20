@@ -849,3 +849,17 @@ if (project.hasProperty('buyanOutpostCheck')) {
         systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
     } }
 }
+
+// Ocean rewards #520: isolated GameTests, not included in the production JAR.
+if (project.hasProperty('marineArmorCheck')) {
+    sourceSets { marineArmorCheck { java.srcDir 'tools/marine-armor-tests' } }
+    sourceSets.marineArmorCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.marineArmorCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileMarineArmorCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.marineArmorCheck)
+    neoForge.runs { marineArmorTests {
+        type = 'gameTestServer'
+        gameDirectory = file('run-marine-armor-520')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_marine_armor'
+    } }
+}

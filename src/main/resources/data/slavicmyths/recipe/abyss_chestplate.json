@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "S S",
+    "PNP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "S": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    },
+    "N": {
+      "item": "minecraft:netherite_chestplate"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:abyss_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,37 @@
+name: Marine armor #520 — Java 21 and isolated GameTests
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - "src/main/java/org/slavicmyths/marine/MarineArmor*.java"
+      - "src/main/java/org/slavicmyths/SlavicMyths.java"
+      - "src/main/java/org/slavicmyths/rpg/Runes.java"
+      - "src/main/resources/assets/slavicmyths/textures/armor/marine/**"
+      - "src/main/resources/assets/slavicmyths/textures/item/marine/**"
+      - "src/main/resources/assets/slavicmyths/lang/*.json"
+      - "tools/marine-armor-tests/**"
+      - ".github/workflows/marine-armor-520.yml"
+      - "build.gradle"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build production JAR
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Isolated marine armor GameTests
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PmarineArmorCheck runMarineArmorTests --no-daemon --console=plain 2>&1 | tee /tmp/marine-armor.log
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed|ExceptionInInitializerError' /tmp/marine-armor.log; then exit 1; fi
+          grep -Eq 'All [0-9]+ required tests passed' /tmp/marine-armor.log

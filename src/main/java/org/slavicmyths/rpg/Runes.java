@@ -43,6 +43,7 @@ public final class Runes {
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered)return 3;
  if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return 3;
  if(s.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece)return 3;
+   if(s.getItem() instanceof org.slavicmyths.marine.MarineArmor.Piece)return 2;
   if(org.slavicmyths.nethersmithing.NetherWeapons.owns(s))return 2;
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.NetherArmor.Piece p)return org.slavicmyths.nethersmithing.NetherArmorRules.sockets(p.king,p.getType());
   if(org.slavicmyths.industry.ChudTools.multi(s)||s.is(org.slavicmyths.industry.ChudTools.PICKAXE.get()))return 2;

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PPP",
+    "P P",
+    "P N"
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:ocean_zmey_storm_heart"
+    },
+    "N": {
+      "item": "minecraft:netherite_leggings"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:storm_leggings",
+    "count": 1
+  }
+}

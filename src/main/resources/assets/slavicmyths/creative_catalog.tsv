@@ -1251,3 +1251,7 @@ ocean_zmey_victory_token	resources	boss_token
 stratim_bird_victory_token	resources	boss_token
 tsar_pike_victory_token	resources	boss_token
 zhelva_victory_token	resources	boss_token
+tide_helmet	armor	marine_set
+abyss_chestplate	armor	marine_set
+storm_leggings	armor	marine_set
+waterwalk_boots	armor	marine_set
