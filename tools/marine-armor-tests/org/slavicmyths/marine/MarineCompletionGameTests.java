@@ -37,6 +37,21 @@ public final class MarineCompletionGameTests {
             "Anchor must use the vanilla bobber");
         t.assertTrue(MarineWeapons.HARPOON.get() instanceof TridentItem,
             "Harpoon must preserve the vanilla thrown trident");
+        var tridentTag = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM,
+            ResourceLocation.withDefaultNamespace("enchantable/trident"));
+        var fishingTag = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM,
+            ResourceLocation.withDefaultNamespace("enchantable/fishing"));
+        var durabilityTag = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM,
+            ResourceLocation.withDefaultNamespace("enchantable/durability"));
+        t.assertTrue(new ItemStack(MarineWeapons.HARPOON.get()).is(tridentTag),
+            "Loyalty / Riptide / Impaling / Channeling cannot enchant harpoon");
+        t.assertTrue(new ItemStack(MarineWeapons.ANCHOR.get()).is(fishingTag),
+            "Lure and Luck of the Sea cannot enchant the storm anchor");
+        t.assertTrue(new ItemStack(MarineWeapons.HARPOON.get()).is(durabilityTag),
+            "Mending and Unbreaking must accept storm harpoon");
         t.succeed();
     }
 
