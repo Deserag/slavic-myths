@@ -29,6 +29,13 @@ jobs:
           ./gradlew -PmarineArmorCheck runMarineArmorTests --no-daemon --console=plain 2>&1 | tee /tmp/ocean-completion-gametests.log
           if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed' /tmp/ocean-completion-gametests.log; then exit 1; fi
           grep -Eq 'All [0-9]+ required tests passed' /tmp/ocean-completion-gametests.log
+      - name: Publish verified mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: slavic-myths-ocean-rewards-neoforge-1.21.1
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
   client-smoke:
     needs: build-and-tests
     runs-on: ubuntu-latest

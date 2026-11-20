@@ -40,6 +40,59 @@ public final class MarineCompletionGameTests {
         t.succeed();
     }
 
+    @GameTest(template = "empty", timeoutTicks = 70)
+    public static void allSixCuriosOnlyWorkInTheirOwnSlots(GameTestHelper t) {
+        var player = FakePlayerFactory.get(t.getLevel(),
+            new GameProfile(UUID.randomUUID(), "OceanWorn523"));
+        var curios = CuriosApi.getCuriosInventory(player).orElseThrow();
+        java.util.Map<String, String> slots = java.util.Map.of(
+            "tide_ring", "ring",
+            "abyss_necklace", "necklace",
+            "storm_bracelet", "charm",
+            "tailwind_feather", "charm",
+            "tsar_pike_belt", "belt",
+            "zhelva_amulet", "charm"
+        );
+        for (var entry : slots.entrySet()) {
+            String id = entry.getKey();
+            var slot = curios.getCurios().get(entry.getValue());
+            t.assertTrue(slot != null && slot.getStacks().getSlots() > 0,
+                "Missing slot for " + id);
+            var item = BuiltInRegistries.ITEM.get(
+                ResourceLocation.fromNamespaceAndPath("slavicmyths", id));
+            var stack = new ItemStack(item);
+            player.getInventory().add(stack.copy());
+            t.assertTrue(!MarineAccessories.wears(player, id),
+                "Inventory-only accessory was treated as worn: " + id);
+            slot.getStacks().setStackInSlot(0, stack);
+            t.assertTrue(MarineAccessories.wears(player, id),
+                "Accessory not detected in equipped slot: " + id);
+            slot.getStacks().setStackInSlot(0, ItemStack.EMPTY);
+            t.assertTrue(!MarineAccessories.wears(player, id),
+                "Accessory stayed equipped after removal: " + id);
+        }
+        player.discard();
+        t.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 70)
+    public static void anchorUsesVanillaBobberWithRetrievalCooldown(GameTestHelper t) {
+        var player = FakePlayerFactory.get(t.getLevel(),
+            new GameProfile(UUID.randomUUID(), "StormAnchor522"));
+        player.moveTo(t.absolutePos(new BlockPos(2, 3, 2)), 0F, 0F);
+        player.setItemInHand(InteractionHand.MAIN_HAND,
+            new ItemStack(MarineWeapons.ANCHOR.get()));
+        t.assertTrue(player.fishing == null, "Unexpected existing bobber");
+        player.getMainHandItem().use(t.getLevel(), player, InteractionHand.MAIN_HAND);
+        t.assertTrue(player.fishing != null, "Anchor did not cast a vanilla fishing hook");
+        player.getMainHandItem().use(t.getLevel(), player, InteractionHand.MAIN_HAND);
+        t.assertTrue(player.getCooldowns().isOnCooldown(MarineWeapons.ANCHOR.get()),
+            "Anchor retrieval did not trigger the four-second cooldown");
+        if (player.fishing != null) player.fishing.discard();
+        player.discard();
+        t.succeed();
+    }
+
     @GameTest(template = "empty", timeoutTicks = 60)
     public static void abyssStaffPulseAndCooldown(GameTestHelper t) {
         var player = FakePlayerFactory.get(t.getLevel(),
