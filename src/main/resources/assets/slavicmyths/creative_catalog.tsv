@@ -1239,3 +1239,15 @@ tansy	decor	flowers_buyan
 deep_sea_serpent_spawn_egg	mobs	boss
 deep_sea_serpent_head	heads	boss_trophy
 abyssal_crest	decor	boss_trophy
+pharaohka_tide_pearl	resources	boss_material
+deep_sea_serpent_scale	resources	boss_material
+ocean_zmey_storm_heart	resources	boss_material
+stratim_bird_feather	resources	boss_material
+tsar_pike_fang	resources	boss_material
+zhelva_shell_plate	resources	boss_material
+pharaohka_victory_token	resources	boss_token
+deep_sea_serpent_victory_token	resources	boss_token
+ocean_zmey_victory_token	resources	boss_token
+stratim_bird_victory_token	resources	boss_token
+tsar_pike_victory_token	resources	boss_token
+zhelva_victory_token	resources	boss_token

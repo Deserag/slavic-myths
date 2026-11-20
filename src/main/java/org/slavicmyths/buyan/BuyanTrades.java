@@ -8,6 +8,7 @@ import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import org.slavicmyths.registry.ModItems;
+import org.slavicmyths.marine.MarineRewards;
 import org.slavicmyths.village.VillageRoles;
 
 /** Additional island-only listings. Invoked at the same points as native Villager.updateTrades. */
@@ -109,6 +110,15 @@ public final class BuyanTrades {
         }
     }
 
+    private static void princeToken(MerchantOffers offers, Item token, int coins, int level) {
+        // updateTrades may be invoked again as the villager levels up.
+        for (MerchantOffer offer : offers) {
+            if (offer.getBaseCostA().is(token)
+                && offer.getResult().is(ModItems.ANCIENT_COIN.get())) return;
+        }
+        buy(offers, token, 1, coins, level);
+    }
+
     private static void prince(MerchantOffers o, int l) {
         switch (l) {
             case 1 -> { buy(o, Items.GOLD_INGOT, 6, 4, l); sell(o, Items.BOOK, 3, 2, l); }
@@ -117,5 +127,11 @@ public final class BuyanTrades {
             case 4 -> { buy(o, Items.GOLD_BLOCK, 2, 12, l); sell(o, Items.GOLDEN_APPLE, 1, 18, l); }
             case 5 -> { buy(o, Items.NETHERITE_SCRAP, 1, 18, l); sell(o, Items.TOTEM_OF_UNDYING, 1, 48, l); }
         }
+        princeToken(o, MarineRewards.PHARAOHKA_TOKEN.get(), 18, l);
+        princeToken(o, MarineRewards.DEEP_SERPENT_TOKEN.get(), 16, l);
+        princeToken(o, MarineRewards.OCEAN_ZMEY_TOKEN.get(), 22, l);
+        princeToken(o, MarineRewards.STRATIM_TOKEN.get(), 20, l);
+        princeToken(o, MarineRewards.TSAR_PIKE_TOKEN.get(), 12, l);
+        princeToken(o, MarineRewards.ZHELVA_TOKEN.get(), 22, l);
     }
 }
