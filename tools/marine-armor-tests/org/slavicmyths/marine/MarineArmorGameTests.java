@@ -39,6 +39,42 @@ public final class MarineArmorGameTests {
         t.succeed();
     }
     @GameTest(template="empty", timeoutTicks=50)
+    public static void serverBuffsRevokeAndPreserveForeignPotions(GameTestHelper t) {
+        var player = t.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        MarineArmorEffects.applyEffects(player, true, true, true);
+        var speed = player.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED);
+        t.assertTrue(speed != null && speed.getAmplifier() == 3, "Speed IV was not applied on water");
+        t.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WATER_BREATHING),
+            "The set did not provide water breathing");
+        t.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.NIGHT_VISION),
+            "The set did not provide night vision");
+        t.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.DOLPHINS_GRACE),
+            "The set did not improve underwater swimming");
+        t.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.DIG_SPEED),
+            "The set did not improve underwater mining");
+        MarineArmorEffects.applyEffects(player, false, false, false);
+        t.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED),
+            "Speed IV persisted after removing armor");
+        t.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.WATER_BREATHING),
+            "Underwater breathing persisted after removing armor");
+        t.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.NIGHT_VISION),
+            "Night vision persisted after removing armor");
+        t.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.DOLPHINS_GRACE),
+            "Swimming buff persisted after removing armor");
+        t.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.DIG_SPEED),
+            "Mining buff persisted after removing armor");
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+            net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 400, 4));
+        MarineArmorEffects.applyEffects(player, true, true, true);
+        MarineArmorEffects.applyEffects(player, false, false, false);
+        var foreign = player.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED);
+        t.assertTrue(foreign != null && foreign.getAmplifier() == 4,
+            "Unrelated stronger potion must survive unequip");
+        player.discard();
+        t.succeed();
+    }
+
+    @GameTest(template="empty", timeoutTicks=50)
     public static void waterSupportNotOnLandOrShift(GameTestHelper t) {
         t.assertTrue(MarineArmorEffects.canStand(true,false,false,false), "Support predicate failed");
         t.assertTrue(!MarineArmorEffects.canStand(true,true,false,false), "Shift must allow diving");

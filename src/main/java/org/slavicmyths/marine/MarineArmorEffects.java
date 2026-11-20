@@ -55,6 +55,10 @@ public final class MarineArmorEffects {
         swimSpeed(player, wet);
         if (!(player instanceof ServerPlayer server)) return;
         boolean underwater = wet && player.isEyeInFluid(FluidTags.WATER);
+        applyEffects(server, onWater, wet, underwater);
+    }
+
+    static void applyEffects(ServerPlayer server, boolean onWater, boolean wet, boolean underwater) {
         effect(server, "speed", MobEffects.MOVEMENT_SPEED, onWater, 3, 32);
         effect(server, "breath", MobEffects.WATER_BREATHING, wet, 0, 45);
         effect(server, "vision", MobEffects.NIGHT_VISION, wet, 0, 260);
