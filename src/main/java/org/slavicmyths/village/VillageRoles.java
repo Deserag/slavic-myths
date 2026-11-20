@@ -23,6 +23,8 @@ public final class VillageRoles {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENTS = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES,"slavicmyths");
     // A tiny synchronized, saved visual index also survives conversion, which creates a new UUID.
     public static final DeferredHolder<AttachmentType<?>,AttachmentType<Integer>> OUTFIT = ATTACHMENTS.register("villager_outfit",()->AttachmentType.builder(()->-1).serialize(Codec.INT).sync(ByteBufCodecs.VAR_INT).build());
+    /** Empty for all non-Buyan villagers; saved and synced across reloads. */
+    public static final DeferredHolder<AttachmentType<?>,AttachmentType<String>> BUYAN_ROLE = ATTACHMENTS.register("buyan_role",()->AttachmentType.builder(()->"").serialize(Codec.STRING).sync(ByteBufCodecs.STRING_UTF8).build());
     public static final DeferredHolder<AttachmentType<?>,AttachmentType<WorkState>> WORK_STATE=ATTACHMENTS.register("villager_work_state",()->AttachmentType.builder(WorkState::new).build());
     public static final DeferredHolder<Block,Block> MILLSTONE = ModBlocks.BLOCKS.register("millstone",MillstoneBlock::new);
     public static final Map<String,DeferredHolder<PoiType,PoiType>> JOBS = new LinkedHashMap<>();

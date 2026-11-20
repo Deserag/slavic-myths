@@ -19,6 +19,7 @@ public final class VillageEvents {
             || (e.getEntity() instanceof ZombieVillager && e.getOutcome() instanceof Villager)) {
             int variant=e.getEntity().getData(VillageRoles.OUTFIT);
             e.getOutcome().setData(VillageRoles.OUTFIT,variant<0?OutfitRules.variant(e.getEntity().getUUID()):variant);
+            e.getOutcome().setData(VillageRoles.BUYAN_ROLE,e.getEntity().getData(VillageRoles.BUYAN_ROLE));
         }
     }
     private VillageEvents(){}

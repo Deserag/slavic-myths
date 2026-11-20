@@ -47,9 +47,15 @@ public final class VillageVisuals {
     /** Only controls the existing robe part; the vanilla renderer does all remaining work. */
     private static final class FolkVillagerRenderer extends VillagerRenderer {
         FolkVillagerRenderer(EntityRendererProvider.Context ctx){super(ctx);}
+        @Override public ResourceLocation getTextureLocation(Villager entity){
+            String role=entity.getData(VillageRoles.BUYAN_ROLE);
+            if(Set.of("zemledelec","rybak","kuznec","tkach","travnik","kupec","obychny","knyaz").contains(role))
+                return texture("buyan/"+role);
+            return super.getTextureLocation(entity);
+        }
         @Override public void render(Villager entity,float yaw,float partial,PoseStack pose,MultiBufferSource buffers,int light){
             getModel().root().getChild("arms").visible=!org.slavicmyths.military.Military.guard(entity);
-            getModel().root().getChild("body").getChild("jacket").visible=longCoat(entity,entity.getVillagerData());
+            getModel().root().getChild("body").getChild("jacket").visible=!entity.getData(VillageRoles.BUYAN_ROLE).isEmpty() || longCoat(entity,entity.getVillagerData());
             super.render(entity,yaw,partial,pose,buffers,light);
         }
     }
@@ -80,6 +86,7 @@ public final class VillageVisuals {
         private final VillagerProfessionLayer<T,M> babies;
         OutfitLayer(RenderLayerParent<T,M> parent,boolean zombie){super(parent);babies=new VillagerProfessionLayer<>(parent,net.minecraft.client.Minecraft.getInstance().getResourceManager(),zombie?"zombie_villager":"villager");}
         @Override public void render(PoseStack pose,MultiBufferSource buffers,int light,T entity,float walk,float speed,float partial,float age,float yaw,float pitch){
+            if(!entity.getData(VillageRoles.BUYAN_ROLE).isEmpty()) return;
             if(entity.isBaby()){babies.render(pose,buffers,light,entity,walk,speed,partial,age,yaw,pitch);return;}
             if(entity.isInvisible())return;
             var data=entity.getVillagerData();Style style=STYLES.get(data.getProfession());

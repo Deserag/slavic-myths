@@ -807,6 +807,17 @@ public final class BuyanTerem {
         return false;
     }
 
+    static boolean hasBuilt(ServerLevel world, BuyanState.Site site) {
+        return Record.get(world).built.containsKey(key(site));
+    }
+
+    /** Interior approach of the saved terem, before the native villager AI claims a bed. */
+    static BlockPos princeHome(ServerLevel world, BuyanState.Site site) {
+        Long stored = Record.get(world).built.get(key(site));
+        if (stored == null) throw new IllegalStateException("Buyan terem is not built");
+        return BlockPos.of(stored).offset(0, 3, 4);
+    }
+
     /** Safe surface spawn outside the palace and its front steps. */
     static BlockPos spawn(ServerLevel world, BuyanState.Site site) {
         Long stored = Record.get(world).built.get(key(site));

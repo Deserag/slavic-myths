@@ -335,6 +335,10 @@ final class BuyanCityHousing {
         }
     }
 
+    static boolean hasBuilt(ServerLevel world, BuyanState.Site site) {
+        return Record.get(world).finished.contains(new BlockPos(site.x(), 0, site.z()).asLong());
+    }
+
     static boolean placeOnce(ServerLevel world, BuyanState.Site site, BuyanCityPlan.Layout city) {
         if (city == null || city.plots().stream().noneMatch(
                 p -> p.name().equals("SANCTUARY_AND_OAK"))) return false;
