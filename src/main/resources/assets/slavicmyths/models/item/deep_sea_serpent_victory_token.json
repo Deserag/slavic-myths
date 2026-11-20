@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/prismarine_crystals"
+    "layer0": "slavicmyths:item/ocean_rewards/deep_sea_serpent_victory_token"
   }
 }

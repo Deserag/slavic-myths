@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:block/oak_sapling"
+    "layer0": "slavicmyths:item/food_229c/coal_plum_sapling"
   }
 }

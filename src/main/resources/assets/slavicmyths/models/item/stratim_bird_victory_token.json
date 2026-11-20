@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/phantom_membrane"
+    "layer0": "slavicmyths:item/ocean_rewards/stratim_bird_victory_token"
   }
 }
