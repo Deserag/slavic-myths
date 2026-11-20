@@ -1,0 +1,154 @@
+name: Ocean Rewards #518 completion — Java 21, GameTests and client boot
+on:
+  push:
+    branches: [feature/ocean-rewards-completion-20261120]
+  pull_request:
+    branches: [integration/ocean-updates]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check marine icons, translations and recipes
+        run: python3 tools/ocean_completion_check.py
+      - name: Validate six boss tokens and material textures
+        run: python3 tools/ocean_rewards_verify.py
+      - name: Clean Java 21 production build
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Verify packaged ocean item assets
+        run: python3 tools/ocean_jar_verify.py
+      - name: Run isolated marine GameTests
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PmarineArmorCheck runMarineArmorTests --no-daemon --console=plain 2>&1 | tee /tmp/ocean-completion-gametests.log
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed' /tmp/ocean-completion-gametests.log; then exit 1; fi
+          grep -Eq 'All [0-9]+ required tests passed' /tmp/ocean-completion-gametests.log
+      - name: Publish verified mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: slavic-myths-ocean-rewards-neoforge-1.21.1
+          path: build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
+  regression-gametests:
+    needs: build-and-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ocean ship motion and inventory regression GameTests
+        run: chmod +x gradlew && ./gradlew -Pocean26Check runOcean26Checks --no-daemon --console=plain
+      - name: Pharaohka boss encounter regression GameTests
+        run: ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain
+      - name: Buyan prince and island regression GameTests
+        if: always()
+        run: ./gradlew -PbuyanOutpostCheck runBuyanOutpostChecks --no-daemon --console=plain
+  dedicated-server-smoke:
+    needs: build-and-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Boot ordinary NeoForge dedicated server without client classes
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x gradlew
+          mkdir -p run-server /tmp/ocean-server
+          printf 'eula=true\n' > run-server/eula.txt
+          ./gradlew --no-daemon --console=plain runServer >/tmp/ocean-server/server.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          ready=0
+          for i in $(seq 1 240); do
+            if grep -Eq 'Done \([0-9.,]+s\)! For help, type "help"' /tmp/ocean-server/server.log; then ready=1; break; fi
+            if ! kill -0 "$pid" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          echo "DEDICATED_SERVER_BOOT_REACHED=$ready"
+          if [ "$ready" != 1 ]; then tail -150 /tmp/ocean-server/server.log; exit 1; fi
+          if grep -Eiq 'ModLoadingCrashException|ExceptionInInitializerError|Report saved to: .*crash-reports' /tmp/ocean-server/server.log; then
+            tail -150 /tmp/ocean-server/server.log
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ocean-dedicated-server-smoke-evidence
+          path: /tmp/ocean-server/
+          retention-days: 7
+  client-smoke:
+    needs: build-and-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LIBGL_ALWAYS_SOFTWARE: 'true'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Prepare virtual Minecraft display
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 scrot xdotool
+      - name: Boot modded client and collect screenshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x gradlew
+          mkdir -p /tmp/ocean-client
+          Xvfb :99 -screen 0 1366x768x24 -nolisten tcp >/tmp/ocean-client/xvfb.log 2>&1 &
+          xpid=$!
+          export DISPLAY=:99
+          sleep 3
+          ./gradlew --no-daemon --console=plain runClient >/tmp/ocean-client/client.log 2>&1 &
+          pid=$!
+          ready=0
+          for i in $(seq 1 240); do
+            if grep -Eiq 'Sound engine started|OpenAL initialized|Reloading ResourceManager' /tmp/ocean-client/client.log; then ready=1; break; fi
+            if ! kill -0 "$pid" 2>/dev/null; then break; fi
+            sleep 1
+          done
+          if [ "$ready" = 1 ]; then
+            sleep 8
+            scrot /tmp/ocean-client/screen.png || true
+            # The first headless boot can show Minecraft's narrator/accessibility prompt.
+            # Advance it before capturing the actual main-menu renderer.
+            xdotool mousemove --sync 683 592 click 1 || true
+            sleep 7
+            scrot /tmp/ocean-client/main-menu.png || true
+          fi
+          kill "$pid" 2>/dev/null || true
+          wait "$pid" 2>/dev/null || true
+          kill "$xpid" 2>/dev/null || true
+          echo "CLIENT_BOOT_REACHED=$ready"
+          test "$ready" = 1
+          if grep -Eiq 'ModLoadingCrashException|ExceptionInInitializerError|Report saved to: .*crash-reports' /tmp/ocean-client/client.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ocean-client-smoke-evidence
+          path: /tmp/ocean-client/
+          retention-days: 7

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "SBS",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    },
+    "S": {
+      "item": "slavicmyths:zhelva_shell_plate"
+    },
+    "B": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:breathing_bowl",
+    "count": 1
+  }
+}

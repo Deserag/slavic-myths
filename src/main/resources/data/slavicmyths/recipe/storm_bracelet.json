@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " CH",
+    "C C",
+    "HC "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "H": {
+      "item": "slavicmyths:ocean_zmey_storm_heart"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:storm_bracelet",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " F ",
+    "FPF",
+    " M "
+  ],
+  "key": {
+    "F": {
+      "item": "slavicmyths:stratim_bird_feather"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "M": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:tailwind_feather",
+    "count": 1
+  }
+}

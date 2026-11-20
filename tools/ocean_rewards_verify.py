@@ -31,7 +31,22 @@ for item in ids:
     path = resources / "models/item" / (item + ".json")
     model = json.loads(path.read_text(encoding="utf-8"))
     assert model["parent"] == "minecraft:item/generated"
-    assert model["textures"]["layer0"].startswith("minecraft:item/")
+    assert model["textures"]["layer0"] == f"slavicmyths:item/ocean519/{item}", f"Incorrect marine texture: {item}"
+    import struct, zlib
+    png_path = resources / "textures/item/ocean519" / (item + ".png")
+    png = png_path.read_bytes()
+    assert png[:8] == b"\x89PNG\r\n\x1a\n", f"Invalid PNG: {item}"
+    assert struct.unpack(">II", png[16:24]) == (16,16), f"Invalid PNG size: {item}"
+    offset, compressed = 8, b""
+    while offset < len(png):
+        n = struct.unpack(">I", png[offset:offset+4])[0]
+        label = png[offset+4:offset+8]
+        payload = png[offset+8:offset+8+n]
+        expected = struct.unpack(">I", png[offset+8+n:offset+12+n])[0]
+        assert (zlib.crc32(label+payload) & 0xffffffff) == expected, f"PNG CRC mismatch: {item}"
+        if label == b"IDAT": compressed += payload
+        offset += 12+n
+    assert len(zlib.decompress(compressed)) == 16*(1+16*4), f"Invalid PNG pixels: {item}"
 for lang in ("ru_ru", "en_us"):
     data = json.loads((resources / "lang" / (lang + ".json")).read_text(encoding="utf-8"))
     for item in ids:

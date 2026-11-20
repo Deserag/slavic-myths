@@ -119,6 +119,19 @@ public final class BuyanTrades {
         buy(offers, token, 1, coins, level);
     }
 
+    /** The existing princely seal is spent together with coins; this never mints coins. */
+    private static void princeSeal(MerchantOffers offers, int level) {
+        for (MerchantOffer offer : offers) {
+            if (offer.getBaseCostA().is(ModItems.PRINCELY_SEAL.get())
+                    && offer.getResult().is(org.slavicmyths.marine.MarineArtifacts.COMPASS.get())) return;
+        }
+        offers.add(new MerchantOffer(
+            new ItemCost(ModItems.PRINCELY_SEAL.get(), 1),
+            java.util.Optional.of(new ItemCost(ModItems.ANCIENT_COIN.get(), 8)),
+            new ItemStack(org.slavicmyths.marine.MarineArtifacts.COMPASS.get()),
+            4, xp(level), 0.05F));
+    }
+
     private static void prince(MerchantOffers o, int l) {
         switch (l) {
             case 1 -> { buy(o, Items.GOLD_INGOT, 6, 4, l); sell(o, Items.BOOK, 3, 2, l); }
@@ -133,5 +146,6 @@ public final class BuyanTrades {
         princeToken(o, MarineRewards.STRATIM_TOKEN.get(), 20, l);
         princeToken(o, MarineRewards.TSAR_PIKE_TOKEN.get(), 12, l);
         princeToken(o, MarineRewards.ZHELVA_TOKEN.get(), 22, l);
+        princeSeal(o, l);
     }
 }

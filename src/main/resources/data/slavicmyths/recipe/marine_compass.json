@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "PCP",
+    " H "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "P": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    },
+    "C": {
+      "item": "minecraft:compass"
+    },
+    "H": {
+      "item": "minecraft:heart_of_the_sea"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:marine_compass",
+    "count": 1
+  }
+}
