@@ -359,15 +359,17 @@ public final class OceanZmeyEntity extends Monster {
     @Override public void die(DamageSource source){
         release();setNoGravity(false);super.die(source);
     }
-    @Override public boolean canBreatheUnderwater(){return true;}
-    @Override protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
+    @Override public boolean canDrownInFluidType(net.neoforged.neoforge.fluids.FluidType type){
+        return type != net.neoforged.neoforge.common.NeoForgeMod.WATER_TYPE.value();
+    }
+    @Override public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
         super.addAdditionalSaveData(tag);
         tag.putInt("BiteCooldown",biteCd);tag.putInt("TailCooldown",tailCd);
         tag.putInt("GrabCooldown",grabCd);tag.putInt("StormCooldown",stormCd);
         tag.putInt("FlightCooldown",flightCd);
         if(home!=null){tag.putDouble("HomeX",home.x);tag.putDouble("HomeY",home.y);tag.putDouble("HomeZ",home.z);}
     }
-    @Override protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
         super.readAdditionalSaveData(tag);
         biteCd=tag.getInt("BiteCooldown");tailCd=tag.getInt("TailCooldown");
         grabCd=tag.getInt("GrabCooldown");stormCd=tag.getInt("StormCooldown");
