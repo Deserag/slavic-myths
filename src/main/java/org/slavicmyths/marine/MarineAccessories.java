@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -139,7 +140,7 @@ public final class MarineAccessories {
         float damage = event.getNewDamage();
         if (wears(player, "abyss_necklace") && player.isInWaterOrBubble()
                 && event.getSource().getEntity() instanceof LivingEntity attacker
-                && attacker.isInWaterOrBubble())
+                && !(attacker instanceof Player) && attacker.isInWaterOrBubble())
             damage *= .8F;
         if (wears(player, "storm_bracelet")) {
             if (event.getSource().is(DamageTypes.LIGHTNING_BOLT)) damage *= .5F;

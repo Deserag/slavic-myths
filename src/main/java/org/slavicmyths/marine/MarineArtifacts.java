@@ -78,7 +78,8 @@ public final class MarineArtifacts {
                 ServerLevel world = owner.serverLevel();
                 var closest = world.getEntitiesOfClass(LivingEntity.class,
                         owner.getBoundingBox().inflate(96),
-                        candidate -> candidate.isAlive() && boss(candidate))
+                        candidate -> candidate.isAlive() && boss(candidate)
+                            && owner.distanceToSqr(candidate) <= 96D * 96D)
                     .stream().min(Comparator.comparingDouble(owner::distanceToSqr));
                 if (closest.isPresent()) {
                     var target = closest.get();
