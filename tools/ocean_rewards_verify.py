@@ -31,7 +31,11 @@ for item in ids:
     path = resources / "models/item" / (item + ".json")
     model = json.loads(path.read_text(encoding="utf-8"))
     assert model["parent"] == "minecraft:item/generated"
-    assert model["textures"]["layer0"].startswith("minecraft:item/")
+    sprite = "slavicmyths:item/ocean_rewards/" + item
+    assert model["textures"]["layer0"] == sprite, f"Custom icon missing: {item}"
+    texture = resources / "textures/item/ocean_rewards" / (item + ".png")
+    assert texture.is_file(), f"Custom sprite missing: {item}"
+    assert texture.read_bytes().startswith(b"\\x89PNG\\r\\n\\x1a\\n"), f"Invalid PNG: {item}"
 for lang in ("ru_ru", "en_us"):
     data = json.loads((resources / "lang" / (lang + ".json")).read_text(encoding="utf-8"))
     for item in ids:
@@ -48,4 +52,17 @@ for token, price in tokens.items():
 assert "pharaohka.leader()" in source
 assert "MarineRewards.init();" in loader
 assert "princeToken(o, MarineRewards." in trade
-print("Marine rewards static checks PASS: 12 items, 2 languages, 6 trades, boss guard.")
+food = (
+    "infernal_shchi", "druzhina_roast", "onion_pie", "garlic_flatbread",
+    "infernal_mushroom_soup", "roasted_roots", "coal_plum_pie",
+    "heat_berry_jam", "mushroom_onion_pie"
+)
+kitchen = (code / "kitchen/KitchenII.java").read_text(encoding="utf-8")
+for item in food:
+    assert len([row for row in rows if row[0] == item and row[1] == "food"]) == 1, (
+        f"Restored dish absent from Food and Drinks: {item}")
+    assert ('"' + item + '"') in kitchen, f"Dish unregistered in KitchenII: {item}"
+    assert (resources / "models/item" / (item + ".json")).is_file(), (
+        f"Dish model missing: {item}")
+print("Marine rewards static checks PASS: 12 unique sprites, 2 languages, 6 trades; "
+      "9 previous dishes retained in Food and Drinks.")
