@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:item/shield_blocking",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "particle": "slavicmyths:item/marine/zhelva_shield"
+    "particle": "slavicmyths:item/marine/zhelva_shield",
+    "layer0": "slavicmyths:item/marine/zhelva_shield"
   }
 }
