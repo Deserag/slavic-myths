@@ -6746,5 +6746,9 @@
   "item.slavicmyths.rune_abyss.compatible": "Marine armor only",
   "item.slavicmyths.rune_storm": "Rune of the Storm",
   "item.slavicmyths.rune_storm.desc": "Trident melee hit: +2 magic damage and up to two chain hits; 8-second cooldown",
-  "item.slavicmyths.rune_storm.compatible": "Tridents only"
+  "item.slavicmyths.rune_storm.compatible": "Tridents only",
+  "item.slavicmyths.pharaohka_trident": "Pharaohka Trident",
+  "item.slavicmyths.pharaohka_trident.desc": "Tidal Rift: impact wave, 4 damage to up to 5 nearby enemies, 12 s cooldown. 3 rune sockets.",
+  "item.slavicmyths.zhelva_shield": "Zhelva Shield",
+  "item.slavicmyths.zhelva_shield.desc": "Shell Guard: strong blocked hits activate 3 s of 35% reduced shield wear and stronger knockback resistance; 20 s cooldown."
 }
