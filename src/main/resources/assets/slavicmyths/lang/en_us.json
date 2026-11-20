@@ -6709,5 +6709,10 @@
   "entity.slavicmyths.ocean_zmey": "Ocean Storm Zmey",
   "item.slavicmyths.ocean_zmey_spawn_egg": "Ocean Storm Zmey Spawn Egg",
   "block.slavicmyths.ocean_zmey_head": "Ocean Storm Zmey Head",
-  "item.slavicmyths.ocean_zmey_head": "Ocean Storm Zmey Head"
+  "item.slavicmyths.ocean_zmey_head": "Ocean Storm Zmey Head",
+  "entity.slavicmyths.zhelva": "Zhelva of the Stony Seafloor",
+  "item.slavicmyths.zhelva_spawn_egg": "Zhelva Spawn Egg",
+  "block.slavicmyths.zhelva_head": "Zhelva Head",
+  "item.slavicmyths.zhelva_head": "Zhelva Head",
+  "item.slavicmyths.zhelva_stone_charm": "Stony Seafloor Talisman"
 }

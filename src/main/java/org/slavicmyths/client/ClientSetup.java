@@ -44,6 +44,8 @@ public final class ClientSetup {
         bus.addListener(StratimBirdRenderer::register);
         bus.addListener(OceanZmeyRenderer::register);
         bus.addListener(OceanZmeyHeadRenderer::register);
+        bus.addListener(ZhelvaRenderer::register);
+        bus.addListener(ZhelvaTrophyRenderer::register);
         bus.addListener(StratimBirdHeadRenderer::register);
 
         bus.addListener(org.slavicmyths.losthalls.client.HallsClient::register);

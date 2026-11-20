@@ -1,0 +1,74 @@
+name: Zhelva - Java 21, ocean boss and isolated GameTests
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - ".github/workflows/ocean-final-turtle.yml"
+      - "src/main/java/org/slavicmyths/marine/Zhelva*.java"
+      - "src/main/java/org/slavicmyths/client/Zhelva*.java"
+      - "src/main/java/org/slavicmyths/SlavicMyths.java"
+      - "src/main/java/org/slavicmyths/client/ClientSetup.java"
+      - "src/main/resources/assets/slavicmyths/**/zhelva*"
+      - "src/main/resources/assets/slavicmyths/lang/*.json"
+      - "src/main/resources/data/slavicmyths/**/zhelva*.json"
+      - "src/main/resources/data/slavicmyths/**/spawn_zhelva.json"
+      - "tools/pharaohka-tests/org/slavicmyths/marine/ZhelvaGameTests.java"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: zhelva-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build-and-gametest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify egg, trophy and localized resources
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('src/main/resources')
+          files=[
+              'assets/slavicmyths/models/item/zhelva_spawn_egg.json',
+              'assets/slavicmyths/models/item/zhelva_head.json',
+              'assets/slavicmyths/models/item/zhelva_stone_charm.json',
+              'assets/slavicmyths/blockstates/zhelva_head.json',
+              'data/slavicmyths/neoforge/biome_modifier/zhelva_spawns.json',
+              'data/slavicmyths/tags/worldgen/biome/spawn_zhelva.json'
+          ]
+          for path in files:
+              with (root/path).open(encoding='utf-8') as f: json.load(f)
+          for code in ['ru_ru','en_us']:
+              data=json.loads((root/f'assets/slavicmyths/lang/{code}.json').read_text(encoding='utf-8'))
+              for key in ('entity.slavicmyths.zhelva','item.slavicmyths.zhelva_spawn_egg',
+                          'item.slavicmyths.zhelva_head','block.slavicmyths.zhelva_head',
+                          'item.slavicmyths.zhelva_stone_charm'):
+                  assert isinstance(data.get(key),str) and data[key], f'Missing {code}: {key}'
+          assert json.loads((root/files[0]).read_text())['parent']=='minecraft:item/template_spawn_egg'
+          print('Zhelva assets and both languages validated')
+          PY
+      - name: Compile production jar with Java 21
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Run the actual marine GameTest server
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PpharaohkaCheck runPharaohkaTests --no-daemon --console=plain 2>&1 | tee /tmp/zhelva-gametest.log
+          if grep -Eqi 'Failed to start the minecraft server|ModLoadingCrashException|GameTest.*failed|[0-9]+ required tests failed|ExceptionInInitializerError|Failed to create mod instance' /tmp/zhelva-gametest.log; then exit 1; fi
+          grep -Eq 'All [0-9]+ required tests passed' /tmp/zhelva-gametest.log
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: zhelva-java21-verified
+          path: build/libs/slavicmyths-*.jar
+          retention-days: 7
+          if-no-files-found: error

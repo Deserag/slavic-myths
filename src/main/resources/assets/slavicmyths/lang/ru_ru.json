@@ -6707,5 +6707,10 @@
   "entity.slavicmyths.ocean_zmey": "Змей морских бурь",
   "item.slavicmyths.ocean_zmey_spawn_egg": "Яйцо призыва Змея морских бурь",
   "block.slavicmyths.ocean_zmey_head": "Голова Змея морских бурь",
-  "item.slavicmyths.ocean_zmey_head": "Голова Змея морских бурь"
+  "item.slavicmyths.ocean_zmey_head": "Голова Змея морских бурь",
+  "entity.slavicmyths.zhelva": "Желва Каменного Дна",
+  "item.slavicmyths.zhelva_spawn_egg": "Яйцо призыва Желвы Каменного Дна",
+  "block.slavicmyths.zhelva_head": "Голова Желвы Каменного Дна",
+  "item.slavicmyths.zhelva_head": "Голова Желвы Каменного Дна",
+  "item.slavicmyths.zhelva_stone_charm": "Оберег Каменного Дна"
 }
