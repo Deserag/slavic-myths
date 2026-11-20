@@ -63,6 +63,7 @@ public final class MarineRunes {
     public static boolean supports(ItemStack item, String id) {
         if (!marine(id) || item.isEmpty()) return false;
         if (item.getItem() instanceof MarineArmor.Piece) return !id.equals("storm");
+        if (item.is(PharaohkaTrident.ITEM.get())) return true;
         return item.getItem() instanceof TridentItem && !id.equals("abyss");
     }
     public static Component description(String id) {
