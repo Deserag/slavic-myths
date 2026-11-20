@@ -277,6 +277,12 @@ public final class DeepSeaSerpentEntity extends Monster {
         }
         entityData.set(JAW,Math.max(0,jawOpen()-.11F));
         if(target==null){wander();return;}
+        if(!target.isInWaterOrBubble() && target.getY()>getY()+4){
+            getNavigation().stop();
+            setDeltaMovement(getDeltaMovement().scale(.72));
+            if(action()!=IDLE)begin(IDLE,0);
+            return;
+        }
         getLookControl().setLookAt(target,25,25);
         Vec3 to=target.getEyePosition().subtract(center());
         double d=distanceToSqr(target);
