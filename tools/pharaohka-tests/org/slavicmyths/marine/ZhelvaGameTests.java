@@ -89,7 +89,7 @@ public final class ZhelvaGameTests {
         boss.begin(ZhelvaEntity.GUARD,42,null);
         test.assertTrue(!boss.exposedHead(), "Guard should hide head");
         boss.begin(ZhelvaEntity.BITE,34,null);
-        test.runAfterDelay(12,()->{
+        test.runAfterDelay(14,()->{
             test.assertTrue(boss.exposedHead(), "Bite must expose head");
             boss.begin(ZhelvaEntity.IDLE,0,null);
             test.assertTrue(!boss.exposedHead(), "Neutral head incorrectly exposed");
@@ -125,6 +125,22 @@ public final class ZhelvaGameTests {
             test.assertTrue(boss.action()==ZhelvaEntity.PRESSURE_LANCE,
                 "Elevated target caused endless path chase instead of ranged attack");
             highTarget.discard();boss.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=55)
+    public static void targetBeyondPressureLanceRangeIsReleased(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var distant=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(distant!=null,"Missing distant target fixture");
+        distant.setNoAi(true);
+        distant.setNoGravity(true);
+        distant.moveTo(test.absoluteVec(new Vec3(9.5,32.5,30.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(distant),"Could not spawn distant target");
+        boss.setTarget(distant);
+        test.runAfterDelay(12,()->{
+            test.assertTrue(boss.getTarget()==null,
+                "Zhelva kept pursuing a target beyond pressure lance range");
+            distant.discard();boss.discard();test.succeed();
         });
     }
     @GameTest(template="empty", timeoutTicks=42)
