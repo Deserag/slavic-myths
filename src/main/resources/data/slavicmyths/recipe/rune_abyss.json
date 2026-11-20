@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:prismarine_shard"
+    },
+    {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_abyss",
+    "count": 1
+  }
+}

@@ -1,0 +1,61 @@
+name: Marine runes and consumables #524
+on:
+  push:
+    branches: [integration/ocean-updates]
+    paths:
+      - 'src/main/java/org/slavicmyths/marine/MarineRunes.java'
+      - 'src/main/java/org/slavicmyths/marine/MarineConsumables.java'
+      - 'src/main/java/org/slavicmyths/rpg/Runes.java'
+      - 'src/main/java/org/slavicmyths/rpg/RuneDefinition.java'
+      - 'src/main/java/org/slavicmyths/rpg/RuneRework.java'
+      - 'src/main/java/org/slavicmyths/SlavicMyths.java'
+      - 'src/main/resources/assets/slavicmyths/lang/**'
+      - 'src/main/resources/assets/slavicmyths/models/item/rune_*.json'
+      - 'src/main/resources/assets/slavicmyths/models/item/abyss_elixir.json'
+      - 'src/main/resources/assets/slavicmyths/models/item/storm_tincture.json'
+      - 'src/main/resources/assets/slavicmyths/models/item/tsar_pike_meat.json'
+      - 'src/main/resources/assets/slavicmyths/textures/item/marine524/**'
+      - 'src/main/resources/data/slavicmyths/recipe/rune_*.json'
+      - 'tools/marine-armor-tests/**'
+      - '.github/workflows/marine-runes-524.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check all six marine icons and translations
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, struct
+          assets=pathlib.Path('src/main/resources/assets/slavicmyths')
+          for id in ('rune_tide','rune_abyss','rune_storm','abyss_elixir','storm_tincture','tsar_pike_meat'):
+              model=json.loads((assets/'models/item'/f'{id}.json').read_text())
+              path=model['textures']['layer0']
+              assert path == f'slavicmyths:item/marine524/{id}', (id,path)
+              png=(assets/'textures/item/marine524'/f'{id}.png').read_bytes()
+              assert png[:8]==bytes.fromhex('89504e470d0a1a0a') and struct.unpack('>II',png[16:24])==(16,16), id
+              for lang in ('ru_ru','en_us'):
+                  data=json.loads((assets/'lang'/f'{lang}.json').read_text(encoding='utf8'))
+                  assert data[f'item.slavicmyths.{id}'], (lang,id)
+          for id in ('rune_tide','rune_abyss','rune_storm'):
+              recipe=json.loads((pathlib.Path('src/main/resources/data/slavicmyths/recipe')/f'{id}.json').read_text())
+              assert recipe['result']['id']=='slavicmyths:'+id
+          PY
+      - name: Java 21 clean build
+        run: chmod +x gradlew && ./gradlew clean build --no-daemon --console=plain
+      - name: Isolated NeoForge GameTests (armor and marine runes)
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PmarineArmorCheck runMarineArmorTests --no-daemon --console=plain 2>&1 | tee /tmp/marine524-tests.log
+          if grep -Eqi 'failed at |[0-9]+ required tests failed|Failed to start the minecraft server|ModLoadingCrashException' /tmp/marine524-tests.log; then exit 1; fi
+          grep -Eq 'All [0-9]+ required tests passed' /tmp/marine524-tests.log

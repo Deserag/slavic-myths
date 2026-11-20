@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:lapis_lazuli"
+    },
+    {
+      "item": "minecraft:prismarine_shard"
+    },
+    {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:rune_tide",
+    "count": 1
+  }
+}
