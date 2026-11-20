@@ -112,7 +112,7 @@ jobs:
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
       - name: Prepare virtual Minecraft display
-        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 scrot
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri mesa-utils libopenal1 scrot xdotool
       - name: Boot modded client and collect screenshot
         shell: bash
         run: |
@@ -131,7 +131,15 @@ jobs:
             if ! kill -0 "$pid" 2>/dev/null; then break; fi
             sleep 1
           done
-          if [ "$ready" = 1 ]; then sleep 8; scrot /tmp/ocean-client/screen.png || true; fi
+          if [ "$ready" = 1 ]; then
+            sleep 8
+            scrot /tmp/ocean-client/screen.png || true
+            # The first headless boot can show Minecraft's narrator/accessibility prompt.
+            # Advance it before capturing the actual main-menu renderer.
+            xdotool mousemove --sync 683 592 click 1 || true
+            sleep 7
+            scrot /tmp/ocean-client/main-menu.png || true
+          fi
           kill "$pid" 2>/dev/null || true
           wait "$pid" 2>/dev/null || true
           kill "$xpid" 2>/dev/null || true
