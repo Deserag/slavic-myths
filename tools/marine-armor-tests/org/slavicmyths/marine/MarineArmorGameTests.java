@@ -40,7 +40,8 @@ public final class MarineArmorGameTests {
     }
     @GameTest(template="empty", timeoutTicks=50)
     public static void serverBuffsRevokeAndPreserveForeignPotions(GameTestHelper t) {
-        var player = t.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var player = net.neoforged.neoforge.common.util.FakePlayerFactory.get(t.getLevel(),
+            new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(), "MarineArmor520"));
         MarineArmorEffects.applyEffects(player, true, true, true);
         var speed = player.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED);
         t.assertTrue(speed != null && speed.getAmplifier() == 3, "Speed IV was not applied on water");
