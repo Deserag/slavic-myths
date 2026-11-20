@@ -137,6 +137,29 @@ public final class ZhelvaGameTests {
             instanceof ZhelvaTrophyBlock.Tile, "3D trophy block-entity missing");
         test.succeed();
     }
+    @GameTest(template="empty", timeoutTicks=45)
+    public static void neckMeshNeverBakesZeroThicknessCuboids(GameTestHelper test) {
+        // Same section and sampling laws as the actual client ModelPart geometry.
+        // In the old model the first x=-radius was 0 high and broke resource reload.
+        int baked=0, skipped=0;
+        for (float z=-59F; z<=-31F; z+=4.2F) {
+            float radius=12.5F+3.5F*((z+59F)/28F);
+            test.assertTrue(ZhelvaGeometryProfile.neckThickness(-radius,radius)==0F,
+                "An ellipse boundary must not become a cube");
+            for (float x=-radius+2.2F; x<radius; x+=4.4F) {
+                float thickness=ZhelvaGeometryProfile.neckThickness(x,radius);
+                if (thickness<=0F) { skipped++; continue; }
+                test.assertTrue(Float.isFinite(thickness) && thickness*1.9F>0.01F,
+                    "Client mesh would contain empty or invalid neck cuboid");
+                baked++;
+            }
+        }
+        test.assertTrue(baked>=35 && baked<=65,
+            "Head/neck silhouette or cuboid budget unexpectedly changed: "+baked);
+        test.assertTrue(skipped==0,
+            "Neck samples should be in the ellipse interior, not on its boundary");
+        test.succeed();
+    }
     @GameTest(template="empty", timeoutTicks=55)
     public static void pressureCentersRemainSeparate(GameTestHelper test) {
         Vec3 center=new Vec3(9,4,9);

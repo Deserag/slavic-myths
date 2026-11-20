@@ -10,6 +10,7 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import org.slavicmyths.marine.ZhelvaEntity;
+import org.slavicmyths.marine.ZhelvaGeometryProfile;
 
 /**
  * Actual baked voxel geometry, not a concept image or scaled vanilla turtle.
@@ -43,7 +44,8 @@ public final class ZhelvaModel extends EntityModel<ZhelvaEntity> {
             }
         }
         void cube(int tint, float x, float y, float z, float w, float h, float d) {
-            if (w <= 0 || h <= 0 || d <= 0) throw new IllegalArgumentException("Empty cuboid");
+            if (!Float.isFinite(w) || !Float.isFinite(h) || !Float.isFinite(d) || w <= 0 || h <= 0 || d <= 0)
+                throw new IllegalArgumentException("Invalid Zhelva cuboid: "+w+" x "+h+" x "+d);
             ModelPart colored = colors.computeIfAbsent(tint, k -> geometry.part(128, 128, 0, 0));
             geometry.box(colored, x - this.x, y - this.y, z - this.z, w, h, d);
             cuboids++;
@@ -144,10 +146,11 @@ public final class ZhelvaModel extends EntityModel<ZhelvaEntity> {
         for (float z=-59F; z<=-31F; z+=4.2F) {
             float t=(z+59F)/28F;
             float radius=12.5F+3.5F*t;
-            for(float x=-radius; x<=radius; x+=4.4F) {
-                float ellipse=1F-(x*x)/(radius*radius);
-                if(ellipse<0) continue;
-                float thickness=9F*(float)Math.sqrt(ellipse);
+            // Sample the center of each neck cell. The ellipse edge has zero
+            // thickness and must never be baked into an empty ModelPart cube.
+            for(float x=-radius+2.2F; x<radius; x+=4.4F) {
+                float thickness=ZhelvaGeometryProfile.neckThickness(x,radius);
+                if(thickness<=0F) continue;
                 head.cube(z<-48?SKIN:NECK,x-2.2F,-28F-thickness,z,
                     4.55F,thickness*1.9F,4.6F);
             }

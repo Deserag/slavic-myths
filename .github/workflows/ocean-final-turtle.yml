@@ -54,6 +54,9 @@ jobs:
                           'item.slavicmyths.zhelva_stone_charm'):
                   assert isinstance(data.get(key),str) and data[key], f'Missing {code}: {key}'
           assert json.loads((root/files[0]).read_text())['parent']=='minecraft:item/template_spawn_egg'
+          head=json.loads((root/files[1]).read_text(encoding='utf-8'))
+          assert head['textures']['bone']=='minecraft:block/bone_block_side'
+          assert head['textures']['belly']=='minecraft:block/sandstone_top'
           print('Zhelva assets and both languages validated')
           PY
       - name: Compile production jar with Java 21
