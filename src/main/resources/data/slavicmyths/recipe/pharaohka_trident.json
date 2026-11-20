@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " SPS ",
+    "SDTDS",
+    " STS "
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "P": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "T": {
+      "item": "minecraft:trident"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:pharaohka_trident",
+    "count": 1
+  }
+}
