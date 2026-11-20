@@ -9,6 +9,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,6 +37,7 @@ public final class MarineTravelEncounters {
         if (!(event.getLevel() instanceof ServerLevel level)
                 || level.dimension() != Level.OVERWORLD
                 || level.getDifficulty() == Difficulty.PEACEFUL
+                || !level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)
                 || level.getGameTime() % CHECK_INTERVAL != 0) return;
 
         for (ServerPlayer player : level.players()) {
