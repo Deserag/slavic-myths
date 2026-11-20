@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/echo_shard"
+    "layer0": "slavicmyths:item/ocean519/ocean_zmey_victory_token"
   }
 }
