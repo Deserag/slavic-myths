@@ -133,7 +133,7 @@ public final class MarineRunes {
     @SubscribeEvent public static void dimension(PlayerEvent.PlayerChangedDimensionEvent e) {
         if (e.getEntity() instanceof ServerPlayer p) clear(p);
     }
-    /** Server-only shock wave: 2 magic damage + at most two nearby targets, every eight seconds. */
+    /** Server-only shock wave: +2 direct hit damage in Pre, up to two magic chain hits, every eight seconds. */
     static boolean discharge(ServerPlayer attacker, LivingEntity victim) {
         if (!attacker.isAlive() || !victim.isAlive() || !Abilities.canHit(attacker, victim)) return false;
         ItemStack hand = attacker.getMainHandItem();
@@ -142,7 +142,6 @@ public final class MarineRunes {
         if (attacker.getPersistentData().getLong(STORM_CD) > now) return false;
         attacker.getPersistentData().putLong(STORM_CD, now + STORM_TICKS);
         ServerLevel world = attacker.serverLevel();
-        victim.hurt(attacker.damageSources().magic(), 2F);
         int jumped = 0;
         for (LivingEntity other : world.getEntitiesOfClass(LivingEntity.class,
                 victim.getBoundingBox().inflate(2D), e -> e != victim && e != attacker && e.isAlive())) {
@@ -154,10 +153,12 @@ public final class MarineRunes {
             victim.getZ(), 15, .45, .45, .45, .08);
         return true;
     }
-    @SubscribeEvent public static void melee(LivingDamageEvent.Post e) {
+    @SubscribeEvent public static void melee(LivingDamageEvent.Pre e) {
         if (e.getNewDamage() <= 0 || !e.getSource().is(DamageTypes.PLAYER_ATTACK)
                 || !(e.getSource().getDirectEntity() instanceof ServerPlayer player)) return;
-        discharge(player, e.getEntity());
+        // Add to the original server damage calculation; a second hurt() here would be
+        // suppressed by vanilla post-hit invulnerability frames.
+        if (discharge(player, e.getEntity())) e.setNewDamage(e.getNewDamage() + 2F);
     }
     private MarineRunes() {}
 }
