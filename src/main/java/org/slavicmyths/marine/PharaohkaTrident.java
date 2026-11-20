@@ -72,8 +72,8 @@ public final class PharaohkaTrident extends TridentItem {
     @SubscribeEvent public static void impact(ProjectileImpactEvent event) {
         if (!(event.getProjectile() instanceof ThrownTrident projectile)
                 || !(projectile.getOwner() instanceof ServerPlayer owner)
-                || !(projectile.getWeaponItem() instanceof ItemStack stack)
-                || !stack.is(ITEM.get())
+                || projectile.getWeaponItem() == null
+                || !projectile.getWeaponItem().is(ITEM.get())
                 || projectile.getPersistentData().getBoolean(SPENT)) return;
         projectile.getPersistentData().putBoolean(SPENT, true);
         LivingEntity direct = event.getRayTraceResult() instanceof EntityHitResult hit
