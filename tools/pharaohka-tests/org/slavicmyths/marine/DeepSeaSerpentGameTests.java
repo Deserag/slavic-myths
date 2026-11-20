@@ -32,6 +32,23 @@ public final class DeepSeaSerpentGameTests {
         test.assertTrue(test.getLevel().addFreshEntity(boss),"Unable to spawn serpent");
         return boss;
     }
+    @GameTest(template="empty",timeoutTicks=65)
+    public static void airborneTargetDoesNotCauseWaterPursuit(GameTestHelper test){
+        tank(test);
+        DeepSeaSerpentEntity boss=spawn(test,8,3,8);
+        var target=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(target!=null,"Missing elevated target");
+        target.setNoAi(true);
+        target.setNoGravity(true);
+        target.moveTo(test.absoluteVec(new Vec3(8.5,17.5,12.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(target),"Elevated target spawn failed");
+        boss.setTarget(target);
+        test.runAfterDelay(35,()->{
+            test.assertTrue(boss.getNavigation().isDone(),
+                "Serpent still navigates toward an unreachable airborne target");
+            target.discard();boss.discard();test.succeed();
+        });
+    }
     @GameTest(template="empty",timeoutTicks=40)
     public static void registrationBalanceAndReload(GameTestHelper test){
         tank(test);
