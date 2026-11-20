@@ -1261,3 +1261,6 @@ rune_storm	magic	marine_runes
 abyss_elixir	magic	consumables
 storm_tincture	magic	consumables
 tsar_pike_meat	food	seafood
+
+pharaohka_trident	weapons	legendary_ocean
+zhelva_shield	weapons	legendary_ocean
