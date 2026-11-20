@@ -340,7 +340,7 @@ public final class ZhelvaEntity extends Monster {
         if (state == BITE && ticks == 21)
             impact(position().add(forward().scale(3.6)).add(0, 1.4, 0), 3.4, 2.9, 16F, -.2, 1);
         if ((state == SWEEP_LEFT || state == SWEEP_RIGHT) && ticks == 25)
-            impact(position().add(0, 1, 0), 5.4, 2.6, 13F, .0, state == SWEEP_LEFT ? 2 : 0);
+            impact(position().add(0, 1, 0), 5.4, 2.6, 13F, .0, state == SWEEP_LEFT ? 0 : 2);
         if (state == PRESSURE_RING && ticks == 32) waveImpact();
         if (state == WHIRLPOOL && ticks == 36) {
             Vec3 at = position();

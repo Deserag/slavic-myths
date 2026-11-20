@@ -115,6 +115,175 @@ public final class ZhelvaGameTests {
             victim.discard();boss.discard();test.succeed();
         });
     }
+    @GameTest(template="empty", timeoutTicks=75)
+    public static void pressureRingDamagesOnlyAfterWarning(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing wave victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(17.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Wave victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.PRESSURE_RING,48,null);
+        test.runAfterDelay(20,()->{
+            test.assertTrue(victim.getHealth()==before,"Pressure ring hit before impact");
+            test.runAfterDelay(17,()->{
+                test.assertTrue(victim.getHealth()<before || !victim.isAlive(),
+                    "Pressure ring missed a target inside its warned band");
+                victim.discard();boss.discard();test.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void leftFlipperDoesNotHitRightSide(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing right-side victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(5.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Right-side victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.SWEEP_LEFT,38,null);
+        test.runAfterDelay(31,()->{
+            test.assertTrue(victim.getHealth()==before,
+                "Left flipper damaged the opposite side");
+            victim.discard();boss.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void leftFlipperHitsWarnedSide(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing left-side victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(13.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Left-side victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.SWEEP_LEFT,38,null);
+        test.runAfterDelay(31,()->{
+            test.assertTrue(victim.getHealth()<before || !victim.isAlive(),
+                "Left flipper missed a target on the warned side");
+            victim.discard();boss.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void rightFlipperHitsOnlyWarnedSide(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var right=EntityType.ZOMBIE.create(test.getLevel());
+        var left=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(right!=null && left!=null,"Missing flipper victims");
+        right.setNoAi(true);left.setNoAi(true);
+        right.moveTo(test.absoluteVec(new Vec3(5.5,4.5,9.5)));
+        left.moveTo(test.absoluteVec(new Vec3(13.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(right),"Right victim spawn failed");
+        test.assertTrue(test.getLevel().addFreshEntity(left),"Left victim spawn failed");
+        float rightBefore=right.getHealth(), leftBefore=left.getHealth();
+        boss.begin(ZhelvaEntity.SWEEP_RIGHT,38,null);
+        test.runAfterDelay(31,()->{
+            test.assertTrue(right.getHealth()<rightBefore || !right.isAlive(),
+                "Right flipper missed the warned side");
+            test.assertTrue(left.getHealth()==leftBefore,
+                "Right flipper damaged the opposite side");
+            right.discard();left.discard();boss.discard();test.succeed();
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void pressureLanceCanBeDodged(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing lance victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(12.5,4.5,12.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Lance victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.PRESSURE_LANCE,44,
+            test.absoluteVec(new Vec3(12.5,4.5,12.5)));
+        test.runAfterDelay(17,()->{
+            test.assertTrue(victim.getHealth()==before,"Lance hit before warning ended");
+            victim.moveTo(test.absoluteVec(new Vec3(16.5,4.5,12.5)));
+            test.runAfterDelay(19,()->{
+                test.assertTrue(victim.getHealth()==before,
+                    "Lance hit after target left the warned area");
+                victim.discard();boss.discard();test.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=70)
+    public static void pressureLanceHitsLockedAirborneArea(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing airborne lance victim");
+        victim.setNoAi(true);victim.setNoGravity(true);
+        victim.moveTo(test.absoluteVec(new Vec3(12.5,12.5,12.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Airborne victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.PRESSURE_LANCE,44,
+            test.absoluteVec(new Vec3(12.5,12.5,12.5)));
+        test.runAfterDelay(17,()->{
+            test.assertTrue(victim.getHealth()==before,"Lance hit before its warning");
+            test.runAfterDelay(19,()->{
+                test.assertTrue(victim.getHealth()<before || !victim.isAlive(),
+                    "Lance missed the locked airborne area");
+                victim.discard();boss.discard();test.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void shellSlamHitsAfterPhaseThreeWarning(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        boss.setHealth(120F);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing shell victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(12.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Shell victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.SHELL_SLAM,56,null);
+        test.runAfterDelay(27,()->{
+            test.assertTrue(victim.getHealth()==before,"Shell slam hit before impact");
+            test.runAfterDelay(20,()->{
+                test.assertTrue(victim.getHealth()<before || !victim.isAlive(),
+                    "Phase III shell slam missed a nearby target");
+                victim.discard();boss.discard();test.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=75)
+    public static void siltBurstHitsLockedAreaAfterWarning(GameTestHelper test) {
+        ZhelvaEntity boss=spawn(test);
+        boss.setHealth(300F);
+        var victim=EntityType.ZOMBIE.create(test.getLevel());
+        test.assertTrue(victim!=null,"Missing silt victim");
+        victim.setNoAi(true);
+        victim.moveTo(test.absoluteVec(new Vec3(12.5,4.5,12.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(victim),"Silt victim spawn failed");
+        float before=victim.getHealth();
+        boss.begin(ZhelvaEntity.SILT,53,test.absoluteVec(new Vec3(12.5,4.5,12.5)));
+        test.runAfterDelay(24,()->{
+            test.assertTrue(victim.getHealth()==before,"Silt hit before warning ended");
+            test.runAfterDelay(18,()->{
+                test.assertTrue(victim.getHealth()<before || !victim.isAlive(),
+                    "Silt missed the locked warned area");
+                victim.discard();boss.discard();test.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty", timeoutTicks=125)
+    public static void idleBossesStayInArenaWithoutPlayers(GameTestHelper test) {
+        ZhelvaEntity first=spawn(test);
+        ZhelvaEntity second=ZhelvaContent.BOSS.get().create(test.getLevel());
+        test.assertTrue(second!=null,"Second Zhelva registration missing");
+        second.moveTo(test.absoluteVec(new Vec3(13.5,4.5,9.5)));
+        test.assertTrue(test.getLevel().addFreshEntity(second),"Second Zhelva spawn failed");
+        test.runAfterDelay(95,()->{
+            test.assertTrue(first.isAlive() && second.isAlive(),
+                "Idle bosses died or stalled during simultaneous server ticks");
+            test.assertTrue(first.distanceToSqr(test.absoluteVec(new Vec3(9.5,4.5,9.5)))<20*20
+                && second.distanceToSqr(test.absoluteVec(new Vec3(13.5,4.5,9.5)))<20*20,
+                "Idle Zhelva left its arena without a target");
+            first.discard();second.discard();test.succeed();
+        });
+    }
     @GameTest(template="empty", timeoutTicks=45)
     public static void guardAndVulnerableHeadWindows(GameTestHelper test) {
         ZhelvaEntity boss=spawn(test);
