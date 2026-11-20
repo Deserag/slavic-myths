@@ -6750,5 +6750,11 @@
   "item.slavicmyths.pharaohka_trident": "Pharaohka Trident",
   "item.slavicmyths.pharaohka_trident.desc": "Tidal Rift: impact wave, 4 damage to up to 5 nearby enemies, 12 s cooldown. 3 rune sockets.",
   "item.slavicmyths.zhelva_shield": "Zhelva Shield",
-  "item.slavicmyths.zhelva_shield.desc": "Shell Guard: strong blocked hits activate 3 s of 35% reduced shield wear and stronger knockback resistance; 20 s cooldown."
+  "item.slavicmyths.zhelva_shield.desc": "Shell Guard: strong blocked hits activate 3 s of 35% reduced shield wear and stronger knockback resistance; 20 s cooldown.",
+  "item.slavicmyths.storm_anchor": "Storm Anchor",
+  "item.slavicmyths.storm_anchor.desc": "Pulls targets in water. 4 s cooldown.",
+  "item.slavicmyths.abyss_staff": "Staff of the Abyss",
+  "item.slavicmyths.abyss_staff.desc": "Abyss pulse ahead of the wielder. 10 s cooldown.",
+  "item.slavicmyths.storm_harpoon": "Storm Harpoon",
+  "item.slavicmyths.storm_harpoon.desc": "Extra water damage and a storm strike every 10 s."
 }

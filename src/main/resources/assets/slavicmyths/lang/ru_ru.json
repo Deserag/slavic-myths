@@ -6748,5 +6748,11 @@
   "item.slavicmyths.pharaohka_trident": "Трезубец Фараонки",
   "item.slavicmyths.pharaohka_trident.desc": "Приливный раскол: ударная волна до 5 противников, 4 урона, перезарядка 12 с; 3 слота рун.",
   "item.slavicmyths.zhelva_shield": "Щит Желвы",
-  "item.slavicmyths.zhelva_shield.desc": "Панцирный заслон: при сильном блоке 3 с защиты щита и отбрасывания, перезарядка 20 с."
+  "item.slavicmyths.zhelva_shield.desc": "Панцирный заслон: при сильном блоке 3 с защиты щита и отбрасывания, перезарядка 20 с.",
+  "item.slavicmyths.storm_anchor": "Штормовой якорь",
+  "item.slavicmyths.storm_anchor.desc": "Подтягивает цели в воде. Перезарядка 4 с.",
+  "item.slavicmyths.abyss_staff": "Посох Бездны",
+  "item.slavicmyths.abyss_staff.desc": "Волна Бездны перед игроком. Перезарядка 10 с.",
+  "item.slavicmyths.storm_harpoon": "Гарпун Бури",
+  "item.slavicmyths.storm_harpoon.desc": "Усиленный урон в воде и штормовой удар раз в 10 с."
 }

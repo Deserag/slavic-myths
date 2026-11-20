@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  P",
+    " H ",
+    "S  "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:deep_sea_serpent_scale"
+    },
+    "H": {
+      "item": "slavicmyths:pharaohka_tide_pearl"
+    },
+    "S": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:abyss_staff",
+    "count": 1
+  }
+}

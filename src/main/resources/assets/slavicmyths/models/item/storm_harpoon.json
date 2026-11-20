@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/ocean/storm_harpoon"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "throwing": 1
+      },
+      "model": "slavicmyths:item/storm_harpoon_throwing"
+    }
+  ]
+}
