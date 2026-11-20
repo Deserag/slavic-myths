@@ -35,7 +35,7 @@ for item in ids:
     assert model["textures"]["layer0"] == sprite, f"Custom icon missing: {item}"
     texture = resources / "textures/item/ocean_rewards" / (item + ".png")
     assert texture.is_file(), f"Custom sprite missing: {item}"
-    assert texture.read_bytes().startswith(b"\\x89PNG\\r\\n\\x1a\\n"), f"Invalid PNG: {item}"
+    assert texture.read_bytes().startswith(bytes([0x89, 80, 78, 71, 13, 10, 26, 10])), f"Invalid PNG: {item}"
 for lang in ("ru_ru", "en_us"):
     data = json.loads((resources / "lang" / (lang + ".json")).read_text(encoding="utf-8"))
     for item in ids:
