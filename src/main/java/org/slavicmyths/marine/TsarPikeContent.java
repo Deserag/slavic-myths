@@ -77,10 +77,12 @@ public final class TsarPikeContent {
                                 return false;
                         }
                 // Natural generation must not accumulate multiple persistent bosses in one waterway.
-                if (reason == MobSpawnType.NATURAL
-                    && !world.getLevel().getEntitiesOfClass(TsarPikeEntity.class,
+                if (reason == MobSpawnType.NATURAL) {
+                    if (!world.getLevel().getEntitiesOfClass(TsarPikeEntity.class,
                         new net.minecraft.world.phys.AABB(pos).inflate(96)).isEmpty()) return false;
-                return random.nextInt(8) == 0;
+                    return random.nextInt(8) == 0;
+                }
+                return true;
             }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 
