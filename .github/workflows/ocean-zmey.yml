@@ -16,6 +16,10 @@ on:
       - "tools/pharaohka-tests/org/slavicmyths/marine/OceanZmeyGameTests.java"
   workflow_dispatch:
 
+concurrency:
+  group: ocean-zmey-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 

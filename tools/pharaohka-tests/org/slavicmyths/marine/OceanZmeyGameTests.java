@@ -37,11 +37,14 @@ public final class OceanZmeyGameTests {
     }
     @GameTest(template="empty",timeoutTicks=60)
     public static void trunkRadiusAndTailTaper(GameTestHelper test){
-        test.assertTrue(OceanZmeyEntity.radius(0) >= 2.6F,"Trunk is too thin");
-        test.assertTrue(OceanZmeyEntity.radius(.7F) >= 2.4F,"Body shrinks too early");
-        test.assertTrue(OceanZmeyEntity.radius(.8F)>OceanZmeyEntity.radius(.95F),
-            "Tail must taper gradually");
-        test.assertTrue(OceanZmeyEntity.radius(1F)<.3F,"Tip must be narrow");
+        test.assertTrue(OceanZmeyEntity.radius(0)>1.4F,"Neck must join the head");
+        test.assertTrue(OceanZmeyEntity.radius(.15F)>OceanZmeyEntity.radius(0),
+            "Shoulders must flare behind the head");
+        test.assertTrue(OceanZmeyEntity.radius(.4F)>OceanZmeyEntity.radius(.7F),
+            "Tail should start tapering before the last quarter");
+        test.assertTrue(OceanZmeyEntity.radius(.7F)>OceanZmeyEntity.radius(.9F),
+            "Tail must taper through its length");
+        test.assertTrue(OceanZmeyEntity.radius(1F)<.2F,"Tip must be narrow");
         test.succeed();
     }
     @GameTest(template="empty",timeoutTicks=60)

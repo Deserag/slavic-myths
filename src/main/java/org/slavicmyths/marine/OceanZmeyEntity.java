@@ -39,11 +39,14 @@ public final class OceanZmeyEntity extends Monster {
         SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> JAW=
         SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Boolean> AIRBORNE=
+        SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.BOOLEAN);
     private final ServerBossEvent bar=new ServerBossEvent(
         Component.translatableWithFallback("entity.slavicmyths.ocean_zmey","Змей морских бурь"),
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> hit=new HashSet<>();
-    private int biteCd=35,tailCd=110,grabCd=180,stormCd=260,flightCd=420,phaseTicks;
+    private int biteCd=20,tailCd=85,grabCd=135,stormCd=190,flightCd=200,phaseTicks;
+    private int airborneTicks;
     private UUID grabbed;
     private int holdTicks;
     private Vec3 home;
@@ -54,9 +57,10 @@ public final class OceanZmeyEntity extends Monster {
 
     public static float radius(float fraction) {
         float t=Mth.clamp(fraction,0F,1F);
-        // Keep the trunk massive and almost uniform for 75% of its length.
-        return t<.75F ? 2.65F-.20F*t/.75F
-            : Mth.lerp((t-.75F)/.25F,2.45F,.22F);
+        if(t<.12F)return Mth.lerp(t/.12F,1.5F,2.06F);
+        if(t<.33F)return Mth.lerp((t-.12F)/.21F,2.06F,1.88F);
+        if(t<.61F)return Mth.lerp((t-.33F)/.28F,1.88F,.98F);
+        return Mth.lerp((t-.61F)/.39F,.98F,.09F);
     }
     public static final class Segment extends net.neoforged.neoforge.entity.PartEntity<OceanZmeyEntity> {
         private final float width,height;
@@ -83,6 +87,12 @@ public final class OceanZmeyEntity extends Monster {
 
     public OceanZmeyEntity(EntityType<? extends OceanZmeyEntity> type,Level level){
         super(type,level);xpReward=170;
+        if(getAttribute(Attributes.MAX_HEALTH)!=null){
+            getAttribute(Attributes.MAX_HEALTH).setBaseValue(1500);
+            setHealth(1500);
+        }
+        if(getAttribute(Attributes.ATTACK_DAMAGE)!=null)
+            getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(26);
         for(int i=0;i<parts.length;i++){
             float r=radius(i/(float)SEGMENTS);
             parts[i]=new Segment(this,Math.max(.55F,r*2),Math.max(.55F,r*1.65F));
@@ -98,6 +108,7 @@ public final class OceanZmeyEntity extends Monster {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder){
         super.defineSynchedData(builder);
         builder.define(ACTION,IDLE);builder.define(START,0);builder.define(JAW,0F);
+        builder.define(AIRBORNE,false);
     }
     @Override protected void registerGoals(){}
     @Override public boolean removeWhenFarAway(double d){return false;}
@@ -108,6 +119,7 @@ public final class OceanZmeyEntity extends Monster {
     public int action(){return entityData.get(ACTION);}
     public int actionTicks(){return Math.max(0,(int)level().getGameTime()-entityData.get(START));}
     public float jawOpen(){return entityData.get(JAW);}
+    public boolean airborne(){return entityData.get(AIRBORNE);}
     private void begin(int next,int ticks){
         entityData.set(ACTION,next);
         entityData.set(START,(int)level().getGameTime());
@@ -123,50 +135,55 @@ public final class OceanZmeyEntity extends Monster {
     }
     private Vec3 headPosition(){return position().add(forward().scale(3.0)).add(0,1.8,0);}
     private void findTarget(){
-        if(tickCount%15!=0)return;
+        if(tickCount%12!=0)return;
         LivingEntity previous=getTarget();
-        if(previous!=null && (!attackable(previous)||distanceToSqr(previous)>70*70))setTarget(null);
-        LivingEntity closest=null;
-        double distance=64*64;
-        // A nearby player always outranks passive ocean fauna.
+        if(previous!=null&&(!attackable(previous)||distanceToSqr(previous)>80*80))
+            setTarget(null);
+        Player nearest=null;double nearestDistance=64*64;
+        // Track survival players in the air, not just targets submerged in water.
         for(Player player:level().getEntitiesOfClass(Player.class,
-            getBoundingBox().inflate(64),this::attackable)){
-            double d=distanceToSqr(player);
-            if(d<distance && (player.isInWaterOrBubble()||d<22*22)
-                && hasLineOfSight(player)){
-                closest=player;
-                distance=d;
+            getBoundingBox().inflate(64,48,64),this::attackable)){
+            double distance=distanceToSqr(player);
+            if(distance<nearestDistance&&(hasLineOfSight(player)||distance<14*14)){
+                nearest=player;nearestDistance=distance;
             }
         }
-        if(closest==null){
-            for(LivingEntity e:level().getEntitiesOfClass(LivingEntity.class,
-                getBoundingBox().inflate(64),this::attackable)){
-                if(e instanceof OceanZmeyEntity || e instanceof Player)continue;
-                double d=distanceToSqr(e);
-                if(d<distance && (e.isInWaterOrBubble()||d<22*22)
-                    && hasLineOfSight(e)){
-                    closest=e;
-                    distance=d;
-                }
-            }
+        if(nearest!=null){setTarget(nearest);return;}
+        if(previous instanceof Player&&attackable(previous))return;
+        LivingEntity closest=null;double distance=48*48;
+        for(LivingEntity mob:level().getEntitiesOfClass(LivingEntity.class,
+            getBoundingBox().inflate(48,20,48),this::attackable)){
+            if(mob instanceof Player||mob instanceof OceanZmeyEntity)continue;
+            double d=distanceToSqr(mob);
+            if(d<distance&&(mob.isInWaterOrBubble()||d<14*14)
+                &&(hasLineOfSight(mob)||d<10*10)){closest=mob;distance=d;}
         }
         if(closest!=null)setTarget(closest);
     }
+    private void faceTarget(LivingEntity target){
+        Vec3 direction=target.position().subtract(position());
+        if(direction.horizontalDistanceSqr()<.0001)return;
+        float goal=(float)(Mth.atan2(-direction.x,direction.z)*Mth.RAD_TO_DEG);
+        setYRot(getYRot()+Mth.clamp(Mth.wrapDegrees(goal-getYRot()),-15F,15F));
+        setYHeadRot(getYRot());setYBodyRot(getYRot());
+    }
     private void moveToward(Vec3 destination,double speed){
-        Vec3 d=destination.subtract(position());
-        if(d.lengthSqr()<.01)return;
-        Vec3 intended=d.normalize().scale(speed);
-        Vec3 blended=getDeltaMovement().scale(.76).add(intended.scale(.24));
-        if(action()==TAKEOFF || action()==FLIGHT || action()==LAND){
-            if(!clearFlight(blended))return;
+        Vec3 delta=destination.subtract(position());
+        if(delta.lengthSqr()<.01)return;
+        float goal=(float)(Mth.atan2(-delta.x,delta.z)*Mth.RAD_TO_DEG);
+        setYRot(getYRot()+Mth.clamp(Mth.wrapDegrees(goal-getYRot()),-13F,13F));
+        setYHeadRot(getYRot());setYBodyRot(getYRot());
+        double inertia=delta.lengthSqr()<8*8?.48:.70;
+        Vec3 motion=getDeltaMovement().scale(inertia)
+            .add(delta.normalize().scale(speed*(1-inertia)));
+        if(airborne()&&!clearFlight(motion)){
+            setDeltaMovement(getDeltaMovement().scale(.35));return;
         }
-        BlockPos next=BlockPos.containing(position().add(blended.scale(3)));
+        BlockPos next=BlockPos.containing(position().add(motion.scale(3)));
         if(!level().hasChunkAt(next))return;
         if(!level().getBlockState(next).getCollisionShape(level(),next).isEmpty())
-            blended=new Vec3(-blended.z,.13,blended.x).scale(.6);
-        setDeltaMovement(blended);hasImpulse=true;
-        setYRot((float)(Mth.atan2(-blended.x,blended.z)*Mth.RAD_TO_DEG));
-        setYBodyRot(getYRot());
+            motion=new Vec3(-motion.z,.1,motion.x).scale(.45);
+        setDeltaMovement(motion);hasImpulse=true;
     }
     private boolean clearFlight(Vec3 velocity){
         if(!level().noCollision(this,getBoundingBox().move(velocity).inflate(.25)))return false;
@@ -286,69 +303,83 @@ public final class OceanZmeyEntity extends Monster {
         if(level().isClientSide)return;
         if(level().getDifficulty()==Difficulty.PEACEFUL){discard();return;}
         if(home==null)home=position();
-        bar.setProgress(getHealth()/getMaxHealth());
-        findTarget();
+        bar.setProgress(getHealth()/getMaxHealth());findTarget();
         if(biteCd>0)biteCd--;if(tailCd>0)tailCd--;
         if(grabCd>0)grabCd--;if(stormCd>0)stormCd--;if(flightCd>0)flightCd--;
-        if(!isInWaterOrBubble() && action()!=FLIGHT && action()!=TAKEOFF && action()!=LAND){
+        int state=action(),ticks=actionTicks();
+        LivingEntity target=getTarget();
+        if(target!=null&&state!=LAND)faceTarget(target);
+        if(!isInWaterOrBubble()&&!airborne()&&state!=LAND){
             if(++dryTicks>100)moveToward(home,.16);
         }else dryTicks=0;
-        int state=action(),ticks=actionTicks();
+        if(airborne()&&state!=LAND){
+            setNoGravity(true);
+            if(state!=TAKEOFF&&--airborneTicks<=0){
+                if(state==GRAB)release();
+                begin(LAND,48);state=LAND;ticks=0;
+            }
+        }
         entityData.set(JAW,(state==BITE||state==GRAB)
-            ? Mth.sin(Mth.PI*Mth.clamp(ticks/(state==BITE?26F:40F),0,1)) : 0F);
-        LivingEntity target=getTarget();
-        if(state==BITE && ticks==17)damageArc(4.6,.1,26F,false);
-        if(state==TAIL && ticks==24)damageArc(8,-.45,34F,true);
-        if(state==GRAB && ticks==19)doGrab();
-        if(state==GRAB && grabbed!=null){
+            ?Mth.sin(Mth.PI*Mth.clamp(ticks/(state==BITE?26F:40F),0,1)):0F);
+        if(state==BITE&&ticks==17)damageArc(6.2,-.1F,30F,false);
+        if(state==TAIL&&ticks==24)damageArc(9,-.45F,38F,true);
+        if(state==GRAB&&ticks==19)doGrab();
+        if(state==GRAB&&grabbed!=null){
             LivingEntity v=victim();
             if(v==null)release();
-            else {
+            else{
                 Vec3 mouth=headPosition();
                 v.teleportTo(mouth.x,mouth.y-.7,mouth.z);
                 v.setDeltaMovement(Vec3.ZERO);
                 if(--holdTicks<=0){v.hurt(damageSources().mobAttack(this),18);release();}
             }
         }
-        if(state==STORM && ticks>=18 && ticks<=90 && ticks%5==0)storm();
+        if(state==STORM&&ticks>=18&&ticks<=90&&ticks%5==0)storm();
         if(state==TAKEOFF){
-            setNoGravity(true);
-            moveToward(position().add(0,8,0),.30);
+            setNoGravity(true);moveToward(position().add(0,8,0),.30);
         }
         if(state==FLIGHT){
             setNoGravity(true);
-            if(target!=null)moveToward(target.position().add(0,8,0),.36);
-            else moveToward(home.add(0,9,0),.3);
-            if(ticks%18==0 && level() instanceof ServerLevel server)
-                server.sendParticles(ParticleTypes.CLOUD,getX(),getY(),getZ(),25,2,1,2,.13);
+            if(target!=null){
+                Vec3 destination=target.position().add(0,target.getBbHeight()*.45,0);
+                if(position().distanceToSqr(destination)>5*5)moveToward(destination,.36);
+                else setDeltaMovement(getDeltaMovement().scale(.60));
+            }else moveToward(home.add(0,8,0),.28);
+            if(ticks%18==0&&level() instanceof ServerLevel server)
+                server.sendParticles(ParticleTypes.CLOUD,getX(),getY(),getZ(),18,2,1,2,.11);
         }
-        if(state==LAND){
-            setNoGravity(false);
-            moveToward(home,.25);
+        if(state==LAND){setNoGravity(false);moveToward(home,.24);}
+        if(airborne()&&(state==BITE||state==GRAB)&&target!=null
+            &&distanceToSqr(target)>3.7*3.7)
+            moveToward(target.position().add(0,target.getBbHeight()*.45,0),.30);
+        if(phaseTicks>0&&--phaseTicks==0){
+            if(state==TAKEOFF)begin(FLIGHT,0);
+            else if(state==LAND){
+                entityData.set(AIRBORNE,false);begin(IDLE,0);
+            }else{
+                if(state==GRAB)release();
+                begin(airborne()?FLIGHT:IDLE,0);
+            }
         }
-        if(phaseTicks>0 && --phaseTicks==0){
-            if(state==TAKEOFF)begin(FLIGHT,135);
-            else if(state==FLIGHT)begin(LAND,45);
-            else {if(state==GRAB)release();begin(IDLE,0);}
-        }
-        if(action()!=IDLE && action()!=SWIM)return;
+        if(action()!=IDLE&&action()!=SWIM&&action()!=FLIGHT)return;
         if(target==null){
-            if(distanceToSqr(home)>20*20)moveToward(home,.17);
-            else if(isInWater())setDeltaMovement(getDeltaMovement().scale(.88));
+            if(!airborne()&&distanceToSqr(home)>20*20)moveToward(home,.17);
+            else if(!airborne()&&isInWater())setDeltaMovement(getDeltaMovement().scale(.86));
             return;
         }
-        double dist=distanceToSqr(target);
-        if(flightCd==0 && isInWater() && level().canSeeSky(blockPosition().above(3))){
-            flightCd=520;begin(TAKEOFF,28);return;
+        double distance=distanceToSqr(target);
+        if(!airborne()&&isInWater()&&level().canSeeSky(blockPosition().above(3))
+            &&(flightCd==0||(target.getY()>getY()+6&&flightCd<90))){
+            flightCd=450;airborneTicks=190;entityData.set(AIRBORNE,true);
+            begin(TAKEOFF,28);return;
         }
-        if(stormCd==0 && dist<25*25){stormCd=360;begin(STORM,105);return;}
-        if(tailCd==0 && dist<10*10 && tickCount%3==0){
-            tailCd=120;begin(TAIL,42);return;
-        }
-        if(grabCd==0 && dist<6*6){grabCd=245;begin(GRAB,55);return;}
-        if(biteCd==0 && dist<7*7){biteCd=48;begin(BITE,32);return;}
-        if(action()!=SWIM)begin(SWIM,0);
-        moveToward(target.position().add(0,target.isInWater()?0:1,0),.23);
+        if(biteCd==0&&distance<9*9){biteCd=55;begin(BITE,32);return;}
+        if(grabCd==0&&distance<7*7){grabCd=175;begin(GRAB,55);return;}
+        if(tailCd==0&&distance<11*11){tailCd=130;begin(TAIL,42);return;}
+        if(stormCd==0&&distance<23*23){stormCd=270;begin(STORM,105);return;}
+        if(distance<8*8){setDeltaMovement(getDeltaMovement().scale(.58));return;}
+        if(!airborne()&&action()!=SWIM)begin(SWIM,0);
+        if(!airborne())moveToward(target.position().add(0,target.getBbHeight()*.4,0),.29);
     }
     @Override public void startSeenByPlayer(ServerPlayer player){
         super.startSeenByPlayer(player);bar.addPlayer(player);
@@ -375,6 +406,7 @@ public final class OceanZmeyEntity extends Monster {
         grabCd=tag.getInt("GrabCooldown");stormCd=tag.getInt("StormCooldown");
         flightCd=tag.getInt("FlightCooldown");
         if(tag.contains("HomeX"))home=new Vec3(tag.getDouble("HomeX"),tag.getDouble("HomeY"),tag.getDouble("HomeZ"));
-        release();setNoGravity(false);begin(IDLE,0);
+        release();setNoGravity(false);airborneTicks=0;
+        entityData.set(AIRBORNE,false);begin(IDLE,0);
     }
 }
