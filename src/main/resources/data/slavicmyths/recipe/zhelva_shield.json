@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PPP",
+    "PSP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "slavicmyths:zhelva_shell_plate"
+    },
+    "S": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:zhelva_shield",
+    "count": 1
+  }
+}
