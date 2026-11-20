@@ -94,7 +94,8 @@ public final class MarineAccessories {
         if (!enabled) attribute.removeModifier(id);
         else if (attribute.getModifier(id) == null)
             attribute.addTransientModifier(new AttributeModifier(id, value,
-                AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                id.equals(SHELL_ARMOR) ? AttributeModifier.Operation.ADD_VALUE
+                    : AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
     static void apply(ServerPlayer player) {
