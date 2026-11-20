@@ -86,7 +86,8 @@ public final class MarineWeapons {
                         target -> target != owner && target.isAlive() && Abilities.canHit(owner, target))) {
                     Vec3 offset = target.getEyePosition().subtract(eye);
                     if (offset.lengthSqr() > 25 || offset.lengthSqr() < .01
-                            || offset.normalize().dot(direction) < .55) continue;
+                            || offset.normalize().dot(direction) < .55
+                            || !owner.hasLineOfSight(target)) continue;
                     if (target.hurt(owner.damageSources().magic(), 4F)) {
                         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 0));
                         if (++hits >= 4) break;
