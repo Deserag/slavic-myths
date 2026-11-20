@@ -6732,5 +6732,10 @@
   "item.slavicmyths.storm_leggings": "Storm Leggings",
   "item.slavicmyths.waterwalk_boots": "Waterwalker Boots",
   "item.slavicmyths.marine_armor.set": "✦ Marine Sovereign (4-piece set)",
-  "item.slavicmyths.marine_armor.bonus": "Walk on water (Shift to dive) · Speed IV on water · water breathing, night vision, swim speed and haste underwater"
+  "item.slavicmyths.marine_armor.bonus": "Walk on water (Shift to dive) · Speed IV on water · water breathing, night vision, swim speed and haste underwater",
+  "item.slavicmyths.abyss_elixir": "Abyss Elixir",
+  "item.slavicmyths.abyss_elixir.desc": "4 min water breathing and night vision",
+  "item.slavicmyths.storm_tincture": "Storm Tincture",
+  "item.slavicmyths.storm_tincture.desc": "3 min: 40% less lightning damage; ends on dimension change",
+  "item.slavicmyths.tsar_pike_meat": "Tsar Pike Meat"
 }

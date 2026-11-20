@@ -6730,5 +6730,10 @@
   "item.slavicmyths.storm_leggings": "Поножи Бури",
   "item.slavicmyths.waterwalk_boots": "Сапоги водоступа",
   "item.slavicmyths.marine_armor.set": "✦ Морской владыка (комплект 4/4)",
-  "item.slavicmyths.marine_armor.bonus": "Ходьба по воде (Shift для погружения) · Скорость IV на воде · дыхание, зрение, ускоренное плавание и добыча под водой"
+  "item.slavicmyths.marine_armor.bonus": "Ходьба по воде (Shift для погружения) · Скорость IV на воде · дыхание, зрение, ускоренное плавание и добыча под водой",
+  "item.slavicmyths.abyss_elixir": "Эликсир Бездны",
+  "item.slavicmyths.abyss_elixir.desc": "4 мин дыхания под водой и ночного зрения",
+  "item.slavicmyths.storm_tincture": "Штормовая настойка",
+  "item.slavicmyths.storm_tincture.desc": "3 мин: урон от молнии снижен на 40%; сбрасывается при смене измерения",
+  "item.slavicmyths.tsar_pike_meat": "Мясо Царя-Щуки"
 }
