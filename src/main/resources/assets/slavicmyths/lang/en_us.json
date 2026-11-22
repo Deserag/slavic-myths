@@ -6834,5 +6834,13 @@
   "tooltip.slavicmyths.morovoy.skill.fire": "Shift + LMB — Fire-Mor Burst: 12 damage, 5-block radius, 30 s cooldown.",
   "tooltip.slavicmyths.morovoy.skill.mor": "Shift + LMB — Mor Flock: up to 3 ravens, 35 s cooldown.",
   "tooltip.slavicmyths.morovoy.switch": "Shift + RMB — Switch element: Mor / Fire.",
-  "tooltip.slavicmyths.weapon.rune_slots": "Rune slots: %s / 3"
+  "tooltip.slavicmyths.weapon.rune_slots": "Rune slots: %s / 3",
+  "tooltip.slavicmyths.infernal_bow.upgraded": "Empowered Infernal Bow",
+  "tooltip.slavicmyths.infernal_bow.normal": "Infernal Bow",
+  "tooltip.slavicmyths.infernal_bow.stats.upgraded": "Base arrow damage: 14; full draw: %s ticks.",
+  "tooltip.slavicmyths.infernal_bow.stats.normal": "Base arrow damage: 11.5; full draw: %s ticks.",
+  "tooltip.slavicmyths.infernal_bow.effect.upgraded": "Passive — ignition and Slowness I for 3 s.",
+  "tooltip.slavicmyths.infernal_bow.effect.normal": "Passive — arrows ignite targets.",
+  "tooltip.slavicmyths.infernal_bow.skill.upgraded": "Shift + shot — Empowered Arrow: 17 damage and a second target, 13 s cooldown.",
+  "tooltip.slavicmyths.infernal_bow.skill.normal": "Shift + shot — Infernal Arrow: 14 damage, 10 s cooldown."
 }
