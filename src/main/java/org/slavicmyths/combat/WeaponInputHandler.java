@@ -29,5 +29,11 @@ public interface WeaponInputHandler {
      * Called exclusively on the logical server with the actual main-hand stack.
      * Validate target, cooldown and any item-specific resource costs here.
      */
+    /**
+     * Return false for a primary action that must remain vanilla (for example,
+     * an ordinary melee hit or a held right-click charge/stream).
+     */
+    default boolean intercepts(Action action) { return true; }
+
     void onWeaponAction(ServerPlayer player, ItemStack held, Action action);
 }
