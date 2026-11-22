@@ -106,8 +106,8 @@ public final class WeaponTooltips {
         String s = text.toLowerCase(java.util.Locale.ROOT);
         if (s.contains("перезаряд") || s.contains("cooldown") || s.contains("ограничен") || s.contains("requires")) return MUTED;
         if (s.contains("лечение") || s.contains("исцел") || s.contains("healing") || s.contains("regeneration") || s.contains("восстанов")) return POSITIVE;
-        if (s.contains("урон") || s.contains("damage")) return DAMAGE;
         if (s.contains("навык") || s.contains("способност") || s.contains("ability") || s.contains("пассив") || s.contains("passive")) return ABILITY;
+        // Actual damage numbers are colored by the token renderer; keep explanatory prose neutral.
         return MUTED;
     }
 
