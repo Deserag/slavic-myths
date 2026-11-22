@@ -23,6 +23,7 @@ public final class LikhoStaffItem extends SwordItem {
     }
     @Override public InteractionResultHolder<ItemStack> use(Level world,Player player,InteractionHand hand) {
         ItemStack stack=player.getItemInHand(hand);
+        if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
         if(world.isClientSide) return InteractionResultHolder.success(stack);
         Vec3 eye=player.getEyePosition(),end=eye.add(player.getLookAngle().scale(RANGE));
         var wall=world.clip(new ClipContext(eye,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,player));
