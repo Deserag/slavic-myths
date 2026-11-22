@@ -75,8 +75,10 @@ public final class WeaponTooltips {
             while (tokens.find()) {
                 if (from < tokens.start()) line.append(colored(value.substring(from, tokens.start()), color));
                 String token = tokens.group();
+                Matcher named = SKILL_NAMES.matcher(value);
+                boolean abilityName = named.find(tokens.start()) && named.start() == tokens.start() && named.end() == tokens.end();
                 int tokenColor = KEYS.matcher(token).matches() ? CONTROL
-                    : SKILL_NAMES.matcher(value).find(tokens.start()) && value.startsWith(token, tokens.start()) ? ABILITY
+                    : abilityName ? ABILITY
                     : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
                     : MUTED;
                 line.append(colored(token, tokenColor));
