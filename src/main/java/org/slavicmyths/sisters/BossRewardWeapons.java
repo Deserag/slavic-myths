@@ -140,7 +140,7 @@ public final class BossRewardWeapons {
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.shift").withStyle(net.minecraft.ChatFormatting.AQUA));
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.offhand").withStyle(net.minecraft.ChatFormatting.GRAY));
             }
-            lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(net.minecraft.ChatFormatting.GRAY));
+            lines.add(Component.translatable("tooltip.slavicmyths.weapon.rune_slots", org.slavicmyths.rpg.Runes.slots(stack)).withStyle(net.minecraft.ChatFormatting.GRAY));
         }
     }
     @SubscribeEvent public static void prepareDualHammer(AttackEntityEvent event){
