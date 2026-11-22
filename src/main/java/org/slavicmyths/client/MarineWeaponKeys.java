@@ -1,17 +1,14 @@
 package org.slavicmyths.client;
-import net.minecraft.client.*;
+import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.*;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import org.slavicmyths.marine.*;
+
+/** Existing marine cooldown text; weapon input is owned by WeaponSkillInput. */
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class MarineWeaponKeys {
- private static final KeyMapping SECONDARY=new KeyMapping("key.slavicmyths.marine_secondary",org.lwjgl.glfw.GLFW.GLFW_KEY_V,"key.categories.slavicmyths");
- @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
- public static final class Registration {@SubscribeEvent public static void register(RegisterKeyMappingsEvent event){event.register(SECONDARY);}}
- @SubscribeEvent public static void tick(ClientTickEvent.Post event){var mc=Minecraft.getInstance();while(SECONDARY.consumeClick())if(mc.player!=null&&mc.screen==null&&mc.player.getMainHandItem().is(MarineWeapons.STAFF.get()))PacketDistributor.sendToServer(new MarineWeaponControls.Secondary());}
  @SubscribeEvent public static void hud(RenderGuiEvent.Post event){
   var mc=Minecraft.getInstance();if(mc.player==null||mc.level==null||mc.screen!=null||mc.options.hideGui)return;
   var stack=mc.player.getMainHandItem();if(!MarineWeaponRules.weapon(stack))return;
