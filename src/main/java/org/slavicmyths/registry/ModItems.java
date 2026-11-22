@@ -161,7 +161,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> CARVED_STAFF = ITEMS.register("carved_staff", () -> new SwordItem(Tiers.WOOD, properties().attributes(SwordItem.createAttributes(Tiers.WOOD, 2, -2.8F))));
     public static final DeferredHolder<Item, Item> STORM_STAFF = ITEMS.register("storm_staff", () -> new org.slavicmyths.item.StormStaffItem(properties().stacksTo(1).durability(240).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CLUB = ITEMS.register("club", () -> new org.slavicmyths.item.ClubItem(properties()));
-    public static final DeferredHolder<Item, Item> BATTLE_AXE = ITEMS.register("battle_axe", () -> new AxeItem(Tiers.IRON, properties().attributes(AxeItem.createAttributes(Tiers.IRON, 7.0F, -3.3F))));
+    public static final DeferredHolder<Item, Item> BATTLE_AXE = ITEMS.register("battle_axe", () -> new AxeItem(Tiers.IRON, properties().attributes(AxeItem.createAttributes(Tiers.IRON, 8.0F, -3.3F))));
     public static final DeferredHolder<Item, Item> SPEAR = ITEMS.register("spear", () -> new org.slavicmyths.item.SpearItem(Tiers.STONE, properties()));
     public static final DeferredHolder<Item, Item> SILVER_SPEAR = ITEMS.register("silver_spear", () -> new org.slavicmyths.item.SpearItem(ModGear.SILVER, properties()));
     public static final DeferredHolder<Item, Item> RITUAL_CHARCOAL = ITEMS.register("ritual_charcoal", () -> new Item(properties()));
@@ -175,10 +175,10 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> TRAVELER_CHARM = ITEMS.register("traveler_charm", () -> new org.slavicmyths.item.SimpleCharmItem("traveler_charm", properties()));
     public static final DeferredHolder<Item, Item> RETAINER_SHIELD = ITEMS.register("retainer_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(280)));
     public static final DeferredHolder<Item, Item> PERUNITE_SHIELD = ITEMS.register("perunite_shield", () -> new org.slavicmyths.item.MythShieldItem(properties().durability(420).rarity(Rarity.UNCOMMON)));
-    public static final DeferredHolder<Item, Item> THUNDER_SPEAR = ITEMS.register("thunder_spear", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 4, -2.9F, 0.18, properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> THUNDER_SPEAR = ITEMS.register("thunder_spear", () -> new org.slavicmyths.item.HeavyWeaponItem(ModGear.PERUNITE, 6, -2.9F, 0.18, properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> MACE = ITEMS.register("mace", () -> new org.slavicmyths.combat.MaceItem(Tiers.IRON, 8, .9F, .35F, .45F, properties()));
     public static final DeferredHolder<Item, Item> PERUNITE_MACE = ITEMS.register("perunite_mace", () -> new org.slavicmyths.combat.MaceItem(ModGear.PERUNITE, 11.5F, .8F, .4F, .4F, properties().rarity(Rarity.RARE)));
-    public static final DeferredHolder<Item, Item> BERDYSH = ITEMS.register("berdysh", () -> new org.slavicmyths.item.HeavyWeaponItem(Tiers.IRON, 6, -3.3F, 0, properties()));
+    public static final DeferredHolder<Item, Item> BERDYSH = ITEMS.register("berdysh", () -> new org.slavicmyths.item.HeavyWeaponItem(Tiers.IRON, 8, -3.3F, 0, properties()));
     public static final DeferredHolder<Item, Item> WEAPON_WRAP = ITEMS.register("weapon_wrap", () -> new Item(properties()));
     public static final DeferredHolder<Item, Item> SILVER_FITTING = ITEMS.register("silver_fitting", () -> new Item(properties()));
 
