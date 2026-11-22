@@ -21,6 +21,8 @@ import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
+import org.slavicmyths.combat.WeaponInputHandler;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -31,7 +33,7 @@ import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 public final class BossRewardWeapons {
     private static final String AOE="SlavicLomeyaAreaStrike",DUAL="SlavicLomeyaDualStrike",READY="SlavicLomeyaDualReady",READY_TICK="SlavicLomeyaDualReadyTick",MARK="SlavicNeveyaMarkedUntil";
 
-    public static final class Weapon extends SwordItem {
+    public static final class Weapon extends SwordItem implements WeaponInputHandler {
         private final boolean scythe;
         public Weapon(boolean isScythe){
             super(Tiers.NETHERITE,new Item.Properties().stacksTo(1).durability(isScythe?1900:1650).rarity(Rarity.EPIC)
@@ -66,17 +68,27 @@ public final class BossRewardWeapons {
             }
             return super.hurtEnemy(stack,target,attacker);
         }
+        @Override public boolean intercepts(Action action, HitResult.Type target) {
+            // Standard melee stays vanilla. Neveya's charge-and-release RMB
+            // also stays vanilla; only Lomeya's immediate area cast is routed.
+            return !scythe && (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK);
+        }
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, Action action) {
+            if (scythe || held != player.getMainHandItem() || !player.isAlive()
+                    || player.isSpectator() || player.getCooldowns().isOnCooldown(this)) return;
+            if (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK) {
+                cast(player.serverLevel(), player, held, action == Action.SHIFT_RIGHT_CLICK);
+            }
+        }
         @Override public int getUseDuration(ItemStack stack,LivingEntity user){return scythe?72000:0;}
         @Override public UseAnim getUseAnimation(ItemStack stack){return scythe?UseAnim.SPEAR:UseAnim.NONE;}
         @Override public InteractionResultHolder<ItemStack> use(Level level,Player user,InteractionHand hand){
             ItemStack stack=user.getItemInHand(hand);
-            if(hand!=InteractionHand.MAIN_HAND||user.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(stack);
-            if(scythe){
-                user.startUsingItem(hand);
-                return InteractionResultHolder.consume(stack);
-            }
-            if(level instanceof ServerLevel world)cast(world,user,stack,user.isShiftKeyDown());
-            return InteractionResultHolder.sidedSuccess(stack,level.isClientSide);
+            if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
+            if(!scythe)return InteractionResultHolder.pass(stack);
+            if(user.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(stack);
+            user.startUsingItem(hand);
+            return InteractionResultHolder.consume(stack);
         }
         @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining){
             if(!scythe||!(user instanceof Player player)||!(level instanceof ServerLevel world))return;
