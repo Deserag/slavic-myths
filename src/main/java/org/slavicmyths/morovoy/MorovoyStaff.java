@@ -41,7 +41,7 @@ public final class MorovoyStaff {
 
     /** All client packets are resolved against the actual equipped item, never a client-supplied stack. */
     public static void handleAction(ServerPlayer player,int action) {
-        if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator())return;
+        if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator()||player.containerMenu!=player.inventoryMenu)return;
         ItemStack held=player.getMainHandItem();
         // Shift+LMB is the only client skill packet. The equipped mode selects the effect.
         // Shift+RMB switches the mode through the item's normal use/useOn handlers.
