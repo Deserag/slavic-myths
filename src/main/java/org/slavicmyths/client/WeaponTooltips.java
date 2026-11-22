@@ -38,6 +38,7 @@ public final class WeaponTooltips {
     private static final int CONTROL = 0xFFFF55;
     private static final Pattern KEYS = Pattern.compile("(?i)(Shift\\s*\\+\\s*(?:ЛКМ|ПКМ|LMB|RMB|left.click|right.click)|(?:ЛКМ|ПКМ|LMB|RMB|right.click|left.click))");
     private static final Pattern VALUES = Pattern.compile("(?i)(\\d+(?:[.,]\\d+)?\\s*(?:урона|damage|блок(?:ов|а)?|blocks?|сек(?:унд(?:ы|у)?)?\\.?|seconds?|ticks?))");
+    private static final Pattern SKILL_NAMES = Pattern.compile("(?<=— )[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё\\s-]{2,40}(?=:)");
 
     public static boolean isWeapon(String id) { return WEAPONS.contains(id); }
     public static boolean isElderSerpentWeapon(String id) { return ELDER_SERPENT_WEAPONS.contains(id); }
@@ -69,12 +70,13 @@ public final class WeaponTooltips {
             if (!isDescription(value)) continue;
             int color = categoryColor(value);
             MutableComponent line = Component.literal("");
-            Matcher tokens = Pattern.compile(KEYS.pattern() + "|" + VALUES.pattern()).matcher(value);
+            Matcher tokens = Pattern.compile(KEYS.pattern() + "|" + SKILL_NAMES.pattern() + "|" + VALUES.pattern()).matcher(value);
             int from = 0;
             while (tokens.find()) {
                 if (from < tokens.start()) line.append(colored(value.substring(from, tokens.start()), color));
                 String token = tokens.group();
                 int tokenColor = KEYS.matcher(token).matches() ? CONTROL
+                    : SKILL_NAMES.matcher(value).find(tokens.start()) && value.startsWith(token, tokens.start()) ? ABILITY
                     : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
                     : MUTED;
                 line.append(colored(token, tokenColor));
