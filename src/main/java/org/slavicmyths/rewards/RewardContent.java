@@ -27,6 +27,7 @@ public final class RewardContent {
   register("trophy_kalin_sabre",()->new SwordItem(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,5,-2.7F)).rarity(Rarity.RARE)){
    @Override public net.minecraft.world.InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level world,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){
     ItemStack stack=player.getItemInHand(hand);
+    if(hand!=net.minecraft.world.InteractionHand.MAIN_HAND)return net.minecraft.world.InteractionResultHolder.pass(stack);
     if(player.getCooldowns().isOnCooldown(this))return net.minecraft.world.InteractionResultHolder.fail(stack);
     if(!world.isClientSide&&player instanceof net.minecraft.server.level.ServerPlayer server){player.swing(hand,true);RewardEvents.sabreWave(server);player.getCooldowns().addCooldown(this,140);if(!player.getAbilities().instabuild)stack.hurtAndBreak(2,player,net.minecraft.world.entity.LivingEntity.getSlotForHand(hand));}
     return net.minecraft.world.InteractionResultHolder.sidedSuccess(stack,world.isClientSide);
