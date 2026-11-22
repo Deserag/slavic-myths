@@ -86,7 +86,7 @@ public final class WeaponTooltips {
         }
 
         String key = "tooltip.slavicmyths.weapon." + id;
-        if (I18n.exists(key)) event.getToolTip().add(Component.translatable(key)
+        if (!id.equals("storm_staff") && I18n.exists(key)) event.getToolTip().add(Component.translatable(key)
             .withStyle(s -> s.withColor(TextColor.fromRgb(MUTED))));
     }
 
