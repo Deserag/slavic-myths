@@ -6828,5 +6828,13 @@
   "item.slavicmyths.lomeya_hammer_offhand": "Второй молот Ломеи",
   "item.slavicmyths.nine_mor_axe": "Секира Погибели",
   "item.slavicmyths.nine_mor_shield": "Щит Девяти Чешуй",
-  "item.slavicmyths.nine_mor_spear": "Копьё Девяти Пастей"
+  "item.slavicmyths.nine_mor_spear": "Копьё Девяти Пастей",
+  "tooltip.slavicmyths.morovoy.mode.fire": "Стихия: Огонь",
+  "tooltip.slavicmyths.morovoy.mode.mor": "Стихия: Мор",
+  "tooltip.slavicmyths.morovoy.bolt.fire": "ПКМ — Огненный снаряд: 14 урона, поджог 5 с.",
+  "tooltip.slavicmyths.morovoy.bolt.mor": "ПКМ — Моровый снаряд: 11 урона, Иссушение I на 4 с и Слабость I на 5 с.",
+  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + ЛКМ — Огненно-моровой удар: 12 урона, радиус 5 блоков, перезарядка 30 с.",
+  "tooltip.slavicmyths.morovoy.skill.mor": "Shift + ЛКМ — Моровая стая: до 3 воронов, перезарядка 35 с.",
+  "tooltip.slavicmyths.morovoy.switch": "Shift + ПКМ — Смена стихии: Мор / Огонь.",
+  "tooltip.slavicmyths.weapon.rune_slots": "Рунные слоты: %s / 3"
 }
