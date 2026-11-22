@@ -6833,9 +6833,9 @@
   "tooltip.slavicmyths.morovoy.mode.mor": "Стихия: Мор",
   "tooltip.slavicmyths.morovoy.bolt.fire": "ПКМ — Огненный снаряд: 14 урона, поджог 5 с.",
   "tooltip.slavicmyths.morovoy.bolt.mor": "ПКМ — Моровый снаряд: 11 урона, Иссушение I на 4 с и Слабость I на 5 с.",
-  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + ЛКМ — Огненно-моровой удар: 12 урона, радиус 5 блоков, перезарядка 30 с.",
+  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + ПКМ — Огненно-моровой удар: 20 урона, радиус 5 блоков, перезарядка 20 с.",
   "tooltip.slavicmyths.morovoy.skill.mor": "Shift + ЛКМ — Моровая стая: до 3 воронов, перезарядка 35 с.",
-  "tooltip.slavicmyths.morovoy.switch": "Shift + ПКМ — Смена стихии: Мор / Огонь.",
+  "tooltip.slavicmyths.morovoy.switch": "ЛКМ — стихийный заряд; ПКМ — смена стихии.",
   "tooltip.slavicmyths.weapon.rune_slots": "Рунные слоты: %s / 3",
   "tooltip.slavicmyths.infernal_bow.upgraded": "Усиленный адский лук",
   "tooltip.slavicmyths.infernal_bow.normal": "Адский лук",
@@ -6868,5 +6868,7 @@
   "tooltip.slavicmyths.boss_stats.anchor": "ПКМ — зацеп: 12 урона, дальность 12 блоков, откат 4 с. Shift + ПКМ — удар: 12 урона, радиус 3 блока, откат 12 с. Контроль ограничен устойчивостью цели.",
   "tooltip.slavicmyths.boss_stats.abyss": "Урон: водяной выстрел 8, откат 2 с. Водоворот: 2 урона каждые 0,5 с в течение 8 с после достижения цели; откат 25 с. Пузырь: 6 поглощения на 6 с, откат 20 с.",
   "tooltip.slavicmyths.boss_stats.pool": "Водный выпад: удержать ПКМ 0,8 с; 16 урона, дальность 3 блока, откат 6 с. Только в воде.",
-  "tooltip.slavicmyths.boss_stats.trident": "Shift + ПКМ — волна: 10 урона, дальность 8 блоков, откат 12 с. Попадание брошенным трезубцем: отдельная волна 8 урона по соседним целям."
+  "tooltip.slavicmyths.boss_stats.trident": "Shift + ПКМ — волна: 10 урона, дальность 8 блоков, откат 12 с. Попадание брошенным трезубцем: отдельная волна 8 урона по соседним целям.",
+  "tooltip.slavicmyths.morovoy.inputs": "ЛКМ — стихийный заряд; ПКМ — смена стихии.",
+  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + ЛКМ — стая воронов; Shift + ПКМ — буря."
 }

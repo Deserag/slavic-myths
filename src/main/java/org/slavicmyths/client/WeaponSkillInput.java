@@ -10,7 +10,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import org.slavicmyths.combat.WeaponSkillBindings;
 import org.slavicmyths.karachun.NightContent;
 import org.slavicmyths.karachun.NightNetwork;
-import org.slavicmyths.marine.MarineWeaponControls;
+
 import org.slavicmyths.marine.MarineWeapons;
 import org.slavicmyths.morovoy.MorovoyStaff;
 import org.slavicmyths.morozko.FrostContent;
@@ -31,14 +31,7 @@ public final class WeaponSkillInput {
         event.setSwingHand(false);
         if(held.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow) {
             PacketDistributor.sendToServer(new org.slavicmyths.gorynych.CrossbowVolley.Toggle());
-        } else if(held.is(MarineWeapons.STAFF.get())) {
-            PacketDistributor.sendToServer(new MarineWeaponControls.Secondary());
-        } else if(held.is(MorovoyStaff.STAFF.get())) {
-            PacketDistributor.sendToServer(new MythPayloads.StaffAction(1));
-        } else if(held.is(FrostContent.STAFF.get())) {
-            PacketDistributor.sendToServer(new FrostNetwork.Action(1));
-        } else if(held.is(NightContent.SCYTHE.get())) {
-            PacketDistributor.sendToServer(new NightNetwork.Action(1));
+
         }
     }
     private WeaponSkillInput() {}

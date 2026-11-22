@@ -15,8 +15,8 @@ public final class MorovoyStaffKeys {
         if(!(e.getItemStack().getItem() instanceof MorovoyStaff.Staff))return;
         boolean fire=e.getItemStack().getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
                 net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1;
-        e.getToolTip().add(Component.literal("ПКМ — магический заряд  •  Shift+ПКМ — смена стихии").withStyle(ChatFormatting.GRAY));
-        e.getToolTip().add(Component.literal(fire?"Shift+ЛКМ — огненно-моровой удар":"Shift+ЛКМ — стая воронов").withStyle(ChatFormatting.AQUA));
+        e.getToolTip().add(Component.translatable("tooltip.slavicmyths.morovoy.inputs"));
+        e.getToolTip().add(Component.translatable("tooltip.slavicmyths.morovoy.inputs.secondary"));
     }
 
     private MorovoyStaffKeys(){}

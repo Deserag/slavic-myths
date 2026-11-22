@@ -31,6 +31,20 @@ def main() -> None:
     assert len(mapped) == len(set(mapped)), "Duplicate weapon in input matrix"
     assert set(mapped) == set(ids), f"Input matrix does not cover catalog: {set(ids) ^ set(mapped)}"
 
+    if (SOURCE / "combat/WeaponInputNetwork.java").exists():
+        router=source("client/WeaponInputRouter.java")
+        network=source("combat/WeaponInputNetwork.java")
+        for token in ["event.setCanceled(true)","mc.screen != null","InteractionHand.MAIN_HAND","attackHeld","useHeld"]:require(router,token,"unified router")
+        for token in ["Action.fromId", "player.getMainHandItem()", "handler.intercepts", "weapon_input_request", "player.isAlive()", "player.isSpectator()"]:require(network,token,"server validation")
+        for relative in ["marine/MarineWeapons.java","morovoy/MorovoyStaff.java","morozko/FrostStaff.java","karachun/NightScythe.java","ninemor/NineMorNamedItems.java","sisters/BossRewardWeapons.java"]:
+            require(source(relative),"WeaponInputHandler",relative)
+            require(source(relative),"onWeaponAction",relative)
+        assert not (SOURCE / "marine/MarineWeaponControls.java").exists(),"obsolete marine payload route"
+        assert "StaffAction" not in source("network/MythPayloads.java"),"obsolete Morovoy payload route"
+        require(source("client/WeaponSkillInput.java"),"CrossbowVolley.Toggle", "crossbow retained route")
+        print("Static weapon input checks passed: 102 catalog IDs; merged four-action router and server validation; crossbow route retained")
+        return
+
     routed = {
         "abyss_staff": ("MarineWeapons.STAFF.get()", "MarineWeaponControls.Secondary()"),
         "morovoy_staff": ("MorovoyStaff.STAFF.get()", "MythPayloads.StaffAction(1)"),

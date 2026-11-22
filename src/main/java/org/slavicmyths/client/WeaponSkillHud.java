@@ -45,9 +45,10 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("harvest","S+R",NightClient.skillRemaining("HarvestReady")));
             }
             case "morovoy_staff" -> {
-                skills.add(new Skill("shot","R",tag.getLong("MorStaff25_bolt")-now));
-                skills.add(new Skill(tag.getInt("MorovoyStaffMode")==1?"fire":"raven","S+L",tag.getLong(tag.getInt("MorovoyStaffMode")==1?"MorStaff25_area":"MorStaff25_flock")-now));
-                skills.add(new Skill("mode","S+R",0));
+                skills.add(new Skill("shot","L",tag.getLong("MorStaff25_bolt")-now));
+                skills.add(new Skill("mode","R",0));
+                skills.add(new Skill("raven","S+L",tag.getLong("MorStaff25_flock")-now));
+                skills.add(new Skill("fire","S+R",tag.getLong("MorStaff25_area")-now));
             }
             case "gneteya_great_hammer" -> skills.add(new Skill("slam","S+R",-1));
             case "neveya_scythe" -> {

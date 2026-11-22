@@ -4,13 +4,12 @@ import java.util.Comparator;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,10 +20,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import org.slavicmyths.combat.WeaponInputHandler;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -36,31 +36,6 @@ public final class MorovoyStaff {
     public static final DeferredHolder<Item,Item> STAFF = ModItems.ITEMS.register("morovoy_staff", Staff::new);
     public static final DeferredHolder<Item,Item> CONDUCTOR = ModItems.ITEMS.register("morovoy_conductor", () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
         @Override public Component getName(ItemStack stack) {return Component.translatableWithFallback("item.slavicmyths.morovoy_conductor", "Моровый проводник");}
-    });
-    public static void init(){}
-
-    /** All client packets are resolved against the actual equipped item, never a client-supplied stack. */
-    public static void handleAction(ServerPlayer player,int action) {
-        if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator()||player.containerMenu!=player.inventoryMenu)return;
-        ItemStack held=player.getMainHandItem();
-        // Shift+LMB is the only client skill packet. The equipped mode selects the effect.
-        // Shift+RMB switches the mode through the item's normal use/useOn handlers.
-        if(action==1 && player.isShiftKeyDown()){
-            if(staff.mode(held)==0)staff.summon(player,held);
-            else staff.area(player,staff.aimPoint(player),held);
-        }
-    }
-
-    private static ItemAttributeModifiers weaponAttributes() {
-        return ItemAttributeModifiers.builder()
-            .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,6,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
-            .add(Attributes.ATTACK_SPEED,new AttributeModifier(Item.BASE_ATTACK_SPEED_ID,-2.4,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
-            .build();
-    }
-
-    public static final class Staff extends Item {
-        public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
-        @Override public Component getName(ItemStack stack){return Component.translatableWithFallback("item.slavicmyths.morovoy_staff", "Посох Мора");}
         @Override public void inventoryTick(ItemStack stack,Level level,net.minecraft.world.entity.Entity entity,int slot,boolean selected){
             super.inventoryTick(stack,level,entity,slot,selected);
             if(!selected||!(entity instanceof ServerPlayer player))return;
@@ -72,7 +47,22 @@ public final class MorovoyStaff {
             }
             if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));
         }
+    });
+    public static void init(){}
 
+    private static ItemAttributeModifiers weaponAttributes() {
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,6,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED,new AttributeModifier(Item.BASE_ATTACK_SPEED_ID,-2.4,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
+            .build();
+    }
+
+    public static final class Staff extends Item implements WeaponInputHandler {
+        public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
+        @Override public Component getName(ItemStack stack){return Component.literal("Посох Мора");}
+        // Explicitly take ownership of all four inputs; never fall back to
+        // vanilla attack, block interaction or item use.
+        @Override public boolean intercepts(WeaponInputHandler.Action action) { return true; }
         private int mode(ItemStack stack) {return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1?1:0;}
         private void mode(ItemStack stack,int value) {CustomData.update(DataComponents.CUSTOM_DATA,stack,n->n.putInt("MorovoyStaffMode",value));}
         private static boolean cooldown(ServerPlayer player,String id,long duration){
@@ -96,20 +86,19 @@ public final class MorovoyStaff {
                 player.getX(),player.getEyeY()-.2,player.getZ(),10,.24,.22,.24,.015);
         }
 
-        @Override public InteractionResultHolder<ItemStack> use(Level level,net.minecraft.world.entity.player.Player player,InteractionHand hand) {
-            ItemStack held=player.getItemInHand(hand);
-            if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(held);
-            if(player instanceof ServerPlayer server) {
-                if(server.isShiftKeyDown())switchMode(server,held);
-                else bolt(server,held);
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, WeaponInputHandler.Action action) {
+            if (held != player.getMainHandItem() || !player.isAlive() || player.isSpectator()) return;
+            switch (action) {
+                case LEFT_CLICK -> bolt(player, held);
+                case RIGHT_CLICK -> switchMode(player, held);
+                case SHIFT_LEFT_CLICK -> summon(player, held);
+                case SHIFT_RIGHT_CLICK -> area(player, aimPoint(player), held);
             }
-            return InteractionResultHolder.sidedSuccess(held,level.isClientSide);
         }
 
-        @Override public InteractionResult useOn(UseOnContext context) {
-            if(context.getHand()!=InteractionHand.MAIN_HAND||context.getPlayer()==null||!context.getPlayer().isShiftKeyDown())return InteractionResult.PASS;
-            if(context.getPlayer() instanceof ServerPlayer player) switchMode(player,context.getItemInHand());
-            return InteractionResult.SUCCESS;
+        // Magic staffs do not mine blocks when the attack key is held.
+        @Override public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
+            return false;
         }
 
         private Vec3 aimPoint(ServerPlayer player) {
@@ -205,5 +194,6 @@ public final class MorovoyStaff {
             lines.add(Component.translatable("tooltip.slavicmyths.morovoy.switch"));
         }
     }
+
     private MorovoyStaff(){}
 }

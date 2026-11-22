@@ -6831,9 +6831,9 @@
   "tooltip.slavicmyths.morovoy.mode.mor": "Element: Mor",
   "tooltip.slavicmyths.morovoy.bolt.fire": "RMB — Fire Bolt: 14 damage, ignites for 5 s.",
   "tooltip.slavicmyths.morovoy.bolt.mor": "RMB — Mor Bolt: 11 damage, Wither I for 4 s and Weakness I for 5 s.",
-  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + LMB — Fire-Mor Burst: 12 damage, 5-block radius, 30 s cooldown.",
+  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + RMB — Fire-Mor Burst: 20 damage, 5-block radius, 20 s cooldown.",
   "tooltip.slavicmyths.morovoy.skill.mor": "Shift + LMB — Mor Flock: up to 3 ravens, 35 s cooldown.",
-  "tooltip.slavicmyths.morovoy.switch": "Shift + RMB — Switch element: Mor / Fire.",
+  "tooltip.slavicmyths.morovoy.switch": "LMB — elemental bolt; RMB — switch element.",
   "tooltip.slavicmyths.weapon.rune_slots": "Rune slots: %s / 3",
   "tooltip.slavicmyths.infernal_bow.upgraded": "Empowered Infernal Bow",
   "tooltip.slavicmyths.infernal_bow.normal": "Infernal Bow",
@@ -6870,5 +6870,7 @@
   "tooltip.slavicmyths.boss_stats.anchor": "RMB — hook: 12 damage, 12-block range, 4 s cooldown. Shift + RMB — slam: 12 damage, 3-block radius, 12 s cooldown. Control depends on target resistance.",
   "tooltip.slavicmyths.boss_stats.abyss": "Damage: water shot 8, 2 s cooldown. Vortex: 2 damage every 0.5 s for 8 s after arrival; 25 s cooldown. Bubble: 6 absorption for 6 s, 20 s cooldown.",
   "tooltip.slavicmyths.boss_stats.pool": "Water lunge: hold RMB for 0.8 s; 16 damage, 3-block range, 6 s cooldown. Only in water.",
-  "tooltip.slavicmyths.boss_stats.trident": "Shift + RMB — wave: 10 damage, 8-block range, 12 s cooldown. Thrown trident impact: separate 8-damage wave against nearby targets."
+  "tooltip.slavicmyths.boss_stats.trident": "Shift + RMB — wave: 10 damage, 8-block range, 12 s cooldown. Thrown trident impact: separate 8-damage wave against nearby targets.",
+  "tooltip.slavicmyths.morovoy.inputs": "LMB — elemental bolt; RMB — switch element.",
+  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + LMB — raven flock; Shift + RMB — storm."
 }
