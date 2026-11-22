@@ -35,7 +35,7 @@ import org.slavicmyths.sisters.SistersContent;
 public final class MorovoyStaff {
     public static final DeferredHolder<Item,Item> STAFF = ModItems.ITEMS.register("morovoy_staff", Staff::new);
     public static final DeferredHolder<Item,Item> CONDUCTOR = ModItems.ITEMS.register("morovoy_conductor", () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
-        @Override public Component getName(ItemStack stack) {return Component.literal("Моровый проводник");}
+        @Override public Component getName(ItemStack stack) {return Component.translatableWithFallback("item.slavicmyths.morovoy_conductor", "Моровый проводник");}
     });
     public static void init(){}
 
@@ -60,7 +60,7 @@ public final class MorovoyStaff {
 
     public static final class Staff extends Item {
         public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
-        @Override public Component getName(ItemStack stack){return Component.literal("Посох Мора");}
+        @Override public Component getName(ItemStack stack){return Component.translatableWithFallback("item.slavicmyths.morovoy_staff", "Посох Мора");}
         private int mode(ItemStack stack) {return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1?1:0;}
         private void mode(ItemStack stack,int value) {CustomData.update(DataComponents.CUSTOM_DATA,stack,n->n.putInt("MorovoyStaffMode",value));}
         private static boolean cooldown(ServerPlayer player,String id,long duration){
