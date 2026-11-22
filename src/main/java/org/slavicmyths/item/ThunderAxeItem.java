@@ -22,11 +22,11 @@ import org.slavicmyths.registry.ModItems;
 @EventBusSubscriber(modid = SlavicMyths.MOD_ID)
 public final class ThunderAxeItem extends AxeItem {
     private static final float THUNDER_CHANCE = 0.2F;
-    private static final float BONUS_DAMAGE = 1.0F;
+    private static final float BONUS_DAMAGE = 2.0F;
     private static final int THUNDER_COOLDOWN = 60;
 
     public ThunderAxeItem(Tier tier, Properties properties) {
-        super(tier, properties.attributes(AxeItem.createAttributes(tier, 5.0F, -3.1F)));
+        super(tier, properties.attributes(AxeItem.createAttributes(tier, 8.0F, -3.1F)));
     }
 
     @Override
