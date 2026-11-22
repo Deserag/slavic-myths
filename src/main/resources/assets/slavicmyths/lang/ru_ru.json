@@ -6836,5 +6836,13 @@
   "tooltip.slavicmyths.morovoy.skill.fire": "Shift + ЛКМ — Огненно-моровой удар: 12 урона, радиус 5 блоков, перезарядка 30 с.",
   "tooltip.slavicmyths.morovoy.skill.mor": "Shift + ЛКМ — Моровая стая: до 3 воронов, перезарядка 35 с.",
   "tooltip.slavicmyths.morovoy.switch": "Shift + ПКМ — Смена стихии: Мор / Огонь.",
-  "tooltip.slavicmyths.weapon.rune_slots": "Рунные слоты: %s / 3"
+  "tooltip.slavicmyths.weapon.rune_slots": "Рунные слоты: %s / 3",
+  "tooltip.slavicmyths.infernal_bow.upgraded": "Усиленный адский лук",
+  "tooltip.slavicmyths.infernal_bow.normal": "Адский лук",
+  "tooltip.slavicmyths.infernal_bow.stats.upgraded": "Базовый урон стрелы: 14; полный натяг: %s тиков.",
+  "tooltip.slavicmyths.infernal_bow.stats.normal": "Базовый урон стрелы: 11,5; полный натяг: %s тиков.",
+  "tooltip.slavicmyths.infernal_bow.effect.upgraded": "Пассивно — поджог; Замедление I на 3 с.",
+  "tooltip.slavicmyths.infernal_bow.effect.normal": "Пассивно — стрелы поджигают цели.",
+  "tooltip.slavicmyths.infernal_bow.skill.upgraded": "Shift + выстрел — Усиленная стрела: 17 урона и вторая цель, перезарядка 13 с.",
+  "tooltip.slavicmyths.infernal_bow.skill.normal": "Shift + выстрел — Огненная стрела: 14 урона, перезарядка 10 с."
 }
