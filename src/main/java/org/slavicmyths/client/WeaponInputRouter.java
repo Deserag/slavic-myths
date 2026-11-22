@@ -35,7 +35,8 @@ public final class WeaponInputRouter {
                          : WeaponInputHandler.Action.RIGHT_CLICK);
         // A weapon can preserve ordinary melee or held right-click by opting out
         // of interception for that individual action only.
-        if (!handler.intercepts(action)) return;
+        if (!handler.intercepts(action, mc.hitResult == null
+                ? net.minecraft.world.phys.HitResult.Type.MISS : mc.hitResult.getType())) return;
         // NeoForge calls right-click once per hand even when the other call
         // was cancelled. Never let the offhand handle the same click.
         event.setCanceled(true);
