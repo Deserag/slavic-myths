@@ -16,6 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate 102-item catalog and input routing
         run: python3 tools/weapon_skill_input_check.py
+      - name: Validate weapon tooltip palette and bilingual localization
+        run: python3 tools/weapon_tooltip_style_check.py
       - name: Set up Java 21
         uses: actions/setup-java@v4
         with:
