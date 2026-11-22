@@ -24,9 +24,6 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import org.slavicmyths.combat.WeaponInputHandler;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -35,7 +32,6 @@ import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.sisters.SistersContent;
 
 /** Composed Raven+Fire Serpent staff: separate fire/Mor modes, real owned birds and area strike. */
-@EventBusSubscriber(modid = "slavicmyths")
 public final class MorovoyStaff {
     public static final DeferredHolder<Item,Item> STAFF = ModItems.ITEMS.register("morovoy_staff", Staff::new);
     public static final DeferredHolder<Item,Item> CONDUCTOR = ModItems.ITEMS.register("morovoy_conductor", () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
@@ -193,15 +189,6 @@ public final class MorovoyStaff {
             lines.add(Component.literal(fire?"11 урона • поджог на 5 секунд":"8 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
             lines.add(Component.literal("Стая: до 3 воронов (45 с)   |   Буря: 12 урона в радиусе 5 (40 с)").withStyle(ChatFormatting.DARK_AQUA));
         }
-    }
-
-    // A forged vanilla attack packet must not add a melee hit to the bolt action.
-    @SubscribeEvent public static void blockVanillaMelee(PlayerInteractEvent.AttackEntity event) {
-        if (event.getEntity().getMainHandItem().getItem() instanceof Staff) event.setCanceled(true);
-    }
-
-    @SubscribeEvent public static void blockVanillaMining(PlayerInteractEvent.LeftClickBlock event) {
-        if (event.getEntity().getMainHandItem().getItem() instanceof Staff) event.setCanceled(true);
     }
 
     private MorovoyStaff(){}
