@@ -4858,7 +4858,7 @@
   "frost191.npc_offer": "Morozko’s trial: Yaga trust II or Bayun’s first gift. Offer 8 snow blocks and 1 blue ice. A lost totem can be recovered.",
   "frost191.totem_given": "The ice totem is available. Summon Morozko in an open Overworld location.",
   "frost191.staff_hint": "Left click a nearby entity for an 8 HP melee hit; left click air to fire a bolt. Hold right click for the frost stream. Shift+left click: five icicles; Shift+right click: frost wave.",
-  "frost191.staff_stats": "Bolt 7 HP / 0.8s; stream 3 HP per 0.5s for 3s / 10s; 5 icicles at the last target within 8s / 20s; wave 4 HP / 16s.",
+  "frost191.staff_stats": "Bolt 11 damage / 0.8 s; stream 3 damage every 0.5 s for up to 3 s / 10 s; 5 icicles dealing 8 damage each at the last target within 8 s / 20 s; wave 7 damage / 16 s.",
   "frost191.bindings": "%s: five icicles at last target; %s: frost wave",
   "frost191.cold": "❄ Cold: %s / 100",
   "frost191.cooldowns": "%s: %ss  ·  %s: %ss",
