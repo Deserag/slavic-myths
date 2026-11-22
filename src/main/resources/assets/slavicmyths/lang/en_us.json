@@ -6826,5 +6826,13 @@
   "item.slavicmyths.morovoy_staff": "Staff of Mor",
   "item.slavicmyths.nine_mor_axe": "Axe of Doom",
   "item.slavicmyths.nine_mor_shield": "Shield of Nine Scales",
-  "item.slavicmyths.nine_mor_spear": "Spear of Nine Maws"
+  "item.slavicmyths.nine_mor_spear": "Spear of Nine Maws",
+  "tooltip.slavicmyths.morovoy.mode.fire": "Element: Fire",
+  "tooltip.slavicmyths.morovoy.mode.mor": "Element: Mor",
+  "tooltip.slavicmyths.morovoy.bolt.fire": "RMB — Fire Bolt: 14 damage, ignites for 5 s.",
+  "tooltip.slavicmyths.morovoy.bolt.mor": "RMB — Mor Bolt: 11 damage, Wither I for 4 s and Weakness I for 5 s.",
+  "tooltip.slavicmyths.morovoy.skill.fire": "Shift + LMB — Fire-Mor Burst: 12 damage, 5-block radius, 30 s cooldown.",
+  "tooltip.slavicmyths.morovoy.skill.mor": "Shift + LMB — Mor Flock: up to 3 ravens, 35 s cooldown.",
+  "tooltip.slavicmyths.morovoy.switch": "Shift + RMB — Switch element: Mor / Fire.",
+  "tooltip.slavicmyths.weapon.rune_slots": "Rune slots: %s / 3"
 }
