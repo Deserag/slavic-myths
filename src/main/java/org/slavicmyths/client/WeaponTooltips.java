@@ -67,32 +67,37 @@ public final class WeaponTooltips {
         // Preserve translated source text and actual mechanics; standardize how it is presented.
         for (int i = isElderSerpentWeapon(id) ? 2 : 1; i < event.getToolTip().size(); i++) {
             Component original = event.getToolTip().get(i);
-            String value = original.getString();
-            if (!isDescription(value)) continue;
-            int color = categoryColor(value);
-            MutableComponent line = Component.literal("");
-            Matcher tokens = TOKENS.matcher(value);
-            int from = 0;
-            while (tokens.find()) {
-                if (from < tokens.start()) line.append(colored(value.substring(from, tokens.start()), color));
-                String token = tokens.group();
-                Matcher named = SKILL_NAMES.matcher(value);
-                boolean abilityName = named.find(tokens.start()) && named.start() == tokens.start() && named.end() == tokens.end();
-                int tokenColor = KEYS.matcher(token).matches() ? CONTROL
-                    : abilityName ? ABILITY
-                    : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
-                    : color == POSITIVE ? POSITIVE : MUTED;
-                line.append(colored(token, tokenColor));
-                from = tokens.end();
-            }
-            if (from < value.length()) line.append(colored(value.substring(from), color));
-            // Display-only components re-evaluate from localized text on every client tooltip event.
-            event.getToolTip().set(i, line);
+            if (isDescription(original.getString()))
+                event.getToolTip().set(i, styledDescription(original));
         }
 
         String key = "tooltip.slavicmyths.weapon." + id;
-        if (!id.equals("storm_staff") && I18n.exists(key)) event.getToolTip().add(Component.translatable(key)
-            .withStyle(s -> s.withColor(TextColor.fromRgb(MUTED))));
+        if (!id.equals("storm_staff") && I18n.exists(key)) {
+            Component generic = Component.translatable(key).withStyle(s -> s.withColor(TextColor.fromRgb(MUTED)));
+            event.getToolTip().add(isDescription(generic.getString()) ? styledDescription(generic) : generic);
+        }
+    }
+
+    private static Component styledDescription(Component original) {
+        String value = original.getString();
+        int color = categoryColor(value);
+        MutableComponent line = Component.literal("");
+        Matcher tokens = TOKENS.matcher(value);
+        int from = 0;
+        while (tokens.find()) {
+            if (from < tokens.start()) line.append(colored(value.substring(from, tokens.start()), color));
+            String token = tokens.group();
+            Matcher named = SKILL_NAMES.matcher(value);
+            boolean abilityName = named.find(tokens.start()) && named.start() == tokens.start() && named.end() == tokens.end();
+            int tokenColor = KEYS.matcher(token).matches() ? CONTROL
+                : abilityName ? ABILITY
+                : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
+                : color == POSITIVE ? POSITIVE : MUTED;
+            line.append(colored(token, tokenColor));
+            from = tokens.end();
+        }
+        if (from < value.length()) line.append(colored(value.substring(from), color));
+        return line;
     }
 
     private static MutableComponent colored(String value, int rgb) {
