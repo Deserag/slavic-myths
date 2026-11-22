@@ -90,7 +90,7 @@ public final class MarineWeapons {
                     if (offset.lengthSqr() > 25 || offset.lengthSqr() < .01
                             || offset.normalize().dot(direction) < .55
                             || !owner.hasLineOfSight(target)) continue;
-                    if (target.hurt(owner.damageSources().magic(), 4F)) {
+                    if (target.hurt(owner.damageSources().magic(), 8F)) {
                         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 0));
                         if (++hits >= 4) break;
                     }
@@ -99,7 +99,7 @@ public final class MarineWeapons {
                 world.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,
                     splash.x, splash.y, splash.z, 25, .7, .7, .7, .04);
                 stack.hurtAndBreak(1, owner, LivingEntity.getSlotForHand(hand));
-                owner.getCooldowns().addCooldown(this, 200);
+                owner.getCooldowns().addCooldown(this, 140);
             }
             return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
         }
