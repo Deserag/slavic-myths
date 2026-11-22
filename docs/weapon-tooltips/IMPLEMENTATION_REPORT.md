@@ -79,3 +79,7 @@ The pre-fix head `44fd163` passed workflow [45020312726](https://github.com/Dese
 ## Generic localized descriptions (follow-up)
 
 A second presentation-only defect was corrected in [`c4d9fb1`](https://github.com/Deserag/slavic-myths/commit/c4d9fb13c832e8b53d489cb7318d6294728b2794): catalog-backed generic descriptions (`tooltip.slavicmyths.weapon.<id>`) now pass through the same semantic color formatter as Java-supplied localized ability descriptions. Previously they were appended as an entirely gray line even when displaying input combinations or damage. The formatting logic is centralized in `styledDescription` and remains restricted to the same 102 item IDs. The regression guard was added in [`9732d58`](https://github.com/Deserag/slavic-myths/commit/9732d58d30f0957e409cb0b3232b11f7931c574f). No gameplay systems or input bindings were modified.
+
+## Dynamic skill-key regression coverage
+
+Commit [`26e67e8`](https://github.com/Deserag/slavic-myths/commit/26e67e8387885f29f29bd15176dbed0f591d63fc) extends `tools/weapon_tooltip_style_check.py` to validate both Russian and English variants of dynamically selected skill translation keys in `morovoy/MorovoyStaff.java` and `nethersmithing/InfernalBow.java`. These ternary-selected strings were not included in the earlier scan of direct `Component.translatable("literal")` expressions. The change is limited to automated test coverage; game mechanics and texts are unchanged. Verify the workflow for this commit (or a newer head) before treating it as passed.
