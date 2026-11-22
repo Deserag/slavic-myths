@@ -72,3 +72,7 @@ Player-facing strings in Java should prefer `Component.translatable(...)`. Both 
 `tools/weapon_tooltip_style_check.py` checks the 102 catalog IDs against the client color-handler set, five elder-serpent IDs, color constants, anvil custom-name protection, duplicate localization keys and the translated ability keys added to the relevant Java files. `.github/workflows/weapon-skill-input-standard.yml` runs this validation and the existing weapon-input check before the Java 21 Gradle clean build.
 
 Manual client verification remains necessary for layout, font legibility, long English phrases, custom name display, modifier interaction and multiplayer tooltips; a successful CI build does not prove visual appearance.
+
+## Semantic token-color regression rule
+
+When a positive-effect line contains numeric duration or amount tokens (for example localized healing or regeneration text), those numbers stay green `#55FF55`; the numeric-token highlighter must not turn them gray. Explicit damage values remain red and input combinations remain yellow. The client renderer reuses a compiled pattern for token matching, and `tools/weapon_tooltip_style_check.py` guards this presentation invariant. This rule does not add abilities or modify any underlying status effects.
