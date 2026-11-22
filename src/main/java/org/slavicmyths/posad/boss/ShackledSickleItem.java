@@ -18,6 +18,7 @@ public final class ShackledSickleItem extends SwordItem {
     public ShackledSickleItem(Tier tier,Properties properties){super(tier,properties);}
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand){
         ItemStack weapon=player.getItemInHand(hand);
+        if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(weapon);
         if(player.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(weapon);
         if(!(level instanceof ServerLevel world))return InteractionResultHolder.sidedSuccess(weapon,true);
         ShackledSickleProjectile projectile=ShackledSickleContent.PROJECTILE.get().create(world);
