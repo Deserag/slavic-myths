@@ -34,7 +34,9 @@ public interface WeaponInputHandler {
      * Return false for a primary action that must remain vanilla (for example,
      * an ordinary melee hit or a held right-click charge/stream).
      */
-    default boolean intercepts(Action action) { return true; }
+    // Opt-in only: implementing the interface alone must never disable
+    // vanilla LMB/RMB or consume an unsupported Shift action.
+    default boolean intercepts(Action action) { return false; }
 
     /**
      * Some existing weapons preserve different LMB behavior in air and on a
