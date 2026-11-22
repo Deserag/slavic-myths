@@ -59,3 +59,13 @@ This report covers weapons only; armor and accessories are deferred to a separat
 - All five golden weapon IDs, all 102 standard item names in both languages and duplicate key detection are asserted in CI.
 
 The formatting standard remains **presentation-only**. No manually measured Minecraft-client screenshots or multilingual in-game layouts were produced. Legacy weapon classes not explicitly listed above still use their existing ability text, which the client formatter presents with a common semantic palette; a full dynamic skill-text audit remains a release QA concern.
+
+## Post-balance numeric tooltip reconciliation
+
+Additional review of both language files against current Java mechanics found and corrected these stale displays:
+
+- `combat.slavicmyths.likho_tooltip` in Russian: ability cooldown **28 → 22 s**, matching the earlier weapon-balance commit (English was already correct).
+- `frost191.staff_stats` in Russian and English: Morozko staff projectile **7 → 11**, icicles clearly described as **8 damage each**, and wave **4 → 7**. Stream timing remains unchanged.
+- `book.slavicmyths.pool_spear.text` in Russian and English: water-only charged strike **9 → 12** after balance batch 2. The guide now matches the source code, not the historical catalog.
+
+Changes made only in localization, with no combat code or key mapping modifications. Relevant commits: [bc9c8ae](https://github.com/Deserag/slavic-myths/commit/bc9c8aee99475da155f308b48edb396591f8d180), [bf12bb3](https://github.com/Deserag/slavic-myths/commit/bf12bb3b573ed6a03d0ab85a54fd70c0b39b159d), [b847e9d](https://github.com/Deserag/slavic-myths/commit/b847e9de4fd369692f6c04def135e074ca329742), [67a4580](https://github.com/Deserag/slavic-myths/commit/67a45809df14374e541966c11ff283aa324f1c0a).
