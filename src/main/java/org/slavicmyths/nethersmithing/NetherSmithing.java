@@ -28,7 +28,7 @@ public final class NetherSmithing {
    case "axe"->new AxeItem(Tiers.DIAMOND,new Item.Properties().attributes(AxeItem.createAttributes(Tiers.DIAMOND,5,-3)));
    case "spear"->new org.slavicmyths.item.SpearItem(Tiers.DIAMOND,new Item.Properties());
    case "sulitsa","throwing_knife"->new ThrowingWeaponItem(Tiers.DIAMOND,form.equals("throwing_knife"),new Item.Properties(),1.15F);
-   default->new FlailItem(Tiers.DIAMOND,new Item.Properties(),1.15F);
+   default->new FlailItem(Tiers.DIAMOND,new Item.Properties(),1.55F);
   });
  }
  public static void init(){}
@@ -36,7 +36,7 @@ public final class NetherSmithing {
  public static Item base(String form){return form.equals("sword")?Items.DIAMOND_SWORD:form.equals("axe")?Items.DIAMOND_AXE:WeaponCatalog.item("diamond_"+form);}
  @SubscribeEvent public static void defaults(ModifyDefaultComponentsEvent event){
   for(String form:FORMS){Item source=base(form),target=BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("slavicmyths","zhara_"+form));var original=source.components().getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY);
-   var attributes=NetherSmithingRules.attributes(original);
+   var attributes=NetherSmithingRules.attributes(original,form.equals("flail")?1.4:1.15);
    int durability=NetherSmithingRules.durability(source.components().getOrDefault(DataComponents.MAX_DAMAGE,1561));
    event.modify(target,patch->{patch.set(DataComponents.ATTRIBUTE_MODIFIERS,attributes);patch.set(DataComponents.MAX_DAMAGE,durability);});
   }
