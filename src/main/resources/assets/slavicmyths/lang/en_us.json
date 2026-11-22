@@ -6822,5 +6822,9 @@
   "tooltip.slavicmyths.mytar.cooldowns": "The chain returns to its owner; cooldowns: 8.5 / 16 s.",
   "tooltip.slavicmyths.kalin.sabre": "RMB — Cleaving Sweep: 5.5-block range, up to 6 enemies, 9 damage each, 7 s cooldown.",
   "tooltip.slavicmyths.storm_staff.pulse": "RMB — Storm Pulse: 11 damage, 7-block range, 1.6 s cooldown.",
-  "tooltip.slavicmyths.storm_staff.rune": "Active rune: 1.4 s cooldown; damage bonuses apply separately."
+  "tooltip.slavicmyths.storm_staff.rune": "Active rune: 1.4 s cooldown; damage bonuses apply separately.",
+  "item.slavicmyths.morovoy_staff": "Staff of Mor",
+  "item.slavicmyths.nine_mor_axe": "Axe of Doom",
+  "item.slavicmyths.nine_mor_shield": "Shield of Nine Scales",
+  "item.slavicmyths.nine_mor_spear": "Spear of Nine Maws"
 }
