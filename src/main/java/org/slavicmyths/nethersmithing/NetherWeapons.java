@@ -39,7 +39,7 @@ public final class NetherWeapons {
  }
  public static final class VolcanicFlail extends FlailItem {
   public VolcanicFlail(){super(TIER,props("volcanic_heart_flail"),13F/9F,.9F,.75F);}
-  @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand hand){if(!w.isClientSide)p.getPersistentData().putBoolean("NetherFlailSkill",p.isShiftKeyDown());return p.isShiftKeyDown()?begin(w,p,hand,"volcanic_heart_flail",false):super.use(w,p,hand);}
+  @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand hand){if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(p.getItemInHand(hand));if(!w.isClientSide)p.getPersistentData().putBoolean("NetherFlailSkill",p.isShiftKeyDown());return p.isShiftKeyDown()?begin(w,p,hand,"volcanic_heart_flail",false):super.use(w,p,hand);}
   @Override public void releaseUsing(ItemStack s,Level w,LivingEntity user,int remaining){if(user.getPersistentData().getBoolean("NetherFlailSkill")){if(user instanceof ServerPlayer p)NetherSkills.release(p,s,"volcanic_heart_flail",getUseDuration(s,user)-remaining);}else super.releaseUsing(s,w,user,remaining);user.getPersistentData().remove("NetherFlailSkill");}
  }
  private NetherWeapons(){}
