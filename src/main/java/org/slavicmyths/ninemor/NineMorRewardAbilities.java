@@ -52,6 +52,7 @@ public final class NineMorRewardAbilities {
 
  public static InteractionResultHolder<ItemStack> spear(Level world,Player player,InteractionHand hand){
   ItemStack stack=player.getItemInHand(hand);
+  if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
   if(server.isShiftKeyDown()){
@@ -83,6 +84,7 @@ public final class NineMorRewardAbilities {
 
  public static InteractionResultHolder<ItemStack> axe(Level world,Player player,InteractionHand hand){
   ItemStack stack=player.getItemInHand(hand);
+  if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
   Vec3 look=server.getLookAngle().multiply(1D,0D,1D);
@@ -110,6 +112,7 @@ public final class NineMorRewardAbilities {
 
  public static InteractionResultHolder<ItemStack> shield(Level world,Player player,InteractionHand hand){
   ItemStack stack=player.getItemInHand(hand);
+  if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
   if(!player.isShiftKeyDown())return null;
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   long now=server.serverLevel().getGameTime();
