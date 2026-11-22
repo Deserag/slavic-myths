@@ -23,6 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.ModItems;
+import org.slavicmyths.combat.WeaponInputHandler;
 import org.slavicmyths.rpg.Abilities;
 
 /** Vanilla bobber and trident mechanics, bounded server-authoritative sea effects. */
@@ -71,40 +72,28 @@ public final class MarineWeapons {
         }
     }
 
-    private static final class Staff extends Item {
+    private static final class Staff extends Item implements WeaponInputHandler {
         private Staff() { super(new Item.Properties().durability(320).rarity(Rarity.RARE)); }
-        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-            ItemStack stack = player.getItemInHand(hand);
-            if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
-            if (player instanceof ServerPlayer owner) {
-                ServerLevel world = owner.serverLevel();
-                Vec3 eye = owner.getEyePosition();
-                Vec3 direction = owner.getLookAngle();
-                int hits = 0;
-                for (LivingEntity target : world.getEntitiesOfClass(LivingEntity.class,
-                        new AABB(eye.subtract(5, 5, 5), eye.add(5, 5, 5)),
-                        target -> target != owner && target.isAlive() && Abilities.canHit(owner, target))) {
-                    Vec3 offset = target.getEyePosition().subtract(eye);
-                    if (offset.lengthSqr() > 25 || offset.lengthSqr() < .01
-                            || offset.normalize().dot(direction) < .55
-                            || !owner.hasLineOfSight(target)) continue;
-                    if (target.hurt(owner.damageSources().magic(), 4F)) {
-                        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 0));
-                        if (++hits >= 4) break;
-                    }
-                }
-                Vec3 splash = eye.add(direction.scale(3));
-                world.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,
-                    splash.x, splash.y, splash.z, 25, .7, .7, .7, .04);
-                stack.hurtAndBreak(1, owner, LivingEntity.getSlotForHand(hand));
-                owner.getCooldowns().addCooldown(this, 200);
+        // Keep vanilla left-click melee; only the other three combinations
+        // are routed as marine staff abilities.
+        @Override public boolean intercepts(Action action) {
+            return action != Action.LEFT_CLICK;
+        }
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, Action action) {
+            if (held != player.getMainHandItem() || !player.isAlive() || player.isSpectator()) return;
+            switch (action) {
+                case RIGHT_CLICK -> MarineWeaponAbilities.staffShot(player);
+                case SHIFT_LEFT_CLICK -> MarineWeaponAbilities.bubble(player);
+                case SHIFT_RIGHT_CLICK -> MarineWeaponAbilities.staffVortex(player);
+                case LEFT_CLICK -> {}
             }
-            return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
         }
         @Override public void appendHoverText(ItemStack stack, TooltipContext context,
                 List<Component> lines, TooltipFlag flags) {
             super.appendHoverText(stack, context, lines, flags);
             description(stack, lines);
+            lines.add(Component.literal("ЛКМ — удар  •  ПКМ — снаряд  •  Shift+ЛКМ — пузырь  •  Shift+ПКМ — вихрь")
+                    .withStyle(ChatFormatting.GRAY));
         }
     }
 
