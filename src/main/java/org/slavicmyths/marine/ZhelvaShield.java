@@ -19,11 +19,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.ModItems;
 
 /** Vanilla ShieldItem animation/block behavior, with a bounded server-side guard. */
-@EventBusSubscriber(modid = "slavicmyths")
 public final class ZhelvaShield extends ShieldItem {
     public static final DeferredHolder<Item, Item> ITEM = ModItems.ITEMS.register(
         "zhelva_shield", () -> new ZhelvaShield());
-    static final int COOLDOWN = 400;
+    static final int COOLDOWN = 240;
     static final int DURATION = 60;
     private static final String READY = "SlavicZhelvaShellGuardReady";
     private static final String UNTIL = "SlavicZhelvaShellGuardUntil";
@@ -36,6 +35,7 @@ public final class ZhelvaShield extends ShieldItem {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context,
             List<Component> lines, TooltipFlag flags) {
         super.appendHoverText(stack, context, lines, flags);
+        if(context.level()!=null)lines.add(Component.translatable(ready(stack,context.level().getGameTime())?"item.slavicmyths.zhelva_shield.ready":"item.slavicmyths.zhelva_shield.recharging").withStyle(ChatFormatting.AQUA));
         lines.add(Component.translatable("item.slavicmyths.zhelva_shield.desc")
             .withStyle(ChatFormatting.DARK_AQUA));
     }
@@ -44,26 +44,16 @@ public final class ZhelvaShield extends ShieldItem {
         return p.isBlocking() && p.getUseItem().is(ITEM.get());
     }
 
-    @SubscribeEvent public static void blocked(LivingShieldBlockEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer p) || !guarding(p)
-                || !event.getBlocked() || event.getBlockedDamage() <= 0) return;
-        long now = p.serverLevel().getGameTime();
-        var data = p.getPersistentData();
-        if (event.getBlockedDamage() >= 7F && now >= data.getLong(READY)) {
-            data.putLong(READY, now + COOLDOWN);
-            data.putLong(UNTIL, now + DURATION);
-            p.serverLevel().sendParticles(ParticleTypes.NAUTILUS, p.getX(),
-                p.getY() + 1D, p.getZ(), 18, .5, .6, .5, .025);
-        }
-        if (data.getLong(UNTIL) > now) {
-            event.setShieldDamage(event.shieldDamage() * .65F);
+    public static boolean ready(ItemStack stack,long now) {
+        return stack.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getLong("MarineGuardReady")<=now;
+    }
+    @Override public void inventoryTick(ItemStack stack,net.minecraft.world.level.Level level,net.minecraft.world.entity.Entity entity,int slot,boolean selected){
+        super.inventoryTick(stack,level,entity,slot,selected);
+        if(entity instanceof ServerPlayer p){
+            long until=p.getPersistentData().getLong("MarineWeapon_perfectBlock");
+            var tag=stack.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+            if(tag.getLong("MarineGuardReady")!=until){tag.putLong("MarineGuardReady",until);stack.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(tag));}
         }
     }
 
-    @SubscribeEvent public static void knockback(LivingKnockBackEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer p) || !guarding(p)) return;
-        long now = p.serverLevel().getGameTime();
-        boolean active = p.getPersistentData().getLong(UNTIL) > now;
-        event.setStrength(event.getStrength() * (active ? .35F : .65F));
-    }
 }

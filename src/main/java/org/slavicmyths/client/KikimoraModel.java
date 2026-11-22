@@ -24,6 +24,15 @@ public final class KikimoraModel extends EntityModel<KikimoraEntity>{
  geometry.attach(body,head);
  geometry.box(head,76,0,-1.9F,-6.5F,-1.8F,3.8F,6.5F,3.6F);
  geometry.box(head,94,0,-1.0F,-0.3F,-2.1F,2.0F,1.2F,2.9F);
+ // Separate opaque facial features remain readable on every cloth/skin variant.
+ for(int side:new int[]{-1,1}){
+  float eye=side*1.05F;
+  geometry.box(head,0,224,eye-.62F,-4.65F,-1.94F,1.24F,.85F,.20F);
+  geometry.box(head,16,224,eye-.37F,-4.45F,-2.08F,.74F,.48F,.18F);
+  geometry.box(head,32,224,eye-.12F,-4.40F,-2.20F,.22F,.31F,.14F);
+  geometry.box(head,48,224,eye-.66F,-5.05F,-2.03F,1.32F,.33F,.28F);
+ }
+ geometry.box(head,0,224,-.72F,-1.15F,-1.96F,1.44F,.24F,.22F);
  nose=geometry.part(texWidth,texHeight);nose.setPos(0.0F,-3.5F,-1.8F);
  geometry.attach(head,nose);
  geometry.box(nose,106,0,-0.4F,0.0F,-1.8F,0.8F,2.4F,2.0F);

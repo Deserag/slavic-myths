@@ -198,7 +198,7 @@ public final class LomeyaModel extends EntityModel<LomeyaBoss> {
                 float t=Mth.sin(Mth.clamp(f/38F,0,1)*Mth.PI);
                 eL=interpolate(eL,new float[]{-10,70,-9},t);
                 wL=interpolate(wL,new float[]{-5,68,-24},t);
-                smallL.visible=false;
+                // Keep the offhand hammer attached throughout the grab animation.
             }
             if(action==LomeyaBoss.SLAM) {
                 float t=Mth.sin(Mth.clamp(f/46F,0,1)*Mth.PI);

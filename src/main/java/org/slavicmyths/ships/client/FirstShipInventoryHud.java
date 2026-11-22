@@ -13,18 +13,13 @@ import org.slavicmyths.ships.FirstShipEntity;
 import org.slavicmyths.ships.FirstShipBlockHull;
 import org.slavicmyths.ships.FirstShipHull;
 
-/**
- * E opens the NORMAL player inventory plus a read-only ship overview.
- * Never swaps the inventory menu (which would break slots and recipes).
- * The client reads actual vanilla container block TYPES; inventories stay on server.
- */
+/** Separate inventory and ship views keep recipe controls and JEI outside the ship overview. */
 @EventBusSubscriber(modid = "slavicmyths", value = Dist.CLIENT)
 public final class FirstShipInventoryHud {
-    @SubscribeEvent
-    public static void inventory(ScreenEvent.Render.Post event) {
-        if (!(event.getScreen() instanceof InventoryScreen)) return;
+    private static final java.util.Map<InventoryScreen, net.minecraft.client.gui.components.Button[]> TABS = new java.util.WeakHashMap<>();
+    public static FirstShipEntity currentShip() {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.level == null) return;
+        if (mc.player == null || mc.level == null) return null;
         Player player = mc.player;
         FirstShipEntity ship = null;
         if (player.getVehicle() instanceof FirstShipEntity steering) ship = steering;
@@ -42,11 +37,30 @@ public final class FirstShipInventoryHud {
                 }
             }
         }
-        if (ship == null) return;
-        GuiGraphics g = event.getGuiGraphics();
-        int width = g.guiWidth(), height = g.guiHeight();
-        int x = Math.min(width - 194, width / 2 + 92);
-        int y = Math.max(8, height / 2 - 93);
+
+        return ship;
+    }
+    @SubscribeEvent public static void init(ScreenEvent.Init.Post event) {
+        if (!(event.getScreen() instanceof InventoryScreen screen)) return;
+        var inventory = net.minecraft.client.gui.components.Button.builder(Component.literal("Инвентарь"), b -> {}).bounds(0,0,86,20).build();
+        inventory.active = false;
+        var ship = net.minecraft.client.gui.components.Button.builder(Component.literal("Корабль"), b -> {
+            if (currentShip() != null) Minecraft.getInstance().setScreen(new ShipScreen());
+        }).bounds(0,0,86,20).build();
+        event.addListener(inventory); event.addListener(ship);
+        TABS.put(screen, new net.minecraft.client.gui.components.Button[]{inventory,ship});
+    }
+    @SubscribeEvent public static void inventory(ScreenEvent.Render.Pre event) {
+        if (!(event.getScreen() instanceof InventoryScreen screen)) return;
+        var tabs = TABS.get(screen); if (tabs == null) return;
+        boolean onShip = currentShip() != null;
+        for (int i=0;i<tabs.length;i++) {
+            tabs[i].visible = onShip;
+            tabs[i].setPosition(screen.getGuiLeft()+i*90, Math.max(0,screen.getGuiTop()-23));
+        }
+    }
+    private static void drawShip(GuiGraphics g, FirstShipEntity ship, int x, int y) {
+        Minecraft mc = Minecraft.getInstance();
         g.fill(x, y, x + 190, y + 198, 0xef2c2016);
         g.fill(x + 2, y + 2, x + 188, y + 4, 0xffbb9656);
         g.drawString(mc.font, "КОРАБЛЬ 7×11", x + 10, y + 10, 0xffffd99d, false);
@@ -85,7 +99,25 @@ public final class FirstShipInventoryHud {
                 x + 9, y + 167, 0xffe9d6b8, false);
         g.drawString(mc.font, Component.literal("Груз: обычные сундуки/бочки"),
                 x + 9, y + 181, 0xffc1bdab, false);
-    }
 
+    }
+    public static final class ShipScreen extends net.minecraft.client.gui.screens.Screen {
+        public ShipScreen() { super(Component.literal("Корабль")); }
+        @Override protected void init() {
+            int x=(width-190)/2, y=Math.max(24,(height-198)/2);
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Инвентарь"),b->minecraft.setScreen(new InventoryScreen(minecraft.player))).bounds(x,y-23,93,20).build());
+            var tab=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Корабль"),b->{}).bounds(x+97,y-23,93,20).build());
+            tab.active=false;
+        }
+        @Override public void tick() { if(currentShip()==null&&minecraft.player!=null)minecraft.setScreen(new InventoryScreen(minecraft.player)); }
+        @Override public void renderBackground(GuiGraphics g,int mouseX,int mouseY,float partialTick) {}
+        @Override public boolean isPauseScreen() { return false; }
+        @Override public void render(GuiGraphics g,int mouseX,int mouseY,float partialTick) {
+
+            var ship=currentShip();
+            if(ship!=null)drawShip(g,ship,(width-190)/2,Math.max(24,(height-198)/2));
+            super.render(g,mouseX,mouseY,partialTick);
+        }
+    }
     private FirstShipInventoryHud() {}
 }

@@ -224,6 +224,23 @@ public final class StratimBirdModel extends EntityModel<StratimBirdEntity> {
         feet[1].pivot.xRot=feet[0].pivot.xRot;
         neck.pivot.xRot=state==StratimBirdEntity.BEAK?-.34F:.03F*Mth.sin(age*.08F);
         head.pivot.xRot=state==StratimBirdEntity.BEAK?-.2F:.04F*Mth.sin(age*.09F);
+        float elapsed=bird.actionTicks();
+        if(state==StratimBirdEntity.BEAK){
+            float strike=elapsed<11?-Mth.clamp(elapsed/11F,0,1):Mth.clamp(1-(elapsed-11)/10F,0,1)*1.8F;
+            neck.pivot.xRot=strike*.48F;head.pivot.xRot=strike*.32F;
+        }
+        if(state==StratimBirdEntity.TALONS){
+            float reach=Mth.clamp(elapsed/13F,0,1);feet[0].pivot.xRot=feet[1].pivot.xRot=-reach*1.25F;
+            leftWing.pivot.zRot=-.48F;rightWing.pivot.zRot=.48F;
+        }
+        if(state==StratimBirdEntity.GUST){
+            float sweep=elapsed<15?Mth.clamp(elapsed/15F,0,1):Math.max(0,1-(elapsed-15)/14F);
+            leftWing.pivot.zRot=-sweep*.95F;rightWing.pivot.zRot=sweep*.95F;
+            neck.pivot.xRot=-.25F*sweep;
+        }
+        if(state==StratimBirdEntity.DIVE){
+            root.pivot.xRot=.35F;neck.pivot.xRot=.4F;head.pivot.xRot=.2F;
+        }else root.pivot.xRot=0;
         tail.pivot.yRot=.10F*Mth.sin(age*.07F);
         root.pivot.zRot=bird.hurtTime>0?.15F*Mth.sin(age):0;
         if(bird.deathTime>0){
@@ -238,7 +255,9 @@ public final class StratimBirdModel extends EntityModel<StratimBirdEntity> {
     public void renderTrophy(PoseStack stack,VertexConsumer out,int light,int overlay,float age){
         // Same head, neck and beak geometry as the living creature.
         stack.pushPose();
-        stack.translate(0,6.5,3.0);
+        // The detached head retains only its neck-relative pivot (in model pixels).
+        // Keep it above the trophy base; the living body offset does not apply here.
+        stack.translate(0,0,1.5);
         head.pivot.xRot=.02F*Mth.sin(age*.035F);
         // Render independent from neck/world position, preserving the actual skull voxels.
         head.draw(stack,out,light,overlay);

@@ -22,11 +22,11 @@ public final class ShackledSickleItem extends SwordItem {
         if(!(level instanceof ServerLevel world))return InteractionResultHolder.sidedSuccess(weapon,true);
         ShackledSickleProjectile projectile=ShackledSickleContent.PROJECTILE.get().create(world);
         if(projectile==null)return InteractionResultHolder.fail(weapon);
-        projectile.setOwner(player);
+        projectile.setOwner(player);projectile.setItem(weapon.copyWithCount(1));
         boolean empowered=player.isShiftKeyDown();
         projectile.setRupture(empowered);
         projectile.setPos(player.getX(),player.getEyeY()-.18,player.getZ());
-        projectile.shoot(player.getLookAngle().x,player.getLookAngle().y,player.getLookAngle().z,1.45F,0);
+        projectile.shoot(player.getLookAngle().x,player.getLookAngle().y,player.getLookAngle().z,1.45F*(float)Math.sqrt(org.slavicmyths.combat.RangeEnchantment.multiplier(level,weapon)),0);
         if(!world.addFreshEntity(projectile))return InteractionResultHolder.fail(weapon);
         player.getCooldowns().addCooldown(this,empowered?320:170);
         weapon.hurtAndBreak(empowered?5:3,player,hand==InteractionHand.MAIN_HAND?EquipmentSlot.MAINHAND:EquipmentSlot.OFFHAND);

@@ -65,9 +65,13 @@ public final class BuyanGenerator {
                 return 0;
             }
             if (nature.finishedAt(completed)) {
-                source.sendSuccess(() -> Component.literal(
-                    "Буян уже полностью построен (основание и природа)."), false);
-                return 1;
+                if (!BuyanCityPlan.placeOnce(world, completed)) {
+                    source.sendFailure(Component.literal("Город Буяна не достроен: защищённые блоки или неподходящий участок. Рельеф сохранён."));
+                    return 0;
+                }
+                String result = BuyanDevelopment.develop(world, completed);
+                source.sendSuccess(() -> Component.literal("Буян: проверка и достройка города — " + result), false);
+                return result.contains("false") || result.contains("не готовы") ? 0 : 1;
             }
             try {
                 if (!BuyanNatureGenerator.startCompleted(world, completed)) {
@@ -92,6 +96,10 @@ public final class BuyanGenerator {
         }
         if (!world.getBiome(new BlockPos(cx, sea, cz)).is(BiomeTags.IS_OCEAN)) {
             source.sendFailure(Component.literal("Центр Буяна должен находиться в ванильном океанском биоме."));
+            return 0;
+        }
+        if (!BuyanOceanSite.suitable(world,cx,cz)) {
+            source.sendFailure(Component.literal("Для Буяна нужен открытый океан по всей площади острова, вдали от суши и мелководья."));
             return 0;
         }
         // Read the actual water surface from the live ocean column.

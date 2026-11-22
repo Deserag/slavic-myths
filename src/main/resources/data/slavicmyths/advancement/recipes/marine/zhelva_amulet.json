@@ -1,0 +1,34 @@
+{
+  "rewards": {
+    "recipes": [
+      "slavicmyths:zhelva_amulet"
+    ]
+  },
+  "requirements": [
+    [
+      "has_material",
+      "has_the_recipe"
+    ]
+  ],
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "slavicmyths:zhelva_amulet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_material": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:chain"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "parent": "minecraft:recipes/root"
+}

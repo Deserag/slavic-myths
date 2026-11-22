@@ -54,6 +54,15 @@ public final class MarineArmorEffects {
         boolean wet = full && (player.isInWaterOrBubble() || player.isEyeInFluid(FluidTags.WATER));
         swimSpeed(player, wet);
         if (!(player instanceof ServerPlayer server)) return;
+        var health=server.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        var bonus=ResourceLocation.fromNamespaceAndPath("slavicmyths","marine_full_health");
+        if(health!=null){
+            if(full&&health.getModifier(bonus)==null)health.addTransientModifier(new AttributeModifier(bonus,16,AttributeModifier.Operation.ADD_VALUE));
+            if(!full&&health.getModifier(bonus)!=null){health.removeModifier(bonus);server.setHealth(Math.min(server.getHealth(),server.getMaxHealth()));}
+        }
+        boolean inWater=server.isAlive()&&!server.isSpectator()&&(server.isInWaterOrBubble()||server.isEyeInFluid(FluidTags.WATER));
+        effect(server,"chest_regeneration",MobEffects.REGENERATION,inWater&&server.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST).is(MarineArmor.CHESTPLATE.get()),0,45);
+        effect(server,"leggings_strength",MobEffects.DAMAGE_BOOST,inWater&&server.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS).is(MarineArmor.LEGGINGS.get()),1,45);
         boolean underwater = wet && player.isEyeInFluid(FluidTags.WATER);
         applyEffects(server, onWater, wet, underwater);
     }

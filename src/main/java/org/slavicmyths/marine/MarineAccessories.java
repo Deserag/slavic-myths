@@ -51,6 +51,7 @@ public final class MarineAccessories {
     private static final ResourceLocation TIDE_MOVE = key("tide_ring_speed");
     private static final ResourceLocation PIKE_SWIM = key("tsar_pike_belt_swim");
     private static final ResourceLocation SHELL_ARMOR = key("zhelva_amulet_armor");
+    private static final ResourceLocation SHELL_KNOCKBACK = key("zhelva_knockback");
     private static final String TAILWIND_READY = "SlavicMarineTailwindReady";
 
     private static ResourceLocation key(String name) {
@@ -95,7 +96,7 @@ public final class MarineAccessories {
         if (!enabled) attribute.removeModifier(id);
         else if (attribute.getModifier(id) == null)
             attribute.addTransientModifier(new AttributeModifier(id, value,
-                id.equals(SHELL_ARMOR) ? AttributeModifier.Operation.ADD_VALUE
+                (id.equals(SHELL_ARMOR) || id.equals(SHELL_KNOCKBACK)) ? AttributeModifier.Operation.ADD_VALUE
                     : AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
@@ -106,6 +107,8 @@ public final class MarineAccessories {
             active && wet && wears(player, "tide_ring"), .12);
         modifier(player.getAttribute(NeoForgeMod.SWIM_SPEED), PIKE_SWIM,
             active && wet && wears(player, "tsar_pike_belt"), .20);
+        modifier(player.getAttribute(Attributes.KNOCKBACK_RESISTANCE), SHELL_KNOCKBACK,
+            active && wears(player, "zhelva_amulet"), .2);
         modifier(player.getAttribute(Attributes.ARMOR), SHELL_ARMOR,
             active && wears(player, "zhelva_amulet"), 2.0);
     }
@@ -114,30 +117,37 @@ public final class MarineAccessories {
         modifier(player.getAttribute(Attributes.MOVEMENT_SPEED), TIDE_MOVE, false, 0);
         modifier(player.getAttribute(NeoForgeMod.SWIM_SPEED), PIKE_SWIM, false, 0);
         modifier(player.getAttribute(Attributes.ARMOR), SHELL_ARMOR, false, 0);
+        modifier(player.getAttribute(Attributes.KNOCKBACK_RESISTANCE), SHELL_KNOCKBACK, false, 0);
     }
 
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         apply(player);
-        // Sprint-jump with the feather equipped: bounded forward boost, once per 12 s.
-        if (!player.isAlive() || player.isSpectator() || !wears(player, "tailwind_feather")
-                || !player.isSprinting() || player.onGround()
-                || player.getDeltaMovement().y <= .05 || player.isInWaterOrBubble()) return;
+        long remaining = player.getPersistentData().getLong(TAILWIND_READY)
+            - player.server.overworld().getGameTime();
+        if (remaining > 0 && remaining <= 240
+                && !player.getCooldowns().isOnCooldown(TAILWIND_FEATHER.get()))
+            player.getCooldowns().addCooldown(TAILWIND_FEATHER.get(), (int) remaining);
+    }
+
+    public static void dash(ServerPlayer player) {
+        if (!player.isAlive() || player.isSpectator() || player.onGround()
+                || player.isPassenger() || player.getAbilities().flying || player.isFallFlying()
+                || player.isInWaterOrBubble() || !wears(player, "tailwind_feather")) return;
         long now = player.server.overworld().getGameTime();
         if (now < player.getPersistentData().getLong(TAILWIND_READY)) return;
-        Vec3 forward = player.getLookAngle();
-        Vec3 horizontal = new Vec3(forward.x, 0, forward.z);
-        if (horizontal.lengthSqr() < .1) return;
-        Vec3 speed = horizontal.normalize().scale(.8);
-        player.push(speed.x, .1, speed.z);
+        Vec3 direction = player.getLookAngle().scale(.8);
+        player.setDeltaMovement(direction);
         player.hurtMarked = true;
         player.getPersistentData().putLong(TAILWIND_READY, now + 240);
+        player.getCooldowns().addCooldown(TAILWIND_FEATHER.get(), 240);
     }
 
     @SubscribeEvent public static void damage(LivingDamageEvent.Pre event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || event.getNewDamage() <= 0
                 || !player.isAlive()) return;
         float damage = event.getNewDamage();
+        if (event.getSource().is(DamageTypes.FALL) && wears(player, "tailwind_feather")) damage *= .5F;
         if (wears(player, "abyss_necklace") && player.isInWaterOrBubble()
                 && event.getSource().getEntity() instanceof LivingEntity attacker
                 && !(attacker instanceof Player) && attacker.isInWaterOrBubble())

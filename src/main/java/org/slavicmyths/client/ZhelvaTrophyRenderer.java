@@ -34,7 +34,8 @@ public final class ZhelvaTrophyRenderer implements BlockEntityRenderer<ZhelvaTro
         pose.translate(.5, .32, .5);
         pose.mulPose(Axis.YP.rotationDegrees(rotation));
         pose.scale(.37F, -.37F, .37F);
-        pose.translate(0, 28, 72);
+        // Model pivots are measured in pixels; PoseStack translations use blocks.
+        pose.translate(0, 28F / 16F, 72F / 16F);
         model.renderTrophyHead(pose, buffers.getBuffer(RenderType.entityCutoutNoCull(WHITE)),
             light, overlay, tile.getLevel().getGameTime() + partialTick);
         pose.popPose();

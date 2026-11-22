@@ -138,7 +138,7 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
                 link.y = .6F * i;
                 link.visible = false;
                 float width = i % 2 == 0 ? .7F : .35F;
-                cub(link, 96, 96, -width / 2, .1F, -.3F, width, .5F, .6F);
+                cub(link, 160, 0, -width / 2, .1F, -.3F, width, .5F, .6F);
             }
         }
     }
@@ -146,18 +146,18 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         // Wrist rests on the ferrule. Two different outward-facing hooked blades,
         // with actual curved steel volume rather than a five-pixel flat rake.
         cub(part, 64, 64, -.55F, -3.5F, -.57F, 1.1F, 9F, 1.14F);
-        cub(part, 96, 64, -.8F, -3.85F, -.82F, 1.6F, 1.55F, 1.64F);
+        cub(part, 160, 0, -.8F, -3.85F, -.82F, 1.6F, 1.55F, 1.64F);
         cub(part, 64, 64, -.72F, 4.4F, -.72F, 1.44F, 1.65F, 1.44F);
         for(int step=0;step<9;step++){
             float t=step/8F;
             float x=side*(.25F+6.7F*t);
             float y=-3.5F-3.4F*(float)Math.sin(t*Math.PI*.88F)+1.7F*t;
             float depth=.95F-.23F*t,thickness=1.23F-.33F*t;
-            cub(part, 96, 96, x-thickness*.5F,y,-depth*.5F,thickness,1.4F,depth);
+            cub(part, 160, 0, x-thickness*.5F,y,-depth*.5F,thickness,1.4F,depth);
         }
         float tip=side*7.3F;
-        cub(part, 120, 112, tip-.38F,-2.25F,-.31F,.76F,2.7F,.62F);
-        cub(part, 120, 112, tip-side*.60F-.24F,-.40F,-.26F,.48F,1.35F,.52F);
+        cub(part, 160, 0, tip-.38F,-2.25F,-.31F,.76F,2.7F,.62F);
+        cub(part, 160, 0, tip-side*.60F-.24F,-.40F,-.26F,.48F,1.35F,.52F);
     }
 
     private static float attackPose(float remaining, float duration, float impact, float windup, float strike) {
@@ -204,6 +204,9 @@ public final class PosadBossModel extends EntityModel<PosadBoss> {
         } else {
             root.y += .65F * breath;
             cloth.xRot = .04F * breath + .08F * stride;
+            leftSickle.visible = true;
+            chain.visible = true;
+            chainSickle.visible = true;
             float extension = 0;
             rightArm.xRot = -.24F;
             leftArm.xRot = -.24F;

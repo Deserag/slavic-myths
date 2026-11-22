@@ -17,8 +17,11 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class MarineCraftGameTests {
     @GameTest(template = "empty", timeoutTicks = 60)
-    public static void allTwelveShapedRecipesCraftActualItems(GameTestHelper t) {
+    public static void allOceanAndShipRecipesCraftActualItems(GameTestHelper t) {
         for (String id : List.of(
+                "tide_helmet", "abyss_chestplate", "storm_leggings", "waterwalk_boots", "pharaohka_trident", "zhelva_shield",
+                "ship_helm_module", "ship_oar_module", "ship_deck_section", "ship_rail_module", "ship_sail_module",
+                "ship_sail_linen_module", "ship_sail_reinforced_module", "ship_rigging_upgrade", "shipyard_key", "shipyard_workbench", "reinforced_sailcloth",
                 "storm_anchor", "abyss_staff", "storm_harpoon",
                 "tide_ring", "abyss_necklace", "storm_bracelet",
                 "tailwind_feather", "tsar_pike_belt", "zhelva_amulet",
@@ -32,6 +35,10 @@ public final class MarineCraftGameTests {
             for (var ingredient : recipe.getIngredients()) {
                 t.assertTrue(ingredient.isEmpty() || ingredient.getItems().length > 0,
                     "Unresolvable recipe ingredient: " + id);
+                for(var candidate:ingredient.getItems()) {
+                    String material=BuiltInRegistries.ITEM.getKey(candidate.getItem()).getPath();
+                    t.assertTrue(!material.contains("netherite")&&!material.startsWith("blaze_")&&!material.equals("ghast_tear")&&!material.equals("magma_cream"),"Nether-gated marine recipe: "+id+" / "+material);
+                }
                 ingredients.add(ingredient.isEmpty()
                     ? ItemStack.EMPTY : ingredient.getItems()[0].copy());
             }
@@ -41,7 +48,7 @@ public final class MarineCraftGameTests {
             var result = recipe.assemble(input, t.getLevel().registryAccess());
             t.assertTrue(!result.isEmpty()
                     && result.is(BuiltInRegistries.ITEM.get(key))
-                    && result.getCount() == 1,
+                    && result.getCount() == recipe.getResultItem(t.getLevel().registryAccess()).getCount(),
                 "Crafting produces wrong ocean reward: " + id);
         }
         t.succeed();

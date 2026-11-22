@@ -1,0 +1,34 @@
+{
+  "rewards": {
+    "recipes": [
+      "slavicmyths:depths_lantern"
+    ]
+  },
+  "requirements": [
+    [
+      "has_material",
+      "has_the_recipe"
+    ]
+  ],
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "slavicmyths:depths_lantern"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_material": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:deep_sea_serpent_scale"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "parent": "minecraft:recipes/root"
+}

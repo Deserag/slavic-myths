@@ -1,0 +1,34 @@
+{
+  "rewards": {
+    "recipes": [
+      "slavicmyths:tailwind_feather"
+    ]
+  },
+  "requirements": [
+    [
+      "has_material",
+      "has_the_recipe"
+    ]
+  ],
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "slavicmyths:tailwind_feather"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_material": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:stratim_bird_feather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "parent": "minecraft:recipes/root"
+}

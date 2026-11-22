@@ -65,7 +65,7 @@ public final class MorController {
         LivingEntity target=mob.getTarget();double range=kind()==4?24:kind()==3?14:kind()==2?18:16;
         if(!opponent(target)||mob.distanceToSqr(target)>(kind()==4?32*32:16*16)){mob.setTarget(null);target=null;}
         if(target!=null){unseen=sight(target)?0:unseen+5;if(unseen>=200){mob.setTarget(null);target=null;}}
-        if(target==null&&opponent(mob.getLastHurtByMob()))target=mob.getLastHurtByMob();
+        if(MorRetaliation.valid(mob,mob.getLastHurtByMob())&&opponent(mob.getLastHurtByMob())&&mob.distanceToSqr(mob.getLastHurtByMob())<=range*range){target=mob.getLastHurtByMob();mob.setTarget(target);unseen=0;}
         if(target==null){target=mob.level().getNearestPlayer(mob.getX(),mob.getY(),mob.getZ(),range,p->p instanceof Player player&&opponent(player)&&sight(player));mob.setTarget(target);unseen=0;}
         if(target==null)return true;
         mob.getLookControl().setLookAt(target,30,30);double d=mob.distanceTo(target);boolean sight=sight(target);int skill=switch(kind()){case 1->MorLeshy.choose(this,target,d,sight);case 2->MorPoludnitsa.choose(this,target,d,sight);case 3->MorKikimora.choose(this,target,d,sight);case 4->MorSerpent.choose(this,target,d,sight);default->0;};
@@ -85,7 +85,7 @@ public final class MorController {
     void swing(LivingEntity target,float damage,double reach,float cone,boolean follow){if(mob.distanceTo(target)>reach||!sight(target)||aim.dot(target.position().subtract(mob.position()).multiply(1,0,1).normalize())<cone)return;if(follow&&target.getLastHurtByMob()==mob)target.invulnerableTime=Math.min(target.invulnerableTime,10);damage(target,damage);}
     void projectile(LivingEntity target,boolean thread,float damage){MorBolt bolt=new MorBolt(MorContent.BOLT.get(),mob.level());bolt.configure(mob,thread,damage);bolt.setPos(mob.getX(),mob.getEyeY()-.2,mob.getZ());Vec3 v=target.getBoundingBox().getCenter().subtract(bolt.position());bolt.shoot(v.x,v.y,v.z,thread?.65F:.7F,0);mob.level().addFreshEntity(bolt);}
     public static boolean valid(LivingEntity e){return e instanceof Player p&&p.isAlive()&&!p.isCreative()&&!p.isSpectator();}
-    private boolean opponent(LivingEntity e){return (valid(e)||org.slavicmyths.bogatyr.HeroThreats.availableHero(e)&&mob.getLastHurtByMob()==e||org.slavicmyths.poloz.PolozMinions.enemy(mob,e))&&!mob.isAlliedTo(e);}
+    private boolean opponent(LivingEntity e){return (valid(e)||MorRetaliation.valid(mob,e)||org.slavicmyths.bogatyr.HeroThreats.availableHero(e)&&mob.getLastHurtByMob()==e||org.slavicmyths.poloz.PolozMinions.enemy(mob,e))&&!mob.isAlliedTo(e);}
     List<Player> players(double radius){return mob.level().getEntitiesOfClass(Player.class,mob.getBoundingBox().inflate(radius),p->opponent(p)&&mob.distanceToSqr(p)<=radius*radius&&sight(p));}
     boolean damage(LivingEntity target,float amount){if(!opponent(target))return false;boolean hit=target.hurt(mob.damageSources().mobAttack(mob),amount);if(hit&&!hitSoundPlayed){sound(SoundEvents.PLAYER_ATTACK_STRONG,.5F,.75F);hitSoundPlayed=true;}return hit;}
     public static void hold(LivingEntity e,int ticks){if(!valid(e))return;e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,ticks,4));e.setDeltaMovement(e.getDeltaMovement().multiply(0,1,0));e.hurtMarked=true;}

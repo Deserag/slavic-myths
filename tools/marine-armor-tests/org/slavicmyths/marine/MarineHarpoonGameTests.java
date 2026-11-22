@@ -21,10 +21,10 @@ public final class MarineHarpoonGameTests {
         var player = FakePlayerFactory.get(t.getLevel(),
             new GameProfile(UUID.randomUUID(), "StormHarpoon522"));
         player.moveTo(t.absolutePos(new BlockPos(2, 3, 2)), 0F, 0F);
-        var harpoon = new ItemStack(MarineWeapons.HARPOON.get());
+        var harpoon = new ItemStack(MarineHarpoons.AMMO.get());
         player.setItemInHand(InteractionHand.MAIN_HAND, harpoon);
         int useTicks = 24;
-        MarineWeapons.HARPOON.get().releaseUsing(harpoon, t.getLevel(),
+        MarineHarpoons.AMMO.get().releaseUsing(harpoon, t.getLevel(),
             player, harpoon.getUseDuration(player) - useTicks);
         var thrown = t.getLevel().getEntitiesOfClass(ThrownTrident.class,
             player.getBoundingBox().inflate(5D));
@@ -34,7 +34,7 @@ public final class MarineHarpoonGameTests {
         t.assertTrue(projectile.getOwner() == player,
             "Harpoon projectile lost its owner");
         t.assertTrue(projectile.getWeaponItem() != null
-            && projectile.getWeaponItem().is(MarineWeapons.HARPOON.get()),
+            && projectile.getWeaponItem().is(MarineHarpoons.AMMO.get()),
             "Thrown trident lost the original harpoon ItemStack");
         projectile.discard();
         player.discard();

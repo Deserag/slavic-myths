@@ -46,7 +46,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
             return;
         }
         if(rupture)burst(owner,target.position());
-        if(target.getBbHeight()<=4F&&target.getBbWidth()<=2.5F&&target.distanceToSqr(owner)<=22*22){
+        if(target.getBbHeight()<=4F&&target.getBbWidth()<=2.5F&&target.distanceToSqr(owner)<=Math.pow(22*org.slavicmyths.combat.RangeEnchantment.multiplier(level(),getItem()),2)){
             targetId=target.getUUID();
             pullTicks=32;
             setDeltaMovement(Vec3.ZERO);
@@ -70,7 +70,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
         if(!(getOwner() instanceof ServerPlayer owner)||!owner.isAlive()||owner.level()!=level()){discard();return;}
         if(targetId!=null){
             Entity found=world.getEntity(targetId);
-            if(!(found instanceof LivingEntity target)||!target.isAlive()||pullTicks--<=0||target.distanceToSqr(owner)>22*22||target.isAlliedTo(owner)||owner.isAlliedTo(target)){targetId=null;returning=true;}
+            if(!(found instanceof LivingEntity target)||!target.isAlive()||pullTicks--<=0||target.distanceToSqr(owner)>Math.pow(22*org.slavicmyths.combat.RangeEnchantment.multiplier(level(),getItem()),2)||target.isAlliedTo(owner)||owner.isAlliedTo(target)){targetId=null;returning=true;}
             else {
                 setPos(target.getX(),target.getY()+target.getBbHeight()*.58,target.getZ());
                 Vec3 delta=owner.position().subtract(target.position()).multiply(1,0,1);
@@ -87,7 +87,7 @@ public final class ShackledSickleProjectile extends ThrowableItemProjectile {
             setDeltaMovement(delta.normalize().scale(1.1));
         }
         super.tick();
-        if(tickCount>70){discard();return;}
+        if(tickCount>70*org.slavicmyths.combat.RangeEnchantment.multiplier(level(),getItem())){discard();return;}
         Vec3 hand=owner.getEyePosition().subtract(0,.35,0),blade=position();
         double distance=blade.distanceTo(hand);
         for(int i=1;i<=Math.min(24,(int)(distance*3));i++){

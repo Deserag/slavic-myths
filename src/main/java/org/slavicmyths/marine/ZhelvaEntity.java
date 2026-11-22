@@ -42,6 +42,11 @@ import net.neoforged.neoforge.entity.PartEntity;
  * The model and multipart collision geometry share a forward-facing head and four flippers.
  */
 public final class ZhelvaEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int IDLE = 0, SWIM = 1, BITE = 2, SWEEP_LEFT = 3, SWEEP_RIGHT = 4,
         PRESSURE_RING = 5, GUARD = 6, WHIRLPOOL = 7, SILT = 8, CHARGE = 9,
         SHELL_SLAM = 10, PRESSURE_LANCE = 11;
@@ -53,7 +58,7 @@ public final class ZhelvaEntity extends Monster {
         SynchedEntityData.defineId(ZhelvaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PHASE =
         SynchedEntityData.defineId(ZhelvaEntity.class, EntityDataSerializers.INT);
-    private final ServerBossEvent bar = new ServerBossEvent(
+    private final ServerBossEvent bar = new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatableWithFallback("entity.slavicmyths.zhelva", "Желва Каменного Дна"),
         BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> damagedThisAction = new HashSet<>();
@@ -239,7 +244,8 @@ public final class ZhelvaEntity extends Monster {
         setYHeadRot(getYRot());
         setYBodyRot(getYRot());
     }
-    private void swimToward(Vec3 target, double speed) {
+    private Vec3 patrolPoint;
+    void swimToward(Vec3 target, double speed) {
         if (!isInWaterOrBubble()) return;
         Vec3 delta = target.subtract(position()).multiply(1, 0, 1);
         if (delta.lengthSqr() < .2) {
@@ -251,14 +257,28 @@ public final class ZhelvaEntity extends Monster {
         // Never follow a flying player vertically. Patrol near the seafloor.
         double vertical = home == null ? 0 : Mth.clamp((home.y - getY()) * .025, -.045, .045);
         Vec3 motion = getDeltaMovement().scale(.72).add(step.scale(.28)).add(0, vertical, 0);
-        BlockPos probe = BlockPos.containing(position().add(motion.scale(4)));
-        if (!level().hasChunkAt(probe)
-            || !level().getBlockState(probe).getCollisionShape(level(), probe).isEmpty()) {
-            setDeltaMovement(getDeltaMovement().scale(.4));
-            return;
+        if (!clearSwimMotion(motion)) {
+            Vec3 direction=delta.normalize();
+            boolean found=false;
+            for(double angle:new double[]{Math.PI/4,-Math.PI/4,Math.PI/2,-Math.PI/2,3*Math.PI/4,-3*Math.PI/4}){
+                double x=direction.x*Math.cos(angle)-direction.z*Math.sin(angle);
+                double z=direction.x*Math.sin(angle)+direction.z*Math.cos(angle);
+                Vec3 side=new Vec3(x*Math.min(speed,.18),vertical,z*Math.min(speed,.18));
+                if(clearSwimMotion(side)){motion=side;found=true;break;}
+            }
+            if(!found){setDeltaMovement(Vec3.ZERO);return;}
         }
         setDeltaMovement(motion);
         hasImpulse = true;
+    }
+    private boolean clearSwimMotion(Vec3 motion){
+        var swept=getBoundingBox().expandTowards(motion.scale(4)).deflate(.001);
+        // Check loaded bounds before collision queries; steering never generates terrain.
+        for(double x:new double[]{swept.minX,swept.maxX})for(double z:new double[]{swept.minZ,swept.maxZ})
+            if(!level().hasChunkAt(BlockPos.containing(x,getY(),z)))return false;
+        BlockPos destination=BlockPos.containing(position().add(motion.scale(4)));
+        return level().getFluidState(destination).is(net.minecraft.tags.FluidTags.WATER)
+            &&level().noCollision(this,swept);
     }
     void begin(int next, int duration, Vec3 point) {
         entityData.set(ACTION, next);
@@ -393,7 +413,18 @@ public final class ZhelvaEntity extends Monster {
         if (target == null) {
             if (home != null && distanceToSqr(home) > 12 * 12)
                 swimToward(home, .12);
-            else setDeltaMovement(getDeltaMovement().scale(.84));
+            else if(isInWaterOrBubble()){
+                if(patrolPoint==null||distanceToSqr(patrolPoint)<4||tickCount%120==0){
+                    patrolPoint=null;
+                    for(int attempt=0;attempt<8;attempt++){
+                        double angle=random.nextDouble()*Math.PI*2;
+                        Vec3 point=home.add(Math.cos(angle)*8,0,Math.sin(angle)*8);
+                        BlockPos at=BlockPos.containing(point);
+                        if(level().hasChunkAt(at)&&level().getFluidState(at).is(net.minecraft.tags.FluidTags.WATER)&&level().noCollision(this,getBoundingBox().move(point.subtract(position())))){patrolPoint=point;break;}
+                    }
+                }
+                if(patrolPoint!=null)swimToward(patrolPoint,.10);else setDeltaMovement(getDeltaMovement().scale(.84));
+            }else setDeltaMovement(getDeltaMovement().scale(.84));
             if (state != IDLE) begin(IDLE, 0, null);
             return;
         }

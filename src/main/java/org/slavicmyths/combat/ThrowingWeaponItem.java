@@ -53,7 +53,7 @@ public class ThrowingWeaponItem extends TieredItem {
         prepareThrownStack(player,carried);
         WeaponProjectile projectile=new WeaponProjectile(level,player,carried,knife,creative);
         configureProjectile(projectile,player,carried);
-        projectile.shootFromRotation(player,player.getXRot(),player.getYRot(),0,velocity,knife?1.5F:1F);
+        projectile.shootFromRotation(player,player.getXRot(),player.getYRot(),0,velocity*(float)Math.sqrt(RangeEnchantment.multiplier(level,carried)),knife?1.5F:1F);
         if(!level.addFreshEntity(projectile))return;
         afterThrow(player,carried);
         if(!creative)stack.shrink(1);

@@ -27,7 +27,7 @@ public final class FrostClient {
   g.drawString(mc.font,FrostContent.text("icicles_status",ICICLES.getTranslatedKeyMessage(),cooldown(view.getLong("IcicleReady"),now)),x,y-27,0xBCE5FF,false);
   g.drawString(mc.font,FrostContent.text("wave_status",WAVE.getTranslatedKeyMessage(),cooldown(view.getLong("WaveReady"),now)),x,y-14,0xBCE5FF,false);
  }
- if(view.getBoolean("MirrorEquipped")){g.renderItem(new ItemStack(FrostContent.MIRROR.get()),x,y-66);g.drawString(mc.font,FrostContent.text("mirror_cd",seconds(view.getLong("MirrorReady"),now)),x+20,y-62,0xBCE5FF,false);}}
+ if(view.getBoolean("MirrorEquipped")&&!org.slavicmyths.item.FolkAccessoryItem.equipped(mc.player,FrostContent.MIRROR.get()).isEmpty()){g.renderItem(new ItemStack(FrostContent.MIRROR.get()),x,y-66);g.drawString(mc.font,FrostContent.text("mirror_cd",seconds(view.getLong("MirrorReady"),now)),x+20,y-62,0xBCE5FF,false);}}
  private static net.minecraft.network.chat.Component cooldown(long ready,long now){return ready>now?FrostContent.text("ability_cooldown",seconds(ready,now)):FrostContent.text("ability_ready");}
 
  private static long seconds(long until,long now){return Math.max(0,(until-now+19)/20);}

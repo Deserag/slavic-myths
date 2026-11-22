@@ -31,7 +31,7 @@ public final class AgneyaBoss extends Monster {
     private static final EntityDataAccessor<Integer> ATTACK_STARTED = SynchedEntityData.defineId(AgneyaBoss.class, EntityDataSerializers.INT);
     private int swingTick = -1;
     private int cooldown;
-    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.agneya"),
+    private final ServerBossEvent bossBar = new org.slavicmyths.combat.CreatureBossBar(this,Component.translatable("entity.slavicmyths.agneya"),
         org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),BossEvent.BossBarOverlay.PROGRESS);
     @Override public void startSeenByPlayer(ServerPlayer player){super.startSeenByPlayer(player);bossBar.addPlayer(player);}
     @Override public void stopSeenByPlayer(ServerPlayer player){super.stopSeenByPlayer(player);bossBar.removePlayer(player);}
@@ -41,6 +41,7 @@ public final class AgneyaBoss extends Monster {
     public AgneyaBoss(EntityType<? extends AgneyaBoss> type, Level level) {
         super(type, level);
         setPersistenceRequired();
+        setHealth(getMaxHealth());
         setNoGravity(false);
     }
 
@@ -61,7 +62,7 @@ public final class AgneyaBoss extends Monster {
 
     public static AttributeSupplier.Builder attributes() {
         return Monster.createMonsterAttributes()
-            .add(Attributes.MAX_HEALTH, 300)
+            .add(Attributes.MAX_HEALTH, 1200)
             .add(Attributes.MOVEMENT_SPEED, .27)
             .add(Attributes.ATTACK_DAMAGE, 14)
             .add(Attributes.ARMOR, 10)
@@ -132,4 +133,15 @@ public final class AgneyaBoss extends Monster {
             }
         }
     }
-}
+    @Override public float getMaxHealth() {
+        return (float)org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));
+    }
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        var health=getAttribute(Attributes.MAX_HEALTH);
+        if(health!=null&&health.getBaseValue()==300D){
+            float maximum=getMaxHealth(), current=getHealth();
+            health.setBaseValue(1200D);
+            setHealth(org.slavicmyths.combat.CreatureHealthBalance.proportional(current,maximum,getMaxHealth()));
+        }
+    }}

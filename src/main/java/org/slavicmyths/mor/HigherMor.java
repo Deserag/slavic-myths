@@ -22,7 +22,7 @@ public final class HigherMor {
  public HigherMor(LandSpiritEntity mob){this.mob=mob;this.presence=new MorPresence(mob);}
  public boolean phase(){return phase;}
  public static boolean higher(LivingEntity e){return e instanceof LandSpiritEntity s&&s.mor.kind()>=5&&s.morState()==2;}
- public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(self,e,org.slavicmyths.combat.CombatTargeting.Context.AREA)&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
+ public static boolean enemy(LandSpiritEntity self,LivingEntity e){return e!=null&&org.slavicmyths.combat.CombatTargeting.canAttack(self,e,org.slavicmyths.combat.CombatTargeting.Context.AREA)&&e.isAlive()&&!self.isAlliedTo(e)&&(MorController.valid(e)||MorRetaliation.valid(self,e)||(e instanceof net.minecraft.world.entity.monster.Enemy||org.slavicmyths.bogatyr.HeroThreats.availableHero(e))&&!higher(e)&&!(e instanceof LandSpiritEntity s&&s.morState()!=0));}
  public void tick(){
   if(mob.morState()!=2){presence.clear();return;}
   presence.tick();
@@ -30,7 +30,7 @@ public final class HigherMor {
   if(!phase&&HigherRules.phase2(mob.getHealth(),mob.getMaxHealth())&&(mob.mor.kind()!=5||mob.morSkill()==0)){phase=true;org.slavicmyths.hunt.LikhoCombatTrace.event(mob,"higher.phase");mob.morSync(2,0,15);clock=0;cloudWait=0;mob.playSound(mob.mor.kind()==5?SoundEvents.WITCH_CELEBRATE:SoundEvents.RAVAGER_ROAR,.7F,.55F);}
   if(groundWait>0)groundWait--;else {groundWait=HigherRules.groundPeriod(mob.mor.kind(),phase);zone(false);}
   wait=Math.max(0,wait-1);beamWait=Math.max(0,beamWait-1);cloudWait=Math.max(0,cloudWait-1);
-  if(mob.tickCount%10==0&&(mob.mor.kind()!=5||mob.morSkill()==0)){Player player=mob.level().getNearestPlayer(mob.getX(),mob.getY(),mob.getZ(),24,e->e instanceof Player p&&MorController.valid(p)&&!mob.isAlliedTo(p));if(player!=null)mob.setTarget(player);else if(!enemy(mob,mob.getTarget())){LivingEntity attacker=mob.getLastHurtByMob();mob.setTarget(enemy(mob,attacker)&&mob.distanceToSqr(attacker)<=256?attacker:null);}}
+  if(mob.tickCount%10==0&&(mob.mor.kind()!=5||mob.morSkill()==0)){Player player=mob.level().getNearestPlayer(mob.getX(),mob.getY(),mob.getZ(),24,e->e instanceof Player p&&MorController.valid(p)&&!mob.isAlliedTo(p));LivingEntity aggressor=mob.getLastHurtByMob();if(MorRetaliation.valid(mob,aggressor)&&enemy(mob,aggressor)&&mob.distanceToSqr(aggressor)<=24*24)mob.setTarget(aggressor);else if(player!=null)mob.setTarget(player);else if(!enemy(mob,mob.getTarget())){LivingEntity attacker=mob.getLastHurtByMob();mob.setTarget(enemy(mob,attacker)&&mob.distanceToSqr(attacker)<=256?attacker:null);}}
   LivingEntity target=mob.getTarget();int skill=mob.morSkill();
   if(skill!=0){mob.getNavigation().stop();mob.setDeltaMovement(new Vec3(0,mob.getDeltaMovement().y,0));int t=++clock;
    if(skill==15&&t==20){org.slavicmyths.hunt.LikhoCombatTrace.event(mob,"higher.release phase_cloud");zone(true);}

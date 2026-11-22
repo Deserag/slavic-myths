@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_master": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slavicmyths:storm_harpoon"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_master"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "slavicmyths:storm_harpoon_ammo"
+    ]
+  }
+}

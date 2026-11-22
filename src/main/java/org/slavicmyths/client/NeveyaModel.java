@@ -17,7 +17,7 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
         // Head-mounted hair and veil-cap cubes were authored in world-height units.
         // Rebase the vertex positions into the real head pivot instead of putting the
         // pivot 94 units below the head (the old 94-unit offset caused pendulum motion).
-        float headLocalY=(p==hair||p==veilCap)?94F:0F;
+        float headLocalY=(p==hair||p==veilCap||p==veil)?94F:0F;
         geo.box(p,(mat%4)*128+5,(mat/4)*128+5,x,-y-h+headLocalY,z,w,h,d);
     }
     private void line(ModelPart p,int mat,float ax,float ay,float az,float bx,float by,float bz,float thickness){
@@ -154,7 +154,11 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
         // Veil: thin, low-polygon drapes behind the head, no opaque panel over the face.
         for(int j=0;j<7;j++){
             float x=-6.2F+j*2.0F;
-            b(veil,7,x,74,8.4F,2.0F,37.5F,.6F);
+            for(int row=0;row<6;row++){
+                float y=87F+row*4F;
+                float fold=.65F*Mth.sin(j*1.45F+row*.45F);
+                b(veil,7,x+.18F*Mth.sin(row*.5F+j),y,6.2F+fold,1.85F,4.02F,.42F);
+            }
             b(veil,7,x,111.0F,3.6F,2.0F,1.35F,1.0F);
         }
         // The upper veil trim is headwear; long back drapes stay anchored to the body.
@@ -163,7 +167,7 @@ public final class NeveyaModel extends EntityModel<NeveyaBoss>{
             b(veilCap,8,x-.48F,112F,-.7F,.96F,1.8F,1.15F);
             if(j%3==0)b(veilCap,10,x-.52F,112.9F,-1.05F,1.05F,1.1F,.6F);
         }
-        geo.attach(root,veil);
+        geo.attach(head,veil);
         veilCap.setPos(0F,0F,0F);
         geo.attach(head,veilCap);
         // Straight dark staff: pivot exactly in the grasping left palm (local 0,0,0).

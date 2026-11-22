@@ -69,3 +69,9 @@ Thumbs.db
 
 # Temporary named backups (existing tracked backups require explicit review).
 *.backup.txt
+
+# Disposable local marine diagnostics.
+/marine-*.txt
+/run*/logs/
+/run*/crash-reports/
+/run*/screenshots/

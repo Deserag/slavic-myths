@@ -16,6 +16,27 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder("slavicmyths_pharaohka")
 @PrefixGameTestTemplate(false)
 public final class PharaohkaGameTests {
+    @GameTest(template="empty",timeoutTicks=20)
+    public static void aquaticBossesAcceptWaterButRejectStone(GameTestHelper test) {
+        var world=test.getLevel();
+        var types=java.util.List.of(DeepSeaSerpentContent.BOSS.get(),OceanZmeyContent.BOSS.get(),
+            TsarPikeContent.BOSS.get(),StratimBirdContent.BOSS.get(),PharaohkaContent.LEADER.get());
+        for(var type:types) {
+            var mob=type.create(world);
+            test.assertTrue(mob!=null,"Missing aquatic boss");
+            var center=test.absolutePos(new BlockPos(10,40,10));
+            mob.setPos(center.getX()+.5,center.getY(),center.getZ()+.5);
+            var box=mob.getBoundingBox();
+            var min=BlockPos.containing(box.minX-1,box.minY-1,box.minZ-1);
+            var max=BlockPos.containing(box.maxX+1,box.maxY+1,box.maxZ+1);
+            for(var pos:BlockPos.betweenClosed(min,max)) world.setBlock(pos,Blocks.WATER.defaultBlockState(),2);
+            test.assertTrue(mob.checkSpawnObstruction(world),type+" rejects unobstructed water");
+            world.setBlock(center,Blocks.STONE.defaultBlockState(),2);
+            test.assertTrue(!mob.checkSpawnObstruction(world),type+" accepts solid obstruction");
+            for(var pos:BlockPos.betweenClosed(min,max)) world.setBlock(pos,Blocks.AIR.defaultBlockState(),2);
+        }
+        test.succeed();
+    }
     private static void tank(GameTestHelper test) {
         for (int x=1;x<=19;x++) for (int z=1;z<=19;z++) {
             test.setBlock(new BlockPos(x,1,z),Blocks.PRISMARINE);
@@ -317,7 +338,7 @@ public final class PharaohkaGameTests {
             test.assertTrue(a==PharaohkaShipwreckSpawns.shouldSpawn(823347L,i),"Shipwreck chance not stable");
             if(a) spawns++;
         }
-        test.assertTrue(spawns>850&&spawns<1200,"Shipwreck chance deviates from 50%: "+spawns);
+        test.assertTrue(spawns==2048,"Shipwreck missing its resident encounter: "+spawns);
         test.succeed();
     }
 }

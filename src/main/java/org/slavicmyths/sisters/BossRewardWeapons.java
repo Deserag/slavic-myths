@@ -87,7 +87,7 @@ public final class BossRewardWeapons {
         private void cast(ServerLevel world,Player user,ItemStack stack,boolean alternate){
             boolean dual=!scythe&&user.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get());
             double radius=scythe?(alternate?7.0:5.4):(dual?5.6:4.0);
-            float damage=scythe?(alternate?53F:35F):(dual?(alternate?67F:46F):30F);
+            float damage=scythe?(alternate?53F:35F):(dual?(alternate?44F:32F):24F);
             Vec3 center=user.position().add(0,.7,0);
             Vec3 look=user.getLookAngle().multiply(1,0,1).normalize();
             int hits=0;
@@ -131,13 +131,13 @@ public final class BossRewardWeapons {
             if(scythe){
                 lines.add(Component.literal("Удар: иссушение II, слабость и метка душ").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
                 lines.add(Component.literal("Повторный удар по метке: +9 магического урона").withStyle(net.minecraft.ChatFormatting.AQUA));
-                lines.add(Component.literal("Удержать ПКМ → отпустить: жатва душ, 35 урона, радиус 5.4").withStyle(net.minecraft.ChatFormatting.GOLD));
-                lines.add(Component.literal("Shift + ПКМ: направленный разрез, 53 урона, дальность 7").withStyle(net.minecraft.ChatFormatting.YELLOW));
+                lines.add(Component.literal("Удержать ПКМ → отпустить: жатва — 35 урона, радиус 5,4, откат 9 с").withStyle(net.minecraft.ChatFormatting.GOLD));
+                lines.add(Component.literal("Shift + ПКМ: разрез — 53 урона, дальность 7, откат 13 с").withStyle(net.minecraft.ChatFormatting.YELLOW));
             }else{
                 lines.add(Component.literal("Удар: замедление; перелом руки игроков").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
-                lines.add(Component.literal("ПКМ: удар по земле, 30 урона, отбрасывание").withStyle(net.minecraft.ChatFormatting.GOLD));
-                lines.add(Component.literal("С двумя молотами: волна 46 урона, радиус 5.6").withStyle(net.minecraft.ChatFormatting.YELLOW));
-                lines.add(Component.literal("Два молота + Shift + ПКМ: разлом земли, 67 урона").withStyle(net.minecraft.ChatFormatting.AQUA));
+                lines.add(Component.literal("ПКМ: удар по земле — 24 урона, радиус 4, откат 7,5 с").withStyle(net.minecraft.ChatFormatting.GOLD));
+                lines.add(Component.literal("Два молота + ПКМ: волна — 32 урона, радиус 5,6, откат 9,5 с").withStyle(net.minecraft.ChatFormatting.YELLOW));
+                lines.add(Component.literal("Два молота + Shift + ПКМ: разлом — 44 урона, откат 13 с").withStyle(net.minecraft.ChatFormatting.AQUA));
                 lines.add(Component.literal("Два молота: дополнительный удар второй рукой").withStyle(net.minecraft.ChatFormatting.GRAY));
             }
             lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(net.minecraft.ChatFormatting.GRAY));

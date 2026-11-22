@@ -76,6 +76,17 @@ public final class MarineArtifacts {
                 if (!ready(owner, COMPASS_READY)) return InteractionResultHolder.fail(stack);
                 // getEntitiesOfClass searches loaded entities only, never forces a chunk.
                 ServerLevel world = owner.serverLevel();
+                if(owner.isShiftKeyDown()){
+                    if(world.dimension()!=Level.OVERWORLD){owner.displayClientMessage(Component.literal("Буян находится в обычном мире."),true);return InteractionResultHolder.fail(stack);}
+                    var state=org.slavicmyths.buyan.BuyanState.get(world);
+                    var site=state.completedSites().stream().min(Comparator.comparingDouble(candidate->{double dx=candidate.x()-owner.getX(),dz=candidate.z()-owner.getZ();return dx*dx+dz*dz;}));
+                    if(site.isPresent()){
+                        var found=site.get();int distance=(int)Math.hypot(found.x()-owner.getX(),found.z()-owner.getZ());
+                        owner.displayClientMessage(Component.literal("Буян: X="+found.x()+", Z="+found.z()+" — "+distance+" блоков"),false);
+                    }else if(state.active)owner.displayClientMessage(Component.literal("Буян ещё создаётся. Центр: X="+state.centerX+", Z="+state.centerZ),false);
+                    else owner.displayClientMessage(Component.literal("Буян ещё не найден или не создан в этом мире."),true);
+                    cooldown(owner,this,COMPASS_READY,100);return InteractionResultHolder.success(stack);
+                }
                 var closest = world.getEntitiesOfClass(LivingEntity.class,
                         owner.getBoundingBox().inflate(96),
                         candidate -> candidate.isAlive() && boss(candidate)

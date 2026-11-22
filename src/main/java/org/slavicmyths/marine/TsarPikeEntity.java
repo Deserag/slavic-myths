@@ -30,6 +30,11 @@ import net.minecraft.world.phys.Vec3;
 
 /** Server-authoritative solitary aquatic predator, hostile to every attackable living creature. */
 public final class TsarPikeEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int IDLE=0, SWIM=1, FAST=2, BITE=3, GRAB=4, HOLD=5,
         SHAKE=6, RELEASE=7, TAIL_SWEEP=8, LEAP=9;
     public static final float BASE_DAMAGE=18F, BITE_DAMAGE=BASE_DAMAGE*.65F,
@@ -41,7 +46,7 @@ public final class TsarPikeEntity extends Monster {
     private static final EntityDataAccessor<Float> OPEN =
         SynchedEntityData.defineId(TsarPikeEntity.class,EntityDataSerializers.FLOAT);
 
-    private final ServerBossEvent bar=new ServerBossEvent(
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatable("entity.slavicmyths.tsar_pike"),BossEvent.BossBarColor.GREEN,
         BossEvent.BossBarOverlay.PROGRESS);
 
@@ -197,7 +202,7 @@ public final class TsarPikeEntity extends Monster {
                 if(candidate.lengthSqr()>.32*.32)candidate=candidate.normalize().scale(.32);
                 BlockPos ahead=BlockPos.containing(position().add(candidate.scale(3)));
                 if(level().getFluidState(ahead).is(FluidTags.WATER)){
-                    setDeltaMovement(candidate);hasImpulse=true;
+                    setDeltaMovement(org.slavicmyths.combat.LargeMobClearance.steer(this,candidate));hasImpulse=true;
                 }
             }
         }
@@ -280,7 +285,7 @@ public final class TsarPikeEntity extends Monster {
             BlockPos next=BlockPos.containing(position().add(velocity.scale(2)));
             if(level().getFluidState(next).is(FluidTags.WATER)
                 || (action()==LEAP && level().getBlockState(next).isAir())){
-                setDeltaMovement(getDeltaMovement().scale(.25).add(velocity));hasImpulse=true;
+                setDeltaMovement(org.slavicmyths.combat.LargeMobClearance.steer(this,getDeltaMovement().scale(.25).add(velocity)));hasImpulse=true;
             }
         }
     }
@@ -295,7 +300,7 @@ public final class TsarPikeEntity extends Monster {
             if(dir.lengthSqr()<.01)dir=forward();
             Vec3 leap=dir.normalize().scale(.45).add(0,.7,0);
             setNoGravity(false);
-            setDeltaMovement(leap);hasImpulse=true;
+            setDeltaMovement(org.slavicmyths.combat.LargeMobClearance.steer(this,leap));hasImpulse=true;
             playSound(SoundEvents.GENERIC_SPLASH,1.2F,.7F);
         }
         if(phaseTicks<=12 && !inWater()){

@@ -41,7 +41,7 @@ public final class MorovoyFireZmey extends Monster {
  private static final EntityDataAccessor<Boolean> AIRBORNE=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.BOOLEAN);
  private static final EntityDataAccessor<Float> LOOK_YAW=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.FLOAT);
  private static final EntityDataAccessor<Float> LOOK_PITCH=SynchedEntityData.defineId(MorovoyFireZmey.class,EntityDataSerializers.FLOAT);
- private final ServerBossEvent bar=new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_fire_zmey"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,Component.translatable("entity.slavicmyths.morovoy_fire_zmey"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.PROGRESS);
  private Vec3 anchor;private int idleTicks=60,orbitTicks,grabTicks;private UUID grabbed;private int turn=0;
  public MorovoyFireZmey(EntityType<? extends MorovoyFireZmey> type,Level level){super(type,level);moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,20,true);setPersistenceRequired();xpReward=0;}
  @Override public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor world,net.minecraft.world.DifficultyInstance difficulty,net.minecraft.world.entity.MobSpawnType reason,net.minecraft.world.entity.SpawnGroupData data){var result=super.finalizeSpawn(world,difficulty,reason,data);if(reason==net.minecraft.world.entity.MobSpawnType.SPAWN_EGG){anchor=position();nextState(WAKING);}return result;}
@@ -61,7 +61,7 @@ public final class MorovoyFireZmey extends Monster {
  @Override public void tick(){super.tick();if(level().isClientSide)return;
   if(anchor==null)anchor=position();int age=stateAge()+1;entityData.set(STATE_AGE,age);
   bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0f,1f));
-  if(state()==DYING){setDeltaMovement(Vec3.ZERO);if(age>=65)super.die(damageSources().genericKill());return;}
+  if(state()==DYING){setDeltaMovement(Vec3.ZERO);if(age>=65&&!dead){setHealth(0);super.die(damageSources().genericKill());}return;}
   if(state()==SLEEPING){setDeltaMovement(Vec3.ZERO);setNoGravity(false);if(tickCount%30==0){passiveMor();for(ServerPlayer p:((ServerLevel)level()).players())if(p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&MorovoyZmeyRules.shouldWake(p.distanceToSqr(position().add(0,1,0)))){nextState(WAKING);break;}}return;}
   if(state()==WAKING){setDeltaMovement(Vec3.ZERO);if(age==10)particles(0,position().add(0,2,0),24);if(age==40)particles(1,position().add(0,3,0),32);if(age>=60){nextState(PHASE_I);idleTicks=45;setDeltaMovement(0,.35,0);setNoGravity(true);entityData.set(AIRBORNE,true);}return;}
   if(state()==PHASE_I&&MorovoyZmeyRules.secondPhase(getHealth(),getMaxHealth())){nextState(PHASE_II);particles(1,position().add(0,2,0),90);idleTicks=55;return;}
@@ -119,9 +119,9 @@ public final class MorovoyFireZmey extends Monster {
   if(velocity.lengthSqr()>.25)velocity=velocity.normalize().scale(.5);
   Vec3 next=position().add(velocity);
   if(next.distanceToSqr(anchor)>70*70||!world.hasChunkAt(BlockPos.containing(next)))velocity=Vec3.ZERO;
-  if(!world.noCollision(this,getBoundingBox().move(velocity))){
+  if(!world.noCollision(this,getBoundingBox().expandTowards(velocity))){
    Vec3 lift=new Vec3(0,.24,0);
-   velocity=world.noCollision(this,getBoundingBox().move(lift))?lift:Vec3.ZERO;
+   velocity=world.noCollision(this,getBoundingBox().expandTowards(lift))?lift:Vec3.ZERO;
   }
   float desiredYaw=(float)Math.toDegrees(Math.atan2(velocity.z,velocity.x))-90;
   if(velocity.horizontalDistanceSqr()>.0001)setYRot(Mth.rotLerp(.12f,getYRot(),desiredYaw));

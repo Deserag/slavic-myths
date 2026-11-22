@@ -24,7 +24,7 @@ public final class SistersArmorClient {
         IClientItemExtensions extension = new IClientItemExtensions() {
             @Override public HumanoidModel<?> getHumanoidArmorModel(LivingEntity wearer, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
                 if (!(stack.getItem() instanceof SistersArmor.Piece)) return original;
-                return MODELS.computeIfAbsent(slot, SistersArmorClient::create);
+                return org.slavicmyths.client.ArmorSlotVisibility.apply(MODELS.computeIfAbsent(slot, SistersArmorClient::create),slot);
             }
         };
         event.registerItem(extension, SistersArmor.LEDEYA_HELMET.get(), SistersArmor.GNETEYA_CHESTPLATE.get(), SistersArmor.AGNEYA_LEGGINGS.get(), SistersArmor.TRYASEYA_BOOTS.get());

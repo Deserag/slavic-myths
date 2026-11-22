@@ -16,6 +16,16 @@ public final class BolotnikRenderer extends MobRenderer<BolotnikEntity,BolotnikR
   public Model(){
    body=part(null,0,40,-7,-15,-5,14,15,10);body.setPos(0,17,0);
    head=part(body,80,0,-5,-22,-6,10,8,10);
+   // Recessed dark sockets, pale marsh eyes, heavy brow and a root-shaped nose.
+   for(int side:new int[]{-1,1}){
+    float eye=side*2.25F;
+    part(head,0,224,eye-1.35F,-19.8F,-6.20F,2.7F,1.6F,.3F);
+    part(head,16,224,eye-.85F,-19.45F,-6.43F,1.7F,.8F,.3F);
+    part(head,32,224,eye-.20F,-19.4F,-6.65F,.4F,.65F,.25F);
+    part(head,48,224,eye-1.5F,-20.45F,-6.35F,3,.6F,.5F);
+   }
+   part(head,48,224,-.75F,-19.2F,-7.3F,1.5F,2.4F,1.5F);
+   part(head,0,224,-2,-16.5F,-6.25F,4,.45F,.35F);
    part(head,180,100,-4,-23,-2,3,3,5);part(head,180,100,2,-23,-1,3,4,4);
    left=part(body,20,110,0,-13,-4,5,17,7);left.setPos(7,0,0);
    right=part(body,20,110,-5,-13,-4,5,17,7);right.setPos(-7,0,0);

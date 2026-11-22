@@ -13,6 +13,8 @@
     "slavicmyths:heat_salamander",
     "slavicmyths:slag_crab",
     "slavicmyths:vent_golem",
-    "slavicmyths:magma_lord"
+    "slavicmyths:magma_lord",
+    "minecraft:blaze",
+    "minecraft:magma_cube"
   ]
 }

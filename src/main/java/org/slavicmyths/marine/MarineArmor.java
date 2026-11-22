@@ -29,7 +29,7 @@ public final class MarineArmor {
             18, SoundEvents.ARMOR_EQUIP_NETHERITE,
             () -> Ingredient.of(MarineRewards.ZHELVA_MATERIAL.get()),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("slavicmyths", "marine_armor"))),
-            2.0F, 0.0F));
+            2.5F, 0.05F));
 
     public static final DeferredHolder<Item, Item> HELMET = ModItems.ITEMS.register("tide_helmet",
         () -> new Piece(ArmorItem.Type.HELMET, 407));
@@ -60,6 +60,9 @@ public final class MarineArmor {
         @Override public void appendHoverText(ItemStack stack, TooltipContext context,
                 List<Component> lines, TooltipFlag flags) {
             super.appendHoverText(stack, context, lines, flags);
+            lines.add(Component.translatable("item.slavicmyths.marine_armor.health").withStyle(ChatFormatting.AQUA));
+            if(getType()==Type.CHESTPLATE)lines.add(Component.translatable("item.slavicmyths.marine_armor.regeneration").withStyle(ChatFormatting.AQUA));
+            if(getType()==Type.LEGGINGS)lines.add(Component.translatable("item.slavicmyths.marine_armor.strength").withStyle(ChatFormatting.AQUA));
             lines.add(Component.translatable("item.slavicmyths.marine_armor.set")
                 .withStyle(ChatFormatting.DARK_AQUA));
             lines.add(Component.translatable("item.slavicmyths.marine_armor.bonus")

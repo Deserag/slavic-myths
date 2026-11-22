@@ -10,13 +10,15 @@ public final class RareBleedEffect extends MobEffect {
     public RareBleedEffect(){super(MobEffectCategory.HARMFUL,0x8c2528);}
     public static void apply(net.minecraft.server.level.ServerPlayer p,LivingEntity target){apply(p,target,false);}
     public static void applyRune(net.minecraft.server.level.ServerPlayer p,LivingEntity target){apply(p,target,true);}
-    private static void apply(net.minecraft.server.level.ServerPlayer p,LivingEntity target,boolean rune){
+    public static void applyNativeLevel(net.minecraft.server.level.ServerPlayer p,LivingEntity target,int level){apply(p,target,false,Math.clamp(level,1,3));}
+    private static void apply(net.minecraft.server.level.ServerPlayer p,LivingEntity target,boolean rune){apply(p,target,rune,0);}
+    private static void apply(net.minecraft.server.level.ServerPlayer p,LivingEntity target,boolean rune,int fixedLevel){
         if(!CutEffect.permitted(p,target))return;var old=current(target);var data=target.getPersistentData();long now=RareCombat.now(target);
         if(old==null){data.remove("RareBleedWolfUntil");data.remove("RareBleedWolfStacks");data.remove("RareBleedWolfActor");data.putInt("RareBleedNative",0);data.putInt("RareBleedRune",0);data.putLong("RareBleedNativeUntil",0);data.putLong("RareBleedRuneUntil",0);data.putLong("RareBleedPulse",now+org.slavicmyths.rpg.RuneBalance.BLEED_INTERVAL);}
         else if(!data.getBoolean("RareBleedSources")){data.putInt("RareBleedNative",Math.min(3,old.getAmplifier()+1));data.putLong("RareBleedNativeUntil",now+old.getDuration());if(data.hasUUID("RareBleedOwner"))data.putUUID("RareBleedNativeOwner",data.getUUID("RareBleedOwner"));}
         data.putBoolean("RareBleedSources",true);String source=rune?"Rune":"Native";int max=rune?org.slavicmyths.rpg.RuneBalance.RUNE_BLEED_MAX:org.slavicmyths.rpg.RuneBalance.NATIVE_BLEED_MAX;
         int before=data.getLong("RareBleed"+source+"Until")>now?data.getInt("RareBleed"+source):0;
-        data.putInt("RareBleed"+source,Math.min(max,before+1));data.putLong("RareBleed"+source+"Until",now+org.slavicmyths.rpg.RuneBalance.BLEED_DURATION);data.putUUID("RareBleed"+source+"Owner",p.getUUID());
+        data.putInt("RareBleed"+source,Math.min(max,fixedLevel>0?Math.max(before,fixedLevel):before+1));data.putLong("RareBleed"+source+"Until",now+org.slavicmyths.rpg.RuneBalance.BLEED_DURATION);data.putUUID("RareBleed"+source+"Owner",p.getUUID());
         int nativeStacks=data.getLong("RareBleedNativeUntil")>now?data.getInt("RareBleedNative"):0,runeStacks=data.getLong("RareBleedRuneUntil")>now?data.getInt("RareBleedRune"):0;
         int wolf=data.getLong("RareBleedWolfUntil")>now?data.getInt("RareBleedWolfStacks"):0;int stacks=Math.max(wolf,org.slavicmyths.rpg.RuneBalance.bleedStacks(nativeStacks,runeStacks));int duration=(int)((wolf>0?data.getLong("RareBleedWolfUntil"):Math.max(data.getLong("RareBleedNativeUntil"),data.getLong("RareBleedRuneUntil")))-now);
         data.putUUID("RareBleedOwner",p.getUUID());target.removeEffect(ModEffects.RARE_BLEED);target.removeEffect(ModEffects.WOLF_CUT);target.addEffect(new MobEffectInstance(wolf>0?ModEffects.WOLF_CUT:ModEffects.RARE_BLEED,duration,stacks-1,false,true,true),p);

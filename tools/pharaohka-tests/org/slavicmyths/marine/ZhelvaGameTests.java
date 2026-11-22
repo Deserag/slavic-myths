@@ -214,6 +214,9 @@ public final class ZhelvaGameTests {
         var victim=EntityType.ZOMBIE.create(test.getLevel());
         test.assertTrue(victim!=null,"Missing airborne lance victim");
         victim.setNoAi(true);victim.setNoGravity(true);
+        // The aerial target is above the pool: sunlight damage is not a lance hit.
+        victim.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD,
+            new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_HELMET));
         victim.moveTo(test.absoluteVec(new Vec3(12.5,12.5,12.5)));
         test.assertTrue(test.getLevel().addFreshEntity(victim),"Airborne victim spawn failed");
         float before=victim.getHealth();

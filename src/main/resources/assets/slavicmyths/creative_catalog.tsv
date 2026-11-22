@@ -1267,12 +1267,17 @@ zhelva_shield	weapons	legendary_ocean
 storm_anchor	weapons	legendary_ocean
 abyss_staff	weapons	legendary_ocean
 storm_harpoon	weapons	legendary_ocean
-tide_ring	magic	marine_accessories
-abyss_necklace	magic	marine_accessories
-storm_bracelet	magic	marine_accessories
-tailwind_feather	magic	marine_accessories
-tsar_pike_belt	armor	marine_accessories
-zhelva_amulet	magic	marine_accessories
+tide_ring	accessories	marine_accessories
+abyss_necklace	accessories	marine_accessories
+storm_bracelet	accessories	marine_accessories
+tailwind_feather	accessories	marine_accessories
+tsar_pike_belt	accessories	marine_accessories
+zhelva_amulet	accessories	marine_accessories
 marine_compass	magic	marine_artifacts
 depths_lantern	magic	marine_artifacts
 breathing_bowl	magic	marine_artifacts
+storm_harpoon_ammo	weapons	legendary_ocean
+
+mytar_sickle	weapons	mytar
+mytar_shackled_sickle	weapons	mytar
+mytar_chain	resources	mytar

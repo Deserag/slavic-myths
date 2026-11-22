@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "#slavicmyths:trait_boss",
+    "slavicmyths:agneya",
+    "slavicmyths:ledeya",
+    "slavicmyths:tryaseya",
+    "slavicmyths:gneteya",
+    "slavicmyths:lomeya",
+    "slavicmyths:neveya",
+    "slavicmyths:viy",
+    "slavicmyths:cursed_mytar",
+    "slavicmyths:bauk",
+    "slavicmyths:morovoy_raven",
+    "slavicmyths:morovoy_fire_zmey",
+    "slavicmyths:tsar_pike",
+    "slavicmyths:stratim_bird",
+    "slavicmyths:zhelva",
+    "slavicmyths:pharaohka",
+    "slavicmyths:ocean_zmey",
+    "slavicmyths:deep_sea_serpent",
+    "slavicmyths:earth_spirit",
+    "slavicmyths:nightingale",
+    "slavicmyths:elder_vodyanoy",
+    "slavicmyths:unresting_prince",
+    "slavicmyths:buried_volkhv",
+    "slavicmyths:kurgan_voevoda",
+    "slavicmyths:ataman"
+  ]
+}

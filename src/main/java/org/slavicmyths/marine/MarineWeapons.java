@@ -35,7 +35,7 @@ public final class MarineWeapons {
     public static final DeferredHolder<Item, Item> HARPOON =
         ModItems.ITEMS.register("storm_harpoon", Harpoon::new);
     private static final String HARPOON_READY = "SlavicStormHarpoonReady";
-    public static void init() {}
+    public static void init() { MarineHarpoons.init(); }
 
     private static void description(ItemStack stack, List<Component> lines) {
         lines.add(Component.translatable(stack.getDescriptionId() + ".desc")
@@ -108,11 +108,8 @@ public final class MarineWeapons {
         }
     }
 
-    private static final class Harpoon extends TridentItem {
-        private Harpoon() {
-            super(new Item.Properties().durability(850).rarity(Rarity.EPIC)
-                .attributes(TridentItem.createAttributes()));
-        }
+    private static final class Harpoon extends MarineHarpoons.Ammo {
+        private Harpoon() { super(); }
         @Override public void appendHoverText(ItemStack stack, TooltipContext context,
                 List<Component> lines, TooltipFlag flags) {
             super.appendHoverText(stack, context, lines, flags);

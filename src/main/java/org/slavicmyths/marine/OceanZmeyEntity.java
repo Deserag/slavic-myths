@@ -32,6 +32,11 @@ import net.minecraft.world.phys.Vec3;
  * Attack windows and flight are server authoritative; animations read synced ACTION and START.
  */
 public final class OceanZmeyEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int IDLE=0,SWIM=1,BITE=2,TAIL=3,GRAB=4,STORM=5,TAKEOFF=6,FLIGHT=7,LAND=8;
     private static final EntityDataAccessor<Integer> ACTION=
         SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.INT);
@@ -41,7 +46,7 @@ public final class OceanZmeyEntity extends Monster {
         SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Boolean> AIRBORNE=
         SynchedEntityData.defineId(OceanZmeyEntity.class,EntityDataSerializers.BOOLEAN);
-    private final ServerBossEvent bar=new ServerBossEvent(
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatableWithFallback("entity.slavicmyths.ocean_zmey","Змей морских бурь"),
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> hit=new HashSet<>();
@@ -183,10 +188,11 @@ public final class OceanZmeyEntity extends Monster {
         if(!level().hasChunkAt(next))return;
         if(!level().getBlockState(next).getCollisionShape(level(),next).isEmpty())
             motion=new Vec3(-motion.z,.1,motion.x).scale(.45);
+        motion=org.slavicmyths.combat.LargeMobClearance.steer(this,motion);
         setDeltaMovement(motion);hasImpulse=true;
     }
     private boolean clearFlight(Vec3 velocity){
-        if(!level().noCollision(this,getBoundingBox().move(velocity).inflate(.25)))return false;
+        if(!level().noCollision(this,getBoundingBox().expandTowards(velocity).inflate(.25)))return false;
         Vec3 horizontal=velocity.multiply(1,0,1);
         if(horizontal.lengthSqr()<.0001)horizontal=forward();
         else horizontal=horizontal.normalize();

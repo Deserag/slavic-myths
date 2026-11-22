@@ -24,7 +24,6 @@ import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.rpg.Abilities;
 
 /** Vanilla trident projectile carries the original ItemStack's data components. */
-@EventBusSubscriber(modid = "slavicmyths")
 public final class PharaohkaTrident extends TridentItem {
     public static final DeferredHolder<Item, Item> ITEM = ModItems.ITEMS.register(
         "pharaohka_trident", () -> new PharaohkaTrident());
@@ -69,7 +68,7 @@ public final class PharaohkaTrident extends TridentItem {
         return true;
     }
 
-    @SubscribeEvent public static void impact(ProjectileImpactEvent event) {
+    public static void impact(ProjectileImpactEvent event) {
         if (!(event.getProjectile() instanceof ThrownTrident projectile)
                 || !(projectile.getOwner() instanceof ServerPlayer owner)
                 || projectile.getWeaponItem() == null

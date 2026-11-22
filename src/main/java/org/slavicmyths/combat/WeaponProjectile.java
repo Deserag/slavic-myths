@@ -85,7 +85,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(resolved){discard();return;}
         if(returning){if(!level().isClientSide)returnToOwner();else{setNoPhysics(true);setNoGravity(true);super.tick();}return;}
         super.tick();
-        if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)){if(loyalty()>0)beginReturn();else recover(false);}
+        if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)*RangeEnchantment.multiplier(level(),getPickupItemStackOrigin())){if(loyalty()>0)beginReturn();else recover(false);}
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key==RETURNING){returning=entityData.get(RETURNING);if(returning){setNoPhysics(true);setNoGravity(true);}}}
     @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}

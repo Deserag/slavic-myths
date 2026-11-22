@@ -19,9 +19,10 @@ public final class MorBolt extends ThrowableProjectile {
     public void configureRoot(Mob owner){setOwner(owner);entityData.set(ROOT,true);damage=0;setNoGravity(true);}
     public boolean thread(){return entityData.get(THREAD);}
     public void configure(Mob owner,boolean thread,float damage){setOwner(owner);entityData.set(THREAD,thread);this.damage=damage;}
+    private boolean validTarget(LivingEntity target){return getOwner() instanceof org.slavicmyths.entity.LandSpiritEntity spirit ? HigherMor.enemy(spirit,target) : MorController.valid(target);}
     @Override protected double getDefaultGravity(){return 0;}
-    @Override protected boolean canHitEntity(Entity e){return e instanceof LivingEntity l&&MorController.valid(l)&&(getOwner()==null||!getOwner().isAlliedTo(e))&&super.canHitEntity(e);}
-    @Override protected void onHitEntity(EntityHitResult hit){if(!level().isClientSide&&hit.getEntity() instanceof LivingEntity e&&MorController.valid(e)&&getOwner() instanceof LivingEntity owner){if(e.getLastHurtByMob()==owner)e.invulnerableTime=Math.min(e.invulnerableTime,10);if(e.hurt(damageSources().mobProjectile(this,owner),damage)&&thread())MorController.hold(e,20);}}
+    @Override protected boolean canHitEntity(Entity e){return e instanceof LivingEntity l&&validTarget(l)&&(getOwner()==null||!getOwner().isAlliedTo(e))&&super.canHitEntity(e);}
+    @Override protected void onHitEntity(EntityHitResult hit){if(!level().isClientSide&&hit.getEntity() instanceof LivingEntity e&&validTarget(e)&&getOwner() instanceof LivingEntity owner){if(e.getLastHurtByMob()==owner)e.invulnerableTime=Math.min(e.invulnerableTime,10);if(e.hurt(damageSources().mobProjectile(this,owner),damage)&&thread())MorController.hold(e,20);}}
     @Override protected void onHit(HitResult hit){if(thread()&&hit instanceof BlockHitResult block&&level().getBlockState(block.getBlockPos()).is(net.minecraft.tags.BlockTags.LEAVES))return;super.onHit(hit);if(!level().isClientSide)discard();}
     @Override public void tick(){if(root()){tickCount++;if(!level().isClientSide&&tickCount>=10)discard();return;}super.tick();if(level().isClientSide){level().addParticle(new DustParticleOptions(new org.joml.Vector3f(.9F,.12F,.18F),thread()?.5F:1.2F),getX(),getY(),getZ(),0,0,0);}else if(tickCount>=(thread()?14:24))discard();}
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putBoolean("Thread",thread());n.putBoolean("Root",root());n.putFloat("Damage",damage);n.putInt("Age",tickCount);}

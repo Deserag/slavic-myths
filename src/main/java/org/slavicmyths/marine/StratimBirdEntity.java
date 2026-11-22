@@ -26,10 +26,15 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public final class StratimBirdEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int PATROL=0,CHASE=1,BEAK=2,TALONS=3,DIVE=4,GUST=5,STORM=6,RETURN=7;
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(StratimBirdEntity.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> START=SynchedEntityData.defineId(StratimBirdEntity.class,EntityDataSerializers.INT);
-    private final ServerBossEvent bar=new ServerBossEvent(
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatableWithFallback("entity.slavicmyths.stratim_bird","Стратим-птица"),
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private final Set<UUID> damaged=new HashSet<>();
@@ -166,7 +171,7 @@ public final class StratimBirdEntity extends Monster {
             Vec3 delta=movement.scale(i/(double)steps);
             Vec3 sample=position().add(delta);
             if(!hasWingClearance(level(),sample,movement))return false;
-            if(!level().noCollision(this,getBoundingBox().move(delta).inflate(.35)))return false;
+            if(!level().noCollision(this,getBoundingBox().expandTowards(delta).inflate(.35)))return false;
         }
         return true;
     }
@@ -292,6 +297,7 @@ public final class StratimBirdEntity extends Monster {
         }
     }
     @Override public boolean hurt(DamageSource src,float amount){
+        if (src.is(net.minecraft.world.damagesource.DamageTypes.DROWN)) return false;
         return super.hurt(src,amount);
     }
     @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}

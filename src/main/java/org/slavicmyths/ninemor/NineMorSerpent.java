@@ -67,7 +67,7 @@ public final class NineMorSerpent extends Monster {
     private static final EntityDataAccessor<Boolean> HAS_GAZE =
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.BOOLEAN);
 
-    private final ServerBossEvent bar = new ServerBossEvent(
+    private final ServerBossEvent bar = new org.slavicmyths.combat.CreatureBossBar(this,
         Component.literal("Моровой Змей — Насылатель Мора"),
         BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_20);
     private final int[] cooldown = new int[9];

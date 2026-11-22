@@ -2,109 +2,24 @@
   "parent": "builtin/entity",
   "gui_light": "front",
   "textures": {
-    "particle": "slavicmyths:item/marine/zhelva_shield"
+    "particle": "minecraft:block/prismarine"
   },
   "display": {
-    "thirdperson_righthand": {
-      "rotation": [
-        0,
-        90,
-        0
-      ],
-      "translation": [
-        10,
-        6,
-        -4
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        0
-      ],
-      "translation": [
-        10,
-        6,
-        12
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        180,
-        5
-      ],
-      "translation": [
-        -10,
-        2,
-        -10
-      ],
-      "scale": [
-        1.25,
-        1.25,
-        1.25
-      ]
-    },
-    "firstperson_lefthand": {
-      "rotation": [
-        0,
-        180,
-        5
-      ],
-      "translation": [
-        10,
-        0,
-        -10
-      ],
-      "scale": [
-        1.25,
-        1.25,
-        1.25
-      ]
-    },
     "gui": {
       "rotation": [
-        15,
-        -25,
-        -5
-      ],
-      "translation": [
-        2,
-        3,
-        0
-      ],
-      "scale": [
-        0.65,
-        0.65,
-        0.65
-      ]
-    },
-    "fixed": {
-      "rotation": [
         0,
-        180,
+        25,
         0
       ],
       "translation": [
-        -4.5,
-        4.5,
-        -5
+        0,
+        0,
+        0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.6,
+        0.6,
+        0.6
       ]
     },
     "ground": {
@@ -114,23 +29,83 @@
         0
       ],
       "translation": [
-        2,
-        4,
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -25,
+        -15
+      ],
+      "translation": [
+        0,
+        -3,
         2
       ],
       "scale": [
-        0.25,
-        0.25,
-        0.25
+        1.1,
+        1.1,
+        1.1
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        25,
+        15
+      ],
+      "translation": [
+        0,
+        -3,
+        2
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        90,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        90,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
       ]
     }
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "blocking": 1
-      },
-      "model": "slavicmyths:item/zhelva_shield_blocking"
-    }
-  ]
+  }
 }

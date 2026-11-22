@@ -21,9 +21,9 @@ import net.minecraft.server.level.ServerLevel;
 
 /** Bounded ray pulse on use; no projectile, terrain damage, or tick scan. */
 public final class StormStaffItem extends org.slavicmyths.combat.CombatStaffItem {
-    public static final float BASE_PULSE_DAMAGE=6.0F;
-    public static final int PULSE_COOLDOWN=48;
-    public static final int RUNE_COOLDOWN=42;
+    public static final float BASE_PULSE_DAMAGE=8.0F;
+    public static final int PULSE_COOLDOWN=32;
+    public static final int RUNE_COOLDOWN=28;
     public static float pulseDamage(boolean staffPower,boolean thunderRune) {
         return BASE_PULSE_DAMAGE*(staffPower?1.12F:1)*(thunderRune?1.15F:1);
     }
@@ -64,4 +64,8 @@ public final class StormStaffItem extends org.slavicmyths.combat.CombatStaffItem
         }
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
     }
-}
+    @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,java.util.List<net.minecraft.network.chat.Component> lines,net.minecraft.world.item.TooltipFlag flag){
+        super.appendHoverText(stack,context,lines,flag);
+        lines.add(net.minecraft.network.chat.Component.literal("ПКМ: грозовой импульс — 8 урона, дальность 7, откат 1,6 с").withStyle(net.minecraft.ChatFormatting.GOLD));
+        lines.add(net.minecraft.network.chat.Component.literal("Активная руна: откат 1,4 с; усиления урона учитываются отдельно").withStyle(net.minecraft.ChatFormatting.GRAY));
+    }}

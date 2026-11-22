@@ -40,13 +40,18 @@ import net.minecraft.nbt.CompoundTag;
 
 /** Amphibious-surface visual, but water-only survival and combat. Server owns all damage. */
 public final class PharaohkaEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int IDLE=0, STRIKE=1, DASH=2, SUMMON=3, CURRENT=4, BLOCK=5, BASH=6;
     private static final EntityDataAccessor<Integer> ACTION =
         SynchedEntityData.defineId(PharaohkaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ACTION_STARTED =
         SynchedEntityData.defineId(PharaohkaEntity.class, EntityDataSerializers.INT);
 
-    private final ServerBossEvent bossBar = new ServerBossEvent(
+    private final ServerBossEvent bossBar = new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatable("entity.slavicmyths.pharaohka_leader"),
         BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private int dryTicks, meleeCooldown, dashCooldown=55, summonCooldown=170, currentCooldown=95, shieldCooldown=70;
@@ -274,7 +279,7 @@ public final class PharaohkaEntity extends Monster {
                     getY()+velocity.y*2.0,getZ()+velocity.z*2.0);
                 if (level().getFluidState(next).is(FluidTags.WATER)
                         || level().getFluidState(next.below()).is(FluidTags.WATER)) {
-                    setDeltaMovement(velocity);
+                    setDeltaMovement(org.slavicmyths.combat.LargeMobClearance.steer(this,velocity));
                     hasImpulse=true;
                 }
             }
@@ -310,7 +315,7 @@ public final class PharaohkaEntity extends Monster {
         Vec3 direction=target.getEyePosition().subtract(getEyePosition());
         if (direction.lengthSqr()>.1) {
             Vec3 impulse=direction.normalize().scale(leader()?.57:.4);
-            setDeltaMovement(getDeltaMovement().scale(.24).add(impulse));
+            setDeltaMovement(org.slavicmyths.combat.LargeMobClearance.steer(this,getDeltaMovement().scale(.24).add(impulse)));
             hasImpulse=true;
         }
         if (!dashHit && inMeleeRange(target,1.5) && hasLineOfSight(target)) {

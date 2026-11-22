@@ -673,7 +673,7 @@ if (project.hasProperty('posadCheck')) {
  sourceSets.posadCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
  sourceSets.posadCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
  tasks.named('compilePosadCheckJava') { dependsOn 'classes' }
- neoForge.mods.slavicmyths.sourceSet(sourceSets.posadCheck)
+ neoForge.mods { slavicmyths_posad { sourceSet sourceSets.posadCheck } }
  neoForge.runs { posadChecks {
   type = 'gameTestServer'
   gameDirectory = file('run-posad-isolated')
@@ -861,5 +861,32 @@ if (project.hasProperty('marineArmorCheck')) {
         type = 'gameTestServer'
         gameDirectory = file('run-marine-armor-520')
         systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_marine_armor'
+    } }
+}
+
+// Opt-in observation of unmodified natural spawning in disposable normal worlds.
+if (project.hasProperty('marineSurvey')) {
+    sourceSets { marineSurvey { java.srcDir 'tools/marine-survey' } }
+    sourceSets.marineSurvey.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.marineSurvey.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.marineSurvey)
+    neoForge.runs { marineSurvey {
+        server()
+        programArgument '--nogui'
+        gameDirectory = file(project.findProperty('marineSurveyDirectory') ?: 'run-marine-survey-1')
+    } }
+}
+if (project.hasProperty('marineVisual')) {
+    sourceSets { marineVisual { java.srcDir 'tools/marine-visual' } }
+    sourceSets.marineVisual.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.marineVisual.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.marineVisual)
+    neoForge.runs { marineVisual {
+        client()
+        gameDirectory = file('run-marine-visual')
+        systemProperty 'slavicmyths.shipInventoryVisual', project.hasProperty('shipInventoryVisual') ? 'true' : 'false'
+        systemProperty 'slavicmyths.marineWeaponVisual', project.hasProperty('marineWeaponVisual') ? 'true' : 'false'
+        programArgument '--quickPlaySingleplayer'
+        programArgument 'MarineQA'
     } }
 }

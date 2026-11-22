@@ -62,7 +62,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         } else {
             setNoGravity(false);
         }
-        bar = new ServerBossEvent(Component.literal(isTryaseya()?"Трясея":"Гнетея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),isTryaseya()?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
+        bar = new org.slavicmyths.combat.CreatureBossBar(this,Component.literal(isTryaseya()?"Трясея":"Гнетея"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),isTryaseya()?BossEvent.BossBarColor.PURPLE:BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
         xpReward=0; // Rewards intentionally deferred to a separate approved patch.
         setPersistenceRequired();
         setHealth(getMaxHealth());
@@ -79,7 +79,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     public void link(UUID encounterId,UUID partnerId) { encounter=encounterId;partner=partnerId; }
     @Override public float getMaxHealth() { return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH)); }
     public static AttributeSupplier.Builder attributes(boolean tryaseya) {
-        return createMonsterAttributes().add(Attributes.MAX_HEALTH,tryaseya?900:1400).add(Attributes.MOVEMENT_SPEED,tryaseya?.32:.205).add(Attributes.FLYING_SPEED,tryaseya?.5:.08).add(Attributes.FOLLOW_RANGE,48).add(Attributes.ATTACK_DAMAGE,tryaseya?7:19).add(Attributes.ARMOR,tryaseya?5:17).add(Attributes.KNOCKBACK_RESISTANCE,tryaseya?.25:.85);
+        return createMonsterAttributes().add(Attributes.MAX_HEALTH,tryaseya?800:1200).add(Attributes.MOVEMENT_SPEED,tryaseya?.32:.205).add(Attributes.FLYING_SPEED,tryaseya?.5:.08).add(Attributes.FOLLOW_RANGE,48).add(Attributes.ATTACK_DAMAGE,tryaseya?7:19).add(Attributes.ARMOR,tryaseya?5:17).add(Attributes.KNOCKBACK_RESISTANCE,tryaseya?.25:.85);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
@@ -306,6 +306,16 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        // Migrate the former default balance without healing wounded bosses or
+        // replacing custom maximum-health values from existing worlds.
+        var healthAttribute = getAttribute(Attributes.MAX_HEALTH);
+        double legacyBase = isTryaseya() ? 900D : 1400D;
+        if (healthAttribute != null && healthAttribute.getBaseValue() == legacyBase) {
+            float oldMaximum = getMaxHealth();
+            float oldHealth = getHealth();
+            healthAttribute.setBaseValue(isTryaseya() ? 800D : 1200D);
+            setHealth(CreatureHealthBalance.proportional(oldHealth, oldMaximum, getMaxHealth()));
+        }
         setNoGravity(isTryaseya());
         encounter=tag.hasUUID("SistersEncounter")?tag.getUUID("SistersEncounter"):null;
         partner=tag.hasUUID("SistersPartner")?tag.getUUID("SistersPartner"):null;

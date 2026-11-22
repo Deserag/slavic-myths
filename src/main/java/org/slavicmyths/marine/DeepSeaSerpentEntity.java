@@ -31,6 +31,11 @@ import net.minecraft.world.phys.Vec3;
 
 /** Level VI independent aquatic predator; all damage, capture and targeting is server authoritative. */
 public final class DeepSeaSerpentEntity extends Monster {
+    // Aquatic encounters may occupy water; retain block and entity obstruction checks.
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader world) {
+        return world.isUnobstructed(this) && world.noCollision(this);
+    }
+
     public static final int IDLE=0,SWIM=1,FAST=2,BITE=3,GRAB=4,HOLD=5,RELEASE=6,
         VORTEX=7,HURT=8,DIE=9,RETURN=10;
     public static final float BASE_DAMAGE=20F,BITE_DAMAGE=20F,VORTEX_DAMAGE=14F;
@@ -44,7 +49,7 @@ public final class DeepSeaSerpentEntity extends Monster {
     private static final int GRAB_COOLDOWN=300;
     private static final int VORTEX_COOLDOWN=400;
 
-    private final ServerBossEvent bar=new ServerBossEvent(
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatableWithFallback("entity.slavicmyths.deep_sea_serpent","Морской змей"),
         BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
     private int biteCooldown=20,grabCooldown=100,vortexCooldown=180;
@@ -227,7 +232,7 @@ public final class DeepSeaSerpentEntity extends Monster {
                         || !level().getBlockState(pos).getCollisionShape(level(),pos).isEmpty())
                         return false;
                 }
-        AABB target=getBoundingBox().move(candidate.subtract(position()));
+        AABB target=getBoundingBox().expandTowards(candidate.subtract(position()));
         return level().noCollision(this,target);
     }
     private void steer(Vec3 toward,double speed) {

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"equipment","pattern":["ISI","STS","IM "],"key":{"I":{"item":"minecraft:iron_ingot"},"S":{"item":"minecraft:stick"},"T":{"item":"minecraft:string"},"M":{"item":"slavicmyths:storm_harpoon"}},"result":{"id":"slavicmyths:storm_harpoon","count":8}}

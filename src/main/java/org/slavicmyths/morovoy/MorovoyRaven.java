@@ -43,7 +43,7 @@ public final class MorovoyRaven extends PathfinderMob {
     private static final EntityDataAccessor<Integer> POSE = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> POSE_START = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> BANK = SynchedEntityData.defineId(MorovoyRaven.class, EntityDataSerializers.FLOAT);
-    private final ServerBossEvent bossBar = new ServerBossEvent(Component.translatable("entity.slavicmyths.morovoy_raven"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.GREEN), BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bossBar = new org.slavicmyths.combat.CreatureBossBar(this,Component.translatable("entity.slavicmyths.morovoy_raven"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.GREEN), BossEvent.BossBarOverlay.PROGRESS);
     private BlockPos home;
     private UUID parent;
     private UUID staffOwner;
@@ -327,7 +327,7 @@ public final class MorovoyRaven extends PathfinderMob {
         // Expanded feather fans reach almost nine blocks horizontally. Takeoff also has opened wings.
         double reach = minion() ? 2.4 : landing ? 5.5 : 9.0;
         // A landing envelope must not dip into the legitimate floor by artificial vertical inflation.
-        AABB envelope = getBoundingBox().move(step.scale(3)).inflate(reach, minion() ? .15 : landing ? 0 : .2, reach);
+        AABB envelope = getBoundingBox().expandTowards(step.scale(3)).inflate(reach, minion() ? .15 : landing ? 0 : .2, reach);
         if (!minion() && !landing) envelope = envelope.expandTowards(0, 2.7, 0);
         if (!world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.maxZ)) || !world.hasChunkAt(BlockPos.containing(envelope.maxX, getY(), envelope.minZ)) || !world.hasChunkAt(BlockPos.containing(envelope.minX, getY(), envelope.maxZ))) return false;
         return world.noCollision(this, envelope) && world.clip(new ClipContext(position(), position().add(step.scale(3)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this)).getType() == HitResult.Type.MISS;

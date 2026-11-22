@@ -19,8 +19,22 @@ public final class RusalkaModel extends EntityModel<RusalkaEntity> {
   parts.put(name,part);if(parent!=null)geometry.attach(parts.get(parent),part);return part;
  }
  public RusalkaModel(){
-  add("body",null,32,0,0,0,0,-3.5F,0,-2,7,11,4);
-  add("head","body",0,0,0,0,0,-3.5F,-8,-3.5F,7,8,7);
+  add("body",null,32,0,0,0,0,-2.8F,0,-2,5.6F,11,4);
+  geometry.box(parts.get("body"),32,0,-3.5F,0,-2,7,3,4);
+  geometry.box(parts.get("body"),32,0,-3.2F,3,-2.15F,6.4F,3,4.3F);
+  add("head","body",0,0,0,0,0,-3.1F,-8,-3.15F,6.2F,7.6F,6.3F);
+  geometry.box(parts.get("head"),0,0,-2.5F,-1.5F,-2.85F,5,1.5F,5.7F);
+  // Facial features use dedicated opaque atlas swatches and move with the head.
+  ModelPart face=parts.get("head");
+  for(int side:new int[]{-1,1}){
+   float eye=side*1.5F;
+   geometry.box(face,112,32,eye-.65F,-5.15F,-3.23F,1.3F,.65F,.12F);
+   geometry.box(face,120,32,eye-.25F,-5.12F,-3.32F,.5F,.58F,.12F);
+   geometry.box(face,112,40,eye-.11F,-5.07F,-3.40F,.22F,.43F,.10F);
+   geometry.box(face,112,40,eye-.72F,-5.65F,-3.22F,1.4F,.20F,.12F);
+  }
+  geometry.box(face,120,48,-.32F,-4.5F,-3.5F,.64F,1.15F,.4F);
+  geometry.box(face,120,40,-.65F,-2.3F,-3.22F,1.3F,.22F,.12F);
   add("cap","head",0,18,0,-8,0,-4,-1,-4,8,2,8);
   add("hairBack","head",0,30,0,-7,2,-4,0,0,8,9,2);
   add("hairMid","hairBack",22,30,0,8,0,-3.5F,0,.25F,7,6,2);

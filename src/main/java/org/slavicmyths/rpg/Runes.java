@@ -18,6 +18,8 @@ public final class Runes {
  public static boolean heavy(ItemStack s){return tagged(s,"rune_heavy")||s.getItem() instanceof AxeItem;}
  public static boolean armor(ItemStack s){return s.getItem() instanceof ArmorItem a&&a.getType()!=ArmorItem.Type.BODY;}
  public static String category(ItemStack s){
+  if(s.is(org.slavicmyths.marine.MarineWeapons.ANCHOR.get()))return "heavy";
+  if(s.is(org.slavicmyths.marine.MarineWeapons.STAFF.get()))return "staff";
   // Armor stores runes, but is never classified as a combat weapon.
   if(s.isEmpty()||s.getItem() instanceof ArmorItem)return "";
   if(s.is(org.slavicmyths.ninemor.NineMorContent.SPEAR.get()))return "spear";
@@ -36,7 +38,7 @@ public final class Runes {
   for(String c:new String[]{"staff","dagger","spear","heavy"})if(tagged(s,"rune_"+c))return c;
   Item i=s.getItem();if(i instanceof BowItem||i instanceof CrossbowItem)return "bow";if(i instanceof ShieldItem)return "shield";if(i instanceof AxeItem||i instanceof net.minecraft.world.item.MaceItem||i instanceof org.slavicmyths.combat.MaceItem)return "heavy";if(i instanceof TridentItem)return "spear";if(i instanceof SwordItem)return "sword";return "";
  }
- public static int capacity(ItemStack s){if(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).toString().equals("slavicmyths:pharaohka_trident"))return 3;
+ public static int capacity(ItemStack s){if(org.slavicmyths.marine.MarineWeaponRules.weapon(s))return 3;
   if(s.is(org.slavicmyths.ninemor.NineMorContent.SPEAR.get())||s.is(org.slavicmyths.ninemor.NineMorContent.AXE.get())||s.is(org.slavicmyths.ninemor.NineMorContent.SHIELD.get()))return 4;
   if(s.getItem() instanceof org.slavicmyths.posad.boss.ShackledSickleItem)return 3;
   if(s.getItem() instanceof org.slavicmyths.sisters.BossRewardWeapons.Weapon)return 3;
