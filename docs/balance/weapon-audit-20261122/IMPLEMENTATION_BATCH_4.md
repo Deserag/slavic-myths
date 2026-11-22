@@ -31,8 +31,9 @@ Damage and DPS numbers below are nominal/source-derived, before mitigation and c
 - [e4aa0d0](https://github.com/Deserag/slavic-myths/commit/e4aa0d0ca72bd814f5518369a7d53ea9ab51009d): `combat/RareWeapons.java`
 - [07af041](https://github.com/Deserag/slavic-myths/commit/07af0414a45ffbe571eb2ba1ae0d03b78501be39): `rewards/RewardEvents.java`
 - [5c53199](https://github.com/Deserag/slavic-myths/commit/5c5319986b5d4672adc3979897cb6d3ad2d6722f): `item/ThunderAxeItem.java`
+- [7af7d7b](https://github.com/Deserag/slavic-myths/commit/7af7d7bc9495e075ba160351c7d98f6e838e4733): `assets/slavicmyths/lang/en_us.json` — update existing Likho tooltip numbers 28 → 22 s
 
-All edits were performed as unique text replacements against current branch file blobs, without changes to creature health, armor, acquisition, recipes, input routing or item visual descriptions.
+All edits were performed as unique text replacements against current branch file blobs, without changes to creature health, armor, acquisition, recipes, input routing or item visual descriptions. Existing English tooltip texts were adjusted only to reflect the new numeric cooldown.
 
 ## Short residual review of the 102-item catalog — need batch 5?
 
