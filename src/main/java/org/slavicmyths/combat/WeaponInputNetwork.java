@@ -33,6 +33,13 @@ public final class WeaponInputNetwork {
                     if (action == null) return;
                     ItemStack held = player.getMainHandItem();
                     if (held.isEmpty() || !(held.getItem() instanceof WeaponInputHandler handler)) return;
+                    // The client router is not a security boundary. A forged packet
+                    // must not activate a slot that this weapon never intercepts.
+                    // Context-sensitive weapons (e.g. a staff bolt only in air)
+                    // may authorize the same slot for just one hit-result type.
+                    if (!handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.MISS)
+                            && !handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.BLOCK)
+                            && !handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.ENTITY)) return;
                     handler.onWeaponAction(player, held, action);
                 }));
     }
