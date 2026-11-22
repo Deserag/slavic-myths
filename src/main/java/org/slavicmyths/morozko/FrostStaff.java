@@ -9,7 +9,8 @@ public final class FrostStaff extends org.slavicmyths.combat.CombatStaffItem {
  public FrostStaff(){super(new Properties().stacksTo(1).rarity(Rarity.EPIC),8,18);}
  @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand h){
   var s=p.getItemInHand(h);
-  if(h==InteractionHand.MAIN_HAND&&p.isShiftKeyDown()){
+  if(h!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(s);
+  if(p.isShiftKeyDown()){
    if(p instanceof ServerPlayer server)FrostSkills.action(server,2);
    return InteractionResultHolder.sidedSuccess(s,w.isClientSide);
   }
