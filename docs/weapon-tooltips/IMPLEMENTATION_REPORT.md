@@ -83,3 +83,12 @@ A second presentation-only defect was corrected in [`c4d9fb1`](https://github.co
 ## Dynamic skill-key regression coverage
 
 Commit [`26e67e8`](https://github.com/Deserag/slavic-myths/commit/26e67e8387885f29f29bd15176dbed0f591d63fc) extends `tools/weapon_tooltip_style_check.py` to validate both Russian and English variants of dynamically selected skill translation keys in `morovoy/MorovoyStaff.java` and `nethersmithing/InfernalBow.java`. These ternary-selected strings were not included in the earlier scan of direct `Component.translatable("literal")` expressions. The change is limited to automated test coverage; game mechanics and texts are unchanged. Verify the workflow for this commit (or a newer head) before treating it as passed.
+
+## Label-first damage formatting regression (2026-11-22)
+
+The tooltip color formatter previously recognized `12 урона` / `12 damage` but did not recognize the equally common `Урон: 12` / `Damage: 12` form. A dedicated `DAMAGE_VALUES` token pattern now recognizes both label-first and amount-first damage expressions, including decimal values, and assigns the documented `#FF5555` color. This modifies only the client tooltip renderer; no damage or input constants changed.
+
+- [67ac5c1](https://github.com/Deserag/slavic-myths/commit/67ac5c17402407c74dbf7c296c8d7b2450c5f050) — renderer correction
+- [8b7e3fd](https://github.com/Deserag/slavic-myths/commit/8b7e3fd2fbae5b5de5a95d7be73e026475c31d21) — static test regression guard
+
+The matching workflow must be checked for a completed conclusion; no in-game visual test is claimed.
