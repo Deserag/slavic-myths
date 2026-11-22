@@ -25,26 +25,28 @@ public final class WeaponInputRouter {
         if (!event.isAttack() && !event.isUseItem()) return;
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.screen != null
-                || !(mc.player.getMainHandItem().getItem() instanceof WeaponInputHandler)) return;
+                || !(mc.player.getMainHandItem().getItem() instanceof WeaponInputHandler handler)) return;
 
+        boolean shift = mc.player.isShiftKeyDown();
+        WeaponInputHandler.Action action = event.isAttack()
+                ? (shift ? WeaponInputHandler.Action.SHIFT_LEFT_CLICK
+                         : WeaponInputHandler.Action.LEFT_CLICK)
+                : (shift ? WeaponInputHandler.Action.SHIFT_RIGHT_CLICK
+                         : WeaponInputHandler.Action.RIGHT_CLICK);
+        // A weapon can preserve ordinary melee or held right-click by opting out
+        // of interception for that individual action only.
+        if (!handler.intercepts(action)) return;
         // NeoForge calls right-click once per hand even when the other call
         // was cancelled. Never let the offhand handle the same click.
         event.setCanceled(true);
         event.setSwingHand(false);
         if (event.getHand() != InteractionHand.MAIN_HAND) return;
-
-        WeaponInputHandler.Action action;
-        boolean shift = mc.player.isShiftKeyDown();
         if (event.isAttack()) {
             if (attackHeld) return;
             attackHeld = true;
-            action = shift ? WeaponInputHandler.Action.SHIFT_LEFT_CLICK
-                           : WeaponInputHandler.Action.LEFT_CLICK;
         } else {
             if (useHeld) return;
             useHeld = true;
-            action = shift ? WeaponInputHandler.Action.SHIFT_RIGHT_CLICK
-                           : WeaponInputHandler.Action.RIGHT_CLICK;
         }
         PacketDistributor.sendToServer(new WeaponInputNetwork.Input(action.id()));
     }
