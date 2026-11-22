@@ -50,11 +50,12 @@ public final class NineMorRewardAbilities {
       &&!(victim instanceof Player p&&(p.isCreative()||p.isSpectator()||!player.canHarmPlayer(p)));
  }
 
- public static InteractionResultHolder<ItemStack> spear(Level world,Player player,InteractionHand hand){
+ public static InteractionResultHolder<ItemStack> spear(Level world,Player player,InteractionHand hand){return spear(world,player,hand,player.isShiftKeyDown());}
+ public static InteractionResultHolder<ItemStack> spear(Level world,Player player,InteractionHand hand,boolean alternate){
   ItemStack stack=player.getItemInHand(hand);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
-  if(server.isShiftKeyDown()){
+  if(alternate){
    boolean nearby=!server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(4.3D),
        e->eligible(server,e)&&e.distanceToSqr(server)<=20D).isEmpty();
    if(!nearby)return InteractionResultHolder.fail(stack);
@@ -81,14 +82,15 @@ public final class NineMorRewardAbilities {
   return InteractionResultHolder.consume(stack);
  }
 
- public static InteractionResultHolder<ItemStack> axe(Level world,Player player,InteractionHand hand){
+ public static InteractionResultHolder<ItemStack> axe(Level world,Player player,InteractionHand hand){return axe(world,player,hand,player.isShiftKeyDown());}
+ public static InteractionResultHolder<ItemStack> axe(Level world,Player player,InteractionHand hand,boolean alternate){
   ItemStack stack=player.getItemInHand(hand);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
   if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
   Vec3 look=server.getLookAngle().multiply(1D,0D,1D);
   if(look.lengthSqr()<.01D)return InteractionResultHolder.fail(stack);
   look=look.normalize();
-  if(server.isShiftKeyDown()){
+  if(alternate){
    LivingEntity best=null;double bestDistance=Double.MAX_VALUE;
    for(LivingEntity target:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(8D),e->eligible(server,e))){
     Vec3 delta=target.position().subtract(server.position());

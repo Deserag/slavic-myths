@@ -11,22 +11,42 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerPlayer;
+import org.slavicmyths.combat.WeaponInputHandler;
 
 public final class NineMorNamedItems {
-    public static final class Spear extends SwordItem {
+    public static final class Spear extends SwordItem implements WeaponInputHandler {
         public Spear(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_spear", "Копьё Девяти Пастей"); }
-        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.spear(level,player,hand);}
+        @Override public boolean intercepts(Action action) {
+            return action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK;
+        }
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, Action action) {
+            if (held != player.getMainHandItem() || !player.isAlive() || player.isSpectator()) return;
+            if (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK) {
+                NineMorRewardAbilities.spear(player.level(), player, InteractionHand.MAIN_HAND,
+                        action == Action.SHIFT_RIGHT_CLICK);
+            }
+        }
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
             lines.add(Component.literal("Постоянный крит ×1.5 (не суммируется с обычным)"));
             lines.add(Component.literal("ПКМ: 4 призрачных копья зависают за спиной и по очереди поражают цель"));
             lines.add(Component.literal("Shift + ПКМ: вращающиеся копья наносят круговой удар"));
         }
     }
-    public static final class Axe extends AxeItem {
+    public static final class Axe extends AxeItem implements WeaponInputHandler {
         public Axe(Tier tier, Properties properties) { super(tier, properties); }
         @Override public Component getName(ItemStack stack) { return Component.translatableWithFallback("item.slavicmyths.nine_mor_axe", "Секира Погибели"); }
-        @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {return NineMorRewardAbilities.axe(level,player,hand);}
+        @Override public boolean intercepts(Action action) {
+            return action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK;
+        }
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, Action action) {
+            if (held != player.getMainHandItem() || !player.isAlive() || player.isSpectator()) return;
+            if (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK) {
+                NineMorRewardAbilities.axe(player.level(), player, InteractionHand.MAIN_HAND,
+                        action == Action.SHIFT_RIGHT_CLICK);
+            }
+        }
         @Override public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
             lines.add(Component.literal("ПКМ: Разлом Мора — движущаяся ударная волна с иссушением"));
             lines.add(Component.literal("Shift + ПКМ: Последний приговор — падение призрачной секиры (цель ≤35% здоровья)"));
