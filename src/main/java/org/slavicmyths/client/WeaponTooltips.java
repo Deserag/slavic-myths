@@ -38,8 +38,9 @@ public final class WeaponTooltips {
     private static final int CONTROL = 0xFFFF55;
     private static final Pattern KEYS = Pattern.compile("(?i)(Shift\\s*\\+\\s*(?:ЛКМ|ПКМ|LMB|RMB|left.click|right.click)|(?:ЛКМ|ПКМ|LMB|RMB|right.click|left.click))");
     private static final Pattern VALUES = Pattern.compile("(?i)(\\d+(?:[.,]\\d+)?\\s*(?:урона|damage|блок(?:ов|а)?|blocks?|сек(?:унд(?:ы|у)?)?\\.?|seconds?|ticks?))");
+    private static final Pattern DAMAGE_VALUES = Pattern.compile("(?i)(?:(?:урон|damage)\\s*[:：]?\\s*\\d+(?:[.,]\\d+)?|\\d+(?:[.,]\\d+)?\\s*(?:урона|damage))");
     private static final Pattern SKILL_NAMES = Pattern.compile("(?<=— )[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё\\s-]{2,40}(?=:)");
-    private static final Pattern TOKENS = Pattern.compile(KEYS.pattern() + "|" + SKILL_NAMES.pattern() + "|" + VALUES.pattern());
+    private static final Pattern TOKENS = Pattern.compile(KEYS.pattern() + "|" + SKILL_NAMES.pattern() + "|" + DAMAGE_VALUES.pattern() + "|" + VALUES.pattern());
 
     public static boolean isWeapon(String id) { return WEAPONS.contains(id); }
     public static boolean isElderSerpentWeapon(String id) { return ELDER_SERPENT_WEAPONS.contains(id); }
@@ -91,7 +92,7 @@ public final class WeaponTooltips {
             boolean abilityName = named.find(tokens.start()) && named.start() == tokens.start() && named.end() == tokens.end();
             int tokenColor = KEYS.matcher(token).matches() ? CONTROL
                 : abilityName ? ABILITY
-                : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
+                : DAMAGE_VALUES.matcher(token).matches() ? DAMAGE
                 : color == POSITIVE ? POSITIVE : MUTED;
             line.append(colored(token, tokenColor));
             from = tokens.end();
