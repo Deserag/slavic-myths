@@ -6806,5 +6806,21 @@
   "tooltip.slavicmyths.nine_mor.axe.primary": "ПКМ — Разлом Мора: ударная волна с иссушением.",
   "tooltip.slavicmyths.nine_mor.axe.secondary": "Shift + ПКМ — Последний приговор: призрачная секира поражает цель с запасом здоровья не более 35%.",
   "tooltip.slavicmyths.nine_mor.shield.passive": "Пассивно — Девятый заслон: временное поглощение при блокировании.",
-  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + ПКМ — Змеиный купол: защитный барьер на 6 с."
+  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + ПКМ — Змеиный купол: защитный барьер на 6 с.",
+  "tooltip.slavicmyths.sisters.neveya.passive": "Пассивно — удар накладывает Иссушение II, слабость и метку душ.",
+  "tooltip.slavicmyths.sisters.neveya.mark": "Повторный удар по метке: +9 магического урона.",
+  "tooltip.slavicmyths.sisters.neveya.charge": "Удержать ПКМ и отпустить — Жатва: 35 урона, радиус 5,4 блока, перезарядка 9 с.",
+  "tooltip.slavicmyths.sisters.neveya.shift": "Shift + ПКМ — Разрез: 53 урона, дальность 7 блоков, перезарядка 13 с.",
+  "tooltip.slavicmyths.sisters.lomeya.passive": "Пассивно — удары замедляют; против игроков могут травмировать руку.",
+  "tooltip.slavicmyths.sisters.lomeya.slam": "ПКМ — Удар по земле: 24 урона, радиус 4 блока, перезарядка 7,5 с.",
+  "tooltip.slavicmyths.sisters.lomeya.dual": "Два молота + ПКМ — Волна: 32 урона, радиус 5,6 блока, перезарядка 9,5 с.",
+  "tooltip.slavicmyths.sisters.lomeya.shift": "Два молота + Shift + ПКМ — Разлом: 44 урона, перезарядка 13 с.",
+  "tooltip.slavicmyths.sisters.lomeya.offhand": "Пассивно — два молота позволяют атаковать второй рукой.",
+  "tooltip.slavicmyths.mytar.throw": "ПКМ — Бросок серпа: 24 урона, цепь притягивает врага.",
+  "tooltip.slavicmyths.mytar.grab": "Захват: цель высотой до 4 блоков на расстоянии до 22 блоков.",
+  "tooltip.slavicmyths.mytar.rupture": "Shift + ПКМ — Разрыв цепи: 36 урона и волна на 14 урона.",
+  "tooltip.slavicmyths.mytar.cooldowns": "Цепь возвращается к владельцу; перезарядки 8,5 / 16 с.",
+  "tooltip.slavicmyths.kalin.sabre": "ПКМ — Разящий взмах: дальность 5,5 блока, до 6 врагов, 9 урона каждому, перезарядка 7 с.",
+  "tooltip.slavicmyths.storm_staff.pulse": "ПКМ — Грозовой импульс: 11 урона, дальность 7 блоков, перезарядка 1,6 с.",
+  "tooltip.slavicmyths.storm_staff.rune": "Активная руна: перезарядка 1,4 с; бонусы урона учитываются отдельно."
 }
