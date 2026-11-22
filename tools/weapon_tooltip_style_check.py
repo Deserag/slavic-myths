@@ -47,6 +47,7 @@ def main():
     assert "stack.has(DataComponents.CUSTOM_NAME)" in src, "custom name protection missing"
     assert "Matcher tokens = TOKENS.matcher(value);" in src, "tooltip token pattern must be reused"
     assert "color == POSITIVE ? POSITIVE : MUTED" in src, "healing values must retain positive color"
+    assert "styledDescription(generic)" in src, "generic localized tooltips must receive semantic token colors"
     for color in ["0xE4E4E7", "0x55FFFF", "0xAA55FF", "0xFFAA00", "0xD4AF37", "0xFF5555", "0x55FF55", "0xAAAAAA", "0xFFFF55"]:
         assert color in src, "missing color " + color
     ru, en = load_locale("ru_ru"), load_locale("en_us")
