@@ -40,6 +40,6 @@ public final class ShackledSickleItem extends SwordItem {
         lines.add(Component.translatable("tooltip.slavicmyths.mytar.grab").withStyle(net.minecraft.ChatFormatting.GRAY));
         lines.add(Component.translatable("tooltip.slavicmyths.mytar.rupture").withStyle(net.minecraft.ChatFormatting.GOLD));
         lines.add(Component.translatable("tooltip.slavicmyths.mytar.cooldowns").withStyle(net.minecraft.ChatFormatting.YELLOW));
-        lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(net.minecraft.ChatFormatting.GRAY));
+        lines.add(Component.translatable("tooltip.slavicmyths.weapon.rune_slots", org.slavicmyths.rpg.Runes.slots(stack)).withStyle(net.minecraft.ChatFormatting.GRAY));
     }
 }
