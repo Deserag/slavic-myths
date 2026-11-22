@@ -3,6 +3,7 @@ package org.slavicmyths.combat;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 /**
@@ -12,7 +13,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = "slavicmyths")
 public final class WeaponVanillaActionGuards {
     @SubscribeEvent
-    public static void attackEntity(PlayerInteractEvent.AttackEntity event) {
+    public static void attackEntity(AttackEntityEvent event) {
         var player = event.getEntity();
         if (!(player.getMainHandItem().getItem() instanceof WeaponInputHandler handler)) return;
         WeaponInputHandler.Action action = player.isShiftKeyDown()
