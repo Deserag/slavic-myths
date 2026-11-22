@@ -39,18 +39,6 @@ public final class MorovoyStaff {
     });
     public static void init(){}
 
-    /** All client packets are resolved against the actual equipped item, never a client-supplied stack. */
-    public static void handleAction(ServerPlayer player,int action) {
-        if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator())return;
-        ItemStack held=player.getMainHandItem();
-        switch(action) {
-            case 0 -> staff.switchMode(player,held);
-            case 1 -> staff.summon(player,held);
-            case 2 -> staff.area(player,staff.aimPoint(player),held);
-            default -> {}
-        }
-    }
-
     private static ItemAttributeModifiers weaponAttributes() {
         return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,6,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND)
