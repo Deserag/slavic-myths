@@ -14,6 +14,8 @@ SISTERS = ROOT / "src/main/java/org/slavicmyths/sisters/BossRewardWeapons.java"
 MYTAR = ROOT / "src/main/java/org/slavicmyths/posad/boss/ShackledSickleItem.java"
 REWARD = ROOT / "src/main/java/org/slavicmyths/rewards/RewardContent.java"
 STORM = ROOT / "src/main/java/org/slavicmyths/item/StormStaffItem.java"
+MOROVOY = ROOT / "src/main/java/org/slavicmyths/morovoy/MorovoyStaff.java"
+INFERNAL = ROOT / "src/main/java/org/slavicmyths/nethersmithing/InfernalBow.java"
 GOLD = {"serpent_crossbow", "three_breath_crossbow", "morovoy_staff", "storm_anchor", "storm_harpoon"}
 
 
@@ -57,6 +59,9 @@ def main():
     refs = set()
     for source in [NINE, SISTERS, MYTAR, REWARD, STORM]:
         refs.update(re.findall(r'Component.translatable\("(tooltip\.slavicmyths\.[^"]+)"', source.read_text(encoding="utf-8")))
+    # Ternary translation keys must be checked on both branches, including spell modes.
+    for source in [MOROVOY, INFERNAL]:
+        refs.update(re.findall(r'"(tooltip\.slavicmyths\.[^"]+)"', source.read_text(encoding="utf-8")))
     refs.add("tooltip.slavicmyths.weapon.elder_serpent")
     for key in refs:
         assert key in ru and key in en, "missing bilingual key " + key
