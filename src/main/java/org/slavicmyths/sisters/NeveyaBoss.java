@@ -80,8 +80,8 @@ public final class NeveyaBoss extends Monster {
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
         targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
     }
-    private boolean targetable(Player p){return p.isAlive()&&!p.isCreative()&&!p.isSpectator();}
-    private void start(int kind,Player target){
+    private boolean targetable(LivingEntity p){return p!=null&&p.isAlive()&&org.slavicmyths.combat.CombatTargeting.canAttack(this,p,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE); }
+    private void start(int kind,LivingEntity target){
         victims.clear();markedCenter=target.position();
         entityData.set(ACTION,kind);entityData.set(FRAME,0);
         boolean air=kind==DASH||kind==DIVE;entityData.set(FLYING,air);setNoGravity(air);
@@ -98,7 +98,7 @@ public final class NeveyaBoss extends Monster {
         case COMBO->49;case SWEEP->44;case MARK->37;case HARVEST->50;
         case BOLT->36;case CIRCLES->65;case DASH->55;case DIVE->65;case VERDICT->113;
         default->0;};}
-    private float hit(Player p,float amount,int maxHits){
+    private float hit(LivingEntity p,float amount,int maxHits){
         if(!targetable(p)||!getSensing().hasLineOfSight(p))return 0;
         if(victims.getOrDefault(p.getUUID(),0)>=maxHits)return 0;
         float before=p.getHealth();
@@ -106,13 +106,13 @@ public final class NeveyaBoss extends Monster {
         victims.merge(p.getUUID(),1,Integer::sum);
         return Math.max(0,before-p.getHealth());
     }
-    private boolean withinArc(Player p,double radius){
+    private boolean withinArc(LivingEntity p,double radius){
         Vec3 dir=p.position().subtract(position()).multiply(1,0,1);
         Vec3 forward=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         return dir.lengthSqr()>0.01&&dir.lengthSqr()<=radius*radius&&dir.normalize().dot(forward)>.08;
     }
     private void arc(ServerLevel world,float amount,double radius,int maxHits,boolean wither,boolean heal){
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(radius,3,radius),this::targetable)){
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(radius,3,radius),this::targetable)){
             if(!withinArc(p,radius))continue;
             float real=hit(p,amount,maxHits);
             if(real>0&&wither)p.addEffect(new MobEffectInstance(MobEffects.WITHER,160,1));
@@ -120,7 +120,7 @@ public final class NeveyaBoss extends Monster {
         }
     }
     private void circle(ServerLevel world,Vec3 center,double radius,float damage,int maxHits){
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(22,7,22),this::targetable)){
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(22,7,22),this::targetable)){
             if(p.position().multiply(1,0,1).distanceToSqr(center.multiply(1,0,1))<=radius*radius&&Math.abs(p.getY()-center.y)<3.5)
                 hit(p,damage,maxHits);
         }
@@ -136,7 +136,7 @@ public final class NeveyaBoss extends Monster {
             world.sendParticles(ParticleTypes.SOUL_FIRE_FLAME,center.x+radius*Math.cos(a),center.y+.16,center.z+radius*Math.sin(a),1,.04,.02,.04,.002);
         }
     }
-    private void floatToward(Player target,int frame,boolean dive){
+    private void floatToward(LivingEntity target,int frame,boolean dive){
         if(frame<16){setDeltaMovement(0,.17,0);return;}
         if(frame<32){
             Vec3 aim=target.position().add(0,dive?5.5:1.4,0).subtract(position());
@@ -150,7 +150,7 @@ public final class NeveyaBoss extends Monster {
         if(dive&&frame<43)setDeltaMovement(0,-.52,0);
         else setDeltaMovement(Vec3.ZERO);
     }
-    private void actionStep(ServerLevel world,Player target){
+    private void actionStep(ServerLevel world,LivingEntity target){
         int f=actionFrame()+1,act=action();entityData.set(FRAME,f);
         if((act==DASH||act==DIVE)&&target!=null)floatToward(target,f,act==DIVE);
         if(f%6==0&&f<duration(act)-8){
@@ -160,7 +160,7 @@ public final class NeveyaBoss extends Monster {
             case COMBO->{if(f==16||f==29||f==40)arc(world,f==40?26F:16.9F,4.5,3,false,false);}
             case SWEEP->{if(f==29)arc(world,18.2F,5.8,1,false,false);}
             case MARK->{if(f==19)telegraph(world,markedCenter,2.8);if(f==29){
-                for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(17,5,17),this::targetable))
+                for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(17,5,17),this::targetable))
                     if(p.distanceToSqr(markedCenter)<25&&getSensing().hasLineOfSight(p))
                         p.addEffect(new MobEffectInstance(ModEffects.DEATH_MARK,600,0,false,true,true));
             }}
@@ -202,7 +202,7 @@ public final class NeveyaBoss extends Monster {
             finish();cooldown=55;playSound(SoundEvents.WITHER_SPAWN,1.2F,.9F);
         }
         if(verdictCooldown>0)verdictCooldown--;
-        Player p=getTarget() instanceof Player target&&targetable(target)?target:null;
+        LivingEntity p=targetable(getTarget())?getTarget():null;
         if(p==null){if(action()!=IDLE)finish();return;}
         if(action()!=IDLE){getNavigation().stop();actionStep(world,p);return;}
         getLookControl().setLookAt(p,30,25);

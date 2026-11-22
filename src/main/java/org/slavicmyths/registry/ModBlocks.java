@@ -16,6 +16,10 @@ public final class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(Registries.BLOCK, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Block, Block> HEAT_BERRY_BUSH = BLOCKS.register("heat_berry_bush",()->new org.slavicmyths.farming.NetherPlant(0,plantProperties().randomTicks().noOcclusion()));
+    public static final DeferredHolder<Block, Block> SERNICA_CROP = BLOCKS.register("sernica_crop",()->new org.slavicmyths.farming.NetherPlant(1,plantProperties().randomTicks().noOcclusion()));
+    public static final DeferredHolder<Block, Block> COAL_PLUM_SAPLING = BLOCKS.register("coal_plum_sapling",()->new org.slavicmyths.farming.NetherPlant(2,plantProperties().randomTicks().noOcclusion()));
+    public static final DeferredHolder<Block, Block> COAL_PLUM_LEAVES = BLOCKS.register("coal_plum_leaves",()->new org.slavicmyths.farming.NetherPlant(3,plantProperties().randomTicks().noOcclusion()));
     public static final DeferredHolder<Block, Block> CRIMSON_PEPPER_CROP = BLOCKS.register("crimson_pepper_crop",()->new org.slavicmyths.farming.CrimsonPepperCrop(plantProperties().randomTicks().noOcclusion()));
     public static final DeferredHolder<Block, Block> GARLIC_CROP = BLOCKS.register("garlic_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.GARLIC_CLOVE.get()));
     public static final DeferredHolder<Block, Block> HORSERADISH_CROP = BLOCKS.register("horseradish_crop", () -> new org.slavicmyths.farming.FoodCrop(plantProperties().randomTicks().noOcclusion(), () -> ModItems.HORSERADISH_CUTTING.get()));

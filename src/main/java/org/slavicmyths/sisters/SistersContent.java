@@ -33,6 +33,7 @@ public final class SistersContent {
     public static final DeferredHolder<Item,Item> LOMEYA_INGOT = ModItems.ITEMS.register("lomeya_ingot", () -> named("Слиток Ломеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> NETHER_SOUL_IV = ModItems.ITEMS.register("nether_soul_iv", () -> named("Адская душа IV",net.minecraft.world.item.Rarity.EPIC,16));
     public static final DeferredHolder<Item,Item> NETHER_SOUL_V = ModItems.ITEMS.register("nether_soul_v", () -> named("Адская душа V",net.minecraft.world.item.Rarity.EPIC,16));
+    public static final DeferredHolder<Item,Item> GNETEYA_GREAT_HAMMER=ModItems.ITEMS.register("gneteya_great_hammer",GneteyaGreatHammer::new);
     public static final DeferredHolder<Item,Item> NEVEYA_SCYTHE = ModItems.ITEMS.register("neveya_scythe", () -> new BossRewardWeapons.Weapon(true));
     public static final DeferredHolder<Item,Item> LOMEYA_HAMMER = ModItems.ITEMS.register("lomeya_hammer", () -> new BossRewardWeapons.Weapon(false));
     public static final DeferredHolder<Item,Item> LOMEYA_HAMMER_OFFHAND = ModItems.ITEMS.register("lomeya_hammer_offhand", () -> new BossRewardWeapons.Weapon(false));

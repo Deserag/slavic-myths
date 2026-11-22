@@ -24,10 +24,6 @@ public final class WeaponHands {
  private static final ItemStack[] observedCrossbows=new ItemStack[2];
  private static final boolean[] observedCharged=new boolean[2];
  private static final double[] lastShotClock={Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY};
- @SubscribeEvent public static void click(InputEvent.InteractionKeyMappingTriggered e){
-  var p=Minecraft.getInstance().player;if(p==null||!e.isAttack()||!p.isShiftKeyDown())return;
-  if(p.getMainHandItem().getItem() instanceof SerpentCrossbow bow&&bow.special){e.setCanceled(true);e.setSwingHand(false);net.neoforged.neoforge.network.PacketDistributor.sendToServer(new CrossbowVolley.Toggle());}
- }
  @SubscribeEvent public static void hand(RenderHandEvent e){
   var mc=Minecraft.getInstance();var p=mc.player;if(p==null||!(e.getItemStack().getItem() instanceof SerpentCrossbow))return;
   e.setCanceled(true);var pose=e.getPoseStack();boolean left=(e.getHand()==InteractionHand.MAIN_HAND)==(p.getMainArm()==HumanoidArm.LEFT);int sign=left?-1:1;

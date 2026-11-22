@@ -72,7 +72,7 @@ public final class NineMorRewardAbilities {
   Vec3 right=new Vec3(-look.z,0,look.x);
   for(int i=0;i<4;i++){
    Vec3 from=server.position().add(0,2.65D+(i%2)*.33D,0).subtract(look.scale(2.3D)).add(right.scale((i-1.5D)*1.05D));
-   NineMorShot shot=new NineMorShot(server.level(),server,9);
+   NineMorShot shot=new NineMorShot(server.level(),server,11);
    shot.setPos(from.x,from.y,from.z);
    shot.summonBehind(target,i);
    server.serverLevel().addFreshEntity(shot);

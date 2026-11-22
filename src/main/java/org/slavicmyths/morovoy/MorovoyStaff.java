@@ -61,13 +61,26 @@ public final class MorovoyStaff {
     public static final class Staff extends Item {
         public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
         @Override public Component getName(ItemStack stack){return Component.translatableWithFallback("item.slavicmyths.morovoy_staff", "Посох Мора");}
+        @Override public void inventoryTick(ItemStack stack,Level level,net.minecraft.world.entity.Entity entity,int slot,boolean selected){
+            super.inventoryTick(stack,level,entity,slot,selected);
+            if(!selected||!(entity instanceof ServerPlayer player))return;
+            var tag=stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
+            boolean changed=false;
+            for(String skill:new String[]{"bolt","flock","area"}){
+                String key="MorStaff25_"+skill;long until=player.getPersistentData().getLong(key);
+                if(tag.getLong(key)!=until){tag.putLong(key,until);changed=true;}
+            }
+            if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));
+        }
+
         private int mode(ItemStack stack) {return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1?1:0;}
         private void mode(ItemStack stack,int value) {CustomData.update(DataComponents.CUSTOM_DATA,stack,n->n.putInt("MorovoyStaffMode",value));}
         private static boolean cooldown(ServerPlayer player,String id,long duration){
             String key="MorStaff25_"+id;
             long now=player.serverLevel().getGameTime(),until=player.getPersistentData().getLong(key);
             if(now<until){player.displayClientMessage(Component.literal("Посох: перезарядка "+((until-now+19)/20)+" сек."),true);return false;}
-            player.getPersistentData().putLong(key,now+duration);return true;
+            player.getPersistentData().putLong(key,now+duration);
+            CustomData.update(DataComponents.CUSTOM_DATA,player.getMainHandItem(),n->n.putLong(key,now+duration));return true;
         }
         private static boolean legal(ServerPlayer player,LivingEntity target){
             return target!=player&&target.isAlive()&&!player.isAlliedTo(target)&&org.slavicmyths.rpg.Abilities.canHit(player,target);
@@ -165,12 +178,12 @@ public final class MorovoyStaff {
 
         private void area(ServerPlayer player,Vec3 center,ItemStack held){
             if(center.distanceToSqr(player.position())>20*20){player.displayClientMessage(Component.literal("Слишком далеко для удара"),true);return;}
-            if(!cooldown(player,"area",600))return;
+            if(!cooldown(player,"area",400))return;
             ServerLevel world=player.serverLevel();
             var targets=world.getEntitiesOfClass(LivingEntity.class,new AABB(center,center).inflate(5),
                 target->legal(player,target)&&target.distanceToSqr(center)<=25);
             targets.sort(Comparator.comparingDouble(t->t.distanceToSqr(center)));
-            for(LivingEntity target:targets.stream().limit(12).toList())if(target.hurt(player.damageSources().indirectMagic(player,player),12F)){
+            for(LivingEntity target:targets.stream().limit(12).toList())if(target.hurt(player.damageSources().indirectMagic(player,player),20F)){
                 target.igniteForSeconds(5);
                 target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WITHER,100,0),player);
                 target.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,60,0),player);

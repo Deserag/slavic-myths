@@ -32,9 +32,9 @@ public final class ModGear {
     }
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, "slavicmyths");
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> PERUNITE_ARMOR = ARMOR_MATERIALS.register("perunite", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.BOOTS, 2, ArmorItem.Type.LEGGINGS, 5, ArmorItem.Type.CHESTPLATE, 6, ArmorItem.Type.HELMET, 2),
+            Map.of(ArmorItem.Type.BOOTS, 2, ArmorItem.Type.LEGGINGS, 6, ArmorItem.Type.CHESTPLATE, 7, ArmorItem.Type.HELMET, 3),
             13, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(ModItems.PERUNITE.get()),
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("slavicmyths", "perunite"))), .5F, 0));
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("slavicmyths", "perunite"))), 1F, 0));
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GAMBESON = armor("gambeson", 4, 0, false);
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> PLATE = armor("plate", 7, 1, true);
     private static DeferredHolder<ArmorMaterial, ArmorMaterial> armor(String id, int defense, float toughness, boolean plate) {

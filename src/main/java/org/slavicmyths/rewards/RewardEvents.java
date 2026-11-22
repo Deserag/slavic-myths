@@ -108,7 +108,7 @@ public final class RewardEvents {
    for(var victim:level.getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(5.5),e->e!=p&&!e.isAlliedTo(p)&&e instanceof net.minecraft.world.entity.monster.Enemy&&e.distanceToSqr(p)<=30.25&&p.hasLineOfSight(e))){
     Vec3 toward=victim.position().subtract(p.position()).multiply(1,0,1).normalize();
     if(toward.lengthSqr()<.01||toward.dot(forward)<.35)continue;
-    if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),9F)){
+    if(victim.hurt(org.slavicmyths.combat.MythDamageSources.periodic("reward_sweep",p),18F)){
      level.sendParticles(ParticleTypes.SWEEP_ATTACK,victim.getX(),victim.getY()+victim.getBbHeight()*.5,victim.getZ(),3,.35,.2,.35,0);
      if(++hits>=6)break;
     }

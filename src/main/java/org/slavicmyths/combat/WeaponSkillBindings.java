@@ -16,7 +16,8 @@ import org.slavicmyths.morozko.FrostContent;
 @EventBusSubscriber(modid="slavicmyths")
 public final class WeaponSkillBindings {
     public static boolean shiftLeftSkill(ItemStack stack) {
-        return stack.is(MarineWeapons.STAFF.get())
+        return (stack.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow bow && bow.special)
+            || stack.is(MarineWeapons.STAFF.get())
             || stack.is(MorovoyStaff.STAFF.get())
             || stack.is(FrostContent.STAFF.get())
             || stack.is(NightContent.SCYTHE.get());

@@ -36,14 +36,23 @@ public final class SisterArtifactEvents {
     }
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event){
         if(!(event.getEntity() instanceof ServerPlayer p))return;
-        attribute(p,Attributes.MAX_HEALTH,HEALTH,4,base(p,"sisters_necklace"));
+        refreshHealth(p);
         attribute(p,Attributes.MOVEMENT_SPEED,SPEED,.01,base(p,"sisters_brooch"));
         attribute(p,Attributes.MOVEMENT_SPEED,WIND,.035,power(p,"tryaseya")&&now(p)<p.getPersistentData().getLong("SistersTryaseyaBoostUntil"));
         attribute(p,Attributes.KNOCKBACK_RESISTANCE,KNOCK,.25,power(p,"lomeya"));
         if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth());
         if(p.tickCount%20==0&&power(p,"ledeya"))p.setTicksFrozen(0);
     }
-    @SubscribeEvent public static void onDamage(LivingDamageEvent.Pre event){
+    public static void refreshHealth(ServerPlayer p){
+        attribute(p,Attributes.MAX_HEALTH,HEALTH,4,base(p,"sisters_necklace"));
+        if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth());
+    }
+    @SubscribeEvent public static void respawn(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerRespawnEvent e){
+        if(e.getEntity() instanceof ServerPlayer p)refreshHealth(p);
+    }
+    @SubscribeEvent public static void login(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent e){
+        if(e.getEntity() instanceof ServerPlayer p)refreshHealth(p);
+    }    @SubscribeEvent public static void onDamage(LivingDamageEvent.Pre event){
         if(!(event.getEntity() instanceof ServerPlayer p)||event.getNewDamage()<=0)return;
         var source=event.getSource();
         if(source.is(DamageTypeTags.BYPASSES_INVULNERABILITY))return;

@@ -45,7 +45,7 @@ public final class RareRuneRuntime {
         String id=active.get(selected);if(id.equals("shadow_face")){org.slavicmyths.losthalls.ShadowFace.activate(p);return;}if(!ready(p,id)){p.displayClientMessage(RareRunes.text("cooldown",(data(p).getLong("CD_"+id)-now(p)+19)/20),true);return;}
         switch(id){
             case "floating_weapon"->{var visual=RuneVisual.weapon(p);if(!p.serverLevel().addFreshEntity(visual))return;t.putInt("RuneWeaponVisual",visual.getId());}
-            case "flight"->{var a=p.getAbilities();var d=data(p);d.putBoolean("FlightLease",true);d.putFloat("FlightSpeedBefore",a.getFlyingSpeed());d.putBoolean("FlightMayflyBefore",a.mayfly);d.putBoolean("FlightFlyingBefore",a.flying);d.putString("FlightModeBefore",p.gameMode.getGameModeForPlayer().getName());t.putLong("RuneFlightUntil",now(p)+100);a.mayfly=true;a.flying=true;a.setFlyingSpeed(.05F*1.35F);p.onUpdateAbilities();p.displayClientMessage(RareRunes.text("flight_started"),true);}
+            case "flight"->{var a=p.getAbilities();var d=data(p);d.putBoolean("FlightLease",true);d.putFloat("FlightSpeedBefore",a.getFlyingSpeed());d.putBoolean("FlightMayflyBefore",org.slavicmyths.sisters.SistersArmorRules.flightBaseline(a.mayfly,p.getPersistentData().getBoolean("Sisters25FlightGranted")));d.putBoolean("FlightFlyingBefore",a.flying);d.putString("FlightModeBefore",p.gameMode.getGameModeForPlayer().getName());t.putLong("RuneFlightUntil",now(p)+100);a.mayfly=true;a.flying=true;a.setFlyingSpeed(.05F*1.35F);p.onUpdateAbilities();p.displayClientMessage(RareRunes.text("flight_started"),true);}
             case "sacrifice"->{if(!pay(p,6)){p.displayClientMessage(RareRunes.text("cannot_pay"),true);return;}t.putLong("RuneSacrificeUntil",now(p)+160);data(p).putLong("PulseUntil",now(p)+12);p.serverLevel().sendParticles(ParticleTypes.WITCH,p.getX(),p.getY()+1,p.getZ(),5,.3,.3,.3,.01);}
             default->{return;}
         }
@@ -79,7 +79,7 @@ public final class RareRuneRuntime {
         if(RareRunes.equipped(p,"berserker")&&(t.getFloat("RuneLastHP")!=p.getHealth()||t.getFloat("RuneLastMaxHP")!=p.getMaxHealth()))refresh(p);
     }
     private static void endFlight(ServerPlayer p){var d=data(p);if(!d.getBoolean("FlightLease"))return;d.putBoolean("FlightLease",false);var a=p.getAbilities();
-        if(p.gameMode.getGameModeForPlayer().getName().equals(d.getString("FlightModeBefore"))){a.mayfly=d.getBoolean("FlightMayflyBefore");a.flying=a.mayfly&&d.getBoolean("FlightFlyingBefore");}
+        if(p.gameMode.getGameModeForPlayer().getName().equals(d.getString("FlightModeBefore"))){a.mayfly=org.slavicmyths.sisters.SistersArmorRules.afterRune(d.getBoolean("FlightMayflyBefore"),p.isAlive()&&org.slavicmyths.sisters.SistersArmor.full(p));a.flying=a.mayfly&&(org.slavicmyths.sisters.SistersArmor.full(p)?a.flying:d.getBoolean("FlightFlyingBefore"));}
         else if(d.getString("FlightModeBefore").isEmpty()&&!p.isCreative()&&!p.isSpectator()){a.mayfly=false;a.flying=false;} // Legacy 1.3.4.3 lease.
         if(Math.abs(a.getFlyingSpeed()-.0675F)<.00001F)a.setFlyingSpeed(d.getFloat("FlightSpeedBefore"));
         p.onUpdateAbilities();temp(p).remove("RuneFlightUntil");temp(p).putLong("RuneFallGrace",now(p)+60);p.fallDistance=0;

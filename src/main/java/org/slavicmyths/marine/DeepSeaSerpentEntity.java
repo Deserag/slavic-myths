@@ -197,6 +197,7 @@ public final class DeepSeaSerpentEntity extends Monster {
     }
     private Vec3 center(){return position().add(0,getBbHeight()*.47,0);}
     private void findPrey(){
+        if (org.slavicmyths.combat.BossRetaliation.select(this, 64)) return;
         if(tickCount%15!=0)return;
         LivingEntity old=getTarget();
         if(old!=null && (!prey(old)||distanceToSqr(old)>64*64)){old=null;setTarget(null);}

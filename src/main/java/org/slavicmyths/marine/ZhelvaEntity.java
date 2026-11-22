@@ -208,6 +208,7 @@ public final class ZhelvaEntity extends Monster {
             && !(entity instanceof ZhelvaEntity);
     }
     private void findTarget() {
+        if (org.slavicmyths.combat.BossRetaliation.select(this, 60)) return;
         if (tickCount % 12 != 0) return;
         LivingEntity old = getTarget();
         if (old != null && (!valid(old) || distanceToSqr(old) > 60 * 60)) setTarget(null);

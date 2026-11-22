@@ -15,11 +15,11 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 /** A follow-up can bypass only the damage cooldown of its own successful volley. */
 @EventBusSubscriber(modid="slavicmyths")
 public final class CrossbowDamage {
-    public static final float MIN_SPECIAL_DAMAGE=14;
+    public static final float MIN_SPECIAL_DAMAGE=16, MIN_REGULAR_DAMAGE=12;
     public static float impactDamage(AbstractArrow arrow,float vanilla) {
         var weapon=arrow.getWeaponItem();
-        return weapon!=null&&weapon.getItem() instanceof SerpentCrossbow crossbow&&crossbow.special
-            ?Math.max(MIN_SPECIAL_DAMAGE,vanilla):vanilla;
+        if(weapon==null||!(weapon.getItem() instanceof SerpentCrossbow crossbow))return vanilla;
+        return Math.max(crossbow.special?MIN_SPECIAL_DAMAGE:MIN_REGULAR_DAMAGE,vanilla);
     }
     public static final String VOLLEY="GorynychVolley";
     private record Key(UUID owner, UUID volley) {}

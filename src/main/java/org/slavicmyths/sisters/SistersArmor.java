@@ -59,12 +59,7 @@ public final class SistersArmor {
             this.id=id;this.bonusHealth=bonusHealth;
         }
         @Override public Component getName(ItemStack stack) {
-            return Component.literal(switch(id) {
-                case "tryaseya_boots"->"Сапоги Трясеи";
-                case "gneteya_chestplate"->"Нагрудник Гнетеи";
-                case "ledeya_helmet"->"Шлем Ледеи";
-                default->"Поножи Агнеи";
-            });
+            return Component.translatable("item.slavicmyths."+id);
         }
         @Override public ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
             ItemAttributeModifiers mods=super.getDefaultAttributeModifiers(stack);
@@ -81,17 +76,12 @@ public final class SistersArmor {
         }
         @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> lines,TooltipFlag flags) {
             super.appendHoverText(stack,context,lines,flags);
-            lines.add(Component.literal("✦ НАСЛЕДИЕ СЕСТЁР").withStyle(ChatFormatting.DARK_PURPLE));
-            switch(id) {
-                case "tryaseya_boots" -> lines.add(Component.literal("Ветер: +40% скорости и усиленный прыжок").withStyle(ChatFormatting.AQUA));
-                case "gneteya_chestplate" -> lines.add(Component.literal("Очищение: 30% шанс предотвратить негативный эффект").withStyle(ChatFormatting.AQUA));
-                case "ledeya_helmet" -> lines.add(Component.literal("Точный удар: 25% шанс увеличить урон в 1,5 раза").withStyle(ChatFormatting.AQUA));
-                case "agneya_leggings" -> lines.add(Component.literal("Сытость: +1 ед. голода каждые 1,75 сек. при необходимости").withStyle(ChatFormatting.AQUA));
-                default -> {}
+            lines.add(Component.translatable("armor.slavicmyths.sisters."+id).withStyle(ChatFormatting.GOLD));
+            lines.add(Component.translatable("armor.slavicmyths.sisters.set").withStyle(ChatFormatting.GRAY));
+            if(getType()==Type.CHESTPLATE){
+                lines.add(Component.translatable("armor.slavicmyths.sisters.aura").withStyle(ChatFormatting.GRAY));
+                lines.add(Component.translatable("armor.slavicmyths.sisters.aura_effect").withStyle(ChatFormatting.GRAY));
             }
-            lines.add(Component.literal("Комплект 4/4: +10 сердец • полёт • Скорость III").withStyle(ChatFormatting.LIGHT_PURPLE));
-            if(getType()==Type.CHESTPLATE)
-                lines.add(Component.literal("Аура: Shift+ПКМ пустой рукой • 20 сек. / 60 сек.").withStyle(ChatFormatting.GRAY));
         }
     }
     private SistersArmor() {}

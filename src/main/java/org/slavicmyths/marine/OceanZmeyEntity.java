@@ -140,6 +140,7 @@ public final class OceanZmeyEntity extends Monster {
     }
     private Vec3 headPosition(){return position().add(forward().scale(3.0)).add(0,1.8,0);}
     private void findTarget(){
+        if (org.slavicmyths.combat.BossRetaliation.select(this, 80)) return;
         if(tickCount%12!=0)return;
         LivingEntity previous=getTarget();
         if(previous!=null&&(!attackable(previous)||distanceToSqr(previous)>80*80))

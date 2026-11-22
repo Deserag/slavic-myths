@@ -113,9 +113,9 @@ public final class LedeyaBoss extends Monster {
     }
 
     private boolean canShoot(LivingEntity target) {
-        return target instanceof Player player && player.isAlive() && !player.isCreative()
-            && !player.isSpectator() && distanceToSqr(player) <= RANGE * RANGE
-            && getSensing().hasLineOfSight(player);
+        return target != null && target.isAlive() && org.slavicmyths.combat.CombatTargeting.canAttack(this,target,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE)
+            && distanceToSqr(target) <= RANGE * RANGE
+            && getSensing().hasLineOfSight(target);
     }
 
     private Arrow arrow(Vec3 origin, double damage, boolean tipped) {

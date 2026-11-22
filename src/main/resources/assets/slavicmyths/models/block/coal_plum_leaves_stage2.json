@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "cross": "slavicmyths:item/coal_plum"
+  },
+  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/cross"
+}

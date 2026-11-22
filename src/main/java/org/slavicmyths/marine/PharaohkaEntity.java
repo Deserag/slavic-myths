@@ -242,7 +242,8 @@ public final class PharaohkaEntity extends Monster {
     private boolean validTarget(LivingEntity candidate) {
         return candidate.isAlive() && !candidate.isSpectator()
             && !(candidate instanceof Player player && player.isCreative())
-            && (isTargetInWater(candidate)
+            && (candidate == getLastHurtByMob() && org.slavicmyths.combat.CombatTargeting.canAttack(this,candidate,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE)
+                || isTargetInWater(candidate)
                 || candidate instanceof Player
                     && distanceToSqr(candidate)<144
                     && Math.abs(candidate.getY()-getY())<5);

@@ -116,9 +116,9 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         if (encounter!=null && !enraged() && SistersLedger.get(world).partnerDied(encounter,isTryaseya())) { entityData.set(RAGE,true); if (isTryaseya()) world.playSound(null,blockPosition(),TryaseyaSounds.ENRAGE.get(),SoundSource.HOSTILE,1.35F,.86F); }
         bar.setProgress(Math.clamp(getHealth()/Math.max(1,getMaxHealth()),0,1));
         SisterBoss ally=loadedPartner(world);
-        Player victim=getTarget() instanceof Player p && p.isAlive() && !p.isCreative() && !p.isSpectator() ? p : null;
+        LivingEntity victim=valid(getTarget())?getTarget():null;
         if (victim==null) { if (action()!=IDLE) resetAttack();return; }
-        if (ally!=null && ally.getTarget() instanceof Player p && p.isAlive() && distanceToSqr(p)<distanceToSqr(victim)) victim=p;
+        if (ally!=null && valid(ally.getTarget()) && distanceToSqr(ally.getTarget())<distanceToSqr(victim)) victim=ally.getTarget();
         if (action()!=IDLE) {
             getNavigation().stop();
             int frame=actionFrame()+1;
@@ -142,7 +142,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             } else if (horizontal<=20) getNavigation().stop();
         } else {
             // MeleeAttackGoal handles charging and melee hits.
-            if (ally!=null && ally.isTryaseya() && ally.getTarget() instanceof Player threatened && valid(threatened) && distanceToSqr(threatened)<900) setTarget(threatened);
+            if (ally!=null && ally.isTryaseya() && valid(ally.getTarget()) && distanceToSqr(ally.getTarget())<900 && !(getLastHurtByMob()==victim)) setTarget(ally.getTarget());
         }
         if (cooldown-->0 || d>900 || !getSensing().hasLineOfSight(victim)) return;
         int next = isTryaseya()?new int[]{FEVER,SPIRITS,FLASH,ZONE,EVADE}[attackNumber++%5]:new int[]{HEAVY,WALL,SLAM,PULL,SPIKES}[attackNumber++%5];
@@ -162,7 +162,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         bolt.shoot(direction.x,direction.y,direction.z,1.25F,1.2F);
         world.addFreshEntity(bolt);
     }
-    private void begin(int next,Player victim) {
+    private void begin(int next,LivingEntity victim) {
         entityData.set(ACTION,next);
         if (isTryaseya() && !level().isClientSide()) level().playSound(null,blockPosition(),TryaseyaSounds.CAST.get(),SoundSource.HOSTILE,1.2F,.94F);
         entityData.set(FRAME,0);
@@ -181,13 +181,13 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         if (action()==WALL || action()==SPIKES || action()==ZONE) world.sendParticles(new DustParticleOptions(hue,1.1F),lockedTarget.x,lockedTarget.y+.07,lockedTarget.z,7,1.3,.02,1.3,.01);
     }
     private boolean clearSight(LivingEntity target) {return getSensing().hasLineOfSight(target) && level().clip(new ClipContext(getEyePosition(),target.getEyePosition(),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this)).getType()==HitResult.Type.MISS;}
-    private boolean valid(Player p) {return p.isAlive() && !p.isCreative() && !p.isSpectator();}
-    private void resolve(ServerLevel world,Player target,SisterBoss ally) {
+    private boolean valid(LivingEntity p) {return p!=null && p.isAlive() && org.slavicmyths.combat.CombatTargeting.canAttack(this,p,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE); }
+    private void resolve(ServerLevel world,LivingEntity target,SisterBoss ally) {
         float power=enraged()?1.22F:1F;
         switch (action()) {
             case HEAVY -> {
                 Vec3 front=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
-                for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(5.0,2.5,5.0),this::valid)) {
+                for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(5.0,2.5,5.0),this::valid)) {
                     Vec3 delta=p.position().subtract(position()).multiply(1,0,1);
                     if(delta.lengthSqr()>24 || delta.lengthSqr()<.1 || front.dot(delta.normalize())<-.1 || !clearSight(p)) continue;
                     if(p.hurt(damageSources().mobAttack(this),19*power)) p.push(delta.normalize().x*.65,.25,delta.normalize().z*.65);
@@ -195,7 +195,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             }
             case SLAM -> {
                 world.sendParticles(net.minecraft.core.particles.ParticleTypes.POOF,getX(),getY()+.2,getZ(),38,3,.25,3,.14);
-                for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(5,1.5,5),this::valid)) {
+                for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(5,1.5,5),this::valid)) {
                     if(Math.abs(p.getY()-getY())>2.1 || !clearSight(p))continue;
                     if(p.hurt(damageSources().mobAttack(this),12*power)) p.push((p.getX()-getX())*.14,.32,(p.getZ()-getZ())*.14);
                 }
@@ -209,7 +209,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             }
             case SPIKES -> {
                 world.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,lockedTarget.x,lockedTarget.y+.2,lockedTarget.z,25,1,.65,1,.05);
-                for(Player p:world.getEntitiesOfClass(Player.class,new AABB(lockedTarget,lockedTarget).inflate(1.5,2,1.5),this::valid)) if(clearSight(p))p.hurt(damageSources().mobAttack(this),8*power);
+                for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,new AABB(lockedTarget,lockedTarget).inflate(1.5,2,1.5),this::valid)) if(clearSight(p))p.hurt(damageSources().mobAttack(this),8*power);
             }
             case FEVER -> {
                 SisterBolt bolt=SistersContent.BOLT.get().create(world);
@@ -223,7 +223,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             }
             case FLASH -> {
                 world.sendParticles(net.minecraft.core.particles.ParticleTypes.WITCH,getX(),getY()+2.0,getZ(),48,2.2,1.5,2.2,.1);
-                for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(4,2,4),this::valid)) {
+                for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(4,2,4),this::valid)) {
                     if(!clearSight(p))continue;
                     if(p.hurt(damageSources().mobAttack(this),6*power))p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,38,0));
                 }
@@ -237,7 +237,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             default -> { }
         }
     }
-    private void createWall(ServerLevel world,Player target) {
+    private void createWall(ServerLevel world,LivingEntity target) {
         if (world.getEntitiesOfClass(BoneBarrier.class,getBoundingBox().inflate(35)).size()>=10)return;
         Vec3 backwards=target.getLookAngle().multiply(-1,0,-1).normalize();
         if (backwards.lengthSqr()<.01) backwards=target.position().subtract(position()).multiply(1,0,1).normalize();
@@ -261,7 +261,7 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
         Vec3 front=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         return position().add(right.scale(.75)).add(front.scale(.35)).add(0,1.35,0);
     }
-    private void summonSpirits(ServerLevel world,Player target) {
+    private void summonSpirits(ServerLevel world,LivingEntity target) {
         int active=world.getEntitiesOfClass(FeverSpirit.class,getBoundingBox().inflate(36),e -> getUUID().equals(e.ownerId())).size();
         for(int i=0;i<Math.min(enraged()?3:2,6-active);i++) {
             FeverSpirit spirit=SistersContent.SPIRIT.get().create(world);
@@ -272,13 +272,13 @@ public final class SisterBoss extends Monster implements RangedAttackMob {
             spirit.bind(this,i);spirit.setTarget(target);world.addFreshEntity(spirit);
         }
     }
-    private void evadeMovement(ServerLevel world,Player target,SisterBoss ally) {
+    private void evadeMovement(ServerLevel world,LivingEntity target,SisterBoss ally) {
         if(ally==null)return;
         Vec3 direction=position().subtract(target.position()).multiply(1,0,1).normalize();
         Vec3 offset=position().add(direction.scale(.18));
         if(world.hasChunkAt(BlockPos.containing(offset)) && world.noCollision(this,getBoundingBox().move(offset.subtract(position())))) setDeltaMovement(direction.scale(.18).add(0,.02,0));
     }
-    private void spectralEvasion(ServerLevel world,Player target,SisterBoss ally) {
+    private void spectralEvasion(ServerLevel world,LivingEntity target,SisterBoss ally) {
         if(ally==null)return;
         Vec3 axis=position().subtract(target.position()).multiply(1,0,1).normalize();
         Vec3 candidate=ally.position().add(axis.scale(5)).add(0,1.5,0);

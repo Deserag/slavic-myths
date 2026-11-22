@@ -29,7 +29,9 @@ public final class WeaponSkillInput {
         if(!WeaponSkillBindings.shiftLeftSkill(held)) return;
         event.setCanceled(true);
         event.setSwingHand(false);
-        if(held.is(MarineWeapons.STAFF.get())) {
+        if(held.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow) {
+            PacketDistributor.sendToServer(new org.slavicmyths.gorynych.CrossbowVolley.Toggle());
+        } else if(held.is(MarineWeapons.STAFF.get())) {
             PacketDistributor.sendToServer(new MarineWeaponControls.Secondary());
         } else if(held.is(MorovoyStaff.STAFF.get())) {
             PacketDistributor.sendToServer(new MythPayloads.StaffAction(1));

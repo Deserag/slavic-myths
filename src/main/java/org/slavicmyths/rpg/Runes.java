@@ -25,7 +25,7 @@ public final class Runes {
   if(s.is(org.slavicmyths.ninemor.NineMorContent.SPEAR.get()))return "spear";
   if(s.is(org.slavicmyths.ninemor.NineMorContent.AXE.get()))return "heavy";
   if(s.is(org.slavicmyths.ninemor.NineMorContent.SHIELD.get()))return "shield";
-  if(s.getItem() instanceof org.slavicmyths.karachun.NightScythe)return "heavy";
+  if(s.getItem() instanceof org.slavicmyths.karachun.NightScythe||s.getItem() instanceof org.slavicmyths.sisters.GneteyaGreatHammer)return "heavy";
   if(s.getItem() instanceof org.slavicmyths.morozko.FrostStaff)return "staff";
   if(s.getItem() instanceof org.slavicmyths.poloz.PolozWhip)return "whip";
   if(s.getItem() instanceof PickaxeItem)return "pickaxe";
@@ -41,7 +41,7 @@ public final class Runes {
  public static int capacity(ItemStack s){if(org.slavicmyths.marine.MarineWeaponRules.weapon(s))return 3;
   if(s.is(org.slavicmyths.ninemor.NineMorContent.SPEAR.get())||s.is(org.slavicmyths.ninemor.NineMorContent.AXE.get())||s.is(org.slavicmyths.ninemor.NineMorContent.SHIELD.get()))return 4;
   if(s.getItem() instanceof org.slavicmyths.posad.boss.ShackledSickleItem)return 3;
-  if(s.getItem() instanceof org.slavicmyths.sisters.BossRewardWeapons.Weapon)return 3;
+  if(s.getItem() instanceof org.slavicmyths.sisters.BossRewardWeapons.Weapon||s.getItem() instanceof org.slavicmyths.sisters.GneteyaGreatHammer)return 3;
   if(s.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow.Empowered)return 3;
  if(s.getItem() instanceof org.slavicmyths.morovoy.MorovoyStaff.Staff)return 3;
  if(s.getItem() instanceof org.slavicmyths.sisters.SistersArmor.Piece)return 3;

@@ -43,7 +43,7 @@ def main():
     match = re.search(r"WEAPONS = Set.of\((.*?)\);", src, flags=re.S)
     assert match, "missing weapon title palette"
     styled = re.findall(r'"([a-z0-9_]+)"', match.group(1))
-    assert len(styled) == len(set(styled)) == 102 and set(styled) == set(ids), "catalog style coverage mismatch"
+    assert len(styled) == len(set(styled)) == 103 and set(styled) == set(ids) | {"gneteya_great_hammer"}, "catalog style coverage mismatch"
     elder = re.search(r"ELDER_SERPENT_WEAPONS =\s*Set.of\((.*?)\);", src, flags=re.S)
     assert elder and set(re.findall(r'"([a-z0-9_]+)"', elder.group(1))) == GOLD
     assert "stack.has(DataComponents.CUSTOM_NAME)" in src, "custom name protection missing"
@@ -55,7 +55,7 @@ def main():
     for color in ["0xE4E4E7", "0x55FFFF", "0xAA55FF", "0xFFAA00", "0xD4AF37", "0xFF5555", "0x55FF55", "0xAAAAAA", "0xFFFF55"]:
         assert color in src, "missing color " + color
     ru, en = load_locale("ru_ru"), load_locale("en_us")
-    for item_id in ids:
+    for item_id in ids + ["gneteya_great_hammer"]:
         key = "item.slavicmyths." + item_id
         assert key in ru and key in en, "missing bilingual weapon name: " + key
     refs = set()
@@ -70,7 +70,7 @@ def main():
     assert "22 с" in ru["tooltip.slavicmyths.weapon.likho_staff"]
     assert "11" in ru["tooltip.slavicmyths.weapon.storm_staff"]
     assert "1,6" in ru["tooltip.slavicmyths.weapon.storm_staff"]
-    print(f"PASS: {len(ids)} weapon colors, {len(GOLD)} provenance-verified elder weapons, {len(refs)} localized skill keys; locale entries {len(ru)}/{len(en)}")
+    print(f"PASS: {len(styled)} weapon colors, {len(GOLD)} provenance-verified elder weapons, {len(refs)} localized skill keys; locale entries {len(ru)}/{len(en)}")
 
 
 if __name__ == "__main__":

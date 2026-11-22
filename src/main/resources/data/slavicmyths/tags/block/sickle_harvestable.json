@@ -12,6 +12,15 @@
     "slavicmyths:oat_crop",
     "slavicmyths:pea_crop",
     "slavicmyths:rye_crop",
-    "slavicmyths:turnip_crop"
+    "slavicmyths:turnip_crop",
+    "slavicmyths:garlic_crop",
+    "slavicmyths:horseradish_crop",
+    "slavicmyths:black_radish_crop",
+    "slavicmyths:mustard_crop",
+    "slavicmyths:onion_crop",
+    "slavicmyths:crimson_pepper_crop",
+    "slavicmyths:heat_berry_bush",
+    "slavicmyths:sernica_crop",
+    "slavicmyths:coal_plum_leaves"
   ]
 }

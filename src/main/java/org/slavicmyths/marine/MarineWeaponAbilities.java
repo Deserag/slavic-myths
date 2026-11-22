@@ -51,9 +51,9 @@ public final class MarineWeaponAbilities {
   var stack=event.getItemStack();boolean staff=stack.is(MarineWeapons.STAFF.get()),anchor=stack.is(MarineWeapons.ANCHOR.get()),trident=stack.is(PharaohkaTrident.ITEM.get());
   if(!staff&&!anchor&&!(trident&&p.isShiftKeyDown()))return;
   event.setCanceled(true);event.setCancellationResult(InteractionResult.SUCCESS);
-  if(trident){if(ready(p,"wave",240)){wear(p,2);for(var target:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(8),e->e!=p&&e.isAlive()&&Abilities.canHit(p,e)&&p.hasLineOfSight(e))){var delta=target.position().subtract(p.position());if(delta.lengthSqr()>0&&delta.lengthSqr()<=64&&delta.normalize().dot(p.getLookAngle())>.65){hit(p,target,6);if(!CombatTargeting.controlResistant(target))target.push(delta.normalize().x*.8,.15,delta.normalize().z*.8);}}p.serverLevel().sendParticles(ParticleTypes.SPLASH,p.getX(),p.getY()+1,p.getZ(),60,3,1,3,.15);}return;}
+  if(trident){if(ready(p,"wave",240)){wear(p,2);for(var target:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(8),e->e!=p&&e.isAlive()&&Abilities.canHit(p,e)&&p.hasLineOfSight(e))){var delta=target.position().subtract(p.position());if(delta.lengthSqr()>0&&delta.lengthSqr()<=64&&delta.normalize().dot(p.getLookAngle())>.65){hit(p,target,10);if(!CombatTargeting.controlResistant(target))target.push(delta.normalize().x*.8,.15,delta.normalize().z*.8);}}p.serverLevel().sendParticles(ParticleTypes.SPLASH,p.getX(),p.getY()+1,p.getZ(),60,3,1,3,.15);}return;}
   if(anchor){
-   if(p.isShiftKeyDown()){if(ready(p,"slam",240)){wear(p,2);for(var target:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(3),e->e!=p&&e.isAlive()&&p.distanceToSqr(e)<=9&&Abilities.canHit(p,e)&&p.hasLineOfSight(e))){hit(p,target,5);stun(p,target);}p.serverLevel().sendParticles(ParticleTypes.SPLASH,p.getX(),p.getY()+.2,p.getZ(),40,2,.2,2,.1);}return;}
+   if(p.isShiftKeyDown()){if(ready(p,"slam",240)){wear(p,2);for(var target:p.serverLevel().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(3),e->e!=p&&e.isAlive()&&p.distanceToSqr(e)<=9&&Abilities.canHit(p,e)&&p.hasLineOfSight(e))){hit(p,target,12);stun(p,target);}p.serverLevel().sendParticles(ParticleTypes.SPLASH,p.getX(),p.getY()+.2,p.getZ(),40,2,.2,2,.1);}return;}
    if(!ready(p,"anchor",80))return;wear(p,1);double range=12*org.slavicmyths.combat.RangeEnchantment.multiplier(p.level(),stack);p.getPersistentData().putDouble(PREFIX+"anchorRange",range);var target=aim(p,range);
    MarineAnchorVisuals.show(p,target==null?p.getEyePosition().add(p.getLookAngle().scale(range)):target.getEyePosition());
    if(target!=null){p.getPersistentData().putUUID(PREFIX+"anchorTarget",target.getUUID());p.getPersistentData().putLong(PREFIX+"anchorImpact",p.serverLevel().getGameTime()+7);}
@@ -76,7 +76,7 @@ public final class MarineWeaponAbilities {
    var wall=p.serverLevel().clip(new net.minecraft.world.level.ClipContext(at,next,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,p));
    Vec3 end=wall.getType()==HitResult.Type.MISS?next:wall.getLocation();LivingEntity victim=null;double nearest=at.distanceToSqr(end)+.001;
    for(var candidate:p.serverLevel().getEntitiesOfClass(LivingEntity.class,new AABB(at,end).inflate(.3),e->e!=p&&e.isAlive()&&Abilities.canHit(p,e))){var crossing=candidate.getBoundingBox().inflate(.2).clip(at,end);if(crossing.isPresent()&&at.distanceToSqr(crossing.get())<nearest){nearest=at.distanceToSqr(crossing.get());victim=candidate;}}
-   if(victim!=null){victim.hurt(new MarineWeaponRules.AbilitySource(p,new net.minecraft.world.item.ItemStack(MarineWeapons.STAFF.get())),5);victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),p);shotTicks=1;}
+   if(victim!=null){victim.hurt(new MarineWeaponRules.AbilitySource(p,new net.minecraft.world.item.ItemStack(MarineWeapons.STAFF.get())),8);victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0),p);shotTicks=1;}
    if(wall.getType()!=HitResult.Type.MISS)shotTicks=1;
    for(int j=0;j<5;j++){Vec3 dot=at.lerp(end,j/4D);p.serverLevel().sendParticles(ParticleTypes.SPLASH,dot.x,dot.y,dot.z,2,.05,.05,.05,0);}
    data.putDouble(PREFIX+"sx",next.x);data.putDouble(PREFIX+"sy",next.y);data.putDouble(PREFIX+"sz",next.z);data.putInt(PREFIX+"shotTicks",shotTicks-1);
@@ -90,7 +90,7 @@ public final class MarineWeaponAbilities {
   if(data.hasUUID(PREFIX+"anchorTarget")&&now>=data.getLong(PREFIX+"anchorImpact")){
    var anchorTarget=p.serverLevel().getEntity(data.getUUID(PREFIX+"anchorTarget"));data.remove(PREFIX+"anchorTarget");
    if(anchorTarget instanceof LivingEntity victim&&victim.isAlive()&&p.distanceToSqr(victim)<=Math.pow(Math.max(12,data.getDouble(PREFIX+"anchorRange"))+2,2)&&Abilities.canHit(p,victim)&&p.hasLineOfSight(victim)){
-    victim.hurt(new MarineWeaponRules.AbilitySource(p,new net.minecraft.world.item.ItemStack(MarineWeapons.ANCHOR.get())),7);
+    victim.hurt(new MarineWeaponRules.AbilitySource(p,new net.minecraft.world.item.ItemStack(MarineWeapons.ANCHOR.get())),12);
     victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,large(victim)?2:1),p);
     if(anchorPullable(victim)){
      data.putUUID(PREFIX+"anchorPullTarget",victim.getUUID());

@@ -293,4 +293,54 @@ public final class MarineNewWeaponGameTests {
   t.assertTrue(Math.abs(cow.getHealth()-(after-44))<.1,"Dual hammer fracture is not 44 damage");
   t.assertTrue(org.slavicmyths.item.StormStaffItem.pulseDamage(false,false)==8&&org.slavicmyths.item.StormStaffItem.cooldownTicks(false)==32,"Storm staff balance mismatch");
   cow.discard();p.discard();t.succeed();
+ } @GameTest(template="empty",timeoutTicks=40)
+ public static void marineBossesPreferRecentMobAttacker(GameTestHelper t){
+  for(String id:new String[]{"stratim_bird","ocean_zmey","zhelva","tsar_pike","deep_sea_serpent"}){
+   var boss=(net.minecraft.world.entity.Mob)net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id)).create(t.getLevel());
+   var attacker=EntityType.COW.create(t.getLevel());
+   boss.moveTo(t.absoluteVec(new Vec3(3,5,3)));attacker.moveTo(boss.position().add(4,0,0));
+   boss.setLastHurtByMob(attacker);
+   String method=id.equals("tsar_pike")?"searchPrey":id.equals("deep_sea_serpent")?"findPrey":"findTarget";
+   try{var search=boss.getClass().getDeclaredMethod(method);search.setAccessible(true);search.invoke(boss);}catch(ReflectiveOperationException e){throw new RuntimeException(e);}
+   t.assertTrue(boss.getTarget()==attacker,id+" ignored the attacking mob");
+   attacker.setHealth(0);
+   t.assertTrue(!org.slavicmyths.combat.BossRetaliation.select(boss,80),id+" retained dead retaliation");
+   attacker.discard();boss.discard();
+  }
+  t.succeed();
+ }
+ @GameTest(template="empty",timeoutTicks=60)
+ public static void lomeyaDamagesMobRetaliationTarget(GameTestHelper t){
+  var boss=(org.slavicmyths.sisters.LomeyaBoss)net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","lomeya")).create(t.getLevel());
+  var cow=target(t);boss.moveTo(cow.position().add(0,0,-2));boss.setYRot(0);boss.setLastHurtByMob(cow);boss.setTarget(cow);
+  try{var damage=boss.getClass().getDeclaredMethod("damage",net.minecraft.world.entity.LivingEntity.class,float.class,boolean.class);damage.setAccessible(true);damage.invoke(boss,cow,10F,false);}catch(ReflectiveOperationException e){throw new RuntimeException(e);}
+  t.assertTrue(cow.getHealth()<100,"Lomeya selected a mob but could not damage it");cow.discard();boss.discard();t.succeed();
+ } @GameTest(template="empty",timeoutTicks=40)
+ public static void neveyaAndViyCanDamageMobAttackers(GameTestHelper t){
+  for(String id:new String[]{"neveya","viy"}){
+   var boss=(net.minecraft.world.entity.Mob)net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id)).create(t.getLevel());
+   var cow=target(t);boss.moveTo(cow.position().add(0,0,-2));boss.setLastHurtByMob(cow);boss.setTarget(cow);
+   try{
+    if(id.equals("neveya")){var hit=boss.getClass().getDeclaredMethod("hit",net.minecraft.world.entity.LivingEntity.class,float.class,int.class);hit.setAccessible(true);hit.invoke(boss,cow,10F,1);}
+    else{var area=boss.getClass().getDeclaredMethod("area",net.minecraft.server.level.ServerLevel.class,Vec3.class,float.class,float.class);area.setAccessible(true);area.invoke(boss,t.getLevel(),cow.position(),4F,10F);}
+   }catch(ReflectiveOperationException e){throw new RuntimeException(e);}
+   t.assertTrue(cow.getHealth()<100,id+" cannot damage mob target");cow.discard();boss.discard();
+  }
+  t.succeed();
+ } @GameTest(template="empty",timeoutTicks=40)
+ public static void posadBossesDamageMobTargets(GameTestHelper t){
+  for(String id:new String[]{"cursed_mytar","bauk"}){
+   var boss=(org.slavicmyths.posad.boss.PosadBoss)net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id)).create(t.getLevel());
+   var cow=target(t);boss.moveTo(cow.position().add(0,0,-2));boss.setYRot(0);boss.setLastHurtByMob(cow);boss.setTarget(cow);
+   try{
+    var begin=boss.getClass().getDeclaredMethod("begin",org.slavicmyths.posad.boss.PosadBoss.Move.class,int.class,int.class);begin.setAccessible(true);
+    var hit=boss.getClass().getDeclaredMethod("applyHit");hit.setAccessible(true);
+    for(var move:id.equals("cursed_mytar")?new org.slavicmyths.posad.boss.PosadBoss.Move[]{org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_SICKLE,org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_COINS,org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_CHAIN}:new org.slavicmyths.posad.boss.PosadBoss.Move[]{org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_BITE,org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_PAW,org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_SLAM,org.slavicmyths.posad.boss.PosadBoss.Move.WINDUP_GRAB}){
+     cow.invulnerableTime=0;cow.setHealth(100);begin.invoke(boss,move,40,20);hit.invoke(boss);
+     t.assertTrue(cow.getHealth()<100,id+" cannot hit mob with "+move);
+    }
+   }catch(ReflectiveOperationException e){throw new RuntimeException(e);}
+   cow.discard();boss.discard();
+  }
+  t.succeed();
  }}

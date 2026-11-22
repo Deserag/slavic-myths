@@ -111,6 +111,7 @@ public final class TsarPikeEntity extends Monster {
             && e.level()==level();
     }
     private void searchPrey() {
+        if (org.slavicmyths.combat.BossRetaliation.select(this, 48)) return;
         if (tickCount%12!=0) return;
         LivingEntity current=getTarget();
         if (current!=null && (!prey(current)||distanceToSqr(current)>48*48)) {

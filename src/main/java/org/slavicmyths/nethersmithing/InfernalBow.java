@@ -48,6 +48,7 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
 
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if (!(user instanceof ServerPlayer player)) {super.releaseUsing(stack,level,user,remaining);return;}
+        if(player.isShiftKeyDown()&&!NetherSkills.ready(player,stack,skillId())){NetherSkills.waitMessage(player,stack,skillId());return;}
         Shot prior=SHOT.get();
         SHOT.set(new Shot(player,stack,player.isShiftKeyDown()&&NetherSkills.ready(player,stack,skillId())));
         try { super.releaseUsing(stack,level,user,remaining); }

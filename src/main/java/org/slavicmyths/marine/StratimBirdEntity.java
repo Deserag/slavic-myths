@@ -127,6 +127,7 @@ public final class StratimBirdEntity extends Monster {
             && target.level()==level();
     }
     private void findTarget(){
+        if (org.slavicmyths.combat.BossRetaliation.select(this, 80)) return;
         LivingEntity old=getTarget();
         if(old!=null && (!prey(old)||distanceToSqr(old)>80*80)){
             setTarget(null);old=null;

@@ -20,13 +20,6 @@ public final class FrostClient {
  @SubscribeEvent public static void click(InputEvent.InteractionKeyMappingTriggered e){var mc=Minecraft.getInstance();if(mc.player==null||!mc.player.getMainHandItem().is(FrostContent.STAFF.get())||!e.isAttack()||mc.player.isShiftKeyDown())return;var hit=mc.hitResult;if(hit!=null&&hit.getType()!=net.minecraft.world.phys.HitResult.Type.MISS)return;e.setCanceled(true);e.setSwingHand(false);send(0);}
  @SubscribeEvent public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e){if(e.getItemStack().is(FrostContent.STAFF.get()))e.getToolTip().add(FrostContent.text("bindings",net.minecraft.network.chat.Component.literal("Shift + ЛКМ"),net.minecraft.network.chat.Component.literal("Shift + ПКМ")));}
  @SubscribeEvent public static void hud(RenderGuiEvent.Post e){var mc=Minecraft.getInstance();if(mc.player==null||mc.level==null||mc.screen!=null||mc.options.hideGui)return;var g=e.getGuiGraphics();int w=g.guiWidth(),h=g.guiHeight(),x=12,y=h-85;double cold=view.getDouble("Cold");long now=view.getLong("Now")+Math.max(0,mc.level.getGameTime()-received);if(cold>0){g.fill(x,y,x+102,y+14,0xAA142F4F);g.fill(x+1,y+11,x+1+(int)cold,y+13,0xFFC0EDFF);g.drawString(mc.font,FrostContent.text("cold",(int)cold),x+3,y+1,0xD4EFFF,false);int tier=FrostRules.tier(cold);if(tier>0){int color=((12+tier*7)<<24)|0xAEE8FF;g.fill(0,0,w,3,color);g.fill(0,0,3,h-60,color);g.fill(w-3,0,w,h-60,color);}}
- if(mc.player.getMainHandItem().is(FrostContent.STAFF.get())){
-  long until=view.getLong("StreamUntil"),ready=view.getLong("StreamReady");
-  var stream=until>now?FrostContent.text("stream",String.format(java.util.Locale.ROOT,"%.1f",(until-now)/20f)):ready>now?FrostContent.text("stream_cooldown",seconds(ready,now)):FrostContent.text("stream_ready",FrostRules.STREAM_DURATION/20);
-  g.drawString(mc.font,stream,x,y-40,0xBCE5FF,false);
-  g.drawString(mc.font,FrostContent.text("icicles_status",net.minecraft.network.chat.Component.literal("Shift+ЛКМ"),cooldown(view.getLong("IcicleReady"),now)),x,y-27,0xBCE5FF,false);
-  g.drawString(mc.font,FrostContent.text("wave_status",net.minecraft.network.chat.Component.literal("Shift+ПКМ"),cooldown(view.getLong("WaveReady"),now)),x,y-14,0xBCE5FF,false);
- }
  if(view.getBoolean("MirrorEquipped")&&!org.slavicmyths.item.FolkAccessoryItem.equipped(mc.player,FrostContent.MIRROR.get()).isEmpty()){g.renderItem(new ItemStack(FrostContent.MIRROR.get()),x,y-66);g.drawString(mc.font,FrostContent.text("mirror_cd",seconds(view.getLong("MirrorReady"),now)),x+20,y-62,0xBCE5FF,false);}}
  private static net.minecraft.network.chat.Component cooldown(long ready,long now){return ready>now?FrostContent.text("ability_cooldown",seconds(ready,now)):FrostContent.text("ability_ready");}
 
@@ -38,5 +31,6 @@ public final class FrostClient {
   @SubscribeEvent public static void models(ModelEvent.RegisterAdditional e){for(String name:new String[]{"morozko_staff","heart_of_eternal_cold"})for(String suffix:new String[]{"_icon","_held"})e.register(net.minecraft.client.resources.model.ModelResourceLocation.standalone(FrostContent.id("item/"+name+suffix)));}
   @SubscribeEvent public static void extension(net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent e){e.registerItem(new net.neoforged.neoforge.client.extensions.common.IClientItemExtensions(){private final Quest185ItemRenderer renderer=new Quest185ItemRenderer();@Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer(){return renderer;}},FrostContent.STAFF.get(),FrostContent.HEART.get());}
  }
+ public static long skillRemaining(String key){var mc=Minecraft.getInstance();if(mc.level==null)return 0;return Math.max(0,view.getLong(key)-(view.getLong("Now")+Math.max(0,mc.level.getGameTime()-received)));}
  private FrostClient(){}
 }

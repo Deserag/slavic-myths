@@ -31,7 +31,7 @@ public final class FeverSpirit extends Monster {
         return super.isAlliedTo(entity);
     }
     @Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
-        return target instanceof Player p && !p.isCreative() && !p.isSpectator() && super.doHurtTarget(target);
+        return target instanceof net.minecraft.world.entity.LivingEntity living && org.slavicmyths.combat.CombatTargeting.canAttack(this,living,org.slavicmyths.combat.CombatTargeting.Context.DIRECT) && (living instanceof Player || living == getTarget()) && super.doHurtTarget(target);
     }
     @Override public void tick() {
         super.tick();

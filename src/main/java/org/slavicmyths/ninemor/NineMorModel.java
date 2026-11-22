@@ -24,17 +24,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     private static final int STONE_U = 132, STONE_V = 4;
     private static final int BELLY_U = 388, BELLY_V = 132;
     private static final int BONES_U = 260, BONES_V = 132;
-    private static final float[][] HEAD_POS = {
-        {-12.7F, -24.4F, 30.5F}, {0, -26.2F, 31.6F}, {12.7F, -24.4F, 30.5F},
-        {-14.7F, -20.8F, 38.6F}, {0, -21.9F, 39.3F}, {14.7F, -20.8F, 38.6F},
-        {-8.1F, -16.7F, 46.8F}, {0, -17.3F, 48.8F}, {8.1F, -16.7F, 46.8F}
-    };
-    private static final float[][] WING_SHAPES = {
-        {56, -8, -17.5F, -34, -22, -10, 3, 36.5F, 32, 26, 18.8F, -2.9F, 23.5F},
-        {51, 2.8F, 4, -13, 0, 14, 27, 32, 29.5F, 23, 17.7F, 0, 23},
-        {45, 11.5F, 22, 13, 26, 39, 51, 28, 25.6F, 20, 15, 2.9F, 22.4F}
-    };
-
+    private static final float[][] HEAD_POS=NineMorRig.HEAD_POS;
     private final ModelPart root;
     private final ModelPart body;
     private final ModelPart dorsalPlates;
@@ -68,7 +58,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         body.translateAndRotate(stack);
         body.getChild("shell").render(stack, consumer, light, overlay, 0xFF474853);
         dorsalPlates.render(stack, consumer, light, overlay, 0xFF79727C);
-        spineSpurs.render(stack, consumer, light, overlay, 0xFF9A8985);
+        spineSpurs.render(stack, consumer, light, overlay, 0xFF756968);
         chestGuard.render(stack, consumer, light, overlay, 0xFF76616B);
         for (int i = 0; i < 9; i++) {
             stack.pushPose();
@@ -78,12 +68,12 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             necks[i].translateAndRotate(stack);
             neckMids[i].translateAndRotate(stack);
             neckTips[i].translateAndRotate(stack);
-            heads[i].render(stack, consumer, light, overlay, 0xFF000000 | NineMorSerpent.COLORS[i]);
+            heads[i].render(stack, consumer, light, overlay, hideColor(i));
             stack.pushPose();
             heads[i].translateAndRotate(stack);
-            accents[i].render(stack, consumer, light, overlay, 0xFFC8B8AA);
+            accents[i].render(stack, consumer, light, overlay, 0xFF8F8175);
             eyeSockets[i].render(stack, consumer, light, overlay, 0xFF18171F);
-            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF98828B);
+            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF665A61);
             stack.popPose();
             stack.popPose();
         }
@@ -97,11 +87,12 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     private final ModelPart[] eyePupils = new ModelPart[9];
     private final ModelPart[] cheekPlates = new ModelPart[9];
     private final ModelPart[] wings = new ModelPart[6];
+    private final ModelPart[] wingElbows=new ModelPart[6],wingWrists=new ModelPart[6];
     private final ModelPart[] legs = new ModelPart[4];
     private final ModelPart[] tails = new ModelPart[3];
     private final WingData[] wingData = new WingData[6];
 
-    private record WingData(float[] root, float[] wrist, float[][] points, int color) {}
+    private record WingData(float[] root, float[] elbow, float[] wrist, float[][] points, int color) {}
 
     public NineMorModel() {
         MeshDefinition mesh = new MeshDefinition();
@@ -132,7 +123,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             eyePupils[i] = heads[i].getChild("eye_pupil_" + i);
             cheekPlates[i] = heads[i].getChild("cheek_plates_" + i);
         }
-        for (int i = 0; i < 6; i++) wings[i] = body.getChild("wing_" + i);
+        for (int i = 0; i < 6; i++){wings[i]=body.getChild("wing_"+i);wingElbows[i]=wings[i].getChild("elbow");wingWrists[i]=wingElbows[i].getChild("wrist");}
         for (int i = 0; i < 4; i++) legs[i] = body.getChild("leg_" + i);
         for (int i = 0; i < 3; i++) tails[i] = body.getChild("tail_" + i);
     }
@@ -291,34 +282,27 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             float x = side * (front == 0 ? 6.8F : 6.3F);
             float y = front == 0 ? -7.9F : 10.2F;
             CubeListBuilder leg = CubeListBuilder.create()
-                .texOffs(STONE_U, STONE_V).addBox(-1.75F, -12.3F, -2.2F, 3.5F, 4.4F, 4.4F)
-                .texOffs(SLATE_U, SLATE_V).addBox(-1.45F + side * .3F, -8.6F, -1.5F, 2.7F, 4F, 3.1F)
-                .texOffs(SLATE_U, SLATE_V).addBox(-1.6F + side * .4F, -4.6F, -2.6F, 3.15F, 3.9F, 4.4F);
+                .texOffs(STONE_U, STONE_V).addBox(-1.75F, 0F, -2.2F, 3.5F, 4.4F, 4.4F)
+                .texOffs(SLATE_U, SLATE_V).addBox(-1.45F + side * .3F, 3.7F, -1.5F, 2.7F, 4F, 3.1F)
+                .texOffs(SLATE_U, SLATE_V).addBox(-1.6F + side * .4F, 7.7F, -2.6F, 3.15F, 3.9F, 4.4F);
             for (int toe = -1; toe <= 1; toe++) {
-                leg.texOffs(STONE_U, STONE_V).addBox(toe * 1.15F - .47F, -1.8F, -4.1F, .94F, 1.35F, 1.75F);
-                leg.texOffs(BONES_U, BONES_V).addBox(toe * 1.15F - .30F, -1.2F, -4.65F, .6F, .65F, .7F);
+                leg.texOffs(STONE_U, STONE_V).addBox(toe * 1.15F - .47F, 10.5F, -4.1F, .94F, 1.35F, 1.75F);
+                leg.texOffs(BONES_U, BONES_V).addBox(toe * 1.15F - .30F, 11.1F, -4.65F, .6F, .65F, .7F);
             }
-            body.addOrReplaceChild("leg_" + id++, leg, PartPose.offset(x, 0, y));
+            body.addOrReplaceChild("leg_" + id++, leg, PartPose.offset(x, -12.3F, y));
         }
     }
 
     private static float[] neckPoint(float x0, float y0, float z0,
                                      float hx, float hy, float hz, int head, float t) {
-        float eased = smooth(t);
-        float nx = lerp(x0, hx, eased)
-            + .6F * Mth.sin(t * Mth.TWO_PI + head * .67F) * Mth.sin(t * Mth.PI);
-        float ny = lerp(y0, hy + 2.4F, t) - .9F * Mth.sin(t * Mth.PI);
-        float nz = lerp(z0, hz - .8F, t) + .5F * Mth.sin(t * Mth.PI);
-        // The Python technical prototype uses (x, length, height):
-        // Minecraft model-space is (x, -height, length).
-        return new float[]{nx, -nz, ny};
+        return NineMorRig.neckPoint(head,t);
     }
 
     private static void buildHeads(PartDefinition body) {
         for (int i = 0; i < 9; i++) {
             float hx = HEAD_POS[i][0], hy = HEAD_POS[i][1], hz = HEAD_POS[i][2];
             int row = i / 3, lane = i % 3 - 1;
-            float x0 = lane * 2.85F, y0 = -10.7F + row * .65F, z0 = 21.5F + row * .4F;
+            float x0 = lane * 2.85F, y0 = -10.7F + row * .65F, z0 = 18F + row * .4F;
             float[] pivotA = neckPoint(x0, y0, z0, hx, hy, hz, i, 0F);
             float[] pivotB = neckPoint(x0, y0, z0, hx, hy, hz, i, 6F / 17F);
             float[] pivotC = neckPoint(x0, y0, z0, hx, hy, hz, i, 12F / 17F);
@@ -329,7 +313,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                 float[] p = neckPoint(x0, y0, z0, hx, hy, hz, i, t);
                 float[] pivot = j < 6 ? pivotA : j < 12 ? pivotB : pivotC;
                 CubeListBuilder part = j < 6 ? a : j < 12 ? b : c;
-                float width = 1.48F - .22F * t;
+                float width = 1.90F - .45F * t;
                 part.texOffs(j % 4 == 0 ? STONE_U : SLATE_U,
                              j % 4 == 0 ? STONE_V : SLATE_V)
                     .addBox(p[0] - pivot[0] - width, p[1] - pivot[1] - width,
@@ -339,6 +323,8 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                         p[0] - pivot[0] - .38F, p[1] - pivot[1] - 1.7F,
                         p[2] - pivot[2] - .45F, .76F, 1.1F, .9F);
             }
+            b.texOffs(SLATE_U,SLATE_V).addBox(-1.65F,-1.65F,-1.65F,3.3F,3.3F,3.3F);
+            c.texOffs(SLATE_U,SLATE_V).addBox(-1.5F,-1.5F,-1.5F,3F,3F,3F);
             PartDefinition first = body.addOrReplaceChild("neck_" + i, a,
                 PartPose.offset(pivotA[0], pivotA[1], pivotA[2]));
             PartDefinition middle = first.addOrReplaceChild("neck_mid_" + i, b,
@@ -346,28 +332,31 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             PartDefinition tip = middle.addOrReplaceChild("neck_tip_" + i, c,
                 PartPose.offset(pivotC[0] - pivotB[0], pivotC[1] - pivotB[1], pivotC[2] - pivotB[2]));
 
+            // Long, low predator skull with recessed eyes and swept-back horns.
             CubeListBuilder skull = CubeListBuilder.create()
-                .texOffs(SLATE_U, SLATE_V).addBox(-2.05F, -2.55F, -1.70F, 4.10F, 3.42F, 3.25F)
-                .texOffs(STONE_U, STONE_V).addBox(-1.50F, -.59F, -4.50F, 3.0F, 1.56F, 3.45F)
-                .texOffs(STONE_U, STONE_V).addBox(-1.29F, -1.36F, -4.2F, 2.58F, .83F, 2.15F)
-                .texOffs(BONES_U, BONES_V).addBox(-1.61F, -3.11F, -.56F, .72F, 1.36F, 1.25F)
-                .texOffs(BONES_U, BONES_V).addBox(.89F, -3.11F, -.56F, .72F, 1.36F, 1.25F);
-            PartDefinition head = tip.addOrReplaceChild("head_" + i, skull,
-                PartPose.offset(hx - pivotC[0], -hz - pivotC[1], hy - pivotC[2]));
-            CubeListBuilder jaw = CubeListBuilder.create()
-                .texOffs(STONE_U, STONE_V).addBox(-1.46F, -.20F, -4.66F, 2.92F, .8F, 3.75F)
-                .texOffs(BONES_U, BONES_V).addBox(-1.08F, -.62F, -4.88F, .26F, .80F, .64F)
-                .texOffs(BONES_U, BONES_V).addBox(.82F, -.62F, -4.88F, .26F, .80F, .64F)
-                .texOffs(BONES_U, BONES_V).addBox(-1.0F, -.51F, -2.6F, .22F, .59F, .44F)
-                .texOffs(BONES_U, BONES_V).addBox(.78F, -.51F, -2.6F, .22F, .59F, .44F);
-            head.addOrReplaceChild("jaw_" + i, jaw, PartPose.offset(0, .82F, 0));
-            CubeListBuilder accent = CubeListBuilder.create()
-                .texOffs(4, 132).addBox(-1.50F, -2.3F, -2.7F, 3F, .6F, 2.2F)
-                .texOffs(4, 132).addBox(-.55F, -3.45F, -.3F, 1.1F, 1.3F, .95F)
-                .texOffs(4, 132).addBox(-1.78F, -1.95F, -2.1F, .24F, .55F, .75F)
-                .texOffs(4, 132).addBox(1.54F, -1.95F, -2.1F, .24F, .55F, .75F);
-            head.addOrReplaceChild("accent_" + i, accent, PartPose.ZERO);
-
+                .texOffs(SLATE_U,SLATE_V).addBox(-2.05F,-2.35F,-1.9F,4.10F,2.65F,3.65F)
+                .texOffs(STONE_U,STONE_V).addBox(-1.65F,-1.55F,-4.2F,3.3F,1.75F,3.2F)
+                .texOffs(SLATE_U,SLATE_V).addBox(-1.3F,-1.0F,-6.5F,2.6F,1.15F,3.1F)
+                .texOffs(STONE_U,STONE_V).addBox(-.8F,-1.55F,-5.6F,1.6F,.65F,3.7F)
+                .texOffs(SLATE_U,SLATE_V).addBox(-1.6F,-1.6F,-.4F,3.2F,3.2F,2F);
+            PartDefinition head=tip.addOrReplaceChild("head_"+i,skull,PartPose.offset(hx-pivotC[0],-hz-pivotC[1],hy-pivotC[2]));
+            CubeListBuilder jaw=CubeListBuilder.create()
+                .texOffs(SLATE_U,SLATE_V).addBox(-1.24F,-.2F,-6.5F,2.48F,.65F,5.5F);
+            for(int tooth=0;tooth<5;tooth++)for(int side:new int[]{-1,1})
+                jaw.texOffs(BONES_U,BONES_V).addBox(side<0?-1.16F:.94F,-.9F,-5.9F+tooth*.9F,.22F,.85F,.36F);
+            head.addOrReplaceChild("jaw_"+i,jaw,PartPose.offset(0,.45F,0));
+            CubeListBuilder accent=CubeListBuilder.create();
+            for(int side:new int[]{-1,1}){
+                float x=side<0?-2.25F:1.12F;
+                accent.texOffs(STONE_U,STONE_V).addBox(x,-2.6F,-2.65F,1.13F,.6F,2.5F);
+                // The horn grows out of the rear skull and bends backward, rather than resembling ears.
+                for(int segment=0;segment<4;segment++){
+                    float width=1F-segment*.18F;
+                    accent.texOffs(BONES_U,BONES_V).addBox(side*(1.65F+segment*.35F)-width/2,-2.7F-segment*.55F,.2F+segment*.9F,width,1F,1.5F);
+                }
+            }
+            accent.texOffs(STONE_U,STONE_V).addBox(-.45F,-2.8F,-1.3F,.9F,.6F,3.3F);
+            head.addOrReplaceChild("accent_"+i,accent,PartPose.ZERO);
             // Every head has independently renderable black sockets, emissive irises
             // and raised dark pupils. Forward and lateral planes stay readable while
             // nine articulated necks turn around the player.
@@ -380,23 +369,23 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                 float irisX = side < 0 ? -1.30F : .80F;
                 float pupilX = side < 0 ? -1.07F : 1.03F;
 
-                sockets.texOffs(SLATE_U, SLATE_V).addBox(faceX, -2.15F, -1.94F, 1.0F, .96F, .28F);
-                irises.texOffs(SLATE_U, SLATE_V).addBox(irisX, -1.94F, -2.08F, .52F, .58F, .20F);
-                pupils.texOffs(SLATE_U, SLATE_V).addBox(pupilX, -1.76F, -2.19F, .17F, .27F, .11F);
+                sockets.texOffs(SLATE_U, SLATE_V).addBox(faceX, -2.15F, -1.94F, 1.0F, .42F, .28F);
+                irises.texOffs(SLATE_U, SLATE_V).addBox(irisX, -1.94F, -2.08F, .52F, .20F, .20F);
+                pupils.texOffs(SLATE_U, SLATE_V).addBox(pupilX, -1.93F, -2.19F, .12F, .20F, .11F);
 
                 float sideX = side < 0 ? -2.18F : 1.96F;
                 float sideIrisX = side < 0 ? -2.35F : 2.17F;
                 float sidePupilX = side < 0 ? -2.43F : 2.35F;
-                sockets.texOffs(SLATE_U, SLATE_V).addBox(sideX, -2.1F, -.97F, .22F, .89F, 1.0F);
-                irises.texOffs(SLATE_U, SLATE_V).addBox(sideIrisX, -1.90F, -.78F, .18F, .51F, .56F);
-                pupils.texOffs(SLATE_U, SLATE_V).addBox(sidePupilX, -1.72F, -.56F, .08F, .20F, .17F);
+                sockets.texOffs(SLATE_U, SLATE_V).addBox(sideX, -2.1F, -.97F, .22F, .40F, 1.0F);
+                irises.texOffs(SLATE_U, SLATE_V).addBox(sideIrisX, -1.90F, -.78F, .18F, .18F, .56F);
+                pupils.texOffs(SLATE_U, SLATE_V).addBox(sidePupilX, -1.88F, -.56F, .08F, .18F, .17F);
                 cheeks.texOffs(STONE_U, STONE_V).addBox(side < 0 ? -2.11F : 1.64F,
                     -.84F, -2.44F, .47F, .77F, 2.15F);
                 cheeks.texOffs(BONES_U, BONES_V).addBox(faceX - .08F,
                     -2.36F, -2.04F, 1.16F, .29F, .56F);
                 // Two dark nostril cuts, distinctly forward of the eye sockets.
                 pupils.texOffs(SLATE_U, SLATE_V).addBox(
-                    side < 0 ? -.88F : .51F, -.99F, -4.58F, .36F, .22F, .18F);
+                    side < 0 ? -.88F : .51F, -.55F, -6.55F, .36F, .22F, .18F);
             }
             head.addOrReplaceChild("eye_socket_" + i, sockets, PartPose.ZERO);
             head.addOrReplaceChild("eye_iris_" + i, irises, PartPose.ZERO);
@@ -418,53 +407,50 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
                     + 1.35F * Mth.sin(t * 8.2F + i * .7F) * Mth.sin(Mth.PI * t);
                 float radius = 2.4F * (float)Math.pow(1 - t, 1.1F) + .35F;
                 tail.texOffs(n % 4 == 0 ? STONE_U : SLATE_U, n % 4 == 0 ? STONE_V : SLATE_V)
-                    .addBox(x - radius * .825F, -z - radius * .7F, y - .89F,
+                    .addBox(x - lane*2.7F - radius * .825F, -z +13.6F - radius * .7F, y -13F - .89F,
                             radius * 1.65F, radius * 1.4F, 1.78F);
                 if (n % 3 == 1 && t < .88F)
-                    tail.texOffs(BONES_U, BONES_V).addBox(x - .34F, -z - radius, y - .36F,
+                    tail.texOffs(BONES_U, BONES_V).addBox(x - lane*2.7F - .34F, -z +13.6F - radius, y -13F - .36F,
                         .68F, 1.25F * (1 - t) + .6F, .72F);
             }
-            body.addOrReplaceChild("tail_" + i, tail, PartPose.ZERO);
+            body.addOrReplaceChild("tail_" + i, tail, PartPose.offset(lane*2.7F,-13.6F,13F));
         }
     }
 
     private void buildWings(PartDefinition body) {
-        for (int pair = 0; pair < 3; pair++) for (int side : new int[]{-1, 1}) {
-            float[] w = WING_SHAPES[pair];
-            float[] rootPos = {side * 6.8F, -w[12], w[11]};
-            float[] elbow = {side * (13.5F + pair * .55F), -(31F - pair * 2F), w[1]};
-            float[] wrist = {side * (26F - pair), -(33.5F - pair * 3F), w[2]};
-            float[][] fan = new float[5][3];
-            for (int j = 0; j < 4; j++) {
-                fan[j] = new float[]{side * (w[0] - new float[]{0, 3.6F, 9.5F, 17F}[j]),
-                    -w[7 + j], w[3 + j]};
+        for(int pair=0;pair<3;pair++)for(int side:new int[]{-1,1}){
+            // One dominant flight pair; the two smaller pairs support the rear body.
+            float scale=pair==0?1F:pair==1?.68F:.46F;
+            float height=-17F+pair*.9F,depth=-5F+pair*7F;
+            float[] rootPos={side*6.2F,height,depth};
+            float[] elbow=wingPoint(rootPos,side,scale,7F,-3F,3F);
+            float[] wrist=wingPoint(rootPos,side,scale,19F,-5F,-2F);
+            float[][] fan={
+                wingPoint(rootPos,side,scale,43F,-8F,-14F),
+                wingPoint(rootPos,side,scale,37F,-4F,8F),
+                wingPoint(rootPos,side,scale,25F,1F,23F),
+                wingPoint(rootPos,side,scale,12F,3F,30F),
+                wingPoint(rootPos,side,scale,.4F,3F,7F)
+            };
+            int index=pair*2+(side>0?1:0);
+            wingData[index]=new WingData(rootPos,elbow,wrist,fan,pair==0?0xFF4D3841:pair==1?0xFF46343C:0xFF403139);
+            PartDefinition shoulder=body.addOrReplaceChild("wing_"+index,CubeListBuilder.create().texOffs(SLATE_U,SLATE_V)
+                .addBox(-2F*scale,-1.8F*scale,-2F*scale,4F*scale,3.6F*scale,4F*scale),PartPose.offset(rootPos[0],rootPos[1],rootPos[2]));
+            beam(shoulder,0,rootPos,elbow,rootPos,2F*scale);
+            PartDefinition forearm=shoulder.addOrReplaceChild("elbow",CubeListBuilder.create().texOffs(STONE_U,STONE_V)
+                .addBox(-1.4F*scale,-1.4F*scale,-1.4F*scale,2.8F*scale,2.8F*scale,2.8F*scale),PartPose.offset(elbow[0]-rootPos[0],elbow[1]-rootPos[1],elbow[2]-rootPos[2]));
+            beam(forearm,0,elbow,wrist,elbow,1.5F*scale);
+            PartDefinition hand=forearm.addOrReplaceChild("wrist",CubeListBuilder.create().texOffs(STONE_U,STONE_V)
+                .addBox(-1.1F*scale,-1.1F*scale,-1.1F*scale,2.2F*scale,2.2F*scale,2.2F*scale),PartPose.offset(wrist[0]-elbow[0],wrist[1]-elbow[1],wrist[2]-elbow[2]));
+            int bone=0;
+            for(int finger=0;finger<4;finger++){
+                float[] bend=midpoint(wrist,fan[finger]);bend[1]-=1.1F*scale;
+                bone=beam(hand,bone,wrist,bend,wrist,(.95F-finger*.09F)*scale);
+                bone=beam(hand,bone,bend,fan[finger],wrist,(.58F-finger*.07F)*scale);
             }
-            fan[4] = new float[]{side * 8.5F, -(18.5F - pair * .35F), 10.5F + pair * 6.6F};
-            int index = pair * 2 + (side > 0 ? 1 : 0);
-            wingData[index] = new WingData(rootPos, wrist, fan,
-                pair == 0 ? 0xFF764D5B : pair == 1 ? 0xFF78535C : 0xFF704D5A);
-            PartDefinition wing = body.addOrReplaceChild("wing_" + index,
-                CubeListBuilder.create().texOffs(BONES_U, BONES_V)
-                    .addBox(-1.5F, -1.2F, -1.4F, 3F, 2.4F, 2.8F),
-                PartPose.offset(rootPos[0], rootPos[1], rootPos[2]));
-            int count = 0;
-            count = beam(wing, count, rootPos, elbow, rootPos, 1.8F);
-            count = beam(wing, count, elbow, wrist, rootPos, 1.45F);
-            for (int j = 0; j < 5; j++) {
-                float[] tip = fan[j];
-                float[] mid = midpoint(wrist, tip);
-                count = beam(wing, count, wrist, mid, rootPos, j == 4 ? .70F : 1.05F - j * .08F);
-                count = beam(wing, count, mid, tip, rootPos, j == 4 ? .38F : .7F - j * .05F);
-            }
-            wing.addOrReplaceChild("elbow", CubeListBuilder.create()
-                .texOffs(BONES_U, BONES_V).addBox(-1.1F, -1.1F, -1.1F, 2.2F, 2.2F, 2.2F),
-                PartPose.offset(elbow[0] - rootPos[0], elbow[1] - rootPos[1], elbow[2] - rootPos[2]));
-            wing.addOrReplaceChild("wrist", CubeListBuilder.create()
-                .texOffs(BONES_U, BONES_V).addBox(-1.1F, -1.1F, -1.1F, 2.2F, 2.2F, 2.2F),
-                PartPose.offset(wrist[0] - rootPos[0], wrist[1] - rootPos[1], wrist[2] - rootPos[2]));
         }
     }
-
+    private static float[] wingPoint(float[] root,int side,float scale,float x,float y,float z){return new float[]{root[0]+side*scale*x,root[1]+scale*y,root[2]+scale*z};}
     private static float[] midpoint(float[] a, float[] b) {
         return new float[]{(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2};
     }
@@ -473,8 +459,8 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         float dx = b[0] - a[0], dy = b[1] - a[1], dz = b[2] - a[2];
         float length = Mth.sqrt(dx * dx + dy * dy + dz * dz);
         if (length <= .01F) return index;
-        float pitch = (float)Math.atan2(dz, dy);
-        float roll = -(float)Math.atan2(dx, Mth.sqrt(dy * dy + dz * dz));
+        float pitch = (float)Math.atan2(dz, Mth.sqrt(dx*dx+dy*dy));
+        float roll = -(float)Math.atan2(dx, dy);
         wing.addOrReplaceChild("bone_" + index, CubeListBuilder.create().texOffs(BONES_U, BONES_V)
                 .addBox(-width / 2F, 0, -width / 2F, width, length, width),
             PartPose.offsetAndRotation(a[0] - root[0], a[1] - root[1], a[2] - root[2],
@@ -486,10 +472,10 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
     public void setupAnim(NineMorSerpent entity, float limb, float amount, float age, float yaw, float pitch) {
         root.getAllParts().forEach(ModelPart::resetPose);
         int flight = entity.flightPhase();
-        body.y = Mth.sin(age * .055F) * (flight == 2 ? .75F : .16F);
-        body.xRot = flight == 2 ? -.13F : flight == 1 ? -.08F : 0F;
+        body.y = NineMorRig.bodyY(age,flight);
+        body.xRot = NineMorRig.bodyPitch(flight);
         float pace = Mth.clamp(amount, 0F, 1F);
-        float airBlend = flight == 1 ? Mth.clamp(entity.flightAge() / 25F, 0F, 1F)
+        float airBlend = flight == 1 ? Mth.clamp(entity.flightAge() / 18F, 0F, 1F)
             : flight == 2 ? 1F
             : flight == 3 ? 1F - Mth.clamp(entity.flightAge() / 55F, 0F, 1F) : 0F;
         for (int i = 0; i < 4; i++) {
@@ -497,74 +483,36 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             legs[i].xRot = Mth.lerp(airBlend, Mth.cos(phase) * pace * .62F, .65F);
             legs[i].zRot = Mth.sin(phase) * pace * .055F * (1F - airBlend);
         }
-        float focus = entity.hasGaze() ? 1F : 0F;
-        float targetYaw = Mth.clamp(entity.aimYaw() * Mth.DEG_TO_RAD, -1.1F, 1.1F);
-        float targetPitch = Mth.clamp(entity.aimPitch() * Mth.DEG_TO_RAD, -.55F, .9F);
-        for (int i = 0; i < 9; i++) {
-            int mode = entity.headMode(i);
-            int actionAge = entity.headAge(i);
-            float t = Mth.clamp(actionAge / 38F, 0F, 1F);
-            float attack = mode != 0 ? Mth.sin(t * Mth.PI) : 0F;
-            float anticipate = mode != 0 ? Mth.clamp(actionAge / 16F, 0F, 1F) : 0F;
-            float idle1 = Mth.sin(age * (.07F + i * .0035F) + i * .77F);
-            float idle2 = Mth.cos(age * (.053F + i * .002F) + i * 1.17F);
-            float lane = (i % 3 - 1) * .11F;
-            float yawAim = (targetYaw + lane) * focus;
-            float pitchAim = targetPitch * focus;
-            necks[i].yRot = yawAim * .20F + idle1 * .085F;
-            neckMids[i].yRot = yawAim * .32F + idle2 * .075F + anticipate * .065F;
-            neckTips[i].yRot = yawAim * .33F + idle1 * .065F;
-            necks[i].xRot = pitchAim * .10F + idle2 * .035F;
-            neckMids[i].xRot = pitchAim * .21F + idle1 * .045F
-                - anticipate * (mode == NineMorSerpent.GRAB ? .15F : .055F);
-            neckTips[i].xRot = pitchAim * .21F + idle2 * .04F
-                + attack * (mode == NineMorSerpent.GRAB ? -.22F : .09F);
-            heads[i].xRot = pitchAim * .24F + (mode == NineMorSerpent.GRAB ? -.28F * attack
-                : mode == NineMorSerpent.AREA ? -.36F * attack
-                : mode == NineMorSerpent.BEAM ? -.18F * attack
-                : .15F * attack);
-            heads[i].yRot = yawAim * .16F + idle1 * .025F;
-            // Each attack class has a readable preparation and release silhouette.
-            if (mode == NineMorSerpent.GRAB) {
-                heads[i].z -= attack * 2.5F;
-                neckTips[i].z -= attack * 1.5F;
-            } else if (mode == NineMorSerpent.AREA) {
-                neckTips[i].xRot -= attack * .22F;
-                heads[i].y += attack * .7F;
-            } else if (mode == NineMorSerpent.BEAM) {
-                heads[i].z -= attack * .75F;
-                neckTips[i].yRot += attack * .08F;
-            } else if (mode == NineMorSerpent.PROJECTILE) {
-                heads[i].z += attack * .65F;
-            }
-            jaws[i].xRot = mode == 0 ? .08F + .035F * Mth.sin(age * .04F + i)
-                : (mode == NineMorSerpent.GRAB ? 1.05F : .72F)
-                  * Mth.sin(Mth.PI * Mth.clamp(actionAge / 38F, 0F, 1F));
-            heads[i].visible = false;
-            accents[i].visible = false;
-            eyeSockets[i].visible = false;
-            eyeIrises[i].visible = false;
-            eyePupils[i].visible = false;
-            cheekPlates[i].visible = false;
+        for(int i=0;i<9;i++){
+            var pose=NineMorRig.pose(entity,i);
+            necks[i].yRot=pose.yaw()*.16F;necks[i].xRot=pose.pitch()*.12F;
+            neckMids[i].yRot=pose.yaw()*.24F;neckMids[i].xRot=pose.pitch()*.22F;
+            neckTips[i].yRot=pose.yaw()*.28F;neckTips[i].xRot=pose.pitch()*.26F;
+            heads[i].yRot=pose.yaw()*.32F;heads[i].xRot=pose.pitch()*.40F;
+            jaws[i].xRot=pose.jaw();
+            // Joint positions remain the baked positions in every attack frame.
+            heads[i].visible=false;accents[i].visible=false;eyeSockets[i].visible=false;
+            eyeIrises[i].visible=false;eyePupils[i].visible=false;cheekPlates[i].visible=false;
         }
         for (int i = 0; i < 3; i++) {
             tails[i].xRot = Mth.sin(age * (.055F + i * .006F) + i) * .075F;
             tails[i].yRot = Mth.sin(age * .052F + i * 1.25F) * .11F
                 + ((entity.tailMask() & (1 << i)) != 0 ? Mth.sin(age * .42F) * .23F : 0F);
         }
-        for (int i = 0; i < 6; i++) {
-            float side = i % 2 == 0 ? -1F : 1F;
-            float shift = i / 2F * .32F;
-            wings[i].zRot = side * (flight == 0 ? .09F + Mth.sin(age * .023F + shift) * .025F :
-                flight == 1 ? .24F - entity.flightAge() / 25F * .37F :
-                flight == 2 ? Mth.sin(age * .18F + shift) * .60F :
-                -.23F + Mth.sin(age * .13F + shift) * .21F);
-            wings[i].xRot = flight == 2 ? Mth.sin(age * .12F + shift) * .16F : .03F;
-            wings[i].yRot = side * (flight == 0 ? .03F : .09F);
-            wings[i].visible = false;
+        float spread=flight==0?0F:flight==1?Mth.clamp(entity.flightAge()/18F,0,1):flight==2?1F:1F-Mth.clamp(entity.flightAge()/32F,0,1);
+        for(int i=0;i<6;i++){
+            float side=i%2==0?-1F:1F;
+            float pair=i/2;float flap=Mth.sin(age*.18F-pair*.35F);
+            wings[i].yRot=-side*Mth.lerp(spread,.40F,.03F);
+            wings[i].zRot=side*Mth.lerp(spread,.12F,flap*.40F-.06F);
+            wings[i].xRot=Mth.lerp(spread,.03F,-.04F+flap*.06F);
+            wingElbows[i].yRot=-side*Mth.lerp(spread,1.35F,.10F);
+            wingElbows[i].zRot=side*spread*(.08F+flap*.05F);
+            wingWrists[i].yRot=side*Mth.lerp(spread,.25F,0F);
+            wingWrists[i].xRot=spread*flap*.06F;
+            wings[i].visible=false;
         }
     }
-
     @Override
     public void renderToBuffer(PoseStack stack, VertexConsumer consumer, int light, int overlay, int color) {
         // Material-specific tints retain the approved graphite / slate silhouette
@@ -582,7 +530,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         stack.pushPose();
         body.translateAndRotate(stack);
         dorsalPlates.render(stack, consumer, light, overlay, 0xFF79727C);
-        spineSpurs.render(stack, consumer, light, overlay, 0xFF9A8985);
+        spineSpurs.render(stack, consumer, light, overlay, 0xFF756968);
         lateralScales.render(stack, consumer, light, overlay, 0xFF725762);
         bellyScutes.render(stack, consumer, light, overlay, 0xFF817278);
         chestGuard.render(stack, consumer, light, overlay, 0xFF76616B);
@@ -594,11 +542,11 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             heads[i].visible = true;
             accents[i].visible = false;
             heads[i].render(stack, consumer, light, overlay,
-                0xFF000000 | NineMorSerpent.COLORS[i]);
+                hideColor(i));
             stack.pushPose();
             heads[i].translateAndRotate(stack);
             accents[i].visible = true;
-            accents[i].render(stack, consumer, light, overlay, 0xFFC8B8AA);
+            accents[i].render(stack, consumer, light, overlay, 0xFF8F8175);
             accents[i].visible = false;
             eyeSockets[i].visible = true;
             eyeSockets[i].render(stack, consumer, light, overlay, 0xFF18171F);
@@ -607,7 +555,7 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             eyePupils[i].render(stack, consumer, light, overlay, 0xFF141016);
             eyePupils[i].visible = false;
             cheekPlates[i].visible = true;
-            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF98828B);
+            cheekPlates[i].render(stack, consumer, light, overlay, 0xFF665A61);
             cheekPlates[i].visible = false;
             stack.popPose();
             heads[i].visible = false;
@@ -615,11 +563,11 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         }
         for (int i = 0; i < 6; i++) {
             wings[i].visible = true;
-            wings[i].render(stack, consumer, light, overlay, 0xFF86717A);
+            wings[i].render(stack, consumer, light, overlay, 0xFF60575A);
             wings[i].visible = false;
             stack.pushPose();
             wings[i].translateAndRotate(stack);
-            renderMembrane(stack, consumer, light, overlay, wingData[i]);
+            renderMembrane(stack, consumer, light, overlay, articulatedWing(i));
             stack.popPose();
         }
         stack.popPose();
@@ -637,14 +585,30 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
             eyeIrises[i].visible = true;
             eyeIrises[i].render(stack, consumer, 0xF000F0,
                 net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,
-                brighten(NineMorSerpent.COLORS[i], .38F));
+                brighten(NineMorSerpent.COLORS[i], .04F));
             eyeIrises[i].visible = false;
             stack.popPose();
         }
         stack.popPose();
     }
 
-    private static int brighten(int rgb, float whiteMix) {
+    private WingData articulatedWing(int index){
+        WingData source=wingData[index];float[] root=source.root(),elbow=source.elbow(),wrist=source.wrist();
+        ModelPart a=wingElbows[index],b=wingWrists[index];
+        var transform=new org.joml.Matrix4f().translate(elbow[0]-root[0],elbow[1]-root[1],elbow[2]-root[2]).rotateZYX(a.zRot,a.yRot,a.xRot)
+            .translate(wrist[0]-elbow[0],wrist[1]-elbow[1],wrist[2]-elbow[2]).rotateZYX(b.zRot,b.yRot,b.xRot);
+        float[][] points=new float[5][3];
+        for(int j=0;j<4;j++){float[] p=source.points()[j];var v=transform.transformPosition(new org.joml.Vector3f(p[0]-wrist[0],p[1]-wrist[1],p[2]-wrist[2]));points[j]=new float[]{v.x,v.y,v.z};}
+        float[] anchor=source.points()[4];points[4]=new float[]{anchor[0]-root[0],anchor[1]-root[1],anchor[2]-root[2]};
+        var hand=transform.transformPosition(new org.joml.Vector3f());
+        return new WingData(new float[]{0,0,0},new float[]{elbow[0]-root[0],elbow[1]-root[1],elbow[2]-root[2]},new float[]{hand.x,hand.y,hand.z},points,source.color());
+    }    private static int hideColor(int head){
+        int hue=NineMorSerpent.COLORS[head];float tint=.12F;
+        int r=(int)(65*(1-tint)+((hue>>16)&255)*tint);
+        int g=(int)(61*(1-tint)+((hue>>8)&255)*tint);
+        int b=(int)(67*(1-tint)+(hue&255)*tint);
+        return 0xFF000000|r<<16|g<<8|b;
+    }    private static int brighten(int rgb, float whiteMix) {
         int r = (int)(((rgb >> 16) & 255) * (1F - whiteMix) + 255F * whiteMix);
         int g = (int)(((rgb >> 8) & 255) * (1F - whiteMix) + 255F * whiteMix);
         int b = (int)((rgb & 255) * (1F - whiteMix) + 255F * whiteMix);
@@ -668,18 +632,20 @@ public final class NineMorModel extends EntityModel<NineMorSerpent> {
         float[] root = wing.root();
         float[] wrist = wing.wrist();
         float[][] fan = wing.points();
+        triangle(stack,consumer,root,wing.elbow(),wrist,root,wing.color(),light,overlay);
+        triangle(stack,consumer,root,wrist,fan[4],root,wing.color(),light,overlay);
         for (int bay = 0; bay < 4; bay++) for (int radial = 0; radial < 4; radial++)
             for (int angle = 0; angle < 5; angle++) {
                 float t0 = radial / 4F, t1 = (radial + 1) / 4F;
                 float u0 = angle / 5F, u1 = (angle + 1) / 5F;
-                float scallop = bay < 3 ? .25F : .13F;
+                float scallop = bay < 3 ? .14F : .08F;
                 float[] p00 = point(wrist, fan[bay], fan[bay + 1], t0, u0, scallop);
                 float[] p01 = point(wrist, fan[bay], fan[bay + 1], t0, u1, scallop);
                 float[] p10 = point(wrist, fan[bay], fan[bay + 1], t1, u0, scallop);
                 float[] p11 = point(wrist, fan[bay], fan[bay + 1], t1, u1, scallop);
-                int c = (bay + radial + angle) % 4 == 0 ? darken(wing.color(), .77F) : wing.color();
+                int c = darken(wing.color(),.9F+.1F*t0);
                 triangle(stack, consumer, p00, p10, p11, root, c, light, overlay);
-                triangle(stack, consumer, p00, p11, p01, root, darken(c, .9F), light, overlay);
+                triangle(stack, consumer, p00, p11, p01, root, c, light, overlay);
             }
     }
 

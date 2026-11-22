@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "functions": [
+            {
+              "count": {
+                "max": 3,
+                "type": "minecraft:uniform",
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "type": "minecraft:item",
+          "name": "slavicmyths:heat_berries"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "3"
+          },
+          "block": "slavicmyths:heat_berry_bush"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:heat_berry_cutting"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "0"
+          },
+          "block": "slavicmyths:heat_berry_bush"
+        }
+      ]
+    }
+  ]
+}

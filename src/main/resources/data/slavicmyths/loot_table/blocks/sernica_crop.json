@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "functions": [
+            {
+              "count": {
+                "max": 3,
+                "type": "minecraft:uniform",
+                "min": 1
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "type": "minecraft:item",
+          "name": "slavicmyths:sernica"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "3"
+          },
+          "block": "slavicmyths:sernica_crop"
+        }
+      ]
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:sernica_seeds"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

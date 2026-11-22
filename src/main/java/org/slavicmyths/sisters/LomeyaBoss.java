@@ -78,8 +78,8 @@ public final class LomeyaBoss extends Monster {
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
         targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
     }
-    private boolean canHit(Player p) { return p.isAlive() && !p.isCreative() && !p.isSpectator(); }
-    private void begin(int action,Player target) {
+    private boolean canHit(LivingEntity p) { return p != null && p.isAlive() && org.slavicmyths.combat.CombatTargeting.canAttack(this,p,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE); }
+    private void begin(int action,LivingEntity target) {
         fracturedThisAction.clear();
         Vec3 forward=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         lockedPosition=position().add(forward.scale(3.2));
@@ -89,25 +89,25 @@ public final class LomeyaBoss extends Monster {
     private int duration(int action) {
         return switch(action) {case COMBO -> 46;case GRAB -> 38;case SLAM -> 46;case GIANT_WINDUP -> 40;case GIANT_STRIKE -> 58;default -> 0;};
     }
-    private void damage(Player p,float amount,boolean fracture) {
+    private void damage(LivingEntity p,float amount,boolean fracture) {
         if (!canHit(p) || !getSensing().hasLineOfSight(p) || !p.hurt(damageSources().mobAttack(this),amount)) return;
-        if (fracture && fracturedThisAction.add(p.getUUID())) FractureHooks.apply(p);
+        if (fracture && p instanceof Player player && fracturedThisAction.add(p.getUUID())) FractureHooks.apply(player);
     }
-    private boolean forward(Player p,double reach) {
+    private boolean forward(LivingEntity p,double reach) {
         Vec3 delta=p.position().subtract(position()).multiply(1,0,1);
         Vec3 facing=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         return delta.lengthSqr()<=reach*reach && delta.lengthSqr()>.0001 && delta.normalize().dot(facing)>.22;
     }
     private void sweep(ServerLevel world,float amount,double radius) {
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(radius,2.5,radius),this::canHit))
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(radius,2.5,radius),this::canHit))
             if (forward(p,radius)) damage(p,amount,true);
     }
     private void area(ServerLevel world,float amount,double radius) {
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(radius+3,3,radius+3),this::canHit))
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(radius+3,3,radius+3),this::canHit))
             if (p.position().multiply(1,0,1).distanceToSqr(lockedPosition.multiply(1,0,1))<=radius*radius)
                 damage(p,amount,true);
     }
-    private void updateMove(ServerLevel world,Player target) {
+    private void updateMove(ServerLevel world,LivingEntity target) {
         int frame=actionFrame()+1,action=action();
         entityData.set(FRAME,frame);
         if (frame%5==0 && frame<duration(action)-8) {
@@ -147,7 +147,7 @@ public final class LomeyaBoss extends Monster {
             fracturedThisAction.clear();
             playSound(SoundEvents.IRON_GOLEM_REPAIR,1.5F,.55F);
         }
-        Player target=getTarget() instanceof Player p && canHit(p)?p:null;
+        LivingEntity target=canHit(getTarget())?getTarget():null;
         if (target==null) { if(action()!=IDLE) {entityData.set(MOVE,IDLE);entityData.set(FRAME,0);} return; }
         getLookControl().setLookAt(target,25,25);
         if(action()!=IDLE) {getNavigation().stop();updateMove(world,target);return;}

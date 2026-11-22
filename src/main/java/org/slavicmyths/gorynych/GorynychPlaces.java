@@ -13,5 +13,6 @@ public final class GorynychPlaces {
  public static AABB bounds(CompoundTag n){var o=BlockPos.of(n.getLong("Origin"));if(n.getBoolean("Standalone"))return new AABB(Vec3.atLowerCornerOf(o.offset(-32,-4,-32)),Vec3.atLowerCornerOf(o.offset(33,40,33)));return AABB.of(org.slavicmyths.serpenthill.HillGeometry.bounds(o,rotation(n)));}
  public static boolean loaded(ServerLevel w,AABB b){for(int x=((int)Math.floor(b.minX))>>4;x<=((int)Math.floor(b.maxX))>>4;x++)for(int z=((int)Math.floor(b.minZ))>>4;z<=((int)Math.floor(b.maxZ))>>4;z++)if(w.getChunkSource().getChunkNow(x,z)==null)return false;return true;}
  public static boolean safe(ServerLevel w,Gorynych e,Vec3 pos){var box=e.getBoundingBox().expandTowards(pos.subtract(e.position()));return loaded(w,box.inflate(1))&&w.getWorldBorder().isWithinBounds(box)&&w.noCollision(e,box)&&!w.getBlockState(BlockPos.containing(pos).below()).isAir();}
- private GorynychPlaces(){}
+ /** Scripted surfacing relocates between authored nodes; intervening cave rock is not a walking route. */
+ public static boolean safeDestination(ServerLevel w,Gorynych e,Vec3 pos){var box=e.getBoundingBox().move(pos.subtract(e.position()));return loaded(w,box.inflate(1))&&box.minY>=w.getMinBuildHeight()&&box.maxY<=w.getMaxBuildHeight()&&w.getWorldBorder().isWithinBounds(box)&&w.noCollision(e,box)&&w.getBlockState(BlockPos.containing(pos).below()).isFaceSturdy(w,BlockPos.containing(pos).below(),Direction.UP);} private GorynychPlaces(){}
 }

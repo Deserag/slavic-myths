@@ -52,7 +52,12 @@ public final class NineMorSerpent extends Monster {
         for (int i = 0; i < HEADS.length; i++) HEADS[i] =
             SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.INT);
     }
-    private static final EntityDataAccessor<Integer> FLIGHT =
+    @SuppressWarnings("unchecked") private static final EntityDataAccessor<Integer>[] HEAD_TARGETS=new EntityDataAccessor[9];
+    @SuppressWarnings("unchecked") private static final EntityDataAccessor<Float>[] HEAD_YAWS=new EntityDataAccessor[9],HEAD_PITCHES=new EntityDataAccessor[9];
+    static {for(int i=0;i<9;i++){HEAD_TARGETS[i]=SynchedEntityData.defineId(NineMorSerpent.class,EntityDataSerializers.INT);HEAD_YAWS[i]=SynchedEntityData.defineId(NineMorSerpent.class,EntityDataSerializers.FLOAT);HEAD_PITCHES[i]=SynchedEntityData.defineId(NineMorSerpent.class,EntityDataSerializers.FLOAT);}}
+    private final java.util.UUID[] headVictims=new java.util.UUID[9];
+    private final Vec3[] headMarks=new Vec3[9];
+    private double takeoffY;    private static final EntityDataAccessor<Integer> FLIGHT =
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FLIGHT_AGE =
         SynchedEntityData.defineId(NineMorSerpent.class, EntityDataSerializers.INT);
@@ -95,6 +100,7 @@ public final class NineMorSerpent extends Monster {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         for (EntityDataAccessor<Integer> head : HEADS) builder.define(head, 0);
+        for(int i=0;i<9;i++){builder.define(HEAD_TARGETS[i],-1);builder.define(HEAD_YAWS[i],0F);builder.define(HEAD_PITCHES[i],0F);}
         builder.define(FLIGHT, 0);
         builder.define(FLIGHT_AGE, 0);
         builder.define(RITUAL_AGE, 0);
@@ -113,7 +119,14 @@ public final class NineMorSerpent extends Monster {
 
     public int headMode(int head) { return entityData.get(HEADS[head]) & 15; }
     public int headAge(int head) { return entityData.get(HEADS[head]) >>> 4; }
-    public int flightPhase() { return entityData.get(FLIGHT); }
+    public int headTargetId(int head){return entityData.get(HEAD_TARGETS[head]);}
+    public LivingEntity headTarget(int head){
+        var entity=level() instanceof ServerLevel w&&headVictims[head]!=null?w.getEntity(headVictims[head]):level().getEntity(headTargetId(head));
+        return entity instanceof LivingEntity living?living:null;
+    }
+    public float headYaw(int head){return headMode(head)==0?aimYaw()*.45F:entityData.get(HEAD_YAWS[head]);}
+    public float headPitch(int head){return headMode(head)==0?aimPitch()*.45F:entityData.get(HEAD_PITCHES[head]);}
+    private boolean validVictim(LivingEntity e){return e!=null&&e!=this&&!(e instanceof NineMorSerpent)&&e.isAlive()&&!e.isRemoved()&&e.level()==level()&&e.distanceToSqr(this)<=64*64&&org.slavicmyths.combat.CombatTargeting.canAttack(this,e,org.slavicmyths.combat.CombatTargeting.Context.DIRECT);}    public int flightPhase() { return entityData.get(FLIGHT); }
     public int flightAge() { return entityData.get(FLIGHT_AGE); }
     public int ritualAge() { return entityData.get(RITUAL_AGE); }
     public boolean isRitual() { return ritualAge() < 60; }
@@ -181,7 +194,7 @@ public final class NineMorSerpent extends Monster {
         // Move deliberately toward the opponent instead of random strolling,
         // and stop before the oversized body collides with the player.
         if (flightPhase() == 0 && target != null && tickCount % 12 == 0) {
-            if (distanceToSqr(target) > 225D) getNavigation().moveTo(target, .87D);
+            if (distanceToSqr(target) > 144D) getNavigation().moveTo(target, .87D);
             else getNavigation().stop();
         }
         if (tickCount % 23 == 0 && getDeltaMovement().horizontalDistanceSqr() > .009D
@@ -222,83 +235,97 @@ public final class NineMorSerpent extends Monster {
     }
 
     private void tickFlight(LivingEntity target) {
-        int phase = flightPhase();
-        int age = flightAge() + 1;
-        if (phase == 0) {
+        int phase=flightPhase(),age=flightAge()+1;
+        if(phase==0){
             setNoGravity(false);
-            if (target != null && --nextFlight <= 0 && onGround()) {
-                nextFlight = 420 + random.nextInt(230);
-                flight(1);
-                sound("wings_unfold", 1.3F);
-            }
+            if(target!=null&&onGround()&&--nextFlight<=0){takeoffY=getY();flight(1);getNavigation().stop();sound("wings_unfold",1.3F);}
             return;
         }
-        entityData.set(FLIGHT_AGE, age);
-        getNavigation().stop();
-        if (phase == 1) {
+        entityData.set(FLIGHT_AGE,age);getNavigation().stop();
+        if(target==null&&phase<3){flight(3);phase=3;}
+        if(phase==1){
             setNoGravity(true);
-            setDeltaMovement(getDeltaMovement().multiply(.5D, .2D, .5D).add(0D, .105D, 0D));
-            if (age >= 25) { flight(2); sound("wings_flap", 1.15F); }
-        } else if (phase == 2) {
+            Vec3 motion=new Vec3(0,getY()<takeoffY+2.2?.12:0,0);
+            setDeltaMovement(safeFlightMotion(motion));
+            if(age>=18||getDeltaMovement().lengthSqr()<.00001){flight(2);sound("wings_flap",1);}
+        }else if(phase==2){
             setNoGravity(true);
-            Vec3 drift = target != null ? target.position().subtract(position()) : Vec3.ZERO;
-            drift = new Vec3(Mth.clamp(drift.x * .014D, -.13D, .13D), 0D,
-                             Mth.clamp(drift.z * .014D, -.13D, .13D));
-            setDeltaMovement(drift.x, Math.sin(tickCount * .11D) * .025D, drift.z);
-            if (age % 23 == 0) sound("wings_flap", .8F);
-            if (age >= 92) { flight(3); setNoGravity(false); }
-        } else {
+            Vec3 offset=target!=null?target.position().subtract(position()):Vec3.ZERO;
+            var motion=new Vec3(Mth.clamp(offset.x*.008,-.08,.08),Mth.clamp((takeoffY+1.8-getY())*.05,-.06,.04),Mth.clamp(offset.z*.008,-.08,.08));
+            setDeltaMovement(safeFlightMotion(motion));
+            if(age%20==0)sound("wings_flap",.8F);
+            if(age>=40){flight(3);setNoGravity(false);}
+        }else{
             setNoGravity(false);
-            if (age >= 55 || onGround()) {
-                flight(0);
-                setDeltaMovement(getDeltaMovement().multiply(.4D, 0D, .4D));
-                sound("land", 1.2F);
+            setDeltaMovement(getDeltaMovement().multiply(.5,1,.5));
+            if(onGround()){
+                flight(0);nextFlight=420+random.nextInt(180);
+                setDeltaMovement(Vec3.ZERO);sound("land",1.2F);
             }
         }
     }
-
+    private Vec3 safeFlightMotion(Vec3 motion){
+        var box=getBoundingBox().expandTowards(motion);
+        if(!level().hasChunksAt(net.minecraft.core.BlockPos.containing(box.minX,box.minY,box.minZ),net.minecraft.core.BlockPos.containing(box.maxX,box.maxY,box.maxZ))
+            ||!level().getWorldBorder().isWithinBounds(box)||!level().noCollision(this,box))return Vec3.ZERO;
+        return motion;
+    }
     private void flight(int phase) {
         entityData.set(FLIGHT, phase);
         entityData.set(FLIGHT_AGE, 0);
     }
 
-    private void tickHeads(LivingEntity target) {
-        int active = 0;
-        for (int i = 0; i < 9; i++) {
-            if (cooldown[i] > 0) cooldown[i]--;
-            int mode = headMode(i), age = headAge(i);
-            if (mode == 0) continue;
-            active++;
-            age++;
-            entityData.set(HEADS[i], (age << 4) | mode);
-            if (age == 17 && mode == AREA && target != null) circle((ServerLevel)level(), i, target.position(), 5.5D, 36);
-            if (age == 17) sound(mode == GRAB ? "head_predator_grab" :
-                mode == AREA ? "ground_spikes_warn" :
-                mode == BEAM ? "head_fire_breath" : "head_mor_shot", .9F);
-            if (age == 25 && target != null && target.distanceToSqr(this) < 62 * 62)
-                executeHead(i, mode, target);
-            if (age >= 38) {
-                entityData.set(HEADS[i], 0);
-                cooldown[i] = mode == AREA ? 185 + random.nextInt(75) : 82 + random.nextInt(65);
-                active--;
-            }
+    private void clearHead(int head,int rest){entityData.set(HEADS[head],0);entityData.set(HEAD_TARGETS[head],-1);headVictims[head]=null;headMarks[head]=null;cooldown[head]=rest;}
+    private void aimHead(int head,LivingEntity target){
+        Vec3 delta=target.getEyePosition().subtract(headMouth(head));
+        float yaw=Mth.wrapDegrees((float)Math.toDegrees(Math.atan2(delta.z,delta.x))-90-getYRot());
+        float pitch=(float)-Math.toDegrees(Math.atan2(delta.y,delta.horizontalDistance()));
+        entityData.set(HEAD_YAWS[head],Mth.approachDegrees(entityData.get(HEAD_YAWS[head]),Mth.clamp(yaw,-120,120),12));
+        entityData.set(HEAD_PITCHES[head],Mth.approachDegrees(entityData.get(HEAD_PITCHES[head]),Mth.clamp(pitch,-35,65),8));
+    }
+    private LivingEntity chooseHeadVictim(int head,LivingEntity primary){
+        var options=level().getEntitiesOfClass(Player.class,getBoundingBox().inflate(64),p->validVictim(p)&&hasLineOfSight(p));
+        java.util.List<LivingEntity> candidates=new java.util.ArrayList<>(options);
+        if(validVictim(primary)&&hasLineOfSight(primary)&&!candidates.contains(primary))candidates.add(primary);
+        LivingEntity best=null;double score=Double.MAX_VALUE;
+        for(var p:candidates){
+            int assigned=0;for(int i=0;i<9;i++)if(headMode(i)!=0&&p.getUUID().equals(headVictims[i]))assigned++;
+            double s=assigned*100000+headMouth(head).distanceToSqr(p.getEyePosition());
+            if(s<score){score=s;best=p;}
         }
-        if (target == null || !hasLineOfSight(target)) return;
-        for (int attempt = 0; attempt < 9 && active < 3; attempt++) {
-            int index = (nextHead + attempt) % 9;
-            if (cooldown[index] > 0 || headMode(index) != 0) continue;
-            int mode = (index == 0 || index == 7) ? GRAB :
-                (index == 2 || index == 5 || index == 8) && random.nextInt(5) == 0 ? AREA :
-                (index == 2 || index == 5 || index == 8) ? BEAM : PROJECTILE;
-            if (mode == GRAB && distanceToSqr(target) > 100D) continue;
-            entityData.set(HEADS[index], (1 << 4) | mode);
-            active++;
-            nextHead = (index + 1) % 9;
+        return best;
+    }
+    private void tickHeads(LivingEntity primary) {
+        int active=0;
+        for(int i=0;i<9;i++){
+            if(cooldown[i]>0)cooldown[i]--;
+            int mode=headMode(i),age=headAge(i);if(mode==0)continue;
+            LivingEntity victim=headTarget(i);
+            if(!validVictim(victim)||!hasLineOfSight(victim)){clearHead(i,25);continue;}
+            active++;age++;entityData.set(HEADS[i],(age<<4)|mode);aimHead(i,victim);
+            if(age<=24&&age%6==0){
+                Vec3 from=headMouth(i),direction=victim.getEyePosition().subtract(from).normalize();
+                for(int k=0;k<4;k++)coloredParticle((ServerLevel)level(),i,from.add(direction.scale(k*.65)),2);
+                circle((ServerLevel)level(),i,victim.position(),1.1,12);
+            }
+            if(age==17&&mode==AREA){headMarks[i]=victim.position();circle((ServerLevel)level(),i,headMarks[i],5.5,36);}
+            if(age==17)sound(mode==GRAB?"head_predator_grab":mode==AREA?"ground_spikes_warn":mode==BEAM?"head_fire_breath":"head_mor_shot",.9F);
+            if(age==25)executeHead(i,mode,victim);
+            if(age>=38){clearHead(i,mode==AREA?185+random.nextInt(75):82+random.nextInt(65));active--;}
+        }
+        int start=nextHead;
+        for(int attempt=0;attempt<9&&active<3;attempt++){
+            int index=(start+attempt)%9;
+            if(cooldown[index]>0||headMode(index)!=0)continue;
+            LivingEntity victim=chooseHeadVictim(index,primary);if(victim==null)continue;
+            int mode=(index==0||index==7)?GRAB:(index==2||index==5||index==8)&&random.nextInt(5)==0?AREA:(index==2||index==5||index==8)?BEAM:PROJECTILE;
+            if(mode==GRAB&&distanceToSqr(victim)>100)continue;
+            headVictims[index]=victim.getUUID();headMarks[index]=null;entityData.set(HEAD_TARGETS[index],victim.getId());
+            entityData.set(HEADS[index],(1<<4)|mode);aimHead(index,victim);active++;nextHead=(index+1)%9;
         }
     }
-
     private void executeHead(int head, int mode, LivingEntity target) {
-        if (!target.isAlive()) return;
+        if (!validVictim(target)||!hasLineOfSight(target)) return;
         if (mode == GRAB) {
             if (distanceToSqr(target) <= 100D && hasLineOfSight(target)) {
                 if (target.hurt(damageSources().mobAttack(this), 12F)) {
@@ -310,12 +337,13 @@ public final class NineMorSerpent extends Monster {
             return;
         }
         if (mode == AREA) {
-            Vec3 center = target.position();
+            Vec3 center = headMarks[head]!=null?headMarks[head]:target.position();
             circle((ServerLevel) level(), head, center, 6.5D, 42);
             areaDamage(center, 5.5D, head, 10F);
             sound("ground_spikes_impact", 1.1F);
         } else if (mode == BEAM) {
             Vec3 origin = headMouth(head), end = target.getEyePosition();
+            end=level().clip(new net.minecraft.world.level.ClipContext(origin,end,net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,this)).getLocation();
             Vec3 delta = end.subtract(origin);
             if (delta.lengthSqr() < .1D) return;
             Vec3 direction = delta.normalize();
@@ -327,7 +355,7 @@ public final class NineMorSerpent extends Monster {
             }
             for (LivingEntity victim : level().getEntitiesOfClass(LivingEntity.class,
                     new AABB(origin, stop).inflate(2D), candidate ->
-                    candidate != this && candidate.isAlive() && !(candidate instanceof NineMorSerpent))) {
+                    validVictim(candidate))) {
                 Vec3 p = victim.getBoundingBox().getCenter();
                 double progress = Mth.clamp(p.subtract(origin).dot(direction), 0D, origin.distanceTo(stop));
                 if (p.distanceToSqr(origin.add(direction.scale(progress))) < 2.6D) {
@@ -346,19 +374,7 @@ public final class NineMorSerpent extends Monster {
         }
     }
 
-    private Vec3 headMouth(int head) {
-        // Ordered to match the model's nine separate necks, model-scale pixels, multiplied by the renderer's 4x scale.
-        double[] x = {-12.7D, 0, 12.7D, -14.7D, 0, 14.7D, -8.1D, 0, 8.1D};
-        double[] h = {30.5D, 31.6D, 30.5D, 38.6D, 39.3D, 38.6D, 46.8D, 48.8D, 46.8D};
-        double[] z = {-24.4D, -26.2D, -24.4D, -20.8D, -21.9D, -20.8D, -16.7D, -17.3D, -16.7D};
-        // MobRenderer rotates the local model by 180 - bodyYaw. Match that
-        // transform so beam / projectile origin is in the actual animated mouth.
-        double yaw = getYRot() * Math.PI / 180D;
-        double forward = z[head] / 4D;
-        double side = x[head] / 4D;
-        return position().add(-side * Math.cos(yaw) + forward * Math.sin(yaw),
-            h[head] / 4D, -side * Math.sin(yaw) - forward * Math.cos(yaw));
-    }
+    public Vec3 headMouth(int head) { return NineMorRig.mouth(this,head); }
 
     private void tickTails(LivingEntity target) {
         int mask = 0;
@@ -382,7 +398,7 @@ public final class NineMorSerpent extends Monster {
 
     private void ambientMor(ServerLevel server) {
         for (LivingEntity living : server.getEntitiesOfClass(LivingEntity.class,
-                getBoundingBox().inflate(7D), e -> e != this && e.isAlive() && !(e instanceof NineMorSerpent))) {
+                getBoundingBox().inflate(7D), this::validVictim)) {
             living.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 90, 0));
         }
         coloredParticle(server, 2, position().add(0, 2D, 0), 26);
@@ -391,7 +407,7 @@ public final class NineMorSerpent extends Monster {
     private void areaDamage(Vec3 center, double radius, int head, float damage) {
         AABB area = new AABB(center, center).inflate(radius, 3D, radius);
         for (LivingEntity e : level().getEntitiesOfClass(LivingEntity.class, area,
-                candidate -> candidate != this && candidate.isAlive() && !(candidate instanceof NineMorSerpent))) {
+                candidate -> validVictim(candidate))) {
             if (e.distanceToSqr(center) <= radius * radius
                     && e.hurt(damageSources().mobAttack(this), damage)) applyElement(e, head);
         }
@@ -468,7 +484,7 @@ public final class NineMorSerpent extends Monster {
         nextFlight = Math.max(100, tag.getInt("NextFlight"));
         nextHead = Math.floorMod(tag.getInt("NextHead"), 9);
         for (int i = 0; i < 9; i++) {
-            entityData.set(HEADS[i], 0);
+            clearHead(i,0);
             cooldown[i] = Math.max(5, tag.getInt("HeadCooldown"+i));
         }
         for (int i = 0; i < 3; i++) tailCooldown[i] = Math.max(25, tag.getInt("TailCooldown"+i));

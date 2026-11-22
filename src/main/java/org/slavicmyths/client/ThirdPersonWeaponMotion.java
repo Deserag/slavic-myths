@@ -32,7 +32,7 @@ public final class ThirdPersonWeaponMotion {
     static {
         register(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword");
         register(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan");
-        register(Shape.HEAVY,"ashen_greatsword");
+        register(Shape.HEAVY,"ashen_greatsword","gneteya_great_hammer");
         register(Shape.SPEAR,"navya_ostroga","ancient_spear","restored_spear","spear","gold_spear","iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear","netherite_spear","pool_spear","thunder_spear","victor_spear");
         register(Shape.POLEAXE,"berdysh");
         register(Shape.SICKLE,"noon_sickle");

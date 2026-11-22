@@ -35,7 +35,7 @@ public final class BossRewardWeapons {
         private final boolean scythe;
         public Weapon(boolean isScythe){
             super(Tiers.NETHERITE,new Item.Properties().stacksTo(1).durability(isScythe?1900:1650).rarity(Rarity.EPIC)
-                .attributes(SwordItem.createAttributes(Tiers.NETHERITE,isScythe?17:16,isScythe?-2.8F:-2.6F)));
+                .attributes(SwordItem.createAttributes(Tiers.NETHERITE,isScythe?14:12,isScythe?-2.8F:-2.6F)));
             scythe=isScythe;
         }
         private static boolean valid(Player owner,LivingEntity target){
@@ -58,7 +58,7 @@ public final class BossRewardWeapons {
                 if(scythe&&attacker instanceof ServerPlayer player){
                     long now=player.serverLevel().getGameTime();
                     if(target.getPersistentData().getLong(MARK)>now){
-                        target.hurt(player.damageSources().magic(),9F);
+                        target.hurt(player.damageSources().magic(),5F);
                         player.serverLevel().sendParticles(ParticleTypes.SOUL_FIRE_FLAME,target.getX(),target.getY()+1,target.getZ(),9,.35,.5,.35,.02);
                     }
                     target.getPersistentData().putLong(MARK,now+100);
@@ -71,7 +71,9 @@ public final class BossRewardWeapons {
         @Override public InteractionResultHolder<ItemStack> use(Level level,Player user,InteractionHand hand){
             ItemStack stack=user.getItemInHand(hand);
             if(hand!=InteractionHand.MAIN_HAND||user.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(stack);
+            if(!scythe&&user.isShiftKeyDown()&&!user.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get()))return InteractionResultHolder.fail(stack);
             if(scythe){
+                if(!level.isClientSide)net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,stack,n->n.putBoolean("SistersAlternate",user.isShiftKeyDown()));
                 user.startUsingItem(hand);
                 return InteractionResultHolder.consume(stack);
             }
@@ -82,12 +84,12 @@ public final class BossRewardWeapons {
             if(!scythe||!(user instanceof Player player)||!(level instanceof ServerLevel world))return;
             int charged=getUseDuration(stack,user)-remaining;
             if(charged<5||player.getCooldowns().isOnCooldown(this))return;
-            cast(world,player,stack,player.isShiftKeyDown());
+            cast(world,player,stack,stack.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getBoolean("SistersAlternate"));
         }
         private void cast(ServerLevel world,Player user,ItemStack stack,boolean alternate){
             boolean dual=!scythe&&user.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get());
             double radius=scythe?(alternate?7.0:5.4):(dual?5.6:4.0);
-            float damage=scythe?(alternate?53F:35F):(dual?(alternate?44F:32F):24F);
+            float damage=scythe?(alternate?36F:26F):(dual?(alternate?36F:28F):22F);
             Vec3 center=user.position().add(0,.7,0);
             Vec3 look=user.getLookAngle().multiply(1,0,1).normalize();
             int hits=0;

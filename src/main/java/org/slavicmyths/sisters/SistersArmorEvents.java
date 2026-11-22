@@ -21,22 +21,23 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 public final class SistersArmorEvents {
     private static final String GRANTED="Sisters25FlightGranted",ACTIVE="Sisters25AuraUntil",COOLDOWN="Sisters25AuraCooldown";
     private static final long AURA_DURATION=400, AURA_COOLDOWN=1200;
-    private static boolean active(ServerPlayer player) {return SistersArmor.full(player)&&player.getPersistentData().getLong(ACTIVE)>player.serverLevel().getGameTime();}
+    public static boolean active(ServerPlayer player) {return SistersArmor.full(player)&&player.getPersistentData().getLong(ACTIVE)>player.serverLevel().getGameTime();}
 
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
         if(!(event.getEntity() instanceof ServerPlayer player))return;
         boolean full=SistersArmor.full(player),granted=player.getPersistentData().getBoolean(GRANTED);
         if(full&&player.isAlive()&&!player.isSpectator()) {
-            if(!player.getAbilities().mayfly&&!player.isCreative()) {
+            if(!player.isCreative()&&(!player.getAbilities().mayfly||runeFlight(player))) {
                 player.getAbilities().mayfly=true;player.getPersistentData().putBoolean(GRANTED,true);player.onUpdateAbilities();
             }
-            if(player.tickCount%20==0)player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,50,active(player)?3:2,false,false,true));
+            speed(player,true);
             if(active(player)&&player.tickCount%20==0)auraPulse(player);
         } else {
+            speed(player,false);
             if(granted) {
                 player.getPersistentData().remove(GRANTED);
                 if(!player.isCreative()&&!player.isSpectator()) {
-                    player.getAbilities().mayfly=false;player.getAbilities().flying=false;
+                    player.getAbilities().mayfly=runeFlight(player);if(!player.getAbilities().mayfly)player.getAbilities().flying=false;
                     player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false,true));
                     player.onUpdateAbilities();
                 }
@@ -61,22 +62,43 @@ public final class SistersArmorEvents {
             event.setResult(net.neoforged.neoforge.event.entity.living.MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
     }
 
-    @SubscribeEvent public static void rightClick(PlayerInteractEvent.RightClickBlock event) {
-        if(!(event.getEntity() instanceof ServerPlayer player)||event.getHand()!=InteractionHand.MAIN_HAND||!player.isShiftKeyDown()
+    public static boolean runeFlight(ServerPlayer p){return p.isAlive()&&!p.isSpectator()&&org.slavicmyths.rpg.RareRunes.equipped(p,"flight")&&p.getPersistentData().getLong("RuneFlightUntil")>org.slavicmyths.rpg.RareRuneRuntime.now(p);}
+    public static void activateAura(ServerPlayer player){
+        if(!player.isAlive()||player.isSpectator()||player.containerMenu!=player.inventoryMenu||!player.isShiftKeyDown()
                 ||!player.getMainHandItem().isEmpty()||!SistersArmor.full(player))return;
-        event.setCanceled(true);event.setCancellationResult(InteractionResult.SUCCESS);
+        var state=player.getPersistentData();long tick=player.serverLevel().getGameTime();
+        if(state.getLong("Sisters25RequestUntil")>tick)return;
+        state.putLong("Sisters25RequestUntil",tick+4);
+        var saved=org.slavicmyths.rpg.PathData.data(player);
+        if(!saved.contains(COOLDOWN))saved.putLong(COOLDOWN,state.getLong(COOLDOWN));
         long now=player.serverLevel().getGameTime();
         if(active(player)) {
             player.getPersistentData().remove(ACTIVE);
-            player.displayClientMessage(Component.literal("Аура сестёр выключена"),true);
-        } else if(now>=player.getPersistentData().getLong(COOLDOWN)) {
+            player.displayClientMessage(Component.translatable("armor.slavicmyths.sisters.aura_off"),true);
+        } else if(now>=saved.getLong(COOLDOWN)) {
             player.getPersistentData().putLong(ACTIVE,now+AURA_DURATION);
-            player.getPersistentData().putLong(COOLDOWN,now+AURA_COOLDOWN);
-            player.displayClientMessage(Component.literal("Аура сестёр активирована на 20 секунд"),true);
+            saved.putLong(COOLDOWN,now+AURA_COOLDOWN);
+            player.displayClientMessage(Component.translatable("armor.slavicmyths.sisters.aura_on"),true);
             auraPulse(player);
         } else {
-            player.displayClientMessage(Component.literal("Аура сестёр: откат "+((player.getPersistentData().getLong(COOLDOWN)-now+19)/20)+" сек."),true);
+            player.displayClientMessage(Component.translatable("armor.slavicmyths.sisters.aura_cooldown",(saved.getLong(COOLDOWN)-now+19)/20),true);
         }
+    }
+
+    private static void speed(ServerPlayer player,boolean enabled){
+        var attribute=player.getAttribute(Attributes.MOVEMENT_SPEED);if(attribute==null)return;
+        var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","sisters_set_speed");
+        var potion=player.getEffect(MobEffects.MOVEMENT_SPEED);
+        // Supplement weaker potions up to Speed III/IV, never replace or delete an external potion.
+        double amount=SistersArmorRules.speedSupplement(potion==null?-1:potion.getAmplifier(),enabled,active(player));
+        var previous=attribute.getModifier(id);
+        if(previous!=null&&Math.abs(previous.amount()-amount)<1e-8)return;
+        attribute.removeModifier(id);
+        if(amount>0)attribute.addTransientModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(id,amount,
+                net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+    }
+    @SubscribeEvent public static void equipment(net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent event){
+        if(event.getEntity() instanceof ServerPlayer p&&!SistersArmor.full(p))speed(p,false);
     }
 
     private static void auraPulse(ServerPlayer player) {

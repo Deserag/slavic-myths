@@ -38,7 +38,7 @@ public final class LikhoStaffItem extends SwordItem {
         if(PathData.data(player).getLong("CD_rare_likho")>RareCombat.now(player)){player.displayClientMessage(net.minecraft.network.chat.Component.translatable("combat.slavicmyths.cooldown",(PathData.data(player).getLong("CD_rare_likho")-RareCombat.now(player)+19)/20),true);return InteractionResultHolder.fail(stack);}
         PathData.data(player).putLong("CD_rare_likho",RareCombat.now(player)+COOLDOWN);
         var data=target.getPersistentData();data.putUUID("RareMorokOwner",player.getUUID());data.putLong("RareStunUntil",RareCombat.now(player)+(CombatTargeting.controlResistant(target)?0:STUN));
-        if(CombatTargeting.controlResistant(target)){target.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,MOROK,0,false,true,true),player);target.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,MOROK,0,false,true,true),player);}
+        if(CombatTargeting.controlResistant(target)){target.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,MOROK,1,false,true,true),player);target.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,MOROK,1,false,true,true),player);}
         else target.addEffect(new MobEffectInstance(ModEffects.DISORIENTATION,STUN+MOROK,0,false,true,true),player);
         if(target instanceof Player)target.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.CONFUSION,145,0,false,true));
         RuneEffects.staff(player,stack,target);player.getCooldowns().addCooldown(this,COOLDOWN);

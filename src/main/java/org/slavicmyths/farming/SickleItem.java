@@ -25,7 +25,7 @@ public final class SickleItem extends Item {
                 || !state.is(Farming.HARVESTABLE) || !(state.getBlock() instanceof CropBlock crop) || !crop.isMaxAge(state)) return InteractionResult.PASS;
         if (level instanceof ServerLevel server) {
             var drops = Block.getDrops(state, server, pos, null, player, context.getItemInHand());
-            if(crop instanceof org.slavicmyths.brewing.HopsCrop hops){if(!hops.growTo(server,pos,1))return InteractionResult.FAIL;}else if (!server.setBlock(pos, crop.getStateForAge(1), 3)) return InteractionResult.FAIL;
+            if(crop instanceof org.slavicmyths.brewing.HopsCrop hops){if(!hops.growTo(server,pos,1))return InteractionResult.FAIL;}else if (!server.setBlock(pos, crop.getStateForAge(crop instanceof NetherPlant plant?plant.harvestedAge():1), 3)) return InteractionResult.FAIL;
             if(player instanceof net.minecraft.server.level.ServerPlayer owner){var extra=org.slavicmyths.accessories.AccessoryEvents.harvest(owner,state,context.getItemInHand(),drops);if(!extra.isEmpty())drops.add(extra);}
             for(var stack:drops)Block.popResource(server,pos,stack);
             context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));

@@ -24,7 +24,7 @@ public final class RewardContent {
    @Override public ResourceLocation getArmorTexture(ItemStack s,net.minecraft.world.entity.Entity e,net.minecraft.world.entity.EquipmentSlot slot,ArmorMaterial.Layer layer,boolean inner){return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/models/armor/"+id+".png");}
    @Override public void appendHoverText(ItemStack s,Item.TooltipContext c,List<Component> l,TooltipFlag f){l.add(Component.translatable(getDescriptionId()+".desc"));}
   });
-  register("trophy_kalin_sabre",()->new SwordItem(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,5,-2.7F)).rarity(Rarity.RARE)){
+  register("trophy_kalin_sabre",()->new SwordItem(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,10,-2.6F)).rarity(Rarity.RARE)){
    @Override public net.minecraft.world.InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level world,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){
     ItemStack stack=player.getItemInHand(hand);
     if(hand!=net.minecraft.world.InteractionHand.MAIN_HAND)return net.minecraft.world.InteractionResultHolder.pass(stack);

@@ -72,7 +72,7 @@ public final class NineMorSkillEffect extends ThrowableItemProjectile {
                         int hit=0;
                         for(LivingEntity enemy:world.getEntitiesOfClass(LivingEntity.class,player.getBoundingBox().inflate(4.3D),
                                 e->valid(player,e)&&e.distanceToSqr(player)<=20D)){
-                            if(enemy.hurt(player.damageSources().playerAttack(player),16F)){
+                            if(enemy.hurt(player.damageSources().playerAttack(player),24F)){
                                 NineMorSerpent.applyElement(enemy,hit%9);
                                 enemy.addEffect(new MobEffectInstance(MobEffects.WITHER,65,0));
                                 Vec3 delta=enemy.position().subtract(player.position());
@@ -94,7 +94,7 @@ public final class NineMorSkillEffect extends ThrowableItemProjectile {
                                 Vec3 delta=enemy.position().subtract(position());
                                 if(delta.x*delta.x+delta.z*delta.z>4.62D)continue;
                                 hitTargets.add(enemy.getUUID());
-                                if(enemy.hurt(player.damageSources().playerAttack(player),20F)){
+                                if(enemy.hurt(player.damageSources().playerAttack(player),30F)){
                                     enemy.addEffect(new MobEffectInstance(MobEffects.WITHER,90,1));
                                     enemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,100,1));
                                 }

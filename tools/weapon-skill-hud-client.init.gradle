@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { weaponHudVisual { java.srcDir 'tools/weapon-skill-hud-client' } }
+ p.sourceSets.weaponHudVisual.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.weaponHudVisual.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileWeaponHudVisualJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.weaponHudVisual)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject;p.neoForge.runs.client.gameDirectory=p.file('work/weapon-skill-hud-client-20261122');p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720') }

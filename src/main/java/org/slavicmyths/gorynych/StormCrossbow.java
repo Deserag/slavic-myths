@@ -11,7 +11,7 @@ import net.minecraft.world.phys.*;
 
 /** Crossbow-only storm balance; rune/boss burst rules remain separate. */
 public final class StormCrossbow {
-    public static final float DAMAGE=3;
+    public static final float DAMAGE=5;
     public static final int CONTROL_TICKS=40,TARGET_COOLDOWN=30,MAX_TARGETS=8;
     public static final double RADIUS=3;
     private static final Map<LivingEntity,Map<UUID,Long>> READY=new WeakHashMap<>();

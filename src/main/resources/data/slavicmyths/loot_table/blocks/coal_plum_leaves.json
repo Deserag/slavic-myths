@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "functions": [
+            {
+              "count": {
+                "max": 4,
+                "type": "minecraft:uniform",
+                "min": 2
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "type": "minecraft:item",
+          "name": "slavicmyths:coal_plum"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "3"
+          },
+          "block": "slavicmyths:coal_plum_leaves"
+        }
+      ]
+    }
+  ]
+}

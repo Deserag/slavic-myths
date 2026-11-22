@@ -54,12 +54,7 @@ public final class MarineArmorEffects {
         boolean wet = full && (player.isInWaterOrBubble() || player.isEyeInFluid(FluidTags.WATER));
         swimSpeed(player, wet);
         if (!(player instanceof ServerPlayer server)) return;
-        var health=server.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
-        var bonus=ResourceLocation.fromNamespaceAndPath("slavicmyths","marine_full_health");
-        if(health!=null){
-            if(full&&health.getModifier(bonus)==null)health.addTransientModifier(new AttributeModifier(bonus,16,AttributeModifier.Operation.ADD_VALUE));
-            if(!full&&health.getModifier(bonus)!=null){health.removeModifier(bonus);server.setHealth(Math.min(server.getHealth(),server.getMaxHealth()));}
-        }
+        refreshHealth(server);
         boolean inWater=server.isAlive()&&!server.isSpectator()&&(server.isInWaterOrBubble()||server.isEyeInFluid(FluidTags.WATER));
         effect(server,"chest_regeneration",MobEffects.REGENERATION,inWater&&server.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST).is(MarineArmor.CHESTPLATE.get()),0,45);
         effect(server,"leggings_strength",MobEffects.DAMAGE_BOOST,inWater&&server.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS).is(MarineArmor.LEGGINGS.get()),1,45);
@@ -67,6 +62,30 @@ public final class MarineArmorEffects {
         applyEffects(server, onWater, wet, underwater);
     }
 
+    /** Restore the set attribute before the respawn attribute snapshot reaches the client. */
+    public static void refreshHealth(Player player) {
+        if (player.level().isClientSide) return;
+        var health = player.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        if (health == null) return;
+        var bonus = ResourceLocation.fromNamespaceAndPath("slavicmyths", "marine_full_health");
+        boolean full = player.isAlive() && !player.isSpectator() && MarineArmor.full(player);
+        if (full && health.getModifier(bonus) == null)
+            health.addTransientModifier(new AttributeModifier(bonus, 16, AttributeModifier.Operation.ADD_VALUE));
+        if (!full && health.getModifier(bonus) != null) {
+            health.removeModifier(bonus);
+            player.setHealth(Math.min(player.getHealth(), player.getMaxHealth()));
+        }
+    }
+
+    @SubscribeEvent public static void equipment(net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent event) {
+        if (event.getEntity() instanceof Player player) refreshHealth(player);
+    }
+    @SubscribeEvent public static void respawn(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerRespawnEvent event) {
+        refreshHealth(event.getEntity());
+    }
+    @SubscribeEvent public static void login(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent event) {
+        refreshHealth(event.getEntity());
+    }
     static void applyEffects(ServerPlayer server, boolean onWater, boolean wet, boolean underwater) {
         effect(server, "speed", MobEffects.MOVEMENT_SPEED, onWater, 3, 32);
         effect(server, "breath", MobEffects.WATER_BREATHING, wet, 0, 45);

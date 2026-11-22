@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=3": {
+      "model": "slavicmyths:block/coal_plum_sapling_stage3"
+    },
+    "age=1": {
+      "model": "slavicmyths:block/coal_plum_sapling_stage1"
+    },
+    "age=0": {
+      "model": "slavicmyths:block/coal_plum_sapling_stage0"
+    },
+    "age=2": {
+      "model": "slavicmyths:block/coal_plum_sapling_stage2"
+    }
+  }
+}

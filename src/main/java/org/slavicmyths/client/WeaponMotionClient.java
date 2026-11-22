@@ -23,7 +23,7 @@ public final class WeaponMotionClient {
     @SubscribeEvent public static void register(RegisterClientExtensionsEvent event) {
         register(event,Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword",
                 "restored_carolingian_sword","silver_sword","perunite_sword");
-        register(event,Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace",
+        register(event,Shape.HEAVY,"gneteya_great_hammer","club","wooden_mace","stone_mace","mace","silver_mace",
                 "perunite_mace","battle_axe","chekan","ancient_chekan");
         register(event,Shape.SPEAR,"navya_ostroga","ancient_spear","restored_spear","spear","gold_spear",
                 "iron_spear","silver_spear","diamond_spear","zhara_spear","perunite_spear",

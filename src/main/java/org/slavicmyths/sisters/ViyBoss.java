@@ -93,7 +93,7 @@ public final class ViyBoss extends Monster {
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
         targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
     }
-    private boolean valid(Player p){return p.isAlive()&&!p.isCreative()&&!p.isSpectator();}
+    private boolean valid(LivingEntity p){return p!=null&&p.isAlive()&&org.slavicmyths.combat.CombatTargeting.canAttack(this,p,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE); }
     private Vec3 faceCenter(){
         Vec3 forward=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         return position().add(0,3.14,0).add(forward.scale(1.05));
@@ -120,16 +120,16 @@ public final class ViyBoss extends Monster {
             p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,600,3));
             p.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,600,2));
             p.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,160,0));
-            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,1));
+            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,0));
         }
         if(stage==4){
             p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,600,4));
             p.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,600,3));
             p.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,240,0));
-            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,2));
+            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,1));
         }
         if(stage==5&&oldStage<5){
-            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,2));
+            p.addEffect(new MobEffectInstance(MobEffects.WITHER,200,1));
             p.getPersistentData().putLong("SlavicViyPetrifiedUntil",p.level().getGameTime()+60);
             p.hurt(damageSources().magic(),16F);
         }
@@ -156,7 +156,7 @@ public final class ViyBoss extends Monster {
         }
         if(now%100==0)meters.entrySet().removeIf(e->now-e.getValue().lastContact>GAZE_MEMORY);
     }
-    private void start(int move,Player target){
+    private void start(int move,LivingEntity target){
         entityData.set(MOVE,move);entityData.set(FRAME,0);
         lockedTarget=target.position();getNavigation().stop();
         playSound(SoundEvents.IRON_GOLEM_ATTACK,.9F,.65F);
@@ -170,17 +170,17 @@ public final class ViyBoss extends Monster {
         case FIST->40;case STOMP->54;case RIFT->60;case IRON_HAND->90;
         case OPEN_EYES->42;case SUMMON->70;case FINGER->42;case EYE_WAVE->65;case VERDICT->120;
         default->0;};}
-    private boolean facing(Player p,double reach){
+    private boolean facing(LivingEntity p,double reach){
         Vec3 d=p.position().subtract(position()).multiply(1,0,1);
         Vec3 f=Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();
         return d.lengthSqr()<=reach*reach&&d.lengthSqr()>.001&&d.normalize().dot(f)>.1;
     }
     private void sweep(ServerLevel world,float amount,double radius){
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(radius,2.8,radius),this::valid))
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(radius,2.8,radius),this::valid))
             if(facing(p,radius))p.hurt(damageSources().mobAttack(this),amount);
     }
     private void area(ServerLevel world,Vec3 center,float radius,float amount){
-        for(Player p:world.getEntitiesOfClass(Player.class,getBoundingBox().inflate(21,5,21),this::valid))
+        for(LivingEntity p:world.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(21,5,21),this::valid))
             if(Math.abs(p.getY()-center.y)<3&&p.position().multiply(1,0,1).distanceToSqr(center.multiply(1,0,1))<=radius*radius)
                 p.hurt(damageSources().mobAttack(this),amount);
     }
@@ -221,7 +221,7 @@ public final class ViyBoss extends Monster {
             heldPlayer=null;
         }
     }
-    private void summon(ServerLevel world,Player target){
+    private void summon(ServerLevel world,LivingEntity target){
         int alive=world.getEntitiesOfClass(ViyServant.class,getBoundingBox().inflate(64,20,64),
             s->s.isAlive()&&getUUID().equals(s.ownerId())).size();
         if(alive>=4)return;
@@ -240,13 +240,13 @@ public final class ViyBoss extends Monster {
             world.sendParticles(ParticleTypes.SOUL,point.x,point.y+.6,point.z,12,.6,.4,.6,.03);
         }
     }
-    private void finger(ServerLevel world,Player target){
+    private void finger(ServerLevel world,LivingEntity target){
         if(!valid(target))return;
         target.addEffect(new MobEffectInstance(MobEffects.GLOWING,120,0));
         for(ViyServant s:world.getEntitiesOfClass(ViyServant.class,getBoundingBox().inflate(64),v->getUUID().equals(v.ownerId())))
             s.setTarget(target);
     }
-    private void stepAction(ServerLevel world,Player target){
+    private void stepAction(ServerLevel world,LivingEntity target){
         int frame=actionFrame()+1,move=action();entityData.set(FRAME,frame);
         if(frame%8==0)world.sendParticles(ParticleTypes.ASH,getX(),getY()+1.4,getZ(),5,1.0,.7,1.0,.02);
         switch(move){
@@ -308,7 +308,7 @@ public final class ViyBoss extends Monster {
         processLooks(world);
         if(verdictCooldown>0)verdictCooldown--;
         if(summonCooldown>0)summonCooldown--;
-        Player target=getTarget() instanceof Player p&&valid(p)?p:null;
+        LivingEntity target=valid(getTarget())?getTarget():null;
         if(target==null){if(action()!=IDLE)finish();return;}
         getLookControl().setLookAt(target,28,20);
         if(action()!=IDLE){getNavigation().stop();stepAction(world,target);return;}
