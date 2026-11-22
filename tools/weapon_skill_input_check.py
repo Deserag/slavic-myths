@@ -25,6 +25,11 @@ def main() -> None:
     ids = [item["id"] for item in catalog]
     assert len(ids) == 102, f"Expected 102 catalog weapon IDs, found {len(ids)}"
     assert len(ids) == len(set(ids)), "Duplicate weapon ID"
+    matrix = (ROOT / "docs/requirements/WEAPON_INPUT_102_COVERAGE_20261122.md").read_text(encoding="utf-8")
+    mapped = [line.split("`")[1] for line in matrix.splitlines()
+              if line.startswith("| `") and "` |" in line]
+    assert len(mapped) == len(set(mapped)), "Duplicate weapon in input matrix"
+    assert set(mapped) == set(ids), f"Input matrix does not cover catalog: {set(ids) ^ set(mapped)}"
 
     routed = {
         "abyss_staff": ("MarineWeapons.STAFF.get()", "MarineWeaponControls.Secondary()"),
