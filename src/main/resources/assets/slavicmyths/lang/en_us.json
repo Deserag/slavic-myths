@@ -6808,5 +6808,21 @@
   "tooltip.slavicmyths.nine_mor.axe.primary": "RMB — Mor Rift: a moving shockwave applies Wither.",
   "tooltip.slavicmyths.nine_mor.axe.secondary": "Shift + RMB — Final Judgement: a phantom axe strikes targets at or below 35% health.",
   "tooltip.slavicmyths.nine_mor.shield.passive": "Passive — Ninth Barrier: temporary absorption on block.",
-  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + RMB — Serpent Dome: a protective barrier for 6 s."
+  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + RMB — Serpent Dome: a protective barrier for 6 s.",
+  "tooltip.slavicmyths.sisters.neveya.passive": "Passive — hits apply Wither II, Weakness and a soul mark.",
+  "tooltip.slavicmyths.sisters.neveya.mark": "A follow-up hit on a marked target deals +9 magic damage.",
+  "tooltip.slavicmyths.sisters.neveya.charge": "Hold and release RMB — Harvest: 35 damage, 5.4-block radius, 9 s cooldown.",
+  "tooltip.slavicmyths.sisters.neveya.shift": "Shift + RMB — Sever: 53 damage, 7-block range, 13 s cooldown.",
+  "tooltip.slavicmyths.sisters.lomeya.passive": "Passive — hits inflict Slowness; players may suffer an arm injury.",
+  "tooltip.slavicmyths.sisters.lomeya.slam": "RMB — Ground Slam: 24 damage, 4-block radius, 7.5 s cooldown.",
+  "tooltip.slavicmyths.sisters.lomeya.dual": "Dual hammers + RMB — Wave: 32 damage, 5.6-block radius, 9.5 s cooldown.",
+  "tooltip.slavicmyths.sisters.lomeya.shift": "Dual hammers + Shift + RMB — Fracture: 44 damage, 13 s cooldown.",
+  "tooltip.slavicmyths.sisters.lomeya.offhand": "Passive — wielding both hammers enables an additional offhand strike.",
+  "tooltip.slavicmyths.mytar.throw": "RMB — Sickle Throw: 24 damage; the chain pulls the enemy.",
+  "tooltip.slavicmyths.mytar.grab": "Grab: targets up to 4 blocks tall and 22 blocks away.",
+  "tooltip.slavicmyths.mytar.rupture": "Shift + RMB — Chain Rupture: 36 damage and a 14-damage wave.",
+  "tooltip.slavicmyths.mytar.cooldowns": "The chain returns to its owner; cooldowns: 8.5 / 16 s.",
+  "tooltip.slavicmyths.kalin.sabre": "RMB — Cleaving Sweep: 5.5-block range, up to 6 enemies, 9 damage each, 7 s cooldown.",
+  "tooltip.slavicmyths.storm_staff.pulse": "RMB — Storm Pulse: 11 damage, 7-block range, 1.6 s cooldown.",
+  "tooltip.slavicmyths.storm_staff.rune": "Active rune: 1.4 s cooldown; damage bonuses apply separately."
 }
