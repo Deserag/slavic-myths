@@ -46,6 +46,7 @@ public final class MarineWeapons {
         private Anchor() { super(new Item.Properties().durability(400).rarity(Rarity.RARE)); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
             ItemStack stack = player.getItemInHand(hand);
+            if (hand != InteractionHand.MAIN_HAND) return InteractionResultHolder.pass(stack);
             if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
             boolean retrieving = player.fishing != null;
             if (retrieving && player instanceof ServerPlayer owner) {
@@ -75,6 +76,7 @@ public final class MarineWeapons {
         private Staff() { super(new Item.Properties().durability(320).rarity(Rarity.RARE)); }
         @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
             ItemStack stack = player.getItemInHand(hand);
+            if (hand != InteractionHand.MAIN_HAND) return InteractionResultHolder.pass(stack);
             if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
             if (player instanceof ServerPlayer owner) {
                 ServerLevel world = owner.serverLevel();
