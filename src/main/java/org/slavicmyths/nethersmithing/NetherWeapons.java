@@ -12,7 +12,7 @@ public final class NetherWeapons {
  @net.neoforged.bus.api.SubscribeEvent public static void defaults(net.neoforged.neoforge.event.ModifyDefaultComponentsEvent e){for(var entry:ITEMS.entrySet()){String id=entry.getKey();e.modify(entry.getValue().get(),b->{b.set(DataComponents.MAX_DAMAGE,NetherWeaponRules.durability(id));if(!id.equals("infernal_bow")&&!id.equals("empowered_infernal_bow")){var attrs=org.slavicmyths.combat.MaceItem.attributes(NetherWeaponRules.raw(id),NetherWeaponRules.speed(id));if(id.equals("navya_ostroga"))attrs=attrs.withModifierAdded(net.minecraft.world.entity.ai.attributes.Attributes.ENTITY_INTERACTION_RANGE,new net.minecraft.world.entity.ai.attributes.AttributeModifier(ResourceLocation.fromNamespaceAndPath("slavicmyths","spear_reach"),1.25,net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);b.set(DataComponents.ATTRIBUTE_MODIFIERS,attrs);}});}}
  private static InteractionResultHolder<ItemStack> begin(Level w,Player p,InteractionHand hand,String id,boolean twoHands){var s=p.getItemInHand(hand);if(hand!=InteractionHand.MAIN_HAND||twoHands&&!p.getOffhandItem().isEmpty())return InteractionResultHolder.fail(s);if(p instanceof ServerPlayer server&&!NetherSkills.ready(server,s,id)){NetherSkills.waitMessage(server,s,id);return InteractionResultHolder.fail(s);}p.startUsingItem(hand);return InteractionResultHolder.consume(s);}
  public static class Ostroga extends SwordItem {
-  public Ostroga(){super(TIER,props("navya_ostroga").attributes(org.slavicmyths.combat.MaceItem.attributes(10,1.15F)));}
+  public Ostroga(){super(TIER,props("navya_ostroga").attributes(org.slavicmyths.combat.MaceItem.attributes(13,1.15F)));}
   @Override public int getUseDuration(ItemStack s,LivingEntity e){return 72000;}@Override public UseAnim getUseAnimation(ItemStack s){return UseAnim.SPEAR;}
   @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand hand){return begin(w,p,hand,"navya_ostroga",false);}
   @Override public void releaseUsing(ItemStack s,Level w,LivingEntity e,int remaining){if(e instanceof ServerPlayer p)NetherSkills.release(p,s,"navya_ostroga",getUseDuration(s,e)-remaining);}
@@ -34,7 +34,7 @@ public final class NetherWeapons {
   @Override protected void configureProjectile(WeaponProjectile projectile,Player p,ItemStack s){projectile.netherSkill(special(p));}
   @Override protected void afterThrow(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.consume(player,s,"shadow_throwing_knife");p.getPersistentData().remove("NetherKnifeSkill");}
   @Override public boolean hurtEnemy(ItemStack s,LivingEntity t,LivingEntity user){if(user instanceof ServerPlayer p&&NetherSkills.legal(p,t))NetherSkills.knifeHit(p,t,false);return super.hurtEnemy(s,t,user);}
-  @Override public float thrownDamage(){return 8;}@Override public float projectileDamage(WeaponProjectile p){return p.netherSkill()?10:8;}
+  @Override public float thrownDamage(){return 11;}@Override public float projectileDamage(WeaponProjectile p){return p.netherSkill()?14:11;}
   @Override public void projectileHit(WeaponProjectile projectile,LivingEntity target,LivingEntity owner,boolean success){if(success&&owner instanceof ServerPlayer p&&NetherSkills.legal(p,target))NetherSkills.knifeHit(p,target,projectile.netherSkill());}
  }
  public static final class VolcanicFlail extends FlailItem {
