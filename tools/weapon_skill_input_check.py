@@ -75,6 +75,15 @@ def main() -> None:
     ):
         require(source(relative), "InteractionHand.MAIN_HAND", relative + " main hand")
 
+    require(source("client/MorovoyStaffKeys.java"), "Shift+ЛКМ", "Morovoy HUD")
+    assert "MorovoyStaffKeys.Registration" not in source("client/ClientSetup.java"), "Stale key listener"
+    require(source("posad/boss/ShackledSickleItem.java"),
+            "hand!=InteractionHand.MAIN_HAND", "Mytar chained sickle")
+    require(source("gorynych/SerpentCrossbow.java"),
+            "hand==InteractionHand.MAIN_HAND&&p.isShiftKeyDown()", "Gorynych crossbow mode")
+    for relative in ("depth/PoolSpear.java", "rewards/RewardContent.java"):
+        require(source(relative), "InteractionHand.MAIN_HAND", relative + " main hand")
+
     print(f"Static weapon-input regression checks passed; catalog covers {len(ids)} IDs.")
 
 
