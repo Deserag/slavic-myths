@@ -6822,5 +6822,11 @@
   "tooltip.slavicmyths.mytar.cooldowns": "Цепь возвращается к владельцу; перезарядки 8,5 / 16 с.",
   "tooltip.slavicmyths.kalin.sabre": "ПКМ — Разящий взмах: дальность 5,5 блока, до 6 врагов, 9 урона каждому, перезарядка 7 с.",
   "tooltip.slavicmyths.storm_staff.pulse": "ПКМ — Грозовой импульс: 11 урона, дальность 7 блоков, перезарядка 1,6 с.",
-  "tooltip.slavicmyths.storm_staff.rune": "Активная руна: перезарядка 1,4 с; бонусы урона учитываются отдельно."
+  "tooltip.slavicmyths.storm_staff.rune": "Активная руна: перезарядка 1,4 с; бонусы урона учитываются отдельно.",
+  "item.slavicmyths.neveya_scythe": "Двулезвийная коса Невеи",
+  "item.slavicmyths.lomeya_hammer": "Молот Ломеи",
+  "item.slavicmyths.lomeya_hammer_offhand": "Второй молот Ломеи",
+  "item.slavicmyths.nine_mor_axe": "Секира Погибели",
+  "item.slavicmyths.nine_mor_shield": "Щит Девяти Чешуй",
+  "item.slavicmyths.nine_mor_spear": "Копьё Девяти Пастей"
 }
