@@ -84,10 +84,10 @@ public class InfernalBow extends org.slavicmyths.combat.FieldBowItem {
 
     @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag) {
         super.appendHoverText(stack,context,lines,flag);
-        lines.add(net.minecraft.network.chat.Component.literal(empowered?"✦ АДСКИЙ ЛУК • УСИЛЕННЫЙ":"✦ АДСКИЙ ЛУК").withStyle(net.minecraft.ChatFormatting.GOLD));
-        lines.add(net.minecraft.network.chat.Component.literal((empowered?"14":"11,5")+" базового урона • натяжение "+drawTicks()+" тиков").withStyle(net.minecraft.ChatFormatting.GRAY));
-        lines.add(net.minecraft.network.chat.Component.literal(empowered?"Воспламенение + Замедление I (3 с)":"Воспламенение: стрелы поджигают цели").withStyle(net.minecraft.ChatFormatting.RED));
-        lines.add(net.minecraft.network.chat.Component.literal(empowered?"Shift+выстрел: 17 урона + вторая цель (13 с)":"Shift+выстрел: 14 урона (10 с)").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        lines.add(net.minecraft.network.chat.Component.translatable(empowered?"tooltip.slavicmyths.infernal_bow.upgraded":"tooltip.slavicmyths.infernal_bow.normal"));
+        lines.add(net.minecraft.network.chat.Component.translatable(empowered?"tooltip.slavicmyths.infernal_bow.stats.upgraded":"tooltip.slavicmyths.infernal_bow.stats.normal",drawTicks()));
+        lines.add(net.minecraft.network.chat.Component.translatable(empowered?"tooltip.slavicmyths.infernal_bow.effect.upgraded":"tooltip.slavicmyths.infernal_bow.effect.normal"));
+        lines.add(net.minecraft.network.chat.Component.translatable(empowered?"tooltip.slavicmyths.infernal_bow.skill.upgraded":"tooltip.slavicmyths.infernal_bow.skill.normal"));
     }
 
     @Override public boolean isValidRepairItem(ItemStack stack,ItemStack addition) {
