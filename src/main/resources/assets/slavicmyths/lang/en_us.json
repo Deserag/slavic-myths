@@ -237,7 +237,7 @@
   "tooltip.slavicmyths.weapon.perunite_mace": "Heavy perunite segments. Slow strikes.",
   "tooltip.slavicmyths.weapon.berdysh": "A heavy polearm with a long cutting blade.",
   "tooltip.slavicmyths.weapon.carved_staff": "A long staff of carved wood.",
-  "tooltip.slavicmyths.weapon.storm_staff": "Base pulse: 6 magic damage. Cooldown: 3 s.",
+  "tooltip.slavicmyths.weapon.storm_staff": "RMB — Storm pulse: 11 magic damage, 7-block range, 1.6 s cooldown (1.4 s with an active rune).",
   "tooltip.slavicmyths.weapon.retainer_shield": "Hold use to block attacks from the front.",
   "tooltip.slavicmyths.weapon.perunite_shield": "A durable shield. Hold use to block frontal attacks.",
   "block.slavicmyths.bath_stove": "Bath Stove",
@@ -2042,7 +2042,7 @@
   "item.slavicmyths.victor_spear": "Victor's Spear",
   "item.slavicmyths.ataman_sign": "Ataman's Sign",
   "tooltip.slavicmyths.weapon.tugarin_sword": "One slot holds both blades: one in each hand; +40% charged damage and up to 3 bleed stacks (0.5 HP each 2 s for 6 s). Offhand item is stored until switching.",
-  "tooltip.slavicmyths.weapon.likho_staff": "Held: +1 HP every 9 s. Use: morok within 12 blocks, 1.25 s stun, 6 s disorientation; 22 s cooldown.",
+  "tooltip.slavicmyths.weapon.likho_staff": "While held: +1 HP every 9 s. RMB — Morok within 12 blocks: 1.25 s stun, 6 s disorientation; 22 s cooldown.",
   "tooltip.slavicmyths.weapon.ataman_flail": "Charged hits: up to 3 Swing stacks. Next hit: +35% damage, strong push and shield pressure. A 4 s pause resets the sequence.",
   "tooltip.slavicmyths.weapon.victor_spear": "Charged hit beyond 3 blocks from target bounds: repeat thrust at the same target without delay within 1.25 s; 8 s cooldown.",
   "effect.slavicmyths.rare_bleeding": "Bleeding",
@@ -6800,5 +6800,13 @@
   "item.slavicmyths.mytar_sickle": "Mytar Sickle",
   "item.slavicmyths.mytar_shackled_sickle": "Shackled Sickle",
   "item.slavicmyths.mytar_chain": "Mytar Chain",
-  "enchantment.slavicmyths.range": "Range"
+  "enchantment.slavicmyths.range": "Range",
+  "tooltip.slavicmyths.weapon.elder_serpent": "Elder being • exceptional weapon",
+  "tooltip.slavicmyths.nine_mor.spear.passive": "Passive: critical hit ×1.5 (does not stack with normal criticals).",
+  "tooltip.slavicmyths.nine_mor.spear.primary": "RMB — Phantom Spears: 4 projectiles strike your marked target.",
+  "tooltip.slavicmyths.nine_mor.spear.secondary": "Shift + RMB — Circular Sweep: rotating spears hit nearby enemies.",
+  "tooltip.slavicmyths.nine_mor.axe.primary": "RMB — Mor Rift: a moving shockwave applies Wither.",
+  "tooltip.slavicmyths.nine_mor.axe.secondary": "Shift + RMB — Final Judgement: a phantom axe strikes targets at or below 35% health.",
+  "tooltip.slavicmyths.nine_mor.shield.passive": "Passive — Ninth Barrier: temporary absorption on block.",
+  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + RMB — Serpent Dome: a protective barrier for 6 s."
 }
