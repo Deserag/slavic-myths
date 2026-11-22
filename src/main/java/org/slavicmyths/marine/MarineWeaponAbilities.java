@@ -58,11 +58,19 @@ public final class MarineWeaponAbilities {
    MarineAnchorVisuals.show(p,target==null?p.getEyePosition().add(p.getLookAngle().scale(range)):target.getEyePosition());
    if(target!=null){p.getPersistentData().putUUID(PREFIX+"anchorTarget",target.getUUID());p.getPersistentData().putLong(PREFIX+"anchorImpact",p.serverLevel().getGameTime()+7);}
    return;
-  }  if(!p.isShiftKeyDown()){
-   if(ready(p,"staffShot",40)){wear(p,1);var d=p.getPersistentData();Vec3 at=p.getEyePosition(),v=p.getLookAngle().scale(1.2);
-    d.putInt(PREFIX+"shotTicks",15);d.putDouble(PREFIX+"sx",at.x);d.putDouble(PREFIX+"sy",at.y);d.putDouble(PREFIX+"sz",at.z);d.putDouble(PREFIX+"sdx",v.x);d.putDouble(PREFIX+"sdy",v.y);d.putDouble(PREFIX+"sdz",v.z);
-   }return;
   }
+  // Legacy ordinary right-click requests and the new four-action router use
+  // exactly the same server ability implementations and cooldown ledger.
+  if(p.isShiftKeyDown()) staffVortex(p); else staffShot(p);
+ }
+ public static void staffShot(ServerPlayer p){
+  if(!p.getMainHandItem().is(MarineWeapons.STAFF.get()))return;
+  if(ready(p,"staffShot",40)){wear(p,1);var d=p.getPersistentData();Vec3 at=p.getEyePosition(),v=p.getLookAngle().scale(1.2);
+   d.putInt(PREFIX+"shotTicks",15);d.putDouble(PREFIX+"sx",at.x);d.putDouble(PREFIX+"sy",at.y);d.putDouble(PREFIX+"sz",at.z);d.putDouble(PREFIX+"sdx",v.x);d.putDouble(PREFIX+"sdy",v.y);d.putDouble(PREFIX+"sdz",v.z);
+  }
+ }
+ public static void staffVortex(ServerPlayer p){
+  if(!p.getMainHandItem().is(MarineWeapons.STAFF.get()))return;
   boolean water=false;for(var pos:BlockPos.betweenClosed(p.blockPosition().offset(-6,-6,-6),p.blockPosition().offset(6,6,6)))if(pos.distSqr(p.blockPosition())<=36&&p.level().getFluidState(pos).is(FluidTags.WATER)){water=true;break;}
   if(!water)return;var target=aim(p,24);if(target==null)target=p.getLastHurtMob();if(target==null||!target.isAlive()||p.distanceToSqr(target)>32*32||!Abilities.canHit(p,target)||!p.hasLineOfSight(target))return;
   if(p.getPersistentData().hasUUID(PREFIX+"vortexTarget")||!ready(p,"vortex",500))return;wear(p,3);var data=p.getPersistentData();data.putUUID(PREFIX+"vortexTarget",target.getUUID());data.putLong(PREFIX+"vortexTravelEnd",p.serverLevel().getGameTime()+80);data.putLong(PREFIX+"vortexUntil",0);Vec3 at=p.getEyePosition();data.putDouble(PREFIX+"vx",at.x);data.putDouble(PREFIX+"vy",at.y);data.putDouble(PREFIX+"vz",at.z);
