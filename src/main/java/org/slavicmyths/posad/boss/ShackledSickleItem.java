@@ -36,10 +36,10 @@ public final class ShackledSickleItem extends SwordItem {
     }
     @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<Component> lines,TooltipFlag flag){
         super.appendHoverText(stack,context,lines,flag);
-        lines.add(Component.literal("ПКМ: бросить серп на цепи (24 урона), притянуть врага").withStyle(net.minecraft.ChatFormatting.AQUA));
-        lines.add(Component.literal("Захват: цель до 4 блоков высотой, до 22 блоков вдали").withStyle(net.minecraft.ChatFormatting.GRAY));
-        lines.add(Component.literal("Shift + ПКМ: разрыв цепи (36 урона + волна 14)").withStyle(net.minecraft.ChatFormatting.GOLD));
-        lines.add(Component.literal("Цепь возвращается к владельцу; 8.5 / 16 сек. перезарядка").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        lines.add(Component.translatable("tooltip.slavicmyths.mytar.throw").withStyle(net.minecraft.ChatFormatting.AQUA));
+        lines.add(Component.translatable("tooltip.slavicmyths.mytar.grab").withStyle(net.minecraft.ChatFormatting.GRAY));
+        lines.add(Component.translatable("tooltip.slavicmyths.mytar.rupture").withStyle(net.minecraft.ChatFormatting.GOLD));
+        lines.add(Component.translatable("tooltip.slavicmyths.mytar.cooldowns").withStyle(net.minecraft.ChatFormatting.YELLOW));
         lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(net.minecraft.ChatFormatting.GRAY));
     }
 }
