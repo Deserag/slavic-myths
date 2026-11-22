@@ -61,6 +61,9 @@ public final class MorovoyStaff {
     public static final class Staff extends Item implements WeaponInputHandler {
         public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
         @Override public Component getName(ItemStack stack){return Component.literal("Посох Мора");}
+        // Explicitly take ownership of all four inputs; never fall back to
+        // vanilla attack, block interaction or item use.
+        @Override public boolean intercepts(WeaponInputHandler.Action action) { return true; }
         private int mode(ItemStack stack) {return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1?1:0;}
         private void mode(ItemStack stack,int value) {CustomData.update(DataComponents.CUSTOM_DATA,stack,n->n.putInt("MorovoyStaffMode",value));}
         private static boolean cooldown(ServerPlayer player,String id,long duration){
