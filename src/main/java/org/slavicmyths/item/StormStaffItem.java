@@ -31,6 +31,7 @@ public final class StormStaffItem extends org.slavicmyths.combat.CombatStaffItem
     public StormStaffItem(Properties properties) { super(properties,6,14); }
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        if (hand != InteractionHand.MAIN_HAND) return InteractionResultHolder.pass(stack);
         if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
         if (!world.isClientSide) {
             Vec3 start = player.getEyePosition(1.0F); Vec3 look = player.getLookAngle();
