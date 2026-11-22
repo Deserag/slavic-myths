@@ -129,16 +129,16 @@ public final class BossRewardWeapons {
         @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<Component> lines,TooltipFlag flag){
             super.appendHoverText(stack,context,lines,flag);
             if(scythe){
-                lines.add(Component.literal("Удар: иссушение II, слабость и метка душ").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
-                lines.add(Component.literal("Повторный удар по метке: +9 магического урона").withStyle(net.minecraft.ChatFormatting.AQUA));
-                lines.add(Component.literal("Удержать ПКМ → отпустить: жатва — 35 урона, радиус 5,4, откат 9 с").withStyle(net.minecraft.ChatFormatting.GOLD));
-                lines.add(Component.literal("Shift + ПКМ: разрез — 53 урона, дальность 7, откат 13 с").withStyle(net.minecraft.ChatFormatting.YELLOW));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.neveya.passive").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.neveya.mark").withStyle(net.minecraft.ChatFormatting.AQUA));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.neveya.charge").withStyle(net.minecraft.ChatFormatting.GOLD));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.neveya.shift").withStyle(net.minecraft.ChatFormatting.YELLOW));
             }else{
-                lines.add(Component.literal("Удар: замедление; перелом руки игроков").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
-                lines.add(Component.literal("ПКМ: удар по земле — 24 урона, радиус 4, откат 7,5 с").withStyle(net.minecraft.ChatFormatting.GOLD));
-                lines.add(Component.literal("Два молота + ПКМ: волна — 32 урона, радиус 5,6, откат 9,5 с").withStyle(net.minecraft.ChatFormatting.YELLOW));
-                lines.add(Component.literal("Два молота + Shift + ПКМ: разлом — 44 урона, откат 13 с").withStyle(net.minecraft.ChatFormatting.AQUA));
-                lines.add(Component.literal("Два молота: дополнительный удар второй рукой").withStyle(net.minecraft.ChatFormatting.GRAY));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.passive").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.slam").withStyle(net.minecraft.ChatFormatting.GOLD));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.dual").withStyle(net.minecraft.ChatFormatting.YELLOW));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.shift").withStyle(net.minecraft.ChatFormatting.AQUA));
+                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.offhand").withStyle(net.minecraft.ChatFormatting.GRAY));
             }
             lines.add(Component.literal("Рунные слоты: "+org.slavicmyths.rpg.Runes.slots(stack)+" / 3").withStyle(net.minecraft.ChatFormatting.GRAY));
         }
