@@ -128,7 +128,7 @@ public final class MorovoyStaff {
                 var impact=target.getBoundingBox().inflate(.35).clip(eye,end);
                 if(impact.isPresent()&&eye.distanceToSqr(impact.get())<nearest){nearest=eye.distanceToSqr(impact.get());chosen=target;}
             }
-            if(chosen!=null&&chosen.hurt(player.damageSources().indirectMagic(player,player),element==0?8F:11F)){
+            if(chosen!=null&&chosen.hurt(player.damageSources().indirectMagic(player,player),element==0?11F:14F)){
                 player.setLastHurtMob(chosen);
                 if(element==0){
                     chosen.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WITHER,80,0),player);
@@ -151,7 +151,7 @@ public final class MorovoyStaff {
             int existing=world.getEntitiesOfClass(MorovoyRaven.class,player.getBoundingBox().inflate(40),bird->bird.summonedBy(player)).size();
             int amount=Math.min(3,3-existing);
             if(amount<=0){player.displayClientMessage(Component.literal("Моровая стая уже призвана"),true);return;}
-            if(!cooldown(player,"flock",900))return;
+            if(!cooldown(player,"flock",700))return;
             for(int i=0;i<amount;i++){
                 MorovoyRaven bird=MorovoyRavenContent.MINION.get().create(world);
                 if(bird==null)continue;
@@ -165,7 +165,7 @@ public final class MorovoyStaff {
 
         private void area(ServerPlayer player,Vec3 center,ItemStack held){
             if(center.distanceToSqr(player.position())>20*20){player.displayClientMessage(Component.literal("Слишком далеко для удара"),true);return;}
-            if(!cooldown(player,"area",800))return;
+            if(!cooldown(player,"area",600))return;
             ServerLevel world=player.serverLevel();
             var targets=world.getEntitiesOfClass(LivingEntity.class,new AABB(center,center).inflate(5),
                 target->legal(player,target)&&target.distanceToSqr(center)<=25);
@@ -187,10 +187,10 @@ public final class MorovoyStaff {
             super.appendHoverText(stack,context,lines,flag);
             boolean fire=mode(stack)==1;
             lines.add(Component.literal(fire?"✦ СТИХИЯ: ОГОНЬ":"✦ СТИХИЯ: МОР").withStyle(fire?ChatFormatting.GOLD:ChatFormatting.DARK_PURPLE));
-            lines.add(Component.literal(fire?"11 урона • поджог на 5 секунд":"8 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
+            lines.add(Component.literal(fire?"14 урона • поджог на 5 секунд":"11 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
             lines.add(Component.literal(fire?
-                "Shift+ЛКМ: буря — 12 урона, радиус 5, откат 40 с":
-                "Shift+ЛКМ: стая — до 3 воронов, откат 45 с").withStyle(ChatFormatting.DARK_AQUA));
+                "Shift+ЛКМ: буря — 12 урона, радиус 5, откат 30 с":
+                "Shift+ЛКМ: стая — до 3 воронов, откат 35 с").withStyle(ChatFormatting.DARK_AQUA));
         }
     }
     private MorovoyStaff(){}
