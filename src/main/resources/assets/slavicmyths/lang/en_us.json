@@ -666,7 +666,7 @@
   "book.slavicmyths.pool_pearl.title": "Pearl of the Pool",
   "book.slavicmyths.pool_pearl.text": "Victory guarantees three pearls, enough for spear, amulet and net. A defeated pool does not respawn its master after reloading. This is a rare material, not a complete equipment tier.",
   "book.slavicmyths.pool_spear.title": "Pool spear",
-  "book.slavicmyths.pool_spear.text": "On land it is a slow, strong spear. In water, hold use for at least 0.8 seconds and release for a short thrust: up to 9 damage to a nearby target ahead, six-second cooldown and durability cost. Movement respects walls.",
+  "book.slavicmyths.pool_spear.text": "On land it is a slow, strong spear. In water, hold use for at least 0.8 seconds and release for a short thrust: up to 12 damage to a nearby target ahead, six-second cooldown and durability cost. Movement respects walls.",
   "book.slavicmyths.depth_amulet.title": "Depth amulet",
   "book.slavicmyths.depth_amulet.text": "Curios necklace slot. Extends normal air supply by roughly one third without granting endless breathing. Reduces Rusalka pull by 30% and weakens the Elder’s pull. The Vodyanoy net briefly slows ordinary targets, more strongly in water; bosses are immune.",
   "depth.slavicmyths.hint.unknown": "The sign is quiet. Explore deep rivers and swamps.",
