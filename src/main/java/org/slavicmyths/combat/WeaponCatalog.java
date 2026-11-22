@@ -43,7 +43,7 @@ public final class WeaponCatalog {
                     case "spear" -> new org.slavicmyths.item.SpearItem(m.tier(),m.id().equals("netherite")?10F:m.id().equals("perunite")?8.5F:4+m.tier().getAttackDamageBonus(),properties(m.id()));
                     case "sulitsa" -> new ThrowingWeaponItem(m.tier(),false,properties(m.id()));
                     case "throwing_knife" -> new ThrowingWeaponItem(m.tier(),true,properties(m.id()));
-                    default -> new FlailItem(m.tier(),properties(m.id()),m.id().equals("netherite")?1.3F:m.id().equals("perunite")?1.35F:1F);
+                    default -> new FlailItem(m.tier(),properties(m.id()),m.id().equals("netherite")?1.3F:m.id().equals("perunite")?1.35F:m.id().equals("diamond")?1.15F:1F);
                 }));
             }
         }
