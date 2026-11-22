@@ -48,6 +48,9 @@ def main():
     for color in ["0xE4E4E7", "0x55FFFF", "0xAA55FF", "0xFFAA00", "0xD4AF37", "0xFF5555", "0x55FF55", "0xAAAAAA", "0xFFFF55"]:
         assert color in src, "missing color " + color
     ru, en = load_locale("ru_ru"), load_locale("en_us")
+    for item_id in ids:
+        key = "item.slavicmyths." + item_id
+        assert key in ru and key in en, "missing bilingual weapon name: " + key
     refs = set()
     for source in [NINE, SISTERS, MYTAR, REWARD, STORM]:
         refs.update(re.findall(r'Component.translatable\("(tooltip\.slavicmyths\.[^"]+)"', source.read_text(encoding="utf-8")))
