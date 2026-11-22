@@ -186,11 +186,10 @@ public final class MorovoyStaff {
         @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> lines,TooltipFlag flag) {
             super.appendHoverText(stack,context,lines,flag);
             boolean fire=mode(stack)==1;
-            lines.add(Component.literal(fire?"✦ СТИХИЯ: ОГОНЬ":"✦ СТИХИЯ: МОР").withStyle(fire?ChatFormatting.GOLD:ChatFormatting.DARK_PURPLE));
-            lines.add(Component.literal(fire?"14 урона • поджог на 5 секунд":"11 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal(fire?
-                "Shift+ЛКМ: буря — 12 урона, радиус 5, откат 30 с":
-                "Shift+ЛКМ: стая — до 3 воронов, откат 35 с").withStyle(ChatFormatting.DARK_AQUA));
+            lines.add(Component.translatable(fire?"tooltip.slavicmyths.morovoy.mode.fire":"tooltip.slavicmyths.morovoy.mode.mor"));
+            lines.add(Component.translatable(fire?"tooltip.slavicmyths.morovoy.bolt.fire":"tooltip.slavicmyths.morovoy.bolt.mor"));
+            lines.add(Component.translatable(fire?"tooltip.slavicmyths.morovoy.skill.fire":"tooltip.slavicmyths.morovoy.skill.mor"));
+            lines.add(Component.translatable("tooltip.slavicmyths.morovoy.switch"));
         }
     }
     private MorovoyStaff(){}
