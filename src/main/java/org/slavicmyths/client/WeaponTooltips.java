@@ -69,12 +69,16 @@ public final class WeaponTooltips {
             if (!isDescription(value)) continue;
             int color = categoryColor(value);
             MutableComponent line = Component.literal("");
-            Matcher controls = KEYS.matcher(value);
+            Matcher tokens = Pattern.compile(KEYS.pattern() + "|" + VALUES.pattern()).matcher(value);
             int from = 0;
-            while (controls.find()) {
-                if (from < controls.start()) line.append(colored(value.substring(from, controls.start()), color));
-                line.append(colored(controls.group(), CONTROL));
-                from = controls.end();
+            while (tokens.find()) {
+                if (from < tokens.start()) line.append(colored(value.substring(from, tokens.start()), color));
+                String token = tokens.group();
+                int tokenColor = KEYS.matcher(token).matches() ? CONTROL
+                    : token.toLowerCase(java.util.Locale.ROOT).matches(".*(урона|damage).*") ? DAMAGE
+                    : MUTED;
+                line.append(colored(token, tokenColor));
+                from = tokens.end();
             }
             if (from < value.length()) line.append(colored(value.substring(from), color));
             // Display-only components re-evaluate from localized text on every client tooltip event.
