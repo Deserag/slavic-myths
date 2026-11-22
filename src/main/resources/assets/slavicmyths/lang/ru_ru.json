@@ -231,7 +231,7 @@
   "tooltip.slavicmyths.weapon.perunite_mace": "Тяжёлые перунитовые сегменты. Медленные удары.",
   "tooltip.slavicmyths.weapon.berdysh": "Тяжёлое древковое рубящее оружие.",
   "tooltip.slavicmyths.weapon.carved_staff": "Длинный посох из резного дерева.",
-  "tooltip.slavicmyths.weapon.storm_staff": "Базовый разряд: 6 магического урона. Перезарядка: 3 с.",
+  "tooltip.slavicmyths.weapon.storm_staff": "ПКМ — грозовой импульс: 11 магического урона, дальность 7 блоков, перезарядка 1,6 с (1,4 с при действующей руне).",
   "tooltip.slavicmyths.weapon.retainer_shield": "Удерживайте ПКМ для защиты спереди.",
   "tooltip.slavicmyths.weapon.perunite_shield": "Прочный щит. Удерживайте ПКМ для защиты спереди.",
   "block.slavicmyths.bath_stove": "Печь-каменка",
@@ -2037,7 +2037,7 @@
   "item.slavicmyths.victor_spear": "Копьё победителя",
   "item.slavicmyths.ataman_sign": "Знак атамана",
   "tooltip.slavicmyths.weapon.tugarin_sword": "Пара клинков в одном слоте: в руках по клинку; +40% урона полной атаки и кровотечение до 3 стаков (0,5 HP каждые 2 с, 6 с). Предмет из дополнительной руки сохраняется до переключения.",
-  "tooltip.slavicmyths.weapon.likho_staff": "В руках: +1 HP раз в 9 с. ПКМ: морок до 12 блоков, стан 1,25 с, дезориентация 6 с; КД 28 с.",
+  "tooltip.slavicmyths.weapon.likho_staff": "В руках: +1 HP раз в 9 с. ПКМ — морок до 12 блоков: оглушение 1,25 с, дезориентация 6 с; перезарядка 22 с.",
   "tooltip.slavicmyths.weapon.ataman_flail": "Полные попадания: до 3 стаков Размаха. Следующий удар +35% урона, сильный толчок и давление на щит. Пауза 4 с сбрасывает серию.",
   "tooltip.slavicmyths.weapon.victor_spear": "Полный удар дальше 3 блоков от края цели: повторный выпад по той же цели без задержки в течение 1,25 с; КД 8 с.",
   "effect.slavicmyths.rare_bleeding": "Кровотечение",
@@ -6798,5 +6798,13 @@
   "item.slavicmyths.mytar_sickle": "Серп Мытаря",
   "item.slavicmyths.mytar_shackled_sickle": "Оковный серп",
   "item.slavicmyths.mytar_chain": "Цепь Мытаря",
-  "enchantment.slavicmyths.range": "Дальность"
+  "enchantment.slavicmyths.range": "Дальность",
+  "tooltip.slavicmyths.weapon.elder_serpent": "Высшее существо • исключительное оружие",
+  "tooltip.slavicmyths.nine_mor.spear.passive": "Пассивно: критический удар ×1,5 (не суммируется с обычным).",
+  "tooltip.slavicmyths.nine_mor.spear.primary": "ПКМ — Призрачные копья: 4 снаряда атакуют отмеченную цель.",
+  "tooltip.slavicmyths.nine_mor.spear.secondary": "Shift + ПКМ — Круговой удар: вращающиеся копья поражают ближайших врагов.",
+  "tooltip.slavicmyths.nine_mor.axe.primary": "ПКМ — Разлом Мора: ударная волна с иссушением.",
+  "tooltip.slavicmyths.nine_mor.axe.secondary": "Shift + ПКМ — Последний приговор: призрачная секира поражает цель с запасом здоровья не более 35%.",
+  "tooltip.slavicmyths.nine_mor.shield.passive": "Пассивно — Девятый заслон: временное поглощение при блокировании.",
+  "tooltip.slavicmyths.nine_mor.shield.active": "Shift + ПКМ — Змеиный купол: защитный барьер на 6 с."
 }
