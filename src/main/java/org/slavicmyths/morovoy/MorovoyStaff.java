@@ -4,13 +4,12 @@ import java.util.Comparator;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,10 +20,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import org.slavicmyths.combat.WeaponInputHandler;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -32,6 +35,7 @@ import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.sisters.SistersContent;
 
 /** Composed Raven+Fire Serpent staff: separate fire/Mor modes, real owned birds and area strike. */
+@EventBusSubscriber(modid = "slavicmyths")
 public final class MorovoyStaff {
     public static final DeferredHolder<Item,Item> STAFF = ModItems.ITEMS.register("morovoy_staff", Staff::new);
     public static final DeferredHolder<Item,Item> CONDUCTOR = ModItems.ITEMS.register("morovoy_conductor", () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
@@ -58,7 +62,7 @@ public final class MorovoyStaff {
             .build();
     }
 
-    public static final class Staff extends Item {
+    public static final class Staff extends Item implements WeaponInputHandler {
         public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
         @Override public Component getName(ItemStack stack){return Component.literal("Посох Мора");}
         private int mode(ItemStack stack) {return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getInt("MorovoyStaffMode")==1?1:0;}
@@ -83,20 +87,19 @@ public final class MorovoyStaff {
                 player.getX(),player.getEyeY()-.2,player.getZ(),10,.24,.22,.24,.015);
         }
 
-        @Override public InteractionResultHolder<ItemStack> use(Level level,net.minecraft.world.entity.player.Player player,InteractionHand hand) {
-            ItemStack held=player.getItemInHand(hand);
-            if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(held);
-            if(player instanceof ServerPlayer server) {
-                if(server.isShiftKeyDown())switchMode(server,held);
-                else bolt(server,held);
+        @Override public void onWeaponAction(ServerPlayer player, ItemStack held, WeaponInputHandler.Action action) {
+            if (held != player.getMainHandItem() || !player.isAlive() || player.isSpectator()) return;
+            switch (action) {
+                case LEFT_CLICK -> bolt(player, held);
+                case RIGHT_CLICK -> switchMode(player, held);
+                case SHIFT_LEFT_CLICK -> summon(player, held);
+                case SHIFT_RIGHT_CLICK -> area(player, aimPoint(player), held);
             }
-            return InteractionResultHolder.sidedSuccess(held,level.isClientSide);
         }
 
-        @Override public InteractionResult useOn(UseOnContext context) {
-            if(context.getHand()!=InteractionHand.MAIN_HAND||context.getPlayer()==null||!context.getPlayer().isShiftKeyDown())return InteractionResult.PASS;
-            if(context.getPlayer() instanceof ServerPlayer player) switchMode(player,context.getItemInHand());
-            return InteractionResult.SUCCESS;
+        // Magic staffs do not mine blocks when the attack key is held.
+        @Override public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
+            return false;
         }
 
         private Vec3 aimPoint(ServerPlayer player) {
@@ -191,5 +194,15 @@ public final class MorovoyStaff {
             lines.add(Component.literal("Стая: до 3 воронов (45 с)   |   Буря: 12 урона в радиусе 5 (40 с)").withStyle(ChatFormatting.DARK_AQUA));
         }
     }
+
+    // A forged vanilla attack packet must not add a melee hit to the bolt action.
+    @SubscribeEvent public static void blockVanillaMelee(PlayerInteractEvent.AttackEntity event) {
+        if (event.getEntity().getMainHandItem().getItem() instanceof Staff) event.setCanceled(true);
+    }
+
+    @SubscribeEvent public static void blockVanillaMining(PlayerInteractEvent.LeftClickBlock event) {
+        if (event.getEntity().getMainHandItem().getItem() instanceof Staff) event.setCanceled(true);
+    }
+
     private MorovoyStaff(){}
 }
