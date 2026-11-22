@@ -60,7 +60,7 @@ public final class PharaohkaTrident extends TridentItem {
                 entity -> entity != direct && entity != owner && entity.isAlive()
                     && entity.distanceToSqr(center) <= RADIUS * RADIUS
                     && Abilities.canHit(owner, entity))) {
-            target.hurt(owner.damageSources().trident(null, owner), 4.0F);
+            target.hurt(owner.damageSources().trident(null, owner), 8.0F);
             if (++affected >= 5) break;
         }
         level.sendParticles(ParticleTypes.SPLASH, center.x, center.y + .4, center.z,
