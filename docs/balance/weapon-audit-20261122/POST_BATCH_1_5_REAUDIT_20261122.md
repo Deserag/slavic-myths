@@ -16,14 +16,14 @@
 - Current `combat/RareWeapons.java` + `combat/RareCombat.java`: `tugarin_sword` damage 10, speed 1.8, conditional 1.4× fully charged hit and bleeding; `bandit/NightingaleDagger.java`: 10 damage, 2.0 attacks/s and wind-wave utility.
 - Nominal plain melee DPS: Kalin 11.7 vs Tugarin 18 and Nightingale 20 (respectively ~54% and ~71% higher than Kalin), without accounting for Tugarin bleed.
 - Boss context: `kalin/KalinEntity.java` exposes a fixed max HP pool of 1800, multiple phases, mounted state and soldiers; `hunt/BossKind.java` Tugarin HP 400; `bandit/NightingaleEntity.java` Nightingale HP 350. This is **not** a complete difficulty ranking but strongly warrants a review of reward strength.
-- `docs/specs/1.7.6/03_Boss_Trophies/14_trophy_kalin_sabre.md` defines a three-stack kill-based Momentum mechanic, unlike current RMB wave. `tools/verify_weapons87_kalin_wave.py` intentionally asserts Momentum is absent: it was an explicit earlier implementation divergence, not merely forgotten code. **Confirm approved intended kit** with owner before reintroducing it. User wishes at least two distinct valuable abilities for this high-tier weapon. Preserve current wave unless a replacement is explicitly approved.
+- `docs/specs/1.7.6/03_Boss_Trophies/14_trophy_kalin_sabre.md` defines a three-stack kill-based Momentum mechanic, unlike current RMB wave. `tools/verify_weapons87_kalin_wave.py` intentionally asserts Momentum is absent: it was an explicit earlier implementation divergence, not merely forgotten code. **User has explicitly required at least two distinct substantive abilities for the Warlord Saber.** Implement a second meaningful skill while retaining the existing wave unless incompatible; evaluate the prior Momentum concept against present code and choose a compatible design. Do not blindly restore deprecated logic that the existing test explicitly prohibits. Update that test to match the final intended two-skill specification and avoid asking the owner again for requirements already provided.
 - Action: agree intended 2-skill design and progression target; review melee damage, attack rate, abilities and interactions with knockback/cooldown/runes/PvP; implement independent tests for both skills, no fictional stat claims.
 
 ### P0 / B02 — Batch 3 Morozko projectile 'damage buff' actually changed cold buildup, not damage
 
 - `morozko/FrostShard.java`: `launch(LivingEntity,Vec3,float damage,int cold,UUID)`.
 - `morozko/FrostSkills.java`: `FrostShard.launch(p, ..., 7, 11, null)`: **7 direct damage, 11 cold**, not 11 damage.
-- Batch 3 replaced old `...,7,8,null` with `...,7,11,null` and documented “player bolt 8→11 damage” in `IMPLEMENTATION_BATCH_3.md` and `FINAL_BALANCE_SUMMARY.md`. That documentation is factually incorrect. The change increases cold buildup 8→11 instead.
+- The actual batch-3 commit [`162eec650`](https://github.com/Deserag/slavic-myths/commit/162eec6504437ab28da75074571df8516a1e9099) explicitly replaced old `...,7,8,null` with `...,7,11,null` and documented “player bolt 8→11 damage” in `IMPLEMENTATION_BATCH_3.md` and `FINAL_BALANCE_SUMMARY.md`. That documentation is factually incorrect. The change increases cold buildup 8→11 instead.
 - `morozko/FrostCold.java`: cold buildup affects slow/weakness tiers and conditional aura damage; therefore it is **not** a harmless numerical typo.
 - `morozko/FrostHazard.java`: separately, player wave damage currently 7 and falling icicles damage 8; these are correct distinct source fields and must **not** be mixed up with cold values.
 - Action: check expected projectile damage against encounter and other skills; decide whether to preserve/revert raised cold, and whether actual direct damage 7 needs a change. Add a test that checks damage and cold parameters separately. Correct reports and any incorrect tooltips.
@@ -90,3 +90,27 @@
 6. Add targeted tests for key abilities and run `./gradlew clean build --no-daemon` / GitHub Actions, then perform Minecraft in-game tests if available; report unperformed test types explicitly.
 
 This file records **audit findings only**. No gameplay/source changes in this audit. Success of GitHub Actions is not proof of balance.
+
+## Extended recheck — concrete source references and audit caveats
+
+### E01: Evidence on source snapshot, not just notes
+
+- `kalin/KalinEntity.java` `getMaxHealth()` returns 1800; `hunt/BossKind.java` sets Tugarin HP to 400; `bandit/NightingaleEntity.java` sets Nightingale HP to 350. Their health totals differ substantially, but survivability and encounter complexity also depend on armor, mechanics, helpers and progression. Compare effective combat difficulty, not only HP.
+- `combat/RareCombat.java` gives Tugarin +40% charged-attack damage and applies stacking bleeding after fully charged melee hits. `rewards/RewardContent.java` has no analogous event/charge logic for the Kalin saber, only its right-click sweep. The saber's current balance gap is source-verifiable.
+- The former Momentum text still exists in English `item.slavicmyths.trophy_kalin_sabre.desc`, even though live `tooltip.slavicmyths.kalin.sabre` describes the new sweep. `compat/JeiRunes.java` directly exposes the generic `.desc` translation for reward items through JEI ingredient info.
+- The updated official `.github/workflows/weapon-skill-input-standard.yml` runs catalog/input routing, tooltip palette/localization checks, and `./gradlew clean build --no-daemon`. Neither route is an automated comparative DPS / reward-tier test.
+- `combat/FlailItem.java` uses a separate `LivingEntity.hurt` call for charged impact after resetting player attack strength. This is a specific test target for enchantment, cooldown and crit behavior. The charge numbers in R04 are not intended effective damage measurements.
+
+### E02: What should *not* be reported as established failures
+
+- `karachun/NightScythe.java` sets base nominal melee to 16; `karachun/NightCombat.java` derives special damage from attack attributes plus configurable `NightConfig.baseDamage`. Its final numerical output varies with configuration, enchantments and target type: lack of a static fixed skill damage number is not itself a bug.
+- `morovoy/MorovoyStaff.java` currently defines 11/14 base bolt damage, 12 area damage and 700/600-tick summon/area cooldowns. No swapped method parameters were found in this focused review; no general buff is justified without tests.
+- `marine/MarineWeapons.java` currently defines Abyss Staff direct pulse 8 and cooldown 140 ticks. `depth/PoolSpear.java` uses standard hit 11 and water-only charged 12. The reviewed phase-two values match their reports.
+- `item/ThunderAxeItem.java` has +2 proc damage at a 60-tick cooldown and the stronger base axe attributes. `item/ThunderSpearCombat.java` has +2 discharge with 120-tick cooldown. These are conditional bonuses, not base melee damage; do not add them to every hit in a comparative table.
+
+### E03: Concrete implementation handoff
+
+- Unit-check expected `FrostShard.launch` positional signature: fourth argument `cold`; create a regression test which fails if cold values are labelled as damage in `FrostSkills` and batch reports.
+- Introduce a source-grounded test for the finalized **two distinct** Kalin skills and for relative damage targets of the saber vs comparable high-tier rewards. Remove/replace the old `verify_weapons87_kalin_wave.py` assumption deliberately, not accidentally.
+- After correcting B01/B02, search `ru_ru.json`, `en_us.json`, JEI ingredient descriptions, and generated tooltip strings for old numeric or removed-skill descriptions. A successfully parsed localization file can still misstate gameplay.
+- Test combat in representative single-target, group, player-with-rune, boss-resistant and multiplayer contexts. Record reproducible observed damage/time-to-kill before proclaiming full balance readiness.
