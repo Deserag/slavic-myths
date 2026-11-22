@@ -48,3 +48,14 @@ Static checks and CI builds establish source consistency and compilation only wh
 Remaining review before release: visually inspect a plain item, one rare and one epic, one weapon from each of the three elder-serpent groups, a renamed weapon, a charged ranged item, and both Russian and English client locales. Verify ability activation, damage values and cooldowns in game, especially dynamic rune bonuses. If discrepancies remain, make **text-only** fixes rather than changing balance.
 
 This report covers weapons only; armor and accessories are deferred to a separate task.
+
+
+## Additional completed localization and coverage
+
+- `morovoy/MorovoyStaff.java`: both elemental modes' active skill titles, damage, cooldown and `Shift + ЛКМ` / `Shift + ПКМ` combinations moved to RU/EN keys; conductor and staff display names now use translatable components ([0d5ca6c](https://github.com/Deserag/slavic-myths/commit/0d5ca6c1422aa7c660d6c1a073bfe3a28cb77eef), [dbbd32f](https://github.com/Deserag/slavic-myths/commit/dbbd32fc89861f307fb60855335ede8bfff335fd)).
+- `nethersmithing/InfernalBow.java`: both standard and enhanced bows use translated descriptions for draw duration, basic projectile damage, burning/slowness and charged skill rather than fixed Russian text ([50a03f2](https://github.com/Deserag/slavic-myths/commit/50a03f2ad7bb313a65e40b3df14a362b83acf1f1)).
+- `sisters/BossRewardWeapons.java` and `posad/boss/ShackledSickleItem.java`: dynamic rune slot counts use `Component.translatable` instead of a Russian literal ([fb5189f](https://github.com/Deserag/slavic-myths/commit/fb5189fbcd89974e78d6ac329614bee0355bb734), [4b11339](https://github.com/Deserag/slavic-myths/commit/4b1133970ff0bb6c17d521705650f199b6bd4020)).
+- Missing catalog item names were added to both locales and validated with the strict automated checker; full per-ID coverage is recorded in [`CATALOG_COVERAGE.md`](CATALOG_COVERAGE.md) ([1d7103c](https://github.com/Deserag/slavic-myths/commit/1d7103ce3f0d7a04824bfc9249f765f9c89e035d)).
+- All five golden weapon IDs, all 102 standard item names in both languages and duplicate key detection are asserted in CI.
+
+The formatting standard remains **presentation-only**. No manually measured Minecraft-client screenshots or multilingual in-game layouts were produced. Legacy weapon classes not explicitly listed above still use their existing ability text, which the client formatter presents with a common semantic palette; a full dynamic skill-text audit remains a release QA concern.
