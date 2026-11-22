@@ -15,6 +15,6 @@ public final class MarineWeaponControls {
   @Override public Type<Secondary> type(){return TYPE;}
  }
  @SubscribeEvent public static void register(RegisterPayloadHandlersEvent event){event.registrar("1").playToServer(Secondary.TYPE,Secondary.CODEC,(payload,context)->context.enqueueWork(()->{
-  if(context.player() instanceof ServerPlayer player&&player.isAlive()&&!player.isSpectator())MarineWeaponAbilities.bubble(player);
+  if(context.player() instanceof ServerPlayer player&&player.isAlive()&&!player.isSpectator()&&player.isShiftKeyDown())MarineWeaponAbilities.bubble(player);
  }));}
 }

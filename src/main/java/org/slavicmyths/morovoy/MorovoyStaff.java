@@ -43,11 +43,11 @@ public final class MorovoyStaff {
     public static void handleAction(ServerPlayer player,int action) {
         if(!(player.getMainHandItem().getItem() instanceof Staff staff)||!player.isAlive()||player.isSpectator())return;
         ItemStack held=player.getMainHandItem();
-        switch(action) {
-            case 0 -> staff.switchMode(player,held);
-            case 1 -> staff.summon(player,held);
-            case 2 -> staff.area(player,staff.aimPoint(player),held);
-            default -> {}
+        // Shift+LMB is the only client skill packet. The equipped mode selects the effect.
+        // Shift+RMB switches the mode through the item's normal use/useOn handlers.
+        if(action==1 && player.isShiftKeyDown()){
+            if(staff.mode(held)==0)staff.summon(player,held);
+            else staff.area(player,staff.aimPoint(player),held);
         }
     }
 
@@ -188,7 +188,9 @@ public final class MorovoyStaff {
             boolean fire=mode(stack)==1;
             lines.add(Component.literal(fire?"✦ СТИХИЯ: ОГОНЬ":"✦ СТИХИЯ: МОР").withStyle(fire?ChatFormatting.GOLD:ChatFormatting.DARK_PURPLE));
             lines.add(Component.literal(fire?"11 урона • поджог на 5 секунд":"8 урона • Иссушение I (4 с) • Слабость I (5 с)").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal("Стая: до 3 воронов (45 с)   |   Буря: 12 урона в радиусе 5 (40 с)").withStyle(ChatFormatting.DARK_AQUA));
+            lines.add(Component.literal(fire?
+                "Shift+ЛКМ: буря — 12 урона, радиус 5, откат 40 с":
+                "Shift+ЛКМ: стая — до 3 воронов, откат 45 с").withStyle(ChatFormatting.DARK_AQUA));
         }
     }
     private MorovoyStaff(){}
