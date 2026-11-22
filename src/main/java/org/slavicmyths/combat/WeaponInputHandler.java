@@ -2,6 +2,7 @@ package org.slavicmyths.combat;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.HitResult;
 
 /**
  * One authoritative, four-action contract for weapons with active abilities.
@@ -34,6 +35,14 @@ public interface WeaponInputHandler {
      * an ordinary melee hit or a held right-click charge/stream).
      */
     default boolean intercepts(Action action) { return true; }
+
+    /**
+     * Some existing weapons preserve different LMB behavior in air and on a
+     * target (e.g. spell in air but ordinary melee on an entity).
+     */
+    default boolean intercepts(Action action, HitResult.Type target) {
+        return intercepts(action);
+    }
 
     void onWeaponAction(ServerPlayer player, ItemStack held, Action action);
 }
