@@ -35,14 +35,14 @@ def main():
     assert isinstance(catalog, (list, dict))
     # The historical inventory is the source of truth for the 102 known IDs.
     text = (ROOT / "docs/balance/weapon-audit-20261122/CATALOG.md").read_text(encoding="utf-8")
-    ids = re.findall(r"^\\| ([a-z0-9_]+) \\|", text, flags=re.M)
+    ids = re.findall(r"^\| ([a-z0-9_]+) \|", text, flags=re.M)
     assert len(ids) == len(set(ids)) == 102, "invalid catalog count"
     src = STYLE.read_text(encoding="utf-8")
-    match = re.search(r"WEAPONS = Set.of\\((.*?)\\);", src, flags=re.S)
+    match = re.search(r"WEAPONS = Set.of\((.*?)\);", src, flags=re.S)
     assert match, "missing weapon title palette"
     styled = re.findall(r'"([a-z0-9_]+)"', match.group(1))
     assert len(styled) == len(set(styled)) == 102 and set(styled) == set(ids), "catalog style coverage mismatch"
-    elder = re.search(r"ELDER_SERPENT_WEAPONS =\\s*Set.of\\((.*?)\\);", src, flags=re.S)
+    elder = re.search(r"ELDER_SERPENT_WEAPONS =\s*Set.of\((.*?)\);", src, flags=re.S)
     assert elder and set(re.findall(r'"([a-z0-9_]+)"', elder.group(1))) == GOLD
     assert "stack.has(DataComponents.CUSTOM_NAME)" in src, "custom name protection missing"
     for color in ["0xE4E4E7", "0x55FFFF", "0xAA55FF", "0xFFAA00", "0xD4AF37", "0xFF5555", "0x55FF55", "0xAAAAAA", "0xFFFF55"]:
@@ -50,7 +50,7 @@ def main():
     ru, en = load_locale("ru_ru"), load_locale("en_us")
     refs = set()
     for source in [NINE, SISTERS, MYTAR, REWARD, STORM]:
-        refs.update(re.findall(r'Component.translatable\\("(tooltip\\.slavicmyths\\.[^"]+)"', source.read_text(encoding="utf-8")))
+        refs.update(re.findall(r'Component.translatable\("(tooltip\.slavicmyths\.[^"]+)"', source.read_text(encoding="utf-8")))
     refs.add("tooltip.slavicmyths.weapon.elder_serpent")
     for key in refs:
         assert key in ru and key in en, "missing bilingual key " + key
