@@ -59,6 +59,33 @@ public final class WeaponSkillHud {
         "ashen_greatsword_blow", skillTexture("ashen_greatsword_blow"),
         "volcanic_heart_strike", skillTexture("volcanic_heart_strike")
     );
+    // Native 32x32 sprites for groups 5-8, target modes and passive equipment cues.
+    private static final Map<String, ResourceLocation> REMAINING_ICONS = Map.ofEntries(
+        Map.entry("navya_ostroga_lunge", skillTexture("navya_ostroga_lunge")),
+        Map.entry("shadow_throwing_knife_curse", skillTexture("shadow_throwing_knife_curse")),
+        Map.entry("infernal_bow_flame_arrow", skillTexture("infernal_bow_flame_arrow")),
+        Map.entry("empowered_infernal_bow_chainfire", skillTexture("empowered_infernal_bow_chainfire")),
+        Map.entry("storm_staff_thunder_pulse", skillTexture("storm_staff_thunder_pulse")),
+        Map.entry("veles_staff_forest_guardian", skillTexture("veles_staff_forest_guardian")),
+        Map.entry("likho_staff_morok_eye", skillTexture("likho_staff_morok_eye")),
+        Map.entry("poloz_whip_spikes", skillTexture("poloz_whip_spikes")),
+        Map.entry("poloz_whip_earth_rift", skillTexture("poloz_whip_earth_rift")),
+        Map.entry("trophy_kalin_sabre_sweeping_strike", skillTexture("trophy_kalin_sabre_sweeping_strike")),
+        Map.entry("nightingale_dagger_wind_gust", skillTexture("nightingale_dagger_wind_gust")),
+        Map.entry("pool_spear_underwater_dash", skillTexture("pool_spear_underwater_dash")),
+        Map.entry("mytar_shackled_sickle_throw", skillTexture("mytar_shackled_sickle_throw")),
+        Map.entry("mytar_shackled_sickle_chain_break", skillTexture("mytar_shackled_sickle_chain_break")),
+        Map.entry("nine_mor_shield_soul_dome", skillTexture("nine_mor_shield_soul_dome")),
+        Map.entry("three_breath_crossbow_triple_volley", skillTexture("three_breath_crossbow_triple_volley")),
+        Map.entry("three_breath_crossbow_mode_switch", skillTexture("three_breath_crossbow_mode_switch")),
+        Map.entry("finist_bow_homing_target", skillTexture("finist_bow_homing_target")),
+        Map.entry("finist_bow_manual_aim", skillTexture("finist_bow_manual_aim")),
+        Map.entry("victor_spear_marked_followup", skillTexture("victor_spear_marked_followup")),
+        Map.entry("thunder_axe_passive_lightning", skillTexture("thunder_axe_passive_lightning")),
+        Map.entry("thunder_spear_passive_discharge", skillTexture("thunder_spear_passive_discharge")),
+        Map.entry("zhelva_shield_perfect_guard", skillTexture("zhelva_shield_perfect_guard")),
+        Map.entry("serpent_crossbow_serpent_bolt", skillTexture("serpent_crossbow_serpent_bolt"))
+    );
     private static ResourceLocation skillTexture(String name) {
         return ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/gui/weapon_skills/" + name + ".png");
     }
@@ -120,16 +147,54 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("ashen_greatsword_blow", "S+R", tag.getLong("slavicmyths_skill_ashen_greatsword")-now));
             case "volcanic_heart_flail" ->
                 skills.add(new Skill("volcanic_heart_strike", "S+R", tag.getLong("slavicmyths_skill_volcanic_heart_flail")-now));
-            case "navya_ostroga", "shadow_throwing_knife", "infernal_bow", "empowered_infernal_bow" ->
-                skills.add(new Skill(id.getPath().contains("bow")?"fire":id.getPath().contains("flail")?"slam":"slash","S+R",tag.getLong("slavicmyths_skill_"+id.getPath())-now));
-            case "storm_staff", "thunder_axe", "thunder_spear", "veles_staff", "likho_staff", "trophy_kalin_sabre", "nightingale_dagger", "pool_spear", "zhelva_shield", "nine_mor_shield", "mytar_shackled_sickle" ->
-                skills.add(new Skill(id.getPath().contains("shield")?"bubble":id.getPath().contains("staff")?"shot":"slash","",-1));
-            case "poloz_whip" -> {skills.add(new Skill("ice","R",-1));skills.add(new Skill("wave","S+R",-1));}
-            case "three_breath_crossbow", "serpent_crossbow" -> {
-                int mode=Math.floorMod(tag.getCompound("Gorynych196").getInt("Mode"),3);
-                skills.add(new Skill("shot","R",-1));
-                if(id.getPath().equals("three_breath_crossbow"))skills.add(new Skill(mode==0?"raven":mode==1?"fire":"wave","S+R",0));
+            case "navya_ostroga" ->
+                skills.add(new Skill("navya_ostroga_lunge", "R", -1));
+            case "shadow_throwing_knife" ->
+                skills.add(new Skill("shadow_throwing_knife_curse", "S+R", -1));
+            case "infernal_bow" ->
+                skills.add(new Skill("infernal_bow_flame_arrow", "S+R", -1));
+            case "empowered_infernal_bow" ->
+                skills.add(new Skill("empowered_infernal_bow_chainfire", "S+R", -1));
+            case "storm_staff" ->
+                skills.add(new Skill("storm_staff_thunder_pulse", "R", -1));
+            case "veles_staff" ->
+                skills.add(new Skill("veles_staff_forest_guardian", "R", -1));
+            case "likho_staff" ->
+                skills.add(new Skill("likho_staff_morok_eye", "R", -1));
+            case "poloz_whip" -> {
+                skills.add(new Skill("poloz_whip_spikes", "R", -1));
+                skills.add(new Skill("poloz_whip_earth_rift", "S+R", -1));
             }
+            case "trophy_kalin_sabre" ->
+                skills.add(new Skill("trophy_kalin_sabre_sweeping_strike", "R", -1));
+            case "nightingale_dagger" ->
+                skills.add(new Skill("nightingale_dagger_wind_gust", "R", -1));
+            case "pool_spear" ->
+                skills.add(new Skill("pool_spear_underwater_dash", "R", -1));
+            case "mytar_shackled_sickle" -> {
+                skills.add(new Skill("mytar_shackled_sickle_throw", "R", -1));
+                skills.add(new Skill("mytar_shackled_sickle_chain_break", "S+R", -1));
+            }
+            case "nine_mor_shield" ->
+                skills.add(new Skill("nine_mor_shield_soul_dome", "S+R", -1));
+            case "three_breath_crossbow" -> {
+                skills.add(new Skill("three_breath_crossbow_triple_volley", "R", -1));
+                skills.add(new Skill("three_breath_crossbow_mode_switch", "S+R", 0));
+            }
+            case "serpent_crossbow" ->
+                skills.add(new Skill("serpent_crossbow_serpent_bolt", "R", -1));
+            case "finist_bow" -> {
+                skills.add(new Skill("finist_bow_homing_target", "R", -1));
+                skills.add(new Skill("finist_bow_manual_aim", "S+R", -1));
+            }
+            case "victor_spear" ->
+                skills.add(new Skill("victor_spear_marked_followup", "L", -1));
+            case "thunder_axe" ->
+                skills.add(new Skill("thunder_axe_passive_lightning", "", -1));
+            case "thunder_spear" ->
+                skills.add(new Skill("thunder_spear_passive_discharge", "", -1));
+            case "zhelva_shield" ->
+                skills.add(new Skill("zhelva_shield_perfect_guard", "R", -1));
             default -> {
                 if(!WeaponTooltips.isWeapon(id.getPath()))return;
                 boolean chargedWeapon=stack.getItem() instanceof org.slavicmyths.combat.FlailItem
@@ -161,6 +226,7 @@ public final class WeaponSkillHud {
         if (texture == null) texture = GROUP_TWO_ICONS.get(kind);
         if (texture == null) texture = GROUP_THREE_ICONS.get(kind);
         if (texture == null) texture = GROUP_FOUR_ICONS.get(kind);
+        if (texture == null) texture = REMAINING_ICONS.get(kind);
         if (texture != null) {
             // UV covers the full image; GUI size remains 16x16 and follows Minecraft GUI scale.
             g.blit(texture, x, y, 0.0F, 0.0F, 16, 16, 16, 16);
