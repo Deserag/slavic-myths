@@ -143,6 +143,7 @@ public final class NorthernWolverine extends Monster {
     }
     @Override public void tick(){
         super.tick();
+        setBoundingBox(makeBoundingBox());
         if(level().isClientSide||!isAlive())return;
         bar.setProgress(getHealth()/getMaxHealth());
         if(!phaseTwo()&&getHealth()<=400){entityData.set(PHASE_TWO,true);attackCooldown=35;playSound(SoundEvents.POLAR_BEAR_WARNING,2F,.6F);}
