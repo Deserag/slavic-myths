@@ -17,7 +17,20 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
         return result;
     }
     private void box(ModelPart part,int material,float x,float y,float z,float w,float h,float d){
-        geo.box(part,(material%4)*32,(material/4)*32,x,y,z,w,h,d);
+        // Each palette cell is 32x32. Subdivide oversized cuboids so their UVs
+        // never read adjacent material cells when viewed from different sides.
+        final float limit=7.5F;
+        for(float ix=0;ix<w;ix+=limit){
+            float sx=Math.min(limit,w-ix);
+            for(float iy=0;iy<h;iy+=limit){
+                float sy=Math.min(limit,h-iy);
+                for(float iz=0;iz<d;iz+=limit){
+                    float sz=Math.min(limit,d-iz);
+                    geo.box(part,(material%4)*32,(material/4)*32,
+                        x+ix,y+iy,z+iz,sx,sy,sz);
+                }
+            }
+        }
     }
     private final ModelPart root=part(null,0,18,0);
     private final ModelPart torso=part(root,0,-23,0);
