@@ -73,6 +73,7 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
     @Override public void setupAnim(NorthernWolverine entity,float walk,float amount,float age,float yaw,float pitch){
         torso.xRot=torso.yRot=0;torso.zRot=Mth.sin(walk*.5F)*amount*.045F;
         shoulder.xRot=shoulder.yRot=0;
+        head.setPos(0,-7,-12);
         head.xRot=Mth.clamp(pitch,-25,25)*Mth.DEG_TO_RAD*.5F;
         head.yRot=Mth.clamp(yaw,-35,35)*Mth.DEG_TO_RAD*.7F;
         jaw.xRot=0;
@@ -113,7 +114,6 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
             torso.xRot=.25F*pulse;head.xRot=.25F*pulse;
             for(int i=0;i<4;i++)upper[i].xRot=.3F*pulse;
         }
-        if(move==NorthernWolverine.IDLE)head.z=-12;
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer consumer,int light,int overlay,int color){
         root.render(pose,consumer,light,overlay,color);
