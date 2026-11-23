@@ -158,6 +158,8 @@ public final class GluheyaModel extends EntityModel<GluheyaBoss> {
             b(head,12,x,11.2F,k*2.7F-.48F,.85F,k==0?3.0F:2.1F,.96F);
         b(head,14,-.85F,9.7F,-5.08F,1.7F,1.9F,.75F);
         geo.attach(root,head);
+        // Preserve each joint's authored pivot when setupAnim resets its pose.
+        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
 
     @Override public void setupAnim(GluheyaBoss boss,float walk,float stride,float age,float yaw,float pitch){
