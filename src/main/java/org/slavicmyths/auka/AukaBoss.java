@@ -84,8 +84,9 @@ public final class AukaBoss extends Monster {
     public boolean wolf() { return form()==Form.WHITE_WOLF; }
     public int packElapsed() { return (int)(level().getGameTime()-wolfStarted); }
     public ServerPlayer victim() {
-        return challenger==null || !(level() instanceof ServerLevel world) ? null :
-            world.getServer().getPlayerList().getPlayer(challenger);
+        if(challenger==null || !(level() instanceof ServerLevel world))return null;
+        var player=world.getPlayerByUUID(challenger);
+        return player instanceof ServerPlayer server ? server : null;
     }
     @Override public EntityDimensions getDefaultDimensions(Pose pose) {
         return switch(form()) {
