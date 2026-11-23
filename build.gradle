@@ -890,3 +890,16 @@ if (project.hasProperty('marineVisual')) {
         programArgument 'MarineQA'
     } }
 }
+// Isolated northern wolverine #527 native GameTests; absent from production JAR.
+if (project.hasProperty('wolverineCheck')) {
+    sourceSets { wolverineCheck { java.srcDir 'tools/wolverine-tests'; resources.srcDir 'tools/accessories278-test-resources' } }
+    sourceSets.wolverineCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.wolverineCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileWolverineCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.wolverineCheck)
+    neoForge.runs { wolverineTests {
+        type = 'gameTestServer'
+        gameDirectory = file('run-wolverine-checks')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
+    } }
+}
