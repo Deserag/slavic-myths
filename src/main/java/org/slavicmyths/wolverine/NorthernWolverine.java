@@ -53,6 +53,13 @@ public final class NorthernWolverine extends Monster {
             .add(Attributes.MOVEMENT_SPEED,.29).add(Attributes.FOLLOW_RANGE,48)
             .add(Attributes.KNOCKBACK_RESISTANCE,.85).add(Attributes.STEP_HEIGHT,1.1);
     }
+    /** Oriented rectangular collision envelope: 4.5 blocks long and 2.35 blocks wide. */
+    @Override protected net.minecraft.world.phys.AABB makeBoundingBox(){
+        Vec3 d=getLookAngle();
+        double x=Math.abs(d.x)*2.25+Math.abs(d.z)*1.175;
+        double z=Math.abs(d.z)*2.25+Math.abs(d.x)*1.175;
+        return new net.minecraft.world.phys.AABB(getX()-x,getY(),getZ()-z,getX()+x,getY()+2.8,getZ()+z);
+    }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder){
         super.defineSynchedData(builder);
         builder.define(ACTION,IDLE);builder.define(CLOCK,0);builder.define(PHASE_TWO,false);
