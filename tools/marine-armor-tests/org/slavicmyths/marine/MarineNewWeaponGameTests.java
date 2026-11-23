@@ -285,12 +285,19 @@ public final class MarineNewWeaponGameTests {
  } @GameTest(template="empty",timeoutTicks=40) public static void pairedHammerSkillsRespectNewDamageAndCooldown(GameTestHelper t){
   var p=player(t);p.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);var cow=target(t);cow.getAttribute(Attributes.MAX_HEALTH).setBaseValue(1000);cow.setHealth(1000);
   var main=new ItemStack(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER.get());p.setItemInHand(InteractionHand.MAIN_HAND,main);p.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get()));
-  main.getItem().use(t.getLevel(),p,InteractionHand.MAIN_HAND);
-  t.assertTrue(Math.abs(cow.getHealth()-968)<.1,"Dual hammer wave is not 32 damage: "+cow.getHealth());
+  // Lomeya routes RMB actions through WeaponInputHandler, not Item.use.
+  var handler=(org.slavicmyths.combat.WeaponInputHandler)main.getItem();
+  handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.RIGHT_CLICK);
+  t.assertTrue(Math.abs(cow.getHealth()-972)<.1,"Dual hammer wave is not 28 damage: "+cow.getHealth());
   t.assertTrue(p.getCooldowns().isOnCooldown(main.getItem()),"Hammer skill has no cooldown");
-  float after=cow.getHealth();main.getItem().use(t.getLevel(),p,InteractionHand.MAIN_HAND);t.assertTrue(cow.getHealth()==after,"Skill bypassed its cooldown");
-  p.getCooldowns().removeCooldown(main.getItem());cow.invulnerableTime=0;p.setShiftKeyDown(true);main.getItem().use(t.getLevel(),p,InteractionHand.MAIN_HAND);
-  t.assertTrue(Math.abs(cow.getHealth()-(after-44))<.1,"Dual hammer fracture is not 44 damage");
+  float after=cow.getHealth();
+  handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.RIGHT_CLICK);
+  t.assertTrue(cow.getHealth()==after,"Skill bypassed its cooldown");
+  p.getCooldowns().removeCooldown(main.getItem());
+  cow.invulnerableTime=0;
+  p.setShiftKeyDown(true);
+  handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.SHIFT_RIGHT_CLICK);
+  t.assertTrue(Math.abs(cow.getHealth()-(after-36))<.1,"Dual hammer fracture is not 36 damage: "+cow.getHealth());
   t.assertTrue(org.slavicmyths.item.StormStaffItem.pulseDamage(false,false)==8&&org.slavicmyths.item.StormStaffItem.cooldownTicks(false)==32,"Storm staff balance mismatch");
   cow.discard();p.discard();t.succeed();
  } @GameTest(template="empty",timeoutTicks=40)

@@ -119,11 +119,21 @@ public final class MarineCompletionGameTests {
         t.assertTrue(zombie != null, "Target unavailable");
         zombie.moveTo(t.absolutePos(new BlockPos(2, 2, 4)), 0F, 0F);
         t.getLevel().addFreshEntity(zombie);
+        // The staff now fires a moving water projectile through the weapon input router.
+        player.setYRot(0F);
+        player.setXRot(5F);
+        for (int y = 2; y <= 5; y++) for (int z = 2; z <= 5; z++)
+            t.setBlock(new BlockPos(2, y, z), net.minecraft.world.level.block.Blocks.AIR);
         float health = zombie.getHealth();
-        player.getMainHandItem().use(t.getLevel(), player, InteractionHand.MAIN_HAND);
-        t.assertTrue(zombie.getHealth() < health, "Abyss pulse did not damage the target");
-        t.assertTrue(player.getCooldowns().isOnCooldown(MarineWeapons.STAFF.get()),
-            "Staff cooldown missing");
+        long now = t.getLevel().getGameTime();
+        MarineWeaponAbilities.staffShot(player);
+        t.assertTrue(zombie.getHealth() == health, "Staff pulse hit before travelling");
+        for (int i = 0; i < 6; i++)
+            MarineWeaponAbilities.tick(
+                new net.neoforged.neoforge.event.tick.PlayerTickEvent.Post(player));
+        t.assertTrue(zombie.getHealth() < health, "Travelling abyss pulse did not damage the target");
+        t.assertTrue(player.getPersistentData().getLong(MarineWeaponAbilities.PREFIX + "staffShot") == now + 40,
+            "Staff independent 40-tick cooldown missing");
         t.assertTrue(player.getMainHandItem().getDamageValue() == 1,
             "Staff durability was not spent");
         zombie.discard();

@@ -30,10 +30,16 @@ public final class MarineStaffOcclusionGameTests {
         t.getLevel().addFreshEntity(target);
         t.setBlock(new BlockPos(2, 3, 3), Blocks.STONE);
         float initial = target.getHealth();
-        player.getMainHandItem().use(t.getLevel(), player, InteractionHand.MAIN_HAND);
+        long now = t.getLevel().getGameTime();
+        MarineWeaponAbilities.staffShot(player);
+        for (int i = 0; i < 6; i++)
+            MarineWeaponAbilities.tick(
+                new net.neoforged.neoforge.event.tick.PlayerTickEvent.Post(player));
         t.assertTrue(target.getHealth() == initial, "Abyss staff hit through a solid wall");
-        t.assertTrue(player.getCooldowns().isOnCooldown(MarineWeapons.STAFF.get()),
-            "Blocked pulse should still consume cooldown");
+        t.assertTrue(player.getPersistentData().getLong(MarineWeaponAbilities.PREFIX + "staffShot") == now + 40,
+            "Blocked travelling pulse should still consume the 40-tick cooldown");
+        t.assertTrue(player.getPersistentData().getInt(MarineWeaponAbilities.PREFIX + "shotTicks") <= 0,
+            "Staff projectile did not stop at the wall");
         target.discard();
         player.discard();
         t.succeed();
