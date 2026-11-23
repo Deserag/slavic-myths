@@ -136,5 +136,38 @@ public final class AukaGameTests {
         helper.assertTrue(loaded.getHealth()==690,"health changed across reload");
         helper.succeed();
     }
+    @GameTest(template="empty") public static void companionOwnershipPersists(GameTestHelper helper){
+        var boss=boss(helper);
+        var companion=AukaContent.AUKA_WOLF.get().create(helper.getLevel());
+        companion.bind(boss.getUUID(),1);
+        CompoundTag tag=new CompoundTag();companion.saveWithoutId(tag);
+        var restored=AukaContent.AUKA_WOLF.get().create(helper.getLevel());
+        restored.load(tag);
+        helper.assertTrue(boss.getUUID().equals(restored.ownerId()),"owner lost after reload");
+        helper.assertTrue(restored.kind()==AukaMinion.Kind.WOLF,"wolf type changed");
+        helper.succeed();
+    }
+    @GameTest(template="empty") public static void companionBiteIsTelegraphed(GameTestHelper helper)throws Exception{
+        var p=player(helper);var boss=boss(helper);
+        helper.assertTrue(boss.decide(p,invite(helper,boss,p),true),"trial start");
+        var bear=AukaContent.AUKA_BEAR.get().create(helper.getLevel());
+        bear.moveTo(p.position().add(0,0,1.8));
+        bear.setNoGravity(true);bear.setOnGround(true);
+        bear.bind(boss.getUUID(),0);
+        helper.getLevel().addFreshEntity(bear);
+        var cooldown=AukaMinion.class.getDeclaredField("lastHit");
+        cooldown.setAccessible(true);cooldown.setLong(bear,helper.getLevel().getGameTime()-60);
+        var start=AukaMinion.class.getDeclaredMethod("hit",ServerPlayer.class,float.class);
+        start.setAccessible(true);
+        float initial=p.getHealth();p.invulnerableTime=0;
+        start.invoke(bear,p,7F);
+        helper.assertTrue(bear.motion()==AukaMinion.Motion.BITE,"bite animation not started");
+        helper.assertTrue(p.getHealth()==initial,"bite damaged before windup");
+        var contact=AukaMinion.class.getDeclaredField("biteAt");
+        contact.setAccessible(true);contact.setLong(bear,helper.getLevel().getGameTime()-1);
+        bear.tick();
+        helper.assertTrue(p.getHealth()<initial,"bite missing after telegraph");
+        helper.succeed();
+    }
     private AukaGameTests(){}
 }
