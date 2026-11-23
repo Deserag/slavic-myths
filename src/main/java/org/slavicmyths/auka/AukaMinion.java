@@ -25,7 +25,9 @@ public final class AukaMinion extends PathfinderMob {
     private final Kind kind;
     private UUID ownerId;
     private int role, orphans;
-    private long lastHit;
+    private long lastHit, biteAt, biteUntil;
+    private float biteDamage;
+    private boolean biteDelivered;
 
     public AukaMinion(EntityType<? extends AukaMinion> type,Level level,Kind kind){
         super(type,level);this.kind=kind;xpReward=0;setPersistenceRequired();
@@ -42,6 +44,7 @@ public final class AukaMinion extends PathfinderMob {
         builder.define(MOTION,Motion.IDLE.ordinal());builder.define(START,0L);
     }
     public Kind kind(){return kind;}
+    public UUID ownerId(){return ownerId;}
     public Motion motion(){return Motion.values()[entityData.get(MOTION)];}
     public float actionTicks(float partial){return Math.max(0,level().getGameTime()-entityData.get(START)+partial);}
     public void bind(UUID boss,int assignedRole){ownerId=boss;role=assignedRole;setHealth(getMaxHealth());}
@@ -61,11 +64,9 @@ public final class AukaMinion extends PathfinderMob {
     private void hit(ServerPlayer target,float damage){
         long now=level().getGameTime();
         if(now-lastHit<44||distanceToSqr(target)>(kind==Kind.BEAR?9:5.5)||!hasLineOfSight(target))return;
-        lastHit=now;
-        state(Motion.BITE);
-        if(target.hurt(damageSources().mobAttack(this),damage)) {
-            playSound(kind==Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.WOLF_GROWL,.75F,1);
-        }
+        lastHit=now;biteAt=now+10;biteUntil=now+19;biteDamage=damage;biteDelivered=false;
+        getNavigation().stop();state(Motion.BITE);
+        playSound(kind==Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.WOLF_GROWL,.75F,1);
     }
     @Override public void tick(){
         super.tick();
@@ -81,6 +82,17 @@ public final class AukaMinion extends PathfinderMob {
         ServerPlayer target=boss.victim();
         if(target==null||!target.isAlive()||target.level()!=level()||distanceToSqr(target)>48*48){
             getNavigation().stop();state(Motion.IDLE);return;
+        }
+        if(motion()==Motion.BITE){
+            long now=world.getGameTime();
+            if(!biteDelivered&&now>=biteAt){
+                biteDelivered=true;
+                if(distanceToSqr(target)<(kind==Kind.BEAR?9:5.5)&&hasLineOfSight(target)){
+                    target.hurt(damageSources().mobAttack(this),biteDamage);
+                }
+            }
+            if(now<biteUntil){getNavigation().stop();return;}
+            state(Motion.IDLE);
         }
         if(kind==Kind.BEAR){
             if(tickCount%10==0)navigate(target.position(),1.0);
@@ -126,6 +138,6 @@ public final class AukaMinion extends PathfinderMob {
         ownerId=tag.hasUUID("AukaOwner")?tag.getUUID("AukaOwner"):null;
         role=Math.clamp(tag.getInt("AukaRole"),0,1);
         state(Motion.IDLE);
-        orphans=0;
+        biteAt=biteUntil=0;biteDelivered=true;orphans=0;
     }
 }
