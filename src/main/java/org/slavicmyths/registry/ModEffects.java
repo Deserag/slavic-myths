@@ -18,6 +18,8 @@ public final class ModEffects {
  public static final DeferredHolder<MobEffect,MobEffect> FRACTURE=EFFECTS.register("fracture",org.slavicmyths.sisters.FractureEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> CUT=EFFECTS.register("cut",org.slavicmyths.combat.CutEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> WOLF_CUT=EFFECTS.register("wolf_cut",org.slavicmyths.wolf.WolfBleeding::new);
+ public static final DeferredHolder<MobEffect,MobEffect> AUKA_FROST=EFFECTS.register("auka_frost",()->new org.slavicmyths.auka.AukaColdEffect(false));
+ public static final DeferredHolder<MobEffect,MobEffect> AUKA_FROST_BLOOD=EFFECTS.register("auka_frost_blood",()->new org.slavicmyths.auka.AukaColdEffect(true));
  public static final DeferredHolder<MobEffect,MobEffect> BAD_BLOOD=EFFECTS.register("bad_blood",org.slavicmyths.volkolak.BadBlood::new);
  // Visible phase marker; WorldBoss.hurt owns the single damage multiplier.
  public static final DeferredHolder<MobEffect,MobEffect> SERPENT_GUARD=EFFECTS.register("serpent_guard",()->new MobEffect(MobEffectCategory.BENEFICIAL,0xD98835){});

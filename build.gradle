@@ -472,6 +472,20 @@ if (project.hasProperty('uniqueEquipmentCheck')) {
     } }
 }
 
+// Isolated winter Auka #527 GameTests; excluded from the production classpath.
+if (project.hasProperty('aukaCheck')) {
+    sourceSets { aukaCheck { java.srcDir 'tools/auka-tests'; resources.srcDir 'tools/auka-test-resources' } }
+    sourceSets.aukaCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.aukaCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compileAukaCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.aukaCheck)
+    neoForge.runs { aukaTests {
+        type = 'gameTestServer'
+        gameDirectory = file('run-auka-checks')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_auka'
+    } }
+}
+
 // Isolated Grey Wolf 1.4.1 native fixtures, excluded from production.
 if (project.hasProperty('greyWolfCheck')) {
  sourceSets { greyWolfCheck { java.srcDir 'tools/grey-wolf-tests'; resources.srcDir 'tools/grey-wolf-test-resources' } }
