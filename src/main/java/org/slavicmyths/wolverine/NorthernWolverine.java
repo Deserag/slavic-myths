@@ -44,6 +44,7 @@ public final class NorthernWolverine extends Monster {
     public NorthernWolverine(EntityType<? extends NorthernWolverine> type,Level level) {
         super(type,level);
         setPersistenceRequired();
+        setHealth(getMaxHealth());
         xpReward=100;
     }
     public static AttributeSupplier.Builder attributes(){
