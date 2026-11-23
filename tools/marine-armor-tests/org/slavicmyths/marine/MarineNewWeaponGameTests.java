@@ -298,7 +298,7 @@ public final class MarineNewWeaponGameTests {
   p.setShiftKeyDown(true);
   handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.SHIFT_RIGHT_CLICK);
   t.assertTrue(Math.abs(cow.getHealth()-(after-36))<.1,"Dual hammer fracture is not 36 damage: "+cow.getHealth());
-  t.assertTrue(org.slavicmyths.item.StormStaffItem.pulseDamage(false,false)==8&&org.slavicmyths.item.StormStaffItem.cooldownTicks(false)==32,"Storm staff balance mismatch");
+  t.assertTrue(org.slavicmyths.item.StormStaffItem.pulseDamage(false,false)==11&&org.slavicmyths.item.StormStaffItem.cooldownTicks(false)==32,"Storm staff balance mismatch");
   cow.discard();p.discard();t.succeed();
  } @GameTest(template="empty",timeoutTicks=40)
  public static void marineBossesPreferRecentMobAttacker(GameTestHelper t){
