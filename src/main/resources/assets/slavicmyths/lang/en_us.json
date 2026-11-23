@@ -6872,5 +6872,17 @@
   "tooltip.slavicmyths.boss_stats.pool": "Water lunge: hold RMB for 0.8 s; 16 damage, 3-block range, 6 s cooldown. Only in water.",
   "tooltip.slavicmyths.boss_stats.trident": "Shift + RMB — wave: 10 damage, 8-block range, 12 s cooldown. Thrown trident impact: separate 8-damage wave against nearby targets.",
   "tooltip.slavicmyths.morovoy.inputs": "LMB — elemental bolt; RMB — switch element.",
-  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + LMB — raven flock; Shift + RMB — storm."
+  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + LMB — raven flock; Shift + RMB — storm.",
+  "entity.slavicmyths.auka": "Auka, Master of the Winter Thicket",
+  "entity.slavicmyths.auka_bear": "Auka's Bear",
+  "entity.slavicmyths.auka_white_wolf": "Auka's White Wolf",
+  "item.slavicmyths.auka_spawn_egg": "Auka Spawn Egg",
+  "effect.slavicmyths.auka_frost": "Frost",
+  "effect.slavicmyths.auka_frost_blood": "Frostblood",
+  "message.slavicmyths.auka.invite": "Auka: Will you prove your strength in my forest, or pass in peace?",
+  "message.slavicmyths.auka.accept": "[Accept the trial]",
+  "message.slavicmyths.auka.decline": "[Leave peacefully]",
+  "message.slavicmyths.auka.farewell": "Auka lets you pass unharmed.",
+  "message.slavicmyths.auka.busy": "Auka is already testing a challenger.",
+  "message.slavicmyths.auka.start": "The trial of Auka begins!"
 }
