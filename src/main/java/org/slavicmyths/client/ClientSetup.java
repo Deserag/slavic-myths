@@ -307,6 +307,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.POSAD_RESIDENT.get(), PosadResidentRenderer::new);
 
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GNETEYA.get(), ctx -> new SistersRenderer(ctx, false, new net.minecraft.client.model.geom.ModelLayerLocation(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths", "gneteya"), "main")));
+        event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.GLUHEYA.get(), GluheyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.LEDEYA.get(), LedeyaRenderer::new);
         event.registerEntityRenderer(org.slavicmyths.sisters.SistersContent.FROST_BOLT.get(), SistersVisuals.Bolt::new);
 
