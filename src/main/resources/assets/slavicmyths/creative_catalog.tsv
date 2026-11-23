@@ -600,6 +600,7 @@ kalin_tsar_spawn_egg	mobs	boss
 zmey_gorynych_spawn_egg	mobs	boss
 morovoy_raven_spawn_egg	mobs	boss
 morovoy_fire_zmey_spawn_egg	mobs	boss
+northern_wolverine_spawn_egg	mobs	boss
 bear_cub_spawn_egg	hidden	family_variants
 doe_spawn_egg	hidden	family_variants
 cider_must	hidden	brewing_batches
