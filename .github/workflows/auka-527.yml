@@ -1,7 +1,7 @@
 name: Auka #527 — Java 21 and isolated boss GameTests
 on:
   push:
-    branches: ['feature/winter-auka-boss-20261123']
+    branches: ['feature/winter-auka-boss-20261123', 'fix/winter-gluheya-eggs-20261123']
   workflow_dispatch:
 permissions:
   contents: read
