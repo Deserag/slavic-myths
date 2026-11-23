@@ -194,7 +194,7 @@ public final class PharaohkaGameTests {
     }
 
 
-    @GameTest(template="empty",timeoutTicks=90)
+    @GameTest(template="empty",batch="pharaohka_shipwreck_isolation",timeoutTicks=90)
     @SuppressWarnings("unchecked")
     public static void shipwreckCreatesExactlyOneLeader(GameTestHelper test) {
         tank(test);
