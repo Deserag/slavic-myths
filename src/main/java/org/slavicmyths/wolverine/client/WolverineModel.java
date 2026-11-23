@@ -19,7 +19,7 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
     private void box(ModelPart part,int material,float x,float y,float z,float w,float h,float d){
         geo.box(part,(material%4)*32,(material/4)*32,x,y,z,w,h,d);
     }
-    private final ModelPart root=part(null,0,0,0);
+    private final ModelPart root=part(null,0,18,0);
     private final ModelPart torso=part(root,0,-23,0);
     private final ModelPart shoulder=part(torso,0,-3,-22);
     private final ModelPart head=part(shoulder,0,-7,-12);
@@ -45,8 +45,8 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
         for(int side:new int[]{-1,1}){
             box(head,0,side*8-3,-16,-8,6,8,7);
             box(head,3,side*8-2,-14,-9,4,5,3);
-            box(head,4,side*6-2,-3,-22,4,3,2);
-            box(head,5,side*6-1,-2,-23,2,2,1);
+            box(head,4,side*6-2,-3,-16.5F,4,3,.8F);
+            box(head,5,side*6-1,-2,-17.3F,2,2,.85F);
             box(head,6,side*5-2,5,-24,3,9,4);
             box(head,6,side*5-2,7,-18,3,6,3);
         }
