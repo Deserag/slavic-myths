@@ -187,6 +187,7 @@ public final class TrophyHeadsClient {
  }
  /** Used by the real renderer and offline native-face exporter; no Minecraft instance needed. */
  public static Head create(TrophyHeads.Kind kind){return switch(kind){
+   case NORTH_WOLVERINE->{var model=new org.slavicmyths.wolverine.client.WolverineModel();yield new Head(kind,model.trophyHead(),"textures/entity/northern_wolverine.png");}
   case TUGARIN->{var model=new WorldBossModel(false,true);yield new Head(kind,model.trophyHead(),"textures/entity/tugarin_phase2.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("moustacheL"),model.trophyHeadPart("pupilL"),model.trophyHeadPart("pupilR"));}
   case SKIM->{var neck=TrophySkimMesh.create();var face=neck.getChild("head");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,face.getChild("jaw"),neck.getChild("mane_0"),face.getChild("eyeL"),face.getChild("eyeR")).ears(face.getChild("earL"),face.getChild("earR"));}
   case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),null).ears(model.trophyHeadPart("earL"),model.trophyHeadPart("earR"));}
