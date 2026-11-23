@@ -11,7 +11,7 @@ public final class WolverineRenderer extends MobRenderer<NorthernWolverine,Wolve
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/northern_wolverine.png");
     public WolverineRenderer(EntityRendererProvider.Context context){super(context,new WolverineModel(),1.1F);}
     @Override protected void scale(NorthernWolverine entity,com.mojang.blaze3d.vertex.PoseStack pose,float partial){
-        pose.scale(1.0F,.91F,.61F);
+        pose.scale(1.0F,1.0F,1.0F);
     }
     @Override public ResourceLocation getTextureLocation(NorthernWolverine entity){return TEXTURE;}
     public static void register(EntityRenderersEvent.RegisterRenderers event){
