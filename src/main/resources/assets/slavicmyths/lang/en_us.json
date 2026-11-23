@@ -6872,5 +6872,9 @@
   "tooltip.slavicmyths.boss_stats.pool": "Water lunge: hold RMB for 0.8 s; 16 damage, 3-block range, 6 s cooldown. Only in water.",
   "tooltip.slavicmyths.boss_stats.trident": "Shift + RMB — wave: 10 damage, 8-block range, 12 s cooldown. Thrown trident impact: separate 8-damage wave against nearby targets.",
   "tooltip.slavicmyths.morovoy.inputs": "LMB — elemental bolt; RMB — switch element.",
-  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + LMB — raven flock; Shift + RMB — storm."
+  "tooltip.slavicmyths.morovoy.inputs.secondary": "Shift + LMB — raven flock; Shift + RMB — storm.",
+  "entity.slavicmyths.northern_wolverine": "Northern Wolverine",
+  "item.slavicmyths.northern_wolverine_spawn_egg": "Northern Wolverine Spawn Egg",
+  "item.slavicmyths.northern_wolverine_head": "Northern Wolverine Head",
+  "block.slavicmyths.northern_wolverine_head": "Northern Wolverine Head"
 }
