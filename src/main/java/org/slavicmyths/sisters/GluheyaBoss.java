@@ -333,7 +333,7 @@ public final class GluheyaBoss extends Monster {
             actionStep(world,p);return;
         }
         if(p==null)return;
-        getLookControl().setLookAt(p,30,30);
+        if(!secondPhase()||getNavigation().isDone())getLookControl().setLookAt(p,30,30);
         if(teleportCooldown<=0){
             teleportNear(world,p,secondPhase());
             teleportCooldown=secondPhase()?80+random.nextInt(40):200+random.nextInt(80);
