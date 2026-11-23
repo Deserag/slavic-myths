@@ -374,7 +374,7 @@ public final class GluheyaBoss extends Monster {
             if(action()!=IDLE){getNavigation().stop();return;}
             double d=distanceToSqr(target);
             if(secondPhase()){if(d>9)getNavigation().moveTo(target,1.23);}
-            else if(d<100)getNavigation().moveTo(getX()+(getX()-target.getX()),getY(),getZ()+(getZ()-target.getZ()),.95);
+            else if(d<100)getNavigation().stop();
             else if(d>625)getNavigation().moveTo(target,.9);
         }
     }
