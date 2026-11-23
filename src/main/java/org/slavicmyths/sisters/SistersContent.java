@@ -13,6 +13,7 @@ import org.slavicmyths.registry.ModItems;
 
 /** Dedicated 3.3 content registration. No unapproved natural-spawn or worldgen rules. */
 public final class SistersContent {
+    public static final DeferredHolder<EntityType<?>,EntityType<GluheyaBoss>> GLUHEYA = ModEntities.ENTITIES.register("gluheya", () -> EntityType.Builder.of(GluheyaBoss::new, MobCategory.MONSTER).sized(1.1F,3.75F).clientTrackingRange(32).updateInterval(2).build("slavicmyths:gluheya"));
     public static final DeferredHolder<EntityType<?>,EntityType<LedeyaBoss>> LEDEYA = ModEntities.ENTITIES.register("ledeya", () -> EntityType.Builder.of(LedeyaBoss::new, MobCategory.MONSTER).sized(1.75F,4.65F).clientTrackingRange(24).updateInterval(2).build("slavicmyths:ledeya"));
     public static final DeferredHolder<EntityType<?>,EntityType<NeveyaBoss>> NEVEYA = ModEntities.ENTITIES.register("neveya", () -> EntityType.Builder.of(NeveyaBoss::new, MobCategory.MONSTER).sized(1.45F,7.25F).clientTrackingRange(32).updateInterval(2).build("slavicmyths:neveya"));
     public static final DeferredHolder<EntityType<?>,EntityType<NeveyaBolt>> NEVEYA_BOLT = ModEntities.ENTITIES.register("neveya_death_bolt", () -> EntityType.Builder.<NeveyaBolt>of(NeveyaBolt::new, MobCategory.MISC).sized(.42F,.42F).clientTrackingRange(20).updateInterval(1).build("slavicmyths:neveya_death_bolt"));
@@ -45,6 +46,7 @@ public final class SistersContent {
     public static final DeferredHolder<Item,Item> NEVEYA_SHARD = ModItems.ITEMS.register("neveya_shard", () -> named("Осколок Невеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> LOMEYA_SHARD = ModItems.ITEMS.register("lomeya_shard", () -> named("Осколок Ломеи",net.minecraft.world.item.Rarity.EPIC,64));
     public static final DeferredHolder<Item,Item> SISTERS_RITUAL_CORE = ModItems.ITEMS.register("sisters_ritual_core", () -> named("Сердце шести сестёр",net.minecraft.world.item.Rarity.EPIC,16));
+    public static final DeferredHolder<Item,Item> GLUHEYA_EGG = ModItems.ITEMS.register("gluheya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(GLUHEYA,0x29324B,0x78E6F2,new Item.Properties()));
     public static final DeferredHolder<Item,Item> LEDEYA_EGG = ModItems.ITEMS.register("ledeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LEDEYA,0xD7DFE8,0x2856A4,new Item.Properties()));
     public static final DeferredHolder<Item,Item> NEVEYA_EGG = ModItems.ITEMS.register("neveya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(NEVEYA,0x141824,0x698AC6,new Item.Properties()));
     public static final DeferredHolder<Item,Item> LOMEYA_EGG = ModItems.ITEMS.register("lomeya_spawn_egg", () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(LOMEYA,0xCCC9C5,0x4C4251,new Item.Properties()));
@@ -61,6 +63,7 @@ public final class SistersContent {
     public static void init(IEventBus bus) {
         TryaseyaSounds.init(bus);
         bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) -> {
+            event.put(GLUHEYA.get(),GluheyaBoss.attributes().build());
             event.put(LEDEYA.get(),LedeyaBoss.attributes().build());
             event.put(NEVEYA.get(),NeveyaBoss.attributes().build());
             event.put(LOMEYA.get(),LomeyaBoss.attributes().build());
