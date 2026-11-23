@@ -35,6 +35,7 @@ public final class ClientSetup {
 
 
         bus.addListener(PosadBossRenderer::register);
+        bus.addListener(org.slavicmyths.auka.client.AukaRenderers::register);
         bus.addListener(PharaohkaRenderer::register);
         bus.addListener(TsarPikeRenderer::register);
         bus.addListener(TsarPikeHeadRenderer::register);
