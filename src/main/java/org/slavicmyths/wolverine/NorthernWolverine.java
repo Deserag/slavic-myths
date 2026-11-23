@@ -118,11 +118,19 @@ public final class NorthernWolverine extends Monster {
         if(a==ROAR&&age==30)roar();
         if(a==BURROW){
             if(age==15&&getTarget()!=null)burrowDestination=getTarget().position();
-            if(age==24&&level() instanceof ServerLevel world){
+            if(age==24&&level() instanceof ServerLevel world&&burrowDestination!=Vec3.ZERO){
                 Vec3 target=burrowDestination;
-                if(level().hasChunkAt(net.minecraft.core.BlockPos.containing(target))&&level().noCollision(this,getBoundingBox().move(target.subtract(position())))){
-                    teleportTo(target.x,target.y,target.z);
+                double phase=random.nextDouble()*Math.PI*2;
+                for(int i=0;i<8;i++){
+                    double angle=phase+i*Math.PI/4;
+                    Vec3 landing=new Vec3(target.x+Math.cos(angle)*3.1,target.y,target.z+Math.sin(angle)*3.1);
+                    net.minecraft.core.BlockPos feet=net.minecraft.core.BlockPos.containing(landing);
+                    if(!world.hasChunkAt(feet)||!world.getWorldBorder().isWithinBounds(feet))continue;
+                    if(!world.getBlockState(feet.below()).isSolid())continue;
+                    if(!world.noCollision(this,getBoundingBox().move(landing.subtract(position()))))continue;
+                    teleportTo(landing.x,landing.y,landing.z);
                     world.sendParticles(ParticleTypes.SNOWFLAKE,getX(),getY()+.4,getZ(),70,1.6,.5,1.6,.08);
+                    break;
                 }
             }
             if(age==30)strike(17,3.6,-.2F,.8F);
