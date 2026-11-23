@@ -6,7 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.ChatFormatting;
-import net.minecraft.server.bossevents.ServerBossEvent;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -87,7 +87,7 @@ public final class AukaBoss extends Monster {
         return challenger==null || !(level() instanceof ServerLevel world) ? null :
             world.getServer().getPlayerList().getPlayer(challenger);
     }
-    @Override public EntityDimensions getDimensions(Pose pose) {
+    @Override public EntityDimensions getDefaultDimensions(Pose pose) {
         return switch(form()) {
             case HUT_SPIRIT -> EntityDimensions.scalable(1.45F,3.1F);
             case STALKER -> EntityDimensions.scalable(1.25F,3.55F);
@@ -196,7 +196,7 @@ public final class AukaBoss extends Monster {
         if(p!=null) getLookControl().setLookAt(p,25,20);
         if(tick==10 && (action==Move.CHARGE||action==Move.SIDE_LUNGE||action==Move.WOLF_RAM)) {
             if(p!=null){Vec3 d=p.position().subtract(position()).multiply(1,0,1).normalize();
-                setDeltaMovement(d.scale(action==Move.CHARGE?1.15:.95).add(0,getDeltaMovement().y));hasImpulse=true;}
+                setDeltaMovement(d.scale(action==Move.CHARGE?1.15:.95).add(0,getDeltaMovement().y,0));hasImpulse=true;}
         }
         if(tick==13 && action==Move.WOLF_LEAP && p!=null) {
             Vec3 d=p.position().subtract(position()).multiply(1,0,1).normalize();
@@ -327,7 +327,7 @@ public final class AukaBoss extends Monster {
         super.onRemovedFromLevel();
     }
     @Override public boolean removeWhenFarAway(double distance) {return false;}
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
+    @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putBoolean("AukaBattle",battle);
         tag.putInt("AukaForm",form().ordinal());
@@ -337,7 +337,7 @@ public final class AukaBoss extends Monster {
         tag.putInt("AukaWolfReady",(int)Math.max(0,wolfReady-level().getGameTime()));
         tag.putInt("AukaBearReady",(int)Math.max(0,nextBears-level().getGameTime()));
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         battle=tag.getBoolean("AukaBattle")&&tag.hasUUID("AukaChallenger");
         challenger=battle?tag.getUUID("AukaChallenger"):null;
