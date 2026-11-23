@@ -18,25 +18,37 @@ public final class WeaponSkillHud {
     private record Skill(String icon, String key, long remaining) {}
     // Approved 2026-11-23 marine-skill art; transparent 32px PNGs rendered at 16 GUI pixels.
     private static final Map<String, ResourceLocation> MARINE_ICONS = Map.of(
-        "abyss_staff_shot", marineTexture("abyss_staff_shot"),
-        "abyss_staff_bubble", marineTexture("abyss_staff_bubble"),
-        "abyss_staff_vortex", marineTexture("abyss_staff_vortex"),
-        "storm_anchor_slam", marineTexture("storm_anchor_slam"),
-        "pharaohka_trident_wave", marineTexture("pharaohka_trident_wave"),
-        "storm_harpoon_tether", marineTexture("storm_harpoon_tether")
+        "abyss_staff_shot", skillTexture("abyss_staff_shot"),
+        "abyss_staff_bubble", skillTexture("abyss_staff_bubble"),
+        "abyss_staff_vortex", skillTexture("abyss_staff_vortex"),
+        "storm_anchor_slam", skillTexture("storm_anchor_slam"),
+        "pharaohka_trident_wave", skillTexture("pharaohka_trident_wave"),
+        "storm_harpoon_tether", skillTexture("storm_harpoon_tether")
     );
     // Approved group 2 art: four Morozko, two Karachun, two Neveya abilities.
     private static final Map<String, ResourceLocation> GROUP_TWO_ICONS = Map.of(
-        "morozko_staff_bolt", marineTexture("morozko_staff_bolt"),
-        "morozko_staff_stream", marineTexture("morozko_staff_stream"),
-        "morozko_staff_icicles", marineTexture("morozko_staff_icicles"),
-        "morozko_staff_wave", marineTexture("morozko_staff_wave"),
-        "karachun_scythe_last_breath", marineTexture("karachun_scythe_last_breath"),
-        "karachun_scythe_black_harvest", marineTexture("karachun_scythe_black_harvest"),
-        "neveya_scythe_reap", marineTexture("neveya_scythe_reap"),
-        "neveya_scythe_slash", marineTexture("neveya_scythe_slash")
+        "morozko_staff_bolt", skillTexture("morozko_staff_bolt"),
+        "morozko_staff_stream", skillTexture("morozko_staff_stream"),
+        "morozko_staff_icicles", skillTexture("morozko_staff_icicles"),
+        "morozko_staff_wave", skillTexture("morozko_staff_wave"),
+        "karachun_scythe_last_breath", skillTexture("karachun_scythe_last_breath"),
+        "karachun_scythe_black_harvest", skillTexture("karachun_scythe_black_harvest"),
+        "neveya_scythe_reap", skillTexture("neveya_scythe_reap"),
+        "neveya_scythe_slash", skillTexture("neveya_scythe_slash")
     );
-    private static ResourceLocation marineTexture(String name) {
+    // Group 3: approved art for Morovoy Staff, Nine Mor Spear and Nine Mor Axe.
+    private static final Map<String, ResourceLocation> GROUP_THREE_ICONS = Map.of(
+        "morovoy_staff_shot_mor", skillTexture("morovoy_staff_shot_mor"),
+        "morovoy_staff_shot_fire", skillTexture("morovoy_staff_shot_fire"),
+        "morovoy_staff_switch", skillTexture("morovoy_staff_switch"),
+        "morovoy_staff_flock", skillTexture("morovoy_staff_flock"),
+        "morovoy_staff_area", skillTexture("morovoy_staff_area"),
+        "nine_mor_spear_spears", skillTexture("nine_mor_spear_spears"),
+        "nine_mor_spear_sweep", skillTexture("nine_mor_spear_sweep"),
+        "nine_mor_axe_rift", skillTexture("nine_mor_axe_rift"),
+        "nine_mor_axe_execution", skillTexture("nine_mor_axe_execution")
+    );
+    private static ResourceLocation skillTexture(String name) {
         return ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/gui/weapon_skills/" + name + ".png");
     }
     @SubscribeEvent public static void draw(RenderGuiEvent.Post event) {
@@ -69,10 +81,12 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("karachun_scythe_black_harvest","S+R",NightClient.skillRemaining("HarvestReady")));
             }
             case "morovoy_staff" -> {
-                skills.add(new Skill("shot","L",tag.getLong("MorStaff25_bolt")-now));
-                skills.add(new Skill("mode","R",0));
-                skills.add(new Skill("raven","S+L",tag.getLong("MorStaff25_flock")-now));
-                skills.add(new Skill("fire","S+R",tag.getLong("MorStaff25_area")-now));
+                String shotIcon = tag.getInt("MorovoyStaffMode") == 1
+                    ? "morovoy_staff_shot_fire" : "morovoy_staff_shot_mor";
+                skills.add(new Skill(shotIcon,"L",tag.getLong("MorStaff25_bolt")-now));
+                skills.add(new Skill("morovoy_staff_switch","R",0));
+                skills.add(new Skill("morovoy_staff_flock","S+L",tag.getLong("MorStaff25_flock")-now));
+                skills.add(new Skill("morovoy_staff_area","S+R",tag.getLong("MorStaff25_area")-now));
             }
             case "gneteya_great_hammer" -> skills.add(new Skill("slam","S+R",-1));
             case "neveya_scythe" -> {
@@ -83,10 +97,12 @@ public final class WeaponSkillHud {
                 if(mc.player.getOffhandItem().is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get()))skills.add(new Skill("wave","S+R",-1));
             }
             case "nine_mor_spear" -> {
-                skills.add(new Skill("ice","R",-1));skills.add(new Skill("vortex","S+R",-1));
+                skills.add(new Skill("nine_mor_spear_spears","R",-1));
+                skills.add(new Skill("nine_mor_spear_sweep","S+R",-1));
             }
             case "nine_mor_axe" -> {
-                skills.add(new Skill("wave","R",-1));skills.add(new Skill("harvest","S+R",-1));
+                skills.add(new Skill("nine_mor_axe_rift","R",-1));
+                skills.add(new Skill("nine_mor_axe_execution","S+R",-1));
             }
             case "navya_ostroga", "ashen_greatsword", "shadow_throwing_knife", "volcanic_heart_flail", "infernal_bow", "empowered_infernal_bow" ->
                 skills.add(new Skill(id.getPath().contains("bow")?"fire":id.getPath().contains("flail")?"slam":"slash","S+R",tag.getLong("slavicmyths_skill_"+id.getPath())-now));
@@ -127,6 +143,7 @@ public final class WeaponSkillHud {
     private static void icon(GuiGraphics g,String kind,int x,int y){
         ResourceLocation texture = MARINE_ICONS.get(kind);
         if (texture == null) texture = GROUP_TWO_ICONS.get(kind);
+        if (texture == null) texture = GROUP_THREE_ICONS.get(kind);
         if (texture != null) {
             // UV covers the full image; GUI size remains 16x16 and follows Minecraft GUI scale.
             g.blit(texture, x, y, 0.0F, 0.0F, 16, 16, 16, 16);
