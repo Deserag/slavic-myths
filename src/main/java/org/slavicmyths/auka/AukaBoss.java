@@ -222,10 +222,11 @@ public final class AukaBoss extends Monster {
     }
     private int count(AukaMinion.Kind kind) {
         if(!(level() instanceof ServerLevel w))return 0;
-        companions.removeIf(id->!(w.getEntity(id) instanceof AukaMinion m) || !m.isAlive());
-        int count=0;
-        for(UUID id:companions) if(w.getEntity(id) instanceof AukaMinion m && m.kind()==kind) count++;
-        return count;
+        var loaded=w.getEntitiesOfClass(AukaMinion.class,getBoundingBox().inflate(64),
+            m->m.isAlive()&&getUUID().equals(m.ownerId())&&m.kind()==kind);
+        for(AukaMinion minion:loaded)companions.add(minion.getUUID());
+        companions.removeIf(id->w.getEntity(id) instanceof AukaMinion m&&!m.isAlive());
+        return loaded.size();
     }
     private void summon(AukaMinion.Kind kind) {
         if(!(level() instanceof ServerLevel world))return;
@@ -246,7 +247,11 @@ public final class AukaBoss extends Monster {
         }
     }
     private void dismiss() {
-        if(level() instanceof ServerLevel w)for(UUID id:companions)if(w.getEntity(id) instanceof AukaMinion m)m.discard();
+        if(level() instanceof ServerLevel w){
+            for(UUID id:companions)if(w.getEntity(id) instanceof AukaMinion m)m.discard();
+            for(AukaMinion m:w.getEntitiesOfClass(AukaMinion.class,getBoundingBox().inflate(64),
+                minion->getUUID().equals(minion.ownerId())))m.discard();
+        }
         companions.clear();
     }
     private void secondPhase() {
@@ -334,6 +339,9 @@ public final class AukaBoss extends Monster {
         tag.putInt("AukaForm",form().ordinal());
         if(challenger!=null)tag.putUUID("AukaChallenger",challenger);
         tag.putInt("AukaBears",bearWaves);tag.putInt("AukaWolves",wolfWaves);
+        int i=0;
+        for(UUID id:companions){if(i==4)break;tag.putUUID("AukaCompanion"+i++,id);}
+        tag.putInt("AukaCompanionCount",i);
         tag.putInt("AukaWolfRemaining",(int)Math.max(0,wolfUntil-level().getGameTime()));
         tag.putInt("AukaWolfReady",(int)Math.max(0,wolfReady-level().getGameTime()));
         tag.putInt("AukaBearReady",(int)Math.max(0,nextBears-level().getGameTime()));
@@ -343,6 +351,8 @@ public final class AukaBoss extends Monster {
         battle=tag.getBoolean("AukaBattle")&&tag.hasUUID("AukaChallenger");
         challenger=battle?tag.getUUID("AukaChallenger"):null;
         invited=invitationToken=null;companions.clear();
+        int companionCount=Math.clamp(tag.getInt("AukaCompanionCount"),0,4);
+        for(int i=0;i<companionCount;i++)if(tag.hasUUID("AukaCompanion"+i))companions.add(tag.getUUID("AukaCompanion"+i));
         bearWaves=Math.clamp(tag.getInt("AukaBears"),0,2);
         wolfWaves=Math.clamp(tag.getInt("AukaWolves"),0,2);
         long now=level().getGameTime();
