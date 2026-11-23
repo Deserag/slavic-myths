@@ -116,12 +116,12 @@ public final class AukaMinion extends PathfinderMob {
     }
     @Override public boolean removeWhenFarAway(double distance){return false;}
     @Override protected int getBaseExperienceReward(){return 0;}
-    @Override protected void addAdditionalSaveData(CompoundTag tag){
+    @Override public void addAdditionalSaveData(CompoundTag tag){
         super.addAdditionalSaveData(tag);
         if(ownerId!=null)tag.putUUID("AukaOwner",ownerId);
         tag.putInt("AukaRole",role);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag){
+    @Override public void readAdditionalSaveData(CompoundTag tag){
         super.readAdditionalSaveData(tag);
         ownerId=tag.hasUUID("AukaOwner")?tag.getUUID("AukaOwner"):null;
         role=Math.clamp(tag.getInt("AukaRole"),0,1);
