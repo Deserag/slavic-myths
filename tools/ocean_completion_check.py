@@ -21,7 +21,17 @@ for item_id in ids:
         assert data.get("item.slavicmyths." + item_id), (name, item_id)
         assert data.get("item.slavicmyths." + item_id + ".desc"), (name, item_id, "desc")
     model = json.loads((assets / "models/item" / f"{item_id}.json").read_text(encoding="utf-8"))
-    assert model["textures"]["layer0"] == "slavicmyths:item/ocean/" + item_id, (item_id, "model")
+    if item_id in {"storm_anchor", "abyss_staff", "storm_harpoon"}:
+        # These three rewards are rendered as 3D items via the built-in entity renderer,
+        # so they intentionally have a particle texture, not a generated-item layer0.
+        assert model.get("parent") == "builtin/entity", (item_id, "3d model parent")
+        assert model.get("textures", {}).get("particle") == "minecraft:block/prismarine", (item_id, "3d particle")
+        for perspective in ("gui", "ground", "firstperson_righthand", "firstperson_lefthand",
+                            "thirdperson_righthand", "thirdperson_lefthand"):
+            assert perspective in model.get("display", {}), (item_id, "3d display", perspective)
+    else:
+        assert model.get("parent") == "minecraft:item/generated", (item_id, "generated model parent")
+        assert model.get("textures", {}).get("layer0") == "slavicmyths:item/ocean/" + item_id, (item_id, "layer0")
     path = assets / "textures/item/ocean" / (item_id + ".png")
     png = path.read_bytes()
     assert png[:8] == b"\x89PNG\r\n\x1a\n", (item_id, "png signature")
