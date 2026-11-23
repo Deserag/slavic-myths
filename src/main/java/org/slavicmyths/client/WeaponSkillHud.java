@@ -25,6 +25,17 @@ public final class WeaponSkillHud {
         "pharaohka_trident_wave", marineTexture("pharaohka_trident_wave"),
         "storm_harpoon_tether", marineTexture("storm_harpoon_tether")
     );
+    // Approved group 2 art: four Morozko, two Karachun, two Neveya abilities.
+    private static final Map<String, ResourceLocation> GROUP_TWO_ICONS = Map.of(
+        "morozko_staff_bolt", marineTexture("morozko_staff_bolt"),
+        "morozko_staff_stream", marineTexture("morozko_staff_stream"),
+        "morozko_staff_icicles", marineTexture("morozko_staff_icicles"),
+        "morozko_staff_wave", marineTexture("morozko_staff_wave"),
+        "karachun_scythe_last_breath", marineTexture("karachun_scythe_last_breath"),
+        "karachun_scythe_black_harvest", marineTexture("karachun_scythe_black_harvest"),
+        "neveya_scythe_reap", marineTexture("neveya_scythe_reap"),
+        "neveya_scythe_slash", marineTexture("neveya_scythe_slash")
+    );
     private static ResourceLocation marineTexture(String name) {
         return ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/gui/weapon_skills/" + name + ".png");
     }
@@ -48,14 +59,14 @@ public final class WeaponSkillHud {
             case "pharaohka_trident" -> skills.add(new Skill("pharaohka_trident_wave","S+R",tag.getLong("MarineWeapon_wave")-now));
             case "storm_harpoon" -> skills.add(new Skill("storm_harpoon_tether","S+R",tag.getLong("MarineHarpoonReady")-now));
             case "morozko_staff" -> {
-                skills.add(new Skill("shot","L",FrostClient.skillRemaining("BoltReady")));
-                skills.add(new Skill("breath","R",FrostClient.skillRemaining("StreamReady")));
-                skills.add(new Skill("ice","S+L",FrostClient.skillRemaining("IcicleReady")));
-                skills.add(new Skill("wave","S+R",FrostClient.skillRemaining("WaveReady")));
+                skills.add(new Skill("morozko_staff_bolt","L",FrostClient.skillRemaining("BoltReady")));
+                skills.add(new Skill("morozko_staff_stream","R",FrostClient.skillRemaining("StreamReady")));
+                skills.add(new Skill("morozko_staff_icicles","S+L",FrostClient.skillRemaining("IcicleReady")));
+                skills.add(new Skill("morozko_staff_wave","S+R",FrostClient.skillRemaining("WaveReady")));
             }
             case "karachun_scythe" -> {
-                skills.add(new Skill("breath","S+L",NightClient.skillRemaining("BreathReady")));
-                skills.add(new Skill("harvest","S+R",NightClient.skillRemaining("HarvestReady")));
+                skills.add(new Skill("karachun_scythe_last_breath","S+L",NightClient.skillRemaining("BreathReady")));
+                skills.add(new Skill("karachun_scythe_black_harvest","S+R",NightClient.skillRemaining("HarvestReady")));
             }
             case "morovoy_staff" -> {
                 skills.add(new Skill("shot","L",tag.getLong("MorStaff25_bolt")-now));
@@ -65,7 +76,7 @@ public final class WeaponSkillHud {
             }
             case "gneteya_great_hammer" -> skills.add(new Skill("slam","S+R",-1));
             case "neveya_scythe" -> {
-                skills.add(new Skill("harvest","R",-1));skills.add(new Skill("slash","S+R",-1));
+                skills.add(new Skill("neveya_scythe_reap","R",-1));skills.add(new Skill("neveya_scythe_slash","S+R",-1));
             }
             case "lomeya_hammer", "lomeya_hammer_offhand" -> {
                 skills.add(new Skill("slam","R",-1));
@@ -114,10 +125,11 @@ public final class WeaponSkillHud {
         }
     }
     private static void icon(GuiGraphics g,String kind,int x,int y){
-        ResourceLocation marine = MARINE_ICONS.get(kind);
-        if (marine != null) {
+        ResourceLocation texture = MARINE_ICONS.get(kind);
+        if (texture == null) texture = GROUP_TWO_ICONS.get(kind);
+        if (texture != null) {
             // UV covers the full image; GUI size remains 16x16 and follows Minecraft GUI scale.
-            g.blit(marine, x, y, 0.0F, 0.0F, 16, 16, 16, 16);
+            g.blit(texture, x, y, 0.0F, 0.0F, 16, 16, 16, 16);
             return;
         }
         String[] rows=switch(kind){
