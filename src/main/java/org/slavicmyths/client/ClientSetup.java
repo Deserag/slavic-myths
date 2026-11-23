@@ -110,6 +110,7 @@ public final class ClientSetup {
         bus.addListener(BogatyrClient.Registration::renderers);
 
         bus.addListener(WintersClient.Setup::ready);
+        bus.addListener(org.slavicmyths.wolverine.client.WolverineRenderer::register);
 
         bus.addListener(FrostClient.Registration::keys);
 
