@@ -48,6 +48,17 @@ public final class WeaponSkillHud {
         "nine_mor_axe_rift", skillTexture("nine_mor_axe_rift"),
         "nine_mor_axe_execution", skillTexture("nine_mor_axe_execution")
     );
+    // Group 4: heavy weapons. Two Gneteya resources are staged until abilities exist.
+    private static final Map<String, ResourceLocation> GROUP_FOUR_ICONS = Map.of(
+        "gneteya_crushing_blow", skillTexture("gneteya_crushing_blow"),
+        "gneteya_bone_fracture_radial", skillTexture("gneteya_bone_fracture_radial"),
+        "gneteya_sentence", skillTexture("gneteya_sentence"),
+        "lomeya_single_wave", skillTexture("lomeya_single_wave"),
+        "lomeya_dual_wave", skillTexture("lomeya_dual_wave"),
+        "lomeya_dual_fracture", skillTexture("lomeya_dual_fracture"),
+        "ashen_greatsword_blow", skillTexture("ashen_greatsword_blow"),
+        "volcanic_heart_strike", skillTexture("volcanic_heart_strike")
+    );
     private static ResourceLocation skillTexture(String name) {
         return ResourceLocation.fromNamespaceAndPath("slavicmyths", "textures/gui/weapon_skills/" + name + ".png");
     }
@@ -88,13 +99,14 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("morovoy_staff_flock","S+L",tag.getLong("MorStaff25_flock")-now));
                 skills.add(new Skill("morovoy_staff_area","S+R",tag.getLong("MorStaff25_area")-now));
             }
-            case "gneteya_great_hammer" -> skills.add(new Skill("slam","S+R",-1));
+            case "gneteya_great_hammer" -> skills.add(new Skill("gneteya_crushing_blow","S+R",-1));
             case "neveya_scythe" -> {
                 skills.add(new Skill("neveya_scythe_reap","R",-1));skills.add(new Skill("neveya_scythe_slash","S+R",-1));
             }
             case "lomeya_hammer", "lomeya_hammer_offhand" -> {
-                skills.add(new Skill("slam","R",-1));
-                if(mc.player.getOffhandItem().is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get()))skills.add(new Skill("wave","S+R",-1));
+                boolean dual = mc.player.getOffhandItem().is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get());
+                skills.add(new Skill(dual ? "lomeya_dual_wave" : "lomeya_single_wave", "R", -1));
+                if (dual) skills.add(new Skill("lomeya_dual_fracture", "S+R", -1));
             }
             case "nine_mor_spear" -> {
                 skills.add(new Skill("nine_mor_spear_spears","R",-1));
@@ -104,7 +116,11 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("nine_mor_axe_rift","R",-1));
                 skills.add(new Skill("nine_mor_axe_execution","S+R",-1));
             }
-            case "navya_ostroga", "ashen_greatsword", "shadow_throwing_knife", "volcanic_heart_flail", "infernal_bow", "empowered_infernal_bow" ->
+            case "ashen_greatsword" ->
+                skills.add(new Skill("ashen_greatsword_blow", "S+R", tag.getLong("slavicmyths_skill_ashen_greatsword")-now));
+            case "volcanic_heart_flail" ->
+                skills.add(new Skill("volcanic_heart_strike", "S+R", tag.getLong("slavicmyths_skill_volcanic_heart_flail")-now));
+            case "navya_ostroga", "shadow_throwing_knife", "infernal_bow", "empowered_infernal_bow" ->
                 skills.add(new Skill(id.getPath().contains("bow")?"fire":id.getPath().contains("flail")?"slam":"slash","S+R",tag.getLong("slavicmyths_skill_"+id.getPath())-now));
             case "storm_staff", "thunder_axe", "thunder_spear", "veles_staff", "likho_staff", "trophy_kalin_sabre", "nightingale_dagger", "pool_spear", "zhelva_shield", "nine_mor_shield", "mytar_shackled_sickle" ->
                 skills.add(new Skill(id.getPath().contains("shield")?"bubble":id.getPath().contains("staff")?"shot":"slash","",-1));
@@ -144,6 +160,7 @@ public final class WeaponSkillHud {
         ResourceLocation texture = MARINE_ICONS.get(kind);
         if (texture == null) texture = GROUP_TWO_ICONS.get(kind);
         if (texture == null) texture = GROUP_THREE_ICONS.get(kind);
+        if (texture == null) texture = GROUP_FOUR_ICONS.get(kind);
         if (texture != null) {
             // UV covers the full image; GUI size remains 16x16 and follows Minecraft GUI scale.
             g.blit(texture, x, y, 0.0F, 0.0F, 16, 16, 16, 16);
