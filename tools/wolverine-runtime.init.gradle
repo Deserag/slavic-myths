@@ -1,0 +1,11 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { wolverineRuntime { java.srcDir 'tools/wolverine-runtime'; resources.srcDir 'tools/wolverine-runtime-resources' } }
+ p.sourceSets.wolverineRuntime.compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+ p.sourceSets.wolverineRuntime.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileWolverineRuntimeJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.wolverineRuntime)
+ p.neoForge.runs { wolverineChecks {
+  type = 'gameTestServer';gameDirectory = p.file('work/wolverine/runtime')
+  systemProperty 'neoforge.enabledGameTestNamespaces','slavicmyths_wolverine'
+ } }
+} }
