@@ -1,7 +1,7 @@
 name: Winter Wolverine 527 - Java 21 build and isolated GameTests
 on:
   push:
-    branches: ['feature/winter-wolverine-boss-20261123']
+    branches: ['feature/winter-wolverine-boss-20261123', 'fix/winter-wolverine-model-20261123']
   workflow_dispatch:
 permissions:
   contents: read
