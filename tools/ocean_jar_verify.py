@@ -35,10 +35,21 @@ with zipfile.ZipFile(selected) as jar:
         model_file = base + f"models/item/{item}.json"
         assert model_file in names, f"Missing item model in JAR: {item}"
         model = json.loads(jar.read(model_file))
-        layer = model["textures"]["layer0"]
-        assert layer.startswith("slavicmyths:item/"), f"Not a bundled icon: {item}: {layer}"
-        namespace, texture = layer.split(":", 1)
-        image = f"assets/{namespace}/textures/{texture}.png"
+        if item in weapons:
+            # Built-in entity models render the weapon in 3D and use a particle
+            # texture, while the corresponding 16px ocean icon is still packed.
+            assert model.get("parent") == "builtin/entity", f"Wrong 3D parent: {item}"
+            assert model.get("textures", {}).get("particle") == "minecraft:block/prismarine", f"Wrong 3D particle: {item}"
+            for perspective in ("gui", "ground", "firstperson_righthand", "firstperson_lefthand",
+                                "thirdperson_righthand", "thirdperson_lefthand"):
+                assert perspective in model.get("display", {}), f"Missing 3D display for {item}: {perspective}"
+            image = base + f"textures/item/ocean/{item}.png"
+        else:
+            assert model.get("parent") == "minecraft:item/generated", f"Wrong generated parent: {item}"
+            layer = model.get("textures", {}).get("layer0")
+            assert isinstance(layer, str) and layer.startswith("slavicmyths:item/"), f"Not a bundled icon: {item}: {layer}"
+            namespace, texture = layer.split(":", 1)
+            image = f"assets/{namespace}/textures/{texture}.png"
         assert image in names, f"Missing texture in JAR: {image}"
         png = jar.read(image)
         assert png[:8] == bytes.fromhex("89504e470d0a1a0a"), f"Invalid PNG: {item}"

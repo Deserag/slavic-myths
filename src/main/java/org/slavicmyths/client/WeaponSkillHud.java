@@ -126,7 +126,11 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("morovoy_staff_flock","S+L",tag.getLong("MorStaff25_flock")-now));
                 skills.add(new Skill("morovoy_staff_area","S+R",tag.getLong("MorStaff25_area")-now));
             }
-            case "gneteya_great_hammer" -> skills.add(new Skill("gneteya_crushing_blow","S+R",-1));
+            case "gneteya_great_hammer" -> {
+                skills.add(new Skill("gneteya_crushing_blow", "S+R", tag.getLong("GneteyaSkillSlamReady") - now));
+                skills.add(new Skill("gneteya_bone_fracture_radial", "S+L", tag.getLong("GneteyaSkillFractureReady") - now));
+                skills.add(new Skill("gneteya_sentence", "R", tag.getLong("GneteyaSkillSentenceReady") - now));
+            }
             case "neveya_scythe" -> {
                 skills.add(new Skill("neveya_scythe_reap","R",-1));skills.add(new Skill("neveya_scythe_slash","S+R",-1));
             }

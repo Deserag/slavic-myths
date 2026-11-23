@@ -16,7 +16,8 @@ import org.slavicmyths.morozko.FrostContent;
 @EventBusSubscriber(modid="slavicmyths")
 public final class WeaponSkillBindings {
     public static boolean shiftLeftSkill(ItemStack stack) {
-        return stack.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow bow && bow.special;
+        return stack.getItem() instanceof org.slavicmyths.sisters.GneteyaGreatHammer
+            || stack.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow bow && bow.special;
     }
 
     @SubscribeEvent(priority=EventPriority.HIGHEST)
