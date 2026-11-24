@@ -37,7 +37,7 @@ public final class ShipCaptain extends Monster {
     private final ServerBossEvent bar;
     private Vec3 direction=new Vec3(0,0,1);
     private boolean hadTarget,dashing;
-    private int spinPulse;
+    private Vec3 aimPoint=Vec3.ZERO;
     public ShipCaptain(EntityType<? extends ShipCaptain> type,Level level){
         super(type,level);xpReward=200;
         bar=new CreatureBossBar(this,Component.literal("Капитан корабля"),BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
@@ -99,7 +99,7 @@ public final class ShipCaptain extends Monster {
         direction=target.position().subtract(position()).multiply(1,0,1).normalize();
         if(direction.lengthSqr()<.01)direction=getLookAngle().multiply(1,0,1).normalize();
         float aim=(float)Math.toDegrees(Math.atan2(-direction.x,direction.z));
-        entityData.set(AIM,aim);setYRot(aim);setYBodyRot(aim);spinPulse=0;dashHits.clear();
+        entityData.set(AIM,aim);setYRot(aim);setYBodyRot(aim);aimPoint=target.getBoundingBox().getCenter();dashHits.clear();
         for(var event:combat.start(next,distance,Integer.bitCount(axes()),hasLineOfSight(target)))resolve(world,event);
         entityData.set(ACTION,next.ordinal()+1);entityData.set(FRAME,0);getNavigation().stop();
     }
@@ -114,8 +114,8 @@ public final class ShipCaptain extends Monster {
         if(fracture&&random.nextFloat()<.65F)p.addEffect(new MobEffectInstance(ModEffects.FRACTURE,160,0),this);
         return true;
     }
-    boolean projectileHit(ServerPlayer p,boolean volley){
-        boolean ok=hit(p,volley?8:15,true,false);if(ok)cue("throw_hit");return ok;
+    boolean projectileHit(ShipCaptainAxe axe,ServerPlayer p,boolean volley){
+        boolean ok=eligible(p)&&p.hurt(damageSources().thrown(axe,this),volley?8:15);if(ok){if(random.nextFloat()<.60F)WolfBleeding.apply(this,p);cue("throw_hit");}return ok;
     }
     private void ring(ServerLevel w,double radius,double y,int count){
         for(int i=0;i<count;i++){double a=2*Math.PI*i/count;w.sendParticles(ParticleTypes.SNOWFLAKE,getX()+Math.cos(a)*radius,getY()+y,getZ()+Math.sin(a)*radius,1,0,0,0,0);}
@@ -126,7 +126,7 @@ public final class ShipCaptain extends Monster {
             case MELEE -> {for(var p:players(w,3.5,true))if(hit(p,12,true,false))cue(event.soundKey());}
             case DOUBLE_MELEE -> {for(var p:players(w,3.5,true))if(hit(p,22,false,true))cue(event.soundKey());}
             case THROW -> {int slot=(axes()&1)!=0?0:1;if((axes()&(1<<slot))!=0)launch(w,slot,direction,false);cue(event.soundKey());}
-            case SPIN_HIT -> {cue(event.soundKey());spinPulse++;for(var p:players(w,5,false))hit(p,7,true,false);ring(w,4.5,1.1,36);}
+            case SPIN_HIT -> {cue(event.soundKey());for(var p:players(w,5,false))hit(p,7,true,false);ring(w,4.5,1.1,36);}
             case SLAM -> {cue(event.soundKey());for(var p:players(w,7,false))if(hit(p,18,false,true)){p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,1),this);p.push(0,.35,0);}for(int i=2;i<=6;i+=2)ring(w,i,.2,28);}
             case VOLLEY -> {cue(event.soundKey());for(int i=-2;i<=2;i++)launch(w,-1,direction.yRot((float)(i*Math.PI/8)),true);}
             case GRASP -> {cue(event.soundKey());for(var p:players(w,12,true)){Vec3 v=position().subtract(p.position()).multiply(1,0,1).normalize();p.push(v.x*1.35,.15,v.z*1.35);p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);}}
@@ -134,10 +134,10 @@ public final class ShipCaptain extends Monster {
             case DASH_END, COMPLETE -> {dashing=false;stopMotion();}
         }
     }
-    public Vec3 hand(int slot){Vec3 forward=direction;if(action()==0)forward=getLookAngle().multiply(1,0,1).normalize();Vec3 side=new Vec3(forward.z,0,-forward.x);return position().add(0,1.55,0).add(side.scale(slot==0?.76:-.76)).add(forward.scale(.15));}
+    public Vec3 hand(int slot){Vec3 forward=direction;if(action()==0)forward=getLookAngle().multiply(1,0,1).normalize();Vec3 side=new Vec3(forward.z,0,-forward.x);boolean release=slot==0&&action()==3&&actionFrame()>=12&&actionFrame()<=16;return position().add(0,release?2.5:1.4,0).add(side.scale(slot==0?(release?-.52:-.65):.65)).add(forward.scale(release?.55:.06));}
     private void launch(ServerLevel w,int slot,Vec3 heading,boolean volley){
         var axe=ShipCaptainContent.AXE.get().create(w);if(axe==null)return;
-        Vec3 start=hand(slot<0?0:slot);axe.setPos(start);axe.launch(this,slot,heading.scale(1.15),volley);
+        Vec3 start=hand(slot<0?0:slot);axe.setPos(start);double horizontal=Math.max(1,aimPoint.subtract(start).horizontalDistance());double slope=Math.clamp((aimPoint.y-start.y)/horizontal,-.65,.65);axe.launch(this,slot,new Vec3(heading.x,slope,heading.z).normalize().scale(1.15),volley);
         if(w.addFreshEntity(axe)&&slot>=0){flying[slot]=axe.getUUID();timeout[slot]=100;entityData.set(AXES,axes()&~(1<<slot));}
     }
     boolean ownsAxe(int slot,UUID id){return slot>=0&&slot<2&&id.equals(flying[slot]);}
