@@ -93,6 +93,7 @@ public final class AukaBossModel extends EntityModel<AukaBoss> {
             cube(l,7,-5,15,-7,10,3,13);
         }
         bearStaff(staff2,6F);
+        root.getAllParts().forEach(part -> part.setInitialPose(part.storePose()));
     }
     private void bearStaff(ModelPart p,float bottom){
         cube(p,6,-2,-31,-2,4,31+bottom,4);
@@ -105,6 +106,7 @@ public final class AukaBossModel extends EntityModel<AukaBoss> {
         cube(p,15,-3,bottom-4,-3,6,4,6);
     }
     @Override public void setupAnim(AukaBoss e,float walk,float amount,float age,float yaw,float pitch){
+        root.getAllParts().forEach(ModelPart::resetPose);
         first.visible=e.form()==AukaBoss.Form.HUT_SPIRIT;
         second.visible=e.form()==AukaBoss.Form.STALKER;
         float t=e.animationTicks(age-e.tickCount);

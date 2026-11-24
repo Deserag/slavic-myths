@@ -107,7 +107,7 @@ public final class GneteyaGreatHammer extends SwordItem {
         boolean slam = player.isShiftKeyDown();
         String key = slam ? SLAM_READY : SENTENCE_READY;
         String hudKey = slam ? SLAM_HUD : SENTENCE_HUD;
-        if (stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+        if (level.isClientSide && stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
                 .copyTag().getLong(hudKey) > level.getGameTime()) {
             return InteractionResultHolder.fail(stack);
         }
@@ -132,7 +132,7 @@ public final class GneteyaGreatHammer extends SwordItem {
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remaining) {
         if (!(entity instanceof ServerPlayer player) || !validOwner(player)
-                || player.getMainHandItem().getItem() != this) return;
+                || player.getMainHandItem() != stack) return;
         boolean slam = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
             .copyTag().getBoolean(CAST_SLAM);
         int heldTicks = getUseDuration(stack, player) - remaining;

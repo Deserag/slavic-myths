@@ -21,6 +21,37 @@ import org.slavicmyths.nethersmithing.NetherSkills;
 @PrefixGameTestTemplate(false)
 public final class ThrowSkillIsolationGameTests {
     @GameTest(template="empty",timeoutTicks=60)
+    public static void tetherImpactDeadlineFollowsPlayerAndStackSwitch(GameTestHelper t){
+        var p=FakePlayerFactory.get(t.getLevel(),new GameProfile(UUID.randomUUID(),"TetherHudQA"));
+        p.moveTo(t.absoluteVec(new Vec3(3,3,3)));
+        var item=MarineHarpoons.AMMO.get();
+        long now=t.getLevel().getGameTime();
+        ItemStack first=new ItemStack(item,4);
+        p.setItemInHand(InteractionHand.MAIN_HAND,first);
+        // Simulate the server state written by a successful tether impact.
+        p.getPersistentData().putLong("MarineHarpoonReady",now+500);
+        IndependentWeaponCooldowns.syncHeld(p);
+        var firstTag=first.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+        t.assertTrue(firstTag.getLong("MarineHarpoonReady")==now+500,"HUD lost tether impact cooldown");
+        t.assertTrue(IndependentWeaponCooldowns.remaining(firstTag,IndependentWeaponCooldowns.HARPOON,false,now)==0,
+            "Tether impact incorrectly blocked normal throw");
+        ItemStack replacement=new ItemStack(item,4);
+        p.setItemInHand(InteractionHand.MAIN_HAND,replacement);
+        IndependentWeaponCooldowns.syncHeld(p);
+        var replacementTag=replacement.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+        t.assertTrue(replacementTag.getLong("MarineHarpoonReady")==now+500,"Switching stacks lost tether HUD deadline");
+        p.getPersistentData().remove("MarineHarpoonReady");
+        IndependentWeaponCooldowns.syncHeld(p);
+        t.assertTrue(replacement.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getLong("MarineHarpoonReady")==0,
+            "Stale tether HUD deadline was not cleared");
+        p.discard();
+        t.succeed();
+    }
+
+    @GameTest(template="empty",timeoutTicks=60)
     public static void regularAndSpecialThrowsDoNotBlockEachOther(GameTestHelper t){
         for(String id:new String[]{"shadow_throwing_knife","storm_harpoon"}){
             for(boolean first:new boolean[]{false,true}){

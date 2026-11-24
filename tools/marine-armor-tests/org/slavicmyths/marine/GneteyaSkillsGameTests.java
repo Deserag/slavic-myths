@@ -72,6 +72,35 @@ public final class GneteyaSkillsGameTests {
     }
 
     @GameTest(template = "empty", timeoutTicks = 40)
+    public static void serverIgnoresStaleHudButEnforcesRealCooldown(GameTestHelper t) {
+        var player = FakePlayerFactory.get(t.getLevel(),
+            new GameProfile(UUID.randomUUID(), "HammerHudQA"));
+        player.moveTo(t.absoluteVec(new Vec3(3, 3, 3)));
+        player.setGameMode(GameType.SURVIVAL);
+        ItemStack hammer = new ItemStack(SistersContent.GNETEYA_GREAT_HAMMER.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, hammer);
+        player.setShiftKeyDown(false);
+        long now = t.getLevel().getGameTime();
+        net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            hammer, tag -> tag.putLong("GneteyaSkillSentenceReady", now + 360));
+        t.assertTrue(hammer.use(t.getLevel(), player, InteractionHand.MAIN_HAND).getResult().consumesAction(),
+            "Stale HUD mirror blocked a ready server skill");
+        player.stopUsingItem();
+        PathData.data(player).putLong("GneteyaGreatHammerSentenceReady", now + 360);
+        net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            hammer, tag -> tag.putLong("GneteyaSkillSentenceReady", 0));
+        int wear = hammer.getDamageValue();
+        t.assertTrue(hammer.use(t.getLevel(), player, InteractionHand.MAIN_HAND).getResult()
+            == net.minecraft.world.InteractionResult.FAIL, "HUD bypassed the authoritative cooldown");
+        t.assertTrue(hammer.getDamageValue() == wear, "Blocked skill consumed durability");
+        t.assertTrue(PathData.data(player).getLong("GneteyaGreatHammerReady") == 0
+            && PathData.data(player).getLong("GneteyaGreatHammerFractureReady") == 0,
+            "Blocked Sentence changed another skill cooldown");
+        player.discard();
+        t.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 40)
     public static void boneFractureRequiresEmptyOffhand(GameTestHelper t) {
         var player = FakePlayerFactory.get(t.getLevel(),
             new GameProfile(UUID.randomUUID(), "GneteyaOffhand"));

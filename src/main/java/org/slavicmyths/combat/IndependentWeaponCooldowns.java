@@ -38,10 +38,19 @@ public final class IndependentWeaponCooldowns {
             long deadline=saved.getLong(key);
             if(data.getLong(key)!=deadline){data.putLong(key,deadline);changed=true;}
         }
+        // Tether cooldown starts on successful impact, not on the throw.
+        if(HARPOON.equals(weapon)){
+            String key="MarineHarpoonReady";
+            long deadline=player.getPersistentData().getLong(key);
+            if(data.getLong(key)!=deadline){data.putLong(key,deadline);changed=true;}
+        }
         if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(data));
     }
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event){
         if(!(event.getEntity() instanceof ServerPlayer player))return;
+        syncHeld(player);
+    }
+    public static void syncHeld(ServerPlayer player){
         ItemStack stack=player.getMainHandItem();
         var id=BuiltInRegistries.ITEM.getKey(stack.getItem());
         if(!id.getNamespace().equals("slavicmyths"))return;
