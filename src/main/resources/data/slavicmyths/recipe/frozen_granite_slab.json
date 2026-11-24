@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:frozen_granite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:frozen_granite_slab",
+    "count": 6
+  }
+}

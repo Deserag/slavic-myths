@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:frozen_andesite"
+  },
+  "result": {
+    "id": "slavicmyths:frozen_andesite_stairs",
+    "count": 1
+  }
+}

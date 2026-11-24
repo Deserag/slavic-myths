@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "slavicmyths:block/frozen_andesite",
+    "top": "slavicmyths:block/frozen_andesite",
+    "side": "slavicmyths:block/frozen_andesite"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/frozen_granite_slab"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/frozen_granite_slab_top"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/frozen_granite"
+    }
+  }
+}

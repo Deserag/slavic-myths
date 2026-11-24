@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:frozen_diorite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:frozen_diorite_wall",
+    "count": 6
+  }
+}

@@ -12,6 +12,16 @@
     "slavicmyths:carved_burial_stone_slab",
     "slavicmyths:charred_stone_slab",
     "slavicmyths:cracked_charred_stone_slab",
-    "slavicmyths:blackwood_slab"
+    "slavicmyths:blackwood_slab",
+    "slavicmyths:frozen_cobblestone_slab",
+    "slavicmyths:frozen_stone_slab",
+    "slavicmyths:smooth_frozen_stone_slab",
+    "slavicmyths:frozen_stone_bricks_slab",
+    "slavicmyths:frozen_granite_slab",
+    "slavicmyths:frozen_diorite_slab",
+    "slavicmyths:frozen_andesite_slab",
+    "slavicmyths:frozen_deepslate_slab",
+    "slavicmyths:frozen_cobbled_deepslate_slab",
+    "slavicmyths:frozen_deepslate_bricks_slab"
   ]
 }

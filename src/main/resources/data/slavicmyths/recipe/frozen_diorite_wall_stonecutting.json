@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:frozen_diorite"
+  },
+  "result": {
+    "id": "slavicmyths:frozen_diorite_wall",
+    "count": 1
+  }
+}

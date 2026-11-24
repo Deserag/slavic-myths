@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:frozen_cobblestone"
+  },
+  "result": {
+    "id": "slavicmyths:frozen_cobblestone_slab",
+    "count": 2
+  }
+}

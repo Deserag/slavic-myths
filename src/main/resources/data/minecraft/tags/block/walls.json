@@ -12,6 +12,16 @@
     "slavicmyths:charred_stone_wall",
     "slavicmyths:cracked_charred_stone_wall",
     "slavicmyths:lost_hall_stone_wall",
-    "slavicmyths:polished_lost_hall_stone_wall"
+    "slavicmyths:polished_lost_hall_stone_wall",
+    "slavicmyths:frozen_cobblestone_wall",
+    "slavicmyths:frozen_stone_wall",
+    "slavicmyths:smooth_frozen_stone_wall",
+    "slavicmyths:frozen_stone_bricks_wall",
+    "slavicmyths:frozen_granite_wall",
+    "slavicmyths:frozen_diorite_wall",
+    "slavicmyths:frozen_andesite_wall",
+    "slavicmyths:frozen_deepslate_wall",
+    "slavicmyths:frozen_cobbled_deepslate_wall",
+    "slavicmyths:frozen_deepslate_bricks_wall"
   ]
 }

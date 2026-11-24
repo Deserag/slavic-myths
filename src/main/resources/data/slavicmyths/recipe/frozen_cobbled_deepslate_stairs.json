@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "S  ",
+    "SS ",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:frozen_cobbled_deepslate"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:frozen_cobbled_deepslate_stairs",
+    "count": 4
+  }
+}

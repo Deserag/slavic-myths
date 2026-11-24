@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:frozen_andesite"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:frozen_andesite_wall",
+    "count": 6
+  }
+}

@@ -3,6 +3,16 @@
   "values": [
     "slavicmyths:charred_stone_stairs",
     "slavicmyths:cracked_charred_stone_stairs",
-    "slavicmyths:blackwood_stairs"
+    "slavicmyths:blackwood_stairs",
+    "slavicmyths:frozen_cobblestone_stairs",
+    "slavicmyths:frozen_stone_stairs",
+    "slavicmyths:smooth_frozen_stone_stairs",
+    "slavicmyths:frozen_stone_bricks_stairs",
+    "slavicmyths:frozen_granite_stairs",
+    "slavicmyths:frozen_diorite_stairs",
+    "slavicmyths:frozen_andesite_stairs",
+    "slavicmyths:frozen_deepslate_stairs",
+    "slavicmyths:frozen_cobbled_deepslate_stairs",
+    "slavicmyths:frozen_deepslate_bricks_stairs"
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slavicmyths:block/smooth_frozen_stone_slab"
+    },
+    "type=top": {
+      "model": "slavicmyths:block/smooth_frozen_stone_slab_top"
+    },
+    "type=double": {
+      "model": "slavicmyths:block/smooth_frozen_stone"
+    }
+  }
+}

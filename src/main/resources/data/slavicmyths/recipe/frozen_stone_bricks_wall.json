@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:frozen_stone_bricks"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:frozen_stone_bricks_wall",
+    "count": 6
+  }
+}

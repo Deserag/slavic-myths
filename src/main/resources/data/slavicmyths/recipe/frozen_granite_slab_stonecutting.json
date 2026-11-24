@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:frozen_granite"
+  },
+  "result": {
+    "id": "slavicmyths:frozen_granite_slab",
+    "count": 2
+  }
+}

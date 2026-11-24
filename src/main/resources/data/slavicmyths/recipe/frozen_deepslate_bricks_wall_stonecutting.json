@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slavicmyths:frozen_deepslate_bricks"
+  },
+  "result": {
+    "id": "slavicmyths:frozen_deepslate_bricks_wall",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "slavicmyths:block/frozen_deepslate",
+    "top": "slavicmyths:block/frozen_deepslate",
+    "side": "slavicmyths:block/frozen_deepslate"
+  }
+}
