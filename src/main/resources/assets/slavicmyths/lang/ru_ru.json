@@ -6974,5 +6974,13 @@
   "item.slavicmyths.snow_wanderer_hammers.skills": "ЛКМ: удар (14 HP). ПКМ: морозная ударная волна (16 HP, 6 с). Shift+ЛКМ: сокрушительный удар (24 HP, 10 с).",
   "item.slavicmyths.auka_frost_core": "Морозное ядро Ауки",
   "death.attack.winter_weapon_skill": "%1$s пал от зимнего оружия",
-  "death.attack.winter_weapon_skill.player": "%1$s пал от зимнего оружия игрока %2$s"
+  "death.attack.winter_weapon_skill.player": "%1$s пал от зимнего оружия игрока %2$s",
+  "item.slavicmyths.absolute_silence_sword": "Меч абсолютного безмолвия",
+  "item.slavicmyths.absolute_silence_sword.skills": "ЛКМ: 22 HP. ПКМ: волна безмолвия (18 HP, 6 с). Shift+ЛКМ: семь ледяных клинков (по 5 HP, 20 с); четыре попадания ставят метку. Shift+ПКМ: казнь (40 HP, 35 с).",
+  "item.slavicmyths.ice_queen_spear_staff": "Копьё-посох вечной зимы",
+  "item.slavicmyths.ice_queen_spear_staff.spear": "Копьё: ЛКМ 18 HP; ПКМ смена режима; Shift+ЛКМ рывок 26 HP; Shift+ПКМ круговой удар 24 HP.",
+  "item.slavicmyths.ice_queen_spear_staff.staff": "Посох: ЛКМ снаряд 12 HP; ПКМ смена режима; Shift+ЛКМ шипы 22 HP; Shift+ПКМ союзный ледяной голем (100 HP, 12 урона, 45 с, откат 90 с).",
+  "winter.weapon.staff_mode": "Режим посоха",
+  "winter.weapon.spear_mode": "Режим копья",
+  "winter.weapon.silence_mark": "Цель отмечена безмолвием"
 }

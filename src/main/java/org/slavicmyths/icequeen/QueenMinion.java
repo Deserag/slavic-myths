@@ -11,7 +11,9 @@ import net.minecraft.world.level.Level;
 import org.slavicmyths.morozko.*;
 public final class QueenMinion extends net.minecraft.world.entity.monster.Monster {
  private static final net.minecraft.network.syncher.EntityDataAccessor<Integer> ATTACK=net.minecraft.network.syncher.SynchedEntityData.defineId(QueenMinion.class,net.minecraft.network.syncher.EntityDataSerializers.INT);
- private final QueenContent.Kind kind; private UUID owner; private int orphans,attack;
+ private final QueenContent.Kind kind; private UUID owner; private int orphans,attack;private boolean playerBound;private long playerUntil;
+ public boolean playerBound(){return playerBound;}
+ public void bindPlayer(net.minecraft.server.level.ServerPlayer p){if(kind!=QueenContent.Kind.LARGE_GOLEM)throw new IllegalStateException("Not a golem");owner=p.getUUID();playerBound=true;playerUntil=p.serverLevel().getGameTime()+900;setHealth(100);}
  @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ATTACK,0);}
  public int attackFrame(){return entityData.get(ATTACK);}
  private void attackFrame(int f){entityData.set(ATTACK,f);}
@@ -25,10 +27,11 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
  public boolean trialActive(){return owner!=null&&level() instanceof ServerLevel w&&w.getEntity(owner) instanceof IceQueen b&&b.active()&&b.phase()==(kind.copy()?2:1);}
  public boolean canHitTrial(LivingEntity e){return e instanceof Player p&&owner!=null&&level() instanceof ServerLevel w&&w.getEntity(owner) instanceof IceQueen b&&b.active()&&b.participant(p);}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));}
- @Override public boolean isAlliedTo(Entity e){return e instanceof IceQueen b&&ownedBy(b)||e instanceof QueenMinion m&&owner!=null&&owner.equals(m.owner)||super.isAlliedTo(e);}
+ @Override public boolean isAlliedTo(Entity e){return playerBound&&owner!=null&&e.getUUID().equals(owner)||e instanceof IceQueen b&&ownedBy(b)||e instanceof QueenMinion m&&owner!=null&&owner.equals(m.owner)||super.isAlliedTo(e);}
  @Override public boolean hurt(net.minecraft.world.damagesource.DamageSource s,float a){return !(s.getEntity()!=null&&isAlliedTo(s.getEntity()))&&!s.is(net.minecraft.tags.DamageTypeTags.IS_FREEZING)&&super.hurt(s,a);}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;
+  if(playerBound){playerTick(w);return;}
   if(owner==null||!(w.getEntity(owner) instanceof IceQueen boss)||!boss.active()||boss.phase()!=(kind.copy()?2:1)){if(++orphans>=20)discard();return;}orphans=0;
   Player p=boss.victim();if(p==null){getNavigation().stop();attack=0;attackFrame(0);return;}if(distanceToSqr(boss)>3600){discard();return;}getLookControl().setLookAt(p,45,45);
   double d=distanceToSqr(p);
@@ -39,5 +42,32 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
   attackFrame(++attack);if(attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(kind==QueenContent.Kind.WOLF?SoundEvents.WOLF_GROWL:kind==QueenContent.Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
   if(attack==18&&hasLineOfSight(p)&&distanceToSqr(p)<=reach*reach&&p.hurt(damageSources().mobAttack(this),kind.damage)){FrostCold.add(p,6);QueenSounds.play(this,QueenSounds.Cue.MINION_HIT);}
   if(attack>=36){attack=0;attackFrame(0);}
+ }
+ private void playerTick(ServerLevel w){
+    if(owner==null||!(w.getEntity(owner) instanceof net.minecraft.server.level.ServerPlayer p)||!p.isAlive()||p.isSpectator()||w.getGameTime()>=playerUntil){discard();return;}
+    if(distanceToSqr(p)>32*32){discard();return;}
+    var target=getTarget();
+    if(target==null||!validPlayerTarget(p,target)){
+        var last=p.getLastHurtMob();var attacker=p.getLastHurtByMob();
+        if(validPlayerTarget(p,last))target=last;
+        else if(validPlayerTarget(p,attacker))target=attacker;
+        else if(tickCount%10==0)target=w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(12),
+              t->validPlayerTarget(p,t)&&org.slavicmyths.combat.CombatTargeting.isEnemy(p,t,org.slavicmyths.combat.CombatTargeting.Context.ACQUIRE))
+              .stream().min(java.util.Comparator.comparingDouble(this::distanceToSqr)).orElse(null);
+        else target=null;
+        setTarget(target);
+    }
+    if(target==null){attack=0;attackFrame(0);if(distanceToSqr(p)>9)getNavigation().moveTo(p,1.1);else getNavigation().stop();return;}
+    getLookControl().setLookAt(target,45,45);
+    if(distanceToSqr(target)>3.7*3.7){getNavigation().moveTo(target,1.12);attack=0;attackFrame(0);return;}
+    getNavigation().stop();attackFrame(++attack);
+    if(attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
+    if(attack==18&&hasLineOfSight(target)&&validPlayerTarget(p,target)&&distanceToSqr(target)<=3.7*3.7)
+       target.hurt(FrostDamage.projectile("winter_weapon_skill",this,p),12);
+    if(attack>=36){attack=0;attackFrame(0);}
+ }
+ private boolean validPlayerTarget(net.minecraft.server.level.ServerPlayer p,LivingEntity t){
+    return t!=null&&t!=this&&distanceToSqr(t)<=24*24&&p.distanceToSqr(t)<=32*32
+      &&org.slavicmyths.combat.CombatTargeting.canAttack(p,t,org.slavicmyths.combat.CombatTargeting.Context.DIRECT);
  }
 }

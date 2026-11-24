@@ -62,6 +62,7 @@ public final class CombatTargeting {
     }
     private static java.util.UUID playerOwner(LivingEntity e){
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
+        if(e instanceof org.slavicmyths.icequeen.QueenMinion m&&m.playerBound())return m.ownerId();
         if(e instanceof Player p)return p.getUUID();
         if(e instanceof TamableAnimal pet)return pet.getOwnerUUID();
         if(e instanceof org.slavicmyths.morozko.PlayerDouble d)return d.owner();
@@ -118,7 +119,7 @@ public final class CombatTargeting {
     }
     public static Intent intent(LivingEntity e){
         if(e instanceof org.slavicmyths.icequeen.IceQueen q)return q.active()?Intent.HOSTILE:Intent.NEUTRAL;
-        if(e instanceof org.slavicmyths.icequeen.QueenMinion m)return m.trialActive()?Intent.HOSTILE:Intent.NEUTRAL;
+        if(e instanceof org.slavicmyths.icequeen.QueenMinion m)return m.playerBound()?Intent.DEFENDER:m.trialActive()?Intent.HOSTILE:Intent.NEUTRAL;
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.playerOwned()?Intent.DEFENDER:Intent.HOSTILE;
         if(e.getType().is(PROXY))return Intent.NEUTRAL;
         // Explicit biome roles precede Enemy/tag fallbacks. Traits must not provoke neutrals.

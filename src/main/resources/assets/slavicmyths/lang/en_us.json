@@ -6977,5 +6977,13 @@
   "item.slavicmyths.snow_wanderer_hammers.skills": "LMB: alternating strike (14 HP). RMB: frost shockwave (16 HP, 6s). Shift+LMB: crushing blow (24 HP, 10s).",
   "item.slavicmyths.auka_frost_core": "Auka's Frost Core",
   "death.attack.winter_weapon_skill": "%1$s was struck by winter steel",
-  "death.attack.winter_weapon_skill.player": "%1$s was struck by %2$s's winter steel"
+  "death.attack.winter_weapon_skill.player": "%1$s was struck by %2$s's winter steel",
+  "item.slavicmyths.absolute_silence_sword": "Sword of Absolute Silence",
+  "item.slavicmyths.absolute_silence_sword.skills": "LMB: 22 HP. RMB: Silence wave (18 HP, 6s). Shift+LMB: seven ice blades (5 HP each, 20s); four hits mark the target. Shift+RMB: execution (40 HP, 35s).",
+  "item.slavicmyths.ice_queen_spear_staff": "Spear-Staff of Eternal Winter",
+  "item.slavicmyths.ice_queen_spear_staff.spear": "Spear mode: LMB 18 HP; RMB switch mode; Shift+LMB dash 26 HP; Shift+RMB circular strike 24 HP.",
+  "item.slavicmyths.ice_queen_spear_staff.staff": "Staff mode: LMB bolt 12 HP; RMB switch mode; Shift+LMB spikes 22 HP; Shift+RMB allied ice golem (100 HP, 12 damage, 45s, 90s cooldown).",
+  "winter.weapon.staff_mode": "Staff mode",
+  "winter.weapon.spear_mode": "Spear mode",
+  "winter.weapon.silence_mark": "Target marked by Silence"
 }

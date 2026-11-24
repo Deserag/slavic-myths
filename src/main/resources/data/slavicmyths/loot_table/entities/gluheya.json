@@ -15,6 +15,21 @@
           "name": "slavicmyths:silence_ring"
         }
       ]
+    },
+    {
+      "name": "winter_legendary_sword",
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:absolute_silence_sword"
+        }
+      ]
     }
   ]
 }

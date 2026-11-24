@@ -15,6 +15,8 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> ICE_QUEEN_SPEAR_STAFF = ITEMS.register("ice_queen_spear_staff", () -> new org.slavicmyths.winter.WinterLegendItem(true));
+    public static final DeferredHolder<Item, Item> ABSOLUTE_SILENCE_SWORD = ITEMS.register("absolute_silence_sword", () -> new org.slavicmyths.winter.WinterLegendItem(false));
     public static final DeferredHolder<Item, Item> ICE_CAPTAIN_AXES = ITEMS.register("ice_captain_axes", () -> new org.slavicmyths.winter.WinterPairItem(true));
     public static final DeferredHolder<Item, Item> SNOW_WANDERER_HAMMERS = ITEMS.register("snow_wanderer_hammers", () -> new org.slavicmyths.winter.WinterPairItem(false));
     public static final DeferredHolder<Item, Item> AUKA_FROST_CORE = ITEMS.register("auka_frost_core", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));

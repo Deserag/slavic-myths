@@ -39,12 +39,16 @@ public final class WinterAccessories {
   mod(p,Attributes.MAX_HEALTH,"winter_accessory_health",(belt?4:0)+(heart?6:0),add);
   if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth());
  }
+ public static boolean winterItem(ItemStack stack){return stack.is(WINTER);}
  private static boolean winterHit(net.minecraft.world.damagesource.DamageSource source,ServerPlayer p){
   if(source.getDirectEntity() instanceof org.slavicmyths.combat.WeaponProjectile projectile)return projectile.getItem().is(WINTER);
+  if(source.getDirectEntity() instanceof org.slavicmyths.morozko.FrostShard shard)return shard.winterWeapon();
+  if(source.getDirectEntity() instanceof org.slavicmyths.morozko.FrostHazard hazard)return hazard.winterWeapon();
+  if(source.getDirectEntity() instanceof org.slavicmyths.icequeen.QueenMinion minion)return minion.playerBound();
   return p.getMainHandItem().is(WINTER);
  }
  private static boolean weaponHit(net.minecraft.world.damagesource.DamageSource source,ServerPlayer p){
-  return source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.Projectile || source.getDirectEntity()==p&&!source.getMsgId().equals("winter_frostbite");
+  return source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.Projectile || source.getDirectEntity() instanceof org.slavicmyths.morozko.FrostHazard h&&h.winterWeapon() || source.getDirectEntity() instanceof org.slavicmyths.icequeen.QueenMinion m&&m.playerBound() || source.getDirectEntity()==p&&!source.getMsgId().equals("winter_frostbite");
  }
  @SubscribeEvent public static void damage(LivingDamageEvent.Pre e){
   if(e.getEntity().level().isClientSide||e.getNewDamage()<=0)return;
@@ -89,10 +93,14 @@ public final class WinterAccessories {
   }
  }
  public static void queenVictory(ServerPlayer p){
-  var ledger=FrostLedger.get(p.serverLevel());var data=ledger.player(p.getUUID());
-  if(data.getBoolean("WinterQueenAccessories"))return;
-  data.putBoolean("WinterQueenAccessories",true);
-  ledger.enqueue(p,new ItemStack(ModItems.SNOW_QUEEN_HEART.get()));ledger.enqueue(p,new ItemStack(ModItems.ICE_CROWN.get()));ledger.setDirty();ledger.collect(p);
+  var ledger=FrostLedger.get(p.serverLevel());var data=ledger.player(p.getUUID());boolean changed=false;
+  if(!data.getBoolean("WinterQueenAccessories")){
+   data.putBoolean("WinterQueenAccessories",true);ledger.enqueue(p,new ItemStack(ModItems.SNOW_QUEEN_HEART.get()));ledger.enqueue(p,new ItemStack(ModItems.ICE_CROWN.get()));changed=true;
+  }
+  if(!data.getBoolean("WinterQueenWeapon")){
+   data.putBoolean("WinterQueenWeapon",true);ledger.enqueue(p,new ItemStack(ModItems.ICE_QUEEN_SPEAR_STAFF.get()));changed=true;
+  }
+  if(changed){ledger.setDirty();ledger.collect(p);}
  }
  private WinterAccessories(){}
 }
