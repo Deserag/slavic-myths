@@ -44,6 +44,7 @@ public final class ShipCaptainCombat {
     public Attack active() { return active; }
     public int frame() { return frame; }
     public int cooldown(Attack attack) { return cooldowns.getOrDefault(attack, 0); }
+    public void restoreCooldown(Attack attack, int remaining) { cooldowns.put(attack, Math.max(0, Math.min(attack.cooldown, remaining))); }
     public boolean ready() { return active == null && recovery == 0; }
 
     public boolean canStart(Attack attack, double distance, int axesInHand, boolean lineOfSight) {
@@ -82,6 +83,7 @@ public final class ShipCaptainCombat {
                 if (frame == 13) events.add(event(Kind.MELEE, "axe_hit"));
             }
             case DOUBLE_STRIKE -> {
+                if (frame == 15) events.add(event(Kind.SOUND, "axe_swing"));
                 if (frame == 18) events.add(event(Kind.DOUBLE_MELEE, "double_hit"));
             }
             case AXE_THROW -> {
