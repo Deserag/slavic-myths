@@ -9,8 +9,8 @@ public final class WinterEncounterLayout {
     public static int center(int cell) { return cell * CELL + CELL / 2; }
     public static long key(int x, int z) { return ((long)x << 32) | (z & 0xffffffffL); }
     public static Boss select(Habitat habitat, int x, int z, boolean test, boolean gluheya, long seed) {
-        if (habitat == Habitat.OCEAN) return Boss.CAPTAIN;
         if (habitat == Habitat.OTHER) return null;
+        if (habitat == Habitat.OCEAN && test) return Boss.CAPTAIN;
         if (test) {
             int zone = Math.floorMod(x + z, 4);
             if (habitat == Habitat.FOREST) {
@@ -21,6 +21,7 @@ public final class WinterEncounterLayout {
         }
         long mixed = seed ^ (key(x,z) * 0x9E3779B97F4A7C15L);
         mixed ^= mixed >>> 33; mixed *= 0xff51afd7ed558ccdL; mixed ^= mixed >>> 33;
+        if (habitat == Habitat.OCEAN) return Math.floorMod(mixed, 5) == 0 ? Boss.OWL : Boss.CAPTAIN;
         if (habitat == Habitat.FOREST) {
             return switch (Math.floorMod(mixed, gluheya ? 5 : 4)) {
                 case 0 -> Boss.QUEEN;

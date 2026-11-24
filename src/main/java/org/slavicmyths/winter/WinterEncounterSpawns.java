@@ -121,7 +121,7 @@ public final class WinterEncounterSpawns {
         if(boss==Boss.CAPTAIN){
             if(!world.getBiome(pos).is(OCEAN)||!ice(state))return false;
         }else{
-            if(!state.getFluidState().isEmpty()||ice(state)||state.is(net.minecraft.tags.BlockTags.LOGS))return false;
+            if(!state.getFluidState().isEmpty()||(boss!=Boss.OWL&&ice(state))||state.is(net.minecraft.tags.BlockTags.LOGS))return false;
             if((boss==Boss.QUEEN||boss==Boss.AUKA||boss==Boss.GLUHEYA)&&!world.getBiome(pos).is(FOREST))return false;
         }
         if(!state.isFaceSturdy(world,ground,net.minecraft.core.Direction.UP))return false;

@@ -24,7 +24,7 @@ public final class Woodlands {
     static {
         for(String name:new String[]{"linden","rowan","willow","pine","ice_pine","frost_willow"}) SETS.put(name,new Set(name));
         BERRIES=ModItems.ITEMS.register("rowan_berries",()->new Item(props().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.2F).build())));
-        HANGING=ModBlocks.BLOCKS.register("hanging_willow_leaves",HangingLeaves::new);
+        HANGING=ModBlocks.BLOCKS.register("hanging_willow_leaves",()->new HangingLeaves());
         ModItems.ITEMS.register("hanging_willow_leaves",()->new BlockItem(HANGING.get(),props()));
         FROST_HANGING=ModBlocks.BLOCKS.register("hanging_frost_willow_leaves",()->new HangingLeaves("frost_willow"));
         ModItems.ITEMS.register("hanging_frost_willow_leaves",()->new BlockItem(FROST_HANGING.get(),props()));

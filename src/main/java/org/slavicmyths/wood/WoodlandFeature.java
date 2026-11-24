@@ -27,7 +27,7 @@ public final class WoodlandFeature extends Feature<WoodlandFeature.Config> {
   return grow(w,r,p);
  }
  private boolean nearWater(WorldGenLevel w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++)if(w.getFluidState(p.offset(x,y,z)).is(FluidTags.WATER))return true;return false;}
- private boolean nearFrozenWater(WorldGenLevel w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++){var q=p.offset(x,y,z);if(!w.hasChunkAt(q))continue;var s=w.getBlockState(q);if(w.getFluidState(q).is(FluidTags.WATER)||s.is(Blocks.ICE)||s.is(Blocks.PACKED_ICE)||s.is(Blocks.BLUE_ICE))return true;}return false;}
+ private boolean nearFrozenWater(WorldGenLevel w,BlockPos p){for(int x=-12;x<=12;x+=2)for(int z=-12;z<=12;z+=2)for(int y=-2;y<=0;y++){var q=p.offset(x,y,z);if(!w.hasChunkAt(q))continue;var s=w.getBlockState(q);if(w.getFluidState(q).is(FluidTags.WATER)||s.is(Blocks.ICE)||s.is(Blocks.PACKED_ICE)||s.is(Blocks.BLUE_ICE))return true;}return false;}
  private boolean replaceable(BlockState s,Woodlands.Set set){return s.isAir()||s.is(set.get("sapling"))||s.is(Blocks.SHORT_GRASS)||s.is(Blocks.TALL_GRASS)||s.is(Blocks.FERN)||s.is(Blocks.LARGE_FERN)||s.is(Blocks.SNOW);}
  private BlockPos pos(BlockPos p,TreeShape.Cell c){return p.offset(c.x,c.y,c.z);}
  public boolean grow(WorldGenLevel w,RandomSource r,BlockPos p){return grow(w,r,p,false);}
