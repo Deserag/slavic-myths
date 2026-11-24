@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.util.zip.*;
 import com.mojang.logging.LogUtils;
-import com.mojang.brigadier.arguments.*;
 import net.minecraft.commands.*;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
 import net.minecraft.core.*;
@@ -33,6 +32,7 @@ public final class FrozenShip {
     private static final Map<ServerLevel,Job> JOBS=new IdentityHashMap<>();
     private static final Map<ServerLevel,Search> SEARCHES=new WeakHashMap<>();
     private static final Map<ServerLevel,Set<Long>> REJECTED=new WeakHashMap<>();
+    private static final Set<ServerLevel> FAILED_PENDING=Collections.newSetFromMap(new WeakHashMap<>());
     private static final class Plan {
         static final byte[] DATA=load();
         static final List<BlockPos> COLUMNS=columns();
@@ -68,6 +68,21 @@ public final class FrozenShip {
     }
     private static long cellKey(BlockPos p){return key(cell(p.getX()),cell(p.getZ()));}
     static boolean active(ServerLevel world){return JOBS.containsKey(world);}
+    static boolean clearOfShips(WinterEncounterSpawns.Sites sites,BlockPos pos){
+        for(long packed:sites.ships){
+            BlockPos other=BlockPos.of(packed);
+            if(Math.abs((long)other.getX()-pos.getX())<384&&Math.abs((long)other.getZ()-pos.getZ())<384)return false;
+        }
+        return true;
+    }
+    private static boolean clearOfOccupiedCells(WinterEncounterSpawns.Sites sites,BlockPos pos){
+        int cx=cell(pos.getX()),cz=cell(pos.getZ());
+        for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)
+            if(sites.occupied.contains(key(cx+dx,cz+dz))&&
+                Math.abs((long)center(cx+dx)-pos.getX())<384+SEARCH&&
+                Math.abs((long)center(cz+dz)-pos.getZ())<384+SEARCH)return false;
+        return true;
+    }
     private static boolean border(ServerLevel w,BlockPos p){
         return p.getY()+Y0-1>=w.getMinBuildHeight()+1&&p.getY()+Y1<w.getMaxBuildHeight()
             &&w.getWorldBorder().isWithinBounds(p.offset(X0,0,Z0))
@@ -78,7 +93,7 @@ public final class FrozenShip {
         var sites=WinterEncounterSpawns.Sites.get(world);
         if(active(world)||sites.pendingShip!=null||sites.occupied.contains(cellKey(origin))||
             REJECTED.computeIfAbsent(world,k->new HashSet<>()).contains(origin.asLong())||
-            !border(world,origin)||!noiseOcean(world,origin))return false;
+            !border(world,origin)||!clearOfShips(sites,origin)||!clearOfOccupiedCells(sites,origin)||!noiseOcean(world,origin))return false;
         for(var player:world.players())if(!player.isSpectator()&&
             Math.abs(player.getX()-origin.getX())<=W/2+16&&Math.abs(player.getZ()-origin.getZ())<=D/2+16)return false;
         JOBS.put(world,new Job(world,origin,true,null,false,false));return true;
@@ -114,26 +129,27 @@ public final class FrozenShip {
                 switch(edge/side){case 0->{dx=-ring+i;dz=-ring;}case 1->{dx=ring;dz=-ring+i;}
                     case 2->{dx=ring-i;dz=ring;}default->{dx=-ring;dz=ring-i;}}
             }
-            int ox=(offset%9-4)*16,oz=(offset/9-4)*16;
-            if(++offset==81){offset=0;if(++edge>=Math.max(1,8*ring)){edge=0;ring++;}}
+            int ox=(offset%32-16)*16,oz=(offset/32-16)*16;
+            if(++offset==1024){offset=0;if(++edge>=Math.max(1,8*ring)){edge=0;ring++;}}
             return new BlockPos(center(cx+dx)+ox,y,center(cz+dz)+oz);
         }
     }
     static void tick(MinecraftServer server){
         for(var world:server.getAllLevels()){
             var sites=WinterEncounterSpawns.Sites.get(world);
-            if(!active(world)&&sites.pendingShip!=null)
+            if(!active(world)&&sites.pendingShip!=null&&!FAILED_PENDING.contains(world))
                 JOBS.put(world,new Job(world,sites.pendingShip,sites.pendingNatural,null,false,true));
             var job=JOBS.get(world);if(job!=null){job.step();continue;}
             if(world.getGameTime()%20==0&&world.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(world,sites);
-            if(world!=server.overworld()||sites.naturalShip||world.players().isEmpty()||
+            if(world!=server.overworld()||sites.naturalShip||sites.pendingShip!=null||world.players().isEmpty()||
                 !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator)||
                 world.getGameTime()%5!=0)continue;
             if(world.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream().noneMatch(FrozenShip::ocean))continue;
             if(WinterWorld.isTest(world)&&queueNatural(world,new BlockPos(768,world.getSeaLevel(),256)))continue;
             var search=SEARCHES.computeIfAbsent(world,Search::new);
             // Finite vanilla world bounds; no unbounded work in any individual tick.
-            for(int i=0;i<32&&search.ring<=117188;i++){
+            long searchDeadline=System.nanoTime()+2_000_000L;
+            for(int i=0;i<64&&search.ring<=117188&&System.nanoTime()<searchDeadline;i++){
                 var p=search.next(world.getSeaLevel()-1);
                 if(queueNatural(world,p))break;
             }
@@ -250,11 +266,11 @@ public final class FrozenShip {
                             throw new IllegalStateException("Protected/non-natural block at "+pos);
                     }else if(phase==2){
                         // Clear all air volumes too, including the interior, and create a stable ice foundation.
-                        if(vertical==origin.getY()-2)world.setBlock(pos,Blocks.PACKED_ICE.defaultBlockState(),2);
-                        else if(!world.getBlockState(pos).isAir())world.setBlock(pos,Blocks.AIR.defaultBlockState(),2);
+                        if(vertical==origin.getY()-2)world.setBlock(pos,Blocks.PACKED_ICE.defaultBlockState(),18);
+                        else if(!world.getBlockState(pos).isAir())world.setBlock(pos,Blocks.AIR.defaultBlockState(),18);
                     }else{
                         int localY=vertical-origin.getY(),value=Plan.at(x,localY,z);
-                        if(value!=0)world.setBlock(pos,block(value,x,localY,z),2);
+                        if(value!=0)world.setBlock(pos,block(value,x,localY,z),18);
                     }
                     if(phase==3){if(++vertical>origin.getY()+Y1){column++;vertical=Integer.MIN_VALUE;}}
                     else if(--vertical<origin.getY()-2){column++;vertical=Integer.MIN_VALUE;}
@@ -264,6 +280,7 @@ public final class FrozenShip {
         void finish(boolean ok,String message){
             JOBS.remove(world,this);chunks.close();
             if(!ok&&natural)REJECTED.computeIfAbsent(world,k->new HashSet<>()).add(origin.asLong());
+            if(!ok&&WinterEncounterSpawns.Sites.get(world).pendingShip!=null)FAILED_PENDING.add(world);
             if(!ok){LogUtils.getLogger().warn("Frozen ship: {}",message);if(source!=null)source.sendFailure(Component.literal(message));}
             else{LogUtils.getLogger().info("Frozen ship: {}",message);if(source!=null)source.sendSuccess(()->Component.literal(message),false);}
         }
@@ -274,7 +291,7 @@ public final class FrozenShip {
         public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload event){
             if(event.getLevel() instanceof ServerLevel world){
                 var job=JOBS.remove(world);if(job!=null)job.chunks.close();
-                SEARCHES.remove(world);REJECTED.remove(world);
+                SEARCHES.remove(world);REJECTED.remove(world);FAILED_PENDING.remove(world);
             }
         }
     }

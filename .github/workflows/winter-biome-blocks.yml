@@ -20,6 +20,8 @@ jobs:
           mkdir -p /tmp/winter-layout
           javac -d /tmp/winter-layout src/main/java/org/slavicmyths/winter/WinterEncounterLayout.java tools/winter-tests/WinterLayoutCheck.java
           java -cp /tmp/winter-layout WinterLayoutCheck
+      - name: Verify approved frozen ship V2 geometry
+        run: python3 tools/verify_frozen_ship_v2.py
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
       - run: python3 tools/verify_winter_blocks.py

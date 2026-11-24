@@ -92,7 +92,7 @@ public final class WinterEncounterSpawns {
         if(!world.dimension().equals(Level.OVERWORLD) || !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator)
             || world.getGameTime()%100!=0 || world.getDifficulty()==Difficulty.PEACEFUL || world.players().isEmpty())return;
         Sites sites=Sites.get(world);boolean test=WinterWorld.isTest(world);
-        if(FrozenShip.active(world))return;
+        if(FrozenShip.active(world)||sites.pendingShip!=null)return;
         Set<Long> checked=new HashSet<>();
         for(ServerPlayer player:world.players()){
             if(player.isSpectator())continue;
@@ -110,7 +110,12 @@ public final class WinterEncounterSpawns {
         for(int radius=0;radius<=SEARCH;radius+=16)for(int dz=-radius;dz<=radius;dz+=16)for(int dx=-radius;dx<=radius;dx+=16){
             if(Math.max(Math.abs(dx),Math.abs(dz))!=radius)continue;
             BlockPos column=new BlockPos(center(cx)+dx,world.getSeaLevel(),center(cz)+dz);
-            if(!loadedArea(world,column)||!world.getWorldBorder().isWithinBounds(column))continue;
+            if(!loadedArea(world,column)||!world.getWorldBorder().isWithinBounds(column)||!FrozenShip.clearOfShips(sites,column))continue;
+            // Captain ships adapt terrain; an iceberg or open water is not a rejection.
+            if(world.getBiome(column).is(OCEAN)&&select(Habitat.OCEAN,cx,cz,test,gluheya()!=null,world.getSeed())==Boss.CAPTAIN){
+                if(FrozenShip.queueNatural(world,column))return true;
+                continue;
+            }
             BlockPos pos=world.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,column);
             if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             Habitat habitat=habitat(world.getBiome(pos));
