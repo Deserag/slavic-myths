@@ -4673,7 +4673,7 @@
   "item.slavicmyths.poloz_boots.desc": "+10% knockback resistance; −4% incoming damage. Sneak-use a smithing table with the netherite piece in hand and two scales in inventory.",
   "poloz.full_set": "Full set: +14 HP and immunity to infected ground.",
   "poloz.upgrade_need": "Two Great Poloz Scales required.",
-  "item.slavicmyths.poloz_whip.desc": "18 melee damage; 6-block reach; cleaves adjacent targets. RMB — Spikes: 20 damage, 18 s cooldown. Shift + RMB — Fissure: 22 damage, up to 5 targets within 8 blocks, Slowness II for 3 s; 12 s cooldown. Skills share a cooldown.",
+  "item.slavicmyths.poloz_whip.desc": "18 melee damage; 6-block reach; cleaves adjacent targets. RMB — Spikes: 20 damage, 18 s cooldown. Shift + RMB — Fissure: 22 damage, up to 5 targets within 8 blocks, Slowness II for 3 s; 12 s cooldown. Each skill recharges independently.",
   "poloz.rune_earth_lord_iv": "Tier IV: every fourth successful hit causes a fissure (6 damage, up to four targets within 2 blocks); 20 s cooldown. Poloz drop chance: 5%.",
   "rpg.slavicmyths.effect_earth_lord_iv": "Tier IV: every fourth successful hit causes a fissure (6 damage, up to four targets within 2 blocks); 20 s cooldown. Poloz drop chance: 5%.",
   "rpg.slavicmyths.rune_hint_earth_lord_iv_1": "Tier IV: every fourth successful hit causes a fissure (6 damage, up to four targets within 2 blocks); 20 s cooldown. Poloz drop chance: 5%.",

@@ -56,8 +56,8 @@ public class ThrowingWeaponItem extends TieredItem {
         projectile.shootFromRotation(player,player.getXRot(),player.getYRot(),0,velocity*(float)Math.sqrt(RangeEnchantment.multiplier(level,carried)),knife?1.5F:1F);
         if(!level.addFreshEntity(projectile))return;
         afterThrow(player,carried);
-        if(!creative)stack.shrink(1);
         markThrowCooldown(player,stack);
+        if(!creative)stack.shrink(1);
         player.awardStat(Stats.ITEM_USED.get(this));
         level.playSound(null,player.blockPosition(),knife?SoundEvents.SNOWBALL_THROW:SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,knife?.3F:.45F,knife?1.7F:1F);
     }
