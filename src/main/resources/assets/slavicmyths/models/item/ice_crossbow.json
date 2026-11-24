@@ -1,60 +1,75 @@
 {
-  "loader": "neoforge:obj",
-  "model": "slavicmyths:models/item/winter_mesh/ice_crossbow.obj",
-  "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
-  "textures": {
-    "palette": "slavicmyths:item/winter_weapons/faceted_palette",
-    "particle": "slavicmyths:item/winter_weapons/faceted_palette"
-  },
-  "automatic_culling": false,
-  "shade_quads": true,
-  "flip_v": false,
-  "emissive_ambient": false,
+  "loader": "neoforge:separate_transforms",
   "gui_light": "front",
-  "display": {
+  "textures": {
+    "particle": "slavicmyths:item/winter_weapons/vanilla/ice_crossbow"
+  },
+  "base": {
+    "loader": "neoforge:obj",
+    "model": "slavicmyths:models/item/winter_mesh/ice_crossbow.obj",
+    "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
+    "textures": {
+      "palette": "slavicmyths:item/winter_weapons/faceted_palette",
+      "particle": "slavicmyths:item/winter_weapons/faceted_palette"
+    },
+    "automatic_culling": false,
+    "shade_quads": true,
+    "flip_v": false,
+    "emissive_ambient": false,
+    "gui_light": "front",
+    "display": {
+      "gui": {
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          4.351226591011546e-16,
+          -3.178784142609844,
+          0
+        ],
+        "scale": [
+          0.4899045613471048,
+          0.4899045613471048,
+          0.4899045613471048
+        ]
+      },
+      "ground": {
+        "translation": [
+          0,
+          3,
+          0
+        ],
+        "scale": [
+          0.4,
+          0.4,
+          0.4
+        ]
+      },
+      "fixed": {
+        "rotation": [
+          0,
+          180,
+          0
+        ],
+        "scale": [
+          0.55,
+          0.55,
+          0.55
+        ]
+      }
+    },
+    "parent": "minecraft:item/crossbow"
+  },
+  "perspectives": {
     "gui": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        4.351226591011546e-16,
-        -3.178784142609844,
-        0
-      ],
-      "scale": [
-        0.4899045613471048,
-        0.4899045613471048,
-        0.4899045613471048
-      ]
-    },
-    "ground": {
-      "translation": [
-        0,
-        3,
-        0
-      ],
-      "scale": [
-        0.4,
-        0.4,
-        0.4
-      ]
-    },
-    "fixed": {
-      "rotation": [
-        0,
-        180,
-        0
-      ],
-      "scale": [
-        0.55,
-        0.55,
-        0.55
-      ]
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/winter_weapons/vanilla/ice_crossbow"
+      }
     }
   },
-  "parent": "minecraft:item/crossbow",
   "overrides": [
     {
       "predicate": {

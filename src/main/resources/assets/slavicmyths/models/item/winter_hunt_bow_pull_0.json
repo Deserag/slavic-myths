@@ -1,59 +1,73 @@
 {
-  "loader": "neoforge:obj",
-  "model": "slavicmyths:models/item/winter_mesh/winter_hunt_bow_pull_0.obj",
-  "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
-  "textures": {
-    "palette": "slavicmyths:item/winter_weapons/faceted_palette",
-    "particle": "slavicmyths:item/winter_weapons/faceted_palette"
-  },
-  "automatic_culling": false,
-  "shade_quads": true,
-  "flip_v": false,
-  "emissive_ambient": false,
+  "loader": "neoforge:separate_transforms",
   "gui_light": "front",
-  "display": {
-    "gui": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        1.8416936005046962,
-        0,
-        0
-      ],
-      "scale": [
-        0.43830036515310117,
-        0.43830036515310117,
-        0.43830036515310117
-      ]
-    },
-    "ground": {
-      "translation": [
-        0,
-        3,
-        0
-      ],
-      "scale": [
-        0.4,
-        0.4,
-        0.4
-      ]
-    },
-    "fixed": {
-      "rotation": [
-        0,
-        180,
-        0
-      ],
-      "scale": [
-        0.55,
-        0.55,
-        0.55
-      ]
-    }
+  "textures": {
+    "particle": "slavicmyths:item/winter_weapons/vanilla/winter_hunt_bow_pull_0"
   },
-  "parent": "minecraft:item/bow",
-  "overrides": []
+  "base": {
+    "loader": "neoforge:obj",
+    "model": "slavicmyths:models/item/winter_mesh/winter_hunt_bow_pull_0.obj",
+    "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
+    "textures": {
+      "palette": "slavicmyths:item/winter_weapons/faceted_palette",
+      "particle": "slavicmyths:item/winter_weapons/faceted_palette"
+    },
+    "automatic_culling": false,
+    "shade_quads": true,
+    "flip_v": false,
+    "emissive_ambient": false,
+    "gui_light": "front",
+    "display": {
+      "gui": {
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          1.8416936005046962,
+          0,
+          0
+        ],
+        "scale": [
+          0.43830036515310117,
+          0.43830036515310117,
+          0.43830036515310117
+        ]
+      },
+      "ground": {
+        "translation": [
+          0,
+          3,
+          0
+        ],
+        "scale": [
+          0.4,
+          0.4,
+          0.4
+        ]
+      },
+      "fixed": {
+        "rotation": [
+          0,
+          180,
+          0
+        ],
+        "scale": [
+          0.55,
+          0.55,
+          0.55
+        ]
+      }
+    },
+    "parent": "minecraft:item/bow"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/winter_weapons/vanilla/winter_hunt_bow_pull_0"
+      }
+    }
+  }
 }
