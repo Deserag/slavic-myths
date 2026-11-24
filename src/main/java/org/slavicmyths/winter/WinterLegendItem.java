@@ -18,13 +18,15 @@ import org.slavicmyths.morozko.*;
 import org.slavicmyths.rpg.PathData;
 
 public final class WinterLegendItem extends SwordItem implements WeaponInputHandler {
+    public static final int SPEAR_MELEE=32, SWORD_MELEE=34, SILENCE_WAVE=36, SILENCE_BLADE=11, SILENCE_EXECUTION=72;
+    public static final int SPEAR_DASH=48, SPEAR_SWEEP=44, STAFF_BOLT=24, STAFF_SPIKES=42, GOLEM_DAMAGE=24;
     private final boolean queen;
     private static final String MODE="WinterStaffMode";
     private static final String CAST="WinterSilenceCast", HITS="WinterSilenceHits", CAST_UNTIL="WinterSilenceCastUntil";
     private static final String MARK="WinterSilenceMark", MARK_UNTIL="WinterSilenceMarkUntil";
     public WinterLegendItem(boolean queen){
         super(Tiers.DIAMOND,new Item.Properties().rarity(Rarity.EPIC).attributes(
-                queen?org.slavicmyths.item.SpearItem.attributes(Tiers.DIAMOND,28):SwordItem.createAttributes(Tiers.DIAMOND,26,-2.5F)));
+                queen?org.slavicmyths.item.SpearItem.attributes(Tiers.DIAMOND,SPEAR_MELEE):SwordItem.createAttributes(Tiers.DIAMOND,SWORD_MELEE-1-Tiers.DIAMOND.getAttackDamageBonus(),-2.5F)));
         this.queen=queen;
     }
     public static boolean staffMode(ItemStack stack){
@@ -79,7 +81,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
         if(!ready(p,action,staff))return;
         if(queen){queenAction(p,held,action,staff);return;}
         switch(action){
-            case RIGHT_CLICK -> {charge(p,held,action,false,120);area(p,8,35,30);}
+            case RIGHT_CLICK -> {charge(p,held,action,false,120);area(p,8,35,SILENCE_WAVE);}
             case SHIFT_LEFT_CLICK -> {
                 UUID cast=UUID.randomUUID();var state=p.getPersistentData();
                 state.putUUID(CAST,cast);state.put(HITS,new CompoundTag());state.putLong(CAST_UNTIL,now(p)+100);
@@ -94,7 +96,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
                     var delta=p.position().subtract(target.position());
                     if(delta.lengthSqr()>2)target.push(delta.normalize().x*.9,.1,delta.normalize().z*.9);
                 }
-                state.remove(MARK);state.remove(MARK_UNTIL);charge(p,held,action,false,700);damage(p,target,60);
+                state.remove(MARK);state.remove(MARK_UNTIL);charge(p,held,action,false,700);damage(p,target,SILENCE_EXECUTION);
                 FrostVisuals.burst(p.serverLevel(),target.position().add(0,1,0),24);
             }
             default -> {}
@@ -121,20 +123,20 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
                     var safe=FrostWorld.safe(p.serverLevel(),dest,.6F,1.8F,0);
                     if(safe!=null&&p.serverLevel().clip(new net.minecraft.world.level.ClipContext(p.getEyePosition(),safe.add(0,1.62,0),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,p)).getType()==HitResult.Type.MISS)p.teleportTo(safe.x,safe.y,safe.z);
                     if(target.distanceToSqr(p)>25||!legal(p,target))return;
-                    charge(p,held,action,false,160);damage(p,target,40);
+                    charge(p,held,action,false,160);damage(p,target,SPEAR_DASH);
                 }
-                case SHIFT_RIGHT_CLICK -> {charge(p,held,action,false,240);area(p,4.5,180,36);}
+                case SHIFT_RIGHT_CLICK -> {charge(p,held,action,false,240);area(p,4.5,180,SPEAR_SWEEP);}
                 default -> {}
             }
         }else{
             switch(action){
-                case LEFT_CLICK -> {FrostShard.launch(p,p.getEyePosition().add(p.getLookAngle().scale(24)),20,0,null);charge(p,held,action,true,12);}
+                case LEFT_CLICK -> {FrostShard.launch(p,p.getEyePosition().add(p.getLookAngle().scale(24)),STAFF_BOLT,0,null);charge(p,held,action,true,12);}
                 case SHIFT_LEFT_CLICK -> {
                     boolean spawned=false;
                     Vec3 direction=p.getLookAngle().multiply(1,0,1).normalize();
                     for(int i=1;i<=5;i++){
                         Vec3 point=FrostWorld.safe(p.serverLevel(),p.position().add(direction.scale(i*1.6)),.6F,1.8F,0);
-                        if(point!=null){FrostHazard.spike(p,point,8+i*3,34,0,null);spawned=true;}
+                        if(point!=null){FrostHazard.spike(p,point,8+i*3,STAFF_SPIKES,0,null);spawned=true;}
                     }
                     if(spawned)charge(p,held,action,true,300);
                 }
@@ -155,9 +157,15 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
         boolean ru=java.util.Locale.getDefault().getLanguage().equals("ru");
         String description;
         if(queen){
-            if(staffMode(stack))description=ru?"Посох: ЛКМ — ледяной снаряд (20 урона); ПКМ — смена формы; Shift+ЛКМ — шипы (34 урона); Shift+ПКМ — голем (100 HP, 20 урона, 45 с; откат 90 с).":"Staff: LMB frost bolt (20 damage); RMB switch form; Shift+LMB spikes (34 damage); Shift+RMB golem (100 HP, 20 damage, 45s; 90s cooldown).";
-            else description=ru?"Копьё: ЛКМ — 28 урона; ПКМ — смена формы; Shift+ЛКМ — рывок (40 урона); Shift+ПКМ — круговой удар (36 урона).":"Spear: LMB 28 damage; RMB switch form; Shift+LMB dash (40 damage); Shift+RMB circular strike (36 damage).";
-        }else description=ru?"ЛКМ — 30 урона; ПКМ — волна (30 урона, откат 6 с); Shift+ЛКМ — 7 клинков (9 урона каждый, 20 с); Shift+ПКМ — казнь отмеченной цели (60 урона, 35 с).":"LMB 30 damage; RMB wave (30 damage, 6s); Shift+LMB seven blades (9 damage each, 20s); Shift+RMB marked-target execution (60 damage, 35s).";
+            if(staffMode(stack))description=ru?
+                "Посох: ЛКМ — ледяной снаряд (%d урона); ПКМ — смена формы; Shift+ЛКМ — шипы (%d урона); Shift+ПКМ — голем (100 HP, %d урона, 45 с; откат 90 с).".formatted(STAFF_BOLT,STAFF_SPIKES,GOLEM_DAMAGE):
+                "Staff: LMB frost bolt (%d damage); RMB switch form; Shift+LMB spikes (%d damage); Shift+RMB golem (100 HP, %d damage, 45s; 90s cooldown).".formatted(STAFF_BOLT,STAFF_SPIKES,GOLEM_DAMAGE);
+            else description=ru?
+                "Копьё: ЛКМ — %d урона; ПКМ — смена формы; Shift+ЛКМ — рывок (%d урона); Shift+ПКМ — круговой удар (%d урона).".formatted(SPEAR_MELEE,SPEAR_DASH,SPEAR_SWEEP):
+                "Spear: LMB %d damage; RMB switch form; Shift+LMB dash (%d damage); Shift+RMB circular strike (%d damage).".formatted(SPEAR_MELEE,SPEAR_DASH,SPEAR_SWEEP);
+        }else description=ru?
+            "ЛКМ — %d урона; ПКМ — волна (%d урона, откат 6 с); Shift+ЛКМ — 7 клинков (%d урона каждый, 20 с); Shift+ПКМ — казнь отмеченной цели (%d урона, 35 с).".formatted(SWORD_MELEE,SILENCE_WAVE,SILENCE_BLADE,SILENCE_EXECUTION):
+            "LMB %d damage; RMB wave (%d damage, 6s); Shift+LMB seven blades (%d damage each, 20s); Shift+RMB marked-target execution (%d damage, 35s).".formatted(SWORD_MELEE,SILENCE_WAVE,SILENCE_BLADE,SILENCE_EXECUTION);
         lines.add(net.minecraft.network.chat.Component.literal(description));
     }
 }
