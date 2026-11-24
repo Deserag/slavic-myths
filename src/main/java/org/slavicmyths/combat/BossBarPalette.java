@@ -58,7 +58,9 @@ public final class BossBarPalette {
         Map.entry("grove_guardian",7),
         Map.entry("morovoy_raven",7),
         Map.entry("morovoy_fire_zmey",8),
-        Map.entry("brown_bear",5)
+        Map.entry("brown_bear",5),
+        Map.entry("ice_queen",9),
+        Map.entry("nine_mor_serpent",9)
     );
 
     public static BossEvent.BossBarColor colorFor(EntityType<?> entityType,BossEvent.BossBarColor previousColor){
@@ -75,6 +77,7 @@ public final class BossBarPalette {
             case 6->BossEvent.BossBarColor.BLUE;
             case 7->BossEvent.BossBarColor.RED;
             case 8->BossEvent.BossBarColor.PURPLE;
+            case 9->BossEvent.BossBarColor.WHITE;
             default->BossEvent.BossBarColor.WHITE;
         };
     }

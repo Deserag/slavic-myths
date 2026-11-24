@@ -108,7 +108,7 @@ public final class QueenModel<T extends LivingEntity> extends EntityModel<T>{
  @Override public void setupAnim(T e,float walk,float amount,float age,float yaw,float pitch){
   this.age=age;copy=e instanceof QueenMinion;transformed=copy||e instanceof IceQueen q&&q.phase()==2;
   if(e instanceof IceQueen q){action=q.action();frame=q.frame();shieldCount=q.shields();reactive=q.reactive();impact=q.impactYaw()-q.getYRot();}
-  else{action=e instanceof QueenMinion m&&m.kind()==QueenContent.Kind.RANGED_COPY?IceQueen.SHOT:IceQueen.THRUST;frame=e.tickCount%45;shieldCount=reactive=0;}
+  else{action=e instanceof QueenMinion m&&m.kind()==QueenContent.Kind.RANGED_COPY?IceQueen.SHOT:IceQueen.THRUST;frame=e instanceof QueenMinion m?m.attackFrame():0;shieldCount=reactive=0;}
  }
  private void draw(List<Cube> l,PoseStack pose,VertexConsumer out,int light,int overlay,int color,boolean icy){
   for(Cube c:l){int rgb=c.rgb;if(icy){int r=(rgb>>16)&255,g=(rgb>>8)&255,b=rgb&255;rgb=((r+110)/2<<16)|((g+215)/2<<8)|((b+255)/2);}
@@ -123,7 +123,8 @@ public final class QueenModel<T extends LivingEntity> extends EntityModel<T>{
   if(transformed)pose.translate(0,-.035F*Mth.sin(age*.1F),0);
   draw(transformed?second:first,pose,out,light,overlay,color,copy);
   float power=action==IceQueen.IDLE?0:Math.min(1,Math.min(frame/12F,Math.max(0,(25-frame)/8F)));
-  if(action==IceQueen.COMBO)power=Math.max(0,Mth.sin(frame*Mth.PI/10F));
+  if(action==IceQueen.COMBO)power=Math.max(0,Mth.sin((frame-2)*Mth.PI/10F));
+  if(copy&&action==IceQueen.THRUST)power=Math.min(1,Math.min(frame/18F,Math.max(0,(30-frame)/8F)));
   draw(arms[transformed?1:0][Math.clamp(action,0,11)][Math.clamp(Math.round(power*8),0,8)],pose,out,light,overlay,color,copy);
   for(int i=0;i<shieldCount;i++){pose.pushPose();pose.mulPose(Axis.YP.rotationDegrees(i*72+age*3));draw(shield,pose,out,15728880,overlay,color,false);pose.popPose();}
   if(reactive>0){pose.pushPose();pose.mulPose(Axis.YP.rotationDegrees(-impact));draw(shield,pose,out,15728880,overlay,color,false);pose.popPose();}

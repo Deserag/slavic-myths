@@ -9,7 +9,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.slavicmyths.morozko.*;
 public final class QueenMinion extends net.minecraft.world.entity.monster.Monster {
+ private static final net.minecraft.network.syncher.EntityDataAccessor<Integer> ATTACK=net.minecraft.network.syncher.SynchedEntityData.defineId(QueenMinion.class,net.minecraft.network.syncher.EntityDataSerializers.INT);
  private final QueenContent.Kind kind; private UUID owner; private int orphans,attack;
+ @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ATTACK,0);}
+ public int attackFrame(){return entityData.get(ATTACK);}
+ private void attackFrame(int f){entityData.set(ATTACK,f);}
  public QueenMinion(EntityType<? extends QueenMinion> t,Level w,QueenContent.Kind k){super(t,w);kind=k;xpReward=0;setPersistenceRequired();if(k==QueenContent.Kind.OWL)setNoGravity(true);}
  public static AttributeSupplier.Builder attributes(QueenContent.Kind k){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,k.hp).add(Attributes.ATTACK_DAMAGE,k.damage).add(Attributes.ARMOR,k==QueenContent.Kind.MELEE_COPY?8:k==QueenContent.Kind.RANGED_COPY?4:0).add(Attributes.MOVEMENT_SPEED,k==QueenContent.Kind.LARGE_GOLEM?.22:.31).add(Attributes.FOLLOW_RANGE,52);}
  public QueenContent.Kind kind(){return kind;}
@@ -26,11 +30,11 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
   Player p=boss.victim();if(p==null){getNavigation().stop();return;}if(distanceToSqr(boss)>3600){discard();return;}getLookControl().setLookAt(p,45,45);
   double d=distanceToSqr(p);
   if(kind==QueenContent.Kind.OWL){var target=p.getEyePosition().add(0,1,0);var v=target.subtract(position());setDeltaMovement(v.normalize().scale(.30));if(v.lengthSqr()<4&&tickCount%25==0&&hasLineOfSight(p)){if(p.hurt(damageSources().mobAttack(this),kind.damage))FrostCold.add(p,5);playSound(SoundEvents.PHANTOM_BITE,1,1.3F);}return;}
-  if(kind==QueenContent.Kind.RANGED_COPY){if(d>144)getNavigation().moveTo(p,1);else getNavigation().stop();if(tickCount%45==0&&d<400&&hasLineOfSight(p)){FrostShard.launch(this,p.getEyePosition(),kind.damage,8,null);playSound(SoundEvents.SNOWBALL_THROW,1,.7F);}return;}
+  if(kind==QueenContent.Kind.RANGED_COPY){if(d>144)getNavigation().moveTo(p,1);else getNavigation().stop();if(d<400&&hasLineOfSight(p)){attack=(attack+1)%45;attackFrame(attack<=25?attack:0);if(attack==12){FrostShard.launch(this,p.getEyePosition(),kind.damage,8,null);playSound(SoundEvents.SNOWBALL_THROW,1,.7F);}}else{attack=0;attackFrame(0);}return;}
   double reach=kind==QueenContent.Kind.LARGE_GOLEM||kind.copy()?3.7:2.1;
-  if(d>reach*reach){getNavigation().moveTo(p,1.12);attack=0;return;}getNavigation().stop();
-  if(++attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(kind==QueenContent.Kind.WOLF?SoundEvents.WOLF_GROWL:kind==QueenContent.Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
+  if(d>reach*reach){getNavigation().moveTo(p,1.12);attack=0;attackFrame(0);return;}getNavigation().stop();
+  attackFrame(++attack);if(attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(kind==QueenContent.Kind.WOLF?SoundEvents.WOLF_GROWL:kind==QueenContent.Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
   if(attack==18&&hasLineOfSight(p)&&distanceToSqr(p)<=reach*reach&&p.hurt(damageSources().mobAttack(this),kind.damage))FrostCold.add(p,6);
-  if(attack>=36)attack=0;
+  if(attack>=36){attack=0;attackFrame(0);}
  }
 }
