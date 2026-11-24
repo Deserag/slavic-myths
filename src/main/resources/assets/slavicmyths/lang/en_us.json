@@ -1,4 +1,8 @@
 {
+  "entity.slavicmyths.winter_owl": "Winter Owl",
+  "entity.slavicmyths.winter_owl_spirit": "Winter Owl Spirit",
+  "item.slavicmyths.winter_owl_spawn_egg": "Winter Owl Spawn Egg",
+
   "entity.slavicmyths.deep_sea_serpent": "Deep Sea Serpent",
   "item.slavicmyths.deep_sea_serpent_spawn_egg": "Deep Sea Serpent Spawn Egg",
   "block.slavicmyths.deep_sea_serpent_head": "Deep Sea Serpent Head",
