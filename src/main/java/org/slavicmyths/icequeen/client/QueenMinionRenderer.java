@@ -23,10 +23,10 @@ public final class QueenMinionRenderer extends MobRenderer<QueenMinion,EntityMod
    if(animal==null&&owl==null&&wolverine==null){root.setPos(0,24,0);geo.box(root,-5,-19,-3,10,11,6);geo.box(root,-3.5F,-25,-3.5F,7,7,7);geo.box(root,-4,-9,-2.5F,8,3,5);left.setPos(5,-18,0);right.setPos(-5,-18,0);geo.attach(root,left);geo.attach(root,right);geo.box(left,0,0,-2.5F,4,12,5);geo.box(right,-4,0,-2.5F,4,12,5);legL.setPos(2.5F,-7,0);legR.setPos(-2.5F,-7,0);geo.attach(root,legL);geo.attach(root,legR);for(ModelPart m:new ModelPart[]{legL,legR})geo.box(m,-2,0,-2,4,7,5);}
   }
   @Override public void setupAnim(QueenMinion e,float walk,float amount,float age,float yaw,float pitch){
-   if(animal!=null)animal.pose(walk,amount,age,yaw,pitch,e.swinging?AukaBoss.Move.WOLF_BITE:AukaBoss.Move.IDLE,e.swingTime,true);
+   if(animal!=null)animal.pose(walk,amount,age,yaw,pitch,e.attackFrame()>0?AukaBoss.Move.WOLF_BITE:AukaBoss.Move.IDLE,e.attackFrame(),true);
    if(owl!=null)owl.poseQueenMinion(age,yaw,pitch);
-   if(wolverine!=null)wolverine.poseQueenMinion(walk,amount,age,yaw,pitch);
-   left.xRot=Mth.cos(walk*.65F)*amount*.55F;right.xRot=-left.xRot;legL.xRot=-left.xRot;legR.xRot=left.xRot;if(e.swinging)right.xRot=-1.3F;
+   if(wolverine!=null)wolverine.poseQueenMinion(walk,amount,age,yaw,pitch,e.attackFrame());
+   left.xRot=Mth.cos(walk*.65F)*amount*.55F;right.xRot=-left.xRot;legL.xRot=-left.xRot;legR.xRot=left.xRot;if(e.attackFrame()>0)right.xRot=-1.4F*Math.max(0,Math.min(1,e.attackFrame()/18F))*Math.max(0,Math.min(1,(35-e.attackFrame())/12F));
   }
   @Override public void renderToBuffer(PoseStack p,VertexConsumer out,int light,int overlay,int color){int tint=0xff81cfff;if(animal!=null)animal.renderToBuffer(p,out,light,overlay,tint);else if(owl!=null)owl.renderToBuffer(p,out,light,overlay,tint);else if(wolverine!=null)wolverine.renderToBuffer(p,out,light,overlay,tint);else root.render(p,out,light,overlay,0xff69bcdf);}
  }

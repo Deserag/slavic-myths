@@ -5,7 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 public final class FrostCold {
  public static final String KEY="Frost191Cold";
  public static CompoundTag data(LivingEntity e){var root=e.getPersistentData();if(!root.contains(KEY,10))root.put(KEY,new CompoundTag());return root.getCompound(KEY);}
- public static void add(LivingEntity e,double amount){if(e instanceof Morozko||e instanceof PlayerDouble)return;var n=data(e);n.putDouble("Value",Math.clamp(n.getDouble("Value")+amount,0,100));n.putLong("Touched",e.level().getGameTime());}
+ public static void add(LivingEntity e,double amount){if(e instanceof Morozko||e instanceof PlayerDouble||e instanceof org.slavicmyths.icequeen.IceQueen||e instanceof org.slavicmyths.icequeen.QueenMinion)return;var n=data(e);n.putDouble("Value",Math.clamp(n.getDouble("Value")+amount,0,100));n.putLong("Touched",e.level().getGameTime());}
  public static void aura(LivingEntity e,double amount,Morozko boss){add(e,amount);var n=data(e);n.remove("Finished");n.putLong("AuraUntil",e.level().getGameTime()+8);n.putUUID("Boss",boss.getUUID());}
  public static void stop(LivingEntity e){if(e.getPersistentData().contains(KEY)){var n=data(e);n.putLong("AuraUntil",0);n.putBoolean("Finished",true);}}
  public static boolean resistant(LivingEntity e){for(var s:e.getArmorSlots())if(org.slavicmyths.rpg.Runes.has(s,"frost_resistance"))return true;return false;}

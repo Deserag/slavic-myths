@@ -41,6 +41,7 @@ public final class CombatTargeting {
     public enum Relation { FORBIDDEN, ALLY, NEUTRAL, ENEMY }
     public enum Intent { PEACEFUL, NEUTRAL, HOSTILE, DEFENDER }
     public static java.util.UUID affiliation(LivingEntity e){
+        if(e instanceof org.slavicmyths.icequeen.QueenMinion m)return m.ownerId();
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e.getPersistentData().hasUUID("summonedByPolozUUID"))return e.getPersistentData().getUUID("summonedByPolozUUID");
         if(e.getPersistentData().hasUUID("GreyPackOwner"))return e.getPersistentData().getUUID("GreyPackOwner");
@@ -83,6 +84,7 @@ public final class CombatTargeting {
     }
     /** Explicit dynamic gates precede static hostile tags. No target selectors are added here. */
     public static boolean sceneProtected(LivingEntity e){
+        if(e instanceof org.slavicmyths.icequeen.IceQueen q)return !q.active();
         if(e instanceof LandSpiritEntity s&&(s.morState()==1||s.morConcealed()))return true;
         if(e instanceof org.slavicmyths.guardians.GuardianEntity g)return true;
         if(e instanceof org.slavicmyths.gorynych.Gorynych g)return g.state()>=org.slavicmyths.gorynych.GorynychRules.EXHAUSTED;
@@ -100,6 +102,7 @@ public final class CombatTargeting {
         return e.getType().is(STORY)||e.getPersistentData().getBoolean("HeroRecalling")||e.getPersistentData().getBoolean("HeroSpent")||org.slavicmyths.kalin.KalinParty.recovering(e);
     }
     public static boolean bossMode(LivingEntity e){
+        if(e instanceof org.slavicmyths.icequeen.IceQueen q)return q.active();
         if(org.slavicmyths.mor.HigherMor.higher(e))return true;
         if(e instanceof org.slavicmyths.morozko.IceDouble)return false;
         if(e instanceof org.slavicmyths.morozko.Morozko b)return b.fighting();
@@ -114,6 +117,8 @@ public final class CombatTargeting {
         return e instanceof Mob m&&m.getTarget()!=null;
     }
     public static Intent intent(LivingEntity e){
+        if(e instanceof org.slavicmyths.icequeen.IceQueen q)return q.active()?Intent.HOSTILE:Intent.NEUTRAL;
+        if(e instanceof org.slavicmyths.icequeen.QueenMinion m)return m.trialActive()?Intent.HOSTILE:Intent.NEUTRAL;
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.playerOwned()?Intent.DEFENDER:Intent.HOSTILE;
         if(e.getType().is(PROXY))return Intent.NEUTRAL;
         // Explicit biome roles precede Enemy/tag fallbacks. Traits must not provoke neutrals.

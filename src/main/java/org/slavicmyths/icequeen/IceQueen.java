@@ -30,7 +30,7 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
  private final Set<UUID> children=new HashSet<>(), participants=new HashSet<>(), stormViewers=new HashSet<>(), blockedShots=new HashSet<>();
  private Vec3 anchor; private int absent;
  private boolean inTrial;
- public IceQueen(EntityType<? extends IceQueen> type,Level level){super(type,level);setPersistenceRequired();setHealth(getMaxHealth());xpReward=0;}
+ public IceQueen(EntityType<? extends IceQueen> type,Level level){super(type,level);setPersistenceRequired();setHealth(getMaxHealth());bar.setColor(BossEvent.BossBarColor.WHITE);xpReward=0;}
  public static AttributeSupplier.Builder attributes(){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,QueenRules.HP).add(Attributes.ATTACK_DAMAGE,36).add(Attributes.ARMOR,10).add(Attributes.ARMOR_TOUGHNESS,4).add(Attributes.KNOCKBACK_RESISTANCE,.8).add(Attributes.MOVEMENT_SPEED,.27).add(Attributes.FOLLOW_RANGE,64);}
  @Override public float getMaxHealth(){return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}
  @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(PHASE,1);b.define(ACTION,IDLE);b.define(FRAME,0);b.define(SHIELD,0);b.define(REACTIVE,0);b.define(ACTIVE,false);b.define(IMPACT_YAW,0F);}
@@ -42,6 +42,8 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
  @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}
  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
  @Override public boolean removeWhenFarAway(double d){return false;}
+ @Override public boolean canFreeze(){return false;}
+ @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState state){if(!level().isClientSide)FrostContent.sound(this,"step");}
  @Override public boolean isAlliedTo(Entity e){return e instanceof QueenMinion m&&m.ownedBy(this)||super.isAlliedTo(e);}
  public boolean valid(Player p){return p!=null&&p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.level()==level()&&anchor!=null&&p.position().distanceToSqr(anchor)<=QueenRules.ARENA_RADIUS*QueenRules.ARENA_RADIUS;}
  public boolean participant(Player p){return valid(p)&&participants.contains(p.getUUID());}

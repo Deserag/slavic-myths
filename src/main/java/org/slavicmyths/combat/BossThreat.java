@@ -18,11 +18,12 @@ public final class BossThreat {
  private static final class Encounter {final Map<UUID,Threat> players=new HashMap<>();UUID focus;long switched,diverted;}
  private static final net.minecraft.tags.TagKey<EntityType<?>> TYPES=net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","boss_threat"));
  private static boolean boss(Mob b){return b.isAlive()&&!b.level().isClientSide&&(b.getType().is(TYPES)||b.getType().is(CombatTargeting.BOSS)||org.slavicmyths.mor.HigherMor.higher(b))&&CombatTargeting.bossMode(b);}
- private static boolean valid(Mob b,Player p){return p!=null&&p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.level()==b.level()&&b.distanceToSqr(p)<=48*48&&CombatTargeting.canAttack(b,p,CombatTargeting.Context.ACQUIRE);}
+ private static boolean valid(Mob b,Player p){return (!(b instanceof org.slavicmyths.icequeen.IceQueen q)||q.participant(p))&&p!=null&&p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.level()==b.level()&&b.distanceToSqr(p)<=48*48&&CombatTargeting.canAttack(b,p,CombatTargeting.Context.ACQUIRE);}
  private static Threat entry(Encounter e,Player p,long now){var t=e.players.computeIfAbsent(p.getUUID(),id->new Threat(now));decay(t,now);return t;}
  private static void decay(Threat t,long now){t.score*=Math.pow(.5,Math.max(0,now-t.last)/160D);t.last=now;}
  public static boolean attacking(Mob b){
   if(b.swinging)return true;
+  if(b instanceof org.slavicmyths.icequeen.IceQueen q)return q.action()!=org.slavicmyths.icequeen.IceQueen.IDLE;
   if(b instanceof org.slavicmyths.entity.LandSpiritEntity s&&s.morState()!=0)return s.morSkill()!=0;
   if(b instanceof org.slavicmyths.sisters.SisterBoss s)return s.action()!=0;
   if(b instanceof org.slavicmyths.sisters.LomeyaBoss s)return s.action()!=0;
