@@ -1,0 +1,14 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:winter_regions",
+  "features": [
+    "slavicmyths:frozen_stone_deposit",
+    "slavicmyths:frozen_cobblestone_deposit",
+    "slavicmyths:frozen_granite_deposit",
+    "slavicmyths:frozen_diorite_deposit",
+    "slavicmyths:frozen_andesite_deposit",
+    "slavicmyths:frozen_deepslate_deposit",
+    "slavicmyths:frozen_cobbled_deepslate_deposit"
+  ],
+  "step": "underground_ores"
+}

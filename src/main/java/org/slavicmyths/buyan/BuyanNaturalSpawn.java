@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.server.ServerStartedEvent;
 public final class BuyanNaturalSpawn {
     @SubscribeEvent public static void start(ServerStartedEvent event) {
         var world=event.getServer().overworld();
-        if(world.getChunkSource().getGenerator() instanceof FlatLevelSource)return;
+        if(world.getChunkSource().getGenerator() instanceof FlatLevelSource || org.slavicmyths.winter.WinterWorld.isTest(world))return;
         var state=BuyanState.get(world);
         if(state.active || !state.completedSites().isEmpty())return;
         for(int i=0;i<16;i++) {

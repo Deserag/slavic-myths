@@ -1,9 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "biomes": [
-    "minecraft:snowy_taiga",
-    "minecraft:grove"
-  ],
+  "biomes": "#slavicmyths:winter_forest",
   "features": [
     "slavicmyths:ice_pine_natural"
   ],
