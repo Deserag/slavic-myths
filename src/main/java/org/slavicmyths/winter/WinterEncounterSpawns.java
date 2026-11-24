@@ -55,7 +55,7 @@ public final class WinterEncounterSpawns {
     public static final class Sites extends SavedData {
         final Set<Long> occupied=new HashSet<>();
         final Set<Long> ships=new HashSet<>(), awaitingCaptain=new HashSet<>(), riggingFixed=new HashSet<>();
-        final Set<Long> palaces=new HashSet<>(), awaitingQueen=new HashSet<>(), rewardedPalaces=new HashSet<>();
+        final Set<Long> palaces=new HashSet<>(), awaitingQueen=new HashSet<>(), rewardedPalaces=new HashSet<>(), litPalaces=new HashSet<>();
         BlockPos pendingPalace;
         boolean pendingPalaceNatural;
         void beginPalace(BlockPos p,boolean natural){pendingPalace=p.immutable();pendingPalaceNatural=natural;setDirty();}
@@ -78,6 +78,7 @@ public final class WinterEncounterSpawns {
             for(long p:nbt.getLongArray("Palaces"))data.palaces.add(p);
             for(long p:nbt.getLongArray("AwaitingQueen"))data.awaitingQueen.add(p);
             for(long p:nbt.getLongArray("RewardedPalaces"))data.rewardedPalaces.add(p);
+            for(long p:nbt.getLongArray("LitPalaces"))data.litPalaces.add(p);
             if(nbt.contains("PendingPalace")){data.pendingPalace=BlockPos.of(nbt.getLong("PendingPalace"));data.pendingPalaceNatural=nbt.getBoolean("PendingPalaceNatural");}
             data.naturalShip=nbt.getBoolean("NaturalShip");
             if(nbt.contains("PendingShip")){data.pendingShip=BlockPos.of(nbt.getLong("PendingShip"));data.pendingNatural=nbt.getBoolean("PendingNatural");}
@@ -94,6 +95,7 @@ public final class WinterEncounterSpawns {
             nbt.putLongArray("Palaces",palaces.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("AwaitingQueen",awaitingQueen.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("RewardedPalaces",rewardedPalaces.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("LitPalaces",litPalaces.stream().mapToLong(Long::longValue).toArray());
             if(pendingPalace!=null){nbt.putLong("PendingPalace",pendingPalace.asLong());nbt.putBoolean("PendingPalaceNatural",pendingPalaceNatural);}
             nbt.putBoolean("NaturalShip",naturalShip);
             if(pendingShip!=null){nbt.putLong("PendingShip",pendingShip.asLong());nbt.putBoolean("PendingNatural",pendingNatural);}
@@ -134,10 +136,8 @@ public final class WinterEncounterSpawns {
             Boss boss=select(habitat,cx,cz,test,gluheya()!=null,world.getSeed());
             if(boss==null)continue;
             if(boss==Boss.CAPTAIN)continue;
-            if(boss==Boss.QUEEN){
-                if(WinterPalace.queueNatural(world,pos))return true;
-                continue;
-            }
+            // Palace cells are handled by the advance planner, not the near-player spawn pass.
+            if(boss==Boss.QUEEN)return false;
             if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             if(!suitable(world,pos,boss))continue;
             boolean tooClose=false;

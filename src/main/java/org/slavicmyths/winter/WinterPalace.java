@@ -277,8 +277,28 @@ public final class WinterPalace {
             JOBS.put(w,new Job(w,sites.pendingPalace,sites.pendingPalaceNatural,true,null));
         var job=JOBS.get(w);if(job!=null){job.step();return;}
         if(w.getGameTime()%20==0&&w.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(w,sites);
+        if(w.getGameTime()%100==0)repairLighting(w,sites);
         if(w.getDifficulty()!=Difficulty.PEACEFUL&&!FrozenShip.active(w)&&sites.pendingShip==null&&sites.pendingPalace==null
             &&w.getGameTime()%5==0)queueAhead(w,sites);
+    }
+    /** Upgrade completed V2 palaces without rebuilding, resetting loot or respawning the queen.
+     * Only touch loaded chunks, and only replace the original blueprint's unchanged floor. */
+    private static void repairLighting(ServerLevel w,WinterEncounterSpawns.Sites sites){
+        for(long packed:sites.palaces){
+            if(sites.litPalaces.contains(packed))continue;
+            var origin=BlockPos.of(packed);
+            boolean allLoaded=true;
+            for(int y:new int[]{4,14,24})for(int x=-30;x<=30;x+=5)for(int z=0;z<=45;z+=5){
+                var old=Plan.at(x,y,z);var next=Plan.block(x,y,z);
+                if(old.equals(next)||!next.is(Blocks.SEA_LANTERN))continue;
+                var pos=origin.offset(x,y,z);
+                if(w.getChunkSource().getChunkNow(pos.getX()>>4,pos.getZ()>>4)==null){allLoaded=false;continue;}
+                if(w.getBlockState(pos).equals(old)&&w.getBlockState(pos.above()).isAir()
+                    &&w.getBlockState(pos.above(2)).isAir())w.setBlock(pos,next,3);
+            }
+            if(allLoaded){sites.litPalaces.add(packed);sites.setDirty();}
+            return;
+        }
     }
     private static void spawnWaiting(ServerLevel w,WinterEncounterSpawns.Sites sites){
         if(w.getDifficulty()==Difficulty.PEACEFUL)return;
@@ -370,7 +390,7 @@ public final class WinterPalace {
                         var sites=WinterEncounterSpawns.Sites.get(w);
                         ManualStructureRecords.get(w).add(id(origin,"record"),"site/winter_palace",0,origin.offset(0,1,0),
                             new BoundingBox(origin.getX()+X0,origin.getY(),origin.getZ()+Z0,origin.getX()+X1,origin.getY()+Y1,origin.getZ()+Z1));
-                        sites.finishPalace(origin,siteKey(origin));spawnWaiting(w,sites);
+                        sites.finishPalace(origin,siteKey(origin));sites.litPalaces.add(origin.asLong());sites.setDirty();spawnWaiting(w,sites);
                         finish(true,"Дворец вечной зимы V2 создан: "+origin.toShortString());if(source!=null)reportLocation(source,origin.offset(0,1,0),"Вход во дворец");return;
                     }
                     if(column>=Plan.COLUMNS.size()){
