@@ -27,7 +27,8 @@ public final class TrophyHeadRecoveryGameTests {
         block.setPlacedBy(world,root,state,null,new ItemStack(item));
         t.assertTrue(!state.requiresCorrectToolForDrops(),"Trophy requires an unrelated tool: "+kind);
         BlockPos target=kind==TrophyHeads.Kind.WINTER_OWL?TrophyHeadBlock.owlPos(root,direction,cell):
-            kind==TrophyHeads.Kind.MOROVOY_RAVEN?root.relative(direction,cell):root.above(cell);
+            kind==TrophyHeads.Kind.MOROVOY_RAVEN?root.relative(direction,cell):
+            kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?root.relative(direction.getClockWise(),cell):root.above(cell);
         t.assertTrue(world.getBlockState(target).is(block),"Missing trophy cell: "+kind);
         var drops=Block.getDrops(state,world,root,world.getBlockEntity(root),null,ItemStack.EMPTY);
         t.assertTrue(drops.stream().filter(x->x.is(item)).mapToInt(ItemStack::getCount).sum()==1,"Anchor loot missing: "+kind);
@@ -51,7 +52,20 @@ public final class TrophyHeadRecoveryGameTests {
         recover(t,TrophyHeads.Kind.LIKHO,1,Direction.NORTH);
         recover(t,TrophyHeads.Kind.MOROVOY_RAVEN,1,Direction.NORTH);
         recover(t,TrophyHeads.Kind.MOROVOY_RAVEN,0,Direction.NORTH);
+        recover(t,TrophyHeads.Kind.MOROVOY_FIRE_ZMEY,1,Direction.NORTH);
+        recover(t,TrophyHeads.Kind.MOROVOY_FIRE_ZMEY,0,Direction.NORTH);
         t.succeed();
+    }
+    @GameTest(template="empty") public static void everySharedHeadHasAnchorLoot(GameTestHelper t){
+        var world=t.getLevel();var root=t.absolutePos(new BlockPos(4,2,4));
+        for(var kind:TrophyHeads.Kind.values()){
+            var block=TrophyHeads.BLOCKS.get(kind).get();var item=TrophyHeads.ITEMS.get(kind).get();
+            var state=block.defaultBlockState();world.setBlock(root,state,3);
+            var items=Block.getDrops(state,world,root,world.getBlockEntity(root),null,ItemStack.EMPTY);
+            t.assertTrue(items.stream().filter(x->x.is(item)).mapToInt(ItemStack::getCount).sum()==1,"Missing anchor loot: "+kind);
+            t.assertTrue(!state.requiresCorrectToolForDrops(),"Tool gate on trophy: "+kind);
+            world.removeBlock(root,false);
+        }t.succeed();
     }
     @GameTest(template="empty") public static void polozAndZhelvaLoot(GameTestHelper t){
         var world=t.getLevel();var root=t.absolutePos(new BlockPos(3,2,3));

@@ -38,6 +38,26 @@ jobs:
           assert ended and offset==len(data)
           assert len(zlib.decompress(compressed))==512*513
           PY
+      - name: Validate trophy particle sprites and model references
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          assets=Path('src/main/resources/assets')
+          atlas=json.loads((assets/'minecraft/atlases/blocks.json').read_text())
+          sprites={s['resource'] for s in atlas['sources'] if s.get('type')=='minecraft:single'}
+          models=assets/'slavicmyths/models/block'
+          for model in sorted(models.glob('*head*.json')):
+              if any(s in model.stem for s in ('bed','cot')): continue
+              textures=json.loads(model.read_text()).get('textures',{})
+              particle=textures.get('particle',textures.get('all'))
+              assert particle, f'No particle sprite: {model}'
+              if particle.startswith('slavicmyths:'):
+                  path=particle.split(':',1)[1]
+                  assert (assets/'slavicmyths/textures'/f'{path}.png').is_file(), particle
+                  assert path.startswith(('block/','item/')) or particle in sprites, f'Not stitched: {particle}'
+          assert 'slavicmyths:entity/winter_owl' in sprites
+          PY
       - name: Clean build and compile regression tests
         run: chmod +x gradlew && ./gradlew clean build -PmarineArmorCheck compileMarineArmorCheckJava --no-daemon --console=plain
       - name: Native GameTests (both input orders)
