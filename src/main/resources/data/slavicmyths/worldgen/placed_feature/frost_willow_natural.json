@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:frost_willow_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 6
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

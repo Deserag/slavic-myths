@@ -918,3 +918,6 @@ if (project.hasProperty('wolverineCheck')) {
         systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
     } }
 }
+
+// Winter wood uses the existing pine and willow assets with deterministic palette transforms.
+apply from: 'gradle/winter-wood.gradle'

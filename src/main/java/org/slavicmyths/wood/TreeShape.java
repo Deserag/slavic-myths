@@ -19,7 +19,7 @@ public final class TreeShape {
  public final int variant;
  public TreeShape(String species,Random r){this(species,r::nextInt,r::nextDouble,r::nextBoolean);}
  public TreeShape(String species,java.util.function.IntUnaryOperator integers,java.util.function.DoubleSupplier doubles,java.util.function.BooleanSupplier booleans){nextInt=integers;nextDouble=doubles;nextBoolean=booleans;variant=nextInt.applyAsInt(3);
-  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;default:throw new IllegalArgumentException(species);}
+  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;case "ice_pine":icePine();break;case "frost_willow":frostWillow();break;default:throw new IllegalArgumentException(species);}
   for(Cell c:logs.keySet())leaves.remove(c);
   // Match vanilla six-face leaf distance, avoiding disconnected leaves that immediately decay.
   ArrayDeque<Cell> queue=new ArrayDeque<>();Map<Cell,Integer> distance=new HashMap<>();
@@ -29,9 +29,9 @@ public final class TreeShape {
   }
   leaves.entrySet().removeIf(e->!distance.containsKey(e.getKey()));
   for(Map.Entry<Cell,Integer>e:leaves.entrySet())e.setValue(distance.get(e.getKey()));
-  if(species.equals("willow")){
+  if(species.equals("willow")||species.equals("frost_willow")){
    for(Cell c:new ArrayList<>(leaves.keySet()))if(c.y>=4&&(Math.abs(c.x)>=3||Math.abs(c.z)>=3)&&!leaves.containsKey(c.offset(0,-1,0))&&nextInt.applyAsInt(3)==0){
-    int length=1+nextInt.applyAsInt(3);for(int i=1;i<=length&&c.y-i>=1;i++){Cell n=c.offset(0,-i,0);if(logs.containsKey(n)||leaves.containsKey(n))break;hanging.add(n);}
+    int length=1+nextInt.applyAsInt(species.equals("frost_willow")?5:3);for(int i=1;i<=length&&c.y-i>=1;i++){Cell n=c.offset(0,-i,0);if(logs.containsKey(n)||leaves.containsKey(n))break;hanging.add(n);}
    }
   }
  }
@@ -60,6 +60,17 @@ public final class TreeShape {
  private void willow(){int h=5+nextInt.applyAsInt(2);trunk(h);crown(0,h,0,2.7,1.4,2.7,false);
   int span=variant==1?4:3;
   for(int i=0;i<5;i++){double a=i*Math.PI*2/5+.2;int x=(int)Math.round(Math.cos(a)*span)+(variant==2?1:0),z=(int)Math.round(Math.sin(a)*span);int y=h-1+nextInt.applyAsInt(2);branch(2+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2,1.3,2,false);}
+ }
+ private void icePine(){
+  int h=12+nextInt.applyAsInt(10);trunk(h);
+  int layers=(h-3)/2;
+  for(int i=0;i<layers;i++){int y=3+i*2,r=Math.max(1,4-i*3/Math.max(1,layers-1));tier(y,r,1);if(r>1)tier(y+1,r-1,1);}
+  leaves.put(new Cell(0,h,0),7);
+ }
+ private void frostWillow(){
+  int h=7+nextInt.applyAsInt(5);trunk(h);crown(0,h,0,2.8,1.7,2.8,false);
+  int span=variant==1?4:3;
+  for(int i=0;i<5;i++){double a=i*Math.PI*2/5+.2;int x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);int y=h-2+nextInt.applyAsInt(2);branch(3+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2.1,1.6,2.1,false);}
  }
  private void pine(){int h=9+nextInt.applyAsInt(4);trunk(h);
   for(int i=0;i<5&&2+i*2<h;i++){int y=2+i*2,r=Math.max(1,3-i/2);tier(y,r,1);}

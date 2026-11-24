@@ -20,8 +20,10 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.BossEvent;
 import net.minecraft.server.level.ServerLevel;
 public final class HangingLeaves extends Block {
- public HangingLeaves(){super(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).randomTicks().noCollission());}
- @Override public boolean canSurvive(BlockState s,LevelReader w,BlockPos p){BlockState above=w.getBlockState(p.above());return above.is(this)||above.is(Woodlands.SETS.get("willow").get("leaves"));}
+ private final String species;
+ public HangingLeaves(){this("willow");}
+ public HangingLeaves(String species){super(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).randomTicks().noCollission());this.species=species;}
+ @Override public boolean canSurvive(BlockState s,LevelReader w,BlockPos p){BlockState above=w.getBlockState(p.above());return above.is(this)||above.is(Woodlands.SETS.get(species).get("leaves"));}
  @Override public BlockState updateShape(BlockState s,Direction d,BlockState other,LevelAccessor w,BlockPos p,BlockPos q){if(d==Direction.UP&&!canSurvive(s,w,p))w.scheduleTick(p,this,1);return super.updateShape(s,d,other,w,p,q);}
  @Override public void tick(BlockState s,ServerLevel w,BlockPos p,RandomSource r){if(!canSurvive(s,w,p))w.destroyBlock(p,true);}
  @Override public void randomTick(BlockState s,ServerLevel w,BlockPos p,RandomSource r){if(!canSurvive(s,w,p))w.destroyBlock(p,true);}

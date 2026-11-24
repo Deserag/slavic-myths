@@ -13,6 +13,7 @@ public final class WoodlandClient {
    for(String k:new String[]{"leaves","sapling","door","trapdoor"})ItemBlockRenderTypes.setRenderLayer(s.get(k),RenderType.cutoutMipped());
   }
   ItemBlockRenderTypes.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
+  ItemBlockRenderTypes.setRenderLayer(Woodlands.FROST_HANGING.get(),RenderType.cutoutMipped());
  });}
  @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(Woodlands.SIGN_TILE.get(),SignRenderer::new);}
 }

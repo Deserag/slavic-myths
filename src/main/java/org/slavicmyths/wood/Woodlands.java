@@ -18,12 +18,15 @@ public final class Woodlands {
     public static final Map<String,Set> SETS = new LinkedHashMap<>();
     public static final DeferredHolder<Item, Item> BERRIES;
     public static final DeferredHolder<Block, Block> HANGING;
+    public static final DeferredHolder<Block, Block> FROST_HANGING;
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WoodSignTile>> SIGN_TILE;
     static {
-        for(String name:new String[]{"linden","rowan","willow","pine"}) SETS.put(name,new Set(name));
+        for(String name:new String[]{"linden","rowan","willow","pine","ice_pine","frost_willow"}) SETS.put(name,new Set(name));
         BERRIES=ModItems.ITEMS.register("rowan_berries",()->new Item(props().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.2F).build())));
         HANGING=ModBlocks.BLOCKS.register("hanging_willow_leaves",HangingLeaves::new);
         ModItems.ITEMS.register("hanging_willow_leaves",()->new BlockItem(HANGING.get(),props()));
+        FROST_HANGING=ModBlocks.BLOCKS.register("hanging_frost_willow_leaves",()->new HangingLeaves("frost_willow"));
+        ModItems.ITEMS.register("hanging_frost_willow_leaves",()->new BlockItem(FROST_HANGING.get(),props()));
         SIGN_TILE=ModTiles.TILES.register("wood_sign",()->BlockEntityType.Builder.of(WoodSignTile::new,SETS.values().stream().flatMap(s->java.util.stream.Stream.of(s.get("sign"),s.get("wall_sign"))).toArray(Block[]::new)).build(null));
     }
     public static void init() { WoodlandWorldgen.init(); }

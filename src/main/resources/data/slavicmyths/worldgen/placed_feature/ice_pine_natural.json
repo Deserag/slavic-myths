@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:ice_pine_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 2
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

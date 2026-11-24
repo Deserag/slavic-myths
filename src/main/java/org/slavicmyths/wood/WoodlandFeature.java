@@ -23,9 +23,11 @@ public final class WoodlandFeature extends Feature<WoodlandFeature.Config> {
   int x=(origin.getX()&~15)+5+r.nextInt(6),z=(origin.getZ()&~15)+5+r.nextInt(6);
   BlockPos p=new BlockPos(x,w.getHeight(Heightmap.Types.OCEAN_FLOOR_WG,x,z),z);
   if(species.equals("willow")&&!nearWater(w,p))return false;
+  if(species.equals("frost_willow")&&!nearFrozenWater(w,p))return false;
   return grow(w,r,p);
  }
  private boolean nearWater(WorldGenLevel w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++)if(w.getFluidState(p.offset(x,y,z)).is(FluidTags.WATER))return true;return false;}
+ private boolean nearFrozenWater(WorldGenLevel w,BlockPos p){for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)for(int y=-2;y<=0;y++){var q=p.offset(x,y,z);if(!w.hasChunkAt(q))continue;var s=w.getBlockState(q);if(w.getFluidState(q).is(FluidTags.WATER)||s.is(Blocks.ICE)||s.is(Blocks.PACKED_ICE)||s.is(Blocks.BLUE_ICE))return true;}return false;}
  private boolean replaceable(BlockState s,Woodlands.Set set){return s.isAir()||s.is(set.get("sapling"))||s.is(Blocks.SHORT_GRASS)||s.is(Blocks.TALL_GRASS)||s.is(Blocks.FERN)||s.is(Blocks.LARGE_FERN)||s.is(Blocks.SNOW);}
  private BlockPos pos(BlockPos p,TreeShape.Cell c){return p.offset(c.x,c.y,c.z);}
  public boolean grow(WorldGenLevel w,RandomSource r,BlockPos p){return grow(w,r,p,false);}
@@ -44,7 +46,7 @@ public final class WoodlandFeature extends Feature<WoodlandFeature.Config> {
   }
   // Top-down order supplies each decorative segment with an existing support.
   ArrayList<TreeShape.Cell> hanging=new ArrayList<>(shape.hanging);hanging.sort(Comparator.comparingInt((TreeShape.Cell c)->c.y).reversed());
-  for(TreeShape.Cell c:hanging)w.setBlock(pos(p,c),Woodlands.HANGING.get().defaultBlockState(),3);
+  for(TreeShape.Cell c:hanging)w.setBlock(pos(p,c),(species.equals("frost_willow")?Woodlands.FROST_HANGING:Woodlands.HANGING).get().defaultBlockState(),3);
   return true;
  }
 }
