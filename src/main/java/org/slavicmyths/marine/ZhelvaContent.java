@@ -69,7 +69,7 @@ public final class ZhelvaContent {
     }
     private static void creative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) event.accept(EGG.get());
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) event.accept(HEAD_ITEM.get());
+
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) event.accept(STONE_CHARM.get());
     }
     private static void placements(RegisterSpawnPlacementsEvent event) {

@@ -6953,5 +6953,6 @@
   "block.slavicmyths.cracked_frozen_stone_bricks": "Cracked Frozen Stone Bricks",
   "block.slavicmyths.frozen_stone_pillar": "Frozen Stone Pillar",
   "block.slavicmyths.frozen_paving": "Frozen Paving",
-  "generator.slavicmyths.slavic_winter": "Slavic Winter"
+  "generator.slavicmyths.slavic_winter": "Slavic Winter",
+  "flat_world_preset.slavicmyths.slavic_winter": "Slavic Winter"
 }

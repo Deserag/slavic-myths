@@ -97,8 +97,9 @@ public final class ModItemGroup {
         if (path.equals("wooden_barrel")) return -1; // Registered only for old saves.
         if (path.equals("raft_2511_test") || path.startsWith("raft_") || path.startsWith("ship_") ||
                 path.equals("shipyard_key") || path.equals("reinforced_sailcloth") || path.equals("shipyard_workbench")) return -1; // Shipbuilding only.
-        if (path.equals("tsar_pike_head") || path.equals("northern_wolverine_head")) return 11; // Unique two-block boss trophy.
         if (CreativeCatalog.entry(path) != null) return CreativeCatalog.category(path);
+        // Uncatalogued future boss head blocks must not leak into the building category.
+        if (path.endsWith("_head") && item instanceof BlockItem) return 11;
         if (REPORTED_FALLBACKS.add(path))
             System.getLogger("slavicmyths.creative").log(System.Logger.Level.WARNING,
                     "Uncatalogued item {0}; add its category and progression to creative_catalog.tsv", key);

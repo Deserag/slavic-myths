@@ -6950,5 +6950,6 @@
   "block.slavicmyths.cracked_frozen_stone_bricks": "Потрескавшиеся ледяные кирпичи",
   "block.slavicmyths.frozen_stone_pillar": "Ледяная каменная колонна",
   "block.slavicmyths.frozen_paving": "Ледяная брусчатка",
-  "generator.slavicmyths.slavic_winter": "Славянская зима"
+  "generator.slavicmyths.slavic_winter": "Славянская зима",
+  "flat_world_preset.slavicmyths.slavic_winter": "Славянская зима"
 }

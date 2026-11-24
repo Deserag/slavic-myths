@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.slavicmyths.winter.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "WinterFlatSelectionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

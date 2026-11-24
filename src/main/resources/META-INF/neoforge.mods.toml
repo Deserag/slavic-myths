@@ -56,3 +56,6 @@ config="slavicmyths.rune_glow.mixins.json"
 config="slavicmyths.navya.mixins.json"
 [[mixins]]
 config="slavicmyths.nether_structures.mixins.json"
+
+[[mixins]]
+config="slavicmyths.winter_flat.mixins.json"

@@ -78,7 +78,7 @@ public final class DeepSeaSerpentContent {
     private static void creative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) event.accept(EGG.get());
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(HEAD_ITEM.get());
+
             event.accept(CREST_ITEM.get());
         }
     }

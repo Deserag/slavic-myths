@@ -61,7 +61,7 @@ public final class StratimBirdContent {
     }
     private static void creative(BuildCreativeModeTabContentsEvent e){
         if(e.getTabKey()==CreativeModeTabs.SPAWN_EGGS)e.accept(EGG.get());
-        if(e.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS)e.accept(HEAD_ITEM.get());
+
     }
     private static void placements(RegisterSpawnPlacementsEvent e){
         e.register(BOSS.get(),SpawnPlacementTypes.NO_RESTRICTIONS,

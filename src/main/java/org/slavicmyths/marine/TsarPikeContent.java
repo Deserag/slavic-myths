@@ -56,7 +56,7 @@ public final class TsarPikeContent {
     }
     private static void creative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) event.accept(EGG.get());
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) event.accept(HEAD_ITEM.get());
+
     }
     private static void spawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(BOSS.get(), SpawnPlacementTypes.IN_WATER,
