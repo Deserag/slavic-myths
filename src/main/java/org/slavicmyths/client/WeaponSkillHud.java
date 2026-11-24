@@ -134,6 +134,7 @@ public final class WeaponSkillHud {
             }
             case "ice_halberd" -> {
                 skills.add(new Skill("wave","R",tag.getLong("CD_winter_HALBERD_1")-now));
+                skills.add(new Skill("ice","S+R",tag.getLong("CD_winter_HALBERD_3")-now));
             }
             case "ice_scythe" -> {
                 skills.add(new Skill("harvest","R",tag.getLong("CD_winter_SCYTHE_1")-now));

@@ -63,7 +63,7 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
     getNavigation().stop();attackFrame(++attack);
     if(attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
     if(attack==18&&hasLineOfSight(target)&&validPlayerTarget(p,target)&&distanceToSqr(target)<=3.7*3.7)
-       target.hurt(FrostDamage.projectile("winter_weapon_skill",this,p),12);
+       target.hurt(FrostDamage.projectile("winter_weapon_skill",this,p),20);
     if(attack>=36){attack=0;attackFrame(0);}
  }
  private boolean validPlayerTarget(net.minecraft.server.level.ServerPlayer p,LivingEntity t){

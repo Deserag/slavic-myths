@@ -8,7 +8,7 @@ public final class FrostShard extends ThrowableProjectile {
  public UUID session;private float damage;private int cold;private boolean winterWeapon;private UUID silenceCast;
  public boolean winterWeapon(){return winterWeapon;}
  private static boolean winter(LivingEntity e){return e instanceof net.minecraft.server.level.ServerPlayer p&&org.slavicmyths.winter.WinterAccessories.winterItem(p.getMainHandItem());}
- public static void launchSilenceBlade(net.minecraft.server.level.ServerPlayer p,float yawOffset,UUID cast){var e=FrostContent.SHARD.get().create(p.level());if(e==null)return;e.setOwner(p);e.damage=5;e.winterWeapon=true;e.silenceCast=cast;var direction=Vec3.directionFromRotation(p.getXRot(),p.getYRot()+yawOffset);e.setPos(p.getEyePosition().add(direction.scale(.8)));e.shoot(direction.x,direction.y,direction.z,1,0);p.level().addFreshEntity(e);}
+ public static void launchSilenceBlade(net.minecraft.server.level.ServerPlayer p,float yawOffset,UUID cast){var e=FrostContent.SHARD.get().create(p.level());if(e==null)return;e.setOwner(p);e.damage=9;e.winterWeapon=true;e.silenceCast=cast;var direction=Vec3.directionFromRotation(p.getXRot(),p.getYRot()+yawOffset);e.setPos(p.getEyePosition().add(direction.scale(.8)));e.shoot(direction.x,direction.y,direction.z,1,0);p.level().addFreshEntity(e);}
  public FrostShard(EntityType<? extends FrostShard> t,net.minecraft.world.level.Level w){super(t,w);}
  @Override protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder b){}
  @Override protected double getDefaultGravity(){return 0;}

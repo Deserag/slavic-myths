@@ -50,7 +50,7 @@ public final class WinterMeleeItem extends TieredItem implements WeaponInputHand
     @Override public boolean isPrimaryItemFor(ItemStack stack,Holder<Enchantment> enchantment){
         return !enchantment.is(Enchantments.SWEEPING_EDGE)&&(enchantment.value().isPrimaryItem(new ItemStack(Items.IRON_SWORD))||super.isPrimaryItemFor(stack,enchantment));
     }
-    @Override public boolean intercepts(Action a){return a==Action.RIGHT_CLICK||kind==Kind.BLADES&&a==Action.SHIFT_RIGHT_CLICK||kind==Kind.CLAWS&&a==Action.SHIFT_LEFT_CLICK;}
+    @Override public boolean intercepts(Action a){return a==Action.RIGHT_CLICK||kind==Kind.HALBERD&&a==Action.SHIFT_RIGHT_CLICK||kind==Kind.BLADES&&a==Action.SHIFT_RIGHT_CLICK||kind==Kind.CLAWS&&a==Action.SHIFT_LEFT_CLICK;}
     private static long now(ServerPlayer p){return p.server.overworld().getGameTime();}
     private String key(Action a){return "CD_winter_"+kind.name()+"_"+a.id();}
     private boolean ready(ServerPlayer p,Action a){return PathData.data(p).getLong(key(a))<=now(p);}
@@ -111,6 +111,10 @@ public final class WinterMeleeItem extends TieredItem implements WeaponInputHand
             var n=p.getPersistentData();n.putUUID(TARGET,target.getUUID());n.putInt(LEFT,3);n.putLong(NEXT,now(p));
             cast(p,held,a,200);return;
         }
+        if(kind==Kind.HALBERD&&a==Action.SHIFT_RIGHT_CLICK){
+            FrostShard.launch(p,p.getEyePosition().add(p.getLookAngle().scale(24)),20,0,null);
+            cast(p,held,a,140);return;
+        }
         if(a!=Action.RIGHT_CLICK)return;
         switch(kind){
             case CLAWS -> {
@@ -138,5 +142,6 @@ public final class WinterMeleeItem extends TieredItem implements WeaponInputHand
     }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){
         lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".skills"));
+        if(kind==Kind.HALBERD)lines.add(net.minecraft.network.chat.Component.literal(java.util.Locale.getDefault().getLanguage().equals("ru")?"Shift+ПКМ — ледяной снаряд: 20 урона, откат 7 с.":"Shift+RMB — frost projectile: 20 damage, 7s cooldown."));
     }
 }

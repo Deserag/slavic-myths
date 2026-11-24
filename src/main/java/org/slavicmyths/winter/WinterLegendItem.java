@@ -24,7 +24,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
     private static final String MARK="WinterSilenceMark", MARK_UNTIL="WinterSilenceMarkUntil";
     public WinterLegendItem(boolean queen){
         super(Tiers.DIAMOND,new Item.Properties().rarity(Rarity.EPIC).attributes(
-                queen?org.slavicmyths.item.SpearItem.attributes(Tiers.DIAMOND,18):SwordItem.createAttributes(Tiers.DIAMOND,18,-2.5F)));
+                queen?org.slavicmyths.item.SpearItem.attributes(Tiers.DIAMOND,28):SwordItem.createAttributes(Tiers.DIAMOND,26,-2.5F)));
         this.queen=queen;
     }
     public static boolean staffMode(ItemStack stack){
@@ -79,7 +79,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
         if(!ready(p,action,staff))return;
         if(queen){queenAction(p,held,action,staff);return;}
         switch(action){
-            case RIGHT_CLICK -> {charge(p,held,action,false,120);area(p,8,35,18);}
+            case RIGHT_CLICK -> {charge(p,held,action,false,120);area(p,8,35,30);}
             case SHIFT_LEFT_CLICK -> {
                 UUID cast=UUID.randomUUID();var state=p.getPersistentData();
                 state.putUUID(CAST,cast);state.put(HITS,new CompoundTag());state.putLong(CAST_UNTIL,now(p)+100);
@@ -94,7 +94,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
                     var delta=p.position().subtract(target.position());
                     if(delta.lengthSqr()>2)target.push(delta.normalize().x*.9,.1,delta.normalize().z*.9);
                 }
-                state.remove(MARK);state.remove(MARK_UNTIL);charge(p,held,action,false,700);damage(p,target,40);
+                state.remove(MARK);state.remove(MARK_UNTIL);charge(p,held,action,false,700);damage(p,target,60);
                 FrostVisuals.burst(p.serverLevel(),target.position().add(0,1,0),24);
             }
             default -> {}
@@ -121,20 +121,20 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
                     var safe=FrostWorld.safe(p.serverLevel(),dest,.6F,1.8F,0);
                     if(safe!=null&&p.serverLevel().clip(new net.minecraft.world.level.ClipContext(p.getEyePosition(),safe.add(0,1.62,0),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,p)).getType()==HitResult.Type.MISS)p.teleportTo(safe.x,safe.y,safe.z);
                     if(target.distanceToSqr(p)>25||!legal(p,target))return;
-                    charge(p,held,action,false,160);damage(p,target,26);
+                    charge(p,held,action,false,160);damage(p,target,40);
                 }
-                case SHIFT_RIGHT_CLICK -> {charge(p,held,action,false,240);area(p,4.5,180,24);}
+                case SHIFT_RIGHT_CLICK -> {charge(p,held,action,false,240);area(p,4.5,180,36);}
                 default -> {}
             }
         }else{
             switch(action){
-                case LEFT_CLICK -> {FrostShard.launch(p,p.getEyePosition().add(p.getLookAngle().scale(24)),12,0,null);charge(p,held,action,true,12);}
+                case LEFT_CLICK -> {FrostShard.launch(p,p.getEyePosition().add(p.getLookAngle().scale(24)),20,0,null);charge(p,held,action,true,12);}
                 case SHIFT_LEFT_CLICK -> {
                     boolean spawned=false;
                     Vec3 direction=p.getLookAngle().multiply(1,0,1).normalize();
                     for(int i=1;i<=5;i++){
                         Vec3 point=FrostWorld.safe(p.serverLevel(),p.position().add(direction.scale(i*1.6)),.6F,1.8F,0);
-                        if(point!=null){FrostHazard.spike(p,point,8+i*3,22,0,null);spawned=true;}
+                        if(point!=null){FrostHazard.spike(p,point,8+i*3,34,0,null);spawned=true;}
                     }
                     if(spawned)charge(p,held,action,true,300);
                 }
@@ -152,6 +152,12 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
     }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<net.minecraft.network.chat.Component> lines,TooltipFlag flag){
         super.appendHoverText(stack,context,lines,flag);
-        lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+(queen?(staffMode(stack)?".staff":".spear"):".skills")));
+        boolean ru=java.util.Locale.getDefault().getLanguage().equals("ru");
+        String description;
+        if(queen){
+            if(staffMode(stack))description=ru?"Посох: ЛКМ — ледяной снаряд (20 урона); ПКМ — смена формы; Shift+ЛКМ — шипы (34 урона); Shift+ПКМ — голем (100 HP, 20 урона, 45 с; откат 90 с).":"Staff: LMB frost bolt (20 damage); RMB switch form; Shift+LMB spikes (34 damage); Shift+RMB golem (100 HP, 20 damage, 45s; 90s cooldown).";
+            else description=ru?"Копьё: ЛКМ — 28 урона; ПКМ — смена формы; Shift+ЛКМ — рывок (40 урона); Shift+ПКМ — круговой удар (36 урона).":"Spear: LMB 28 damage; RMB switch form; Shift+LMB dash (40 damage); Shift+RMB circular strike (36 damage).";
+        }else description=ru?"ЛКМ — 30 урона; ПКМ — волна (30 урона, откат 6 с); Shift+ЛКМ — 7 клинков (9 урона каждый, 20 с); Shift+ПКМ — казнь отмеченной цели (60 урона, 35 с).":"LMB 30 damage; RMB wave (30 damage, 6s); Shift+LMB seven blades (9 damage each, 20s); Shift+RMB marked-target execution (60 damage, 35s).";
+        lines.add(net.minecraft.network.chat.Component.literal(description));
     }
 }
