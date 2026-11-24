@@ -26,21 +26,27 @@ public final class WinterOwlModel extends EntityModel<WinterOwl>{
  box(wing[i],0,s<0?-36:0,-4,-8,36,9,22);
  for(int k=0;k<8;k++){box(wing[i],k%3,s*(k*4.4F)-(s<0?5:0),0,3,5,4,23+k*1.5F);box(wing[i],k%2==0?2:1,s*(k*4.4F)-(s<0?5:0),-5,2,5,3,18);}
  box(tip[i],0,s<0?-25:0,-3,-4,25,7,15);
- for(int k=0;k<7;k++){box(tip[i],k%3,s*k*5.2F-(s<0?5.5F:0),0,0,5.5F,3,30-k*2.4F);box(tip[i],2,s*k*5.2F-(s<0?5.5F:0),-3,0,5.5F,3,14);if(k%2==0)box(tip[i],10,s*k*5.2F-(s<0?2:0),-3.15F,9,2,.2F,8);}
+ for(int k=0;k<8;k++){box(tip[i],k%3,s*k*6.1F-(s<0?6.5F:0),0,0,6.5F,3,32-k*2.5F);box(tip[i],2,s*k*6.1F-(s<0?6.5F:0),-3,0,6.5F,3,14);if(k%2==0){float rx=s*k*6.1F-(s<0?3:0);box(tip[i],10,rx,-3.2F,4,1.5F,.25F,10);box(tip[i],10,rx-1.5F,-3.25F,8,4.5F,.25F,1.5F);}}
  leg[i]=part(root,s*8,-13,-2);box(leg[i],1,-5,0,-5,10,9,10);box(leg[i],4,-4,8,-4,8,5,8);for(int k=-1;k<=1;k++){box(leg[i],4,k*3-1.3F,10,-8,2.6F,3,7);box(leg[i],3,k*3-1.3F,10.5F,-10,2.6F,2.5F,3);}}
  for(int k=-3;k<=3;k++){ModelPart v=part(tail,k*3,0,0);v.yRot=k*.12F;box(v,Math.abs(k)%3,-3,0,0,6,4,25-Math.abs(k)*2);}
  for(int i=-3;i<=3;i++){box(body,7,i*4-2,-12-Math.abs(i),-19,4,2,2);if(i!=0)box(body,8,i*4-1,-9,-19,2,7,2);}
  box(body,7,-5,-10,-21,10,10,2);box(body,10,-1,-8,-23.1F,2,6,.4F);box(body,10,-4,-5,-23.1F,8,1,.4F);
  }
  @Override public void setupAnim(WinterOwl e,float walk,float amount,float age,float yaw,float pitch){
- int a=e.action();float t=e.frame()+age-e.tickCount;boolean ground=a==WinterOwl.GROUND||a==WinterOwl.LAND&&e.onGround();float fold=ground?1.25F:0F;
+ int a=e.action();float t=e.frame()+age-e.tickCount;boolean ground=a==WinterOwl.GROUND||a==WinterOwl.LAND&&e.onGround();float fold=ground?1F:0F;
  if(a==WinterOwl.DIVE||a==WinterOwl.MULTI_DIVE||a==WinterOwl.GRAB){float cycle=a==WinterOwl.MULTI_DIVE?t%42:t;if(cycle>14&&cycle<33)fold=.75F;}
  if(a==WinterOwl.LAND)fold=Math.max(fold,Mth.clamp(t/85F,0,.9F));if(a==WinterOwl.TAKEOFF)fold=Math.max(0,1-t/22F);
- float frequency=a==WinterOwl.TAKEOFF?.42F:a==WinterOwl.GUST?.36F:.19F;float flap=ground?0:Mth.sin(age*frequency)*.30F;if(a==WinterOwl.ORBIT)flap*=.42F;
+ float frequency=a==WinterOwl.TAKEOFF?.42F:a==WinterOwl.GUST?.36F:.19F;float flap=ground?0:Mth.sin(age*frequency)*.30F;if(a==WinterOwl.ORBIT||a==WinterOwl.TRAIL||a==WinterOwl.ICICLES)flap*=.42F;
+ float charge=Mth.clamp(t/18F,0,1)*Mth.clamp((44-t)/12F,0,1);
+ if(a==WinterOwl.GUST)flap+=Mth.sin(t*.27F)*charge*.55F;
+ if(a==WinterOwl.FEATHERS)flap+=Mth.sin(t*.52F)*.2F;
+ if(a==WinterOwl.SUMMON||a==WinterOwl.AWAKEN)flap-=charge*.32F;
  root.xRot=0;root.zRot=ground?0:e.bank();body.xRot=ground?0:.15F;if(a==WinterOwl.DIVE||a==WinterOwl.MULTI_DIVE)body.xRot=.48F*(1-fold*.4F);
+ if(a==WinterOwl.SCREAM||a==WinterOwl.AWAKEN)body.xRot=-charge*.22F;
+ if(a==WinterOwl.TORNADO||a==WinterOwl.BLIZZARD)root.zRot+=Mth.sin(age*.13F)*.15F;
  head.xRot=Mth.clamp(pitch,-35,35)*Mth.DEG_TO_RAD*.65F-body.xRot*.65F;head.yRot=Mth.clamp(yaw,-55,55)*Mth.DEG_TO_RAD;
  beak.xRot=(a==WinterOwl.SCREAM||a==WinterOwl.AWAKEN||a==WinterOwl.SUMMON)&&t>10&&t<39?.45F:0;tail.xRot=ground?-.95F:.13F+Mth.sin(age*.17F)*.14F;
- for(int i=0;i<2;i++){int s=i==0?-1:1;wing[i].zRot=s*(fold+flap);wing[i].yRot=s*(-fold*.48F);wing[i].xRot=0;tip[i].zRot=s*(fold*.27F+flap*.5F);tip[i].yRot=s*(-fold*.38F);leg[i].xRot=ground?Mth.cos(walk*.6F+i*Mth.PI)*amount*.45F:-.75F;if(a==WinterOwl.GRAB||a==WinterOwl.DIVE||a==WinterOwl.LAND)leg[i].xRot=.2F;}
+ for(int i=0;i<2;i++){int s=i==0?-1:1;wing[i].zRot=s*(fold*.48F+flap);wing[i].yRot=s*(-fold*1.10F);wing[i].xRot=0;tip[i].zRot=s*(fold*.14F+flap*.5F);tip[i].yRot=s*(-fold*.55F);leg[i].xRot=ground?Mth.cos(walk*.6F+i*Mth.PI)*amount*.45F:-.75F;if(a==WinterOwl.GRAB||a==WinterOwl.DIVE||a==WinterOwl.LAND)leg[i].xRot=.2F;}
  }
  @Override public void renderToBuffer(PoseStack p,VertexConsumer c,int light,int overlay,int color){root.render(p,c,light,overlay,color);}
 }
