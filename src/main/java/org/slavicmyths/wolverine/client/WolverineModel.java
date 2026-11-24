@@ -83,6 +83,8 @@ public final class WolverineModel extends EntityModel<NorthernWolverine> {
     }
 
     public ModelPart trophyHead(){return head;}
+    public void poseQueenMinion(float walk,float amount,float age,float yaw,float pitch){torso.xRot=torso.yRot=0;torso.zRot=Mth.sin(walk*.5F)*amount*.045F;shoulder.xRot=shoulder.yRot=0;head.setPos(0,-7,-12);head.xRot=Mth.clamp(pitch,-25,25)*Mth.DEG_TO_RAD*.5F;head.yRot=Mth.clamp(yaw,-35,35)*Mth.DEG_TO_RAD*.7F;jaw.xRot=0;tail.yRot=Mth.sin(age*.1F)*.2F;tailTip.yRot=Mth.sin(age*.1F-.7F)*.25F;for(int i=0;i<4;i++){float cycle=walk*.65F+(i==0||i==3?0:Mth.PI);upper[i].xRot=Mth.cos(cycle)*Math.min(1,amount)*.6F;lower[i].xRot=Math.max(0,Mth.sin(cycle))*Math.min(1,amount)*.75F;}}
+
     @Override public void setupAnim(NorthernWolverine entity,float walk,float amount,float age,float yaw,float pitch){
         torso.xRot=torso.yRot=0;torso.zRot=Mth.sin(walk*.5F)*amount*.045F;
         shoulder.xRot=shoulder.yRot=0;

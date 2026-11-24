@@ -132,6 +132,7 @@ public final class SlavicMyths {
         org.slavicmyths.ninemor.NineMorContent.init(bus);
         org.slavicmyths.winters.WintersContent.init(bus);
         org.slavicmyths.owl.WinterOwlContent.init(bus);
+        org.slavicmyths.icequeen.QueenContent.init(bus);
         org.slavicmyths.wolverine.WolverineContent.init();
         bus.addListener(org.slavicmyths.wolverine.WolverineContent::attributes);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER,org.slavicmyths.sanctuary.SanctuaryConfig.SPEC,"slavicmyths-sanctuaries.toml");

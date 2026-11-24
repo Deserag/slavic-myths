@@ -33,6 +33,8 @@ public final class WinterOwlModel extends EntityModel<WinterOwl>{
  box(body,7,-5,-10,-21,10,10,2);box(body,10,-1,-8,-23.1F,2,6,.4F);box(body,10,-4,-5,-23.1F,8,1,.4F);
  }
  public ModelPart trophyHead(){return head;}
+ public void poseQueenMinion(float age,float yaw,float pitch){root.xRot=root.zRot=0;body.xRot=.15F;head.xRot=Mth.clamp(pitch,-35,35)*Mth.DEG_TO_RAD*.65F;head.yRot=Mth.clamp(yaw,-55,55)*Mth.DEG_TO_RAD;beak.xRot=0;tail.xRot=.13F;for(int i=0;i<2;i++){int s=i==0?-1:1;wing[i].zRot=s*Mth.sin(age*.35F)*.6F;wing[i].yRot=wing[i].xRot=0;tip[i].zRot=s*Mth.sin(age*.35F-.4F)*.3F;tip[i].yRot=0;leg[i].xRot=-.75F;}}
+
  @Override public void setupAnim(WinterOwl e,float walk,float amount,float age,float yaw,float pitch){
  int a=e.action();float t=e.frame()+age-e.tickCount;boolean ground=a==WinterOwl.GROUND||a==WinterOwl.LAND&&e.onGround();float fold=ground?1F:0F;
  if(a==WinterOwl.DIVE||a==WinterOwl.MULTI_DIVE||a==WinterOwl.GRAB){float cycle=a==WinterOwl.MULTI_DIVE?t%42:t;if(cycle>14&&cycle<33)fold=.75F;}

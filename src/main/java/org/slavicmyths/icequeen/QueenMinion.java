@@ -15,12 +15,14 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
  public QueenContent.Kind kind(){return kind;}
  public void bind(UUID id){owner=id;setHealth(getMaxHealth());}
  public boolean ownedBy(IceQueen b){return b.getUUID().equals(owner);}
+ public boolean trialActive(){return owner!=null&&level() instanceof ServerLevel w&&w.getEntity(owner) instanceof IceQueen b&&b.active()&&b.phase()==(kind.copy()?2:1);}
+ public boolean canHitTrial(LivingEntity e){return e instanceof Player p&&owner!=null&&level() instanceof ServerLevel w&&w.getEntity(owner) instanceof IceQueen b&&b.active()&&b.participant(p);}
  @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));}
  @Override public boolean isAlliedTo(Entity e){return e instanceof IceQueen b&&ownedBy(b)||e instanceof QueenMinion m&&owner!=null&&owner.equals(m.owner)||super.isAlliedTo(e);}
  @Override public boolean hurt(net.minecraft.world.damagesource.DamageSource s,float a){return !(s.getEntity()!=null&&isAlliedTo(s.getEntity()))&&!s.is(net.minecraft.tags.DamageTypeTags.IS_FREEZING)&&super.hurt(s,a);}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;
-  if(owner==null||!(w.getEntity(owner) instanceof IceQueen boss)||!boss.active()){if(++orphans>=20)discard();return;}orphans=0;
+  if(owner==null||!(w.getEntity(owner) instanceof IceQueen boss)||!boss.active()||boss.phase()!=(kind.copy()?2:1)){if(++orphans>=20)discard();return;}orphans=0;
   Player p=boss.victim();if(p==null){getNavigation().stop();return;}if(distanceToSqr(boss)>3600){discard();return;}getLookControl().setLookAt(p,45,45);
   double d=distanceToSqr(p);
   if(kind==QueenContent.Kind.OWL){var target=p.getEyePosition().add(0,1,0);var v=target.subtract(position());setDeltaMovement(v.normalize().scale(.30));if(v.lengthSqr()<4&&tickCount%25==0&&hasLineOfSight(p)){if(p.hurt(damageSources().mobAttack(this),kind.damage))FrostCold.add(p,5);playSound(SoundEvents.PHANTOM_BITE,1,1.3F);}return;}

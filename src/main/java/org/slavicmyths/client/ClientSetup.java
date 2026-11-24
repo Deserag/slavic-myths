@@ -112,6 +112,7 @@ public final class ClientSetup {
 
         bus.addListener(WintersClient.Setup::ready);
         bus.addListener(org.slavicmyths.owl.client.WinterOwlRenderer::register);
+        bus.addListener(org.slavicmyths.icequeen.client.QueenRenderer::register);
         bus.addListener(org.slavicmyths.wolverine.client.WolverineRenderer::register);
 
         bus.addListener(FrostClient.Registration::keys);
