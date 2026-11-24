@@ -15,7 +15,7 @@ import org.slavicmyths.rpg.PathData;
 @EventBusSubscriber(modid="slavicmyths")
 public final class IndependentWeaponCooldowns {
     public static final String NEVEYA="neveya_scythe", LOMEYA="lomeya_hammer",
-        SPEAR="nine_mor_spear", AXE="nine_mor_axe", MYTAR="mytar_shackled_sickle";
+        SPEAR="nine_mor_spear", AXE="nine_mor_axe", MYTAR="mytar_shackled_sickle", POLOZ="poloz_whip";
     public static String key(String weapon,boolean alternate){
         return "SlavicSkillReady_"+weapon+(alternate?"_shift":"_normal");
     }
@@ -46,7 +46,7 @@ public final class IndependentWeaponCooldowns {
         var id=BuiltInRegistries.ITEM.getKey(stack.getItem());
         if(!id.getNamespace().equals("slavicmyths"))return;
         String weapon=switch(id.getPath()){
-            case NEVEYA,LOMEYA,SPEAR,AXE,MYTAR -> id.getPath();
+            case NEVEYA,LOMEYA,SPEAR,AXE,MYTAR,POLOZ -> id.getPath();
             case "lomeya_hammer_offhand" -> LOMEYA;
             default -> null;
         };

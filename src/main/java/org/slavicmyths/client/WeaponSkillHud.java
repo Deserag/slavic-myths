@@ -167,8 +167,8 @@ public final class WeaponSkillHud {
             case "likho_staff" ->
                 skills.add(new Skill("likho_staff_morok_eye", "R",VANILLA));
             case "poloz_whip" -> {
-                skills.add(new Skill("poloz_whip_spikes", "R",VANILLA));
-                skills.add(new Skill("poloz_whip_earth_rift", "S+R",VANILLA));
+                skills.add(new Skill("poloz_whip_spikes", "R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.POLOZ,false,now)));
+                skills.add(new Skill("poloz_whip_earth_rift", "S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.POLOZ,true,now)));
             }
             case "trophy_kalin_sabre" ->
                 skills.add(new Skill("trophy_kalin_sabre_sweeping_strike", "R",VANILLA));
@@ -189,8 +189,8 @@ public final class WeaponSkillHud {
             case "serpent_crossbow" ->
                 skills.add(new Skill("serpent_crossbow_serpent_bolt", "R",VANILLA));
             case "finist_bow" -> {
-                skills.add(new Skill("finist_bow_homing_target", "R",VANILLA));
-                skills.add(new Skill("finist_bow_manual_aim", "S+R",VANILLA));
+                skills.add(new Skill("finist_bow_homing_target", "R",0));
+                skills.add(new Skill("finist_bow_manual_aim", "S+R",0));
             }
             case "victor_spear" ->
                 skills.add(new Skill("victor_spear_marked_followup", "L",VANILLA));
