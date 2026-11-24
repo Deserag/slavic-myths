@@ -370,13 +370,20 @@ public final class GluheyaBoss extends Monster {
         if(!secondPhase()){
             int choice=sequence++%5;
             if(fieldCooldown<=0){start(SILENCE_FIELD,p);fieldCooldown=360;return;}
-            start(switch(choice){case 0->FAST_WAVE;case 1->LONG_BELL;
-                case 2->SILENCE_RING;case 3->BELL_STORM;default->FAST_WAVE;},p);
+            start(phaseOneAttack(choice,distance),p);
         }else if(huntCooldown<=0){start(HUNT,p);huntCooldown=800;}
         else if(distance>16D||!hasLineOfSight(p)){
             start(sequence++%2==0?BACKSTAB:DAGGER_THROW,p);
         }else{start(switch(sequence++%4){case 0->COMBO;case 1->DAGGER_THROW;
             case 2->BACKSTAB;default->COMBO;},p);}
+    }
+    static int phaseOneAttack(int choice,double distanceSquared){
+        return switch(choice){
+            case 1->LONG_BELL;
+            case 2->distanceSquared<=100D?SILENCE_RING:FAST_WAVE;
+            case 3->BELL_STORM;
+            default->FAST_WAVE;
+        };
     }
     @Override public void addAdditionalSaveData(CompoundTag tag){
         super.addAdditionalSaveData(tag);
@@ -403,6 +410,12 @@ public final class GluheyaBoss extends Monster {
             var target=getTarget();if(!valid(target))return;
             if(action()!=IDLE){getNavigation().stop();return;}
             double d=distanceToSqr(target);
+            // Reposition around obstructions instead of holding the preferred
+            // distance indefinitely while the target is hidden behind a wall.
+            if(!hasLineOfSight(target)){
+                if(getNavigation().isDone()||tickCount%10==0)getNavigation().moveTo(target,secondPhase()?1.23:.95);
+                return;
+            }
             if(secondPhase()){
                 if(d>9){if(getNavigation().isDone()||tickCount%10==0)getNavigation().moveTo(target,1.23);}
                 else getNavigation().stop();

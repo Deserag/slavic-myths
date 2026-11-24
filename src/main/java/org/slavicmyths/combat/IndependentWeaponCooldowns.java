@@ -43,6 +43,9 @@ public final class IndependentWeaponCooldowns {
             String key="MarineHarpoonReady";
             long deadline=player.getPersistentData().getLong(key);
             if(data.getLong(key)!=deadline){data.putLong(key,deadline);changed=true;}
+            String hitsKey="MarineHarpoonHits";
+            int hits=player.getPersistentData().getInt(hitsKey);
+            if(data.getInt(hitsKey)!=hits){data.putInt(hitsKey,hits);changed=true;}
         }
         if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(data));
     }

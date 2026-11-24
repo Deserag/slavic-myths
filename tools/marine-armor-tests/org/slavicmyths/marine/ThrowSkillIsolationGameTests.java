@@ -30,10 +30,12 @@ public final class ThrowSkillIsolationGameTests {
         p.setItemInHand(InteractionHand.MAIN_HAND,first);
         // Simulate the server state written by a successful tether impact.
         p.getPersistentData().putLong("MarineHarpoonReady",now+500);
+        p.getPersistentData().putInt(MarineHarpoons.HITS,3);
         IndependentWeaponCooldowns.syncHeld(p);
         var firstTag=first.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
             net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
         t.assertTrue(firstTag.getLong("MarineHarpoonReady")==now+500,"HUD lost tether impact cooldown");
+        t.assertTrue(firstTag.getInt(MarineHarpoons.HITS)==3,"HUD lost harpoon charges");
         t.assertTrue(IndependentWeaponCooldowns.remaining(firstTag,IndependentWeaponCooldowns.HARPOON,false,now)==0,
             "Tether impact incorrectly blocked normal throw");
         ItemStack replacement=new ItemStack(item,4);
@@ -42,11 +44,16 @@ public final class ThrowSkillIsolationGameTests {
         var replacementTag=replacement.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
             net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
         t.assertTrue(replacementTag.getLong("MarineHarpoonReady")==now+500,"Switching stacks lost tether HUD deadline");
+        t.assertTrue(replacementTag.getInt(MarineHarpoons.HITS)==3,"Switching stacks lost harpoon charges");
         p.getPersistentData().remove("MarineHarpoonReady");
+        p.getPersistentData().putInt(MarineHarpoons.HITS,0);
         IndependentWeaponCooldowns.syncHeld(p);
         t.assertTrue(replacement.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
             net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getLong("MarineHarpoonReady")==0,
             "Stale tether HUD deadline was not cleared");
+        t.assertTrue(replacement.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,
+            net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getInt(MarineHarpoons.HITS)==0,
+            "Consumed harpoon charges were not cleared");
         p.discard();
         t.succeed();
     }
