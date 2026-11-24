@@ -15,6 +15,21 @@
           "name": "slavicmyths:winter_owl_feather"
         }
       ]
+    },
+    {
+      "name": "winter_weapon_material",
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:owl_frost_quill"
+        }
+      ]
     }
   ]
 }

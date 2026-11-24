@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " IF",
+    "IST",
+    " IT"
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:winter_steel_ingot"
+    },
+    "F": {
+      "item": "slavicmyths:owl_frost_quill"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:winter_hunt_bow",
+    "count": 1
+  }
+}

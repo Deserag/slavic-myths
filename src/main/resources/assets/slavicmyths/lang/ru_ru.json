@@ -6999,5 +6999,11 @@
   "item.slavicmyths.ice_scythe.skills": "ЛКМ 13 HP; ПКМ размашистый удар 17 HP.",
   "item.slavicmyths.winter_steel_ingot": "Слиток ледяного металла",
   "item.slavicmyths.gluheya_frost_shard": "Морозный осколок Глухеи",
-  "item.slavicmyths.wolverine_frost_fang": "Морозный клык росомахи"
+  "item.slavicmyths.wolverine_frost_fang": "Морозный клык росомахи",
+  "item.slavicmyths.winter_hunt_bow": "Лук зимней охоты",
+  "item.slavicmyths.winter_hunt_bow.skills": "ЛКМ стрела (10 HP при вылете); ПКМ ледяной выстрел 16 HP; Shift+ПКМ залп пяти стрел (по 6 HP при вылете). Расходует стрелы.",
+  "item.slavicmyths.ice_crossbow": "Ледяной арбалет",
+  "item.slavicmyths.ice_crossbow.skills": "ЛКМ выстрел; ПКМ зарядка особого ледяного болта (20 HP). Расходует стрелы.",
+  "item.slavicmyths.owl_frost_quill": "Морозное перо совы",
+  "winter.weapon.bolt_charged": "Зарядка ледяного болта"
 }

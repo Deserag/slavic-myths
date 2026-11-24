@@ -42,6 +42,7 @@ public final class WinterAccessories {
  public static boolean winterItem(ItemStack stack){return stack.is(WINTER);}
  private static boolean winterHit(net.minecraft.world.damagesource.DamageSource source,ServerPlayer p){
   if(source.getDirectEntity() instanceof org.slavicmyths.combat.WeaponProjectile projectile)return projectile.getItem().is(WINTER);
+  if(source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.AbstractArrow arrow)return arrow.getPersistentData().getBoolean(WinterRanged.SHOT);
   if(source.getDirectEntity() instanceof org.slavicmyths.morozko.FrostShard shard)return shard.winterWeapon();
   if(source.getDirectEntity() instanceof org.slavicmyths.morozko.FrostHazard hazard)return hazard.winterWeapon();
   if(source.getDirectEntity() instanceof org.slavicmyths.icequeen.QueenMinion minion)return minion.playerBound();

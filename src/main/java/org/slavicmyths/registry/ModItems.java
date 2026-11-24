@@ -25,6 +25,9 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> WINTER_STEEL_INGOT = ITEMS.register("winter_steel_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> GLUHEYA_FROST_SHARD = ITEMS.register("gluheya_frost_shard", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> WOLVERINE_FROST_FANG = ITEMS.register("wolverine_frost_fang", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> WINTER_HUNT_BOW = ITEMS.register("winter_hunt_bow", org.slavicmyths.winter.WinterRanged.Bow::new);
+    public static final DeferredHolder<Item, Item> ICE_CROSSBOW = ITEMS.register("ice_crossbow", org.slavicmyths.winter.WinterRanged.Crossbow::new);
+    public static final DeferredHolder<Item, Item> OWL_FROST_QUILL = ITEMS.register("owl_frost_quill", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ICE_QUEEN_SPEAR_STAFF = ITEMS.register("ice_queen_spear_staff", () -> new org.slavicmyths.winter.WinterLegendItem(true));
     public static final DeferredHolder<Item, Item> ABSOLUTE_SILENCE_SWORD = ITEMS.register("absolute_silence_sword", () -> new org.slavicmyths.winter.WinterLegendItem(false));
     public static final DeferredHolder<Item, Item> ICE_CAPTAIN_AXES = ITEMS.register("ice_captain_axes", () -> new org.slavicmyths.winter.WinterPairItem(true));

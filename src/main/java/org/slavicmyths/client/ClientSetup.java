@@ -242,6 +242,7 @@ public final class ClientSetup {
             MorJadeCompat.install();
 
             FieldBowClient.properties();FinistClient.properties();
+            net.minecraft.client.renderer.item.ItemProperties.register(ModItems.ICE_CROSSBOW.get(),net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","winter_charged"),(stack,level,entity,seed)->org.slavicmyths.winter.WinterRanged.charged(stack)?1:0);
             net.minecraft.client.renderer.item.ItemProperties.register(ModItems.ICE_QUEEN_SPEAR_STAFF.get(),net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","staff_mode"),(stack,level,entity,seed)->org.slavicmyths.winter.WinterLegendItem.staffMode(stack)?1:0);
             org.slavicmyths.ships.client.RaftClient.itemProperties();
 

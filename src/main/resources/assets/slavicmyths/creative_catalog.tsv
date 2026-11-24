@@ -1393,3 +1393,6 @@ ice_scythe	weapons	winter_weapons
 winter_steel_ingot	resources	winter_materials
 gluheya_frost_shard	resources	winter_materials
 wolverine_frost_fang	resources	winter_materials
+winter_hunt_bow	weapons	winter_weapons
+ice_crossbow	weapons	winter_weapons
+owl_frost_quill	resources	winter_materials

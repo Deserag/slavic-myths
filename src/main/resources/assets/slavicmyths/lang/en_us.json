@@ -7002,5 +7002,11 @@
   "item.slavicmyths.ice_scythe.skills": "LMB 13 HP; RMB sweeping strike 17 HP.",
   "item.slavicmyths.winter_steel_ingot": "Winter Steel Ingot",
   "item.slavicmyths.gluheya_frost_shard": "Gluheya's Frost Shard",
-  "item.slavicmyths.wolverine_frost_fang": "Wolverine Frost Fang"
+  "item.slavicmyths.wolverine_frost_fang": "Wolverine Frost Fang",
+  "item.slavicmyths.winter_hunt_bow": "Winter Hunt Bow",
+  "item.slavicmyths.winter_hunt_bow.skills": "LMB arrow (10 HP at launch); RMB ice shot 16 HP; Shift+RMB volley of five arrows (6 HP each at launch). Uses arrows.",
+  "item.slavicmyths.ice_crossbow": "Ice Crossbow",
+  "item.slavicmyths.ice_crossbow.skills": "LMB fire; RMB charge special ice bolt (20 HP). Uses arrows.",
+  "item.slavicmyths.owl_frost_quill": "Owl Frost Quill",
+  "winter.weapon.bolt_charged": "Charging ice bolt"
 }
