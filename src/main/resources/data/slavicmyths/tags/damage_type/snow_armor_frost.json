@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:freeze",
+    {
+      "id": "slavicmyths:morozko_frost",
+      "required": false
+    },
+    {
+      "id": "slavicmyths:morozko_aura",
+      "required": false
+    },
+    {
+      "id": "slavicmyths:morozko_icicle_damage",
+      "required": false
+    },
+    {
+      "id": "slavicmyths:morozko_stream",
+      "required": false
+    },
+    {
+      "id": "slavicmyths:winter_frostbite",
+      "required": false
+    },
+    {
+      "id": "slavicmyths:winter_silence_blade",
+      "required": false
+    }
+  ]
+}

@@ -7008,5 +7008,13 @@
   "item.slavicmyths.ice_crossbow": "Ice Crossbow",
   "item.slavicmyths.ice_crossbow.skills": "LMB fire; RMB charge special ice bolt (20 HP). Uses arrows.",
   "item.slavicmyths.owl_frost_quill": "Owl Frost Quill",
-  "winter.weapon.bolt_charged": "Charging ice bolt"
+  "winter.weapon.bolt_charged": "Charging ice bolt",
+  "item.slavicmyths.snow_helmet": "Snow Helmet",
+  "item.slavicmyths.snow_chestplate": "Snow Chestplate",
+  "item.slavicmyths.snow_leggings": "Snow Leggings",
+  "item.slavicmyths.snow_boots": "Snow Boots",
+  "armor.slavicmyths.snow.piece": "−10% frost damage per piece; +10% knockback resistance.",
+  "armor.slavicmyths.snow.sockets": "Rune sockets: %s/%s",
+  "armor.slavicmyths.snow.set": "Full set: freezing immunity, powder snow walking, +15% movement speed on snow and ice.",
+  "armor.slavicmyths.snow.aura": "When hit: Slowness II to enemies within 4 blocks for 5s; 10s cooldown."
 }

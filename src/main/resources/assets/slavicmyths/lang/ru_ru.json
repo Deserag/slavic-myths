@@ -7005,5 +7005,13 @@
   "item.slavicmyths.ice_crossbow": "Ледяной арбалет",
   "item.slavicmyths.ice_crossbow.skills": "ЛКМ выстрел; ПКМ зарядка особого ледяного болта (20 HP). Расходует стрелы.",
   "item.slavicmyths.owl_frost_quill": "Морозное перо совы",
-  "winter.weapon.bolt_charged": "Зарядка ледяного болта"
+  "winter.weapon.bolt_charged": "Зарядка ледяного болта",
+  "item.slavicmyths.snow_helmet": "Снежный шлем",
+  "item.slavicmyths.snow_chestplate": "Снежный нагрудник",
+  "item.slavicmyths.snow_leggings": "Снежные поножи",
+  "item.slavicmyths.snow_boots": "Снежные ботинки",
+  "armor.slavicmyths.snow.piece": "−10% морозного урона за часть; +10% сопротивления отбрасыванию.",
+  "armor.slavicmyths.snow.sockets": "Рунические слоты: %s/%s",
+  "armor.slavicmyths.snow.set": "Полный комплект: иммунитет к замерзанию, ходьба по рыхлому снегу, +15% скорости на снегу и льду.",
+  "armor.slavicmyths.snow.aura": "При получении урона: Замедление II врагам в радиусе 4 блоков на 5 с; откат 10 с."
 }

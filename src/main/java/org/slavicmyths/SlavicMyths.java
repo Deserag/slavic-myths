@@ -43,6 +43,7 @@ public final class SlavicMyths {
         org.slavicmyths.netherores.NetherOres.init();
         org.slavicmyths.nethersmithing.NetherSmithing.init();
         org.slavicmyths.nethersmithing.NetherArmor.init();
+        org.slavicmyths.winter.SnowArmor.init();
         org.slavicmyths.nethersmithing.NetherWeapons.init();
         org.slavicmyths.infernalfurnace.InfernalFurnace.init();
         org.slavicmyths.navya.NavyaBlocks.init();

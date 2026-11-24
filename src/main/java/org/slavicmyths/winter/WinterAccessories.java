@@ -75,7 +75,7 @@ public final class WinterAccessories {
   var n=t.getPersistentData().getCompound(COLD);return t.level().getGameTime()<n.getLong("Until")?n.getInt("Stacks"):0;
  }
  public static void apply(ServerPlayer p,LivingEntity t,int duration){
-  if(!CombatTargeting.canAttack(p,t)||t instanceof org.slavicmyths.morozko.PlayerDouble)return;
+  if(SnowArmor.full(t)||!CombatTargeting.canAttack(p,t)||t instanceof org.slavicmyths.morozko.PlayerDouble)return;
   long now=t.level().getGameTime();var n=t.getPersistentData().getCompound(COLD);int count=stacks(t);
   if(count==0||now>=n.getLong("AddAt")){count=Math.min(5,count+1);n.putLong("AddAt",now+10);}
   n.putInt("Stacks",count);n.putLong("Until",now+duration);n.putUUID("Owner",p.getUUID());
@@ -84,7 +84,7 @@ public final class WinterAccessories {
  }
  @SubscribeEvent public static void coldTick(EntityTickEvent.Post e){
   if(!(e.getEntity() instanceof LivingEntity t)||!(t.level() instanceof ServerLevel w)||!t.getPersistentData().contains(COLD))return;
-  int count=stacks(t);var n=t.getPersistentData().getCompound(COLD);
+  int count=SnowArmor.full(t)?0:stacks(t);var n=t.getPersistentData().getCompound(COLD);
   double slow=CombatTargeting.controlResistant(t)?Math.min(.2,count*.1):count*.1;
   mod(t,Attributes.MOVEMENT_SPEED,"winter_frostbite_slow",-slow,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
   if(count==0){t.getPersistentData().remove(COLD);return;}
