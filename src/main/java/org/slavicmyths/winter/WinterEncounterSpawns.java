@@ -54,13 +54,13 @@ public final class WinterEncounterSpawns {
     }
     public static final class Sites extends SavedData {
         final Set<Long> occupied=new HashSet<>();
-        final Set<Long> ships=new HashSet<>(), awaitingCaptain=new HashSet<>();
+        final Set<Long> ships=new HashSet<>(), awaitingCaptain=new HashSet<>(), riggingFixed=new HashSet<>();
         boolean naturalShip;
         BlockPos pendingShip;
         boolean pendingNatural;
         void beginShip(BlockPos origin,boolean natural){pendingShip=origin.immutable();pendingNatural=natural;setDirty();}
         void finishShip(BlockPos origin,boolean natural){
-            ships.add(origin.asLong());awaitingCaptain.add(origin.asLong());
+            ships.add(origin.asLong());awaitingCaptain.add(origin.asLong());riggingFixed.add(origin.asLong());
             if(natural)naturalShip=true;
             placed(key(cell(origin.getX()),cell(origin.getZ())));
             pendingShip=null;setDirty();
@@ -69,6 +69,7 @@ public final class WinterEncounterSpawns {
             Sites data=new Sites();for(long site:nbt.getLongArray("Occupied"))data.occupied.add(site);
             for(long site:nbt.getLongArray("Ships"))data.ships.add(site);
             for(long site:nbt.getLongArray("AwaitingCaptain"))data.awaitingCaptain.add(site);
+            for(long site:nbt.getLongArray("RiggingFixed"))data.riggingFixed.add(site);
             data.naturalShip=nbt.getBoolean("NaturalShip");
             if(nbt.contains("PendingShip")){data.pendingShip=BlockPos.of(nbt.getLong("PendingShip"));data.pendingNatural=nbt.getBoolean("PendingNatural");}
             return data;
@@ -80,6 +81,7 @@ public final class WinterEncounterSpawns {
             nbt.putLongArray("Occupied",occupied.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("Ships",ships.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("AwaitingCaptain",awaitingCaptain.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("RiggingFixed",riggingFixed.stream().mapToLong(Long::longValue).toArray());
             nbt.putBoolean("NaturalShip",naturalShip);
             if(pendingShip!=null){nbt.putLong("PendingShip",pendingShip.asLong());nbt.putBoolean("PendingNatural",pendingNatural);}
             return nbt;
@@ -111,20 +113,14 @@ public final class WinterEncounterSpawns {
             if(Math.max(Math.abs(dx),Math.abs(dz))!=radius)continue;
             BlockPos column=new BlockPos(center(cx)+dx,world.getSeaLevel(),center(cz)+dz);
             if(!loadedArea(world,column)||!world.getWorldBorder().isWithinBounds(column)||!FrozenShip.clearOfShips(sites,column))continue;
-            // Captain ships adapt terrain; an iceberg or open water is not a rejection.
-            if(world.getBiome(column).is(OCEAN)&&select(Habitat.OCEAN,cx,cz,test,gluheya()!=null,world.getSeed())==Boss.CAPTAIN){
-                if(FrozenShip.queueNatural(world,column))return true;
-                continue;
-            }
+            // Captain cells are reserved for the advance planner, never built by this near-player scan.
+            if(world.getBiome(column).is(OCEAN)&&select(Habitat.OCEAN,cx,cz,test,gluheya()!=null,world.getSeed())==Boss.CAPTAIN)continue;
             BlockPos pos=world.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,column);
             if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             Habitat habitat=habitat(world.getBiome(pos));
             Boss boss=select(habitat,cx,cz,test,gluheya()!=null,world.getSeed());
             if(boss==null)continue;
-            if(boss==Boss.CAPTAIN){
-                if(FrozenShip.queueNatural(world,column))return true;
-                continue;
-            }
+            if(boss==Boss.CAPTAIN)continue;
             if(!suitable(world,pos,boss))continue;
             boolean tooClose=false;
             for(ServerPlayer player:world.players())if(!player.isSpectator()&&player.blockPosition().distSqr(pos)<24*24){tooClose=true;break;}

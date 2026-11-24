@@ -33,9 +33,21 @@ public final class FrozenShip {
     private static final Map<ServerLevel,Search> SEARCHES=new WeakHashMap<>();
     private static final Map<ServerLevel,Set<Long>> REJECTED=new WeakHashMap<>();
     private static final Set<ServerLevel> FAILED_PENDING=Collections.newSetFromMap(new WeakHashMap<>());
+    private static final Map<ServerLevel,Integer> LOOKAHEAD=new WeakHashMap<>();
+    static final int LOOKAHEAD_DISTANCE=1024, MIN_APPROACH_DISTANCE=256;
     private static final class Plan {
         static final byte[] DATA=load();
+        static final Set<BlockPos> REMOVED=Set.of(
+            new BlockPos(-24,12,-9),new BlockPos(-24,12,9),new BlockPos(19,17,-5),new BlockPos(19,17,5));
+        static final Set<BlockPos> ANCHORS=Set.of(
+            new BlockPos(-20,11,-9),new BlockPos(-20,11,9),
+            new BlockPos(-3,12,-9),new BlockPos(-3,11,-9),new BlockPos(-3,12,9),new BlockPos(-3,11,9),
+            new BlockPos(1,12,-9),new BlockPos(1,12,9),new BlockPos(1,11,9),
+            new BlockPos(13,11,-8),new BlockPos(13,11,8),new BlockPos(17,11,8),
+            new BlockPos(18,12,7),new BlockPos(18,11,7));
+        static final BlockPos BOW_LINK=new BlockPos(-42,15,0);
         static final List<BlockPos> COLUMNS=columns();
+        static final List<BlockPos> RIGGING=rigging();
         private static byte[] load(){
             try(var in=FrozenShip.class.getResourceAsStream("/data/slavicmyths/winter/frozen_ship_v2.b64")){
                 if(in==null)throw new IOException("Missing frozen ship V2 blueprint");
@@ -48,9 +60,30 @@ public final class FrozenShip {
                 return data;
             }catch(IOException e){throw new IllegalStateException("Cannot read frozen ship V2",e);}
         }
-        static int at(int x,int y,int z){
+        static int raw(int x,int y,int z){
             if(x<X0||x>X1||y<Y0||y>Y1||z<Z0||z>Z1)return 0;
             return DATA[((y-Y0)*D+z-Z0)*W+x-X0];
+        }
+        static int at(int x,int y,int z){
+            int value=raw(x,y,z);
+            // Only rope cells and the missing bow link change; the approved hull and ice stay intact.
+            if(value==16||value==0){
+                if(x==-42&&y==15&&z==0&&value==0)return 5;
+                if(y>=11&&y<=17){
+                    var pos=new BlockPos(x,y,z);
+                    if(value==16&&REMOVED.contains(pos))return 0;
+                    if(value==0&&ANCHORS.contains(pos))return 16;
+                }
+            }
+            return value;
+        }
+        static List<BlockPos> rigging(){
+            var result=new ArrayList<BlockPos>();
+            for(int y=Y0;y<=Y1;y++)for(int z=Z0;z<=Z1;z++)for(int x=X0;x<=X1;x++){
+                int value=raw(x,y,z),fixed=at(x,y,z);
+                if(value==5||value==16||value!=fixed)result.add(new BlockPos(x,y,z));
+            }
+            return List.copyOf(result);
         }
         static List<BlockPos> columns(){
             var list=new ArrayList<BlockPos>();
@@ -95,7 +128,7 @@ public final class FrozenShip {
             REJECTED.computeIfAbsent(world,k->new HashSet<>()).contains(origin.asLong())||
             !border(world,origin)||!clearOfShips(sites,origin)||!clearOfOccupiedCells(sites,origin)||!noiseOcean(world,origin))return false;
         for(var player:world.players())if(!player.isSpectator()&&
-            Math.abs(player.getX()-origin.getX())<=W/2+16&&Math.abs(player.getZ()-origin.getZ())<=D/2+16)return false;
+            Math.max(Math.abs(player.getX()-origin.getX()),Math.abs(player.getZ()-origin.getZ()))<MIN_APPROACH_DISTANCE)return false;
         JOBS.put(world,new Job(world,origin,true,null,false,false));return true;
     }
     public static void register(CommandTree tree){
@@ -134,18 +167,78 @@ public final class FrozenShip {
             return new BlockPos(center(cx+dx)+ox,y,center(cz+dz)+oz);
         }
     }
+    /** Look for prospective captain cells before their chunks enter the player's view distance.
+     * Noise sampling is independent of loaded chunks; SiteChunks performs bounded pre-generation. */
+    private static boolean queueAhead(ServerLevel world){
+        int start=LOOKAHEAD.getOrDefault(world,0),total=25*81;
+        int cursor=start;
+        long deadline=System.nanoTime()+2_000_000L;
+        for(int attempt=0;attempt<96&&System.nanoTime()<deadline;attempt++){
+            int index=cursor;cursor=(cursor+1)%total;
+            int cellIndex=index%25,sample=index/25;
+            int dx=cellIndex%5-2,dz=cellIndex/5-2;
+            int ox=sample==0?0:((sample-1)%9-4)*16;
+            int oz=sample==0?0:((sample-1)/9-4)*16;
+            // The last duplicate center sample is harmless; the scan repeats across ticks.
+            for(var player:world.players()){
+                if(player.isSpectator())continue;
+                int cx=cell(player.getBlockX())+dx,cz=cell(player.getBlockZ())+dz;
+                if(select(Habitat.OCEAN,cx,cz,WinterWorld.isTest(world),false,world.getSeed())!=Boss.CAPTAIN)continue;
+                var p=new BlockPos(center(cx)+ox,world.getSeaLevel()-1,center(cz)+oz);
+                double distance=Math.max(Math.abs(player.getX()-p.getX()),Math.abs(player.getZ()-p.getZ()));
+                if(distance>LOOKAHEAD_DISTANCE||distance<MIN_APPROACH_DISTANCE)continue;
+                if(queueNatural(world,p)){LOOKAHEAD.put(world,cursor);return true;}
+            }
+        }
+        LOOKAHEAD.put(world,cursor);return false;
+    }
+    /** Upgrade only the old rigging of completed ships, without rebuilding or respawning a captain. */
+    private static void repairRigging(ServerLevel world,WinterEncounterSpawns.Sites sites){
+        for(long packed:sites.ships){
+            if(sites.riggingFixed.contains(packed))continue;
+            BlockPos origin=BlockPos.of(packed);
+            boolean ready=true;
+            for(var local:Plan.RIGGING){
+                var p=origin.offset(local);
+                if(world.getChunkSource().getChunkNow(p.getX()>>4,p.getZ()>>4)==null){ready=false;break;}
+            }
+            if(!ready)continue;
+            for(var local:Plan.RIGGING){
+                var p=origin.offset(local);var current=world.getBlockState(p);
+                int raw=Plan.raw(local.getX(),local.getY(),local.getZ());
+                int value=Plan.at(local.getX(),local.getY(),local.getZ());
+                if(raw==16&&current.is(Blocks.CHAIN))
+                    world.setBlock(p,block(value,local.getX(),local.getY(),local.getZ()),18);
+                else if(raw==0&&value!=0&&current.isAir())
+                    world.setBlock(p,block(value,local.getX(),local.getY(),local.getZ()),18);
+            }
+            sites.riggingFixed.add(packed);sites.setDirty();
+            LogUtils.getLogger().info("Frozen ship rigging repaired at {}",origin);
+            return;
+        }
+    }
     static void tick(MinecraftServer server){
         for(var world:server.getAllLevels()){
             var sites=WinterEncounterSpawns.Sites.get(world);
             if(!active(world)&&sites.pendingShip!=null&&!FAILED_PENDING.contains(world))
                 JOBS.put(world,new Job(world,sites.pendingShip,sites.pendingNatural,null,false,true));
             var job=JOBS.get(world);if(job!=null){job.step();continue;}
-            if(world.getGameTime()%20==0&&world.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(world,sites);
-            if(world!=server.overworld()||sites.naturalShip||sites.pendingShip!=null||world.players().isEmpty()||
-                !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator)||
-                world.getGameTime()%5!=0)continue;
+            if(world.getGameTime()%20==0){
+                repairRigging(world,sites);
+                if(world.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(world,sites);
+            }
+            if(world!=server.overworld()||sites.pendingShip!=null||
+                !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator))continue;
             if(world.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream().noneMatch(FrozenShip::ocean))continue;
-            if(WinterWorld.isTest(world)&&queueNatural(world,new BlockPos(768,world.getSeaLevel(),256)))continue;
+            // First ship has priority from the first server ticks, including before a player joins.
+            if(sites.naturalShip){
+                if(world.getGameTime()%20==0)queueAhead(world);
+                continue;
+            }
+            if(world.getGameTime()%5!=0)continue;
+            if(WinterWorld.isTest(world)&&(queueNatural(world,new BlockPos(768,world.getSeaLevel(),256))
+                ||queueNatural(world,new BlockPos(256,world.getSeaLevel(),768))))continue;
+            if(world.getGameTime()%20==0&&queueAhead(world))continue;
             var search=SEARCHES.computeIfAbsent(world,Search::new);
             // Finite vanilla world bounds; no unbounded work in any individual tick.
             long searchDeadline=System.nanoTime()+2_000_000L;
@@ -174,7 +267,7 @@ public final class FrozenShip {
     private static BlockState block(int value,int x,int y,int z){
         Block b=switch(value){
             case 1,3->Blocks.BLUE_WOOL;case 2->Blocks.BARREL;case 4->Blocks.BLUE_ICE;
-            case 5,16->Blocks.CHAIN;case 6->Blocks.SPRUCE_PLANKS;case 7->Blocks.DARK_OAK_PLANKS;
+            case 5->Blocks.CHAIN;case 16->Blocks.IRON_BARS;case 6->Blocks.SPRUCE_PLANKS;case 7->Blocks.DARK_OAK_PLANKS;
             case 8,18->Blocks.SPRUCE_PLANKS;case 9->Blocks.DARK_OAK_FENCE;
             case 10->Blocks.DARK_OAK_TRAPDOOR;case 11->Blocks.PACKED_ICE;
             case 12->FrozenStoneBlocks.ALL.get("frozen_deepslate_bricks").get();
@@ -200,13 +293,24 @@ public final class FrozenShip {
                     default->state;
                 };
             }
-        }else if(value==5||value==16){
-            Direction.Axis axis=Direction.Axis.Y;
-            if(Plan.at(x,y-1,z)!=value&&Plan.at(x,y+1,z)!=value){
-                if(Plan.at(x-1,y,z)==value||Plan.at(x+1,y,z)==value)axis=Direction.Axis.X;
-                else if(Plan.at(x,y,z-1)==value||Plan.at(x,y,z+1)==value)axis=Direction.Axis.Z;
+        }else if(value==16){
+            // Iron bars have a continuous vertical post and horizontal arms at corners.
+            for(Direction dir:Direction.Plane.HORIZONTAL){
+                int neighbor=Plan.at(x+dir.getStepX(),y,z+dir.getStepZ());
+                boolean connected=neighbor==16||switch(neighbor){
+                    case 4,6,7,8,11,12,14,15,17,18,19,21->true;
+                    default->false;
+                };
+                state=switch(dir){
+                    case NORTH->state.setValue(BlockStateProperties.NORTH,connected);
+                    case SOUTH->state.setValue(BlockStateProperties.SOUTH,connected);
+                    case EAST->state.setValue(BlockStateProperties.EAST,connected);
+                    case WEST->state.setValue(BlockStateProperties.WEST,connected);
+                    default->state;
+                };
             }
-            state=state.setValue(BlockStateProperties.AXIS,axis);
+        }else if(value==5){
+            state=state.setValue(BlockStateProperties.AXIS,Direction.Axis.Y);
         }else if(value==13&&Plan.at(x,y-1,z)==0&&Plan.at(x,y+1,z)!=0){
             state=state.setValue(BlockStateProperties.HANGING,true);
         }
@@ -226,9 +330,13 @@ public final class FrozenShip {
             try{
                 long deadline=System.nanoTime()+chunks.budgetNanos();
                 int operations=0;
-                while(System.nanoTime()<deadline&&operations++<2048){
+                while(System.nanoTime()<deadline&&operations++<4096){
                     if(phase==0){
-                        if(loaded<footprint.size()){if(!chunks.ready(footprint.get(loaded)))return;loaded++;continue;}
+                        if(loaded<footprint.size()){
+                            chunks.prefetch(footprint,loaded);
+                            if(!chunks.ready(footprint.get(loaded)))return;
+                            loaded++;continue;
+                        }
                         if(autoY){
                             int y=world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,origin.getX(),origin.getZ())-1;
                             origin=new BlockPos(origin.getX(),Math.clamp(y,world.getMinBuildHeight()+3,world.getMaxBuildHeight()-H),origin.getZ());
@@ -291,7 +399,7 @@ public final class FrozenShip {
         public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload event){
             if(event.getLevel() instanceof ServerLevel world){
                 var job=JOBS.remove(world);if(job!=null)job.chunks.close();
-                SEARCHES.remove(world);REJECTED.remove(world);FAILED_PENDING.remove(world);
+                SEARCHES.remove(world);REJECTED.remove(world);FAILED_PENDING.remove(world);LOOKAHEAD.remove(world);
             }
         }
     }
