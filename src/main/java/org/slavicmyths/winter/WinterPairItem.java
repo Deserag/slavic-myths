@@ -72,6 +72,7 @@ public final class WinterPairItem extends MaceItem implements WeaponInputHandler
             if(p.serverLevel().addFreshEntity(axe))charge(p,held,action,80);
             return;
         }
+        if(captain&&!axesInFlight(p).isEmpty())return;
         if(!ready(p,action))return;
         if(action==Action.SHIFT_LEFT_CLICK){
             var target=Abilities.target(p,captain?4.5:4);
@@ -93,7 +94,7 @@ public final class WinterPairItem extends MaceItem implements WeaponInputHandler
         var n=p.getPersistentData();
         if(!n.contains(SPIN))return;
         long time=now(p),until=n.getLong(SPIN);
-        if(!p.isAlive()||p.isSpectator()||time>until||!(p.getMainHandItem().getItem() instanceof WinterPairItem item)||!item.captain()){
+        if(!p.isAlive()||p.isSpectator()||time>until||!(p.getMainHandItem().getItem() instanceof WinterPairItem item)||!item.captain()||!axesInFlight(p).isEmpty()){
             n.remove(SPIN);n.remove(NEXT);return;
         }
         if(time>=n.getLong(NEXT)){
