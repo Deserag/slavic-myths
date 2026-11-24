@@ -102,59 +102,59 @@ public final class WeaponSkillHud {
         List<Skill> skills=new ArrayList<>();
         switch(id.getPath()) {
             case "ice_captain_axes" -> {
-                skills.add(new Skill("shot","R",tag.getLong("CD_winter_captain_1")-now));
-                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_captain_2")-now));
-                skills.add(new Skill("vortex","S+R",tag.getLong("CD_winter_captain_3")-now));
+                skills.add(new Skill("winter_captain_throw","R",tag.getLong("CD_winter_captain_1")-now));
+                skills.add(new Skill("winter_captain_crush","S+L",tag.getLong("CD_winter_captain_2")-now));
+                skills.add(new Skill("winter_captain_vortex","S+R",tag.getLong("CD_winter_captain_3")-now));
             }
             case "snow_wanderer_hammers" -> {
-                skills.add(new Skill("wave","R",tag.getLong("CD_winter_hammers_1")-now));
-                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_hammers_2")-now));
+                skills.add(new Skill("winter_hammer_wave","R",tag.getLong("CD_winter_hammers_1")-now));
+                skills.add(new Skill("winter_hammer_crush","S+L",tag.getLong("CD_winter_hammers_2")-now));
             }
             case "absolute_silence_sword" -> {
-                skills.add(new Skill("slash","R",tag.getLong("CD_winter_silence_1")-now));
-                skills.add(new Skill("ice","S+L",tag.getLong("CD_winter_silence_2")-now));
-                skills.add(new Skill("chain","S+R",tag.getLong("CD_winter_silence_3")-now));
+                skills.add(new Skill("winter_silence_wave","R",tag.getLong("CD_winter_silence_1")-now));
+                skills.add(new Skill("winter_silence_seven","S+L",tag.getLong("CD_winter_silence_2")-now));
+                skills.add(new Skill("winter_silence_execution","S+R",tag.getLong("CD_winter_silence_3")-now));
             }
             case "silence_blades" -> {
-                skills.add(new Skill("shot","R",tag.getLong("CD_winter_BLADES_1")-now));
-                skills.add(new Skill("slash","S+R",tag.getLong("CD_winter_BLADES_3")-now));
+                skills.add(new Skill("winter_blades_throw","R",tag.getLong("CD_winter_BLADES_1")-now));
+                skills.add(new Skill("winter_blades_behind","S+R",tag.getLong("CD_winter_BLADES_3")-now));
             }
             case "northern_beast_claws" -> {
-                skills.add(new Skill("slash","R",tag.getLong("CD_winter_CLAWS_1")-now));
-                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_CLAWS_2")-now));
+                skills.add(new Skill("winter_claw_dash","R",tag.getLong("CD_winter_CLAWS_1")-now));
+                skills.add(new Skill("winter_claw_flurry","S+L",tag.getLong("CD_winter_CLAWS_2")-now));
             }
             case "ice_sword" -> {
-                skills.add(new Skill("slash","R",tag.getLong("CD_winter_SWORD_1")-now));
+                skills.add(new Skill("winter_sword_wave","R",tag.getLong("CD_winter_SWORD_1")-now));
             }
             case "ice_axe" -> {
-                skills.add(new Skill("slash","R",tag.getLong("CD_winter_AXE_1")-now));
+                skills.add(new Skill("winter_axe_crush","R",tag.getLong("CD_winter_AXE_1")-now));
             }
             case "ice_mace" -> {
-                skills.add(new Skill("slam","R",tag.getLong("CD_winter_MACE_1")-now));
+                skills.add(new Skill("winter_mace_slam","R",tag.getLong("CD_winter_MACE_1")-now));
             }
             case "ice_halberd" -> {
-                skills.add(new Skill("wave","R",tag.getLong("CD_winter_HALBERD_1")-now));
-                skills.add(new Skill("ice","S+R",tag.getLong("CD_winter_HALBERD_3")-now));
+                skills.add(new Skill("winter_halberd_sweep","R",tag.getLong("CD_winter_HALBERD_1")-now));
+                skills.add(new Skill("winter_halberd_projectile","S+R",tag.getLong("CD_winter_HALBERD_3")-now));
             }
             case "ice_scythe" -> {
-                skills.add(new Skill("harvest","R",tag.getLong("CD_winter_SCYTHE_1")-now));
+                skills.add(new Skill("winter_scythe_harvest","R",tag.getLong("CD_winter_SCYTHE_1")-now));
             }
             case "winter_hunt_bow" -> {
-                skills.add(new Skill("shot","R",0));
-                skills.add(new Skill("ice","S+L",tag.getLong("CD_winter_bow_2")-now));
-                skills.add(new Skill("shot","S+R",tag.getLong("CD_winter_bow_3")-now));
+                skills.add(new Skill("winter_bow_draw","R",0));
+                skills.add(new Skill("winter_bow_ice","S+L",tag.getLong("CD_winter_bow_2")-now));
+                skills.add(new Skill("winter_bow_volley","S+R",tag.getLong("CD_winter_bow_3")-now));
             }
             case "ice_crossbow" -> {
-                skills.add(new Skill("shot","R",0));
-                skills.add(new Skill("ice","S+R",tag.getLong("CD_winter_crossbow_charge")-now));
-                skills.add(new Skill("shot","S+L",tag.getLong("CD_winter_crossbow_fire")-now));
+                skills.add(new Skill("winter_crossbow_load","R",0));
+                skills.add(new Skill("winter_crossbow_ice","S+R",tag.getLong("CD_winter_crossbow_charge")-now));
+                skills.add(new Skill("winter_crossbow_shot","S+L",tag.getLong("CD_winter_crossbow_fire")-now));
             }
             case "ice_queen_spear_staff" -> {
                 boolean staff=org.slavicmyths.winter.WinterLegendItem.staffMode(stack);
-                skills.add(new Skill("mode","R",tag.getLong("CD_winter_mode")-now));
-                if(staff)skills.add(new Skill("shot","L",tag.getLong("CD_winter_staff_0")-now));
-                skills.add(new Skill(staff?"ice":"slash","S+L",tag.getLong(staff?"CD_winter_staff_2":"CD_winter_spear_2")-now));
-                skills.add(new Skill(staff?"summon":"wave","S+R",tag.getLong(staff?"CD_winter_staff_3":"CD_winter_spear_3")-now));
+                skills.add(new Skill("winter_queen_switch","R",tag.getLong("CD_winter_mode")-now));
+                if(staff)skills.add(new Skill("winter_queen_bolt","L",tag.getLong("CD_winter_staff_0")-now));
+                skills.add(new Skill(staff?"winter_queen_spikes":"winter_queen_dash","S+L",tag.getLong(staff?"CD_winter_staff_2":"CD_winter_spear_2")-now));
+                skills.add(new Skill(staff?"winter_queen_golem":"winter_queen_sweep","S+R",tag.getLong(staff?"CD_winter_staff_3":"CD_winter_spear_3")-now));
             }
             case "abyss_staff" -> {
                 skills.add(new Skill("abyss_staff_shot","R",tag.getLong("MarineWeapon_staffShot")-now));
@@ -296,7 +296,13 @@ public final class WeaponSkillHud {
             x+=22;
         }
     }
+    private static final java.util.List<String> WINTER_ICONS=java.util.List.of("winter_captain_throw","winter_captain_crush","winter_captain_vortex","winter_hammer_wave","winter_hammer_crush","winter_silence_wave","winter_silence_seven","winter_silence_execution","winter_blades_throw","winter_blades_behind","winter_claw_dash","winter_claw_flurry","winter_sword_wave","winter_axe_crush","winter_mace_slam","winter_halberd_sweep","winter_halberd_projectile","winter_scythe_harvest","winter_bow_draw","winter_bow_ice","winter_bow_volley","winter_crossbow_load","winter_crossbow_ice","winter_crossbow_shot","winter_queen_switch","winter_queen_dash","winter_queen_sweep","winter_queen_bolt","winter_queen_spikes","winter_queen_golem");
     private static void icon(GuiGraphics g,String kind,int x,int y){
+        int winter=WINTER_ICONS.indexOf(kind);
+        if(winter>=0){
+            g.blit(skillTexture("winter_atlas"),x,y,(float)(winter%8*16),(float)(winter/8*16),16,16,128,64);
+            return;
+        }
         ResourceLocation texture = MARINE_ICONS.get(kind);
         if (texture == null) texture = GROUP_TWO_ICONS.get(kind);
         if (texture == null) texture = GROUP_THREE_ICONS.get(kind);
