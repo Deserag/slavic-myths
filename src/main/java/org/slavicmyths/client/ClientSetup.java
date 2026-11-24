@@ -1,5 +1,7 @@
 package org.slavicmyths.client;
 
+import org.slavicmyths.registry.ModItems;
+
 import net.minecraft.client.renderer.RenderType;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;

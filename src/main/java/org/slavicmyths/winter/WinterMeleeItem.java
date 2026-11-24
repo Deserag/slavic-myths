@@ -36,7 +36,7 @@ public final class WinterMeleeItem extends TieredItem implements WeaponInputHand
         this.kind=kind;
     }
     private static ItemAttributeModifiers attributes(Kind k){
-        var result=MaceItem.attributes(k.damage,k.speed);
+        var result=org.slavicmyths.combat.MaceItem.attributes(k.damage,k.speed);
         return k.reach==0?result:result.withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE,
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath("slavicmyths","winter_weapon_reach"),k.reach,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);
     }
@@ -48,7 +48,7 @@ public final class WinterMeleeItem extends TieredItem implements WeaponInputHand
         return !enchantment.is(Enchantments.SWEEPING_EDGE)&&(enchantment.value().isSupportedItem(new ItemStack(Items.IRON_SWORD))||super.supportsEnchantment(stack,enchantment));
     }
     @Override public boolean isPrimaryItemFor(ItemStack stack,Holder<Enchantment> enchantment){
-        return !enchantment.is(Enchantments.SWEEPING_EDGE)&&(enchantment.value().isPrimaryItemFor(new ItemStack(Items.IRON_SWORD))||super.isPrimaryItemFor(stack,enchantment));
+        return !enchantment.is(Enchantments.SWEEPING_EDGE)&&(enchantment.value().isPrimaryItem(new ItemStack(Items.IRON_SWORD))||super.isPrimaryItemFor(stack,enchantment));
     }
     @Override public boolean intercepts(Action a){return a==Action.RIGHT_CLICK||kind==Kind.BLADES&&a==Action.SHIFT_RIGHT_CLICK||kind==Kind.CLAWS&&a==Action.SHIFT_LEFT_CLICK;}
     private static long now(ServerPlayer p){return p.server.overworld().getGameTime();}

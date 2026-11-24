@@ -16,7 +16,7 @@ import org.slavicmyths.rpg.Abilities;
 import org.slavicmyths.rpg.PathData;
 
 @EventBusSubscriber(modid="slavicmyths")
-public final class WinterPairItem extends MaceItem implements WeaponInputHandler {
+public final class WinterPairItem extends org.slavicmyths.combat.MaceItem implements WeaponInputHandler {
     private static final String SPIN="WinterCaptainSpinUntil", NEXT="WinterCaptainSpinNext";
     private final boolean captain;
     public WinterPairItem(boolean captain){
