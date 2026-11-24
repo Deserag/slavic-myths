@@ -81,7 +81,7 @@ public final class ShipCaptain extends Monster {
             setYRot(attackYaw());setYBodyRot(attackYaw());
             if(dashing){
                 setDeltaMovement(direction.scale(.78).add(0,getDeltaMovement().y,0));
-                for(var p:players(world,2.1,false))if(dashHits.add(p.getUUID())&&hit(p,14,false,false))p.push(direction.x*.7,.25,direction.z*.7);
+                for(var p:players(world,2.1,false))if(dashHits.add(p.getUUID())&&hit(p,14,false,false)){p.push(direction.x*.7,.25,direction.z*.7);p.hurtMarked=true;}
                 if(horizontalCollision)stopMotion();
                 world.sendParticles(ParticleTypes.SNOWFLAKE,getX(),getY()+.2,getZ(),9,.5,.15,.5,.02);
             }else if(attack==ShipCaptainCombat.Attack.AXE_SPIN&&combat.frame()>=10&&combat.frame()<50){
@@ -123,13 +123,13 @@ public final class ShipCaptain extends Monster {
     private void resolve(ServerLevel w,ShipCaptainCombat.Event event){
         switch(event.kind()){
             case SOUND -> cue(event.soundKey());
-            case MELEE -> {for(var p:players(w,3.5,true))if(hit(p,12,true,false))cue(event.soundKey());}
-            case DOUBLE_MELEE -> {for(var p:players(w,3.5,true))if(hit(p,22,false,true))cue(event.soundKey());}
+            case MELEE -> {boolean landed=false;for(var p:players(w,3.5,true))landed|=hit(p,12,true,false);if(landed)cue(event.soundKey());}
+            case DOUBLE_MELEE -> {boolean landed=false;for(var p:players(w,3.5,true))landed|=hit(p,22,false,true);if(landed)cue(event.soundKey());}
             case THROW -> {int slot=(axes()&1)!=0?0:1;if((axes()&(1<<slot))!=0)launch(w,slot,direction,false);cue(event.soundKey());}
             case SPIN_HIT -> {cue(event.soundKey());for(var p:players(w,5,false))hit(p,7,true,false);ring(w,4.5,1.1,36);}
-            case SLAM -> {cue(event.soundKey());for(var p:players(w,7,false))if(hit(p,18,false,true)){p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,1),this);p.push(0,.35,0);}for(int i=2;i<=6;i+=2)ring(w,i,.2,28);}
+            case SLAM -> {cue(event.soundKey());for(var p:players(w,7,false))if(hit(p,18,false,true)){p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,1),this);p.push(0,.35,0);p.hurtMarked=true;}for(int i=2;i<=6;i+=2)ring(w,i,.2,28);}
             case VOLLEY -> {cue(event.soundKey());for(int i=-2;i<=2;i++)launch(w,-1,direction.yRot((float)(i*Math.PI/8)),true);}
-            case GRASP -> {cue(event.soundKey());for(var p:players(w,12,true)){Vec3 v=position().subtract(p.position()).multiply(1,0,1).normalize();p.push(v.x*1.35,.15,v.z*1.35);p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);}}
+            case GRASP -> {cue(event.soundKey());for(var p:players(w,12,true)){Vec3 v=position().subtract(p.position()).multiply(1,0,1).normalize();p.push(v.x*1.35,.15,v.z*1.35);p.hurtMarked=true;p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0),this);}}
             case DASH_START -> {cue(event.soundKey());dashing=true;dashHits.clear();}
             case DASH_END, COMPLETE -> {dashing=false;stopMotion();}
         }
@@ -143,5 +143,6 @@ public final class ShipCaptain extends Monster {
     boolean ownsAxe(int slot,UUID id){return slot>=0&&slot<2&&id.equals(flying[slot]);}
     void returnAxe(int slot,UUID id){if(ownsAxe(slot,id)){flying[slot]=null;timeout[slot]=0;entityData.set(AXES,axes()|(1<<slot));cue("axe_return");}}
     @Override public void die(DamageSource source){bar.removeAllPlayers();combat.cancel();super.die(source);}
-    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);combat.cancel();entityData.set(ACTION,0);entityData.set(FRAME,0);entityData.set(AXES,3);}
+    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);for(var a:ShipCaptainCombat.Attack.values())tag.putInt("CaptainCooldown_"+a.name(),combat.cooldown(a));}
+    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);combat.cancel();for(var a:ShipCaptainCombat.Attack.values())combat.restoreCooldown(a,tag.getInt("CaptainCooldown_"+a.name()));entityData.set(ACTION,0);entityData.set(FRAME,0);entityData.set(AXES,3);}
 }
