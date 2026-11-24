@@ -6883,5 +6883,9 @@
   "message.slavicmyths.auka.farewell": "Аука пропускает тебя, не причиняя вреда.",
   "message.slavicmyths.auka.busy": "Аука уже испытывает другого путника.",
   "message.slavicmyths.auka.start": "Испытание Ауки началось!",
-  "item.slavicmyths.gluheya_spawn_egg": "Яйцо призыва Глухеи"
+  "item.slavicmyths.gluheya_spawn_egg": "Яйцо призыва Глухеи",
+  "entity.slavicmyths.northern_wolverine": "Северная росомаха",
+  "item.slavicmyths.northern_wolverine_spawn_egg": "Яйцо призыва Северной росомахи",
+  "item.slavicmyths.northern_wolverine_head": "Голова Северной росомахи",
+  "block.slavicmyths.northern_wolverine_head": "Голова Северной росомахи"
 }

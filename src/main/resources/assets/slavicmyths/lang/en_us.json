@@ -6885,5 +6885,9 @@
   "message.slavicmyths.auka.farewell": "Auka lets you pass unharmed.",
   "message.slavicmyths.auka.busy": "Auka is already testing a challenger.",
   "message.slavicmyths.auka.start": "The trial of Auka begins!",
-  "item.slavicmyths.gluheya_spawn_egg": "Gluheya Spawn Egg"
+  "item.slavicmyths.gluheya_spawn_egg": "Gluheya Spawn Egg",
+  "entity.slavicmyths.northern_wolverine": "Northern Wolverine",
+  "item.slavicmyths.northern_wolverine_spawn_egg": "Northern Wolverine Spawn Egg",
+  "item.slavicmyths.northern_wolverine_head": "Northern Wolverine Head",
+  "block.slavicmyths.northern_wolverine_head": "Northern Wolverine Head"
 }

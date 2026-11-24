@@ -187,6 +187,7 @@ public final class TrophyHeadsClient {
  }
  /** Used by the real renderer and offline native-face exporter; no Minecraft instance needed. */
  public static Head create(TrophyHeads.Kind kind){return switch(kind){
+   case NORTH_WOLVERINE->{var model=new org.slavicmyths.wolverine.client.WolverineModel();yield new Head(kind,model.trophyHead(),"textures/entity/northern_wolverine.png");}
   case TUGARIN->{var model=new WorldBossModel(false,true);yield new Head(kind,model.trophyHead(),"textures/entity/tugarin_phase2.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("moustacheL"),model.trophyHeadPart("pupilL"),model.trophyHeadPart("pupilR"));}
   case SKIM->{var neck=TrophySkimMesh.create();var face=neck.getChild("head");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,face.getChild("jaw"),neck.getChild("mane_0"),face.getChild("eyeL"),face.getChild("eyeR")).ears(face.getChild("earL"),face.getChild("earR"));}
   case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),null).ears(model.trophyHeadPart("earL"),model.trophyHeadPart("earR"));}
@@ -260,7 +261,7 @@ public final class TrophyHeadsClient {
     }
     h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);
     if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT)h.renderNineEyes(pose,buffer.getBuffer(RenderType.eyes(h.texture)));
-    if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()&&block.kind!=TrophyHeads.Kind.NINE_MOR_SERPENT){
+    if(block.kind.ordinal()>=TrophyHeads.Kind.GROVE_GUARDIAN.ordinal()&&block.kind!=TrophyHeads.Kind.NINE_MOR_SERPENT&&block.kind!=TrophyHeads.Kind.NORTH_WOLVERINE){
      boolean morovoy=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN||block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY;
      ResourceLocation glowTexture=block.kind==TrophyHeads.Kind.MOROVOY_RAVEN?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_raven_emissive.png"):
       block.kind==TrophyHeads.Kind.FIRE_SERPENT||block.kind==TrophyHeads.Kind.MOR_SERPENT||block.kind==TrophyHeads.Kind.MOROVOY_FIRE_ZMEY?ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/morovoy_fire_zmey_emissive.png"):
@@ -293,7 +294,7 @@ public final class TrophyHeadsClient {
    }
    if(particleBudget<=0)return;
    int period=switch(kind){
-    case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
+    case NORTH_WOLVERINE->40;case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
     case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT,MOROVOY_FIRE_ZMEY->12;case NINE_MOR_SERPENT->18;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
@@ -301,11 +302,11 @@ public final class TrophyHeadsClient {
    Direction facing=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
-    case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
+    case NORTH_WOLVERINE->.6;case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
     case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT,MOROVOY_FIRE_ZMEY,NINE_MOR_SERPENT->.55;
    };
    var particle=switch(kind){
-    case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
+    case NORTH_WOLVERINE->ParticleTypes.SNOWFLAKE;case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
     case SKIM->ParticleTypes.CLOUD;
     case VOLKOLAK->ParticleTypes.SMOKE;
     case PODZEMNIK->ParticleTypes.ASH;
