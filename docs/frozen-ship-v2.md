@@ -11,3 +11,7 @@ Verification required in Minecraft 1.21.1: clean build, new winter test preset, 
 ## Rigging and advance generation
 
 The original V2 blueprint is preserved. Four isolated rope cells are removed, 14 deck anchors and one missing vertical bow-chain link are added. The remaining diagonal rigging is connected iron bars rather than single-axis chain blocks. Saved ships receive an in-place rigging upgrade when the required chunks are loaded, without rebuilding the hull or respawning the captain. The first site is planned from the earliest server ticks; subsequent captain sites are sampled from biome noise up to 1024 blocks ahead, and new jobs do not start within 256 blocks of a non-spectating player. The old 160-block loaded-chunk trigger no longer places captain ships. Chunk loading is prefetched in batches with existing SiteChunks. Rapid teleportation may still reach a site before its bounded job completes.
+
+## Acceptance — 2026-11-24
+
+Owner approved the frozen ship V2, including the rigging correction and earlier generation, and requested that the result be recorded as accepted. Accepted implementation baseline: `432a3440939e111719b8276a2d2bb63de29803e3`. GitHub Actions Java 21 build and automated geometry/layout checks succeeded (run 45374205923). Preserve the approved design, two decks, sail-free masts, ice formations, captain arena, ocean-only automatic placement and operator generation command. No further redesign is requested. This approval does not independently certify every runtime scenario in the verification checklist above.
