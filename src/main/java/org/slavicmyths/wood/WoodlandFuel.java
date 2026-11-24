@@ -8,8 +8,8 @@ import net.neoforged.fml.common.Mod;
 public final class WoodlandFuel {
  private static final Map<Item,Integer> TIMES=new HashMap<>();
  public static void setup(){for(Woodlands.Set s:Woodlands.SETS.values())for(String k:s.blocks.keySet()){
-  if(k.equals("leaves")||k.equals("wall_sign"))continue;
-  TIMES.put(s.get(k).asItem(),k.equals("slab")?150:k.equals("button")||k.equals("sapling")?100:k.equals("door")?200:k.equals("sign")?200:300);
+  if(k.equals("leaves")||k.equals("wall_sign")||k.equals("wall_hanging_sign"))continue;
+  TIMES.put(s.get(k).asItem(),k.equals("slab")?150:k.equals("button")||k.equals("sapling")?100:k.equals("door")?200:(k.equals("sign")||k.equals("hanging_sign"))?200:300);
  }}
  @SubscribeEvent public static void fuel(FurnaceFuelBurnTimeEvent e){Integer time=TIMES.get(e.getItemStack().getItem());if(time!=null)e.setBurnTime(time);}
 }

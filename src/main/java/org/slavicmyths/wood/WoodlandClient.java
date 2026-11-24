@@ -2,6 +2,7 @@ package org.slavicmyths.wood;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,5 +16,5 @@ public final class WoodlandClient {
   ItemBlockRenderTypes.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
   ItemBlockRenderTypes.setRenderLayer(Woodlands.FROST_HANGING.get(),RenderType.cutoutMipped());
  });}
- @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(Woodlands.SIGN_TILE.get(),SignRenderer::new);}
+ @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(Woodlands.SIGN_TILE.get(),SignRenderer::new);e.registerBlockEntityRenderer(Woodlands.HANGING_SIGN_TILE.get(),HangingSignRenderer::new);}
 }

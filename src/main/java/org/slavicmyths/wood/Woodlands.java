@@ -20,6 +20,7 @@ public final class Woodlands {
     public static final DeferredHolder<Block, Block> HANGING;
     public static final DeferredHolder<Block, Block> FROST_HANGING;
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WoodSignTile>> SIGN_TILE;
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WoodHangingSignTile>> HANGING_SIGN_TILE;
     static {
         for(String name:new String[]{"linden","rowan","willow","pine","ice_pine","frost_willow"}) SETS.put(name,new Set(name));
         BERRIES=ModItems.ITEMS.register("rowan_berries",()->new Item(props().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.2F).build())));
@@ -28,6 +29,7 @@ public final class Woodlands {
         FROST_HANGING=ModBlocks.BLOCKS.register("hanging_frost_willow_leaves",()->new HangingLeaves("frost_willow"));
         ModItems.ITEMS.register("hanging_frost_willow_leaves",()->new BlockItem(FROST_HANGING.get(),props()));
         SIGN_TILE=ModTiles.TILES.register("wood_sign",()->BlockEntityType.Builder.of(WoodSignTile::new,SETS.values().stream().flatMap(s->java.util.stream.Stream.of(s.get("sign"),s.get("wall_sign"))).toArray(Block[]::new)).build(null));
+        HANGING_SIGN_TILE=ModTiles.TILES.register("winter_hanging_sign",()->BlockEntityType.Builder.of(WoodHangingSignTile::new,SETS.values().stream().filter(s->s.blocks.containsKey("hanging_sign")).flatMap(s->java.util.stream.Stream.of(s.get("hanging_sign"),s.get("wall_hanging_sign"))).toArray(Block[]::new)).build(null));
     }
     public static void init() { WoodlandWorldgen.init(); }
     public static Item.Properties props(){return new Item.Properties();}
@@ -51,6 +53,11 @@ public final class Woodlands {
             blocks.put("sign",ModBlocks.BLOCKS.register(n+"_sign",()->new StandingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodSignTile(pos,state);}}));
             blocks.put("wall_sign",ModBlocks.BLOCKS.register(n+"_wall_sign",()->new WallSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN).dropsLike(get("sign"))){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodSignTile(pos,state);}}));
             ModItems.ITEMS.register(n+"_sign",()->new SignItem(props().stacksTo(16),get("sign"),get("wall_sign")));
+            if(n.equals("ice_pine")||n.equals("frost_willow")){
+                blocks.put("hanging_sign",ModBlocks.BLOCKS.register(n+"_hanging_sign",()->new CeilingHangingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodHangingSignTile(pos,state);}}));
+                blocks.put("wall_hanging_sign",ModBlocks.BLOCKS.register(n+"_wall_hanging_sign",()->new WallHangingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN).dropsLike(get("hanging_sign"))){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodHangingSignTile(pos,state);}}));
+                ModItems.ITEMS.register(n+"_hanging_sign",()->new HangingSignItem(get("hanging_sign"),get("wall_hanging_sign"),props().stacksTo(16)));
+            }
         }
         private void add(String suffix,Supplier<Block> factory){DeferredHolder<Block, Block>b=ModBlocks.BLOCKS.register(name+"_"+suffix,factory);blocks.put(suffix,b);ModItems.ITEMS.register(name+"_"+suffix,()->new BlockItem(b.get(),props()));}
         public Block get(String suffix){return blocks.get(suffix).get();}
@@ -58,6 +65,10 @@ public final class Woodlands {
     public static final class WoodSignTile extends SignBlockEntity {
         public WoodSignTile(net.minecraft.core.BlockPos pos,BlockState state){super(SIGN_TILE.get(),pos,state);}
         @Override public BlockEntityType<?> getType(){return SIGN_TILE.get();}
+    }
+    public static final class WoodHangingSignTile extends HangingSignBlockEntity {
+        public WoodHangingSignTile(net.minecraft.core.BlockPos pos,BlockState state){super(pos,state);}
+        @Override public BlockEntityType<?> getType(){return HANGING_SIGN_TILE.get();}
     }
     public static void setup(){WoodlandFuel.setup();}
 }
