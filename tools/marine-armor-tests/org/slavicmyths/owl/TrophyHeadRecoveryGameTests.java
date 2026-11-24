@@ -37,7 +37,20 @@ public final class TrophyHeadRecoveryGameTests {
         if(kind==TrophyHeads.Kind.WINTER_OWL)for(int i=0;i<36;i++)t.assertTrue(!world.getBlockState(TrophyHeadBlock.owlPos(root,direction,i)).is(block),"Orphan owl cell "+i);
         var items=world.getEntitiesOfClass(ItemEntity.class,new AABB(root).inflate(5),e->e.getItem().is(item));
         t.assertTrue(items.stream().mapToInt(e->e.getItem().getCount()).sum()==1,"Expected exactly one recovered trophy: "+kind);
+        ItemStack recovered=items.get(0).getItem().copy();
         for(var entity:items)entity.discard();
+
+        // A recovered item must be placeable again, including all secondary cells.
+        world.setBlock(root,state,3);
+        block.setPlacedBy(world,root,state,null,recovered);
+        t.assertTrue(world.getBlockState(root).is(block),"Recovered trophy cannot be placed: "+kind);
+        t.assertTrue(world.getBlockState(target).is(block),"Recovered trophy lost a secondary cell: "+kind);
+        t.assertTrue(world.destroyBlock(root,true),"Replaced trophy cannot be broken: "+kind);
+        t.assertTrue(!world.getBlockState(target).is(block),"Replaced trophy left a secondary cell: "+kind);
+        if(kind==TrophyHeads.Kind.WINTER_OWL)for(int i=0;i<36;i++)t.assertTrue(!world.getBlockState(TrophyHeadBlock.owlPos(root,direction,i)).is(block),"Replaced owl left cell "+i);
+        var recoveredAgain=world.getEntitiesOfClass(ItemEntity.class,new AABB(root).inflate(5),e->e.getItem().is(item));
+        t.assertTrue(recoveredAgain.stream().mapToInt(e->e.getItem().getCount()).sum()==1,"Repeated placement must return exactly one trophy: "+kind);
+        for(var entity:recoveredAgain)entity.discard();
     }
     @GameTest(template="empty") public static void owlHeadNativeCellsRecover(GameTestHelper t){
         t.assertTrue(TrophyHeadDrops.kind("winter_owl",false,false)==TrophyHeads.Kind.WINTER_OWL,"Missing owl reward");
@@ -67,12 +80,16 @@ public final class TrophyHeadRecoveryGameTests {
             world.removeBlock(root,false);
         }t.succeed();
     }
-    @GameTest(template="empty") public static void polozAndZhelvaLoot(GameTestHelper t){
+    @GameTest(template="empty") public static void independentTrophyAnchorLoot(GameTestHelper t){
         var world=t.getLevel();var root=t.absolutePos(new BlockPos(3,2,3));
-        for(var block:java.util.List.of(org.slavicmyths.poloz.PolozTrophy.BLOCK.get(),org.slavicmyths.marine.ZhelvaContent.HEAD.get())){
+        for(String id:java.util.List.of("poloz_head","zhelva_head","bauk_head","deep_sea_serpent_head","ocean_zmey_head","stratim_bird_head","tsar_pike_head")){
+            var key=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id);
+            var block=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(key);
+            t.assertTrue(block!=net.minecraft.world.level.block.Blocks.AIR,"Missing trophy registration: "+id);
             var state=block.defaultBlockState();world.setBlock(root,state,3);
+            t.assertTrue(!state.requiresCorrectToolForDrops(),"Tool gate on independent trophy: "+id);
             var items=Block.getDrops(state,world,root,world.getBlockEntity(root),null,ItemStack.EMPTY);
-            t.assertTrue(items.stream().filter(x->x.is(block.asItem())).mapToInt(ItemStack::getCount).sum()==1,"Missing loot: "+block);
+            t.assertTrue(items.stream().filter(x->x.is(block.asItem())).mapToInt(ItemStack::getCount).sum()==1,"Missing loot: "+id);
             world.removeBlock(root,false);
         }t.succeed();
     }
