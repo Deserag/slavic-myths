@@ -55,6 +55,7 @@ public final class SlavicCommands {
   org.slavicmyths.netherstructures.ManualNetherBuildings.register(tree);
   org.slavicmyths.worldgen.ManualStructureCommands.register(tree);
   org.slavicmyths.yaga.YagaCommands.register(tree);
+  org.slavicmyths.winter.FrozenShip.register(tree);
   return tree;
  }
  private SlavicCommands() {}

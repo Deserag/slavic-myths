@@ -54,22 +54,45 @@ public final class WinterEncounterSpawns {
     }
     public static final class Sites extends SavedData {
         final Set<Long> occupied=new HashSet<>();
+        final Set<Long> ships=new HashSet<>(), awaitingCaptain=new HashSet<>();
+        boolean naturalShip;
+        BlockPos pendingShip;
+        boolean pendingNatural;
+        void beginShip(BlockPos origin,boolean natural){pendingShip=origin.immutable();pendingNatural=natural;setDirty();}
+        void finishShip(BlockPos origin,boolean natural){
+            ships.add(origin.asLong());awaitingCaptain.add(origin.asLong());
+            if(natural)naturalShip=true;
+            placed(key(cell(origin.getX()),cell(origin.getZ())));
+            pendingShip=null;setDirty();
+        }
         static Sites load(CompoundTag nbt,HolderLookup.Provider registries){
-            Sites data=new Sites();for(long site:nbt.getLongArray("Occupied"))data.occupied.add(site);return data;
+            Sites data=new Sites();for(long site:nbt.getLongArray("Occupied"))data.occupied.add(site);
+            for(long site:nbt.getLongArray("Ships"))data.ships.add(site);
+            for(long site:nbt.getLongArray("AwaitingCaptain"))data.awaitingCaptain.add(site);
+            data.naturalShip=nbt.getBoolean("NaturalShip");
+            if(nbt.contains("PendingShip")){data.pendingShip=BlockPos.of(nbt.getLong("PendingShip"));data.pendingNatural=nbt.getBoolean("PendingNatural");}
+            return data;
         }
         static Sites get(ServerLevel world){
             return world.getDataStorage().computeIfAbsent(new SavedData.Factory<>(Sites::new,Sites::load),"slavicmyths_winter_encounters_v1");
         }
         @Override public CompoundTag save(CompoundTag nbt,HolderLookup.Provider registries){
-            nbt.putLongArray("Occupied",occupied.stream().mapToLong(Long::longValue).toArray());return nbt;
+            nbt.putLongArray("Occupied",occupied.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("Ships",ships.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("AwaitingCaptain",awaitingCaptain.stream().mapToLong(Long::longValue).toArray());
+            nbt.putBoolean("NaturalShip",naturalShip);
+            if(pendingShip!=null){nbt.putLong("PendingShip",pendingShip.asLong());nbt.putBoolean("PendingNatural",pendingNatural);}
+            return nbt;
         }
         void placed(long key){occupied.add(key);setDirty();}
     }
     @SubscribeEvent public static void tick(ServerTickEvent.Post event){
+        FrozenShip.tick(event.getServer());
         ServerLevel world=event.getServer().overworld();
         if(!world.dimension().equals(Level.OVERWORLD) || !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator)
             || world.getGameTime()%100!=0 || world.getDifficulty()==Difficulty.PEACEFUL || world.players().isEmpty())return;
         Sites sites=Sites.get(world);boolean test=WinterWorld.isTest(world);
+        if(FrozenShip.active(world))return;
         Set<Long> checked=new HashSet<>();
         for(ServerPlayer player:world.players()){
             if(player.isSpectator())continue;
@@ -92,7 +115,12 @@ public final class WinterEncounterSpawns {
             if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             Habitat habitat=habitat(world.getBiome(pos));
             Boss boss=select(habitat,cx,cz,test,gluheya()!=null,world.getSeed());
-            if(boss==null||!suitable(world,pos,boss))continue;
+            if(boss==null)continue;
+            if(boss==Boss.CAPTAIN){
+                if(FrozenShip.queueNatural(world,column))return true;
+                continue;
+            }
+            if(!suitable(world,pos,boss))continue;
             boolean tooClose=false;
             for(ServerPlayer player:world.players())if(!player.isSpectator()&&player.blockPosition().distSqr(pos)<24*24){tooClose=true;break;}
             if(tooClose)continue;
@@ -118,9 +146,8 @@ public final class WinterEncounterSpawns {
     private static boolean ice(BlockState s){return s.is(Blocks.ICE)||s.is(Blocks.PACKED_ICE)||s.is(Blocks.BLUE_ICE);}
     private static boolean suitable(ServerLevel world,BlockPos pos,Boss boss){
         BlockPos ground=pos.below();BlockState state=world.getBlockState(ground);
-        if(boss==Boss.CAPTAIN){
-            if(!world.getBiome(pos).is(OCEAN)||!ice(state))return false;
-        }else{
+        if(boss==Boss.CAPTAIN)return false;
+        else{
             if(!state.getFluidState().isEmpty()||(boss!=Boss.OWL&&ice(state))||state.is(net.minecraft.tags.BlockTags.LOGS))return false;
             if((boss==Boss.QUEEN||boss==Boss.AUKA||boss==Boss.GLUHEYA)&&!world.getBiome(pos).is(FOREST))return false;
         }
