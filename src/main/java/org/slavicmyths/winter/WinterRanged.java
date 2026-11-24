@@ -66,32 +66,31 @@ public final class WinterRanged {
     }
     public static final class Bow extends BowItem implements WeaponInputHandler {
         public Bow(){super(new Item.Properties().durability(680).rarity(Rarity.RARE));}
-        @Override public boolean intercepts(Action a){return a==Action.LEFT_CLICK||a==Action.RIGHT_CLICK||a==Action.SHIFT_RIGHT_CLICK;}
-        @Override public InteractionResultHolder<ItemStack> use(Level level,Player p,InteractionHand h){return InteractionResultHolder.fail(p.getItemInHand(h));}
+        @Override public boolean intercepts(Action a){return a==Action.SHIFT_LEFT_CLICK||a==Action.SHIFT_RIGHT_CLICK;}
+        @Override public InteractionResultHolder<ItemStack> use(Level level,Player p,InteractionHand h){return super.use(level,p,h);}
         @Override public void onWeaponAction(ServerPlayer p,ItemStack held,Action a){
             if(!valid(p,held,a)||held.getItem()!=this)return;
             String key="bow_"+a.id();if(!ready(p,key))return;
-            if(a==Action.LEFT_CLICK&&arrow(p,held,10,0)){cd(p,key,16);wear(p,held);}
-            else if(a==Action.RIGHT_CLICK&&shard(p,16)){cd(p,key,100);wear(p,held);}
+            if(a==Action.SHIFT_LEFT_CLICK&&shard(p,16)){cd(p,key,100);wear(p,held);}
             else if(a==Action.SHIFT_RIGHT_CLICK){
                 int shots=0;for(int i=-2;i<=2;i++)if(arrow(p,held,6,i*5))shots++;
                 if(shots>0){cd(p,key,240);wear(p,held);}
             }
         }
-        @Override public void appendHoverText(ItemStack stack,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag f){lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".skills"));}
+        @Override public void appendHoverText(ItemStack stack,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag f){lines.add(net.minecraft.network.chat.Component.translatableWithFallback("tooltip.slavicmyths.winter.bow.new","ПКМ — натяжение и обычный выстрел. Shift+ЛКМ — ледяной выстрел. Shift+ПКМ — залп из пяти стрел."));}
     }
     public static final class Crossbow extends CrossbowItem implements WeaponInputHandler {
         public Crossbow(){super(new Item.Properties().durability(720).rarity(Rarity.UNCOMMON));}
-        @Override public boolean intercepts(Action a){return a==Action.LEFT_CLICK||a==Action.RIGHT_CLICK;}
-        @Override public InteractionResultHolder<ItemStack> use(Level level,Player p,InteractionHand h){return InteractionResultHolder.fail(p.getItemInHand(h));}
+        @Override public boolean intercepts(Action a){return a==Action.SHIFT_LEFT_CLICK||a==Action.SHIFT_RIGHT_CLICK;}
+        @Override public InteractionResultHolder<ItemStack> use(Level level,Player p,InteractionHand h){return super.use(level,p,h);}
         @Override public void onWeaponAction(ServerPlayer p,ItemStack held,Action a){
             if(!valid(p,held,a)||held.getItem()!=this)return;
-            if(a==Action.RIGHT_CLICK){
+            if(a==Action.SHIFT_RIGHT_CLICK){
                 if(charged(held)||!ready(p,"crossbow_charge")||!hasAmmo(p))return;
                 charge(held,true,now(p)+20);cd(p,"crossbow_charge",120);
                 p.displayClientMessage(net.minecraft.network.chat.Component.translatable("winter.weapon.bolt_charged"),true);return;
             }
-            if(a!=Action.LEFT_CLICK||!ready(p,"crossbow_fire"))return;
+            if(a!=Action.SHIFT_LEFT_CLICK||!ready(p,"crossbow_fire")||!charged(held))return;
             boolean special=charged(held);
             if(special&&held.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getLong(READY)>now(p))return;
             if(special?shard(p,20):arrow(p,held,13,0)){
@@ -99,7 +98,7 @@ public final class WinterRanged {
             }
         }
         @Override public void appendHoverText(ItemStack stack,TooltipContext c,List<net.minecraft.network.chat.Component> lines,TooltipFlag f){
-            super.appendHoverText(stack,c,lines,f);lines.add(net.minecraft.network.chat.Component.translatable(getDescriptionId()+".skills"));
+            super.appendHoverText(stack,c,lines,f);lines.add(net.minecraft.network.chat.Component.translatableWithFallback("tooltip.slavicmyths.winter.crossbow.new","ПКМ — обычная зарядка и выстрел. Shift+ПКМ — зарядить ледяной болт; Shift+ЛКМ — выстрелить им."));
         }
     }
     @SubscribeEvent public static void trail(EntityTickEvent.Post e){

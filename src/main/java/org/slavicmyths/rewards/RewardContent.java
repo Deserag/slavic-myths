@@ -24,16 +24,7 @@ public final class RewardContent {
    @Override public ResourceLocation getArmorTexture(ItemStack s,net.minecraft.world.entity.Entity e,net.minecraft.world.entity.EquipmentSlot slot,ArmorMaterial.Layer layer,boolean inner){return ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/models/armor/"+id+".png");}
    @Override public void appendHoverText(ItemStack s,Item.TooltipContext c,List<Component> l,TooltipFlag f){l.add(Component.translatable(getDescriptionId()+".desc"));}
   });
-  register("trophy_kalin_sabre",()->new SwordItem(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,10,-2.6F)).rarity(Rarity.RARE)){
-   @Override public net.minecraft.world.InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level world,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){
-    ItemStack stack=player.getItemInHand(hand);
-    if(hand!=net.minecraft.world.InteractionHand.MAIN_HAND)return net.minecraft.world.InteractionResultHolder.pass(stack);
-    if(player.getCooldowns().isOnCooldown(this))return net.minecraft.world.InteractionResultHolder.fail(stack);
-    if(!world.isClientSide&&player instanceof net.minecraft.server.level.ServerPlayer server){player.swing(hand,true);RewardEvents.sabreWave(server);player.getCooldowns().addCooldown(this,140);if(!player.getAbilities().instabuild)stack.hurtAndBreak(2,player,net.minecraft.world.entity.LivingEntity.getSlotForHand(hand));}
-    return net.minecraft.world.InteractionResultHolder.sidedSuccess(stack,world.isClientSide);
-   }
-   @Override public void appendHoverText(ItemStack s,Item.TooltipContext c,List<Component> l,TooltipFlag f){l.add(Component.translatable("tooltip.slavicmyths.kalin.sabre"));}
-  });
+  register("trophy_kalin_sabre",KalinSabreCombo.Sabre::new);
   for(String id:List.of("mat_bone_plates","mat_mirror_shards","mat_skim_fang","mat_banner_remnant","mat_royal_iron"))register(id,()->new Described(new Item.Properties()));
   for(String id:List.of("rune_stomp_proc","rune_dispelling_proc","rune_pursuit_proc","rune_suppression_proc","rune_battle_line_proc","gift_ilya_block_reflect","gift_ilya_wave","gift_dobrynya_ring_ready","gift_dobrynya_counter","gift_alyosha_dodge","gift_finist_detection","gift_finist_warning","trophy_idol_heavy_guard","trophy_marinka_blink","trophy_skim_execute","trophy_kartaus_resistance","trophy_kalin_momentum_1","trophy_kalin_momentum_3","trophy_kalin_sweep","reward_claim_success","reward_rare_loot","rune_anvil_socket")){
    String key="reward."+id;SOUNDS.put(id,ModSounds.SOUNDS.register(key,()->SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("slavicmyths",key))));
