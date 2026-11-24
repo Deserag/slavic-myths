@@ -161,7 +161,8 @@ public final class WinterPalace {
             for(var player:w.players()){
                 if(player.isSpectator())continue;
                 int cx=cell(player.getBlockX())+dx,cz=cell(player.getBlockZ())+dz;
-                if(sites.occupied.contains(key(cx,cz))||select(Habitat.FOREST,cx,cz,test,gluheya,w.getSeed())!=Boss.QUEEN)continue;
+                var selected=select(Habitat.FOREST,cx,cz,test,gluheya,w.getSeed());
+                if(sites.occupied.contains(key(cx,cz))||(selected!=Boss.QUEEN&&selected!=Boss.GLUHEYA))continue;
                 var c=new BlockPos(center(cx)+ox,w.getSeaLevel(),center(cz)+oz);
                 double dist=Math.max(Math.abs(player.getX()-c.getX()),Math.abs(player.getZ()-c.getZ()));
                 if(dist<MIN_APPROACH||dist>AHEAD_DISTANCE)continue;
@@ -169,7 +170,7 @@ public final class WinterPalace {
                 for(var other:w.players())if(!other.isSpectator()&&Math.max(Math.abs(other.getX()-c.getX()),Math.abs(other.getZ()-c.getZ()))<MIN_APPROACH){near=true;break;}
                 if(near)continue;
                 if(!generator.getBiomeSource().getNoiseBiome(c.getX()>>2,c.getY()>>2,c.getZ()>>2,sampler).is(FOREST))continue;
-                if(queueNatural(w,c)){LOOKAHEAD.put(w,cursor);return true;}
+                if(selected==Boss.GLUHEYA?queueManor(w,c,true,null,true):queueNatural(w,c)){LOOKAHEAD.put(w,cursor);return true;}
             }
         }
         LOOKAHEAD.put(w,cursor);return false;
@@ -183,7 +184,62 @@ public final class WinterPalace {
             ||!border(w,p)||!FrozenShip.clearOfShips(sites,center)||playerInside(w,p))return false;
         JOBS.put(w,new Job(w,p,true,false,null,true));return true;
     }
+    private static boolean manorBorder(ServerLevel w,BlockPos p){
+        return p.getY()>w.getMinBuildHeight()+1&&p.getY()+GluheyaManorPlan.Y1<w.getMaxBuildHeight()
+            &&w.getWorldBorder().isWithinBounds(p.offset(-19,0,-4))&&w.getWorldBorder().isWithinBounds(p.offset(19,0,26));
+    }
+    private static boolean queueManor(ServerLevel w,BlockPos center,boolean natural,CommandSourceStack source,boolean autoY){
+        var sites=WinterEncounterSpawns.Sites.get(w);
+        var p=center.offset(0,0,-13);
+        if(autoY)p=p.atY(Math.clamp(p.getY(),w.getMinBuildHeight()+2,w.getMaxBuildHeight()-GluheyaManorPlan.H));
+        if(active(w)||FrozenShip.active(w)||sites.pendingShip!=null||sites.pendingPalace!=null||!manorBorder(w,p))return false;
+        if(natural&&(sites.occupied.contains(manorKey(p))||rejected(w,p)||w.players().stream().anyMatch(player->!player.isSpectator()&&Math.abs(player.getX()-center.getX())<24&&Math.abs(player.getZ()-center.getZ())<24)||!FrozenShip.clearOfShips(sites,center)))return false;
+        JOBS.put(w,new Job(w,p,natural,false,source,autoY,true));return true;
+    }
+    private static long manorKey(BlockPos p){return key(cell(p.getX()),cell(p.getZ()+13));}
+    private static int manualManor(CommandSourceStack s,BlockPos explicit){
+        var w=s.getLevel();
+        if(!w.dimension().equals(Level.OVERWORLD)){s.sendFailure(Component.literal("Поместье доступно в обычном измерении."));return 0;}
+        var center=explicit==null?BlockPos.containing(s.getPosition()).offset(0,0,48):explicit.offset(0,0,13);
+        if(!queueManor(w,center,false,s,explicit==null)){s.sendFailure(Component.literal("Нельзя начать строительство: граница мира, высота или другая активная стройка."));return 0;}
+        s.sendSuccess(()->Component.literal("Строительство поместья Глухеи V1. Освободите площадку."),false);return 1;
+    }
+    private static int locateManor(CommandSourceStack s){
+        var w=s.getLevel();var here=BlockPos.containing(s.getPosition());
+        var sites=WinterEncounterSpawns.Sites.get(w);
+        var best=ManualStructureRecords.get(w).entries().stream().filter(e->e.family().equals("site/gluheya_manor"))
+            .min(Comparator.comparingDouble(e->here.distSqr(e.arrival())));
+        if(best.isPresent()){reportLocation(s,best.get().arrival(),"Поместье Глухеи");return 1;}
+        if(sites.pendingPalaceManor&&sites.pendingPalace!=null){
+            s.sendSuccess(()->Component.literal("Поместье строится: "+sites.pendingPalace.toShortString()),false);return 1;
+        }
+        if(!w.dimension().equals(Level.OVERWORLD)||active(w)||FrozenShip.active(w)||sites.pendingShip!=null||sites.pendingPalace!=null){
+            s.sendFailure(Component.literal("Поиск недоступен, либо зимняя постройка уже строится."));return 0;
+        }
+        var generator=w.getChunkSource().getGenerator();
+        var sampler=w.getChunkSource().randomState().sampler();
+        boolean test=WinterWorld.isTest(w);
+        int cx=cell(here.getX()),cz=cell(here.getZ());
+        for(int ring=0;ring<=8;ring++)for(int dz=-ring;dz<=ring;dz++)for(int dx=-ring;dx<=ring;dx++){
+            if(Math.max(Math.abs(dx),Math.abs(dz))!=ring)continue;
+            int x=cx+dx,z=cz+dz;
+            if(sites.occupied.contains(key(x,z))||select(Habitat.FOREST,x,z,test,true,w.getSeed())!=Boss.GLUHEYA)continue;
+            for(int oz=-SEARCH;oz<=SEARCH;oz+=32)for(int ox=-SEARCH;ox<=SEARCH;ox+=32){
+                var c=new BlockPos(center(x)+ox,w.getSeaLevel(),center(z)+oz);
+                if(!generator.getBiomeSource().getNoiseBiome(c.getX()>>2,c.getY()>>2,c.getZ()>>2,sampler).is(FOREST))continue;
+                if(queueManor(w,c,true,s,true)){
+                    s.sendSuccess(()->Component.literal("Найдена ячейка поместья: "+c.toShortString()+". Дождитесь завершения строительства."),false);return 1;
+                }
+            }
+        }
+        s.sendFailure(Component.literal("Свободная зимняя лесная ячейка поместья не найдена."));return 0;
+    }
     public static void register(CommandTree tree){
+        tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure")
+            .then(Commands.literal("slavicmyths:gluheya_manor").executes(c->locateManor(c.getSource())))));
+        tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").then(Commands.literal("generate")
+            .then(Commands.literal("gluheya_manor").requires(s->s.hasPermission(2)).executes(c->manualManor(c.getSource(),null))
+                .then(Commands.argument("pos",BlockPosArgument.blockPos()).executes(c->manualManor(c.getSource(),BlockPosArgument.getBlockPos(c,"pos"))))))));
         tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure")
             .then(Commands.literal("slavicmyths:winter_palace").executes(c->locate(c.getSource(),true)))
             .then(Commands.literal("slavicmyths:frozen_ship").executes(c->locate(c.getSource(),false)))));
@@ -206,10 +262,10 @@ public final class WinterPalace {
             if(d<distance){best=p;distance=d;}
         }
         if(best!=null){reportLocation(s,best,palace?"Дворец вечной зимы":"Ледяной корабль");return 1;}
-        var pending=palace?sites.pendingPalace:sites.pendingShip;
+        var pending=palace?(sites.pendingPalaceManor?null:sites.pendingPalace):sites.pendingShip;
         if(pending!=null){reportLocation(s,pending.offset(0,1,palace?0:-23),"Постройка ещё строится, не телепортируйтесь до завершения");return 1;}
         if(!palace){s.sendFailure(Component.literal("Готовый корабль пока не найден. Существующий генератор продолжает поиск."));return 0;}
-        if(active(w)||FrozenShip.active(w)||sites.pendingShip!=null){
+        if(active(w)||FrozenShip.active(w)||sites.pendingShip!=null||sites.pendingPalace!=null){
             s.sendFailure(Component.literal("Зимняя постройка уже строится. Повторите поиск после завершения."));return 0;
         }
         if(!(w.getChunkSource().getGenerator() instanceof net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator)){
@@ -274,9 +330,9 @@ public final class WinterPalace {
     static void tick(ServerLevel w){
         var sites=WinterEncounterSpawns.Sites.get(w);
         if(!active(w)&&sites.pendingPalace!=null&&!FAILED_PENDING.contains(w)&&!FrozenShip.active(w)&&sites.pendingShip==null)
-            JOBS.put(w,new Job(w,sites.pendingPalace,sites.pendingPalaceNatural,true,null));
+            JOBS.put(w,new Job(w,sites.pendingPalace,sites.pendingPalaceNatural,true,null,false,sites.pendingPalaceManor));
         var job=JOBS.get(w);if(job!=null){job.step();return;}
-        if(w.getGameTime()%20==0&&w.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(w,sites);
+        if(w.getGameTime()%20==0&&w.getDifficulty()!=Difficulty.PEACEFUL){spawnWaiting(w,sites);spawnGluheya(w,sites);}
         if(w.getGameTime()%100==0)repairLighting(w,sites);
         if(w.getDifficulty()!=Difficulty.PEACEFUL&&!FrozenShip.active(w)&&sites.pendingShip==null&&sites.pendingPalace==null
             &&w.getGameTime()%5==0)queueAhead(w,sites);
@@ -314,6 +370,23 @@ public final class WinterPalace {
             if(w.addFreshEntity(queen)){sites.awaitingQueen.remove(packed);sites.setDirty();}
         }
     }
+    private static UUID manorId(BlockPos p,String suffix){return UUID.nameUUIDFromBytes(("slavicmyths:manor:"+p.asLong()+":"+suffix).getBytes(StandardCharsets.UTF_8));}
+    private static void spawnGluheya(ServerLevel w,WinterEncounterSpawns.Sites sites){
+        if(w.getDifficulty()==Difficulty.PEACEFUL)return;
+        var type=BuiltInRegistries.ENTITY_TYPE.getOptional(ResourceLocation.fromNamespaceAndPath("slavicmyths","gluheya")).orElse(null);
+        if(type==null)return;
+        for(long packed:List.copyOf(sites.awaitingGluheya)){
+            var origin=BlockPos.of(packed);var pos=origin.offset(0,2,16);
+            if(!w.hasChunkAt(pos))continue;
+            var uuid=manorId(origin,"boss");
+            if(w.getEntity(uuid)!=null){sites.awaitingGluheya.remove(packed);sites.setDirty();continue;}
+            if(!(type.create(w) instanceof net.minecraft.world.entity.Mob mob))continue;
+            mob.setUUID(uuid);mob.moveTo(pos.getX()+.5,pos.getY(),pos.getZ()+.5,180,0);
+            if(!w.noCollision(mob)||w.containsAnyLiquid(mob.getBoundingBox()))continue;
+            mob.setPersistenceRequired();mob.restrictTo(pos,24);
+            if(w.addFreshEntity(mob)){sites.awaitingGluheya.remove(packed);sites.setDirty();}
+        }
+    }
     private static void loot(ServerLevel w,BlockPos origin,Loot entry){
         if(w.getBlockEntity(origin.offset(entry.pos())) instanceof ChestBlockEntity chest){
             var table=ResourceKey.create(Registries.LOOT_TABLE,ResourceLocation.fromNamespaceAndPath("slavicmyths","chests/winter_palace/"+entry.kind()));
@@ -341,14 +414,24 @@ public final class WinterPalace {
     private static final class Job {
         final ServerLevel w;BlockPos origin;final boolean natural,resume,autoY;final CommandSourceStack source;
         final SiteChunks chunks;
+        final boolean manor;
+        final int X0,X1,Z0,Z1,Y1,H;
+        final List<BlockPos> columns;
         final List<ChunkPos> footprint=new ArrayList<>();
-        final int[] tops=new int[Plan.COLUMNS.size()],bottoms=new int[Plan.COLUMNS.size()];
+        final int[] tops,bottoms;
         int loaded,column,vertical=Integer.MIN_VALUE,phase,furnish;
         Job(ServerLevel w,BlockPos origin,boolean natural,boolean resume,CommandSourceStack source){
             this(w,origin,natural,resume,source,false);
         }
         Job(ServerLevel w,BlockPos origin,boolean natural,boolean resume,CommandSourceStack source,boolean autoY){
-            this.w=w;this.origin=origin;this.natural=natural;this.resume=resume;this.source=source;this.autoY=autoY;chunks=new SiteChunks(w);
+            this(w,origin,natural,resume,source,autoY,false);
+        }
+        Job(ServerLevel w,BlockPos origin,boolean natural,boolean resume,CommandSourceStack source,boolean autoY,boolean manor){
+            this.w=w;this.origin=origin;this.natural=natural;this.resume=resume;this.source=source;this.autoY=autoY;this.manor=manor;chunks=new SiteChunks(w);
+            X0=manor?GluheyaManorPlan.X0:WinterPalace.X0; X1=manor?GluheyaManorPlan.X1:WinterPalace.X1;
+            Z0=manor?GluheyaManorPlan.Z0:WinterPalace.Z0; Z1=manor?GluheyaManorPlan.Z1:WinterPalace.Z1;
+            Y1=manor?GluheyaManorPlan.Y1:WinterPalace.Y1; H=Y1+1;
+            columns=manor?GluheyaManorPlan.COLUMNS:Plan.COLUMNS; tops=new int[columns.size()];bottoms=new int[columns.size()];
             for(int x=(origin.getX()+X0)>>4;x<=(origin.getX()+X1)>>4;x++)
                 for(int z=(origin.getZ()+Z0)>>4;z<=(origin.getZ()+Z1)>>4;z++)footprint.add(new ChunkPos(x,z));
         }
@@ -361,18 +444,27 @@ public final class WinterPalace {
                             chunks.prefetch(footprint,loaded);if(!chunks.ready(footprint.get(loaded)))return;loaded++;continue;
                         }
                         if(autoY){
-                            var c=centerOf(origin);
+                            var c=manor?origin.offset(0,0,13):centerOf(origin);
                             int y=w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,c.getX(),c.getZ());
                             origin=origin.atY(Math.clamp(y,w.getMinBuildHeight()+2,w.getMaxBuildHeight()-H));
                         }
-                        if(!border(w,origin))throw new IllegalStateException("Palace outside world bounds");
-                        if(!resume&&!ManualStructureRecords.get(w).overlapping(bounds(w,origin)).isEmpty())throw new SiteRejected("Existing construction");
-                        if(natural&&!resume&&!w.getBiome(centerOf(origin)).is(net.minecraft.tags.TagKey.create(Registries.BIOME,ResourceLocation.fromNamespaceAndPath("slavicmyths","winter_forest"))))
+                        if(!(manor?manorBorder(w,origin):border(w,origin)))throw new IllegalStateException("Palace outside world bounds");
+                        if(!resume&&(!manor||natural)&&!ManualStructureRecords.get(w).overlapping(manor?new BoundingBox(origin.getX()+X0,w.getMinBuildHeight(),origin.getZ()+Z0,origin.getX()+X1,w.getMaxBuildHeight()-1,origin.getZ()+Z1):bounds(w,origin)).isEmpty())throw new SiteRejected("Existing construction");
+                        if(natural&&!resume&&!w.getBiome(manor?origin.offset(0,0,13):centerOf(origin)).is(net.minecraft.tags.TagKey.create(Registries.BIOME,ResourceLocation.fromNamespaceAndPath("slavicmyths","winter_forest"))))
                             throw new SiteRejected("Not winter forest");
                         phase=1;continue;
                     }
-                    if(playerInside(w,origin))return;
+                    if(manor?w.players().stream().anyMatch(p->!p.isSpectator()&&p.getX()>=origin.getX()+X0-1&&p.getX()<=origin.getX()+X1+2&&p.getZ()>=origin.getZ()+Z0-1&&p.getZ()<=origin.getZ()+Z1+2):playerInside(w,origin))return;
                     if(phase==4){
+                        if(manor){
+                            var sites=WinterEncounterSpawns.Sites.get(w);
+                            var arrival=origin.offset(0,1,-3);
+                            ManualStructureRecords.get(w).add(manorId(origin,"record"),"site/gluheya_manor",0,arrival,
+                                new BoundingBox(origin.getX()+X0,origin.getY(),origin.getZ()+Z0,origin.getX()+X1,origin.getY()+Y1,origin.getZ()+Z1));
+                            sites.finishManor(origin,manorKey(origin));spawnGluheya(w,sites);
+                            finish(true,"Поместье Глухеи V1 создано: "+origin.toShortString());
+                            if(source!=null)reportLocation(source,arrival,"Вход в поместье");return;
+                        }
                         if(furnish<Plan.LOOT.size()){
                             var entry=Plan.LOOT.get(furnish++);if(!entry.kind().equals("boss_reward"))loot(w,origin,entry);continue;
                         }
@@ -393,11 +485,11 @@ public final class WinterPalace {
                         sites.finishPalace(origin,siteKey(origin));sites.litPalaces.add(origin.asLong());sites.setDirty();spawnWaiting(w,sites);
                         finish(true,"Дворец вечной зимы V2 создан: "+origin.toShortString());if(source!=null)reportLocation(source,origin.offset(0,1,0),"Вход во дворец");return;
                     }
-                    if(column>=Plan.COLUMNS.size()){
-                        if(phase==1)WinterEncounterSpawns.Sites.get(w).beginPalace(origin,natural);
+                    if(column>=columns.size()){
+                        if(phase==1){var sites=WinterEncounterSpawns.Sites.get(w);if(manor)sites.beginManor(origin,natural);else sites.beginPalace(origin,natural);}
                         phase++;column=0;vertical=Integer.MIN_VALUE;continue;
                     }
-                    var local=Plan.COLUMNS.get(column);int x=local.getX(),z=local.getZ(),wx=origin.getX()+x,wz=origin.getZ()+z;
+                    var local=columns.get(column);int x=local.getX(),z=local.getZ(),wx=origin.getX()+x,wz=origin.getZ()+z;
                     if(vertical==Integer.MIN_VALUE){
                         if(phase==1){
                             tops[column]=Math.max(origin.getY()+Y1,w.getHeight(Heightmap.Types.WORLD_SURFACE,wx,wz)-1);
@@ -413,14 +505,14 @@ public final class WinterPalace {
                     }
                     var p=new BlockPos(wx,vertical,wz);
                     if(phase==1){
-                        if(!resume&&!WinterPalace.natural(w,p))throw new SiteRejected("Protected block "+BuiltInRegistries.BLOCK.getKey(w.getBlockState(p).getBlock())+" at "+p.toShortString());
+                        if(!resume&&(!manor||natural)&&!WinterPalace.natural(w,p))throw new SiteRejected("Protected block "+BuiltInRegistries.BLOCK.getKey(w.getBlockState(p).getBlock())+" at "+p.toShortString());
                     }else if(phase==2){
-                        if(vertical<origin.getY())w.setBlock(p,Blocks.PACKED_ICE.defaultBlockState(),18);
+                        if(vertical<origin.getY())w.setBlock(p,manor?GluheyaManorPlan.PALETTE[22]:Blocks.PACKED_ICE.defaultBlockState(),18);
                         else if(!w.getBlockState(p).isAir())w.setBlock(p,Blocks.AIR.defaultBlockState(),18);
                     }else{
                         int y=vertical-origin.getY();
-                        var state=Plan.block(x,y,z);
-                        if(state.isAir()&&local.getY()<=4&&y<local.getY())state=Blocks.PACKED_ICE.defaultBlockState();
+                        var state=manor?GluheyaManorPlan.block(x,y,z):Plan.block(x,y,z);
+                        if(!manor&&state.isAir()&&local.getY()<=4&&y<local.getY())state=Blocks.PACKED_ICE.defaultBlockState();
                         if(!state.isAir())w.setBlock(p,state,18);
                     }
                     if(phase==3){if(++vertical>origin.getY()+Y1){column++;vertical=Integer.MIN_VALUE;}}
