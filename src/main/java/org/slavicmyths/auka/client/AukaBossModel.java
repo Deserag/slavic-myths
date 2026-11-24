@@ -19,7 +19,7 @@ public final class AukaBossModel extends EntityModel<AukaBoss> {
         geometry.box(p,(material%8)*128+4,(material/8)*128+4,x,y,z,w,h,d);
     }
     private final ModelPart root=part(null,0,0,0);
-    private final ModelPart first=part(root,0,0,0),second=part(root,0,0,0);
+    private final ModelPart first=part(root,0,23,0),second=part(root,0,22,0);
     private final ModelPart head1=part(first,0,-38,-2), head2=part(second,0,-47,-5);
     private final ModelPart arm1L=part(first,12,-30,0),arm1R=part(first,-12,-30,0);
     private final ModelPart leg1L=part(first,5,-15,0),leg1R=part(first,-5,-15,0);

@@ -20,7 +20,7 @@ public final class AukaAnimalModel<T extends LivingEntity> extends EntityModel<T
     private void cube(ModelPart p,int material,float x,float y,float z,float w,float h,float d){
         geometry.box(p,(material%8)*128+4,(material/8)*128+4,x,y,z,w,h,d);
     }
-    private final ModelPart root=part(null,0,0,0);
+    private final ModelPart root=part(null,0,21,0);
     private final ModelPart body=part(root,0,0,0);
     private final ModelPart head=part(root,0,-29,-34);
     private final ModelPart jaw=part(head,0,5,-12);

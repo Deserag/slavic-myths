@@ -133,7 +133,7 @@ public final class GluheyaBoss extends Monster {
     }
     private void finish(){
         entityData.set(ACTION,IDLE);entityData.set(FRAME,0);entityData.set(ORBIT,0);
-        cooldown=secondPhase()?42+random.nextInt(20):140+random.nextInt(60);
+        cooldown=secondPhase()?20+random.nextInt(16):85+random.nextInt(40);
         pulledPlayer=null;
     }
     private int length(int action){return switch(action){
@@ -200,15 +200,22 @@ public final class GluheyaBoss extends Monster {
     }
     private boolean teleportNear(ServerLevel world,LivingEntity p,boolean back){
         if(!valid(p))return false;
-        double angle=back?Math.toRadians(p.getYRot())+Math.PI:random.nextDouble()*Math.PI*2;
+        double angle=back?Math.toRadians(p.getYRot()):random.nextDouble()*Math.PI*2;
         for(int k=0;k<8;k++){
             double a=angle+k*Math.PI/4,dist=back?2.9:6.0+random.nextDouble()*6.0;
             double x=p.getX()+Math.sin(a)*dist,z=p.getZ()-Math.cos(a)*dist,y=p.getY();
-            if(!world.hasChunkAt(BlockPos.containing(x,y,z)))continue;
-            Vec3 old=position();
-            teleportTo(x,y,z);
-            if(world.noCollision(this)){world.sendParticles(ParticleTypes.PORTAL,x,y+1.5,z,20,.5,1,.5,.05);return true;}
-            teleportTo(old.x,old.y,old.z);
+            for(int dy:new int[]{0,1,-1,2,-2,3,-3}){
+                double landingY=Math.floor(y)+dy;
+                BlockPos feet=BlockPos.containing(x,landingY,z);
+                if(!world.hasChunkAt(feet)||!world.getWorldBorder().isWithinBounds(feet))continue;
+                if(world.getBlockState(feet.below()).getCollisionShape(world,feet.below()).isEmpty())continue;
+                if(!world.noCollision(this,getBoundingBox().move(x-getX(),landingY-getY(),z-getZ())))continue;
+                getNavigation().stop();
+                teleportTo(x,landingY,z);
+                setDeltaMovement(Vec3.ZERO);
+                world.sendParticles(ParticleTypes.PORTAL,x,landingY+1.5,z,20,.5,1,.5,.05);
+                return true;
+            }
         }
         return false;
     }
@@ -333,12 +340,18 @@ public final class GluheyaBoss extends Monster {
             actionStep(world,p);return;
         }
         if(p==null)return;
-        if(!secondPhase()||getNavigation().isDone())getLookControl().setLookAt(p,30,30);
+        if(getNavigation().isDone())getLookControl().setLookAt(p,30,30);
         if(teleportCooldown<=0){
             teleportNear(world,p,secondPhase());
             teleportCooldown=secondPhase()?80+random.nextInt(40):200+random.nextInt(80);
         }
         if(cooldown>0){cooldown--;return;}
+        double distance=distanceToSqr(p);
+        if(!secondPhase()&&distance>28D*28D)return;
+        if(secondPhase()&&distance>36D&&huntCooldown>0){
+            if(distance<24D*24D&&hasLineOfSight(p))start(DAGGER_THROW,p);
+            return;
+        }
         if(!secondPhase()){
             int choice=sequence++%5;
             if(fieldCooldown<=0){start(SILENCE_FIELD,p);fieldCooldown=360;return;}
@@ -373,9 +386,17 @@ public final class GluheyaBoss extends Monster {
             var target=getTarget();if(!valid(target))return;
             if(action()!=IDLE){getNavigation().stop();return;}
             double d=distanceToSqr(target);
-            if(secondPhase()){if(d>9)getNavigation().moveTo(target,1.23);}
-            else if(d<100)getNavigation().stop();
-            else if(d>625)getNavigation().moveTo(target,.9);
+            if(secondPhase()){
+                if(d>9){if(getNavigation().isDone()||tickCount%10==0)getNavigation().moveTo(target,1.23);}
+                else getNavigation().stop();
+            }else if(d<64){
+                if(getNavigation().isDone()||tickCount%10==0){
+                    Vec3 away=position().subtract(target.position()).multiply(1,0,1).normalize();
+                    getNavigation().moveTo(getX()+away.x*8,getY(),getZ()+away.z*8,1.0);
+                }
+            }else if(d>324){
+                if(getNavigation().isDone()||tickCount%10==0)getNavigation().moveTo(target,.95);
+            }else getNavigation().stop();
         }
     }
 }
