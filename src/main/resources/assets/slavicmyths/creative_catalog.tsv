@@ -1400,3 +1400,5 @@ snow_helmet	armor	snow_set
 snow_chestplate	armor	snow_set
 snow_leggings	armor	snow_set
 snow_boots	armor	snow_set
+lomeya_hammer	weapons	boss_material_weapon
+lomeya_hammer_offhand	hidden	legacy_migration

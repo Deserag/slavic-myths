@@ -21,7 +21,7 @@ import org.slavicmyths.combat.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class TugarinPairClient {
     public static final net.minecraft.client.resources.model.ModelResourceLocation HELD=net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/tugarin_sword_held"));
-    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws"};
+    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws","lomeya_hammer"};
     private static net.minecraft.client.resources.model.ModelResourceLocation heldModel(String id){
         return net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/"+id+"_held"));
     }

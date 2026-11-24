@@ -19,15 +19,24 @@ import org.slavicmyths.rpg.PathData;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class KalinSabreCombo {
-    private static final String LAST="KalinLastTarget", TARGET="KalinSummonTarget", LEFT="KalinSummonLeft", NEXT="KalinSummonNext";
+    private static final String LAST="KalinLastTarget", LAST_TICK="KalinLastTargetTick", TARGET="KalinSummonTarget", LEFT="KalinSummonLeft", NEXT="KalinSummonNext";
     private static boolean held(net.minecraft.world.entity.player.Player p){return p.getMainHandItem().getItem() instanceof Sabre;}
     private static boolean legal(ServerPlayer p,LivingEntity t){return t!=null&&CombatTargeting.canAttack(p,t,CombatTargeting.Context.DIRECT)&&p.hasLineOfSight(t)&&p.distanceToSqr(t)<=256;}
     @SubscribeEvent public static void critical(CriticalHitEvent e){
         if(held(e.getEntity())){e.setCriticalHit(true);e.setDamageMultiplier(1.5F);}
     }
+    @SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST) public static void rapid(net.neoforged.neoforge.event.entity.player.AttackEntityEvent e){
+        if(!(e.getEntity() instanceof ServerPlayer p)||!held(p)||!(e.getTarget() instanceof LivingEntity t)||!legal(p,t)||p.getAttackStrengthScale(.5F)<.9F)return;
+        var n=p.getPersistentData();long elapsed=p.serverLevel().getGameTime()-n.getLong(LAST_TICK);
+        // Only shorten this sabre's own repeat-hit window, not the first hit on a new target.
+        if(n.hasUUID(LAST)&&n.getUUID(LAST).equals(t.getUUID())&&elapsed>=2&&elapsed<=10&&t.getLastDamageSource()!=null&&t.getLastDamageSource().getEntity()==p)
+            t.invulnerableTime=0;
+    }
     @SubscribeEvent public static void hit(LivingDamageEvent.Post e){
-        if(e.getNewDamage()>0&&e.getSource().getDirectEntity() instanceof ServerPlayer p&&held(p)&&e.getSource().is(DamageTypes.PLAYER_ATTACK)&&legal(p,e.getEntity()))
+        if(e.getNewDamage()>0&&e.getSource().getDirectEntity() instanceof ServerPlayer p&&held(p)&&e.getSource().is(DamageTypes.PLAYER_ATTACK)&&legal(p,e.getEntity())){
             p.getPersistentData().putUUID(LAST,e.getEntity().getUUID());
+            p.getPersistentData().putLong(LAST_TICK,p.serverLevel().getGameTime());
+        }
     }
     public static final class Sabre extends SwordItem implements WeaponInputHandler {
         public Sabre(){super(Tiers.DIAMOND,new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND,10,6F)).rarity(Rarity.RARE));}

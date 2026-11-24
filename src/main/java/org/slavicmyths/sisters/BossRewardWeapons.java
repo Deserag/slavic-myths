@@ -78,7 +78,7 @@ public final class BossRewardWeapons {
             if (scythe || held != player.getMainHandItem() || !player.isAlive()
                     || player.isSpectator()) return;
             if (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK) {
-                if(action==Action.SHIFT_RIGHT_CLICK&&!player.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get()))return;
+                if(!player.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())||!player.getOffhandItem().isEmpty())return;
                 cast(player.serverLevel(), player, held, action == Action.SHIFT_RIGHT_CLICK);
             }
         }
@@ -103,7 +103,7 @@ public final class BossRewardWeapons {
             if(!(user instanceof ServerPlayer server)||!server.isAlive()||server.isSpectator()||stack!=server.getMainHandItem())return;
             String weapon=scythe?IndependentWeaponCooldowns.NEVEYA:IndependentWeaponCooldowns.LOMEYA;
             if(!IndependentWeaponCooldowns.ready(server,weapon,alternate))return;
-            boolean dual=!scythe&&user.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get());
+            boolean dual=!scythe&&user.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())&&user.getOffhandItem().isEmpty();
             if(!scythe&&alternate&&!dual)return;
             double radius=scythe?(alternate?7.0:5.4):(dual?5.6:4.0);
             float damage=scythe?(alternate?36F:26F):(dual?(alternate?36F:28F):22F);
@@ -139,7 +139,7 @@ public final class BossRewardWeapons {
             if(dual){
                 world.sendParticles(ParticleTypes.EXPLOSION,center.x,center.y,center.z,alternate?8:4,1.3,.3,1.3,0);
                 user.swing(InteractionHand.OFF_HAND,true);
-                user.getOffhandItem().hurtAndBreak(3,user,EquipmentSlot.OFFHAND);
+                // Both rendered hammers belong to the one main-hand stack.
             }
             user.swing(InteractionHand.MAIN_HAND,true);
             IndependentWeaponCooldowns.start(server,stack,weapon,alternate,scythe?(alternate?260:180):dual?(alternate?260:190):150);
@@ -154,10 +154,10 @@ public final class BossRewardWeapons {
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.neveya.shift").withStyle(net.minecraft.ChatFormatting.YELLOW));
             }else{
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.passive").withStyle(net.minecraft.ChatFormatting.LIGHT_PURPLE));
-                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.slam").withStyle(net.minecraft.ChatFormatting.GOLD));
+                
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.dual").withStyle(net.minecraft.ChatFormatting.YELLOW));
                 lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.shift").withStyle(net.minecraft.ChatFormatting.AQUA));
-                lines.add(Component.translatable("tooltip.slavicmyths.sisters.lomeya.offhand").withStyle(net.minecraft.ChatFormatting.GRAY));
+                lines.add(Component.literal("Пассивный навык — второй молот отображается автоматически и усиливает заряженный удар.").withStyle(net.minecraft.ChatFormatting.GRAY));
             }
             lines.add(Component.translatable("tooltip.slavicmyths.weapon.rune_slots", org.slavicmyths.rpg.Runes.slots(stack)).withStyle(net.minecraft.ChatFormatting.GRAY));
         }
@@ -168,18 +168,30 @@ public final class BossRewardWeapons {
         owner.getPersistentData().remove(READY_TICK);
         if(!(event.getTarget() instanceof LivingEntity target)
             ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
-            ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
+            ||!owner.getOffhandItem().isEmpty()
             ||owner.getAttackStrengthScale(.5F)<.9F
             ||!Weapon.valid(owner,target))return;
         owner.getPersistentData().putUUID(READY,target.getUUID());
         owner.getPersistentData().putLong(READY_TICK,owner.serverLevel().getGameTime());
+    }
+    @SubscribeEvent public static void dualDamage(net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent event){
+        if(!(event.getSource().getEntity() instanceof ServerPlayer owner)
+            ||!event.getSource().is(DamageTypes.PLAYER_ATTACK)
+            ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
+            ||!owner.getOffhandItem().isEmpty()
+            ||owner.getPersistentData().getBoolean(AOE)
+            ||!owner.getPersistentData().hasUUID(READY)
+            ||!owner.getPersistentData().getUUID(READY).equals(event.getEntity().getUUID())
+            ||owner.getPersistentData().getLong(READY_TICK)!=owner.serverLevel().getGameTime()
+            ||!Weapon.valid(owner,event.getEntity()))return;
+        event.setAmount(event.getAmount()+9F);
     }
     @SubscribeEvent public static void dualHammer(LivingDamageEvent.Post event){
         LivingEntity target=event.getEntity();
         if(!(event.getSource().getEntity() instanceof ServerPlayer owner)
             ||!event.getSource().is(DamageTypes.PLAYER_ATTACK)
             ||!owner.getMainHandItem().is(SistersContent.LOMEYA_HAMMER.get())
-            ||!owner.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get())
+            ||!owner.getOffhandItem().isEmpty()
             ||owner.getPersistentData().getBoolean(AOE)
             ||owner.getPersistentData().getBoolean(DUAL)
             ||!owner.getPersistentData().hasUUID(READY)
@@ -189,10 +201,10 @@ public final class BossRewardWeapons {
         owner.getPersistentData().putBoolean(DUAL,true);
         try{
             owner.swing(InteractionHand.OFF_HAND,true);
-            if(target.hurt(owner.damageSources().playerAttack(owner),9F)){
+            if(event.getNewDamage()>0){
                 target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,90,1));
                 if(target instanceof Player player)FractureHooks.apply(player);
-                owner.getOffhandItem().hurtAndBreak(1,owner,EquipmentSlot.OFFHAND);
+                if(!owner.hasInfiniteMaterials())owner.getMainHandItem().hurtAndBreak(1,owner,EquipmentSlot.MAINHAND);
             }
         }finally{
             owner.getPersistentData().remove(DUAL);

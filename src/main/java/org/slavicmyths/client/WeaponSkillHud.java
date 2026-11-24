@@ -196,7 +196,7 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("neveya_scythe_reap","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.NEVEYA,false,now)));skills.add(new Skill("neveya_scythe_slash","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.NEVEYA,true,now)));
             }
             case "lomeya_hammer", "lomeya_hammer_offhand" -> {
-                boolean dual = mc.player.getOffhandItem().is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get());
+                boolean dual = stack.is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER.get());
                 skills.add(new Skill(dual ? "lomeya_dual_wave" : "lomeya_single_wave", "R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.LOMEYA,false,now)));
                 if (dual) skills.add(new Skill("lomeya_dual_fracture", "S+R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.LOMEYA,true,now)));
             }
