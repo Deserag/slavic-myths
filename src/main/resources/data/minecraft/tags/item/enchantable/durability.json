@@ -100,6 +100,10 @@
     "slavicmyths:ice_halberd",
     "slavicmyths:ice_scythe",
     "slavicmyths:winter_hunt_bow",
-    "slavicmyths:ice_crossbow"
+    "slavicmyths:ice_crossbow",
+    "slavicmyths:snow_helmet",
+    "slavicmyths:snow_chestplate",
+    "slavicmyths:snow_leggings",
+    "slavicmyths:snow_boots"
   ]
 }
