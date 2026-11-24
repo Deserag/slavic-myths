@@ -75,7 +75,8 @@ public final class TrophyHeadsClient {
     // Fit the full horizontal sweep, not just a neutral frontal bounding box.
     float radius=0;for(var vertex:capture.vertices)radius=Math.max(radius,(float)Math.hypot(vertex[0],vertex[2]));
     scale=Math.min(.96F/(2*radius+(kind==TrophyHeads.Kind.GROVE_GUARDIAN?.08F:0)),.9F/(bounds[4]-bounds[1]));
-   }else scale=Math.min(.94F/(bounds[3]-bounds[0]),Math.min(.94F/(bounds[5]-bounds[2]),(kind.height-.1F)/(bounds[4]-bounds[1])));
+   }else if(kind==TrophyHeads.Kind.WINTER_OWL)scale=1F;
+   else scale=Math.min(.94F/(bounds[3]-bounds[0]),Math.min(.94F/(bounds[5]-bounds[2]),(kind.height-.1F)/(bounds[4]-bounds[1])));
   }
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay){render(pose,out,light,overlay,0xffffffff);}
   public void render(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
@@ -187,7 +188,8 @@ public final class TrophyHeadsClient {
  }
  /** Used by the real renderer and offline native-face exporter; no Minecraft instance needed. */
  public static Head create(TrophyHeads.Kind kind){return switch(kind){
-   case NORTH_WOLVERINE->{var model=new org.slavicmyths.wolverine.client.WolverineModel();yield new Head(kind,model.trophyHead(),"textures/entity/northern_wolverine.png");}
+   case WINTER_OWL->{var model=new org.slavicmyths.owl.client.WinterOwlModel();yield new Head(kind,model.trophyHead(),"textures/entity/winter_owl.png");}
+    case NORTH_WOLVERINE->{var model=new org.slavicmyths.wolverine.client.WolverineModel();yield new Head(kind,model.trophyHead(),"textures/entity/northern_wolverine.png");}
   case TUGARIN->{var model=new WorldBossModel(false,true);yield new Head(kind,model.trophyHead(),"textures/entity/tugarin_phase2.png",null,null,null,model.trophyHeadPart("jaw"),model.trophyHeadPart("moustacheL"),model.trophyHeadPart("pupilL"),model.trophyHeadPart("pupilR"));}
   case SKIM->{var neck=TrophySkimMesh.create();var face=neck.getChild("head");yield new Head(kind,neck,"textures/entity/skim_beast.png",null,null,null,face.getChild("jaw"),neck.getChild("mane_0"),face.getChild("eyeL"),face.getChild("eyeR")).ears(face.getChild("earL"),face.getChild("earR"));}
   case VOLKOLAK->{var model=new CursedVolkolakModel();var part=model.trophyHead();part.zScale=CursedVolkolakRenderer.DEPTH_SCALE;yield new Head(kind,part,"textures/entity/cursed_volkolak.png",null,null,null,model.trophyHeadPart("jaw"),null).ears(model.trophyHeadPart("earL"),model.trophyHeadPart("earR"));}
@@ -235,6 +237,7 @@ public final class TrophyHeadsClient {
     pose.translate(pivot,0,pivot);
     pose.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(TrophyHeadBlock.FACING).toYRot()));
     pose.translate(-pivot,0,-pivot);
+    if(block.kind==TrophyHeads.Kind.WINTER_OWL)pose.translate(-1.5,0,-1);
     float gazeX=0,gazeY=0;
     if(animated){
      var player=Minecraft.getInstance().player;
@@ -294,7 +297,7 @@ public final class TrophyHeadsClient {
    }
    if(particleBudget<=0)return;
    int period=switch(kind){
-    case NORTH_WOLVERINE->40;case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
+    case WINTER_OWL,NORTH_WOLVERINE->40;case GROVE_GUARDIAN->20;case POSTEN,ZHARENITSA->60;case MAGMA_LORD->200;case TUGARIN->9;case SKIM->10;case VOLKOLAK->9;case PODZEMNIK->11;
     case LIKHO->8;case MOR_LIKHO->7;case MOROVOY_RAVEN->16;case FIRE_SERPENT->9;case MOR_SERPENT,MOROVOY_FIRE_ZMEY->12;case NINE_MOR_SERPENT->18;
    };
    if(!TrophyHeadFxRules.particleDue(now,tile.clientLastFxTick,period))return;
@@ -302,11 +305,11 @@ public final class TrophyHeadsClient {
    Direction facing=tile.getBlockState().getValue(TrophyHeadBlock.FACING);
    double dx=(world.getRandom().nextDouble()-.5)*.17,dz=(world.getRandom().nextDouble()-.5)*.17;
    double height=switch(kind){
-    case NORTH_WOLVERINE->.6;case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
+    case WINTER_OWL->1.3;case NORTH_WOLVERINE->.6;case POSTEN,GROVE_GUARDIAN,ZHARENITSA->.65;case MAGMA_LORD->.65;case TUGARIN->.37;case SKIM->.66;case VOLKOLAK->.77;case PODZEMNIK->.95;
     case LIKHO,MOR_LIKHO->1.25;case MOROVOY_RAVEN,FIRE_SERPENT,MOR_SERPENT,MOROVOY_FIRE_ZMEY,NINE_MOR_SERPENT->.55;
    };
    var particle=switch(kind){
-    case NORTH_WOLVERINE->ParticleTypes.SNOWFLAKE;case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
+    case WINTER_OWL,NORTH_WOLVERINE->ParticleTypes.SNOWFLAKE;case POSTEN->ParticleTypes.SOUL;case GROVE_GUARDIAN->ParticleTypes.ASH;case ZHARENITSA->ParticleTypes.SMALL_FLAME;case MAGMA_LORD->ParticleTypes.SMALL_FLAME;case TUGARIN->ParticleTypes.DRAGON_BREATH;
     case SKIM->ParticleTypes.CLOUD;
     case VOLKOLAK->ParticleTypes.SMOKE;
     case PODZEMNIK->ParticleTypes.ASH;
@@ -334,7 +337,7 @@ public final class TrophyHeadsClient {
  }
  public static final class ItemRenderer extends BlockEntityWithoutLevelRenderer {
   public ItemRenderer(){super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),Minecraft.getInstance().getEntityModels());}
-  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT){pose.translate(.5F,.48F,.5F);pose.scale(.15F,.15F,.15F);pose.translate(-2.5F,-2.55F,-2.5F);}else{float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
+  @Override public void renderByItem(ItemStack stack,ItemDisplayContext context,PoseStack pose,MultiBufferSource buffer,int light,int overlay){if(stack.getItem() instanceof BlockItem item&&item.getBlock() instanceof TrophyHeadBlock block){var h=head(block.kind);pose.pushPose();if(context==ItemDisplayContext.GUI){if(block.kind==TrophyHeads.Kind.NINE_MOR_SERPENT){pose.translate(.5F,.48F,.5F);pose.scale(.15F,.15F,.15F);pose.translate(-2.5F,-2.55F,-2.5F);}else if(block.kind==TrophyHeads.Kind.WINTER_OWL){pose.translate(.5F,.5F,.5F);pose.scale(.22F,.22F,.22F);pose.translate(-.5F,-1.3F,-.5F);}else{float fit=block.kind.wide()?.40F:.72F;pose.translate(.5F,.5F,.5F);pose.scale(fit,fit,fit);pose.translate(block.kind.wide()?-1F:-.5F,-.5F,block.kind.wide()?-1F:-.5F);}}h.render(pose,buffer.getBuffer(RenderType.entityCutoutNoCull(h.texture)),light,overlay);pose.popPose();}}
  }
  @SubscribeEvent public static void renderers(EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(TrophyHeads.TILE.get(),Renderer::new);}
  @SubscribeEvent public static void items(RegisterClientExtensionsEvent e){

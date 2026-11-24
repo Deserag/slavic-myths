@@ -12,11 +12,12 @@ public final class TrophyHeads {
  public enum Kind {
   TUGARIN("tugarin_head",1),SKIM("skim_head",1),VOLKOLAK("cursed_volkolak_head",1),
   LIKHO("likho_head",2),MOR_LIKHO("mor_likho_head",2),PODZEMNIK("large_podzemnik_head",2),MAGMA_LORD("magma_lord_head",1),GROVE_GUARDIAN("grove_guardian_head",1),ZHARENITSA("zharenitsa_head",1),POSTEN("posten_head",1),
-  MOROVOY_RAVEN("morovoy_raven_head",1),FIRE_SERPENT("fire_serpent_head",1),MOR_SERPENT("mor_serpent_head",1),MOROVOY_FIRE_ZMEY("morovoy_fire_zmey_head",1),NINE_MOR_SERPENT("nine_mor_serpent_head",1),NORTH_WOLVERINE("northern_wolverine_head",1);
+  MOROVOY_RAVEN("morovoy_raven_head",1),FIRE_SERPENT("fire_serpent_head",1),MOR_SERPENT("mor_serpent_head",1),MOROVOY_FIRE_ZMEY("morovoy_fire_zmey_head",1),NINE_MOR_SERPENT("nine_mor_serpent_head",1),NORTH_WOLVERINE("northern_wolverine_head",1),WINTER_OWL("winter_owl_head",3);
   public final String id;public final int height;Kind(String id,int height){this.id=id;this.height=height;}
   public boolean wide(){return this==MOROVOY_RAVEN||this==MOROVOY_FIRE_ZMEY;}
   /** Native-renderer envelope, verified by Heads140Offline; keeps server collision client-free. */
   public float[] bounds(){return switch(this){
+   case WINTER_OWL->new float[]{0F,0F,0F,4F,3F,3F};
    case NORTH_WOLVERINE->new float[]{.08F,.06F,.08F,.92F,.90F,.92F};
    case TUGARIN->new float[]{.225059F,.04F,.03F,.774941F,.447273F,.97F};
    case SKIM->new float[]{.105511F,.04F,.03F,.894489F,.764252F,.97F};

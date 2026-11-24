@@ -17,7 +17,8 @@
           "condition": "minecraft:block_state_property",
           "block": "slavicmyths:morovoy_fire_zmey_head",
           "properties": {
-            "half": "lower"
+            "half": "lower",
+            "quarter": "nw"
           }
         }
       ]

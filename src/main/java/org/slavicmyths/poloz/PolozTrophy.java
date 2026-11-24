@@ -19,7 +19,7 @@ public final class PolozTrophy extends HorizontalDirectionalBlock implements Ent
  public static final DeferredHolder<Block,Block> BLOCK=ModBlocks.BLOCKS.register("poloz_head",()->new PolozTrophy());
  public static final DeferredHolder<Item,Item> ITEM=ModItems.ITEMS.register("poloz_head",()->new BlockItem(BLOCK.get(),new Item.Properties().rarity(Rarity.EPIC)));
  public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<Tile>> TILE=ModTiles.TILES.register("poloz_head",()->BlockEntityType.Builder.of(Tile::new,BLOCK.get()).build(null));
- public PolozTrophy(){this(Properties.ofFullCopy(Blocks.DRAGON_HEAD).strength(3).noOcclusion().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK));}
+ public PolozTrophy(){this(Properties.of().strength(3).sound(SoundType.BONE_BLOCK).noOcclusion().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK));}
  private PolozTrophy(Properties p){super(p);registerDefaultState(stateDefinition.any().setValue(FACING,Direction.NORTH).setValue(CELL,0));}
  @Override protected com.mojang.serialization.MapCodec<PolozTrophy> codec(){return simpleCodec(PolozTrophy::new);}
  @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> b){b.add(FACING,CELL);}

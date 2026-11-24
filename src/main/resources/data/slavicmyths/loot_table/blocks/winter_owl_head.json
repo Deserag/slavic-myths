@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:winter_owl_head"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slavicmyths:winter_owl_head",
+          "properties": {
+            "half": "lower",
+            "cell": "a"
+          }
+        }
+      ]
+    }
+  ]
+}

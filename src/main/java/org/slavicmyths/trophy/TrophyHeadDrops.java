@@ -14,6 +14,7 @@ public final class TrophyHeadDrops {
  public static TrophyHeads.Kind kind(String entity,boolean mor,boolean serpent){return switch(entity){
   case "tugarin_zmey"->serpent?TrophyHeads.Kind.TUGARIN:null;
   case "skim_beast"->TrophyHeads.Kind.SKIM;
+  case "winter_owl"->TrophyHeads.Kind.WINTER_OWL;
   case "cursed_volkolak"->TrophyHeads.Kind.VOLKOLAK;
   case "likho_one_eyed"->mor?TrophyHeads.Kind.MOR_LIKHO:TrophyHeads.Kind.LIKHO;
   case "large_podzemnik"->TrophyHeads.Kind.PODZEMNIK;

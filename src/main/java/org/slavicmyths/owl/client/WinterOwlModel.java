@@ -32,6 +32,7 @@ public final class WinterOwlModel extends EntityModel<WinterOwl>{
  for(int i=-3;i<=3;i++){box(body,7,i*4-2,-12-Math.abs(i),-19,4,2,2);if(i!=0)box(body,8,i*4-1,-9,-19,2,7,2);}
  box(body,7,-5,-10,-21,10,10,2);box(body,10,-1,-8,-23.1F,2,6,.4F);box(body,10,-4,-5,-23.1F,8,1,.4F);
  }
+ public ModelPart trophyHead(){return head;}
  @Override public void setupAnim(WinterOwl e,float walk,float amount,float age,float yaw,float pitch){
  int a=e.action();float t=e.frame()+age-e.tickCount;boolean ground=a==WinterOwl.GROUND||a==WinterOwl.LAND&&e.onGround();float fold=ground?1F:0F;
  if(a==WinterOwl.DIVE||a==WinterOwl.MULTI_DIVE||a==WinterOwl.GRAB){float cycle=a==WinterOwl.MULTI_DIVE?t%42:t;if(cycle>14&&cycle<33)fold=.75F;}
