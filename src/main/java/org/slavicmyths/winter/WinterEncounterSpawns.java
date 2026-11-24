@@ -55,6 +55,11 @@ public final class WinterEncounterSpawns {
     public static final class Sites extends SavedData {
         final Set<Long> occupied=new HashSet<>();
         final Set<Long> ships=new HashSet<>(), awaitingCaptain=new HashSet<>(), riggingFixed=new HashSet<>();
+        final Set<Long> palaces=new HashSet<>(), awaitingQueen=new HashSet<>(), rewardedPalaces=new HashSet<>();
+        BlockPos pendingPalace;
+        boolean pendingPalaceNatural;
+        void beginPalace(BlockPos p,boolean natural){pendingPalace=p.immutable();pendingPalaceNatural=natural;setDirty();}
+        void finishPalace(BlockPos p,long key){palaces.add(p.asLong());awaitingQueen.add(p.asLong());placed(key);pendingPalace=null;setDirty();}
         boolean naturalShip;
         BlockPos pendingShip;
         boolean pendingNatural;
@@ -70,6 +75,10 @@ public final class WinterEncounterSpawns {
             for(long site:nbt.getLongArray("Ships"))data.ships.add(site);
             for(long site:nbt.getLongArray("AwaitingCaptain"))data.awaitingCaptain.add(site);
             for(long site:nbt.getLongArray("RiggingFixed"))data.riggingFixed.add(site);
+            for(long p:nbt.getLongArray("Palaces"))data.palaces.add(p);
+            for(long p:nbt.getLongArray("AwaitingQueen"))data.awaitingQueen.add(p);
+            for(long p:nbt.getLongArray("RewardedPalaces"))data.rewardedPalaces.add(p);
+            if(nbt.contains("PendingPalace")){data.pendingPalace=BlockPos.of(nbt.getLong("PendingPalace"));data.pendingPalaceNatural=nbt.getBoolean("PendingPalaceNatural");}
             data.naturalShip=nbt.getBoolean("NaturalShip");
             if(nbt.contains("PendingShip")){data.pendingShip=BlockPos.of(nbt.getLong("PendingShip"));data.pendingNatural=nbt.getBoolean("PendingNatural");}
             return data;
@@ -82,6 +91,10 @@ public final class WinterEncounterSpawns {
             nbt.putLongArray("Ships",ships.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("AwaitingCaptain",awaitingCaptain.stream().mapToLong(Long::longValue).toArray());
             nbt.putLongArray("RiggingFixed",riggingFixed.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("Palaces",palaces.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("AwaitingQueen",awaitingQueen.stream().mapToLong(Long::longValue).toArray());
+            nbt.putLongArray("RewardedPalaces",rewardedPalaces.stream().mapToLong(Long::longValue).toArray());
+            if(pendingPalace!=null){nbt.putLong("PendingPalace",pendingPalace.asLong());nbt.putBoolean("PendingPalaceNatural",pendingPalaceNatural);}
             nbt.putBoolean("NaturalShip",naturalShip);
             if(pendingShip!=null){nbt.putLong("PendingShip",pendingShip.asLong());nbt.putBoolean("PendingNatural",pendingNatural);}
             return nbt;
@@ -91,10 +104,11 @@ public final class WinterEncounterSpawns {
     @SubscribeEvent public static void tick(ServerTickEvent.Post event){
         FrozenShip.tick(event.getServer());
         ServerLevel world=event.getServer().overworld();
+        WinterPalace.tick(world);
         if(!world.dimension().equals(Level.OVERWORLD) || !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator)
             || world.getGameTime()%100!=0 || world.getDifficulty()==Difficulty.PEACEFUL || world.players().isEmpty())return;
         Sites sites=Sites.get(world);boolean test=WinterWorld.isTest(world);
-        if(FrozenShip.active(world)||sites.pendingShip!=null)return;
+        if(FrozenShip.active(world)||sites.pendingShip!=null||WinterPalace.active(world)||sites.pendingPalace!=null)return;
         Set<Long> checked=new HashSet<>();
         for(ServerPlayer player:world.players()){
             if(player.isSpectator())continue;
@@ -116,11 +130,15 @@ public final class WinterEncounterSpawns {
             // Captain cells are reserved for the advance planner, never built by this near-player scan.
             if(world.getBiome(column).is(OCEAN)&&select(Habitat.OCEAN,cx,cz,test,gluheya()!=null,world.getSeed())==Boss.CAPTAIN)continue;
             BlockPos pos=world.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,column);
-            if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             Habitat habitat=habitat(world.getBiome(pos));
             Boss boss=select(habitat,cx,cz,test,gluheya()!=null,world.getSeed());
             if(boss==null)continue;
             if(boss==Boss.CAPTAIN)continue;
+            if(boss==Boss.QUEEN){
+                if(WinterPalace.queueNatural(world,pos))return true;
+                continue;
+            }
+            if(pos.getY()<world.getSeaLevel()-8||pos.getY()>world.getMaxBuildHeight()-8)continue;
             if(!suitable(world,pos,boss))continue;
             boolean tooClose=false;
             for(ServerPlayer player:world.players())if(!player.isSpectator()&&player.blockPosition().distSqr(pos)<24*24){tooClose=true;break;}

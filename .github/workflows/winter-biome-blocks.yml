@@ -22,6 +22,8 @@ jobs:
           java -cp /tmp/winter-layout WinterLayoutCheck
       - name: Verify approved frozen ship V2 geometry
         run: python3 tools/verify_frozen_ship_v2.py
+      - name: Verify approved winter palace V2 geometry
+        run: python3 tools/verify_winter_palace_v2.py
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
       - run: python3 tools/verify_winter_blocks.py

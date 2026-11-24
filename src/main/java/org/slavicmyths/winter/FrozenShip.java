@@ -132,6 +132,7 @@ public final class FrozenShip {
         JOBS.put(world,new Job(world,origin,true,null,false,false));return true;
     }
     public static void register(CommandTree tree){
+        WinterPalace.register(tree);
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev")
             .then(Commands.literal("generate").then(Commands.literal("frozen_ship")
                 .requires(s->s.hasPermission(2)).executes(c->manual(c.getSource(),null))
@@ -139,7 +140,7 @@ public final class FrozenShip {
     }
     private static int manual(CommandSourceStack source,BlockPos explicit){
         var world=source.getLevel();var sites=WinterEncounterSpawns.Sites.get(world);
-        if(active(world)||sites.pendingShip!=null){
+        if(active(world)||sites.pendingShip!=null||WinterPalace.active(world)||sites.pendingPalace!=null){
             source.sendFailure(Component.literal("Корабль уже строится."));return 0;
         }
         var p=explicit!=null?explicit:BlockPos.containing(source.getPosition()).offset(0,0,-64);
@@ -227,7 +228,7 @@ public final class FrozenShip {
                 repairRigging(world,sites);
                 if(world.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(world,sites);
             }
-            if(world!=server.overworld()||sites.pendingShip!=null||
+            if(world!=server.overworld()||sites.pendingShip!=null||WinterPalace.active(world)||sites.pendingPalace!=null||
                 !(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator))continue;
             if(world.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream().noneMatch(FrozenShip::ocean))continue;
             // First ship has priority from the first server ticks, including before a player joins.
