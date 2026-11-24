@@ -3,8 +3,8 @@
   "model": "slavicmyths:models/item/winter_mesh/ice_scythe.obj",
   "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
   "textures": {
-    "palette": "slavicmyths:item/winter_weapons/faceted_palette",
-    "particle": "slavicmyths:item/winter_weapons/faceted_palette"
+    "palette": "slavicmyths:item/winter_weapons/royal_palette",
+    "particle": "slavicmyths:item/winter_weapons/royal_palette"
   },
   "automatic_culling": false,
   "shade_quads": true,
