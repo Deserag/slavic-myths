@@ -16,7 +16,10 @@ public final class AukaMinionModel extends EntityModel<AukaMinion> {
         animal.pose(walk,amount,age,yaw,pitch,action,e.actionTicks(age-e.tickCount),true);
     }
     @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){
-        pose.pushPose();pose.scale(bear?.75F:.52F,bear?.75F:.52F,bear?.75F:.52F);
+        pose.pushPose();
+        float scale=bear?.75F:.52F;
+        pose.translate(0,1.5F*(1F-scale),0);
+        pose.scale(scale,scale,scale);
         animal.renderToBuffer(pose,out,light,overlay,color);
         pose.popPose();
     }

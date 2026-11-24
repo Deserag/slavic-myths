@@ -289,15 +289,17 @@ public final class MarineNewWeaponGameTests {
   var handler=(org.slavicmyths.combat.WeaponInputHandler)main.getItem();
   handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.RIGHT_CLICK);
   t.assertTrue(Math.abs(cow.getHealth()-972)<.1,"Dual hammer wave is not 28 damage: "+cow.getHealth());
-  t.assertTrue(p.getCooldowns().isOnCooldown(main.getItem()),"Hammer skill has no cooldown");
+  t.assertTrue(!org.slavicmyths.combat.IndependentWeaponCooldowns.ready(p,"lomeya_hammer",false),"Hammer wave has no cooldown");
+  t.assertTrue(org.slavicmyths.combat.IndependentWeaponCooldowns.ready(p,"lomeya_hammer",true),"Wave incorrectly blocks fracture");
   float after=cow.getHealth();
   handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.RIGHT_CLICK);
   t.assertTrue(cow.getHealth()==after,"Skill bypassed its cooldown");
-  p.getCooldowns().removeCooldown(main.getItem());
   cow.invulnerableTime=0;
   p.setShiftKeyDown(true);
   handler.onWeaponAction(p,main,org.slavicmyths.combat.WeaponInputHandler.Action.SHIFT_RIGHT_CLICK);
   t.assertTrue(Math.abs(cow.getHealth()-(after-36))<.1,"Dual hammer fracture is not 36 damage: "+cow.getHealth());
+  t.assertTrue(!org.slavicmyths.combat.IndependentWeaponCooldowns.ready(p,"lomeya_hammer",true),"Fracture has no cooldown");
+  t.assertTrue(!p.getCooldowns().isOnCooldown(main.getItem()),"Item-wide cooldown blocks independent skills");
   t.assertTrue(org.slavicmyths.item.StormStaffItem.pulseDamage(false,false)==11&&org.slavicmyths.item.StormStaffItem.cooldownTicks(false)==32,"Storm staff balance mismatch");
   cow.discard();p.discard();t.succeed();
  } @GameTest(template="empty",timeoutTicks=40)

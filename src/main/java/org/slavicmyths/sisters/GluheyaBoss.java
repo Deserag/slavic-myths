@@ -19,6 +19,7 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -122,16 +123,26 @@ public final class GluheyaBoss extends Monster {
         int level=previous==null?0:1;
         p.addEffect(new MobEffectInstance(MobEffects.CONFUSION,level==0?160:200,level));
     }
+    private void faceAttack(Vec3 target){
+        Vec3 delta=target.subtract(position());
+        if(delta.horizontalDistanceSqr()<.001)return;
+        float desired=(float)Math.toDegrees(Math.atan2(-delta.x,delta.z));
+        float yaw=getYRot()+Mth.clamp(Mth.wrapDegrees(desired-getYRot()),-20F,20F);
+        setYRot(yaw);
+        setYBodyRot(yaw);
+        setYHeadRot(yaw);
+    }
     private void start(int action,LivingEntity p){
         entityData.set(ACTION,action);entityData.set(FRAME,0);
         getNavigation().stop();
-        if(p!=null)lockedAim=p.position();
+        if(p!=null){lockedAim=p.position();faceAttack(lockedAim);}
         if(action==HUNT){entityData.set(ORBIT,7);lodged.clear();activeShots.clear();}
         if(action==BELL_STORM)stormCenter=lockedAim;
         if(action==COMBO)comboHits=0;
         playSound(SoundEvents.AMETHYST_BLOCK_CHIME,1.0F,.65F);
     }
     private void finish(){
+        setInvisible(false);
         entityData.set(ACTION,IDLE);entityData.set(FRAME,0);entityData.set(ORBIT,0);
         cooldown=secondPhase()?20+random.nextInt(16):85+random.nextInt(40);
         pulledPlayer=null;
@@ -271,13 +282,13 @@ public final class GluheyaBoss extends Monster {
                 if(speed!=null)speed.setBaseValue(.37);}
                 if(f==30)playSound(SoundEvents.WITHER_SPAWN,1.4F,1.2F);}
             case COMBO->{if(f==16||f==26||f==38){
-                if(p!=null&&distanceToSqr(p)<16&&damage(p,f==38?9:5))comboHits++;
+                if(p!=null&&distanceToSqr(p)<16&&hasLineOfSight(p)&&damage(p,f==38?9:5))comboHits++;
                 if(f==38&&comboHits==3&&p!=null){p.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,120,0));
                     p.addEffect(new MobEffectInstance(MobEffects.DARKNESS,120,0));}
             }}
             case DAGGER_THROW->{if(f==16||f==25)launchBlade(world,p);}
             case BACKSTAB->{if(f==16)teleportNear(world,p,true);
-                if(f==31&&p!=null&&distanceToSqr(p)<21)damage(p,14);}
+                if(f==31&&p!=null&&distanceToSqr(p)<21&&hasLineOfSight(p))damage(p,14);}
             case HUNT->{if(f>=20&&(f-20)%30==0&&f<=200&&p!=null){
                     launchBlade(world,p);entityData.set(ORBIT,Math.max(0,7-(f-20)/30-1));}}
             case PULL->{if(f==22&&pulledPlayer!=null){
@@ -336,11 +347,15 @@ public final class GluheyaBoss extends Monster {
             setInvisible(false);start(SHIFT,p);return;
         }
         if(action()!=IDLE){
-            if(p!=null)getLookControl().setLookAt(p,30,30);
+            if(p!=null){
+                boolean fixed=action()==FAST_WAVE||action()==LONG_BELL||action()==BELL_STORM;
+                faceAttack(fixed?lockedAim:p.position());
+                if(!fixed)getLookControl().setLookAt(p,30,30);
+            }
             actionStep(world,p);return;
         }
         if(p==null)return;
-        if(getNavigation().isDone())getLookControl().setLookAt(p,30,30);
+        if(getNavigation().isDone()){faceAttack(p.position());getLookControl().setLookAt(p,30,30);}
         if(teleportCooldown<=0){
             teleportNear(world,p,secondPhase());
             teleportCooldown=secondPhase()?80+random.nextInt(40):200+random.nextInt(80);
@@ -358,7 +373,9 @@ public final class GluheyaBoss extends Monster {
             start(switch(choice){case 0->FAST_WAVE;case 1->LONG_BELL;
                 case 2->SILENCE_RING;case 3->BELL_STORM;default->FAST_WAVE;},p);
         }else if(huntCooldown<=0){start(HUNT,p);huntCooldown=800;}
-        else{start(switch(sequence++%4){case 0->COMBO;case 1->DAGGER_THROW;
+        else if(distance>16D||!hasLineOfSight(p)){
+            start(sequence++%2==0?BACKSTAB:DAGGER_THROW,p);
+        }else{start(switch(sequence++%4){case 0->COMBO;case 1->DAGGER_THROW;
             case 2->BACKSTAB;default->COMBO;},p);}
     }
     @Override public void addAdditionalSaveData(CompoundTag tag){

@@ -58,7 +58,7 @@ public final class AukaBossModel extends EntityModel<AukaBoss> {
         for(ModelPart l:new ModelPart[]{leg1L,leg1R}){
             cube(l,3,-4,0,-5,8,12,10);cube(l,7,-5,11,-7,10,5,13);
         }
-        bearStaff(staff1);
+        bearStaff(staff1,15F);
         // Second form: tall, lowered shoulders, long independent forearms and legs.
         cube(second,7,-6,-35,-4,12,23,11);
         cube(second,6,-8,-40,-6,16,13,14);
@@ -92,17 +92,17 @@ public final class AukaBossModel extends EntityModel<AukaBoss> {
             cube(l,6,-4,10,-5,8,7,10);
             cube(l,7,-5,15,-7,10,3,13);
         }
-        bearStaff(staff2);
+        bearStaff(staff2,6F);
     }
-    private void bearStaff(ModelPart p){
-        cube(p,6,-2,-31,-2,4,57,4);
+    private void bearStaff(ModelPart p,float bottom){
+        cube(p,6,-2,-31,-2,4,31+bottom,4);
         cube(p,8,-3,-18,-3,6,5,6);
         cube(p,7,-6,-32,-5,12,9,9);
         for(int i=0;i<4;i++){
             cube(p,9,-6+i*3,-41,-5,3,11,4);
             cube(p,9,-6+i*3,-44,-7,3,5,4);
         }
-        cube(p,15,-3,12,-3,6,4,6);
+        cube(p,15,-3,bottom-4,-3,6,4,6);
     }
     @Override public void setupAnim(AukaBoss e,float walk,float amount,float age,float yaw,float pitch){
         first.visible=e.form()==AukaBoss.Form.HUT_SPIRIT;
