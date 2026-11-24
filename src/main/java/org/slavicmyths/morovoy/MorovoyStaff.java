@@ -36,17 +36,6 @@ public final class MorovoyStaff {
     public static final DeferredHolder<Item,Item> STAFF = ModItems.ITEMS.register("morovoy_staff", Staff::new);
     public static final DeferredHolder<Item,Item> CONDUCTOR = ModItems.ITEMS.register("morovoy_conductor", () -> new Item(new Item.Properties().rarity(Rarity.RARE)) {
         @Override public Component getName(ItemStack stack) {return Component.translatableWithFallback("item.slavicmyths.morovoy_conductor", "Моровый проводник");}
-        @Override public void inventoryTick(ItemStack stack,Level level,net.minecraft.world.entity.Entity entity,int slot,boolean selected){
-            super.inventoryTick(stack,level,entity,slot,selected);
-            if(!selected||!(entity instanceof ServerPlayer player))return;
-            var tag=stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
-            boolean changed=false;
-            for(String skill:new String[]{"bolt","flock","area"}){
-                String key="MorStaff25_"+skill;long until=player.getPersistentData().getLong(key);
-                if(tag.getLong(key)!=until){tag.putLong(key,until);changed=true;}
-            }
-            if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));
-        }
     });
     public static void init(){}
 
@@ -60,6 +49,17 @@ public final class MorovoyStaff {
     public static final class Staff extends Item implements WeaponInputHandler {
         public Staff() {super(new Item.Properties().durability(1500).fireResistant().rarity(Rarity.EPIC).attributes(weaponAttributes()));}
         @Override public Component getName(ItemStack stack){return Component.literal("Посох Мора");}
+        @Override public void inventoryTick(ItemStack stack,Level level,net.minecraft.world.entity.Entity entity,int slot,boolean selected){
+            super.inventoryTick(stack,level,entity,slot,selected);
+            if(!selected||!(entity instanceof ServerPlayer player)||player.getMainHandItem()!=stack)return;
+            var tag=stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
+            boolean changed=false;
+            for(String skill:new String[]{"bolt","flock","area"}){
+                String key="MorStaff25_"+skill;long until=player.getPersistentData().getLong(key);
+                if(tag.getLong(key)!=until){tag.putLong(key,until);changed=true;}
+            }
+            if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));
+        }
         // Explicitly take ownership of all four inputs; never fall back to
         // vanilla attack, block interaction or item use.
         @Override public boolean intercepts(WeaponInputHandler.Action action) { return true; }
