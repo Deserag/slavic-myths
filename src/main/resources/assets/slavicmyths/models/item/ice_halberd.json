@@ -1,75 +1,124 @@
 {
-  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:obj",
+  "model": "slavicmyths:models/item/winter_mesh/ice_halberd.obj",
+  "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
   "textures": {
-    "layer0": "slavicmyths:item/winter_weapons/ice_halberd"
+    "palette": "slavicmyths:item/winter_weapons/faceted_palette",
+    "particle": "slavicmyths:item/winter_weapons/faceted_palette"
   },
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": false,
+  "emissive_ambient": false,
+  "gui_light": "front",
   "display": {
-    "thirdperson_righthand": {
+    "gui": {
       "rotation": [
         0,
-        -90,
-        55
+        0,
+        -38
+      ],
+      "translation": [
+        -1.5583797311942211,
+        -1.994635096721343,
+        -0.6274152180108291
+      ],
+      "scale": [
+        0.3921345112567683,
+        0.3921345112567683,
+        0.3921345112567683
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        90,
+        180,
+        0
       ],
       "translation": [
         0,
-        4,
-        0.5
+        0,
+        0
       ],
       "scale": [
-        1.12,
-        1.12,
-        1.12
+        1,
+        1,
+        1
       ]
     },
     "thirdperson_lefthand": {
       "rotation": [
-        0,
         90,
-        -55
+        180,
+        0
       ],
       "translation": [
         0,
-        4,
-        0.5
+        0,
+        0
       ],
       "scale": [
-        1.12,
-        1.12,
-        1.12
+        1,
+        1,
+        1
       ]
     },
     "firstperson_righthand": {
       "rotation": [
         0,
-        -90,
-        25
+        180,
+        -10
       ],
       "translation": [
-        1.13,
-        3.2,
-        1.13
+        0,
+        0,
+        0
       ],
       "scale": [
-        0.9520000000000001,
-        0.9520000000000001,
-        0.9520000000000001
+        1,
+        1,
+        1
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
         0,
-        90,
-        -25
+        180,
+        -10
       ],
       "translation": [
-        1.13,
-        3.2,
-        1.13
+        0,
+        0,
+        0
       ],
       "scale": [
-        0.9520000000000001,
-        0.9520000000000001,
-        0.9520000000000001
+        1,
+        1,
+        1
       ]
     }
   }
