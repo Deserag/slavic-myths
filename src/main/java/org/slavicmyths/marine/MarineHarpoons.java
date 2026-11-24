@@ -15,6 +15,7 @@ import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slavicmyths.registry.ModItems;
 import org.slavicmyths.rpg.Abilities;
+import org.slavicmyths.combat.IndependentWeaponCooldowns;
 @EventBusSubscriber(modid="slavicmyths")
 public final class MarineHarpoons {
  public static final String HITS="MarineHarpoonHits",LAST="MarineHarpoonLast",TETHER="MarineHarpoonTether";
@@ -33,16 +34,22 @@ public final class MarineHarpoons {
      return InteractionResultHolder.fail(player.getItemInHand(hand));
     }
    }
+   if(player instanceof ServerPlayer server){
+    if(!IndependentWeaponCooldowns.ready(server,IndependentWeaponCooldowns.HARPOON,player.isShiftKeyDown()))return InteractionResultHolder.fail(player.getItemInHand(hand));
+    server.getPersistentData().putBoolean("MarineHarpoonCastTether",player.isShiftKeyDown());
+   }
    player.startUsingItem(hand);return InteractionResultHolder.consume(player.getItemInHand(hand));}
   @Override public void releaseUsing(ItemStack stack,Level world,LivingEntity user,int remaining){
-   if(!(user instanceof ServerPlayer player)||getUseDuration(stack,user)-remaining<10||player.getCooldowns().isOnCooldown(this))return;
+   if(!(user instanceof ServerPlayer player)||getUseDuration(stack,user)-remaining<10)return;
+   var data=player.getPersistentData();boolean alternate=data.getBoolean("MarineHarpoonCastTether");data.remove("MarineHarpoonCastTether");
+   if(!IndependentWeaponCooldowns.ready(player,IndependentWeaponCooldowns.HARPOON,alternate))return;
+   if(alternate&&(data.getInt(HITS)<4||!data.hasUUID(LAST)||player.serverLevel().getGameTime()<data.getLong("MarineHarpoonReady")))return;
    var shot=new ThrownTrident(world,player,stack.copyWithCount(1));shot.pickup=AbstractArrow.Pickup.DISALLOWED;
-   var data=player.getPersistentData();
-   if(player.isShiftKeyDown()&&data.getInt(HITS)>=4&&data.hasUUID(LAST)&&player.serverLevel().getGameTime()>=data.getLong("MarineHarpoonReady")){
+   if(alternate){
     shot.getPersistentData().putUUID(TETHER,data.getUUID(LAST));
    }
    shot.shootFromRotation(player,player.getXRot(),player.getYRot(),0,2.6F,1);
-   if(world.addFreshEntity(shot)){if(!player.isCreative())stack.shrink(1);player.getCooldowns().addCooldown(this,12);}
+   if(world.addFreshEntity(shot)){IndependentWeaponCooldowns.start(player,stack,IndependentWeaponCooldowns.HARPOON,alternate,12);if(!player.isCreative())stack.shrink(1);}
   }
  }
  @SubscribeEvent public static void impact(ProjectileImpactEvent event){

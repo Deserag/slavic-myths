@@ -42,7 +42,7 @@ public final class WeaponInputNetwork {
                             && !handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.ENTITY)) return;
                     // Bound packet rate on the server as well as per-skill cooldowns.
                     // This is input throttling, not a change to any weapon's cooldown.
-                    if (!org.slavicmyths.rpg.PathData.ready(player, "weapon_input_request", 2)) return;
+                    if (!org.slavicmyths.rpg.PathData.ready(player, "weapon_input_request_"+action.id(), 2)) return;
                     handler.onWeaponAction(player, held, action);
                 }));
     }

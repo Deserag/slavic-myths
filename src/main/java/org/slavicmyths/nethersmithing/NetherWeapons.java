@@ -29,10 +29,16 @@ public final class NetherWeapons {
   public ShadowKnife(){super(TIER,true,props("shadow_throwing_knife"));}
   private boolean special(Player p){return p.getPersistentData().getBoolean("NetherKnifeSkill");}
   @Override public InteractionResultHolder<ItemStack> use(Level w,Player p,InteractionHand hand){if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(p.getItemInHand(hand));if(p instanceof ServerPlayer server){if(p.isShiftKeyDown()&&!NetherSkills.ready(server,p.getItemInHand(hand),"shadow_throwing_knife")){NetherSkills.waitMessage(server,p.getItemInHand(hand),"shadow_throwing_knife");return InteractionResultHolder.fail(p.getItemInHand(hand));}p.getPersistentData().putBoolean("NetherKnifeSkill",p.isShiftKeyDown());}return super.use(w,p,hand);}
+  @Override protected boolean throwCoolingDown(Player p,ItemStack s){
+   boolean alternate=p instanceof ServerPlayer?special(p):p.isShiftKeyDown();
+   if(p instanceof ServerPlayer server)return !IndependentWeaponCooldowns.ready(server,IndependentWeaponCooldowns.SHADOW_KNIFE,alternate);
+   return IndependentWeaponCooldowns.remaining(s.getOrDefault(DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag(),IndependentWeaponCooldowns.SHADOW_KNIFE,alternate,p.level().getGameTime())>0;
+  }
+  @Override protected void markThrowCooldown(Player p,ItemStack s){if(p instanceof ServerPlayer server)IndependentWeaponCooldowns.start(server,s,IndependentWeaponCooldowns.SHADOW_KNIFE,special(p),8);p.getPersistentData().remove("NetherKnifeSkill");}
   @Override protected int throwingWear(Player p,ItemStack s){return special(p)?3:1;}
   @Override protected void prepareThrownStack(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.stackReady(s,"shadow_throwing_knife",NetherSkills.now(player)+240);}
   @Override protected void configureProjectile(WeaponProjectile projectile,Player p,ItemStack s){projectile.netherSkill(special(p));}
-  @Override protected void afterThrow(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.consume(player,s,"shadow_throwing_knife");p.getPersistentData().remove("NetherKnifeSkill");}
+  @Override protected void afterThrow(Player p,ItemStack s){if(special(p)&&p instanceof ServerPlayer player)NetherSkills.consume(player,s,"shadow_throwing_knife");}
   @Override public boolean hurtEnemy(ItemStack s,LivingEntity t,LivingEntity user){if(user instanceof ServerPlayer p&&NetherSkills.legal(p,t))NetherSkills.knifeHit(p,t,false);return super.hurtEnemy(s,t,user);}
   @Override public float thrownDamage(){return 11;}@Override public float projectileDamage(WeaponProjectile p){return p.netherSkill()?14:11;}
   @Override public void projectileHit(WeaponProjectile projectile,LivingEntity target,LivingEntity owner,boolean success){if(success&&owner instanceof ServerPlayer p&&NetherSkills.legal(p,target))NetherSkills.knifeHit(p,target,projectile.netherSkill());}

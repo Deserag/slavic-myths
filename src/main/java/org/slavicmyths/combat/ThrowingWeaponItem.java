@@ -33,14 +33,14 @@ public class ThrowingWeaponItem extends TieredItem {
     @Override public UseAnim getUseAnimation(ItemStack stack){return UseAnim.SPEAR;}
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand) {
         ItemStack stack=player.getItemInHand(hand);
-        if(player.getCooldowns().isOnCooldown(this)||stack.getDamageValue()>=stack.getMaxDamage()-1)return InteractionResultHolder.fail(stack);
+        if(throwCoolingDown(player,stack)||stack.getDamageValue()>=stack.getMaxDamage()-1)return InteractionResultHolder.fail(stack);
         if(knife){if(level.isClientSide)player.swing(hand);throwOne(level,player,hand,stack,1.65F);}else player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
     }
     @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining) {
         if(knife||!(user instanceof Player player))return;
         int held=getUseDuration(stack,user)-remaining;
-        if(held<6||player.getCooldowns().isOnCooldown(this)||stack.getDamageValue()>=stack.getMaxDamage()-1)return;
+        if(held<6||throwCoolingDown(player,stack)||stack.getDamageValue()>=stack.getMaxDamage()-1)return;
         if(level.isClientSide)player.swing(player.getUsedItemHand());
         throwOne(level,player,player.getUsedItemHand(),stack,1.3F+Math.min(held,20)/20F*1.2F);
     }
@@ -57,10 +57,12 @@ public class ThrowingWeaponItem extends TieredItem {
         if(!level.addFreshEntity(projectile))return;
         afterThrow(player,carried);
         if(!creative)stack.shrink(1);
-        player.getCooldowns().addCooldown(this,knife?8:16);
+        markThrowCooldown(player,stack);
         player.awardStat(Stats.ITEM_USED.get(this));
         level.playSound(null,player.blockPosition(),knife?SoundEvents.SNOWBALL_THROW:SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,knife?.3F:.45F,knife?1.7F:1F);
     }
+    protected boolean throwCoolingDown(Player player,ItemStack stack){return player.getCooldowns().isOnCooldown(this);}
+    protected void markThrowCooldown(Player player,ItemStack stack){player.getCooldowns().addCooldown(this,knife?8:16);}
     protected int throwingWear(Player player,ItemStack stack){return 1;}
     protected void prepareThrownStack(Player player,ItemStack stack){}
     protected void configureProjectile(WeaponProjectile projectile,Player player,ItemStack stack){}

@@ -91,7 +91,7 @@ public final class MarineWeaponAbilities {
   }
   var held=p.getMainHandItem();if(MarineWeaponRules.weapon(held)){
    var tag=held.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
-   for(String key:new String[]{"slam","anchor","wave","vortex","bubble","staffShot"})tag.putLong(PREFIX+key,data.getLong(PREFIX+key));
+   for(String key:new String[]{"slam","anchor","wave","vortex","bubble","staffShot","perfectBlock"})tag.putLong(PREFIX+key,data.getLong(PREFIX+key));
    tag.putInt("MarineHarpoonHits",data.getInt("MarineHarpoonHits"));tag.putLong("MarineHarpoonReady",data.getLong("MarineHarpoonReady"));
    held.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(tag));
   }

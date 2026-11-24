@@ -106,9 +106,15 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("abyss_staff_bubble","S+L",tag.getLong("MarineWeapon_bubble")-now));
                 skills.add(new Skill("abyss_staff_vortex","S+R",tag.getLong("MarineWeapon_vortex")-now));
             }
-            case "storm_anchor" -> skills.add(new Skill("storm_anchor_slam","S+R",tag.getLong("MarineWeapon_slam")-now));
+            case "storm_anchor" -> {
+                skills.add(new Skill("chain","R",tag.getLong("MarineWeapon_anchor")-now));
+                skills.add(new Skill("storm_anchor_slam","S+R",tag.getLong("MarineWeapon_slam")-now));
+            }
             case "pharaohka_trident" -> skills.add(new Skill("pharaohka_trident_wave","S+R",tag.getLong("MarineWeapon_wave")-now));
-            case "storm_harpoon" -> skills.add(new Skill("storm_harpoon_tether","S+R",tag.getLong("MarineHarpoonReady")-now));
+            case "storm_harpoon" -> {
+                skills.add(new Skill("shot","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"storm_harpoon",false,now)));
+                skills.add(new Skill("storm_harpoon_tether","S+R",Math.max(tag.getLong("MarineHarpoonReady")-now,org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"storm_harpoon",true,now))));
+            }
             case "morozko_staff" -> {
                 skills.add(new Skill("morozko_staff_bolt","L",FrostClient.skillRemaining("BoltReady")));
                 skills.add(new Skill("morozko_staff_stream","R",FrostClient.skillRemaining("StreamReady")));
@@ -149,17 +155,21 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("nine_mor_axe_execution","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.AXE,true,now)));
             }
             case "ashen_greatsword" ->
-                skills.add(new Skill("ashen_greatsword_blow", "S+R", tag.getLong("slavicmyths_skill_ashen_greatsword")-now));
-            case "volcanic_heart_flail" ->
-                skills.add(new Skill("volcanic_heart_strike", "S+R", tag.getLong("slavicmyths_skill_volcanic_heart_flail")-now));
+                skills.add(new Skill("ashen_greatsword_blow", "S+R", Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_ashen_greatsword"))-now));
+            case "volcanic_heart_flail" -> {
+                skills.add(new Skill("shot","R",VANILLA));
+                skills.add(new Skill("volcanic_heart_strike", "S+R", Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_volcanic_heart_flail"))-now));
+            }
             case "navya_ostroga" ->
-                skills.add(new Skill("navya_ostroga_lunge", "R",VANILLA));
-            case "shadow_throwing_knife" ->
-                skills.add(new Skill("shadow_throwing_knife_curse", "S+R",VANILLA));
+                skills.add(new Skill("navya_ostroga_lunge", "R",Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_navya_ostroga"))-now));
+            case "shadow_throwing_knife" -> {
+                skills.add(new Skill("shot","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"shadow_throwing_knife",false,now)));
+                skills.add(new Skill("shadow_throwing_knife_curse", "S+R",Math.max(Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_shadow_throwing_knife"))-now,org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"shadow_throwing_knife",true,now))));
+            }
             case "infernal_bow" ->
-                skills.add(new Skill("infernal_bow_flame_arrow", "S+R",VANILLA));
+                skills.add(new Skill("infernal_bow_flame_arrow", "S+R",Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_infernal_bow"))-now));
             case "empowered_infernal_bow" ->
-                skills.add(new Skill("empowered_infernal_bow_chainfire", "S+R",VANILLA));
+                skills.add(new Skill("empowered_infernal_bow_chainfire", "S+R",Math.max(tag.getLong("NetherHudReady"),tag.getLong("slavicmyths_skill_empowered_infernal_bow"))-now));
             case "storm_staff" ->
                 skills.add(new Skill("storm_staff_thunder_pulse", "R",VANILLA));
             case "veles_staff" ->
@@ -181,10 +191,11 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("mytar_shackled_sickle_chain_break", "S+R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.MYTAR,true,now)));
             }
             case "nine_mor_shield" ->
-                skills.add(new Skill("nine_mor_shield_soul_dome", "S+R",VANILLA));
+                skills.add(new Skill("nine_mor_shield_soul_dome", "S+R",tag.getLong("SlavicNineMorDomeReady")-now));
             case "three_breath_crossbow" -> {
-                skills.add(new Skill("three_breath_crossbow_triple_volley", "R",VANILLA));
+                skills.add(new Skill("three_breath_crossbow_triple_volley", "R",0));
                 skills.add(new Skill("three_breath_crossbow_mode_switch", "S+R", 0));
+                skills.add(new Skill("mode","S+L",0));
             }
             case "serpent_crossbow" ->
                 skills.add(new Skill("serpent_crossbow_serpent_bolt", "R",VANILLA));
@@ -199,7 +210,7 @@ public final class WeaponSkillHud {
             case "thunder_spear" ->
                 skills.add(new Skill("thunder_spear_passive_discharge", "",VANILLA));
             case "zhelva_shield" ->
-                skills.add(new Skill("zhelva_shield_perfect_guard", "R",VANILLA));
+                skills.add(new Skill("zhelva_shield_perfect_guard", "R",tag.getLong("MarineWeapon_perfectBlock")-now));
             default -> {
                 if(!WeaponTooltips.isWeapon(id.getPath()))return;
                 boolean chargedWeapon=stack.getItem() instanceof org.slavicmyths.combat.FlailItem

@@ -1,11 +1,19 @@
 package org.slavicmyths.nethersmithing;
 import java.util.*;import net.minecraft.nbt.*;import net.minecraft.core.component.DataComponents;import net.minecraft.world.item.*;import net.minecraft.world.item.component.CustomData;import net.minecraft.server.level.ServerPlayer;import net.minecraft.world.entity.*;import net.minecraft.world.phys.*;import net.minecraft.world.level.ClipContext;import net.minecraft.world.effect.*;
 /** Bounded skills through existing player damage/weapon/projectile pipelines. */
+@net.neoforged.fml.common.EventBusSubscriber(modid="slavicmyths")
 public final class NetherSkills {
  public static long now(ServerPlayer p){return p.getServer().overworld().getGameTime();}
  private static CompoundTag data(ServerPlayer p){var root=org.slavicmyths.rpg.PathData.data(p);if(!root.contains("NetherSkills",10))root.put("NetherSkills",new CompoundTag());return root.getCompound("NetherSkills");}
  public static long readyAt(ServerPlayer p,ItemStack s,String id){return Math.max(data(p).getLong(id),s.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getLong("slavicmyths_skill_"+id));}
  public static boolean ready(ServerPlayer p,ItemStack s,String id){return p.isAlive()&&!p.isSpectator()&&now(p)>=readyAt(p,s,id);}
+ @net.neoforged.bus.api.SubscribeEvent public static void syncHud(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event){
+  if(!(event.getEntity() instanceof ServerPlayer p))return;
+  ItemStack s=p.getMainHandItem();if(!NetherWeapons.owns(s))return;
+  String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getPath();
+  long deadline=readyAt(p,s,id);String key="NetherHudReady";
+  if(s.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getLong(key)!=deadline)CustomData.update(DataComponents.CUSTOM_DATA,s,t->t.putLong(key,deadline));
+ }
  public static void stackReady(ItemStack s,String id,long at){CustomData.update(DataComponents.CUSTOM_DATA,s,t->t.putLong("slavicmyths_skill_"+id,at));}
  public static void consume(ServerPlayer p,ItemStack s,String id){long until=now(p)+NetherWeaponRules.cooldown(id);data(p).putLong(id,until);stackReady(s,id,until);p.displayClientMessage(net.minecraft.network.chat.Component.translatable("netherweapons.skill_used",s.getHoverName(),NetherWeaponRules.cooldown(id)/20),true);}
  public static void waitMessage(ServerPlayer p,ItemStack s,String id){p.displayClientMessage(net.minecraft.network.chat.Component.translatable("netherweapons.cooldown",Math.max(0,(readyAt(p,s,id)-now(p)+19)/20)),true);}

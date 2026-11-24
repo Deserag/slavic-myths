@@ -29,6 +29,13 @@ public final class NineMorRewardAbilities {
  private static final String LAST="SlavicNineMorLastVictim";
  private static final String BARRIER="SlavicNineMorBarrierReady";
  private static final String DOME="SlavicNineMorDomeReady";
+ @SubscribeEvent public static void syncShieldHud(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event){
+  if(!(event.getEntity() instanceof ServerPlayer p))return;
+  ItemStack stack=p.getMainHandItem();if(!stack.is(NineMorContent.SHIELD.get()))return;
+  long deadline=p.getPersistentData().getLong(DOME);
+  if(stack.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getLong(DOME)!=deadline)
+   net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,stack,n->n.putLong(DOME,deadline));
+ }
  private static final String NINTH_LIFE="SlavicNineMorNinthLifeReady";
  private static final DustParticleOptions MOR=new DustParticleOptions(new Vector3f(.44F,.13F,.72F),1.25F);
 
@@ -121,6 +128,7 @@ public final class NineMorRewardAbilities {
   long now=server.serverLevel().getGameTime();
   if(now<server.getPersistentData().getLong(DOME))return InteractionResultHolder.fail(stack);
   server.getPersistentData().putLong(DOME,now+300L);
+  net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,stack,n->n.putLong(DOME,now+300L));
   for(LivingEntity ally:server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(5D),e->e==server||e instanceof Player p&&server.isAlliedTo(p))){
    ally.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,120,1));
    ally.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,120,1));
