@@ -25,7 +25,7 @@ public final class ShipCaptainAxe extends Projectile {
     @Override public void tick(){
         super.tick();
         if(!(level() instanceof ServerLevel w))return;
-        if(!(w.getEntity(captain) instanceof ShipCaptain owner)||!owner.isAlive()||(!volley&&!owner.ownsAxe(slot,getUUID()))||++age>90){discard();return;}
+        if(captain==null||!(w.getEntity(captain) instanceof ShipCaptain owner)||!owner.isAlive()||(!volley&&!owner.ownsAxe(slot,getUUID()))||++age>90){discard();return;}
         Vec3 from=position(),velocity=getDeltaMovement();
         if(!volley&&(age>=22||returning())){
             if(!returning()){entityData.set(RETURNING,true);struck.clear();}
@@ -42,8 +42,8 @@ public final class ShipCaptainAxe extends Projectile {
             var contact=p.getBoundingBox().inflate(.25).clip(from,to);
             if(contact.isPresent()){double d=from.distanceToSqr(contact.get());if(d<limit){limit=d;closest=p;}}
         }
-        if(closest!=null){struck.add(closest.getUUID());owner.projectileHit(closest,volley);if(volley){discard();return;}if(!returning()){entityData.set(RETURNING,true);struck.clear();struck.add(closest.getUUID());return;}}
-        if(wall.getType()!=HitResult.Type.MISS){if(volley||returning()){discard();return;}entityData.set(RETURNING,true);return;}
+        if(closest!=null){struck.add(closest.getUUID());owner.projectileHit(this,closest,volley);if(volley){discard();return;}if(!returning()){entityData.set(RETURNING,true);struck.clear();struck.add(closest.getUUID());return;}}
+        if(wall.getType()!=HitResult.Type.MISS){if(volley||returning()){if(!volley)owner.returnAxe(slot,getUUID());discard();return;}entityData.set(RETURNING,true);return;}
         setDeltaMovement(velocity);setPos(to);
         w.sendParticles(ParticleTypes.SNOWFLAKE,getX(),getY(),getZ(),2,.08,.08,.08,0);
     }
