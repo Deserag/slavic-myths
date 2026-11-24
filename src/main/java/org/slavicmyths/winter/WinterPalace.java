@@ -41,6 +41,8 @@ public final class WinterPalace {
     private static final BlockPos QUEEN=new BlockPos(0,25,37);
     private static final Map<ServerLevel,Job> JOBS=new IdentityHashMap<>();
     private static final Map<ServerLevel,Set<Long>> REJECTED=new WeakHashMap<>();
+    private static final Map<ServerLevel,Integer> LOOKAHEAD=new WeakHashMap<>();
+    private static final int AHEAD_DISTANCE=2048, MIN_APPROACH=320, AHEAD_CELLS=9, AHEAD_SAMPLES=81;
     private static final Set<ServerLevel> FAILED_PENDING=Collections.newSetFromMap(new WeakHashMap<>());
     private record Loot(BlockPos pos,String kind){}
     private record Stand(BlockPos pos,float yaw){}
@@ -102,6 +104,11 @@ public final class WinterPalace {
         static BlockState at(int x,int y,int z){return PALETTE[raw(x,y,z)];}
         static BlockState block(int x,int y,int z){
             var state=at(x,y,z);
+            // Recessed lighting on the approved floor plane; no change to the footprint,
+            // stairs, carpets, chests, bed supports or other furnishings.
+            if((y==4||y==14||y==24)&&Math.floorMod(x,5)==0&&Math.floorMod(z,5)==0
+                &&(state.is(Blocks.QUARTZ_BLOCK)||state.is(Blocks.BLUE_TERRACOTTA)||state.is(Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA))
+                &&at(x,y+1,z).isAir()&&at(x,y+2,z).isAir())return Blocks.SEA_LANTERN.defaultBlockState();
             if(state.is(Blocks.QUARTZ_STAIRS))state=state.setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
             if(state.is(Blocks.DARK_OAK_FENCE)){
                 for(var dir:Direction.Plane.HORIZONTAL){
@@ -135,14 +142,46 @@ public final class WinterPalace {
         return false;
     }
     static boolean active(ServerLevel w){return JOBS.containsKey(w);}
+    private static boolean rejected(ServerLevel w,BlockPos p){
+        return REJECTED.computeIfAbsent(w,k->new HashSet<>()).contains(new BlockPos(p.getX(),0,p.getZ()).asLong());
+    }
+    private static boolean queueAhead(ServerLevel w,WinterEncounterSpawns.Sites sites){
+        if(!(w.getChunkSource().getGenerator() instanceof net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator)
+            ||w.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream().noneMatch(b->b.is(FOREST)))return false;
+        var generator=w.getChunkSource().getGenerator();var sampler=w.getChunkSource().randomState().sampler();
+        boolean test=WinterWorld.isTest(w);
+        boolean gluheya=BuiltInRegistries.ENTITY_TYPE.getOptional(ResourceLocation.fromNamespaceAndPath("slavicmyths","gluheya")).isPresent();
+        int total=AHEAD_CELLS*AHEAD_CELLS*AHEAD_SAMPLES,cursor=LOOKAHEAD.getOrDefault(w,0);
+        long deadline=System.nanoTime()+2_000_000L;
+        for(int attempt=0;attempt<128&&System.nanoTime()<deadline;attempt++){
+            int index=cursor;cursor=(cursor+1)%total;
+            int ci=index%(AHEAD_CELLS*AHEAD_CELLS),sample=index/(AHEAD_CELLS*AHEAD_CELLS);
+            int dx=ci%AHEAD_CELLS-AHEAD_CELLS/2,dz=ci/AHEAD_CELLS-AHEAD_CELLS/2;
+            int ox=sample==0?0:((sample-1)%9-4)*16,oz=sample==0?0:((sample-1)/9-4)*16;
+            for(var player:w.players()){
+                if(player.isSpectator())continue;
+                int cx=cell(player.getBlockX())+dx,cz=cell(player.getBlockZ())+dz;
+                if(sites.occupied.contains(key(cx,cz))||select(Habitat.FOREST,cx,cz,test,gluheya,w.getSeed())!=Boss.QUEEN)continue;
+                var c=new BlockPos(center(cx)+ox,w.getSeaLevel(),center(cz)+oz);
+                double dist=Math.max(Math.abs(player.getX()-c.getX()),Math.abs(player.getZ()-c.getZ()));
+                if(dist<MIN_APPROACH||dist>AHEAD_DISTANCE)continue;
+                boolean near=false;
+                for(var other:w.players())if(!other.isSpectator()&&Math.max(Math.abs(other.getX()-c.getX()),Math.abs(other.getZ()-c.getZ()))<MIN_APPROACH){near=true;break;}
+                if(near)continue;
+                if(!generator.getBiomeSource().getNoiseBiome(c.getX()>>2,c.getY()>>2,c.getZ()>>2,sampler).is(FOREST))continue;
+                if(queueNatural(w,c)){LOOKAHEAD.put(w,cursor);return true;}
+            }
+        }
+        LOOKAHEAD.put(w,cursor);return false;
+    }
     static boolean queueNatural(ServerLevel w,BlockPos center){
         var sites=WinterEncounterSpawns.Sites.get(w);
         int y=Math.clamp(center.getY(),w.getMinBuildHeight()+2,w.getMaxBuildHeight()-H);
         var p=new BlockPos(center.getX(),y,center.getZ()-29);
-        if(active(w)||sites.pendingPalace!=null||sites.occupied.contains(siteKey(p))
-            ||REJECTED.computeIfAbsent(w,k->new HashSet<>()).contains(p.asLong())
+        if(active(w)||FrozenShip.active(w)||sites.pendingShip!=null||sites.pendingPalace!=null||sites.occupied.contains(siteKey(p))
+            ||rejected(w,p)
             ||!border(w,p)||!FrozenShip.clearOfShips(sites,center)||playerInside(w,p))return false;
-        JOBS.put(w,new Job(w,p,true,false,null));return true;
+        JOBS.put(w,new Job(w,p,true,false,null,true));return true;
     }
     public static void register(CommandTree tree){
         tree.add(Commands.literal("locate").requires(s->s.hasPermission(2)).then(Commands.literal("structure")
@@ -191,9 +230,7 @@ public final class WinterPalace {
                     var p=c.offset(0,0,-29);
                     if(!border(w,p)||playerInside(w,p)||!FrozenShip.clearOfShips(sites,c)||
                         !ManualStructureRecords.get(w).overlapping(bounds(w,p)).isEmpty())continue;
-                    if(REJECTED.computeIfAbsent(w,k->new HashSet<>()).stream().anyMatch(v->{
-                        var bad=BlockPos.of(v);return bad.getX()==p.getX()&&bad.getZ()==p.getZ();
-                    }))continue;
+                    if(rejected(w,p))continue;
                     if(!generator.getBiomeSource().getNoiseBiome(c.getX()>>2,c.getY()>>2,c.getZ()>>2,sampler).is(FOREST))continue;
                     JOBS.put(w,new Job(w,p,true,false,s,true));
                     s.sendSuccess(()->Component.literal("Найдена зимняя ячейка: X="+c.getX()+", Z="+c.getZ()+". Дворец будет построен; точные координаты входа появятся после завершения."),false);
@@ -240,6 +277,8 @@ public final class WinterPalace {
             JOBS.put(w,new Job(w,sites.pendingPalace,sites.pendingPalaceNatural,true,null));
         var job=JOBS.get(w);if(job!=null){job.step();return;}
         if(w.getGameTime()%20==0&&w.getDifficulty()!=Difficulty.PEACEFUL)spawnWaiting(w,sites);
+        if(w.getDifficulty()!=Difficulty.PEACEFUL&&!FrozenShip.active(w)&&sites.pendingShip==null&&sites.pendingPalace==null
+            &&w.getGameTime()%5==0)queueAhead(w,sites);
     }
     private static void spawnWaiting(ServerLevel w,WinterEncounterSpawns.Sites sites){
         if(w.getDifficulty()==Difficulty.PEACEFUL)return;
@@ -368,7 +407,7 @@ public final class WinterPalace {
                     else if(--vertical<bottoms[column]){column++;vertical=Integer.MIN_VALUE;}
                 }
             }catch(RuntimeException e){
-                if(e instanceof SiteRejected&&natural&&!resume)REJECTED.computeIfAbsent(w,k->new HashSet<>()).add(origin.asLong());
+                if(e instanceof SiteRejected&&natural&&!resume)REJECTED.computeIfAbsent(w,k->new HashSet<>()).add(new BlockPos(origin.getX(),0,origin.getZ()).asLong());
                 finish(false,e.toString());
             }
         }
@@ -385,7 +424,7 @@ public final class WinterPalace {
         @net.neoforged.bus.api.SubscribeEvent
         public static void unload(net.neoforged.neoforge.event.level.LevelEvent.Unload event){
             if(event.getLevel() instanceof ServerLevel w){
-                var job=JOBS.remove(w);if(job!=null)job.chunks.close();REJECTED.remove(w);FAILED_PENDING.remove(w);
+                var job=JOBS.remove(w);if(job!=null)job.chunks.close();REJECTED.remove(w);FAILED_PENDING.remove(w);LOOKAHEAD.remove(w);
             }
         }
     }
