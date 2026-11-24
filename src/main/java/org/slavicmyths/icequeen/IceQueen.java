@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import org.slavicmyths.combat.*;
 import org.slavicmyths.morozko.*;
+import org.slavicmyths.icequeen.QueenSounds.Cue;
 
 public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
  public static final int IDLE=0,SHOT=1,VOLLEY=2,SUMMON=3,STORM=4,THRUST=5,SWEEP=6,SPIN=7,COMBO=8,GUARD=9,TRANSFORM=10,YIELD=11;
@@ -43,7 +44,7 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public boolean canFreeze(){return false;}
- @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState state){if(!level().isClientSide)FrostContent.sound(this,"step");}
+ @Override protected void playStepSound(net.minecraft.core.BlockPos pos,net.minecraft.world.level.block.state.BlockState state){QueenSounds.play(this,Cue.STEP);}
  @Override public boolean isAlliedTo(Entity e){return e instanceof QueenMinion m&&m.ownedBy(this)||super.isAlliedTo(e);}
  public boolean valid(Player p){return p!=null&&p.isAlive()&&!p.isCreative()&&!p.isSpectator()&&p.level()==level()&&anchor!=null&&p.position().distanceToSqr(anchor)<=QueenRules.ARENA_RADIUS*QueenRules.ARENA_RADIUS;}
  public boolean participant(Player p){return valid(p)&&participants.contains(p.getUUID());}
@@ -56,18 +57,18 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
   if(!QueenRules.ready(now,readyAt)){p.displayClientMessage(Component.translatableWithFallback("message.slavicmyths.ice_queen.cooldown","Новое испытание доступно через %s мин.",Math.max(1,(readyAt-now+59999)/60000)),true);return InteractionResult.CONSUME;}
   if(action()==YIELD)return InteractionResult.CONSUME;
   startTrial(p);
-  p.sendSystemMessage(Component.translatableWithFallback("message.slavicmyths.ice_queen.start","Докажи свою силу. Испытание началось!"));playSound(SoundEvents.AMETHYST_BLOCK_CHIME,2,.55F);return InteractionResult.CONSUME;
+  p.sendSystemMessage(Component.translatableWithFallback("message.slavicmyths.ice_queen.start","Докажи свою силу. Испытание началось!"));QueenSounds.play(this,Cue.TRIAL_START);return InteractionResult.CONSUME;
  }
  void startTrial(Player p){anchor=position();participants.clear();blockedShots.clear();participants.add(p.getUUID());inTrial=true;entityData.set(ACTIVE,true);phase(1);setHealth(getMaxHealth());setTarget(p);long t=level().getGameTime();nextAttack=t+30;nextSummon=t;nextStorm=t+200;nextGuard=t;nextCopy=t;absent=0;}
  long readyAt(){return readyAt;}
  private void begin(int a){entityData.set(ACTION,a);entityData.set(FRAME,0);getNavigation().stop();
   switch(a){
-   case SHOT,VOLLEY -> {playSound(SoundEvents.AMETHYST_BLOCK_CHIME,1.5F,a==VOLLEY?.7F:1.1F);FrostContent.sound(this,"spike_telegraph");}
-   case SUMMON -> {playSound(SoundEvents.EVOKER_PREPARE_SUMMON,1.5F,.7F);FrostContent.sound(this,"clone_spawn");}
-   case STORM -> {playSound(SoundEvents.POWDER_SNOW_BREAK,2,.5F);FrostContent.sound(this,"blizzard_start");}
-   case THRUST,SWEEP,SPIN,COMBO -> playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.4F,.65F);
-   case GUARD,TRANSFORM -> playSound(SoundEvents.GLASS_PLACE,2,.6F);
-   case YIELD -> {playSound(SoundEvents.AMETHYST_BLOCK_CHIME,2,.8F);FrostContent.sound(this,"yield");}
+   case SHOT,VOLLEY,THRUST,SWEEP,SPIN,COMBO -> QueenSounds.play(this,Cue.ATTACK_CHARGE);
+   case SUMMON -> QueenSounds.play(this,Cue.SUMMON);
+   case STORM -> QueenSounds.play(this,Cue.STORM_START);
+   case GUARD -> QueenSounds.play(this,Cue.GUARD);
+   case TRANSFORM -> QueenSounds.play(this,Cue.PHASE_TRANSITION);
+   case YIELD -> QueenSounds.play(this,Cue.YIELD);
   }}
  @Override public void setHealth(float hp){super.setHealth(inTrial?Math.max(QueenRules.VICTORY,hp):hp);}
  @Override public boolean hurt(DamageSource source,float amount){
@@ -79,11 +80,11 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
   if(action()==TRANSFORM)return false;
   Projectile incoming=source.getDirectEntity() instanceof Projectile shot?shot:null;
   if(incoming!=null&&blockedShots.contains(incoming.getUUID()))return false;
-  if(shields()>0){if(incoming!=null)blockedShots.add(incoming.getUUID());entityData.set(SHIELD,QueenRules.consumeShield(shields()));playSound(SoundEvents.GLASS_BREAK,1.7F,1.1F);FrostVisuals.burst(w,getEyePosition(),16);return false;}
+  if(shields()>0){if(incoming!=null)blockedShots.add(incoming.getUUID());entityData.set(SHIELD,QueenRules.consumeShield(shields()));QueenSounds.play(this,Cue.GUARD_HIT);FrostVisuals.burst(w,getEyePosition(),16);return false;}
   if(phase()==2&&(source.getDirectEntity() instanceof Projectile||source.is(DamageTypeTags.IS_PROJECTILE))&&QueenRules.blocksProjectile(random.nextFloat())){
    if(incoming!=null)blockedShots.add(incoming.getUUID());
    Vec3 from=source.getSourcePosition();if(from==null)from=p.position();Vec3 d=incoming!=null&&incoming.getDeltaMovement().lengthSqr()>.0001?incoming.getDeltaMovement().scale(-1):from.subtract(position());
-   entityData.set(IMPACT_YAW,(float)Math.toDegrees(Math.atan2(-d.x,d.z)));entityData.set(REACTIVE,8);playSound(SoundEvents.SHIELD_BLOCK,1.6F,1.4F);FrostVisuals.burst(w,getEyePosition(),8);return false;
+   entityData.set(IMPACT_YAW,(float)Math.toDegrees(Math.atan2(-d.x,d.z)));entityData.set(REACTIVE,8);QueenSounds.play(this,Cue.GUARD_HIT);FrostVisuals.burst(w,getEyePosition(),8);return false;
   }
   boolean hit=super.hurt(source,amount);
   if(getHealth()<=QueenRules.VICTORY&&phase()==2){win(w);return true;}
@@ -99,7 +100,7 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
   if(tickCount%5!=0)return;var present=new HashSet<UUID>();
   for(ServerPlayer v:w.getPlayers(p->p.position().distanceToSqr(anchor)<=QueenRules.ARENA_RADIUS*QueenRules.ARENA_RADIUS)){present.add(v.getUUID());v.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTimePacket(now,18000,false));if(tickCount%10==0){w.sendParticles(v,ParticleTypes.SNOWFLAKE,false,v.getX(),v.getY()+3,v.getZ(),60,7,4,7,.1);if(participant(v))FrostCold.add(v,1.5);}}
   for(UUID id:stormViewers)if(!present.contains(id)){var p=w.getServer().getPlayerList().getPlayer(id);if(p!=null)restoreTime(p);}stormViewers.clear();stormViewers.addAll(present);
-  if(tickCount%80==0)FrostContent.sound(this,"blizzard_loop");
+  if(tickCount%80==0)QueenSounds.play(this,Cue.STORM_LOOP);
  }
  private void abort(ServerLevel w){cleanup(w);inTrial=false;entityData.set(ACTIVE,false);phase(1);setHealth(getMaxHealth());setTarget(null);begin(IDLE);participants.clear();}
  private List<ServerPlayer> players(ServerLevel w){return w.getPlayers(this::participant);}
@@ -107,9 +108,9 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
  private void launch(Player p,int count){Vec3 aim=p.getEyePosition();Vec3 side=p.position().subtract(position()).multiply(1,0,1).normalize().yRot((float)Math.PI/2);
   float scale=phase()==2?1.48F:1F;Vec3 forward=p.position().subtract(position()).multiply(1,0,1).normalize();Vec3 origin=position().add(0,1.47F*scale,0).add(forward.scale(1.05F*scale)).add(side.scale(.36F*scale));
   for(int i=0;i<count;i++)FrostShard.launchAt(this,origin,aim.add(side.scale((i-(count-1)/2F)*1.8)),count==1?(phase()==1?14:20):(phase()==1?10:14),phase()==1?8:12);
-  playSound(SoundEvents.SNOWBALL_THROW,2,.55F);FrostContent.sound(this,"ice_bolt");FrostVisuals.burst((ServerLevel)level(),getEyePosition(),12);
+  QueenSounds.play(this,Cue.MAGIC_CAST);FrostVisuals.burst((ServerLevel)level(),getEyePosition(),12);
  }
- private void melee(ServerLevel w,float damage,double reach,double angle){for(ServerPlayer p:players(w)){if(FrostWorld.cone(this,p,reach,angle)&&p.hurt(damageSources().mobAttack(this),damage))FrostCold.add(p,12);}playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.7F,.7F);FrostContent.sound(this,"staff_hit");FrostVisuals.ring(w,position(),reach,.7,18);}
+ private void melee(ServerLevel w,float damage,double reach,double angle){boolean hit=false;for(ServerPlayer p:players(w)){if(FrostWorld.cone(this,p,reach,angle)&&p.hurt(damageSources().mobAttack(this),damage)){FrostCold.add(p,12);hit=true;}}if(hit)QueenSounds.play(this,Cue.ATTACK_HIT);else playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.0F,.85F);FrostVisuals.ring(w,position(),reach,.7,18);}
  private void summon(ServerLevel w,boolean copies){
   children.removeIf(id->!(w.getEntity(id) instanceof QueenMinion m)||!m.isAlive());
   int cap=copies?QueenRules.MAX_COPIES:QueenRules.MAX_MINIONS;
@@ -119,18 +120,19 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
   for(int i=0;i<count&&children.size()<cap;i++){
    QueenContent.Kind k=copies?(i%2==0?QueenContent.Kind.MELEE_COPY:QueenContent.Kind.RANGED_COPY):kind;
    double a=random.nextDouble()*Math.PI*2;Vec3 at=FrostWorld.safe(w,position().add(Math.cos(a)*4,0,Math.sin(a)*4),k.width,k.height,4);if(at==null)continue;
-   QueenMinion m=QueenContent.MINIONS.get(k).get().create(w);if(m==null)continue;m.bind(getUUID());m.moveTo(at);if(w.addFreshEntity(m)){children.add(m.getUUID());FrostVisuals.burst(w,at.add(0,1,0),24);}
-  }playSound(SoundEvents.EVOKER_CAST_SPELL,1.8F,.8F);
+   QueenMinion m=QueenContent.MINIONS.get(k).get().create(w);if(m==null)continue;m.bind(getUUID());m.moveTo(at);if(w.addFreshEntity(m)){children.add(m.getUUID());FrostVisuals.burst(w,at.add(0,1,0),24);QueenSounds.play(m,Cue.MINION_ARRIVAL);}
+  }
  }
  @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w))return;long now=w.getGameTime();bar.setProgress(getHealth()/getMaxHealth());if(reactive()>0)entityData.set(REACTIVE,reactive()-1);
-  if(!active()){if(tickCount%240==0)FrostContent.sound(this,"ambient");getNavigation().stop();if(action()==YIELD){entityData.set(FRAME,frame()+1);if(frame()>=50){phase(1);begin(IDLE);}}return;}
+  if(tickCount%240==0&&action()==IDLE)QueenSounds.play(this,Cue.AMBIENT);
+  if(!active()){getNavigation().stop();if(action()==YIELD){entityData.set(FRAME,frame()+1);if(frame()>=50){phase(1);begin(IDLE);}}return;}
   if(anchor==null||position().distanceToSqr(anchor)>QueenRules.ARENA_RADIUS*QueenRules.ARENA_RADIUS){abort(w);return;}
   Player p=victim();if(p==null){p=players(w).stream().min(Comparator.comparingDouble(this::distanceToSqr)).orElse(null);setTarget(p);}
   if(p==null){updateStorm(w,now);if(++absent>=200)abort(w);return;}absent=0;face(p);
   updateStorm(w,now);
   if(action()!=IDLE){
    int f=frame()+1;entityData.set(FRAME,f);int a=action();
-   if(f==12){switch(a){case SHOT->launch(p,1);case VOLLEY->launch(p,phase()==1?5:7);case SUMMON->summon(w,phase()==2);case STORM->{stormUntil=now+1000;FrostVisuals.ring(w,position(),6,.1,32);}case GUARD->{entityData.set(SHIELD,QueenRules.SHIELDS);playSound(SoundEvents.GLASS_PLACE,1.5F,.75F);}case THRUST->melee(w,36,5,30);case SWEEP->melee(w,30,5.5,95);case SPIN->melee(w,32,5.5,180);case COMBO->melee(w,22,5,45);}}
+   if(f==12){switch(a){case SHOT->launch(p,1);case VOLLEY->launch(p,phase()==1?5:7);case SUMMON->summon(w,phase()==2);case STORM->{stormUntil=now+1000;FrostVisuals.ring(w,position(),6,.1,32);}case GUARD->{entityData.set(SHIELD,QueenRules.SHIELDS);}case THRUST->melee(w,36,5,30);case SWEEP->melee(w,30,5.5,95);case SPIN->melee(w,32,5.5,180);case COMBO->melee(w,22,5,45);}}
    if(a==COMBO&&(f==22||f==32))melee(w,22,5,45);
    if(a==TRANSFORM&&f%5==0)FrostVisuals.burst(w,getEyePosition(),20);
    if(f>=(a==TRANSFORM?55:a==COMBO?40:25))begin(IDLE);
@@ -144,7 +146,8 @@ public final class IceQueen extends net.minecraft.world.entity.monster.Monster {
    nextAttack=now+switch(a){case THRUST->50;case SWEEP->100;case SPIN->160;case COMBO->240;case VOLLEY->140;default->60;};begin(a);return;}
   if(phase()==2&&distanceToSqr(p)>16)getNavigation().moveTo(p,1.1);else if(phase()==1&&distanceToSqr(p)<25){Vec3 away=position().subtract(p.position()).multiply(1,0,1).normalize().scale(4);getNavigation().moveTo(getX()+away.x,getY(),getZ()+away.z,1);}else getNavigation().stop();
  }
- @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source){return SoundEvents.AMETHYST_BLOCK_HIT;}
+ @Override protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source){return QueenSounds.event(Cue.HURT);}
+ @Override protected net.minecraft.sounds.SoundEvent getDeathSound(){return QueenSounds.event(Cue.DEATH);}
  @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);n.putLong("QueenReadyAt",readyAt);n.putBoolean("QueenInterrupted",active());}
  @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);readyAt=n.getLong("QueenReadyAt");inTrial=false;entityData.set(ACTIVE,false);phase(1);if(n.getBoolean("QueenInterrupted"))setHealth(getMaxHealth());}
 }

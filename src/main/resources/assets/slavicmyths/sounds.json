@@ -9408,5 +9408,158 @@
         "attenuation_distance": 48
       }
     ]
+  },
+  "ice_queen.ambient": {
+    "subtitle": "subtitles.block.fire.ambient",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/blizzard_loop_1",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "ice_queen.trial_start": {
+    "subtitle": "subtitles.block.amethyst_block.chime",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.chime",
+        "type": "event"
+      }
+    ]
+  },
+  "ice_queen.attack_charge": {
+    "subtitle": "subtitles.entity.evoker.prepare_attack",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/spike_telegraph_1",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ice_queen.attack_hit": {
+    "subtitle": "subtitles.entity.player.attack.strong",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/wood_hit_03",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "ice_queen.magic_cast": {
+    "subtitle": "subtitles.entity.evoker.cast_spell",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/bfh1_glass_hit_02",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ice_queen.summon": {
+    "subtitle": "subtitles.entity.evoker.prepare_summon",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/clone_spawn_1",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ice_queen.minion_arrival": {
+    "subtitle": "subtitles.block.glass.break",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/bfh1_glass_falling_01",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "ice_queen.phase_transition": {
+    "subtitle": "subtitles.entity.evoker.cast_spell",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/wave_1",
+        "attenuation_distance": 48
+      }
+    ]
+  },
+  "ice_queen.hurt": {
+    "subtitle": "subtitles.entity.generic.hurt",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/bfh1_glass_hit_01",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "ice_queen.death": {
+    "subtitle": "subtitles.entity.generic.death",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/bfh1_glass_breaking_03",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ice_queen.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      {
+        "name": "minecraft:block.snow.step",
+        "type": "event"
+      }
+    ]
+  },
+  "ice_queen.storm_start": {
+    "subtitle": "subtitle.slavicmyths.morozko.blizzard_start",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/blizzard_start_1",
+        "attenuation_distance": 48
+      }
+    ]
+  },
+  "ice_queen.storm_loop": {
+    "subtitle": "subtitle.slavicmyths.morozko.blizzard_loop",
+    "sounds": [
+      {
+        "name": "slavicmyths:recorded61/morozko/blizzard_loop_1",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "ice_queen.guard": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      {
+        "name": "minecraft:block.glass.place",
+        "type": "event"
+      }
+    ]
+  },
+  "ice_queen.guard_hit": {
+    "subtitle": "subtitles.item.shield.block",
+    "sounds": [
+      {
+        "name": "slavicmyths:foley/morozko/bfh1_glass_breaking_01",
+        "attenuation_distance": 24
+      }
+    ]
+  },
+  "ice_queen.yield": {
+    "subtitle": "subtitles.block.amethyst_block.chime",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.chime",
+        "type": "event"
+      }
+    ]
+  },
+  "ice_queen.minion_hit": {
+    "subtitle": "subtitles.entity.player.attack.strong",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.strong",
+        "type": "event"
+      }
+    ]
   }
 }

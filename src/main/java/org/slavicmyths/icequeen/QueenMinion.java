@@ -31,12 +31,12 @@ public final class QueenMinion extends net.minecraft.world.entity.monster.Monste
   if(owner==null||!(w.getEntity(owner) instanceof IceQueen boss)||!boss.active()||boss.phase()!=(kind.copy()?2:1)){if(++orphans>=20)discard();return;}orphans=0;
   Player p=boss.victim();if(p==null){getNavigation().stop();attack=0;attackFrame(0);return;}if(distanceToSqr(boss)>3600){discard();return;}getLookControl().setLookAt(p,45,45);
   double d=distanceToSqr(p);
-  if(kind==QueenContent.Kind.OWL){var target=p.getEyePosition().add(0,1,0);var v=target.subtract(position());setDeltaMovement(v.normalize().scale(.30));if(v.lengthSqr()<4&&tickCount%25==0&&hasLineOfSight(p)){if(p.hurt(damageSources().mobAttack(this),kind.damage))FrostCold.add(p,5);playSound(SoundEvents.PHANTOM_BITE,1,1.3F);}return;}
+  if(kind==QueenContent.Kind.OWL){var target=p.getEyePosition().add(0,1,0);var v=target.subtract(position());setDeltaMovement(v.normalize().scale(.30));if(v.lengthSqr()<4&&tickCount%25==0&&hasLineOfSight(p)){if(p.hurt(damageSources().mobAttack(this),kind.damage)){FrostCold.add(p,5);QueenSounds.play(this,QueenSounds.Cue.MINION_HIT);}playSound(SoundEvents.PHANTOM_BITE,1,1.3F);}return;}
   if(kind==QueenContent.Kind.RANGED_COPY){if(d>144)getNavigation().moveTo(p,1);else getNavigation().stop();if(d<400&&hasLineOfSight(p)){attack=(attack+1)%45;attackFrame(attack<=25?attack:0);if(attack==12){FrostShard.launch(this,p.getEyePosition(),kind.damage,8,null);playSound(SoundEvents.SNOWBALL_THROW,1,.7F);}}else{attack=0;attackFrame(0);}return;}
   double reach=kind==QueenContent.Kind.LARGE_GOLEM||kind.copy()?3.7:2.1;
   if(d>reach*reach){getNavigation().moveTo(p,1.12);attack=0;attackFrame(0);return;}getNavigation().stop();
   attackFrame(++attack);if(attack==10){swing(net.minecraft.world.InteractionHand.MAIN_HAND);playSound(kind==QueenContent.Kind.WOLF?SoundEvents.WOLF_GROWL:kind==QueenContent.Kind.BEAR?SoundEvents.POLAR_BEAR_WARNING:SoundEvents.IRON_GOLEM_ATTACK,1,.9F);}
-  if(attack==18&&hasLineOfSight(p)&&distanceToSqr(p)<=reach*reach&&p.hurt(damageSources().mobAttack(this),kind.damage))FrostCold.add(p,6);
+  if(attack==18&&hasLineOfSight(p)&&distanceToSqr(p)<=reach*reach&&p.hurt(damageSources().mobAttack(this),kind.damage)){FrostCold.add(p,6);QueenSounds.play(this,QueenSounds.Cue.MINION_HIT);}
   if(attack>=36){attack=0;attackFrame(0);}
  }
 }

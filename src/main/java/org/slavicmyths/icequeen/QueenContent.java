@@ -18,6 +18,6 @@ public final class QueenContent {
  }
  public static final Map<Kind,DeferredHolder<EntityType<?>,EntityType<QueenMinion>>> MINIONS=new EnumMap<>(Kind.class);
  static {for(Kind k:Kind.values())MINIONS.put(k,ModEntities.ENTITIES.register(k.id,()->EntityType.Builder.<QueenMinion>of((t,w)->new QueenMinion(t,w,k),MobCategory.MONSTER).sized(k.width,k.height).noSave().clientTrackingRange(12).updateInterval(2).build("slavicmyths:"+k.id)));}
- public static void init(IEventBus bus){bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->{e.put(BOSS.get(),IceQueen.attributes().build());for(Kind k:Kind.values())e.put(MINIONS.get(k).get(),QueenMinion.attributes(k).build());});}
+ public static void init(IEventBus bus){QueenSounds.init();bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->{e.put(BOSS.get(),IceQueen.attributes().build());for(Kind k:Kind.values())e.put(MINIONS.get(k).get(),QueenMinion.attributes(k).build());});}
  private QueenContent(){}
 }

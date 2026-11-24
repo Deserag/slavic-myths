@@ -20,6 +20,14 @@ public final class IceQueenGameTests {
   for(var k:QueenContent.Kind.values()){var m=QueenContent.MINIONS.get(k).get().create(t.getLevel());t.assertTrue(m!=null&&m.getMaxHealth()==expected[k.ordinal()],"Incorrect minion HP: "+k);m.discard();}
   q.discard();t.succeed();
  }
+ @GameTest(template="empty") public static void queenSoundRegistry(GameTestHelper t){
+  var ids=new java.util.HashSet<net.minecraft.resources.ResourceLocation>();
+  for(var cue:QueenSounds.Cue.values()){
+   var id=net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.getKey(QueenSounds.event(cue));
+   t.assertTrue(id!=null&&id.equals(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",cue.id))&&ids.add(id),"Missing or duplicate queen sound: "+cue.id);
+  }
+  t.assertTrue(ids.size()==17,"Incomplete queen cue registry");t.succeed();
+ }
  @GameTest(template="empty") public static void queenTrialFloorAndCooldownRules(GameTestHelper t){
   t.assertTrue(QueenRules.health(-5)==100&&QueenRules.health(100)==100&&QueenRules.health(104)==104,"Health floor");
   t.assertTrue(QueenRules.nextTrial(1000)==3601000&&!QueenRules.ready(3600999,3601000)&&QueenRules.ready(3601000,3601000),"Real time cooldown boundary");
