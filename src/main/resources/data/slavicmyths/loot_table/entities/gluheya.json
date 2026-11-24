@@ -30,6 +30,21 @@
           "name": "slavicmyths:absolute_silence_sword"
         }
       ]
+    },
+    {
+      "name": "winter_weapon_material",
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:gluheya_frost_shard"
+        }
+      ]
     }
   ]
 }

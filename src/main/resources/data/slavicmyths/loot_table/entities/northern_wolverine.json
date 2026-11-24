@@ -15,6 +15,21 @@
           "name": "slavicmyths:northern_wolverine_fang"
         }
       ]
+    },
+    {
+      "name": "winter_weapon_material",
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slavicmyths:wolverine_frost_fang"
+        }
+      ]
     }
   ]
 }

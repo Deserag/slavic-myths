@@ -6982,5 +6982,22 @@
   "item.slavicmyths.ice_queen_spear_staff.staff": "Посох: ЛКМ снаряд 12 HP; ПКМ смена режима; Shift+ЛКМ шипы 22 HP; Shift+ПКМ союзный ледяной голем (100 HP, 12 урона, 45 с, откат 90 с).",
   "winter.weapon.staff_mode": "Режим посоха",
   "winter.weapon.spear_mode": "Режим копья",
-  "winter.weapon.silence_mark": "Цель отмечена безмолвием"
+  "winter.weapon.silence_mark": "Цель отмечена безмолвием",
+  "item.slavicmyths.silence_blades": "Клинки безмолвия",
+  "item.slavicmyths.silence_blades.skills": "ЛКМ 9 HP; ПКМ бросок с возвратом 14 HP; Shift+ПКМ удар со спины 24 HP.",
+  "item.slavicmyths.northern_beast_claws": "Когти северного зверя",
+  "item.slavicmyths.northern_beast_claws.skills": "ЛКМ 8 HP; ПКМ прыжок-удар 15 HP; Shift+ЛКМ яростная серия (3 × 7 HP).",
+  "item.slavicmyths.ice_sword": "Ледяной меч",
+  "item.slavicmyths.ice_sword.skills": "ЛКМ 12 HP; ПКМ морозная волна 14 HP.",
+  "item.slavicmyths.ice_axe": "Ледяной топор",
+  "item.slavicmyths.ice_axe.skills": "ЛКМ 16 HP; ПКМ раскалывающий удар 22 HP.",
+  "item.slavicmyths.ice_mace": "Ледяная булава",
+  "item.slavicmyths.ice_mace.skills": "ЛКМ 18 HP; ПКМ удар по земле 16 HP.",
+  "item.slavicmyths.ice_halberd": "Ледяная алебарда",
+  "item.slavicmyths.ice_halberd.skills": "ЛКМ 14 HP; ПКМ круговой удар 18 HP.",
+  "item.slavicmyths.ice_scythe": "Ледяная коса",
+  "item.slavicmyths.ice_scythe.skills": "ЛКМ 13 HP; ПКМ размашистый удар 17 HP.",
+  "item.slavicmyths.winter_steel_ingot": "Слиток ледяного металла",
+  "item.slavicmyths.gluheya_frost_shard": "Морозный осколок Глухеи",
+  "item.slavicmyths.wolverine_frost_fang": "Морозный клык росомахи"
 }

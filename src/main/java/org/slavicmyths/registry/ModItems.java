@@ -15,6 +15,16 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> SILENCE_BLADES = ITEMS.register("silence_blades", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.BLADES));
+    public static final DeferredHolder<Item, Item> NORTHERN_BEAST_CLAWS = ITEMS.register("northern_beast_claws", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.CLAWS));
+    public static final DeferredHolder<Item, Item> ICE_SWORD = ITEMS.register("ice_sword", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.SWORD));
+    public static final DeferredHolder<Item, Item> ICE_AXE = ITEMS.register("ice_axe", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.AXE));
+    public static final DeferredHolder<Item, Item> ICE_MACE = ITEMS.register("ice_mace", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.MACE));
+    public static final DeferredHolder<Item, Item> ICE_HALBERD = ITEMS.register("ice_halberd", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.HALBERD));
+    public static final DeferredHolder<Item, Item> ICE_SCYTHE = ITEMS.register("ice_scythe", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.SCYTHE));
+    public static final DeferredHolder<Item, Item> WINTER_STEEL_INGOT = ITEMS.register("winter_steel_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredHolder<Item, Item> GLUHEYA_FROST_SHARD = ITEMS.register("gluheya_frost_shard", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> WOLVERINE_FROST_FANG = ITEMS.register("wolverine_frost_fang", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ICE_QUEEN_SPEAR_STAFF = ITEMS.register("ice_queen_spear_staff", () -> new org.slavicmyths.winter.WinterLegendItem(true));
     public static final DeferredHolder<Item, Item> ABSOLUTE_SILENCE_SWORD = ITEMS.register("absolute_silence_sword", () -> new org.slavicmyths.winter.WinterLegendItem(false));
     public static final DeferredHolder<Item, Item> ICE_CAPTAIN_AXES = ITEMS.register("ice_captain_axes", () -> new org.slavicmyths.winter.WinterPairItem(true));

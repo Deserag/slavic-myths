@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " II",
+    " SI",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:winter_steel_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:ice_halberd",
+    "count": 1
+  }
+}

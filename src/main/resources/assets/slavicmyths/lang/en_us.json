@@ -6985,5 +6985,22 @@
   "item.slavicmyths.ice_queen_spear_staff.staff": "Staff mode: LMB bolt 12 HP; RMB switch mode; Shift+LMB spikes 22 HP; Shift+RMB allied ice golem (100 HP, 12 damage, 45s, 90s cooldown).",
   "winter.weapon.staff_mode": "Staff mode",
   "winter.weapon.spear_mode": "Spear mode",
-  "winter.weapon.silence_mark": "Target marked by Silence"
+  "winter.weapon.silence_mark": "Target marked by Silence",
+  "item.slavicmyths.silence_blades": "Silence Blades",
+  "item.slavicmyths.silence_blades.skills": "LMB 9 HP; RMB returning blade 14 HP; Shift+RMB strike from behind 24 HP.",
+  "item.slavicmyths.northern_beast_claws": "Northern Beast Claws",
+  "item.slavicmyths.northern_beast_claws.skills": "LMB 8 HP; RMB pounce 15 HP; Shift+LMB furious flurry (3 × 7 HP).",
+  "item.slavicmyths.ice_sword": "Ice Sword",
+  "item.slavicmyths.ice_sword.skills": "LMB 12 HP; RMB frost wave 14 HP.",
+  "item.slavicmyths.ice_axe": "Ice Axe",
+  "item.slavicmyths.ice_axe.skills": "LMB 16 HP; RMB splitting strike 22 HP.",
+  "item.slavicmyths.ice_mace": "Ice Mace",
+  "item.slavicmyths.ice_mace.skills": "LMB 18 HP; RMB ground smash 16 HP.",
+  "item.slavicmyths.ice_halberd": "Ice Halberd",
+  "item.slavicmyths.ice_halberd.skills": "LMB 14 HP; RMB circular strike 18 HP.",
+  "item.slavicmyths.ice_scythe": "Ice Scythe",
+  "item.slavicmyths.ice_scythe.skills": "LMB 13 HP; RMB sweeping strike 17 HP.",
+  "item.slavicmyths.winter_steel_ingot": "Winter Steel Ingot",
+  "item.slavicmyths.gluheya_frost_shard": "Gluheya's Frost Shard",
+  "item.slavicmyths.wolverine_frost_fang": "Wolverine Frost Fang"
 }

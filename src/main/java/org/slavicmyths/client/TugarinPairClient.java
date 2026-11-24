@@ -21,7 +21,7 @@ import org.slavicmyths.combat.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class TugarinPairClient {
     public static final net.minecraft.client.resources.model.ModelResourceLocation HELD=net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/tugarin_sword_held"));
-    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers"};
+    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws"};
     private static net.minecraft.client.resources.model.ModelResourceLocation heldModel(String id){
         return net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/"+id+"_held"));
     }
@@ -33,14 +33,14 @@ public final class TugarinPairClient {
             if(inventory!=null&&held!=null)e.getModels().put(key,new net.neoforged.neoforge.client.model.BakedModelWrapper<net.minecraft.client.resources.model.BakedModel>(inventory){
                 @Override public net.minecraft.client.resources.model.BakedModel applyTransform(ItemDisplayContext context,PoseStack pose,boolean left){
                     boolean hand=context==ItemDisplayContext.FIRST_PERSON_LEFT_HAND||context==ItemDisplayContext.FIRST_PERSON_RIGHT_HAND||context==ItemDisplayContext.THIRD_PERSON_LEFT_HAND||context==ItemDisplayContext.THIRD_PERSON_RIGHT_HAND;
-                    boolean flight=context==ItemDisplayContext.NONE&&id.equals("ice_captain_axes");
+                    boolean flight=context==ItemDisplayContext.NONE&&(id.equals("ice_captain_axes")||id.equals("silence_blades"));
                     return(hand||flight?held:originalModel).applyTransform(context,pose,left);
                 }
             });
         }
     }
     private static boolean secondVisible(net.minecraft.world.entity.player.Player p){
-        return !(p.getMainHandItem().getItem() instanceof org.slavicmyths.winter.WinterPairItem item&&item.captain())||org.slavicmyths.winter.WinterPairItem.axesInFlight(p).isEmpty();
+        return WeaponProjectile.pairedInFlight(p).isEmpty();
     }
     private static final java.util.Map<net.minecraft.world.entity.player.Player,SwingState> SWINGS=new java.util.WeakHashMap<>();
     private static final class SwingState {float previous;int count;InteractionHand original;}

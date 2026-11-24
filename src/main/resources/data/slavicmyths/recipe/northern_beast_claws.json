@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "IFI",
+    "I I",
+    "L L"
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:winter_steel_ingot"
+    },
+    "F": {
+      "item": "slavicmyths:wolverine_frost_fang"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:northern_beast_claws",
+    "count": 1
+  }
+}

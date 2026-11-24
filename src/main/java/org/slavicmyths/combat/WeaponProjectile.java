@@ -18,7 +18,10 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     public static final float KNIFE_LOSS_CHANCE=.25F;
     private static final EntityDataAccessor<ItemStack> DISPLAY=SynchedEntityData.defineId(WeaponProjectile.class,EntityDataSerializers.ITEM_STACK);
     private boolean dealtDamage,knife,resolved,playerThrown,netherSkill,pairThrow;
-    public void configurePairThrow(){pairThrow=true;pickup=Pickup.DISALLOWED;}
+    private float pairDamage=18;
+    public void configurePairThrow(){configurePairThrow(18);}
+    public void configurePairThrow(float damage){pairThrow=true;pairDamage=damage;pickup=Pickup.DISALLOWED;}
+    public static java.util.List<WeaponProjectile> pairedInFlight(Player p){return p.level().getEntitiesOfClass(WeaponProjectile.class,p.getBoundingBox().inflate(80),v->v.isAlive()&&v.getOwner()==p&&v.getItem().getItem()==p.getMainHandItem().getItem());}
     public void recallPair(){if(pairThrow&&!returning&&!resolved)beginReturn();}
     public void netherSkill(boolean value){netherSkill=value;}
     public boolean netherSkill(){return netherSkill;}
@@ -48,7 +51,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(level().isClientSide||dealtDamage||resolved)return;
         Entity target=hit.getEntity(),owner=getOwner();
         ItemStack weapon=getPickupItemStackOrigin();
-        float damage=pairThrow?18:weapon.getItem() instanceof ThrowingWeaponItem item?item.projectileDamage(this):0;
+        float damage=pairThrow?pairDamage:weapon.getItem() instanceof ThrowingWeaponItem item?item.projectileDamage(this):0;
         var source=damageSources().trident(this,owner==null?this:owner);
         if(level() instanceof ServerLevel server)damage=EnchantmentHelper.modifyDamage(server,weapon,target,source,damage);
         dealtDamage=true;
@@ -90,6 +93,6 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)*RangeEnchantment.multiplier(level(),getPickupItemStackOrigin())){if(pairThrow||loyalty()>0)beginReturn();else recover(false);}
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key==RETURNING){returning=entityData.get(RETURNING);if(returning){setNoPhysics(true);setNoGravity(true);}}}
-    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("WinterPairThrow",pairThrow);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
-    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);netherSkill=tag.getBoolean("NetherSkill");pairThrow=tag.getBoolean("WinterPairThrow");if(pairThrow)pickup=Pickup.DISALLOWED;knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
+    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("WinterPairThrow",pairThrow);if(pairThrow)tag.putFloat("WinterPairDamage",pairDamage);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
+    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);netherSkill=tag.getBoolean("NetherSkill");pairThrow=tag.getBoolean("WinterPairThrow");if(pairThrow){pickup=Pickup.DISALLOWED;pairDamage=tag.contains("WinterPairDamage")?tag.getFloat("WinterPairDamage"):18;}knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
 }
