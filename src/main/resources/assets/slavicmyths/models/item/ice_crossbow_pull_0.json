@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "slavicmyths:item/winter_weapons/ice_crossbow_pull_0"
+  },
+  "overrides": []
+}

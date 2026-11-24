@@ -244,6 +244,12 @@ public final class ClientSetup {
             MorJadeCompat.install();
 
             FieldBowClient.properties();FinistClient.properties();
+            for(var item:new net.minecraft.world.item.Item[]{ModItems.WINTER_HUNT_BOW.get(),ModItems.ICE_CROSSBOW.get()}){
+                net.minecraft.client.renderer.item.ItemProperties.register(item,net.minecraft.resources.ResourceLocation.withDefaultNamespace("pulling"),(stack,level,entity,seed)->entity!=null&&entity.isUsingItem()&&entity.getUseItem()==stack?1:0);
+                net.minecraft.client.renderer.item.ItemProperties.register(item,net.minecraft.resources.ResourceLocation.withDefaultNamespace("pull"),(stack,level,entity,seed)->entity==null||entity.getUseItem()!=stack?0:(stack.getUseDuration(entity)-entity.getUseItemRemainingTicks())/(float)(stack.getItem() instanceof net.minecraft.world.item.CrossbowItem?net.minecraft.world.item.CrossbowItem.getChargeDuration(stack,entity):20));
+            }
+            net.minecraft.client.renderer.item.ItemProperties.register(ModItems.ICE_CROSSBOW.get(),net.minecraft.resources.ResourceLocation.withDefaultNamespace("charged"),(stack,level,entity,seed)->net.minecraft.world.item.CrossbowItem.isCharged(stack)?1:0);
+
             net.minecraft.client.renderer.item.ItemProperties.register(ModItems.ICE_CROSSBOW.get(),net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","winter_charged"),(stack,level,entity,seed)->org.slavicmyths.winter.WinterRanged.charged(stack)?1:0);
             net.minecraft.client.renderer.item.ItemProperties.register(ModItems.ICE_QUEEN_SPEAR_STAFF.get(),net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","staff_mode"),(stack,level,entity,seed)->org.slavicmyths.winter.WinterLegendItem.staffMode(stack)?1:0);
             org.slavicmyths.ships.client.RaftClient.itemProperties();
