@@ -3,8 +3,8 @@
   "model": "slavicmyths:models/item/winter_mesh/northern_beast_claws_held.obj",
   "mtl_override": "slavicmyths:models/item/winter_mesh/winter_weapon.mtl",
   "textures": {
-    "palette": "slavicmyths:item/winter_weapons/faceted_palette",
-    "particle": "slavicmyths:item/winter_weapons/faceted_palette"
+    "palette": "slavicmyths:item/winter_weapons/silence_palette",
+    "particle": "slavicmyths:item/winter_weapons/silence_palette"
   },
   "automatic_culling": false,
   "shade_quads": true,
