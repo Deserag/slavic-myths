@@ -17,7 +17,9 @@ import org.slavicmyths.registry.ModEntities;
 public final class WeaponProjectile extends AbstractArrow implements ItemSupplier {
     public static final float KNIFE_LOSS_CHANCE=.25F;
     private static final EntityDataAccessor<ItemStack> DISPLAY=SynchedEntityData.defineId(WeaponProjectile.class,EntityDataSerializers.ITEM_STACK);
-    private boolean dealtDamage,knife,resolved,playerThrown,netherSkill;
+    private boolean dealtDamage,knife,resolved,playerThrown,netherSkill,pairThrow;
+    public void configurePairThrow(){pairThrow=true;pickup=Pickup.DISALLOWED;}
+    public void recallPair(){if(pairThrow&&!returning&&!resolved)beginReturn();}
     public void netherSkill(boolean value){netherSkill=value;}
     public boolean netherSkill(){return netherSkill;}
     private int flightTicks,returnTicks;
@@ -46,7 +48,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(level().isClientSide||dealtDamage||resolved)return;
         Entity target=hit.getEntity(),owner=getOwner();
         ItemStack weapon=getPickupItemStackOrigin();
-        float damage=weapon.getItem() instanceof ThrowingWeaponItem item?item.projectileDamage(this):0;
+        float damage=pairThrow?18:weapon.getItem() instanceof ThrowingWeaponItem item?item.projectileDamage(this):0;
         var source=damageSources().trident(this,owner==null?this:owner);
         if(level() instanceof ServerLevel server)damage=EnchantmentHelper.modifyDamage(server,weapon,target,source,damage);
         dealtDamage=true;
@@ -56,12 +58,12 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(weapon.getItem() instanceof ThrowingWeaponItem item&&target instanceof LivingEntity living&&owner instanceof LivingEntity shooter)item.projectileHit(this,living,shooter,success);
         setDeltaMovement(getDeltaMovement().multiply(-.2,-.1,-.2).add(0,.12,0));
         playSound(SoundEvents.TRIDENT_HIT,.5F,knife?1.6F:1.1F);
-        if(isKnife()){if(loyalty()>0)beginReturn();else recover(true);}
+        if(pairThrow)beginReturn();else if(isKnife()){if(loyalty()>0)beginReturn();else recover(true);}
     }
     @Override protected void onHitBlock(BlockHitResult hit) {
         if(resolved)return;
         super.onHitBlock(hit);
-        if(!level().isClientSide&&isKnife()){if(loyalty()>0)beginReturn();else recover(false);}
+        if(!level().isClientSide){if(pairThrow)beginReturn();else if(isKnife()){if(loyalty()>0)beginReturn();else recover(false);}}
     }
     private void recover(boolean lossAllowed) {
         if(resolved||level().isClientSide)return;
@@ -79,15 +81,15 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(owner instanceof net.minecraft.server.level.ServerPlayer p&&p.getServer().getPlayerList().getPlayer(p.getUUID())!=p){recover(false);return;}
         Vec3 delta=owner.getEyePosition().subtract(position());
         if(delta.lengthSqr()<1.5){if(pickup==Pickup.ALLOWED&&owner instanceof Player p){ItemStack carried=getPickupItem().copy();p.getInventory().add(carried);if(!carried.isEmpty()){var drop=p.spawnAtLocation(carried);if(drop!=null)drop.setNoPickUpDelay();}}resolved=true;discard();return;}
-        setDeltaMovement(getDeltaMovement().scale(.95).add(delta.normalize().scale(.05*loyalty())));move(net.minecraft.world.entity.MoverType.SELF,getDeltaMovement());
+        setDeltaMovement(getDeltaMovement().scale(.95).add(delta.normalize().scale( .05*(pairThrow?3:loyalty()))));move(net.minecraft.world.entity.MoverType.SELF,getDeltaMovement());
     }
     @Override public void tick() {
         if(resolved){discard();return;}
         if(returning){if(!level().isClientSide)returnToOwner();else{setNoPhysics(true);setNoGravity(true);super.tick();}return;}
         super.tick();
-        if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)*RangeEnchantment.multiplier(level(),getPickupItemStackOrigin())){if(loyalty()>0)beginReturn();else recover(false);}
+        if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)*RangeEnchantment.multiplier(level(),getPickupItemStackOrigin())){if(pairThrow||loyalty()>0)beginReturn();else recover(false);}
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key==RETURNING){returning=entityData.get(RETURNING);if(returning){setNoPhysics(true);setNoGravity(true);}}}
-    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
-    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);netherSkill=tag.getBoolean("NetherSkill");knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
+    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("WinterPairThrow",pairThrow);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
+    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);netherSkill=tag.getBoolean("NetherSkill");pairThrow=tag.getBoolean("WinterPairThrow");if(pairThrow)pickup=Pickup.DISALLOWED;knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
 }

@@ -15,6 +15,9 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> ICE_CAPTAIN_AXES = ITEMS.register("ice_captain_axes", () -> new org.slavicmyths.winter.WinterPairItem(true));
+    public static final DeferredHolder<Item, Item> SNOW_WANDERER_HAMMERS = ITEMS.register("snow_wanderer_hammers", () -> new org.slavicmyths.winter.WinterPairItem(false));
+    public static final DeferredHolder<Item, Item> AUKA_FROST_CORE = ITEMS.register("auka_frost_core", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> FROST_PERMAFROST_RING = ITEMS.register("frost_permafrost_ring", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "ring"));
     public static final DeferredHolder<Item, Item> WINTER_OWL_FEATHER = ITEMS.register("winter_owl_feather", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "charm"));
     public static final DeferredHolder<Item, Item> NORTHERN_WOLVERINE_FANG = ITEMS.register("northern_wolverine_fang", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "necklace"));

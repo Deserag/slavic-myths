@@ -6967,5 +6967,12 @@
   "item.slavicmyths.ice_crown": "Ледяная корона",
   "item.slavicmyths.ice_crown.effect": "При попадании по врагу призывает две копии на 30 с. Откат 3 мин.",
   "death.attack.winter_frostbite": "%1$s замёрз от атаки %2$s",
-  "death.attack.winter_frostbite.player": "%1$s замёрз от атаки %2$s"
+  "death.attack.winter_frostbite.player": "%1$s замёрз от атаки %2$s",
+  "item.slavicmyths.ice_captain_axes": "Парные топоры ледяного капитана",
+  "item.slavicmyths.ice_captain_axes.skills": "ЛКМ: удар (12 HP). ПКМ: бросок с возвратом (18 HP, 4 с). Shift+ЛКМ: двойной удар (28 HP, 12 с). Shift+ПКМ: ледяной смерч (5 HP/с, 6 с, откат 25 с).",
+  "item.slavicmyths.snow_wanderer_hammers": "Парные молоты снежного странника",
+  "item.slavicmyths.snow_wanderer_hammers.skills": "ЛКМ: удар (14 HP). ПКМ: морозная ударная волна (16 HP, 6 с). Shift+ЛКМ: сокрушительный удар (24 HP, 10 с).",
+  "item.slavicmyths.auka_frost_core": "Морозное ядро Ауки",
+  "death.attack.winter_weapon_skill": "%1$s пал от зимнего оружия",
+  "death.attack.winter_weapon_skill.player": "%1$s пал от зимнего оружия игрока %2$s"
 }

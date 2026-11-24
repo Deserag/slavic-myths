@@ -39,6 +39,10 @@ public final class WinterAccessories {
   mod(p,Attributes.MAX_HEALTH,"winter_accessory_health",(belt?4:0)+(heart?6:0),add);
   if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth());
  }
+ private static boolean winterHit(net.minecraft.world.damagesource.DamageSource source,ServerPlayer p){
+  if(source.getDirectEntity() instanceof org.slavicmyths.combat.WeaponProjectile projectile)return projectile.getItem().is(WINTER);
+  return p.getMainHandItem().is(WINTER);
+ }
  private static boolean weaponHit(net.minecraft.world.damagesource.DamageSource source,ServerPlayer p){
   return source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.Projectile || source.getDirectEntity()==p&&!source.getMsgId().equals("winter_frostbite");
  }
@@ -53,13 +57,13 @@ public final class WinterAccessories {
    if(e.getSource().getDirectEntity() instanceof net.minecraft.world.entity.projectile.Projectile&&wears(p,ModItems.WINTER_OWL_FEATHER.get()))n*=1.15f;
    if(p.getHealth()<p.getMaxHealth()*.3f&&wears(p,ModItems.NORTHERN_WOLVERINE_FANG.get()))n*=1.2f;
    if(stacks(e.getEntity())>=5&&wears(p,ModItems.SILENCE_RING.get()))n*=1.25f;
-   if(p.getMainHandItem().is(WINTER)&&e.getEntity().getType().is(FIRE))n*=.8f;
+   if(winterHit(e.getSource(),p)&&e.getEntity().getType().is(FIRE))n*=.8f;
   }
   if(n!=e.getNewDamage())e.setNewDamage(n);
  }
  @SubscribeEvent public static void hit(LivingDamageEvent.Post e){
   if(e.getNewDamage()<=0||!(e.getSource().getEntity() instanceof ServerPlayer p)||!weaponHit(e.getSource(),p))return;
-  boolean ring=wears(p,ModItems.FROST_PERMAFROST_RING.get()),winter=p.getMainHandItem().is(WINTER);
+  boolean ring=wears(p,ModItems.FROST_PERMAFROST_RING.get()),winter=winterHit(e.getSource(),p);
   if(ring||winter)apply(p,e.getEntity(),ring&&winter?160:120);
  }
  public static int stacks(LivingEntity t){

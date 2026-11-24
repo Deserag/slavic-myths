@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "slavicmyths:tugarin_sword"
+    "slavicmyths:tugarin_sword",
+    "slavicmyths:ice_captain_axes",
+    "slavicmyths:snow_wanderer_hammers"
   ]
 }

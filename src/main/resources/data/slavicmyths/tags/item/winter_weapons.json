@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "slavicmyths:ice_captain_axes",
+    "slavicmyths:snow_wanderer_hammers"
+  ]
 }

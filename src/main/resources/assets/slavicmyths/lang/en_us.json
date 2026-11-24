@@ -6970,5 +6970,12 @@
   "item.slavicmyths.ice_crown": "Ice Crown",
   "item.slavicmyths.ice_crown.effect": "On a successful attack summons two copies for 30 s. Cooldown 3 min.",
   "death.attack.winter_frostbite": "%1$s froze from %2$s's attack",
-  "death.attack.winter_frostbite.player": "%1$s froze from %2$s's attack"
+  "death.attack.winter_frostbite.player": "%1$s froze from %2$s's attack",
+  "item.slavicmyths.ice_captain_axes": "Ice Captain's Paired Axes",
+  "item.slavicmyths.ice_captain_axes.skills": "LMB: alternating strike (12 HP). RMB: returning throw (18 HP, 4s). Shift+LMB: double crush (28 HP, 12s). Shift+RMB: ice vortex (5 HP/s, 6s, 25s cooldown).",
+  "item.slavicmyths.snow_wanderer_hammers": "Snow Wanderer's Paired Hammers",
+  "item.slavicmyths.snow_wanderer_hammers.skills": "LMB: alternating strike (14 HP). RMB: frost shockwave (16 HP, 6s). Shift+LMB: crushing blow (24 HP, 10s).",
+  "item.slavicmyths.auka_frost_core": "Auka's Frost Core",
+  "death.attack.winter_weapon_skill": "%1$s was struck by winter steel",
+  "death.attack.winter_weapon_skill.player": "%1$s was struck by %2$s's winter steel"
 }
