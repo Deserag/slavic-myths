@@ -101,6 +101,60 @@ public final class WeaponSkillHud {
         long now=mc.level.getGameTime();
         List<Skill> skills=new ArrayList<>();
         switch(id.getPath()) {
+            case "ice_captain_axes" -> {
+                skills.add(new Skill("shot","R",tag.getLong("CD_winter_captain_1")-now));
+                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_captain_2")-now));
+                skills.add(new Skill("vortex","S+R",tag.getLong("CD_winter_captain_3")-now));
+            }
+            case "snow_wanderer_hammers" -> {
+                skills.add(new Skill("wave","R",tag.getLong("CD_winter_hammers_1")-now));
+                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_hammers_2")-now));
+            }
+            case "absolute_silence_sword" -> {
+                skills.add(new Skill("slash","R",tag.getLong("CD_winter_silence_1")-now));
+                skills.add(new Skill("ice","S+L",tag.getLong("CD_winter_silence_2")-now));
+                skills.add(new Skill("chain","S+R",tag.getLong("CD_winter_silence_3")-now));
+            }
+            case "silence_blades" -> {
+                skills.add(new Skill("shot","R",tag.getLong("CD_winter_BLADES_1")-now));
+                skills.add(new Skill("slash","S+R",tag.getLong("CD_winter_BLADES_3")-now));
+            }
+            case "northern_beast_claws" -> {
+                skills.add(new Skill("slash","R",tag.getLong("CD_winter_CLAWS_1")-now));
+                skills.add(new Skill("slam","S+L",tag.getLong("CD_winter_CLAWS_2")-now));
+            }
+            case "ice_sword" -> {
+                skills.add(new Skill("slash","R",tag.getLong("CD_winter_SWORD_1")-now));
+            }
+            case "ice_axe" -> {
+                skills.add(new Skill("slash","R",tag.getLong("CD_winter_AXE_1")-now));
+            }
+            case "ice_mace" -> {
+                skills.add(new Skill("slam","R",tag.getLong("CD_winter_MACE_1")-now));
+            }
+            case "ice_halberd" -> {
+                skills.add(new Skill("wave","R",tag.getLong("CD_winter_HALBERD_1")-now));
+            }
+            case "ice_scythe" -> {
+                skills.add(new Skill("harvest","R",tag.getLong("CD_winter_SCYTHE_1")-now));
+            }
+            case "winter_hunt_bow" -> {
+                skills.add(new Skill("shot","R",0));
+                skills.add(new Skill("ice","S+L",tag.getLong("CD_winter_bow_2")-now));
+                skills.add(new Skill("shot","S+R",tag.getLong("CD_winter_bow_3")-now));
+            }
+            case "ice_crossbow" -> {
+                skills.add(new Skill("shot","R",0));
+                skills.add(new Skill("ice","S+R",tag.getLong("CD_winter_crossbow_charge")-now));
+                skills.add(new Skill("shot","S+L",tag.getLong("CD_winter_crossbow_fire")-now));
+            }
+            case "ice_queen_spear_staff" -> {
+                boolean staff=org.slavicmyths.winter.WinterLegendItem.staffMode(stack);
+                skills.add(new Skill("mode","R",tag.getLong("CD_winter_mode")-now));
+                if(staff)skills.add(new Skill("shot","L",tag.getLong("CD_winter_staff_0")-now));
+                skills.add(new Skill(staff?"ice":"slash","S+L",tag.getLong(staff?"CD_winter_staff_2":"CD_winter_spear_2")-now));
+                skills.add(new Skill(staff?"summon":"wave","S+R",tag.getLong(staff?"CD_winter_staff_3":"CD_winter_spear_3")-now));
+            }
             case "abyss_staff" -> {
                 skills.add(new Skill("abyss_staff_shot","R",tag.getLong("MarineWeapon_staffShot")-now));
                 skills.add(new Skill("abyss_staff_bubble","S+L",tag.getLong("MarineWeapon_bubble")-now));
@@ -180,8 +234,11 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("poloz_whip_spikes", "R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.POLOZ,false,now)));
                 skills.add(new Skill("poloz_whip_earth_rift", "S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.POLOZ,true,now)));
             }
-            case "trophy_kalin_sabre" ->
-                skills.add(new Skill("trophy_kalin_sabre_sweeping_strike", "R",VANILLA));
+            case "trophy_kalin_sabre" -> {
+                skills.add(new Skill("trophy_kalin_sabre_sweeping_strike","R",tag.getLong("KalinWaveReady")-now));
+                skills.add(new Skill("summon","S+R",tag.getLong("KalinSummonReady")-now));
+                skills.add(new Skill("crit","",0));
+            }
             case "nightingale_dagger" ->
                 skills.add(new Skill("nightingale_dagger_wind_gust", "R",VANILLA));
             case "pool_spear" ->
@@ -234,6 +291,7 @@ public final class WeaponSkillHud {
             }
             if(id.getPath().equals("storm_harpoon"))for(int i=0;i<4;i++)
                 g.fill(x+i*4,y+16,x+i*4+3,y+18,i<tag.getInt("MarineHarpoonHits")?0xFF89E1F2:0xFF454955);
+            if(!skill.key.isEmpty())g.drawCenteredString(mc.font,skill.key,x+8,y-9,0xFFE4F7FF);
             x+=22;
         }
     }
@@ -249,6 +307,8 @@ public final class WeaponSkillHud {
             return;
         }
         String[] rows=switch(kind){
+            case "summon" -> new String[]{" #   #  "," ##  ## ","  # #   ","   #    ","  # #   "," #   #  ","#     # ","        "};
+            case "crit" -> new String[]{"   ##   ","   ##   ","#  ##  #"," ###### ","  ####  "," ###### ","#  ##  #","   ##   "};
             case "shot" -> new String[]{"   ##   ","  ####  ","   ##   ","   ##   ","   ##   "," # ## # ","  ####  ","   ##   "};
             case "bubble" -> new String[]{"  ####  "," #    # ","#  #   #","#      #","#      #","#      #"," #    # ","  ####  "};
             case "vortex" -> new String[]{"  ##### "," ##   ##","## ##  #","# #  # #","# # ## #","#  ### #","##    ##"," #####  "};
