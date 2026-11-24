@@ -18,6 +18,11 @@ public final class WeaponProjectileRenderer extends EntityRenderer<WeaponProject
         pose.pushPose();
         flightPose(pose,Mth.lerp(partial,projectile.yRotO,projectile.getYRot()),Mth.lerp(partial,projectile.xRotO,projectile.getXRot()),projectile.isKnife());
         // FIXED inherits the item-frame Y180 turn, making the diagonal blade crosswise in flight.
+        var item=projectile.getItem().getItem();
+        if(item instanceof org.slavicmyths.winter.WinterPairItem
+                ||item instanceof org.slavicmyths.winter.WinterMeleeItem
+                ||item instanceof org.slavicmyths.rewards.KalinSabreCombo.Sabre)
+            pose.mulPose(Axis.ZP.rotationDegrees(45));
         items.renderStatic(projectile.getItem(),FLIGHT_CONTEXT,light,OverlayTexture.NO_OVERLAY,pose,buffers,projectile.level(),projectile.getId());
         pose.popPose();super.render(projectile,yaw,partial,pose,buffers,light);
     }

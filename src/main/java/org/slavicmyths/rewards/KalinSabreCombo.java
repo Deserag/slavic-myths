@@ -71,7 +71,7 @@ public final class KalinSabreCombo {
         if(now<n.getLong(NEXT))return;
         int left=n.getInt(LEFT);double angle=left*2.094;
         Vec3 start=t.position().add(Math.cos(angle)*3,1.1,Math.sin(angle)*3);
-        var blade=new WeaponProjectile(p.serverLevel(),p,p.getMainHandItem().copyWithCount(1),true,true);
+        var blade=new WeaponProjectile(p.serverLevel(),p,p.getMainHandItem().copyWithCount(1),false,true);
         blade.configureSummonedSabre(t.getUUID(),18F);
         blade.setPos(start.x,start.y,start.z);
         Vec3 v=t.position().add(0,t.getBbHeight()*.5,0).subtract(start).normalize();
