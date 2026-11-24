@@ -26,7 +26,7 @@ import org.slavicmyths.registry.ModSounds;
 import org.slavicmyths.wolf.WolfBleeding;
 
 public final class ShipCaptain extends Monster {
-    public static final float MAX_HP=2400F, AXE_DAMAGE=24F, DOUBLE_DAMAGE=40F, THROW_DAMAGE=30F,
+    public static final float MAX_HP=1800F, AXE_DAMAGE=24F, DOUBLE_DAMAGE=40F, THROW_DAMAGE=30F,
         SPIN_DAMAGE=12F, SLAM_DAMAGE=36F, VOLLEY_DAMAGE=14F, DASH_DAMAGE=28F;
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(ShipCaptain.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FRAME=SynchedEntityData.defineId(ShipCaptain.class,EntityDataSerializers.INT);
@@ -149,5 +149,5 @@ public final class ShipCaptain extends Monster {
     void returnAxe(int slot,UUID id){if(ownsAxe(slot,id)){flying[slot]=null;timeout[slot]=0;entityData.set(AXES,axes()|(1<<slot));cue("axe_return");}}
     @Override public void die(DamageSource source){bar.removeAllPlayers();combat.cancel();super.die(source);}
     @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);CreatureHealthBalance.mark(tag);for(var a:ShipCaptainCombat.Attack.values())tag.putInt("CaptainCooldown_"+a.name(),combat.cooldown(a));}
-    @Override public void readAdditionalSaveData(CompoundTag tag){tag=CreatureHealthBalance.prepare(tag,MAX_HP,900,true);super.readAdditionalSaveData(tag);getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(AXE_DAMAGE);combat.cancel();for(var a:ShipCaptainCombat.Attack.values())combat.restoreCooldown(a,tag.getInt("CaptainCooldown_"+a.name()));entityData.set(ACTION,0);entityData.set(FRAME,0);entityData.set(AXES,3);}
+    @Override public void readAdditionalSaveData(CompoundTag tag){tag=CreatureHealthBalance.prepare(tag,MAX_HP,900,true);super.readAdditionalSaveData(tag);if(getAttribute(Attributes.MAX_HEALTH).getBaseValue()==2400D){float oldHealth=getHealth();float oldMax=getMaxHealth();getAttribute(Attributes.MAX_HEALTH).setBaseValue(MAX_HP);setHealth(CreatureHealthBalance.proportional(oldHealth,oldMax,getMaxHealth()));}getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(AXE_DAMAGE);combat.cancel();for(var a:ShipCaptainCombat.Attack.values())combat.restoreCooldown(a,tag.getInt("CaptainCooldown_"+a.name()));entityData.set(ACTION,0);entityData.set(FRAME,0);entityData.set(AXES,3);}
 }
