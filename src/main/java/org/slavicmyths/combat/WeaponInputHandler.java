@@ -46,5 +46,10 @@ public interface WeaponInputHandler {
         return intercepts(action);
     }
 
+    /** Stack-sensitive mode selection; older weapons keep their original behavior. */
+    default boolean intercepts(ItemStack held, Action action, HitResult.Type target) {
+        return intercepts(action, target);
+    }
+
     void onWeaponAction(ServerPlayer player, ItemStack held, Action action);
 }

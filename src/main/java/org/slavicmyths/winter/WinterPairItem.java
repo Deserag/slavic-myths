@@ -62,6 +62,7 @@ public final class WinterPairItem extends MaceItem implements WeaponInputHandler
     }
     @Override public void onWeaponAction(ServerPlayer p,ItemStack held,Action action){
         if(p.getMainHandItem()!=held||held.getItem()!=this||!p.isAlive()||p.isSpectator()||!p.getOffhandItem().isEmpty())return;
+        if((action==Action.SHIFT_LEFT_CLICK||action==Action.SHIFT_RIGHT_CLICK)!=p.isShiftKeyDown())return;
         if(captain&&action==Action.RIGHT_CLICK){
             var flying=axesInFlight(p);
             if(!flying.isEmpty()){for(var axe:flying)axe.recallPair();return;}

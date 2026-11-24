@@ -37,9 +37,9 @@ public final class WeaponInputNetwork {
                     // must not activate a slot that this weapon never intercepts.
                     // Context-sensitive weapons (e.g. a staff bolt only in air)
                     // may authorize the same slot for just one hit-result type.
-                    if (!handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.MISS)
-                            && !handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.BLOCK)
-                            && !handler.intercepts(action, net.minecraft.world.phys.HitResult.Type.ENTITY)) return;
+                    if (!handler.intercepts(held, action, net.minecraft.world.phys.HitResult.Type.MISS)
+                            && !handler.intercepts(held, action, net.minecraft.world.phys.HitResult.Type.BLOCK)
+                            && !handler.intercepts(held, action, net.minecraft.world.phys.HitResult.Type.ENTITY)) return;
                     // Bound packet rate on the server as well as per-skill cooldowns.
                     // This is input throttling, not a change to any weapon's cooldown.
                     if (!org.slavicmyths.rpg.PathData.ready(player, "weapon_input_request_"+action.id(), 2)) return;

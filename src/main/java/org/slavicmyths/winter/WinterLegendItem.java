@@ -34,8 +34,8 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
         var data=stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
         data.putBoolean(MODE,!data.getBoolean(MODE));stack.set(DataComponents.CUSTOM_DATA,CustomData.of(data));
     }
-    @Override public boolean intercepts(Action action,HitResult.Type hit){
-        return action!=Action.LEFT_CLICK||queen&&hit!=HitResult.Type.BLOCK;
+    @Override public boolean intercepts(ItemStack held,Action action,HitResult.Type hit){
+        return action!=Action.LEFT_CLICK||queen&&staffMode(held);
     }
     private static long now(ServerPlayer p){return p.server.overworld().getGameTime();}
     private String key(Action action,boolean staff){return "CD_winter_"+(queen?(staff?"staff_":"spear_"):"silence_")+action.id();}
@@ -67,6 +67,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
     }
     @Override public void onWeaponAction(ServerPlayer p,ItemStack held,Action action){
         if(p.getMainHandItem()!=held||held.getItem()!=this||!p.isAlive()||p.isSpectator())return;
+        if((action==Action.SHIFT_LEFT_CLICK||action==Action.SHIFT_RIGHT_CLICK)!=p.isShiftKeyDown())return;
         boolean staff=staffMode(held);
         if(queen&&action==Action.RIGHT_CLICK){
             String cd="CD_winter_mode";
@@ -110,7 +111,7 @@ public final class WinterLegendItem extends SwordItem implements WeaponInputHand
     private void queenAction(ServerPlayer p,ItemStack held,Action action,boolean staff){
         if(!staff){
             switch(action){
-                case LEFT_CLICK -> {var target=aim(p,4.25);if(target!=null&&p.canInteractWithEntity(target,0)){p.attack(target);p.swing(InteractionHand.MAIN_HAND,true);}}
+                case LEFT_CLICK -> {} // Native melee remains authoritative in spear mode.
                 case SHIFT_LEFT_CLICK -> {
                     var target=aim(p,6);
                     if(target==null)return;

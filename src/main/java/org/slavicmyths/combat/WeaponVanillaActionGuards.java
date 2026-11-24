@@ -19,7 +19,7 @@ public final class WeaponVanillaActionGuards {
         WeaponInputHandler.Action action = player.isShiftKeyDown()
                 ? WeaponInputHandler.Action.SHIFT_LEFT_CLICK
                 : WeaponInputHandler.Action.LEFT_CLICK;
-        if (handler.intercepts(action, HitResult.Type.ENTITY)) event.setCanceled(true);
+        if (handler.intercepts(player.getMainHandItem(), action, HitResult.Type.ENTITY)) event.setCanceled(true);
     }
 
     @SubscribeEvent
@@ -29,7 +29,7 @@ public final class WeaponVanillaActionGuards {
         WeaponInputHandler.Action action = player.isShiftKeyDown()
                 ? WeaponInputHandler.Action.SHIFT_LEFT_CLICK
                 : WeaponInputHandler.Action.LEFT_CLICK;
-        if (handler.intercepts(action, HitResult.Type.BLOCK)) event.setCanceled(true);
+        if (handler.intercepts(player.getMainHandItem(), action, HitResult.Type.BLOCK)) event.setCanceled(true);
     }
 
     private WeaponVanillaActionGuards() {}
