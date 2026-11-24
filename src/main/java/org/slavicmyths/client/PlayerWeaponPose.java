@@ -34,6 +34,18 @@ public final class PlayerWeaponPose {
    primary.xRot=-.85F-.65F*wave;primary.yRot=(left?-1:1)*-.25F;
    support.xRot=-.95F-.65F*wave;support.yRot=(left?-1:1)*.55F;support.zRot=(left?-1:1)*-.25F;
   }
+  if(TugarinPairClient.uprightWinter(entity.getMainHandItem())&&!entity.isUsingItem()){
+   boolean pair=org.slavicmyths.combat.TugarinPair.holdsPair((net.minecraft.world.entity.player.Player)entity);
+   float partial=Mth.clamp(age-entity.tickCount,0,1);
+   for(HumanoidArm arm:HumanoidArm.values()){
+    InteractionHand hand=arm==entity.getMainArm()?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
+    if(!pair&&hand!=InteractionHand.MAIN_HAND)continue;
+    ModelPart part=arm==HumanoidArm.LEFT?model.leftArm:model.rightArm;
+    float swing=entity.swinging&&entity.swingingArm==hand?entity.getAttackAnim(partial):0;
+    part.xRot=-35F*Mth.DEG_TO_RAD-.72F*Mth.sin((float)Math.sqrt(swing)*Mth.PI);
+    part.yRot=0;part.zRot=0;
+   }
+  }
   model.rightSleeve.copyFrom(model.rightArm);model.leftSleeve.copyFrom(model.leftArm);
  }
  private static void poseHand(PlayerModel<?> model,LivingEntity owner,HumanoidArm arm,float age){
