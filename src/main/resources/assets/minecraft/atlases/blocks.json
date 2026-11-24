@@ -39,6 +39,30 @@
     {
       "type": "minecraft:single",
       "resource": "slavicmyths:entity/underground/large_podzemnik"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morovoy_fire_zmey_albedo"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/morovoy_raven"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/nine_mor_white"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/northern_wolverine"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/pike"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "slavicmyths:entity/winter_owl"
     }
   ]
 }
