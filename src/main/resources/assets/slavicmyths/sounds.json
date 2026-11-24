@@ -9561,5 +9561,212 @@
         "type": "event"
       }
     ]
+  },
+  "ship_captain.ambient": {
+    "subtitle": "subtitle.slavicmyths.karachun.ambient_low_wind",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.ambient_low_wind",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.aggro": {
+    "subtitle": "subtitle.slavicmyths.karachun.dark_frost",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.dark_frost",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.step": {
+    "subtitle": "subtitle.slavicmyths.morozko.step",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.step",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.hurt": {
+    "subtitle": "subtitle.slavicmyths.morozko.frost_damage",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.frost_damage",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.death": {
+    "subtitle": "subtitles.entity.generic.death",
+    "sounds": [
+      {
+        "name": "slavicmyths:ice_queen.death",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.axe_windup": {
+    "subtitle": "subtitles.slavicmyths.bandit_axe_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit_axe_windup",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.axe_swing": {
+    "subtitle": "subtitles.slavicmyths.doghead.leader.axe_whoosh",
+    "sounds": [
+      {
+        "name": "slavicmyths:doghead.leader.axe_whoosh",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.axe_hit": {
+    "subtitle": "subtitles.slavicmyths.doghead.leader.axe_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:doghead.leader.axe_impact",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.double_windup": {
+    "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.scythe_windup",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.double_hit": {
+    "subtitle": "subtitles.slavicmyths.bandit_axe_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:bandit_axe_impact",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.throw_release": {
+    "subtitle": "subtitles.slavicmyths.doghead.leader.axe_whoosh",
+    "sounds": [
+      {
+        "name": "slavicmyths:doghead.leader.axe_whoosh",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.throw_hit": {
+    "subtitle": "subtitles.slavicmyths.doghead.leader.axe_impact",
+    "sounds": [
+      {
+        "name": "slavicmyths:doghead.leader.axe_impact",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.axe_return": {
+    "subtitle": "subtitle.slavicmyths.morozko.ice_bolt",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.ice_bolt",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.spin_start": {
+    "subtitle": "subtitle.slavicmyths.morozko.blizzard_start",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.blizzard_start",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.spin_sweep": {
+    "subtitle": "subtitle.slavicmyths.karachun.scythe_windup",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.scythe_windup",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.slam_charge": {
+    "subtitle": "subtitle.slavicmyths.morozko.spike_telegraph",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.spike_telegraph",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.slam_impact": {
+    "subtitle": "subtitle.slavicmyths.morozko.spike_break",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.spike_break",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.volley_charge": {
+    "subtitle": "subtitle.slavicmyths.morozko.staff_stream",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.staff_stream",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.volley_release": {
+    "subtitle": "subtitles.slavicmyths.doghead.leader.axe_whoosh",
+    "sounds": [
+      {
+        "name": "slavicmyths:doghead.leader.axe_whoosh",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.grasp_charge": {
+    "subtitle": "subtitle.slavicmyths.karachun.dark_frost",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.dark_frost",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.grasp_release": {
+    "subtitle": "subtitle.slavicmyths.karachun.touch_frost",
+    "sounds": [
+      {
+        "name": "slavicmyths:karachun.touch_frost",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.dash_charge": {
+    "subtitle": "subtitle.slavicmyths.morozko.breath",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.breath",
+        "type": "event"
+      }
+    ]
+  },
+  "ship_captain.dash_release": {
+    "subtitle": "subtitle.slavicmyths.morozko.wave",
+    "sounds": [
+      {
+        "name": "slavicmyths:morozko.wave",
+        "type": "event"
+      }
+    ]
   }
 }
