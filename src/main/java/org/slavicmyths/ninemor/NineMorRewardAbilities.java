@@ -1,6 +1,7 @@
 package org.slavicmyths.ninemor;
 
 import java.util.UUID;
+import org.slavicmyths.combat.IndependentWeaponCooldowns;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -55,13 +56,13 @@ public final class NineMorRewardAbilities {
   ItemStack stack=player.getItemInHand(hand);
   if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
-  if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
+  if(!IndependentWeaponCooldowns.ready(server,IndependentWeaponCooldowns.SPEAR,alternate))return InteractionResultHolder.fail(stack);
   if(alternate){
    boolean nearby=!server.serverLevel().getEntitiesOfClass(LivingEntity.class,server.getBoundingBox().inflate(4.3D),
        e->eligible(server,e)&&e.distanceToSqr(server)<=20D).isEmpty();
    if(!nearby)return InteractionResultHolder.fail(stack);
    NineMorSkillEffect.spawn(server,NineMorSkillEffect.SWEEP,null);
-   server.getCooldowns().addCooldown(stack.getItem(),125);
+   IndependentWeaponCooldowns.start(server,stack,IndependentWeaponCooldowns.SPEAR,true,125);
    server.playSound(SoundEvents.PLAYER_ATTACK_SWEEP,1.2F,.65F);
    return InteractionResultHolder.consume(stack);
   }
@@ -78,7 +79,7 @@ public final class NineMorRewardAbilities {
    shot.summonBehind(target,i);
    server.serverLevel().addFreshEntity(shot);
   }
-  server.getCooldowns().addCooldown(stack.getItem(),185);
+  IndependentWeaponCooldowns.start(server,stack,IndependentWeaponCooldowns.SPEAR,false,185);
   server.playSound(SoundEvents.TRIDENT_THROW.value(),1.2F,.7F);
   return InteractionResultHolder.consume(stack);
  }
@@ -88,7 +89,7 @@ public final class NineMorRewardAbilities {
   ItemStack stack=player.getItemInHand(hand);
   if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
   if(!(player instanceof ServerPlayer server))return InteractionResultHolder.consume(stack);
-  if(server.getCooldowns().isOnCooldown(stack.getItem()))return InteractionResultHolder.fail(stack);
+  if(!IndependentWeaponCooldowns.ready(server,IndependentWeaponCooldowns.AXE,alternate))return InteractionResultHolder.fail(stack);
   Vec3 look=server.getLookAngle().multiply(1D,0D,1D);
   if(look.lengthSqr()<.01D)return InteractionResultHolder.fail(stack);
   look=look.normalize();
@@ -102,12 +103,12 @@ public final class NineMorRewardAbilities {
    }
    if(best==null||best.getHealth()>best.getMaxHealth()*.35F)return InteractionResultHolder.fail(stack);
    NineMorSkillEffect.spawn(server,NineMorSkillEffect.EXECUTION,best);
-   server.getCooldowns().addCooldown(stack.getItem(),300);
+   IndependentWeaponCooldowns.start(server,stack,IndependentWeaponCooldowns.AXE,true,300);
    server.playSound(SoundEvents.WITHER_BREAK_BLOCK,1.0F,.65F);
    return InteractionResultHolder.consume(stack);
   }
   NineMorSkillEffect.spawn(server,NineMorSkillEffect.RIFT,null);
-  server.getCooldowns().addCooldown(stack.getItem(),175);
+  IndependentWeaponCooldowns.start(server,stack,IndependentWeaponCooldowns.AXE,false,175);
   server.playSound(SoundEvents.WITHER_SHOOT,1F,.7F);
   return InteractionResultHolder.consume(stack);
  }

@@ -23,6 +23,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import org.slavicmyths.combat.WeaponInputHandler;
+import org.slavicmyths.combat.IndependentWeaponCooldowns;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -75,7 +76,7 @@ public final class BossRewardWeapons {
         }
         @Override public void onWeaponAction(ServerPlayer player, ItemStack held, Action action) {
             if (scythe || held != player.getMainHandItem() || !player.isAlive()
-                    || player.isSpectator() || player.getCooldowns().isOnCooldown(this)) return;
+                    || player.isSpectator()) return;
             if (action == Action.RIGHT_CLICK || action == Action.SHIFT_RIGHT_CLICK) {
                 if(action==Action.SHIFT_RIGHT_CLICK&&!player.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get()))return;
                 cast(player.serverLevel(), player, held, action == Action.SHIFT_RIGHT_CLICK);
@@ -87,7 +88,7 @@ public final class BossRewardWeapons {
             ItemStack stack=user.getItemInHand(hand);
             if(hand!=InteractionHand.MAIN_HAND)return InteractionResultHolder.pass(stack);
             if(!scythe)return InteractionResultHolder.pass(stack);
-            if(user.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(stack);
+            if(user instanceof ServerPlayer server&&!IndependentWeaponCooldowns.ready(server,IndependentWeaponCooldowns.NEVEYA,user.isShiftKeyDown()))return InteractionResultHolder.fail(stack);
             if(!level.isClientSide)net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA,stack,n->n.putBoolean("SistersAlternate",user.isShiftKeyDown()));
             user.startUsingItem(hand);
             return InteractionResultHolder.consume(stack);
@@ -95,11 +96,15 @@ public final class BossRewardWeapons {
         @Override public void releaseUsing(ItemStack stack,Level level,LivingEntity user,int remaining){
             if(!scythe||!(user instanceof Player player)||!(level instanceof ServerLevel world))return;
             int charged=getUseDuration(stack,user)-remaining;
-            if(charged<5||player.getCooldowns().isOnCooldown(this))return;
+            if(charged<5)return;
             cast(world,player,stack,stack.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().getBoolean("SistersAlternate"));
         }
         private void cast(ServerLevel world,Player user,ItemStack stack,boolean alternate){
+            if(!(user instanceof ServerPlayer server)||!server.isAlive()||server.isSpectator()||stack!=server.getMainHandItem())return;
+            String weapon=scythe?IndependentWeaponCooldowns.NEVEYA:IndependentWeaponCooldowns.LOMEYA;
+            if(!IndependentWeaponCooldowns.ready(server,weapon,alternate))return;
             boolean dual=!scythe&&user.getOffhandItem().is(SistersContent.LOMEYA_HAMMER_OFFHAND.get());
+            if(!scythe&&alternate&&!dual)return;
             double radius=scythe?(alternate?7.0:5.4):(dual?5.6:4.0);
             float damage=scythe?(alternate?36F:26F):(dual?(alternate?36F:28F):22F);
             Vec3 center=user.position().add(0,.7,0);
@@ -137,7 +142,7 @@ public final class BossRewardWeapons {
                 user.getOffhandItem().hurtAndBreak(3,user,EquipmentSlot.OFFHAND);
             }
             user.swing(InteractionHand.MAIN_HAND,true);
-            user.getCooldowns().addCooldown(this,scythe?(alternate?260:180):dual?(alternate?260:190):150);
+            IndependentWeaponCooldowns.start(server,stack,weapon,alternate,scythe?(alternate?260:180):dual?(alternate?260:190):150);
             stack.hurtAndBreak(dual?4:3,user,EquipmentSlot.MAINHAND);
         }
         @Override public void appendHoverText(ItemStack stack,Item.TooltipContext context,List<Component> lines,TooltipFlag flag){

@@ -15,6 +15,7 @@ import net.neoforged.neoforge.client.event.RenderGuiEvent;
 /** Uses GUI coordinates: an icon is exactly the vanilla inventory item's 16 GUI pixels. */
 @EventBusSubscriber(modid="slavicmyths", value=Dist.CLIENT)
 public final class WeaponSkillHud {
+    private static final long VANILLA=Long.MIN_VALUE;
     private record Skill(String icon, String key, long remaining) {}
     // Approved 2026-11-23 marine-skill art; transparent 32px PNGs rendered at 16 GUI pixels.
     private static final Map<String, ResourceLocation> MARINE_ICONS = Map.of(
@@ -132,79 +133,79 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("gneteya_sentence", "R", tag.getLong("GneteyaSkillSentenceReady") - now));
             }
             case "neveya_scythe" -> {
-                skills.add(new Skill("neveya_scythe_reap","R",-1));skills.add(new Skill("neveya_scythe_slash","S+R",-1));
+                skills.add(new Skill("neveya_scythe_reap","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.NEVEYA,false,now)));skills.add(new Skill("neveya_scythe_slash","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.NEVEYA,true,now)));
             }
             case "lomeya_hammer", "lomeya_hammer_offhand" -> {
                 boolean dual = mc.player.getOffhandItem().is(org.slavicmyths.sisters.SistersContent.LOMEYA_HAMMER_OFFHAND.get());
-                skills.add(new Skill(dual ? "lomeya_dual_wave" : "lomeya_single_wave", "R", -1));
-                if (dual) skills.add(new Skill("lomeya_dual_fracture", "S+R", -1));
+                skills.add(new Skill(dual ? "lomeya_dual_wave" : "lomeya_single_wave", "R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.LOMEYA,false,now)));
+                if (dual) skills.add(new Skill("lomeya_dual_fracture", "S+R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.LOMEYA,true,now)));
             }
             case "nine_mor_spear" -> {
-                skills.add(new Skill("nine_mor_spear_spears","R",-1));
-                skills.add(new Skill("nine_mor_spear_sweep","S+R",-1));
+                skills.add(new Skill("nine_mor_spear_spears","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.SPEAR,false,now)));
+                skills.add(new Skill("nine_mor_spear_sweep","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.SPEAR,true,now)));
             }
             case "nine_mor_axe" -> {
-                skills.add(new Skill("nine_mor_axe_rift","R",-1));
-                skills.add(new Skill("nine_mor_axe_execution","S+R",-1));
+                skills.add(new Skill("nine_mor_axe_rift","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.AXE,false,now)));
+                skills.add(new Skill("nine_mor_axe_execution","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.AXE,true,now)));
             }
             case "ashen_greatsword" ->
                 skills.add(new Skill("ashen_greatsword_blow", "S+R", tag.getLong("slavicmyths_skill_ashen_greatsword")-now));
             case "volcanic_heart_flail" ->
                 skills.add(new Skill("volcanic_heart_strike", "S+R", tag.getLong("slavicmyths_skill_volcanic_heart_flail")-now));
             case "navya_ostroga" ->
-                skills.add(new Skill("navya_ostroga_lunge", "R", -1));
+                skills.add(new Skill("navya_ostroga_lunge", "R",VANILLA));
             case "shadow_throwing_knife" ->
-                skills.add(new Skill("shadow_throwing_knife_curse", "S+R", -1));
+                skills.add(new Skill("shadow_throwing_knife_curse", "S+R",VANILLA));
             case "infernal_bow" ->
-                skills.add(new Skill("infernal_bow_flame_arrow", "S+R", -1));
+                skills.add(new Skill("infernal_bow_flame_arrow", "S+R",VANILLA));
             case "empowered_infernal_bow" ->
-                skills.add(new Skill("empowered_infernal_bow_chainfire", "S+R", -1));
+                skills.add(new Skill("empowered_infernal_bow_chainfire", "S+R",VANILLA));
             case "storm_staff" ->
-                skills.add(new Skill("storm_staff_thunder_pulse", "R", -1));
+                skills.add(new Skill("storm_staff_thunder_pulse", "R",VANILLA));
             case "veles_staff" ->
-                skills.add(new Skill("veles_staff_forest_guardian", "R", -1));
+                skills.add(new Skill("veles_staff_forest_guardian", "R",VANILLA));
             case "likho_staff" ->
-                skills.add(new Skill("likho_staff_morok_eye", "R", -1));
+                skills.add(new Skill("likho_staff_morok_eye", "R",VANILLA));
             case "poloz_whip" -> {
-                skills.add(new Skill("poloz_whip_spikes", "R", -1));
-                skills.add(new Skill("poloz_whip_earth_rift", "S+R", -1));
+                skills.add(new Skill("poloz_whip_spikes", "R",VANILLA));
+                skills.add(new Skill("poloz_whip_earth_rift", "S+R",VANILLA));
             }
             case "trophy_kalin_sabre" ->
-                skills.add(new Skill("trophy_kalin_sabre_sweeping_strike", "R", -1));
+                skills.add(new Skill("trophy_kalin_sabre_sweeping_strike", "R",VANILLA));
             case "nightingale_dagger" ->
-                skills.add(new Skill("nightingale_dagger_wind_gust", "R", -1));
+                skills.add(new Skill("nightingale_dagger_wind_gust", "R",VANILLA));
             case "pool_spear" ->
-                skills.add(new Skill("pool_spear_underwater_dash", "R", -1));
+                skills.add(new Skill("pool_spear_underwater_dash", "R",VANILLA));
             case "mytar_shackled_sickle" -> {
-                skills.add(new Skill("mytar_shackled_sickle_throw", "R", -1));
-                skills.add(new Skill("mytar_shackled_sickle_chain_break", "S+R", -1));
+                skills.add(new Skill("mytar_shackled_sickle_throw", "R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.MYTAR,false,now)));
+                skills.add(new Skill("mytar_shackled_sickle_chain_break", "S+R", org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,org.slavicmyths.combat.IndependentWeaponCooldowns.MYTAR,true,now)));
             }
             case "nine_mor_shield" ->
-                skills.add(new Skill("nine_mor_shield_soul_dome", "S+R", -1));
+                skills.add(new Skill("nine_mor_shield_soul_dome", "S+R",VANILLA));
             case "three_breath_crossbow" -> {
-                skills.add(new Skill("three_breath_crossbow_triple_volley", "R", -1));
+                skills.add(new Skill("three_breath_crossbow_triple_volley", "R",VANILLA));
                 skills.add(new Skill("three_breath_crossbow_mode_switch", "S+R", 0));
             }
             case "serpent_crossbow" ->
-                skills.add(new Skill("serpent_crossbow_serpent_bolt", "R", -1));
+                skills.add(new Skill("serpent_crossbow_serpent_bolt", "R",VANILLA));
             case "finist_bow" -> {
-                skills.add(new Skill("finist_bow_homing_target", "R", -1));
-                skills.add(new Skill("finist_bow_manual_aim", "S+R", -1));
+                skills.add(new Skill("finist_bow_homing_target", "R",VANILLA));
+                skills.add(new Skill("finist_bow_manual_aim", "S+R",VANILLA));
             }
             case "victor_spear" ->
-                skills.add(new Skill("victor_spear_marked_followup", "L", -1));
+                skills.add(new Skill("victor_spear_marked_followup", "L",VANILLA));
             case "thunder_axe" ->
-                skills.add(new Skill("thunder_axe_passive_lightning", "", -1));
+                skills.add(new Skill("thunder_axe_passive_lightning", "",VANILLA));
             case "thunder_spear" ->
-                skills.add(new Skill("thunder_spear_passive_discharge", "", -1));
+                skills.add(new Skill("thunder_spear_passive_discharge", "",VANILLA));
             case "zhelva_shield" ->
-                skills.add(new Skill("zhelva_shield_perfect_guard", "R", -1));
+                skills.add(new Skill("zhelva_shield_perfect_guard", "R",VANILLA));
             default -> {
                 if(!WeaponTooltips.isWeapon(id.getPath()))return;
                 boolean chargedWeapon=stack.getItem() instanceof org.slavicmyths.combat.FlailItem
                     ||stack.getItem() instanceof org.slavicmyths.combat.ThrowingWeaponItem;
                 if(!chargedWeapon&&!mc.player.getCooldowns().isOnCooldown(stack.getItem()))return;
-                skills.add(new Skill("shot","",-1));
+                skills.add(new Skill("shot","",VANILLA));
             }
         }
         var g=event.getGuiGraphics();
@@ -213,7 +214,7 @@ public final class WeaponSkillHud {
         for(var skill:skills){
             g.fill(x-1,y-1,x+17,y+17,0xC0181B25);
             icon(g,skill.icon,x,y);
-            float shared=skill.remaining<0?mc.player.getCooldowns().getCooldownPercent(stack.getItem(),0):0;
+            float shared=skill.remaining==VANILLA?mc.player.getCooldowns().getCooldownPercent(stack.getItem(),0):0;
             if(shared>0)g.fill(x,y+16-(int)Math.ceil(16*shared),x+16,y+16,0xB0000000);
             if(skill.remaining>0){
                 g.fill(x,y,x+16,y+16,0xA0000000);
