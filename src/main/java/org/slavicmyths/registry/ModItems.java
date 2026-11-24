@@ -15,6 +15,13 @@ import org.slavicmyths.SlavicMyths;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(Registries.ITEM, SlavicMyths.MOD_ID);
+    public static final DeferredHolder<Item, Item> FROST_PERMAFROST_RING = ITEMS.register("frost_permafrost_ring", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "ring"));
+    public static final DeferredHolder<Item, Item> WINTER_OWL_FEATHER = ITEMS.register("winter_owl_feather", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "charm"));
+    public static final DeferredHolder<Item, Item> NORTHERN_WOLVERINE_FANG = ITEMS.register("northern_wolverine_fang", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "necklace"));
+    public static final DeferredHolder<Item, Item> ICE_CAPTAIN_BELT = ITEMS.register("ice_captain_belt", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "belt"));
+    public static final DeferredHolder<Item, Item> SNOW_QUEEN_HEART = ITEMS.register("snow_queen_heart", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "necklace"));
+    public static final DeferredHolder<Item, Item> SILENCE_RING = ITEMS.register("silence_ring", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.RARE), "ring"));
+    public static final DeferredHolder<Item, Item> ICE_CROWN = ITEMS.register("ice_crown", () -> new org.slavicmyths.item.FolkAccessoryItem(new Item.Properties().rarity(Rarity.EPIC), "head"));
     public static final DeferredHolder<Item, Item> CRIMSON_PEPPER = ITEMS.register("crimson_pepper",()->new ItemNameBlockItem(ModBlocks.CRIMSON_PEPPER_CROP.get(),properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.1F).build())));
     public static final DeferredHolder<Item, Item> GARLIC_CLOVE = ITEMS.register("garlic_clove", () -> new ItemNameBlockItem(ModBlocks.GARLIC_CROP.get(), properties()));
     public static final DeferredHolder<Item, Item> HORSERADISH_CUTTING = ITEMS.register("horseradish_cutting", () -> new ItemNameBlockItem(ModBlocks.HORSERADISH_CROP.get(), properties()));

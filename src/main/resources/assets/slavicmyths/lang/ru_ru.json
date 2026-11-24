@@ -6951,5 +6951,21 @@
   "block.slavicmyths.frozen_stone_pillar": "Ледяная каменная колонна",
   "block.slavicmyths.frozen_paving": "Ледяная брусчатка",
   "generator.slavicmyths.slavic_winter": "Славянская зима",
-  "flat_world_preset.slavicmyths.slavic_winter": "Славянская зима"
+  "flat_world_preset.slavicmyths.slavic_winter": "Славянская зима",
+  "item.slavicmyths.frost_permafrost_ring": "Кольцо вечной мерзлоты",
+  "item.slavicmyths.frost_permafrost_ring.effect": "Любое оружие накладывает обморожение; зимнее продлевает его на 2 с.",
+  "item.slavicmyths.winter_owl_feather": "Перо зимней совы",
+  "item.slavicmyths.winter_owl_feather.effect": "−70% урона от падения, +15% урона снарядами.",
+  "item.slavicmyths.northern_wolverine_fang": "Клык северной росомахи",
+  "item.slavicmyths.northern_wolverine_fang.effect": "+15% скорости атаки; при здоровье ниже 30% +20% урона.",
+  "item.slavicmyths.ice_captain_belt": "Пояс ледяного капитана",
+  "item.slavicmyths.ice_captain_belt.effect": "+3 брони, +4 HP, +10% сопротивления отбрасыванию.",
+  "item.slavicmyths.snow_queen_heart": "Сердце Снежной королевы",
+  "item.slavicmyths.snow_queen_heart.effect": "+6 HP, −20% магического урона.",
+  "item.slavicmyths.silence_ring": "Кольцо безмолвия",
+  "item.slavicmyths.silence_ring.effect": "+25% урона по цели с обморожением V.",
+  "item.slavicmyths.ice_crown": "Ледяная корона",
+  "item.slavicmyths.ice_crown.effect": "При попадании по врагу призывает две копии на 30 с. Откат 3 мин.",
+  "death.attack.winter_frostbite": "%1$s замёрз от атаки %2$s",
+  "death.attack.winter_frostbite.player": "%1$s замёрз от атаки %2$s"
 }
