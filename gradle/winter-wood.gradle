@@ -55,7 +55,7 @@ tasks.named('processResources') {
                 else {dark=[155,170,189];light=[249,248,246]}
                 double t=Math.max(0d,Math.min(1d,luminance*1.22d+(leaf && pine ? 0.13d : 0d)))
                 int rr=blend(dark[0],light[0],t), gg=blend(dark[1],light[1],t), bb=blend(dark[2],light[2],t)
-                if(family=='date_palm' && kind=='log' && y%4==0){rr=(rr*.66) as int;gg=(gg*.66) as int;bb=(bb*.66) as int}
+                if(family=='date_palm' && kind=='log' && y%4==0){rr=(rr*0.66) as int;gg=(gg*0.66) as int;bb=(bb*0.66) as int}
                 if(family=='tamarisk' && kind=='leaves' && (x*7+y*11)%23<3){rr=231;gg=147;bb=175}
                 result.setRGB(x,y,(alpha<<24)|(rr<<16)|(gg<<8)|bb)
             }
