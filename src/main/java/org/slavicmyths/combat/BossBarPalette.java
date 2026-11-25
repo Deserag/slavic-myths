@@ -63,6 +63,7 @@ public final class BossBarPalette {
         Map.entry("ant_queen",6),
         Map.entry("hala",7),
         Map.entry("storm_idol",8),
+        Map.entry("lamya",9),
         Map.entry("nine_mor_serpent",9)
     );
 
