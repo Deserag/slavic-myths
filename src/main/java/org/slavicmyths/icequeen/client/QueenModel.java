@@ -21,8 +21,24 @@ public final class QueenModel<T extends LivingEntity> extends EntityModel<T>{
  private boolean transformed,copy; private int action,frame,shieldCount,reactive;private float age,impact;
  @SuppressWarnings("unchecked")
  public QueenModel(){arms=(List<Cube>[][][])new List<?>[2][12][9];body(first,false);body(second,true);
-  for(int p=0;p<2;p++)for(int a=0;a<12;a++)for(int f=0;f<9;f++){var l=new ArrayList<Cube>();arms[p][a][f]=l;limbs(l,p==1,a,f/8F);}
+  for(int p=0;p<2;p++)for(int a=0;a<12;a++)for(int f=0;f<9;f++){
+   int canonical=canonicalLimbs(a);int frame=canonical==IceQueen.IDLE||f==0?0:f;
+   if(frame==0)canonical=IceQueen.IDLE;
+   // Canonical IDs precede their aliases; identical geometry shares immutable lists.
+   if(arms[p][canonical][frame]==null){var l=new ArrayList<Cube>();limbs(l,p==1,canonical,frame/8F);arms[p][canonical][frame]=List.copyOf(l);}
+   arms[p][a][f]=arms[p][canonical][frame];
+  }
   for(int j=0;j<5;j++)box(shield,0,-12,23+(j-2)*1.4F,new float[]{2,4,5,5,4}[j],.55F,1.5F,j%2==0?ICE:ICE2);
+ }
+ private static int canonicalLimbs(int action){
+  return switch(action){
+   case IceQueen.SHOT,IceQueen.VOLLEY->IceQueen.SHOT;
+   case IceQueen.THRUST,IceQueen.COMBO->IceQueen.THRUST;
+   case IceQueen.SWEEP,IceQueen.SPIN->IceQueen.SWEEP;
+   case IceQueen.SUMMON,IceQueen.TRANSFORM->IceQueen.SUMMON;
+   case IceQueen.STORM,IceQueen.GUARD,IceQueen.YIELD->IceQueen.STORM;
+   default->IceQueen.IDLE;
+  };
  }
  private void box(List<Cube> l,float x,float depth,float z,float w,float d,float h,int c){add(l,x,depth,z,w,d,h,c,null);}
  private void add(List<Cube> l,float x,float depth,float z,float w,float d,float h,int c,Quaternionf rotation){
