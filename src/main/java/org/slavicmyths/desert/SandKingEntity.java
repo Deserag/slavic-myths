@@ -29,6 +29,9 @@ public final class SandKingEntity extends Monster implements LivingThreatBoss {
  private static final SandKingGeometry GEO=SandKingGeometry.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.sand_king","Царь песков"),BossEvent.BossBarColor.YELLOW,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
+ private final float[] collisionPose=new float[GEO.count*24];
+ private final double[][] collisionLo=new double[GEO.groups.length][3],collisionHi=new double[GEO.groups.length][3];
+ private final double[] tipSample=new double[3];
  private final int[] cooldowns=new int[7];
  private final Set<UUID> shockHits=new HashSet<>();
  private final List<PoisonPatch> poison=new ArrayList<>();
@@ -74,13 +77,20 @@ public final class SandKingEntity extends Monster implements LivingThreatBoss {
  public int visualAction(){return action()==IDLE&&getDeltaMovement().horizontalDistanceSqr()>.0008?WALK:action();}
  public float visualProgress(float partial){int a=visualAction();float age=actionTicks()+partial;if(a==WALK)return ((tickCount+partial)%16)/16F;if(a==JUMP){if(entityData.get(LANDED))return 1;return age<10?.12F*age/10:Mth.clamp(.12F+.76F*(age-10)/24F,.12F,.88F);}return a==IDLE?0:Mth.clamp(age/duration(a),0,1);}
  public float[] pose(float partial){return GEO.sample(visualAction(),visualProgress(partial),mirrored());}
+ public void poseInto(float partial,float[] out){GEO.sampleInto(visualAction(),visualProgress(partial),mirrored(),out);}
  private Vec3 forward(){return Vec3.directionFromRotation(0,getYRot()).multiply(1,0,1).normalize();}
  private Vec3 localToWorld(double x,double y,double z){double a=getYRot()*Math.PI/180;return position().add(x*Math.cos(a)-z*Math.sin(a),y,x*Math.sin(a)+z*Math.cos(a));}
- private Vec3 tip(float[] vertices){double[] p=GEO.tip(vertices);return localToWorld(p[0],p[1],p[2]);}
+ private Vec3 tip(){GEO.tipInto(visualAction(),visualProgress(0),mirrored(),tipSample);return localToWorld(tipSample[0],tipSample[1],tipSample[2]);}
  private void updateParts(){
-  float[] v=pose(0);int n=parts.length;double[][] lo=new double[n][3],hi=new double[n][3];
+  float[] v=collisionPose;poseInto(0,v);int n=parts.length;double[][] lo=collisionLo,hi=collisionHi;
   for(int j=0;j<n;j++){Arrays.fill(lo[j],Double.POSITIVE_INFINITY);Arrays.fill(hi[j],Double.NEGATIVE_INFINITY);}
-  for(int i=0;i<GEO.count;i++){int p=GEO.groupForSide(GEO.part[i],mirrored());for(int k=0;k<8;k++){int ix=i*24+k*3;Vec3 q=localToWorld(v[ix],v[ix+1],v[ix+2]);double[] xyz={q.x,q.y,q.z};for(int d=0;d<3;d++){lo[p][d]=Math.min(lo[p][d],xyz[d]);hi[p][d]=Math.max(hi[p][d],xyz[d]);}}}
+  boolean mirror=mirrored();double a=getYRot()*Math.PI/180,c=Math.cos(a),s=Math.sin(a),x0=getX(),y0=getY(),z0=getZ();
+  for(int i=0;i<GEO.count;i++){int p=GEO.groupForSide(GEO.part[i],mirror);double[] l=lo[p],h=hi[p];
+   for(int k=0;k<8;k++){int ix=i*24+k*3;double x=x0+(v[ix]*c-v[ix+2]*s),y=y0+v[ix+1],z=z0+(v[ix]*s+v[ix+2]*c);
+    l[0]=Math.min(l[0],x);l[1]=Math.min(l[1],y);l[2]=Math.min(l[2],z);
+    h[0]=Math.max(h[0],x);h[1]=Math.max(h[1],y);h[2]=Math.max(h[2],z);
+   }
+  }
   for(int i=0;i<n;i++){Part p=parts[i];double[] l=lo[i],h=hi[i];if(!Double.isFinite(l[0]))continue;p.setPos((l[0]+h[0])*.5,l[1],(l[2]+h[2])*.5);p.setBoundingBox(new AABB(l[0],l[1],l[2],h[0],h[1],h[2]).inflate(.035));}
  }
  /** A recorded aggressor may remain a valid target even when its native goal changes. */
@@ -132,13 +142,13 @@ public final class SandKingEntity extends Monster implements LivingThreatBoss {
  private void begin(int a,LivingEntity t){
   Vec3 d=t.position().subtract(position());float yaw=(float)(Mth.atan2(-d.x,d.z)*Mth.RAD_TO_DEG);Vec3 f=forward();boolean left=f.x*d.z-f.z*d.x>0;
   entityData.set(MIRROR,a==CLAW&&left);setYRot(yaw);setYBodyRot(yaw);setYHeadRot(yaw);lockedYaw=yaw;entityData.set(ACTION,a);entityData.set(START,(int)level().getGameTime());entityData.set(LANDED,false);
-  lockedPoint=t.position();cooldowns[a]=cooldown(a,battlePhase());getNavigation().stop();previousTip=tip(pose(0));stingHit=false;flightStart=-1;landingTick=-1;shockHits.clear();shockCenter=null;
+  lockedPoint=t.position();cooldowns[a]=cooldown(a,battlePhase());getNavigation().stop();previousTip=tip();stingHit=false;flightStart=-1;landingTick=-1;shockHits.clear();shockCenter=null;
   if(a==SLAM)playSound(SandKingSounds.SLAM_CHARGE.get(),1.5F,1);if(a==STING)playSound(SandKingSounds.STING.get(),1.3F,1);if(a==JUMP)playSound(SandKingSounds.JUMP.get(),1.4F,1);
  }
  private void execute(ServerLevel w){
   int a=action(),t=actionTicks();getNavigation().stop();setYRot(lockedYaw);setYBodyRot(lockedYaw);setYHeadRot(lockedYaw);
   if(a!=JUMP&&a!=COMBO)setDeltaMovement(0,getDeltaMovement().y,0);
-  if(a==STING){if(t>=7&&t<=22&&!stingHit)sting(w);else previousTip=tip(pose(0));}
+  if(a==STING){if(t>=7&&t<=22&&!stingHit)sting(w);else previousTip=tip();}
   if(a==CLAW&&t==12)claw(w,mirrored()?-1:1,12,1.0);
   if(a==COMBO){if(t<48&&onGround())setDeltaMovement(forward().scale(.08).add(0,getDeltaMovement().y,0));for(int i=0;i<COMBO_TICKS.length;i++)if(t==COMBO_TICKS[i])claw(w,i%2==0?1:-1,i==5?10:5,i==5?1.15:.12);}
   if(a==JUMP){jump(w,t);if(landingTick>=0&&t>=landingTick+14){finish();return;}if(t>=90){finish();return;}return;}
@@ -148,7 +158,7 @@ public final class SandKingEntity extends Monster implements LivingThreatBoss {
  private void finish(){int a=action();recovery=recovery(a);entityData.set(ACTION,IDLE);entityData.set(MIRROR,false);entityData.set(LANDED,false);previousTip=null;lockedPoint=null;shockCenter=null;setDeltaMovement(0,getDeltaMovement().y,0);}
  private boolean attackable(LivingEntity e){return !(e instanceof SandKingEntity)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.AREA);}
  private void sting(ServerLevel w){
-  Vec3 end=tip(pose(0)),start=previousTip==null?end:previousTip;previousTip=end;BlockHitResult block=w.clip(new ClipContext(start,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this));
+  Vec3 end=tip(),start=previousTip==null?end:previousTip;previousTip=end;BlockHitResult block=w.clip(new ClipContext(start,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this));
   double best=block.getType()==HitResult.Type.MISS?Double.POSITIVE_INFINITY:start.distanceToSqr(block.getLocation());LivingEntity victim=null;
   for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,new AABB(start,end).inflate(.4),this::attackable)){var box=e.getBoundingBox().inflate(.2);var hit=box.clip(start,end);double distance=box.contains(start)?0:hit.map(start::distanceToSqr).orElse(Double.POSITIVE_INFINITY);if(distance<best){best=distance;victim=e;}}
   if(victim!=null){if(victim.hurt(damageSources().mobAttack(this),16))victim.addEffect(new MobEffectInstance(MobEffects.POISON,120,1),this);stingHit=true;playSound(SandKingSounds.CLAW.get(),1,1.3F);}

@@ -16,13 +16,14 @@ public final class SandKingRenderer extends EntityRenderer<SandKingEntity> {
  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
  private static final int[][] FACES={{0,1,2,3},{4,7,6,5},{0,4,5,1},{1,5,6,2},{2,6,7,3},{3,7,4,0}};
  private static final SandKingGeometry GEO=SandKingGeometry.INSTANCE;
+ private final float[] vertices=new float[GEO.count*24];
  public SandKingRenderer(EntityRendererProvider.Context c){super(c);shadowRadius=2.3F;}
  public static void register(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(SandKingContent.BOSS.get(),SandKingRenderer::new);}
  @Override public ResourceLocation getTextureLocation(SandKingEntity e){return WHITE;}
  @Override public boolean shouldRender(SandKingEntity e,Frustum frustum,double x,double y,double z){return frustum.isVisible(e.getBoundingBox().inflate(8,6,8));}
  @Override public void render(SandKingEntity e,float yaw,float partial,PoseStack stack,MultiBufferSource buffer,int light){
   stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));
-  float[] vertices=e.pose(partial);var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));
+  e.poseInto(partial,vertices);var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));
   int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;
   for(int i=0;i<GEO.count;i++){int color=GEO.colors[i],packed=light;if(color==0xffffd76c)packed=LightTexture.FULL_BRIGHT;else if(color==0xffe5a333)packed=LightTexture.pack(Math.max(LightTexture.block(light),7+2*e.battlePhase()),LightTexture.sky(light));int base=i*24;float cx=0,cy=0,cz=0;for(int k=0;k<8;k++){cx+=vertices[base+3*k]/8;cy+=vertices[base+3*k+1]/8;cz+=vertices[base+3*k+2]/8;}for(int[] f:FACES)face(stack.last(),out,vertices,base,f,cx,cy,cz,color,packed,overlay);}
   stack.popPose();super.render(e,yaw,partial,stack,buffer,light);
