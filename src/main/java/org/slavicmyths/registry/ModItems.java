@@ -22,6 +22,17 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> ICE_MACE = ITEMS.register("ice_mace", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.MACE));
     public static final DeferredHolder<Item, Item> ICE_HALBERD = ITEMS.register("ice_halberd", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.HALBERD));
     public static final DeferredHolder<Item, Item> ICE_SCYTHE = ITEMS.register("ice_scythe", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.SCYTHE));
+    public static final DeferredHolder<Item, Item> SCORPION_DOUBLE = ITEMS.register("scorpion_double_sting", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.SCORPION_DOUBLE));
+    public static final DeferredHolder<Item, Item> STINGER_DAGGER = ITEMS.register("stinger_dagger", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.STINGER_DAGGER));
+    public static final DeferredHolder<Item, Item> SAND_SLING = ITEMS.register("sand_sling", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.SAND_SLING));
+    public static final DeferredHolder<Item, Item> GLASS_BLADE = ITEMS.register("desert_glass_blade", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.GLASS_BLADE));
+    public static final DeferredHolder<Item, Item> DUNE_MACE = ITEMS.register("dune_mace", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.DUNE_MACE));
+    public static final DeferredHolder<Item, Item> MIRAGE_BOW = ITEMS.register("mirage_bow", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.MIRAGE_BOW));
+    public static final DeferredHolder<Item, Item> QUICKSAND_WHIP = ITEMS.register("quicksand_whip", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.QUICKSAND_WHIP));
+    public static final DeferredHolder<Item, Item> COLONY_SCEPTER = ITEMS.register("colony_scepter", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.COLONY_SCEPTER));
+    public static final DeferredHolder<Item, Item> FOUR_WINDS = ITEMS.register("four_winds_fists", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.FOUR_WINDS));
+    public static final DeferredHolder<Item, Item> LAMYA_WEAPON = ITEMS.register("lamya_weapon", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.LAMYA_WEAPON));
+    public static final DeferredHolder<Item, Item> BURIED_HAMMER = ITEMS.register("buried_hammer", () -> new org.slavicmyths.desert.DesertWeaponItem(org.slavicmyths.desert.DesertWeaponSpec.BURIED_HAMMER));
     public static final DeferredHolder<Item, Item> HALA_SOLAR_STAFF = ITEMS.register("hala_solar_staff", org.slavicmyths.desert.HalaSolarStaffItem::new);
     public static final DeferredHolder<Item, Item> ICE_HEALING_STAFF = ITEMS.register("ice_healing_staff", () -> new org.slavicmyths.desert.HealingStaffItem(false));
     public static final DeferredHolder<Item, Item> FIRE_HEALING_STAFF = ITEMS.register("fire_healing_staff", () -> new org.slavicmyths.desert.HealingStaffItem(true));

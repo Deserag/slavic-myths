@@ -62,6 +62,7 @@ public final class CombatTargeting {
         return org.slavicmyths.kalin.KalinParty.owner(e);
     }
     private static java.util.UUID playerOwner(LivingEntity e){
+        if(e instanceof org.slavicmyths.desert.AntMinionEntity a&&a.playerBound())return a.ownerId();
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e instanceof org.slavicmyths.icequeen.QueenMinion m&&m.playerBound())return m.ownerId();
         if(e instanceof Player p)return p.getUUID();
