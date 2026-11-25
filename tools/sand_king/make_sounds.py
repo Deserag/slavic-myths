@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
-import numpy as np, subprocess, wave, tempfile
+import numpy as np
+import soundfile as sf
 from scipy.signal import butter,sosfilt
 ROOT=Path(__file__).resolve().parents[2]
 OUT=Path(os.environ.get('SAND_KING_RESOURCE_ROOT', ROOT/'src/main/resources'))/'assets/slavicmyths/sounds/desert/sand_king';OUT.mkdir(parents=True,exist_ok=True)
@@ -29,9 +30,6 @@ def synth(name,dur):
     elif name=='slam':x=.9*low*env(t,.008,.65)+.65*tone(t,68,23,.6)+.48*pulse(t,.01,220,5000,.38)+.22*pulse(t,.19,100,1000,.55)
     else:x=.6*mid*env(t,.03,.75)+.4*low*env(t,.05,.8)+.4*tone(t,68,120,.6)+.24*grain*env(t,.15,.8)
     x=np.tanh(x*1.7);x*=np.minimum(1,t/.015)*np.minimum(1,(dur-t)/.08);x=.78*x/max(.001,np.max(np.abs(x)))
-    with tempfile.TemporaryDirectory() as td:
-        f=Path(td)/'sound.wav'
-        with wave.open(str(f),'wb') as w:w.setnchannels(1);w.setsampwidth(2);w.setframerate(SR);w.writeframes((x*32767).astype('<i2').tobytes())
-        subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(f),'-c:a','libvorbis','-q:a','4',str(OUT/(name+'.ogg'))],check=True)
+    sf.write(str(OUT/(name+'.ogg')), x, SR, format='OGG', subtype='VORBIS')
 for name,dur in {'ambient':1.5,'alert':1.3,'hurt':.65,'death':2.4,'step':.38,'sting':.9,'poison':1.45,'claw':.55,'jump':.8,'land':1.35,'slam_charge':2.5,'slam':2.2,'rage':1.7}.items():synth(name,dur)
 print('13 original mono OGG sound effects')

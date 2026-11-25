@@ -19,7 +19,6 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r tools/sand_king/requirements.txt
-      - run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
       - name: Verify Sand King geometry and combat timeline

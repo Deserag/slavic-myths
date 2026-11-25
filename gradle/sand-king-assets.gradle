@@ -1,36 +1,19 @@
-// The optional pre-generated files from the implementation package can also be used.
+// Gradle 9: use a typed Exec task instead of the removed Project.exec method.
 def sandKingAssetRoot = layout.buildDirectory.dir('generated/sand-king-resources')
 def sandKingGeometryPath = 'assets/slavicmyths/sand_king/geometry.bin.gz'
 def sandKingSoundPath = 'assets/slavicmyths/sounds/desert/sand_king'
 def sandKingNames = ['ambient','alert','hurt','death','step','sting','poison','claw','jump','land','slam_charge','slam','rage']
-def sandKingScripts = fileTree('tools/sand_king') { include '*.py' }
 def sandKingPython = providers.environmentVariable('SAND_KING_PYTHON').orElse(System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3')
-tasks.register('generateSandKingAssets') {
-    inputs.files(sandKingScripts)
+def generateSandKingAssets = tasks.register('generateSandKingAssets', Exec) {
+    inputs.files(fileTree('tools/sand_king') { include '*.py', 'requirements.txt' })
     inputs.files(files("src/main/resources/${sandKingGeometryPath}", sandKingNames.collect { "src/main/resources/${sandKingSoundPath}/${it}.ogg" }))
+    inputs.property('pythonExecutable', sandKingPython)
     outputs.dir(sandKingAssetRoot)
-    doLast {
-        def out = sandKingAssetRoot.get().asFile
-        delete out
-        out.mkdirs()
-        def geometry = file("src/main/resources/${sandKingGeometryPath}")
-        def sounds = sandKingNames.collect { file("src/main/resources/${sandKingSoundPath}/${it}.ogg") }
-        if (!geometry.isFile()) {
-            exec { environment 'SAND_KING_RESOURCE_ROOT', out.absolutePath; commandLine sandKingPython.get(), 'tools/sand_king/export_geometry.py' }
-        }
-        if (sounds.any { !it.isFile() }) {
-            exec { environment 'SAND_KING_RESOURCE_ROOT', out.absolutePath; commandLine sandKingPython.get(), 'tools/sand_king/make_sounds.py' }
-            // Do not duplicate any pre-generated files in the JAR.
-            sounds.findAll { it.isFile() }.each { delete new File(out, "${sandKingSoundPath}/${it.name}") }
-        }
-        if (!geometry.isFile() && !new File(out,sandKingGeometryPath).isFile()) throw new GradleException('Sand King geometry missing')
-        sandKingNames.each { name ->
-            def path = "${sandKingSoundPath}/${name}.ogg"
-            if (!file("src/main/resources/${path}").isFile() && !new File(out,path).isFile()) throw new GradleException("Sand King sound missing: ${name}")
-        }
-    }
+    workingDir rootProject.projectDir
+    environment 'SAND_KING_RESOURCE_ROOT', sandKingAssetRoot.get().asFile.absolutePath
+    commandLine sandKingPython.get(), 'tools/sand_king/generate_assets.py'
 }
 tasks.named('processResources') {
-    dependsOn tasks.named('generateSandKingAssets')
+    dependsOn generateSandKingAssets
     from(sandKingAssetRoot)
 }

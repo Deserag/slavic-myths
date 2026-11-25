@@ -1,7 +1,7 @@
 # Sand King VII / V2
 Minecraft 1.21.1, NeoForge, Java 21.
 
-This implementation preserves the 327-cuboid prototype. Geometry and 13 original Vorbis sound effects are generated from the Python sources during resource processing. No Python dependency is needed at Minecraft runtime. To build from a clean checkout, install Python 3, FFmpeg (on PATH), and run:
+This implementation preserves the 327-cuboid prototype. Geometry and 13 original Vorbis sound effects are generated from the Python sources during resource processing. No Python dependency is needed at Minecraft runtime. SoundFile encodes the original audio waveforms directly to OGG Vorbis, so FFmpeg is not required. To build from a clean checkout, install Python 3 and run:
 
     python -m pip install -r tools/sand_king/requirements.txt
 
