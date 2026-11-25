@@ -27,7 +27,7 @@ public final class SandKingEntity extends Monster {
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT),PHASE=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> MIRROR=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.BOOLEAN),LANDED=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.BOOLEAN);
  private static final SandKingGeometry GEO=SandKingGeometry.INSTANCE;
- private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.sand_king","Царь песков").append(" [VII]"),BossEvent.BossBarColor.YELLOW,BossEvent.BossBarOverlay.PROGRESS);
+ private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.sand_king","Царь песков"),BossEvent.BossBarColor.YELLOW,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
  private final int[] cooldowns=new int[7];
  private final Set<UUID> shockHits=new HashSet<>();
@@ -82,10 +82,21 @@ public final class SandKingEntity extends Monster {
   for(int i=0;i<GEO.count;i++){int p=GEO.groupForSide(GEO.part[i],mirrored());for(int k=0;k<8;k++){int ix=i*24+k*3;Vec3 q=localToWorld(v[ix],v[ix+1],v[ix+2]);double[] xyz={q.x,q.y,q.z};for(int d=0;d<3;d++){lo[p][d]=Math.min(lo[p][d],xyz[d]);hi[p][d]=Math.max(hi[p][d],xyz[d]);}}}
   for(int i=0;i<n;i++){Part p=parts[i];double[] l=lo[i],h=hi[i];if(!Double.isFinite(l[0]))continue;p.setPos((l[0]+h[0])*.5,l[1],(l[2]+h[2])*.5);p.setBoundingBox(new AABB(l[0],l[1],l[2],h[0],h[1],h[2]).inflate(.035));}
  }
- private boolean valid(LivingEntity e){return e!=null&&e.isAlive()&&!(e instanceof SandKingEntity)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE);}
+ /** A recorded aggressor may remain a valid target even when its native goal changes. */
+ public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof SandKingEntity)&&e.isAlive()&&!e.isRemoved()&&e.level()==level()&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
+ public boolean validThreatTarget(LivingEntity e){return canPursue(e)&&(CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE)||BossThreat.recordedAttacker(this,e));}
+ private boolean valid(LivingEntity e){return validThreatTarget(e);}
+ public boolean acceptThreatTarget(LivingEntity e){
+  if(action()!=IDLE||!valid(e))return false;
+  if(getTarget()==e)return true;
+  boolean wake=!valid(getTarget());
+  setTarget(e);if(getTarget()!=e)return false;
+  lastKnown=e.position();unseen=0;retreating=false;noTarget=0;
+  if(wake)playSound(SandKingSounds.ALERT.get(),1.6F,1);
+  return true;
+ }
  @Override public boolean hurt(DamageSource s,float amount){return hurtPart(s,amount,1);}
  private boolean hurtPart(DamageSource s,float amount,float multiplier){
-  if(!level().isClientSide&&amount>0&&s.getEntity() instanceof LivingEntity attacker&&valid(attacker)&&distanceToSqr(attacker)<=96*96){if(!valid(getTarget())){setTarget(attacker);lastKnown=attacker.position();retreating=false;noTarget=0;playSound(SandKingSounds.ALERT.get(),1.6F,1);}}
   return super.hurt(s,amount*multiplier*(s.is(DamageTypeTags.IS_PROJECTILE)?.6F:1F));
  }
  @Override public void tick(){
@@ -98,7 +109,7 @@ public final class SandKingEntity extends Monster {
  private void think(ServerLevel w){
   LivingEntity target=getTarget();
   if(!valid(target)||distanceToSqr(target)>96*96||home.distanceToSqr(target.position())>80*80){setTarget(null);target=null;}
-  if(!retreating&&(target==null||!(target instanceof Player)))BossRetaliation.select(this,64);target=getTarget();
+  if(!retreating)BossThreat.selectSandKing(this);target=getTarget();
   if(!valid(target)&&tickCount%10==0&&!retreating){double best=24*24;Player chosen=null;for(Player p:w.getEntitiesOfClass(Player.class,getBoundingBox().inflate(24),this::valid))if(distanceToSqr(p)<best&&hasLineOfSight(p)){chosen=p;best=distanceToSqr(p);}if(chosen!=null){setTarget(chosen);target=chosen;playSound(SandKingSounds.ALERT.get(),1.5F,1);}}
   if(!valid(target)){if(++noTarget>100){retreating=true;if(position().distanceToSqr(home)>4){if(tickCount%10==0)getNavigation().moveTo(home.x,home.y,home.z,1);}else{getNavigation().stop();retreating=false;noTarget=0;}}return;}
   noTarget=0;retreating=false;if(hasLineOfSight(target)){lastKnown=target.position();unseen=0;}else unseen++;
