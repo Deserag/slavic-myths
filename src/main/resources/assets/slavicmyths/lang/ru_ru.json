@@ -7085,5 +7085,11 @@
   "subtitles.slavicmyths.storm_idol_launch": "Ветряной кулак вылетает",
   "subtitles.slavicmyths.storm_idol_impact": "Кулак ударяет",
   "subtitles.slavicmyths.storm_idol_updraft": "Восходящий поток",
-  "subtitles.slavicmyths.storm_idol_storm": "Идол вызывает бурю"
+  "subtitles.slavicmyths.storm_idol_storm": "Идол вызывает бурю",
+  "item.slavicmyths.fiery_iron_ingot": "Огненный слиток железа",
+  "item.slavicmyths.fiery_gold_ingot": "Огненное золото",
+  "item.slavicmyths.venom_gland": "Ядовитая железа",
+  "item.slavicmyths.solar_crystal": "Солнечный кристалл",
+  "item.slavicmyths.desert_chitin": "Хитин",
+  "item.slavicmyths.fossil_amber": "Застывший янтарь"
 }

@@ -22,6 +22,12 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> ICE_MACE = ITEMS.register("ice_mace", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.MACE));
     public static final DeferredHolder<Item, Item> ICE_HALBERD = ITEMS.register("ice_halberd", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.HALBERD));
     public static final DeferredHolder<Item, Item> ICE_SCYTHE = ITEMS.register("ice_scythe", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.SCYTHE));
+    public static final DeferredHolder<Item, Item> FIERY_IRON_INGOT = ITEMS.register("fiery_iron_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredHolder<Item, Item> FIERY_GOLD_INGOT = ITEMS.register("fiery_gold_ingot", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> VENOM_GLAND = ITEMS.register("venom_gland", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredHolder<Item, Item> SOLAR_CRYSTAL = ITEMS.register("solar_crystal", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredHolder<Item, Item> DESERT_CHITIN = ITEMS.register("desert_chitin", () -> new Item(new Item.Properties().rarity(Rarity.COMMON)));
+    public static final DeferredHolder<Item, Item> FOSSIL_AMBER = ITEMS.register("fossil_amber", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> WINTER_STEEL_INGOT = ITEMS.register("winter_steel_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> GLUHEYA_FROST_SHARD = ITEMS.register("gluheya_frost_shard", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> WOLVERINE_FROST_FANG = ITEMS.register("wolverine_frost_fang", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));

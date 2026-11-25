@@ -1466,3 +1466,9 @@ tamarisk_sign	decor	wood_tamarisk
 tamarisk_hanging_sign	decor	wood_tamarisk
 hanging_date_palm_leaves	decor	wood_date_palm
 date	food	fruit
+fiery_iron_ingot	resources	desert_materials
+fiery_gold_ingot	resources	desert_materials
+venom_gland	resources	desert_materials
+solar_crystal	resources	desert_materials
+desert_chitin	resources	desert_materials
+fossil_amber	resources	desert_materials
