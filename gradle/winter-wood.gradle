@@ -5,7 +5,7 @@ tasks.named('processResources') {
     doLast {
         def source = rootProject.file('src/main/resources')
         def output = destinationDir
-        def families = [pine:'ice_pine', willow:'frost_willow']
+        def families = [ice_pine:'pine', frost_willow:'willow', date_palm:'pine', tamarisk:'willow']
         def suffixes = ['log','wood','stripped_log','stripped_wood','planks','leaves','sapling','stairs','slab','fence','fence_gate','door','trapdoor','pressure_plate','button','sign']
         def blockSuffixes = suffixes + ['wall_sign','hanging_sign','wall_hanging_sign']
         def modelPattern = /(?:log(?:_horizontal)?|wood|stripped_log(?:_horizontal)?|stripped_wood|planks|leaves|sapling|stairs(?:_inner|_outer)?|slab(?:_top)?|fence(?:_inventory|_post|_side)?|fence_gate(?:_open|_wall|_wall_open)?|door(?:_bottom|_top)(?:_hinge|_left|_right|_left_open|_right_open)?|trapdoor_(?:bottom|open|top)|pressure_plate(?:_down)?|button(?:_inventory|_pressed)?|sign|wall_sign)/
@@ -26,7 +26,8 @@ tasks.named('processResources') {
             }.each { f -> copyText(directory + '/' + f.name,oldName,newName) }
         }
         def blend = { int a, int b, double t -> (int)Math.round(a+(b-a)*t) }
-        def recolor = { File original, String path, boolean pine, String kind ->
+        def recolor = { File original, String path, String family, String kind ->
+            boolean pine=family=='ice_pine'
             def image = javax.imageio.ImageIO.read(original)
             if (image == null) throw new GradleException("Unreadable winter texture: " + original)
             def result = new java.awt.image.BufferedImage(image.width,image.height,java.awt.image.BufferedImage.TYPE_INT_ARGB)
@@ -38,7 +39,15 @@ tasks.named('processResources') {
                 boolean leaf=kind.contains('leaves') || (kind.contains('sapling') && g>r*1.10 && g>b*1.05)
                 boolean bark=(kind=='log' || kind.contains('sapling') && !leaf)
                 def dark, light
-                if(leaf && pine){dark=[152,180,197];light=[252,255,255]}
+                if(family=='date_palm') {
+                    if(leaf){dark=[58,77,20];light=[155,169,63]}
+                    else if(bark){dark=[65,42,22];light=[158,108,62]}
+                    else{dark=[105,67,34];light=[218,173,104]}
+                } else if(family=='tamarisk') {
+                    if(leaf){dark=[68,83,33];light=[165,164,76]}
+                    else if(bark){dark=[68,40,32];light=[136,90,70]}
+                    else{dark=[115,67,49];light=[206,143,112]}
+                } else if(leaf && pine){dark=[152,180,197];light=[252,255,255]}
                 else if(leaf){dark=[58,132,158];light=[209,248,255]}
                 else if(bark && pine){dark=[34,46,61];light=[113,137,157]}
                 else if(bark){dark=[68,96,137];light=[226,233,240]}
@@ -46,12 +55,14 @@ tasks.named('processResources') {
                 else {dark=[155,170,189];light=[249,248,246]}
                 double t=Math.max(0d,Math.min(1d,luminance*1.22d+(leaf && pine ? 0.13d : 0d)))
                 int rr=blend(dark[0],light[0],t), gg=blend(dark[1],light[1],t), bb=blend(dark[2],light[2],t)
+                if(family=='date_palm' && kind=='log' && y%4==0){rr=(rr*.66) as int;gg=(gg*.66) as int;bb=(bb*.66) as int}
+                if(family=='tamarisk' && kind=='leaves' && (x*7+y*11)%23<3){rr=231;gg=147;bb=175}
                 result.setRGB(x,y,(alpha<<24)|(rr<<16)|(gg<<8)|bb)
             }
             def target=new File(output,path);target.parentFile.mkdirs()
             if(!javax.imageio.ImageIO.write(result,'png',target)) throw new GradleException("Cannot write " + target)
         }
-        families.each { oldName,newName ->
+        families.each { newName,oldName ->
             def assets='assets/slavicmyths/'
             cloneDirectory(assets+'blockstates',oldName,newName){ blockSuffixes.contains(it) }
             cloneDirectory(assets+'models/block',oldName,newName){ it ==~ modelPattern }
@@ -67,13 +78,13 @@ tasks.named('processResources') {
                     f.isFile() && f.name.startsWith(oldName+'_') && f.name.endsWith('.png') &&
                     (f.name.substring(oldName.length()+1,f.name.length()-4) in ['log','log_top','stripped_log','stripped_log_top','planks','leaves','sapling','door','door_bottom','door_top','trapdoor','sign'])
                 }.each { f ->
-                    recolor(f,assets+dir+'/'+f.name.replace(oldName,newName),oldName=='pine',f.name.substring(oldName.length()+1,f.name.length()-4))
+                    recolor(f,assets+dir+'/'+f.name.replace(oldName,newName),newName,f.name.substring(oldName.length()+1,f.name.length()-4))
                 }
             }
             def sign=new File(source,assets+'textures/entity/signs/'+oldName+'.png')
             if(!sign.isFile()) throw new GradleException("Missing sign template: " + sign)
-            recolor(sign,assets+'textures/entity/signs/'+newName+'.png',oldName=='pine','sign')
-            recolor(sign,assets+'textures/entity/signs/slavicmyths/'+newName+'.png',oldName=='pine','sign')
+            recolor(sign,assets+'textures/entity/signs/'+newName+'.png',newName,'sign')
+            recolor(sign,assets+'textures/entity/signs/slavicmyths/'+newName+'.png',newName,'sign')
             ['blockstates','models/block'].each { dir ->
                 ['hanging_sign','wall_hanging_sign'].each { suf -> copyText(assets+dir+'/apple_'+suf+'.json','apple',newName) }
             }
@@ -82,10 +93,10 @@ tasks.named('processResources') {
             def hangingRecipe=new File(source,'data/slavicmyths/recipe/apple_hanging_sign.json').getText('UTF-8')
                 .replace('slavicmyths:stripped_apple_log','slavicmyths:'+newName+'_stripped_log').replace('apple_hanging_sign',newName+'_hanging_sign')
             write('data/slavicmyths/recipe/'+newName+'_hanging_sign.json',hangingRecipe)
-            recolor(new File(source,assets+'textures/item/apple_hanging_sign.png'),assets+'textures/item/'+newName+'_hanging_sign.png',oldName=='pine','sign')
+            recolor(new File(source,assets+'textures/item/apple_hanging_sign.png'),assets+'textures/item/'+newName+'_hanging_sign.png',newName,'sign')
             def hangingTexture=new File(source,assets+'textures/entity/signs/hanging/apple.png')
-            recolor(hangingTexture,assets+'textures/entity/signs/hanging/'+newName+'.png',oldName=='pine','sign')
-            recolor(hangingTexture,assets+'textures/entity/signs/hanging/slavicmyths/'+newName+'.png',oldName=='pine','sign')
+            recolor(hangingTexture,assets+'textures/entity/signs/hanging/'+newName+'.png',newName,'sign')
+            recolor(hangingTexture,assets+'textures/entity/signs/hanging/slavicmyths/'+newName+'.png',newName,'sign')
         }
         // Preserve existing tags, append only the registered winter counterparts.
         ['block','item'].each { kind ->
@@ -96,7 +107,7 @@ tasks.named('processResources') {
                 if(!(doc.values instanceof List)) return
                 def more=[]
                 doc.values.each { value ->
-                    if(value instanceof String) families.each { oldName,newName ->
+                    if(value instanceof String) families.each { newName,oldName ->
                         def prefix='slavicmyths:'+oldName+'_'
                         if(value.startsWith(prefix) && blockSuffixes.contains(value.substring(prefix.length()))) more.add(value.replace(prefix,'slavicmyths:'+newName+'_'))
                         if(value=='#slavicmyths:'+oldName+'_logs') more.add('#slavicmyths:'+newName+'_logs')
@@ -108,7 +119,7 @@ tasks.named('processResources') {
         def axePath='data/minecraft/tags/block/mineable/axe.json'
         def axeFile=new File(output,axePath)
         def axe=new groovy.json.JsonSlurper().parse(axeFile)
-        families.values().each { family -> axe.values.addAll((blockSuffixes-['leaves','sapling']).collect{'slavicmyths:'+family+'_'+it}) }
+        families.keySet().each { family -> axe.values.addAll((blockSuffixes-['leaves','sapling']).collect{'slavicmyths:'+family+'_'+it}) }
         axe.values=axe.values.unique();write(axePath,groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(axe))+'\n')
         def appendTag={ String kind,String tag,List values ->
             def path='data/minecraft/tags/'+kind+'/'+tag+'.json'
@@ -117,8 +128,8 @@ tasks.named('processResources') {
             doc.values=(doc.values+values).unique()
             write(path,groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(doc))+'\n')
         }
-        def ceiling=families.values().collect{'slavicmyths:'+it+'_hanging_sign'}
-        def wall=families.values().collect{'slavicmyths:'+it+'_wall_hanging_sign'}
+        def ceiling=families.keySet().collect{'slavicmyths:'+it+'_hanging_sign'}
+        def wall=families.keySet().collect{'slavicmyths:'+it+'_wall_hanging_sign'}
         appendTag('block','ceiling_hanging_signs',ceiling)
         appendTag('block','wall_hanging_signs',wall)
         appendTag('block','all_signs',ceiling+wall)
@@ -126,24 +137,24 @@ tasks.named('processResources') {
         def hanging='hanging_willow_leaves'
         def newHanging='hanging_frost_willow_leaves'
         ['assets/slavicmyths/blockstates/','assets/slavicmyths/models/block/','assets/slavicmyths/models/item/','data/slavicmyths/loot_table/blocks/'].each{dir->copyText(dir+hanging+'.json',hanging,newHanging)}
-        recolor(new File(source,'assets/slavicmyths/textures/block/'+hanging+'.png'),'assets/slavicmyths/textures/block/'+newHanging+'.png',false,'leaves')
+        recolor(new File(source,'assets/slavicmyths/textures/block/'+hanging+'.png'),'assets/slavicmyths/textures/block/'+newHanging+'.png','frost_willow','leaves')
         // Use the existing translations as templates, retaining grammatical labels.
         ['en_us','ru_ru'].each { locale ->
             def langFile=new File(output,'assets/slavicmyths/lang/'+locale+'.json')
             def lang=new groovy.json.JsonSlurper().parse(langFile)
             def additions=[:]
-            families.each { oldName,newName ->
+            families.each { newName,oldName ->
                 blockSuffixes.each { suffix ->
                     def oldKey='block.slavicmyths.'+oldName+'_'+suffix
                     def newKey='block.slavicmyths.'+newName+'_'+suffix
                     def original=lang[oldKey]
                     if(locale=='en_us') {
-                        def prefix=oldName=='pine'?'Ice Pine':'Frost Willow'
+                        def prefix=[ice_pine:'Ice Pine',frost_willow:'Frost Willow',date_palm:'Date Palm',tamarisk:'Tamarisk'][newName]
                         def label=suffix.split('_').collect{it.capitalize()}.join(' ')
                         additions[newKey]=prefix+' '+label
                     } else {
                         def labels=[log:'Бревно',wood:'Древесина',stripped_log:'Обтёсанное бревно',stripped_wood:'Обтёсанная древесина',planks:'Доски',leaves:'Листва',sapling:'Саженец',stairs:'Ступени',slab:'Плита',fence:'Забор',fence_gate:'Калитка',door:'Дверь',trapdoor:'Люк',pressure_plate:'Нажимная плита',button:'Кнопка',sign:'Табличка',wall_sign:'Настенная табличка',hanging_sign:'Подвесная табличка',wall_hanging_sign:'Настенная подвесная табличка']
-                        additions[newKey]=labels[suffix]+' '+(oldName=='pine'?'ледяной сосны':'морозной ивы')
+                        additions[newKey]=labels[suffix]+' '+([ice_pine:'ледяной сосны',frost_willow:'морозной ивы',date_palm:'финиковой пальмы',tamarisk:'тамариска'][newName])
                     }
                 }
             }
@@ -151,8 +162,40 @@ tasks.named('processResources') {
             lang.putAll(additions)
             langFile.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(lang))+'\n','UTF-8')
         }
+        // Palm fronds reuse the supported hanging foliage block; harvestable dates reuse RowanLeaves.
+        def a='assets/slavicmyths/'
+        ['blockstates/','models/block/','models/item/'].each { dir ->
+            copyText(a+dir+'hanging_willow_leaves.json','hanging_willow_leaves','hanging_date_palm_leaves')
+        }
+        copyText('data/slavicmyths/loot_table/blocks/hanging_willow_leaves.json','hanging_willow_leaves','hanging_date_palm_leaves')
+        recolor(new File(source,a+'textures/block/hanging_willow_leaves.png'),a+'textures/block/hanging_date_palm_leaves.png','date_palm','leaves')
+        copyText(a+'blockstates/rowan_leaves.json','rowan','date_palm')
+        copyText(a+'models/block/rowan_leaves_berries.json','rowan','date_palm')
+        def leavesFile=new File(output,a+'textures/block/date_palm_leaves.png')
+        def fruitLeaves=javax.imageio.ImageIO.read(leavesFile)
+        [[3,4],[4,5],[9,7],[10,8],[11,9],[5,12]].each { p ->
+            int x=p[0],y=p[1]
+            fruitLeaves.setRGB(x,y,0xffb76b27 as int)
+            fruitLeaves.setRGB(x+1,y,0xffe99a36 as int)
+            fruitLeaves.setRGB(x,y+1,0xffa55519 as int)
+        }
+        javax.imageio.ImageIO.write(fruitLeaves,'png',new File(output,a+'textures/block/date_palm_leaves_berries.png'))
+        write(a+'models/item/date.json',groovy.json.JsonOutput.toJson([parent:'minecraft:item/generated',textures:[layer0:'slavicmyths:item/date']]))
+        def fruit=new java.awt.image.BufferedImage(16,16,java.awt.image.BufferedImage.TYPE_INT_ARGB)
+        for(int y=2;y<14;y++)for(int x=3;x<13;x++){
+            double d=(x-7.5)*(x-7.5)/16d+(y-7.5)*(y-7.5)/36d
+            if(d<=1)fruit.setRGB(x,y,(x<6?0xffe39743:x<9?0xffbe732e:0xff824217) as int)
+        }
+        javax.imageio.ImageIO.write(fruit,'png',new File(output,a+'textures/item/date.png'))
+        ['en_us','ru_ru'].each { locale ->
+            def lf=new File(output,a+'lang/'+locale+'.json')
+            def lang=new groovy.json.JsonSlurper().parse(lf)
+            lang['item.slavicmyths.date']=locale=='en_us'?'Date':'Финик'
+            lang['block.slavicmyths.hanging_date_palm_leaves']=locale=='en_us'?'Hanging Palm Fronds':'Свисающая листва пальмы'
+            lf.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(lang))+'\n','UTF-8')
+        }
         // Explicitly fail if an essential resource is not produced.
-        families.values().each { n -> (suffixes+['hanging_sign']).each { s ->
+        families.keySet().each { n -> (suffixes+['hanging_sign']).each { s ->
             ['assets/slavicmyths/blockstates/','assets/slavicmyths/models/item/','data/slavicmyths/loot_table/blocks/'].each { dir ->
                 if(!new File(output,dir+n+'_'+s+'.json').isFile()) throw new GradleException('Missing generated winter wood resource: '+dir+n+'_'+s)
             }

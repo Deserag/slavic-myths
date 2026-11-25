@@ -15,6 +15,7 @@ public final class WoodlandClient {
   }
   ItemBlockRenderTypes.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
   ItemBlockRenderTypes.setRenderLayer(Woodlands.FROST_HANGING.get(),RenderType.cutoutMipped());
+  ItemBlockRenderTypes.setRenderLayer(Woodlands.PALM_HANGING.get(),RenderType.cutoutMipped());
  });}
  @SubscribeEvent public static void renderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e){e.registerBlockEntityRenderer(Woodlands.SIGN_TILE.get(),SignRenderer::new);e.registerBlockEntityRenderer(Woodlands.HANGING_SIGN_TILE.get(),HangingSignRenderer::new);}
 }

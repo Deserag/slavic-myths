@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:tamarisk_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 18
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

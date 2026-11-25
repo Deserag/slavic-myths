@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:desert",
+  "features": [
+    "slavicmyths:tamarisk_natural"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -17,13 +17,18 @@ import org.slavicmyths.registry.*;
 public final class Woodlands {
     public static final Map<String,Set> SETS = new LinkedHashMap<>();
     public static final DeferredHolder<Item, Item> BERRIES;
+    public static final DeferredHolder<Item, Item> DATES;
+    public static final DeferredHolder<Block, Block> PALM_HANGING;
     public static final DeferredHolder<Block, Block> HANGING;
     public static final DeferredHolder<Block, Block> FROST_HANGING;
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WoodSignTile>> SIGN_TILE;
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WoodHangingSignTile>> HANGING_SIGN_TILE;
     static {
-        for(String name:new String[]{"linden","rowan","willow","pine","ice_pine","frost_willow"}) SETS.put(name,new Set(name));
+        for(String name:new String[]{"linden","rowan","willow","pine","ice_pine","frost_willow","date_palm","tamarisk"}) SETS.put(name,new Set(name));
         BERRIES=ModItems.ITEMS.register("rowan_berries",()->new Item(props().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(1).saturationModifier(.2F).build())));
+        DATES=ModItems.ITEMS.register("date",()->new Item(props().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build())));
+        PALM_HANGING=ModBlocks.BLOCKS.register("hanging_date_palm_leaves",()->new HangingLeaves("date_palm"));
+        ModItems.ITEMS.register("hanging_date_palm_leaves",()->new BlockItem(PALM_HANGING.get(),props()));
         HANGING=ModBlocks.BLOCKS.register("hanging_willow_leaves",()->new HangingLeaves());
         ModItems.ITEMS.register("hanging_willow_leaves",()->new BlockItem(HANGING.get(),props()));
         FROST_HANGING=ModBlocks.BLOCKS.register("hanging_frost_willow_leaves",()->new HangingLeaves("frost_willow"));
@@ -40,8 +45,8 @@ public final class Woodlands {
             add("log",()->new TimberLog(this,false,false)); add("wood",()->new TimberLog(this,true,false));
             add("stripped_log",()->new TimberLog(this,false,true)); add("stripped_wood",()->new TimberLog(this,true,true));
             add("planks",()->new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 20;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 5;}});
-            add("leaves",()->n.equals("rowan")?new RowanLeaves():new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 60;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 30;}});
-            add("sapling",()->new SaplingBlock(WoodlandGrower.create(n),BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            add("leaves",()->n.equals("rowan")?new RowanLeaves():n.equals("date_palm")?new RowanLeaves(()->DATES.get()):new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 60;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 30;}});
+            add("sapling",()->new SaplingBlock(WoodlandGrower.create(n),BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)){@Override protected boolean mayPlaceOn(BlockState state,net.minecraft.world.level.BlockGetter level,net.minecraft.core.BlockPos pos){return super.mayPlaceOn(state,level,pos)||((n.equals("date_palm")||n.equals("tamarisk"))&&state.is(Blocks.SAND));}});
             add("stairs",()->new StairBlock(get("planks").defaultBlockState(),BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 20;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 5;}});
             add("slab",()->new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 20;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 5;}});
             add("fence",()->new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)){@Override public int getFlammability(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 20;} @Override public int getFireSpreadSpeed(BlockState s,net.minecraft.world.level.BlockGetter w,net.minecraft.core.BlockPos p,net.minecraft.core.Direction d){return 5;}});
@@ -53,7 +58,7 @@ public final class Woodlands {
             blocks.put("sign",ModBlocks.BLOCKS.register(n+"_sign",()->new StandingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodSignTile(pos,state);}}));
             blocks.put("wall_sign",ModBlocks.BLOCKS.register(n+"_wall_sign",()->new WallSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN).dropsLike(get("sign"))){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodSignTile(pos,state);}}));
             ModItems.ITEMS.register(n+"_sign",()->new SignItem(props().stacksTo(16),get("sign"),get("wall_sign")));
-            if(n.equals("ice_pine")||n.equals("frost_willow")){
+            if(n.equals("ice_pine")||n.equals("frost_willow")||n.equals("date_palm")||n.equals("tamarisk")){
                 blocks.put("hanging_sign",ModBlocks.BLOCKS.register(n+"_hanging_sign",()->new CeilingHangingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodHangingSignTile(pos,state);}}));
                 blocks.put("wall_hanging_sign",ModBlocks.BLOCKS.register(n+"_wall_hanging_sign",()->new WallHangingSignBlock(type,BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN).dropsLike(get("hanging_sign"))){@Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos,BlockState state){return new WoodHangingSignTile(pos,state);}}));
                 ModItems.ITEMS.register(n+"_hanging_sign",()->new HangingSignItem(get("hanging_sign"),get("wall_hanging_sign"),props().stacksTo(16)));

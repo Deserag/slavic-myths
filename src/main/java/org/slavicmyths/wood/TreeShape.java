@@ -19,7 +19,7 @@ public final class TreeShape {
  public final int variant;
  public TreeShape(String species,Random r){this(species,r::nextInt,r::nextDouble,r::nextBoolean);}
  public TreeShape(String species,java.util.function.IntUnaryOperator integers,java.util.function.DoubleSupplier doubles,java.util.function.BooleanSupplier booleans){nextInt=integers;nextDouble=doubles;nextBoolean=booleans;variant=nextInt.applyAsInt(3);
-  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;case "ice_pine":icePine();break;case "frost_willow":frostWillow();break;default:throw new IllegalArgumentException(species);}
+  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;case "ice_pine":icePine();break;case "frost_willow":frostWillow();break;case "date_palm":datePalm();break;case "tamarisk":tamarisk();break;default:throw new IllegalArgumentException(species);}
   for(Cell c:logs.keySet())leaves.remove(c);
   // Match vanilla six-face leaf distance, avoiding disconnected leaves that immediately decay.
   ArrayDeque<Cell> queue=new ArrayDeque<>();Map<Cell,Integer> distance=new HashMap<>();
@@ -29,7 +29,7 @@ public final class TreeShape {
   }
   leaves.entrySet().removeIf(e->!distance.containsKey(e.getKey()));
   for(Map.Entry<Cell,Integer>e:leaves.entrySet())e.setValue(distance.get(e.getKey()));
-  if(species.equals("willow")||species.equals("frost_willow")){
+  if(species.equals("willow")||species.equals("frost_willow")||species.equals("date_palm")){
    for(Cell c:new ArrayList<>(leaves.keySet()))if(c.y>=4&&(Math.abs(c.x)>=3||Math.abs(c.z)>=3)&&!leaves.containsKey(c.offset(0,-1,0))&&nextInt.applyAsInt(3)==0){
     int length=1+nextInt.applyAsInt(species.equals("frost_willow")?5:3);for(int i=1;i<=length&&c.y-i>=1;i++){Cell n=c.offset(0,-i,0);if(logs.containsKey(n)||leaves.containsKey(n))break;hanging.add(n);}
    }
@@ -71,6 +71,38 @@ public final class TreeShape {
   int h=7+nextInt.applyAsInt(5);trunk(h);crown(0,h,0,2.8,1.7,2.8,false);
   int span=variant==1?4:3;
   for(int i=0;i<5;i++){double a=i*Math.PI*2/5+.2;int x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);int y=h-2+nextInt.applyAsInt(2);branch(3+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2.1,1.6,2.1,false);}
+ }
+ private void datePalm(){
+  int h=9+variant*2+nextInt.applyAsInt(3);trunk(h);
+  int cy=h-1;leaves.put(new Cell(0,h,0),7);
+  // Separate radial fronds with two crown levels and drooping tips.
+  for(int i=0;i<8;i++){
+   double a=i*Math.PI/4;int dx=(int)Math.round(Math.cos(a)),dz=(int)Math.round(Math.sin(a));
+   Cell prev=new Cell(0,cy,0);
+   for(int j=1;j<=4;j++){
+    int y=cy+(j<=2?1:0)-(j==4?1:0);
+    Cell end=new Cell(dx*j,y,dz*j);
+    if(j<=2){branch(cy,end.x,y,end.z);}
+    while(prev.x!=end.x){prev=prev.offset(dx,0,0);leaves.put(prev,7);}
+    while(prev.z!=end.z){prev=prev.offset(0,0,dz);leaves.put(prev,7);}
+    while(prev.y!=end.y){prev=prev.offset(0,Integer.signum(end.y-prev.y),0);leaves.put(prev,7);}
+    leaves.put(end,7);
+    if(j==2||j==3){leaves.put(end.offset(-dz,0,dx),7);leaves.put(end.offset(dz,0,-dx),7);}
+   }
+  }
+  // Narrow upright central fronds.
+  for(int y=h;y<=h+2;y++){leaves.put(new Cell(0,y,0),7);if(y==h+1)for(int[]d:DIRS)if(d[1]==0)leaves.put(new Cell(d[0],y,d[2]),7);}
+ }
+ private void tamarisk(){
+  int h=5+variant+nextInt.applyAsInt(2);trunk(h);
+  int span=3+variant;
+  for(int i=0;i<5;i++){
+   double a=i*2*Math.PI/5+nextDouble.getAsDouble()*.5;
+   int x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);
+   int y=h-1+nextInt.applyAsInt(2);
+   branch(2+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2.3,1.15,2.3,true);
+  }
+  crown(0,h,0,2.0,1.5,2.0,true);
  }
  private void pine(){int h=9+nextInt.applyAsInt(4);trunk(h);
   for(int i=0;i<5&&2+i*2<h;i++){int y=2+i*2,r=Math.max(1,3-i/2);tier(y,r,1);}
