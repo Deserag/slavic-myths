@@ -20,4 +20,10 @@ public final class HalaGameTests {
  @GameTest(template="empty") public static void halaBurnStages(GameTestHelper h){
   var e=mob(h,EntityType.ZOMBIE,origin(h));SolarBurnEffect.apply(e,20);h.assertTrue(SolarBurnEffect.stage(e)==1,"stage I");SolarBurnEffect.apply(e,30);h.assertTrue(SolarBurnEffect.stage(e)==2,"stage II");SolarBurnEffect.apply(e,40);h.assertTrue(SolarBurnEffect.stage(e)==3,"stage III");h.assertTrue(HalaRules.outgoing(3,.1F)==0&&HalaRules.outgoing(2,.1F)<1,"damage rule");h.assertTrue(HalaRules.cool(90,true)<HalaRules.cool(90,false),"water cooling");e.discard();h.succeed();
  }
+
+ @GameTest(template="empty") public static void halaWaterLowersBurn(GameTestHelper h){
+  var pos=origin(h);var e=mob(h,EntityType.ZOMBIE,pos);SolarBurnEffect.apply(e,90);
+  h.getLevel().setBlockAndUpdate(BlockPos.containing(pos),net.minecraft.world.level.block.Blocks.WATER.defaultBlockState());
+  h.runAfterDelay(45,()->{h.assertTrue(SolarBurnEffect.stage(e)<3,"water failed to lower burn stage");e.discard();h.succeed();});
+ }
 }

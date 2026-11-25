@@ -52,7 +52,7 @@ jobs:
           if grep -Eiq 'Duplicate registration|Failed to create mod instance|Mod loading failed|Failed to load correctly|ExceptionInInitializerError|broken mod state|Failed to start the minecraft server' /tmp/desert-gametest.log; then
             echo "GameTest runtime initialization failed"; exit 1
           fi
-          grep -Eiq 'All [2-9][0-9]* required tests passed' /tmp/desert-gametest.log || { echo "No explicit successful GameTest result"; exit 1; }
+          grep -Eiq 'All (1[6-9]|[2-9][0-9]|[1-9][0-9]{2,}) required tests passed' /tmp/desert-gametest.log || { echo "No explicit successful GameTest result"; exit 1; }
       - uses: actions/upload-artifact@v4
         with:
           name: desert-biome-mod

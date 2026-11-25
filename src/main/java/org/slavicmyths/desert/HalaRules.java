@@ -2,7 +2,7 @@ package org.slavicmyths.desert;
 /** Shared deterministic combat constants. Tick = 1/20 second. */
 public final class HalaRules {
  public static final int IDLE=0,WALK=1,BEAM=2,VOLLEY=3,ORB=4,PILLARS=5,FLASH=6,DIVE=7,CLAW=8,ULTIMATE=9,HURT=10,DEATH=11;
- public static final int[] LENGTH={40,24,144,66,150,90,76,100,26,160,10,20};
+ public static final int[] LENGTH={40,24,128,54,150,90,76,100,26,160,10,20};
  public static final int[] RELEASE={0,0,50,20,60,40,30,40,14,72,0,0};
  public static final int[] COOLDOWN={0,0,180,100,240,180,180,440,40,700,0,0};
  public static final float HP=800;
