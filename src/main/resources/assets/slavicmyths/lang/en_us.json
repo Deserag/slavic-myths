@@ -7064,4 +7064,18 @@
   "subtitles.slavicmyths.sand_king.slam_charge": "Sand King charges",
   "subtitles.slavicmyths.sand_king.slam": "Desert wrath",
   "subtitles.slavicmyths.sand_king.rage": "Sand King rages"
+,
+  "entity.slavicmyths.ant_queen": "Ant Queen",
+  "entity.slavicmyths.desert_ant": "Desert Ant",
+  "entity.slavicmyths.flying_desert_ant": "Flying Desert Ant",
+  "item.slavicmyths.ant_queen_spawn_egg": "Ant Queen Spawn Egg",
+  "item.slavicmyths.desert_ant_spawn_egg": "Desert Ant Spawn Egg",
+  "item.slavicmyths.flying_desert_ant_spawn_egg": "Flying Desert Ant Spawn Egg",
+  "subtitles.slavicmyths.ant.ambient": "Ant chitters",
+  "subtitles.slavicmyths.ant.alert": "Ant prepares to attack",
+  "subtitles.slavicmyths.ant.hurt": "Ant hurts",
+  "subtitles.slavicmyths.ant.death": "Ant dies",
+  "subtitles.slavicmyths.ant.step": "Ant steps",
+  "subtitles.slavicmyths.ant.bite": "Ant strikes",
+  "subtitles.slavicmyths.ant.call": "Queen calls the colony"
 }

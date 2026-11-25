@@ -9782,4 +9782,12 @@
   "sand_king_slam_charge": {"subtitle":"subtitles.slavicmyths.sand_king.slam_charge","sounds":["slavicmyths:desert/sand_king/slam_charge"]},
   "sand_king_slam": {"subtitle":"subtitles.slavicmyths.sand_king.slam","sounds":["slavicmyths:desert/sand_king/slam"]},
   "sand_king_rage": {"subtitle":"subtitles.slavicmyths.sand_king.rage","sounds":["slavicmyths:desert/sand_king/rage"]}
+,
+  "ant_ambient": {"subtitle":"subtitles.slavicmyths.ant.ambient","sounds":[{"name":"minecraft:entity.spider.ambient","type":"event","pitch":0.75}]},
+  "ant_alert": {"subtitle":"subtitles.slavicmyths.ant.alert","sounds":[{"name":"minecraft:entity.silverfish.ambient","type":"event","pitch":0.7}]},
+  "ant_hurt": {"subtitle":"subtitles.slavicmyths.ant.hurt","sounds":[{"name":"minecraft:entity.silverfish.hurt","type":"event","pitch":0.8}]},
+  "ant_death": {"subtitle":"subtitles.slavicmyths.ant.death","sounds":[{"name":"minecraft:entity.spider.death","type":"event","pitch":0.65}]},
+  "ant_step": {"subtitle":"subtitles.slavicmyths.ant.step","sounds":[{"name":"minecraft:entity.silverfish.step","type":"event","pitch":0.7}]},
+  "ant_bite": {"subtitle":"subtitles.slavicmyths.ant.bite","sounds":[{"name":"minecraft:entity.spider.hurt","type":"event","pitch":1.1}]},
+  "ant_call": {"subtitle":"subtitles.slavicmyths.ant.call","sounds":[{"name":"minecraft:entity.bee.loop_aggressive","type":"event","pitch":0.65}]}
 }

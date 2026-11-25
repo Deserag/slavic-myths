@@ -7062,4 +7062,18 @@
   "subtitles.slavicmyths.sand_king.slam_charge": "Царь песков накапливает силу",
   "subtitles.slavicmyths.sand_king.slam": "Гнев пустыни",
   "subtitles.slavicmyths.sand_king.rage": "Ярость Царя песков"
+,
+  "entity.slavicmyths.ant_queen": "Королева муравьёв",
+  "entity.slavicmyths.desert_ant": "Пустынный муравей",
+  "entity.slavicmyths.flying_desert_ant": "Летающий пустынный муравей",
+  "item.slavicmyths.ant_queen_spawn_egg": "Яйцо призыва королевы муравьёв",
+  "item.slavicmyths.desert_ant_spawn_egg": "Яйцо призыва пустынного муравья",
+  "item.slavicmyths.flying_desert_ant_spawn_egg": "Яйцо призыва летающего муравья",
+  "subtitles.slavicmyths.ant.ambient": "Муравей стрекочет",
+  "subtitles.slavicmyths.ant.alert": "Муравей готовится атаковать",
+  "subtitles.slavicmyths.ant.hurt": "Муравей получает урон",
+  "subtitles.slavicmyths.ant.death": "Муравей погибает",
+  "subtitles.slavicmyths.ant.step": "Шаги муравья",
+  "subtitles.slavicmyths.ant.bite": "Удар муравья",
+  "subtitles.slavicmyths.ant.call": "Королева зовёт колонию"
 }
