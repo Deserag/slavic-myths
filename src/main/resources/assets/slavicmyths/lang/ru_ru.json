@@ -7075,5 +7075,15 @@
   "subtitles.slavicmyths.ant.death": "Муравей погибает",
   "subtitles.slavicmyths.ant.step": "Шаги муравья",
   "subtitles.slavicmyths.ant.bite": "Удар муравья",
-  "subtitles.slavicmyths.ant.call": "Королева зовёт колонию"
+  "subtitles.slavicmyths.ant.call": "Королева зовёт колонию",
+  "entity.slavicmyths.storm_idol": "Проклятый идол",
+  "item.slavicmyths.storm_idol_spawn_egg": "Яйцо призыва проклятого идола",
+  "subtitles.slavicmyths.storm_idol_ambient": "Идол шелестит ветром",
+  "subtitles.slavicmyths.storm_idol_hurt": "Идол ранен",
+  "subtitles.slavicmyths.storm_idol_death": "Идол распадается",
+  "subtitles.slavicmyths.storm_idol_charge": "Идол собирает ветер",
+  "subtitles.slavicmyths.storm_idol_launch": "Ветряной кулак вылетает",
+  "subtitles.slavicmyths.storm_idol_impact": "Кулак ударяет",
+  "subtitles.slavicmyths.storm_idol_updraft": "Восходящий поток",
+  "subtitles.slavicmyths.storm_idol_storm": "Идол вызывает бурю"
 }

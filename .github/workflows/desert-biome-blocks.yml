@@ -37,6 +37,11 @@ jobs:
           mkdir -p /tmp/hala-check
           javac -d /tmp/hala-check src/main/java/org/slavicmyths/desert/HalaGeometry.java src/main/java/org/slavicmyths/desert/HalaRules.java tools/hala/RulesCheck.java
           java -cp /tmp/hala-check:build/resources/main RulesCheck
+      - name: Verify Storm Idol procedural mesh
+        run: |
+          mkdir -p /tmp/storm-idol-check
+          javac -d /tmp/storm-idol-check src/main/java/org/slavicmyths/client/StormIdolMesh.java tools/storm_idol/StormIdolMeshCheck.java
+          java -cp /tmp/storm-idol-check org.slavicmyths.client.StormIdolMeshCheck
       - name: Verify packaged desert block assets
         run: python3 tools/verify_desert_blocks.py
       - name: Check 1000 generated desert tree geometries

@@ -9867,5 +9867,13 @@
     "sounds": [
       "slavicmyths:desert/hala/ultimate"
     ]
-  }
+  },
+  "storm_idol_ambient": {"subtitle":"subtitles.slavicmyths.storm_idol_ambient","sounds":[{"name":"minecraft:entity.breeze.idle_ground","type":"event","pitch":0.65,"volume":1}]},
+  "storm_idol_hurt": {"subtitle":"subtitles.slavicmyths.storm_idol_hurt","sounds":[{"name":"minecraft:entity.breeze.hurt","type":"event","pitch":0.74,"volume":1}]},
+  "storm_idol_death": {"subtitle":"subtitles.slavicmyths.storm_idol_death","sounds":[{"name":"minecraft:entity.breeze.death","type":"event","pitch":0.55,"volume":1}]},
+  "storm_idol_charge": {"subtitle":"subtitles.slavicmyths.storm_idol_charge","sounds":[{"name":"minecraft:entity.breeze.charge","type":"event","pitch":0.68,"volume":1}]},
+  "storm_idol_launch": {"subtitle":"subtitles.slavicmyths.storm_idol_launch","sounds":[{"name":"minecraft:entity.breeze.shoot","type":"event","pitch":0.85,"volume":1}]},
+  "storm_idol_impact": {"subtitle":"subtitles.slavicmyths.storm_idol_impact","sounds":[{"name":"minecraft:entity.iron_golem.attack","type":"event","pitch":0.75,"volume":1}]},
+  "storm_idol_updraft": {"subtitle":"subtitles.slavicmyths.storm_idol_updraft","sounds":[{"name":"minecraft:entity.wind_charge.wind_burst","type":"event","pitch":0.85,"volume":1}]},
+  "storm_idol_storm": {"subtitle":"subtitles.slavicmyths.storm_idol_storm","sounds":[{"name":"minecraft:entity.breeze.jump","type":"event","pitch":0.55,"volume":1}]}
 }

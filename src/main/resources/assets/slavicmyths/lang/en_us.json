@@ -7077,5 +7077,15 @@
   "subtitles.slavicmyths.ant.death": "Ant dies",
   "subtitles.slavicmyths.ant.step": "Ant steps",
   "subtitles.slavicmyths.ant.bite": "Ant strikes",
-  "subtitles.slavicmyths.ant.call": "Queen calls the colony"
+  "subtitles.slavicmyths.ant.call": "Queen calls the colony",
+  "entity.slavicmyths.storm_idol": "Cursed Idol",
+  "item.slavicmyths.storm_idol_spawn_egg": "Cursed Idol Spawn Egg",
+  "subtitles.slavicmyths.storm_idol_ambient": "Idol rustles",
+  "subtitles.slavicmyths.storm_idol_hurt": "Idol hurts",
+  "subtitles.slavicmyths.storm_idol_death": "Idol crumbles",
+  "subtitles.slavicmyths.storm_idol_charge": "Idol gathers wind",
+  "subtitles.slavicmyths.storm_idol_launch": "Wind fist launches",
+  "subtitles.slavicmyths.storm_idol_impact": "Fist strikes",
+  "subtitles.slavicmyths.storm_idol_updraft": "Updraft",
+  "subtitles.slavicmyths.storm_idol_storm": "Idol calls a storm"
 }
