@@ -12,6 +12,7 @@ part=np.full(len(m.V),-1,np.int32)
 for i,name in enumerate(names[:10]):part[groups==name]=i
 for i,s in enumerate([-1,0,1]):part[groups==f"jaw{s}"]=7+i
 part[m.tailmask]=10+np.minimum(9,(10*m.ts/m.S[-1]).astype(int))
+part[groups=='halo']=20 # decorative, rendered but not a damageable part
 assert np.min(part)>=0
 _,bone=np.unique(groups,return_inverse=True)
 keys=np.column_stack((np.rint(m.V*100000).astype(np.int64),bone,part))
