@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "slavicmyths:block/serpent_seal",
-    "mark": "slavicmyths:block/serpent_seal"
+    "particle": "slavicmyths:block/desert_serpent_seal",
+    "mark": "slavicmyths:block/desert_serpent_seal"
   },
   "elements": [
     {

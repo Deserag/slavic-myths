@@ -45,7 +45,7 @@ public final class DesertGameTests {
     }
     @GameTest(template="empty")
     public static void occupiedSealCannotClose(GameTestHelper h) {
-        var w=h.getLevel();var seal=seal("serpent_seal");
+        var w=h.getLevel();var seal=seal("desert_serpent_seal");
         BlockPos a=h.absolutePos(new BlockPos(2,2,2)),b=a.east();
         w.setBlock(a,seal.defaultBlockState().setValue(DesertSealBlock.OPEN,true),Block.UPDATE_ALL);
         w.setBlock(b,seal.defaultBlockState().setValue(DesertSealBlock.OPEN,true),Block.UPDATE_ALL);

@@ -7042,9 +7042,9 @@
   "block.slavicmyths.sandstone_rubble": "Sandstone Rubble",
   "block.slavicmyths.fossilized_bones": "Fossilized Bones",
   "block.slavicmyths.solar_seal": "Solar Seal",
-  "block.slavicmyths.serpent_seal": "Serpent Seal",
   "block.slavicmyths.wind_seal": "Wind Seal",
   "desert.slavicmyths.seal_occupied": "Passage occupied.",
   "desert.slavicmyths.seal_limit": "Seal network too large.",
-  "desert.slavicmyths.seal_unloaded": "Unloaded chunk boundary."
+  "desert.slavicmyths.seal_unloaded": "Unloaded chunk boundary.",
+  "block.slavicmyths.desert_serpent_seal": "Serpent Seal"
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "slavicmyths:block/desert_serpent_seal"
+    },
+    "open=true": {
+      "model": "slavicmyths:block/desert_serpent_seal_open"
+    }
+  }
+}

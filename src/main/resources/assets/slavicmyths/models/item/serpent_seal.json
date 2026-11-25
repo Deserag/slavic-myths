@@ -1,3 +1,6 @@
 {
-  "parent": "slavicmyths:block/serpent_seal"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slavicmyths:item/serpent_seal"
+  }
 }

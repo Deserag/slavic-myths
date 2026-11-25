@@ -7040,9 +7040,9 @@
   "block.slavicmyths.sandstone_rubble": "Песчаниковая осыпь",
   "block.slavicmyths.fossilized_bones": "Окаменелые кости",
   "block.slavicmyths.solar_seal": "Солнечная печать",
-  "block.slavicmyths.serpent_seal": "Змеиная печать",
   "block.slavicmyths.wind_seal": "Печать ветра",
   "desert.slavicmyths.seal_occupied": "Проход занят.",
   "desert.slavicmyths.seal_limit": "Слишком большая цепь печатей.",
-  "desert.slavicmyths.seal_unloaded": "Граница незагруженного чанка."
+  "desert.slavicmyths.seal_unloaded": "Граница незагруженного чанка.",
+  "block.slavicmyths.desert_serpent_seal": "Змеиная печать"
 }

@@ -6,7 +6,7 @@ from zipfile import ZipFile
 
 stones = ["ancient_sandstone", "sandstone_bricks", "cracked_sandstone_bricks", "dark_sandstone"]
 decor = ["carved_solar_sandstone","carved_serpent_sandstone","carved_wind_sandstone","compacted_sand",
-         "cracked_dry_earth","quicksand","salt_crust","sandstone_rubble","fossilized_bones","solar_seal","serpent_seal","wind_seal"]
+         "cracked_dry_earth","quicksand","salt_crust","sandstone_rubble","fossilized_bones","solar_seal","desert_serpent_seal","wind_seal"]
 stone_ids = [n + suffix for n in stones for suffix in ("", "_stairs", "_slab", "_wall")] + decor
 wood_suffixes = ["log","wood","stripped_log","stripped_wood","planks","leaves","sapling","stairs","slab","fence",
                  "fence_gate","door","trapdoor","pressure_plate","button","sign","hanging_sign"]
@@ -64,7 +64,7 @@ for jar in jars:
                 read_json(data + "tags/" + tag + "/" + n + "_logs.json")
         check_model("slavicmyths:item/date")
         assert "item.slavicmyths.date" in en and "item.slavicmyths.date" in ru
-        for n in ("solar_seal","serpent_seal","wind_seal"):
+        for n in ("solar_seal","desert_serpent_seal","wind_seal"):
             states = read_json(assets + "blockstates/" + n + ".json")["variants"]
             assert set(states) == {"open=false", "open=true"}
             marker = read_json(assets + "models/block/" + n + "_open.json")["elements"][0]

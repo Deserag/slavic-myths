@@ -23,7 +23,7 @@ public final class DesertBlocks {
         solid("sandstone_rubble", Blocks.SANDSTONE);
         solid("fossilized_bones", Blocks.SANDSTONE);
         add("solar_seal", () -> new DesertSealBlock(props(Blocks.SANDSTONE).noOcclusion().dynamicShape().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
-        add("serpent_seal", () -> new DesertSealBlock(props(Blocks.SANDSTONE).noOcclusion().dynamicShape().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
+        add("desert_serpent_seal", () -> new DesertSealBlock(props(Blocks.SANDSTONE).noOcclusion().dynamicShape().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
         add("wind_seal", () -> new DesertSealBlock(props(Blocks.SANDSTONE).noOcclusion().dynamicShape().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK)));
     }
     private static BlockBehaviour.Properties props(Block b){return BlockBehaviour.Properties.ofFullCopy(b);}

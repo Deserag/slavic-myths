@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "slavicmyths:block/serpent_seal"
+    "all": "slavicmyths:block/desert_serpent_seal"
   }
 }
