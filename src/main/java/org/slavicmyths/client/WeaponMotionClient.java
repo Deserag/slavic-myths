@@ -21,6 +21,11 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 public final class WeaponMotionClient {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF }
     @SubscribeEvent public static void register(RegisterClientExtensionsEvent event) {
+        register(event,Shape.BLADE,"scorpion_double_sting","stinger_dagger","desert_glass_blade","four_winds_fists","sand_sling","mirage_bow");
+        register(event,Shape.HEAVY,"dune_mace","buried_hammer");
+        register(event,Shape.STAFF,"hala_solar_staff","colony_scepter","ice_healing_staff","fire_healing_staff");
+        register(event,Shape.SPEAR,"lamya_weapon");
+        register(event,Shape.SICKLE,"quicksand_whip");
         register(event,Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword",
                 "restored_carolingian_sword","silver_sword","perunite_sword");
         register(event,Shape.HEAVY,"gneteya_great_hammer","club","wooden_mace","stone_mace","mace","silver_mace",

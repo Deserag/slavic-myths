@@ -101,10 +101,58 @@ public final class WeaponSkillHud {
         long now=mc.level.getGameTime();
         List<Skill> skills=new ArrayList<>();
         switch(id.getPath()) {
+            case "scorpion_double_sting" -> {
+                skills.add(new Skill("scorpion_double_strike","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("scorpion_double_sting",1))-now));
+            }
+            case "stinger_dagger" -> {
+                skills.add(new Skill("dagger_throw","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("stinger_dagger",1))-now));
+            }
+            case "sand_sling" -> {
+                skills.add(new Skill("sling_shot","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("sand_sling",1))-now));
+            }
+            case "desert_glass_blade" -> {
+                skills.add(new Skill("glass_dash","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("desert_glass_blade",1))-now));
+            }
+            case "hala_solar_staff" -> {
+                skills.add(new Skill("hala_beam","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"hala_solar_staff",false,now)));
+                skills.add(new Skill("hala_burst","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,"hala_solar_staff",true,now)));
+            }
+            case "dune_mace" -> {
+                skills.add(new Skill("dune_wave","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("dune_mace",1))-now));
+                skills.add(new Skill("dune_smash","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("dune_mace",2))-now));
+            }
+            case "mirage_bow" -> {
+                skills.add(new Skill("mirage_trishot","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("mirage_bow",1))-now));
+                skills.add(new Skill("mirage_pierce","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("mirage_bow",2))-now));
+            }
+            case "quicksand_whip" -> {
+                skills.add(new Skill("whip_pull","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("quicksand_whip",1))-now));
+                skills.add(new Skill("whip_sweep","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("quicksand_whip",2))-now));
+            }
+            case "colony_scepter" -> {
+                skills.add(new Skill("colony_summon","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("colony_scepter",1))-now));
+                skills.add(new Skill("colony_swarm","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("colony_scepter",2))-now));
+                skills.add(new Skill("colony_command","S+L",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("colony_scepter",3))-now));
+            }
+            case "four_winds_fists" -> {
+                skills.add(new Skill("winds_punch","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("four_winds_fists",1))-now));
+                skills.add(new Skill("winds_barrage","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("four_winds_fists",2))-now));
+                skills.add(new Skill("winds_crush","S+L",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("four_winds_fists",3))-now));
+            }
+            case "lamya_weapon" -> {
+                skills.add(new Skill("lamya_fire","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("lamya_weapon",1))-now));
+                skills.add(new Skill("lamya_solar","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("lamya_weapon",2))-now));
+                skills.add(new Skill("lamya_vortex","S+L",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("lamya_weapon",3))-now));
+            }
+            case "buried_hammer" -> {
+                skills.add(new Skill("hammer_slam","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("buried_hammer",1))-now));
+                skills.add(new Skill("hammer_quicksand","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("buried_hammer",2))-now));
+                skills.add(new Skill("hammer_pillars","S+L",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("buried_hammer",3))-now));
+            }
             case "ice_healing_staff", "fire_healing_staff" -> {
                 String shared=org.slavicmyths.combat.IndependentWeaponCooldowns.HEALING_STAFF;
-                skills.add(new Skill("healing_cross","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,false,now)));
-                skills.add(new Skill("healing_area","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,true,now)));
+                skills.add(new Skill(id.getPath().equals("ice_healing_staff")?"ice_heal_self":"fire_heal_self","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,false,now)));
+                skills.add(new Skill(id.getPath().equals("ice_healing_staff")?"ice_heal_area":"fire_heal_area","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,true,now)));
             }
             case "ice_captain_axes" -> {
                 skills.add(new Skill("winter_captain_throw","R",tag.getLong("CD_winter_captain_1")-now));
@@ -302,7 +350,10 @@ public final class WeaponSkillHud {
         }
     }
     private static final java.util.List<String> WINTER_ICONS=java.util.List.of("winter_captain_throw","winter_captain_crush","winter_captain_vortex","winter_hammer_wave","winter_hammer_crush","winter_silence_wave","winter_silence_seven","winter_silence_execution","winter_blades_throw","winter_blades_behind","winter_claw_dash","winter_claw_flurry","winter_sword_wave","winter_axe_crush","winter_mace_slam","winter_halberd_sweep","winter_halberd_projectile","winter_scythe_harvest","winter_bow_draw","winter_bow_ice","winter_bow_volley","winter_crossbow_load","winter_crossbow_ice","winter_crossbow_shot","winter_queen_switch","winter_queen_dash","winter_queen_sweep","winter_queen_bolt","winter_queen_spikes","winter_queen_golem");
+    private static final java.util.List<String> DESERT_ICONS=java.util.List.of("scorpion_double_strike","dagger_throw","sling_shot","glass_dash","hala_beam","hala_burst","dune_wave","dune_smash","mirage_trishot","mirage_pierce","whip_pull","whip_sweep","colony_summon","colony_swarm","colony_command","winds_punch","winds_barrage","winds_crush","lamya_fire","lamya_solar","lamya_vortex","hammer_slam","hammer_quicksand","hammer_pillars","ice_heal_self","ice_heal_area","fire_heal_self","fire_heal_area");
     private static void icon(GuiGraphics g,String kind,int x,int y){
+        int desert=DESERT_ICONS.indexOf(kind);
+        if(desert>=0){g.blit(skillTexture("desert_atlas"),x,y,(float)(desert%8*16),(float)(desert/8*16),16,16,128,64);return;}
         int winter=WINTER_ICONS.indexOf(kind);
         if(winter>=0){
             g.blit(skillTexture("winter_atlas"),x,y,(float)(winter%8*16),(float)(winter/8*16),16,16,128,64);
