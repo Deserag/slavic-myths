@@ -22,6 +22,10 @@
     "slavicmyths:frozen_andesite_wall",
     "slavicmyths:frozen_deepslate_wall",
     "slavicmyths:frozen_cobbled_deepslate_wall",
-    "slavicmyths:frozen_deepslate_bricks_wall"
+    "slavicmyths:frozen_deepslate_bricks_wall",
+    "slavicmyths:ancient_sandstone_wall",
+    "slavicmyths:sandstone_bricks_wall",
+    "slavicmyths:cracked_sandstone_bricks_wall",
+    "slavicmyths:dark_sandstone_wall"
   ]
 }

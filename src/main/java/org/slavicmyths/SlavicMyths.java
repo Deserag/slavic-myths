@@ -98,6 +98,7 @@ public final class SlavicMyths {
         org.slavicmyths.mor.MorContent.init(bus);
         org.slavicmyths.mor.MorBlocks.init();
         org.slavicmyths.winter.FrozenStoneBlocks.init();
+        org.slavicmyths.desert.DesertBlocks.init();
         org.slavicmyths.poloz.PolozContent.init();
         org.slavicmyths.quest185.Quest185Content.init(bus);
         org.slavicmyths.morozko.FrostContent.init(bus);

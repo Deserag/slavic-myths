@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " A ",
+    "ARA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:carved_wind_sandstone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:wind_seal",
+    "count": 4
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " A ",
+    "ARA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:carved_serpent_sandstone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:serpent_seal",
+    "count": 4
+  }
+}

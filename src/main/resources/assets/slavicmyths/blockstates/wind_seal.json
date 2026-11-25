@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "slavicmyths:block/wind_seal"
+    },
+    "open=true": {
+      "model": "slavicmyths:block/wind_seal_open"
+    }
+  }
+}

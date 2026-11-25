@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "top": "slavicmyths:block/ancient_sandstone",
+    "bottom": "slavicmyths:block/ancient_sandstone",
+    "side": "slavicmyths:block/ancient_sandstone"
+  }
+}

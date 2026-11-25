@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slavicmyths:sandstone_bricks"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:sandstone_bricks_wall",
+    "count": 6
+  }
+}

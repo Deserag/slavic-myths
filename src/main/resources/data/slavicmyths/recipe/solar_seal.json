@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " A ",
+    "ARA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "slavicmyths:carved_solar_sandstone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:solar_seal",
+    "count": 4
+  }
+}

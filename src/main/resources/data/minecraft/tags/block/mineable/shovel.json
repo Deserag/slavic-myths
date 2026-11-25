@@ -8,6 +8,10 @@
     "slavicmyths:navya_soil",
     "slavicmyths:mossy_navya_soil",
     "slavicmyths:black_cinder_soil",
-    "slavicmyths:ash_crust"
+    "slavicmyths:ash_crust",
+    "slavicmyths:compacted_sand",
+    "slavicmyths:cracked_dry_earth",
+    "slavicmyths:quicksand",
+    "slavicmyths:salt_crust"
   ]
 }

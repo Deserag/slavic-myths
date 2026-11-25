@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "slavicmyths:block/solar_seal"
+    },
+    "open=true": {
+      "model": "slavicmyths:block/solar_seal_open"
+    }
+  }
+}

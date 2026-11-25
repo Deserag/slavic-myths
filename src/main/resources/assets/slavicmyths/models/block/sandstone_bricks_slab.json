@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "top": "slavicmyths:block/sandstone_bricks",
+    "bottom": "slavicmyths:block/sandstone_bricks",
+    "side": "slavicmyths:block/sandstone_bricks"
+  }
+}
