@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.zip.GZIPInputStream;
 /** Exact V3 articulated shell and sampled 23-bone IK transforms. */
 public final class IndrikGeometry {
- public static final IndrikGeometry INSTANCE=new IndrikGeometry();
  public final int count;
  public final String[] groups;
  public final int[] colors,part,mask,flags;
@@ -14,6 +13,8 @@ public final class IndrikGeometry {
  private final int[] undergroundCubes;
  private static final int[][] CORNERS={{0,0,0},{1,0,0},{1,1,0},{0,1,0},{0,0,1},{1,0,1},{1,1,1},{0,1,1}};
  public static final int[][] FACES={{0,4,7,3},{1,2,6,5},{0,1,5,4},{3,7,6,2},{0,3,2,1},{4,5,6,7}};
+ // Initialize only after the static corner and face tables are populated.
+ public static final IndrikGeometry INSTANCE=new IndrikGeometry();
  private IndrikGeometry(){
   try(var raw=IndrikGeometry.class.getResourceAsStream("/assets/slavicmyths/indrik/geometry.bin.gz")){
    if(raw==null)throw new IOException("Missing Indrik V3 geometry");
