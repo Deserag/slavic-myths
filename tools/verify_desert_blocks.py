@@ -44,6 +44,13 @@ for jar in jars:
                 if texture.startswith("slavicmyths:"):
                     p = assets + "textures/" + texture.split(":",1)[1] + ".png"
                     assert p in files, f"Missing texture {p}"
+        catalog = [line.split("\t")[0] for line in z.read(assets + "creative_catalog.tsv").decode("utf-8").splitlines()
+                   if line.strip() and not line.startswith("#")]
+        assert len(catalog) == len(set(catalog)), "Duplicate creative catalog ID"
+        assert "serpent_seal" in catalog and "desert_serpent_seal" in catalog
+        import hashlib
+        original = z.read(assets + "models/item/serpent_seal.json")
+        assert hashlib.sha1(b"blob " + str(len(original)).encode() + b"\0" + original).hexdigest() == "8a18ba2d1daef8f1f5d83ed523be9eccf7d21f0f", "Gorynych seal item model changed"
         en = read_json(assets + "lang/en_us.json")
         ru = read_json(assets + "lang/ru_ru.json")
         for n in ids:

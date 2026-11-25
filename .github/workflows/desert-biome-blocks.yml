@@ -25,7 +25,14 @@ jobs:
           javac -d /tmp/desert-tree src/main/java/org/slavicmyths/wood/TreeShape.java tools/desert-tests/DesertTreeShapeCheck.java
           java -cp /tmp/desert-tree DesertTreeShapeCheck
       - name: Run native seal GameTests
-        run: ./gradlew -PdesertCheck runDesertTests --no-daemon --console=plain
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PdesertCheck runDesertTests --no-daemon --console=plain 2>&1 | tee /tmp/desert-gametest.log
+          if grep -Eiq 'Duplicate registration|Failed to create mod instance|Mod loading failed|Failed to load correctly|ExceptionInInitializerError|broken mod state|Failed to start the minecraft server' /tmp/desert-gametest.log; then
+            echo "GameTest runtime initialization failed"; exit 1
+          fi
+          grep -Eiq 'All [2-9][0-9]* required tests passed' /tmp/desert-gametest.log || { echo "No explicit successful GameTest result"; exit 1; }
       - uses: actions/upload-artifact@v4
         with:
           name: desert-biome-mod
