@@ -41,6 +41,7 @@ public final class CombatTargeting {
     public enum Relation { FORBIDDEN, ALLY, NEUTRAL, ENEMY }
     public enum Intent { PEACEFUL, NEUTRAL, HOSTILE, DEFENDER }
     public static java.util.UUID affiliation(LivingEntity e){
+        if(e instanceof org.slavicmyths.desert.AntMinionEntity a)return a.ownerId();
         if(e instanceof org.slavicmyths.icequeen.QueenMinion m)return m.ownerId();
         if(e instanceof org.slavicmyths.netherboss.NetherRetainer retainer)return retainer.owner();
         if(e.getPersistentData().hasUUID("summonedByPolozUUID"))return e.getPersistentData().getUUID("summonedByPolozUUID");

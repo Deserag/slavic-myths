@@ -60,6 +60,7 @@ public final class BossBarPalette {
         Map.entry("morovoy_fire_zmey",8),
         Map.entry("brown_bear",5),
         Map.entry("ice_queen",9),
+        Map.entry("ant_queen",6),
         Map.entry("nine_mor_serpent",9)
     );
 

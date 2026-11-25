@@ -23,7 +23,7 @@ import net.neoforged.neoforge.entity.PartEntity;
 import org.joml.Vector3f;
 import org.slavicmyths.combat.*;
 import static org.slavicmyths.desert.SandKingRules.*;
-public final class SandKingEntity extends Monster {
+public final class SandKingEntity extends Monster implements LivingThreatBoss {
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT),PHASE=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.INT);
  private static final EntityDataAccessor<Boolean> MIRROR=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.BOOLEAN),LANDED=SynchedEntityData.defineId(SandKingEntity.class,EntityDataSerializers.BOOLEAN);
  private static final SandKingGeometry GEO=SandKingGeometry.INSTANCE;
@@ -66,6 +66,7 @@ public final class SandKingEntity extends Monster {
  @Override protected SoundEvent getHurtSound(DamageSource s){return SandKingSounds.HURT.get();}
  @Override protected SoundEvent getDeathSound(){return SandKingSounds.DEATH.get();}
  @Override protected void playStepSound(BlockPos pos,BlockState state){playSound(SandKingSounds.STEP.get(),.65F,.85F+random.nextFloat()*.2F);}
+ public boolean threatAttackLocked(){return action()!=IDLE;}
  public int action(){return entityData.get(ACTION);}
  public int battlePhase(){return entityData.get(PHASE);}
  public int actionTicks(){return Math.max(0,(int)level().getGameTime()-entityData.get(START));}

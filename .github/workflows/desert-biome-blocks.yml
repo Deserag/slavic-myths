@@ -27,6 +27,11 @@ jobs:
           javac -d /tmp/sand-king-check src/main/java/org/slavicmyths/desert/SandKingGeometry.java src/main/java/org/slavicmyths/desert/SandKingRules.java tools/sand_king/GeometryCheck.java tools/sand_king/RulesCheck.java
           java -cp /tmp/sand-king-check:build/resources/main GeometryCheck
           java -cp /tmp/sand-king-check RulesCheck
+      - name: Verify ant geometry and combat rules
+        run: |
+          mkdir -p /tmp/ant-check
+          javac -d /tmp/ant-check src/main/java/org/slavicmyths/desert/AntRules.java src/main/java/org/slavicmyths/desert/AntGeometry.java tools/ant_queen/AntGeometryCheck.java
+          java -cp /tmp/ant-check AntGeometryCheck
       - name: Verify packaged desert block assets
         run: python3 tools/verify_desert_blocks.py
       - name: Check 1000 generated desert tree geometries

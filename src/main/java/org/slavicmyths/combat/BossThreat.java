@@ -25,7 +25,7 @@ public final class BossThreat {
  private static Threat entry(Encounter e,Player p,long now){var t=e.players.computeIfAbsent(p.getUUID(),id->new Threat(now));decay(t,now);return t;}
  private static void decay(Threat t,long now){t.score*=Math.pow(.5,Math.max(0,now-t.last)/160D);t.last=now;}
  public static boolean attacking(Mob b){
-  if(b instanceof org.slavicmyths.desert.SandKingEntity s)return s.action()!=org.slavicmyths.desert.SandKingRules.IDLE;
+  if(b instanceof LivingThreatBoss s)return s.threatAttackLocked();
   if(b.swinging)return true;
   if(b instanceof org.slavicmyths.icequeen.IceQueen q)return q.action()!=org.slavicmyths.icequeen.IceQueen.IDLE;
   if(b instanceof org.slavicmyths.entity.LandSpiritEntity s&&s.morState()!=0)return s.morSkill()!=0;
@@ -60,9 +60,9 @@ public final class BossThreat {
   var threat=encounter.players.get(attacker.getUUID());
   return threat!=null&&threat.score>0&&boss.level().getGameTime()-threat.active<=400;
  }
- private static void sandKingDamage(SandKingEntity b,LivingDamageEvent.Post event){
+ private static void livingBossDamage(Mob b,LivingThreatBoss adapter,LivingDamageEvent.Post event){
   if(!b.isAlive()||!(b.level() instanceof ServerLevel)||event.getNewDamage()<=0
-      ||!(event.getSource().getEntity() instanceof LivingEntity attacker)||!b.canPursue(attacker))return;
+      ||!(event.getSource().getEntity() instanceof LivingEntity attacker)||!adapter.canPursue(attacker))return;
   long now=b.level().getGameTime();
   var encounter=ENCOUNTERS.computeIfAbsent(b,x->new Encounter());
   var threat=encounter.players.computeIfAbsent(attacker.getUUID(),x->new Threat(now));
@@ -70,18 +70,20 @@ public final class BossThreat {
   threat.score=Math.min(100000,threat.score+event.getNewDamage()*(event.getSource().is(DamageTypeTags.IS_PROJECTILE)?1.5:1));
   threat.active=now;
   // First actual hit starts combat, including arrows owned by skeletons and other mobs.
-  if(!b.validThreatTarget(b.getTarget())&&b.acceptThreatTarget(attacker)){
+  if(!adapter.validThreatTarget(b.getTarget())&&adapter.acceptThreatTarget(attacker)){
    encounter.focus=attacker.getUUID();encounter.switched=encounter.diverted=now;
   }
  }
- public static void selectSandKing(SandKingEntity b){
+ public static void selectSandKing(SandKingEntity b){selectLivingBoss(b);}
+ public static void selectLivingBoss(Mob b){
+  if(!(b instanceof LivingThreatBoss adapter))return;
   if(!(b.level() instanceof ServerLevel w)||!b.isAlive()||attacking(b))return;
   var encounter=ENCOUNTERS.get(b);if(encounter==null)return;
-  var current=b.getTarget();boolean keep=b.validThreatTarget(current);
+  var current=b.getTarget();boolean keep=adapter.validThreatTarget(current);
   if(keep&&b.tickCount%10!=0)return;
   long now=w.getGameTime();
   encounter.players.entrySet().removeIf(row->now-row.getValue().active>400
-      ||!(w.getEntity(row.getKey()) instanceof LivingEntity living)||!b.canPursue(living));
+      ||!(w.getEntity(row.getKey()) instanceof LivingEntity living)||!adapter.canPursue(living));
   if(encounter.players.isEmpty()){ENCOUNTERS.remove(b);return;}
   if(keep&&now-encounter.switched<60)return;
   var currentThreat=keep?encounter.players.get(current.getUUID()):null;
@@ -97,13 +99,13 @@ public final class BossThreat {
   }
   boolean diversion=keep&&now-encounter.diverted>=240&&alternate!=null;
   if(diversion)best=alternate;
-  if(best!=null&&(!keep||diversion||highest>Math.max(4,baseline*1.3+2))&&b.acceptThreatTarget(best)){
+  if(best!=null&&(!keep||diversion||highest>Math.max(4,baseline*1.3+2))&&adapter.acceptThreatTarget(best)){
    encounter.focus=best.getUUID();encounter.switched=now;
    if(diversion||!keep)encounter.diverted=now;
   }
  }
  @SubscribeEvent public static void damage(LivingDamageEvent.Post event){
-  if(event.getEntity() instanceof SandKingEntity sandKing){sandKingDamage(sandKing,event);return;}
+  if(event.getEntity() instanceof Mob livingBoss&&livingBoss instanceof LivingThreatBoss adapter){livingBossDamage(livingBoss,adapter,event);return;}
   if(!(event.getEntity() instanceof Mob b)||!boss(b)||event.getNewDamage()<=0)return;
   Entity source=event.getSource().getEntity();Player p=source instanceof Player player?player:null;
   if(p==null&&source instanceof LivingEntity living){UUID owner=CombatTargeting.affiliation(living);if(owner!=null&&b.level() instanceof net.minecraft.server.level.ServerLevel w)p=w.getServer().getPlayerList().getPlayer(owner);}
@@ -112,7 +114,7 @@ public final class BossThreat {
   t.score=Math.min(100000,t.score+event.getNewDamage());t.active=now;
  }
  @SubscribeEvent public static void tick(EntityTickEvent.Post event){
-  if(!(event.getEntity() instanceof Mob b)||b.level().isClientSide||b instanceof SandKingEntity)return;
+  if(!(event.getEntity() instanceof Mob b)||b.level().isClientSide||b instanceof LivingThreatBoss)return;
   if(!boss(b)){ENCOUNTERS.remove(b);return;}
   if(b.tickCount%10!=0||!(b.getTarget() instanceof Player current))return;
   long now=b.level().getGameTime();var e=ENCOUNTERS.computeIfAbsent(b,x->new Encounter());
@@ -137,7 +139,9 @@ public final class BossThreat {
   }
  }
  @SubscribeEvent(priority=EventPriority.HIGH) public static void changing(LivingChangeTargetEvent event){
-  if(!(event.getEntity() instanceof Mob b)||b instanceof SandKingEntity||!boss(b))return;
+  if(!(event.getEntity() instanceof Mob b))return;
+  if(b instanceof LivingThreatBoss adapter){if(adapter.threatAttackLocked())event.setNewAboutToBeSetTarget(b.getTarget());return;}
+  if(!boss(b))return;
   var e=ENCOUNTERS.get(b);if(e==null||e.focus==null||!(b.getTarget() instanceof Player current)||!valid(b,current))return;
   var proposed=event.getNewAboutToBeSetTarget();
   if(proposed==null||!(proposed instanceof Player))return; // Preserve disengagement and retaliation against mobs.

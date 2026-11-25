@@ -23,6 +23,9 @@
     "minecraft:guardian",
     "minecraft:elder_guardian",
     "slavicmyths:heat_salamander",
-    "slavicmyths:slag_crab"
+    "slavicmyths:slag_crab",
+    "slavicmyths:ant_queen",
+    "slavicmyths:desert_ant",
+    "slavicmyths:flying_desert_ant"
   ]
 }
