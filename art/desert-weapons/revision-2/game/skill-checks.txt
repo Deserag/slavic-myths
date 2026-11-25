@@ -1,0 +1,1 @@
+PASS: 22 existing desert skill slots accepted by real server handlers against a live target; bow native draw, volley and pierce checked separately.

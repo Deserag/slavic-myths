@@ -122,7 +122,8 @@ public final class WeaponSkillHud {
                 skills.add(new Skill("dune_smash","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("dune_mace",2))-now));
             }
             case "mirage_bow" -> {
-                skills.add(new Skill("mirage_trishot","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("mirage_bow",1))-now));
+                skills.add(new Skill("mirage_draw","R",VANILLA));
+                skills.add(new Skill("mirage_trishot","S+L",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("mirage_bow",1))-now));
                 skills.add(new Skill("mirage_pierce","S+R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("mirage_bow",2))-now));
             }
             case "quicksand_whip" -> {
@@ -346,20 +347,13 @@ public final class WeaponSkillHud {
             if(id.getPath().equals("storm_harpoon"))for(int i=0;i<4;i++)
                 g.fill(x+i*4,y+16,x+i*4+3,y+18,i<tag.getInt("MarineHarpoonHits")?0xFF89E1F2:0xFF454955);
             if(!skill.key.isEmpty()){
-                if(DESERT_ICONS.contains(skill.icon))mouseBinding(g,skill.key,x+8,y-11);
-                else g.drawCenteredString(mc.font,skill.key,x+8,y-9,0xFFE4F7FF);
+                g.drawCenteredString(mc.font,skill.key,x+8,y-9,0xFFE4F7FF);
             }
             x+=22;
         }
     }
-    private static void mouseBinding(GuiGraphics g,String key,int x,int y){
-        boolean shift=key.startsWith("S+"),left=key.endsWith("L");int a=x-(shift?1:4);
-        if(shift){g.fill(x-8,y+3,x-4,y+4,0xFFE4F7FF);g.fill(x-7,y+2,x-5,y+8,0xFFE4F7FF);g.fill(x-6,y+1,x-5,y+3,0xFFE4F7FF);}
-        g.fill(a,y,a+8,y+9,0xFFB6C5CB);g.fill(a+1,y+1,a+7,y+8,0xFF283138);
-        g.fill(a+1+(left?0:3),y+1,a+4+(left?0:3),y+4,0xFFFFD779);g.fill(a+3,y+1,a+4,y+5,0xFF182127);
-    }
     private static final java.util.List<String> WINTER_ICONS=java.util.List.of("winter_captain_throw","winter_captain_crush","winter_captain_vortex","winter_hammer_wave","winter_hammer_crush","winter_silence_wave","winter_silence_seven","winter_silence_execution","winter_blades_throw","winter_blades_behind","winter_claw_dash","winter_claw_flurry","winter_sword_wave","winter_axe_crush","winter_mace_slam","winter_halberd_sweep","winter_halberd_projectile","winter_scythe_harvest","winter_bow_draw","winter_bow_ice","winter_bow_volley","winter_crossbow_load","winter_crossbow_ice","winter_crossbow_shot","winter_queen_switch","winter_queen_dash","winter_queen_sweep","winter_queen_bolt","winter_queen_spikes","winter_queen_golem");
-    private static final java.util.List<String> DESERT_ICONS=java.util.List.of("scorpion_double_strike","dagger_throw","sling_shot","glass_dash","hala_beam","hala_burst","dune_wave","dune_smash","mirage_trishot","mirage_pierce","whip_pull","whip_sweep","colony_summon","colony_swarm","colony_command","winds_punch","winds_barrage","winds_crush","lamya_fire","lamya_solar","lamya_vortex","hammer_slam","hammer_quicksand","hammer_pillars","ice_heal_self","ice_heal_area","fire_heal_self","fire_heal_area");
+    private static final java.util.List<String> DESERT_ICONS=java.util.List.of("scorpion_double_strike","dagger_throw","sling_shot","glass_dash","hala_beam","hala_burst","dune_wave","dune_smash","mirage_trishot","mirage_pierce","whip_pull","whip_sweep","colony_summon","colony_swarm","colony_command","winds_punch","winds_barrage","winds_crush","lamya_fire","lamya_solar","lamya_vortex","hammer_slam","hammer_quicksand","hammer_pillars","ice_heal_self","ice_heal_area","fire_heal_self","fire_heal_area","mirage_draw");
     private static void icon(GuiGraphics g,String kind,int x,int y){
         int desert=DESERT_ICONS.indexOf(kind);
         if(desert>=0){g.blit(skillTexture("desert_atlas"),x,y,(float)(desert%8*16),(float)(desert/8*16),16,16,128,64);return;}

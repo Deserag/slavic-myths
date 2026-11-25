@@ -21,7 +21,7 @@ import org.slavicmyths.combat.*;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class TugarinPairClient {
     public static final net.minecraft.client.resources.model.ModelResourceLocation HELD=net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/tugarin_sword_held"));
-    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws","lomeya_hammer"};
+    private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws","lomeya_hammer","four_winds_fists","scorpion_double_sting"};
     private static net.minecraft.client.resources.model.ModelResourceLocation heldModel(String id){
         return net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/"+id+"_held"));
     }
@@ -58,7 +58,9 @@ public final class TugarinPairClient {
         e.setCanceled(true);if(pair&&!main&&!secondVisible(p))return;
         boolean left=main?p.getMainArm()==HumanoidArm.LEFT:p.getMainArm()==HumanoidArm.RIGHT;var pose=e.getPoseStack();pose.pushPose();
         float swing=pair?(slash(p,e.getPartialTick())==e.getHand()?p.getAttackAnim(e.getPartialTick()):0):e.getSwingProgress();
-        if(upright)winterWrist(pose,left,swing);else firstPersonWrist(pose,left,swing);
+        if(p.getMainHandItem().is(org.slavicmyths.registry.ModItems.FOUR_WINDS.get())){
+            float punch=(float)Math.sin(Math.sqrt(swing)*Math.PI);pose.translate((left?-1:1)*(.48-.08*punch),-.48+.05*punch,-.65-.3*punch);
+        }else if(upright)winterWrist(pose,left,swing);else firstPersonWrist(pose,left,swing);
         WeaponHands.renderGrip(e,left?-1:1);
         mc.getEntityRenderDispatcher().getItemInHandRenderer().renderItem(p,p.getMainHandItem(),left?ItemDisplayContext.FIRST_PERSON_LEFT_HAND:ItemDisplayContext.FIRST_PERSON_RIGHT_HAND,left,pose,e.getMultiBufferSource(),e.getPackedLight());pose.popPose();
     }

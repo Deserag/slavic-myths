@@ -1,0 +1,1 @@
+36 frames: final grip and attacks for four two-handed weapons, first person and third-person front, bow controls; GUI scale 3. Fresh isolated world, master volume 10%.

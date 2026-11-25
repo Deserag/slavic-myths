@@ -1,0 +1,1 @@
+PASS: paired and two-handed offhand reservation/restoration; native bow draw/release; survival ammo and durability; retained full-draw 26 base damage; 3-shot skill; duplicate rejection; piercing skill.

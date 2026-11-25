@@ -1,0 +1,6 @@
+{
+  "parent": "slavicmyths:item/mirage_bow",
+  "textures": {
+    "layer0": "slavicmyths:item/desert_weapons/mirage_bow_pulling_0"
+  }
+}

@@ -1,0 +1,8 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') {
+ p.sourceSets { desertVisual { java.srcDir 'tools/desert-visual-client' } }
+ p.sourceSets.desertVisual.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath
+ p.sourceSets.desertVisual.runtimeClasspath += p.sourceSets.main.runtimeClasspath
+ p.tasks.named('compileDesertVisualJava') { dependsOn p.tasks.named('classes') }
+ p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.desertVisual)
+} }
+gradle.projectsEvaluated { def p=gradle.rootProject;p.neoForge.runs.client.gameDirectory=p.file('work/desert-weapons-visual-v2');if(p.hasProperty('desertDescriptionOnly'))p.neoForge.runs.client.systemProperty('slavicmyths.desertDescriptionOnly','true');if(p.hasProperty('desertGripOnly'))p.neoForge.runs.client.systemProperty('slavicmyths.desertGripOnly','true');if(p.hasProperty('desertMotionOnly'))p.neoForge.runs.client.systemProperty('slavicmyths.desertMotionOnly','true');p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720') }

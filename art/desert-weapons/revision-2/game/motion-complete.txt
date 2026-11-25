@@ -1,0 +1,1 @@
+120 frames: first-person and third-person-front idle/attack, bow draw/release; GUI scale 3. Fresh isolated world, master volume 10%.

@@ -66,7 +66,7 @@ public final class DesertWeaponItem extends TieredItem implements WeaponInputHan
             case LAMYA_WEAPON->new String[]{"Огненная волна","Солнечный луч","Песчаный вихрь"};
             case BURIED_HAMMER->new String[]{"Удар по земле","Зыбучие пески","Песчаные столбы"};
         };
-        for(int i=0;i<labels.length;i++){int hp=i==0?spec.rightDamage:i==1?spec.shiftRightDamage:spec.shiftLeftDamage;lines.add(Component.literal(new String[]{"ПКМ","Shift + ПКМ","Shift + ЛКМ"}[i]+" — "+labels[i]+": "+hp+" HP, "+spec.cooldownTicks(i==1,i==2)/20+" сек.").withStyle(ChatFormatting.GOLD));}
+        for(int i=0;i<labels.length;i++){if(spec==DesertWeaponSpec.COLONY_SCEPTER&&i==0){lines.add(Component.literal("ПКМ — Призыв 4 муравьёв на 30 сек.; урон каждого: 12 HP, откат 10 сек.").withStyle(ChatFormatting.GOLD));continue;}int hp=i==0?spec.rightDamage:i==1?spec.shiftRightDamage:spec.shiftLeftDamage;lines.add(Component.literal(new String[]{"ПКМ","Shift + ПКМ","Shift + ЛКМ"}[i]+" — "+labels[i]+": "+hp+" HP, "+spec.cooldownTicks(i==1,i==2)/20+" сек.").withStyle(ChatFormatting.GOLD));}
     }
     private static long now(ServerPlayer p){return p.server.overworld().getGameTime();}
     private static boolean legal(ServerPlayer p,LivingEntity t){return DesertWeaponTargeting.legal(p,t);}
@@ -84,9 +84,10 @@ public final class DesertWeaponItem extends TieredItem implements WeaponInputHan
         if(!(event.getEntity() instanceof ServerPlayer p))return;
         var pending=PULSES.get(p.getUUID());
         if(pending!=null){var it=pending.iterator();while(it.hasNext()){var a=it.next();if(a.due>now(p))continue;it.remove();if(a.world!=p.serverLevel()||!p.isAlive()||p.isSpectator())continue;if(a.world.getEntity(a.target) instanceof LivingEntity t&&legal(p,t)&&t.distanceToSqr(p)<1024){hit(p,t,a.damage);if(a.origin!=null)line(p,a.origin,t.getBoundingBox().getCenter(),a.particle);particles(p,t.getBoundingBox().getCenter(),a.particle,12,.3);}}if(pending.isEmpty())PULSES.remove(p.getUUID());}
-        ItemStack stack=p.getMainHandItem();if(!(stack.getItem() instanceof DesertWeaponItem item))return;
+        ItemStack stack=p.getMainHandItem();if(!(stack.getItem() instanceof DesertWeaponItem)&&!(stack.getItem() instanceof MirageBowItem))return;
+        var spec=stack.getItem() instanceof DesertWeaponItem item?item.spec:DesertWeaponSpec.MIRAGE_BOW;
         var n=stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();var saved=PathData.data(p);boolean changed=false;
-        for(int i=1;i<=3;i++){String k=cooldownKey(item.spec.id,i);long d=saved.getLong(k);if(n.getLong(k)!=d){n.putLong(k,d);changed=true;}}
+        for(int i=1;i<=3;i++){String k=cooldownKey(spec.id,i);long d=saved.getLong(k);if(n.getLong(k)!=d){n.putLong(k,d);changed=true;}}
         if(changed)stack.set(DataComponents.CUSTOM_DATA,CustomData.of(n));
     }
     @SubscribeEvent public static void logout(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent e){PULSES.remove(e.getEntity().getUUID());}

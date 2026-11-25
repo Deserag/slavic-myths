@@ -1,0 +1,1 @@
+228 frames: inventory, first-person attacks, third-person front/back, native bow draw/release; GUI scale 2. Fresh isolated world, master volume 10%.

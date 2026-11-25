@@ -1,0 +1,1 @@
+12 frames: final colony scepter description, inventory, first-person and third-person front/back; GUI scale 2. Fresh isolated world, master volume 10%.

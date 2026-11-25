@@ -60,6 +60,11 @@
     "slavicmyths:ice_axe",
     "slavicmyths:ice_mace",
     "slavicmyths:ice_halberd",
-    "slavicmyths:ice_scythe"
+    "slavicmyths:ice_scythe",
+    "slavicmyths:desert_sword",
+    "slavicmyths:desert_axe",
+    "slavicmyths:desert_mace",
+    "slavicmyths:desert_halberd",
+    "slavicmyths:desert_scythe"
   ]
 }

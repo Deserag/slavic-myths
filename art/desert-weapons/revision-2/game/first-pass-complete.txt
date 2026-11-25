@@ -1,0 +1,1 @@
+Captured 228 real-client frames. Fresh test world. MASTER=10%. Inventory, first-person, third-person front/back, attacks, bow draw/release.

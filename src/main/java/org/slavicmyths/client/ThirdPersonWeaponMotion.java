@@ -30,12 +30,15 @@ public final class ThirdPersonWeaponMotion {
     private enum Shape { BLADE, HEAVY, SPEAR, POLEAXE, SICKLE, STAFF, KNIFE, SULITSA, CROSSBOW, BOW }
     private static final Map<String,Shape> IDS=new HashMap<>();
     static {
+        register(Shape.BLADE,"desert_sword");
+        register(Shape.HEAVY,"desert_axe","desert_mace");
+        register(Shape.POLEAXE,"desert_halberd");
+        register(Shape.SICKLE,"desert_scythe");
         register(Shape.BLADE,"scorpion_double_sting","stinger_dagger","desert_glass_blade","four_winds_fists");
         register(Shape.HEAVY,"dune_mace","buried_hammer");
         register(Shape.STAFF,"hala_solar_staff","colony_scepter","ice_healing_staff","fire_healing_staff");
         register(Shape.SPEAR,"lamya_weapon");
         register(Shape.SICKLE,"quicksand_whip");
-        register(Shape.BOW,"mirage_bow");
         register(Shape.KNIFE,"sand_sling");
         register(Shape.BLADE,"bone_knife","silver_dagger","ancient_carolingian_sword","restored_carolingian_sword","silver_sword","perunite_sword");
         register(Shape.HEAVY,"club","wooden_mace","stone_mace","mace","silver_mace","perunite_mace","battle_axe","chekan","ancient_chekan");
