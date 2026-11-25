@@ -29,7 +29,9 @@ public final class LamyaRenderer extends EntityRenderer<LamyaEntity>{
  @Override public ResourceLocation getTextureLocation(LamyaEntity e){return WHITE;}
  @Override public boolean shouldRender(LamyaEntity e,Frustum f,double x,double y,double z){return f.isVisible(e.getBoundingBox().inflate(15,8,15));}
  @Override public void render(LamyaEntity e,float yaw,float partial,PoseStack stack,MultiBufferSource buffer,int light){
-  float[] v=M.pose(e.visualAction(),e.visualProgress(partial));stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-e.getYRot()));var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));var pose=stack.last();int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;
+  float[] v=M.pose(e.visualAction(),e.visualProgress(partial));float blend=e.blend(partial);
+  if(blend<1){float[] prev=M.pose(e.previousAction(),e.previousProgress());for(int k=0;k<v.length;k++)v[k]=prev[k]+(v[k]-prev[k])*blend;}
+  stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));var pose=stack.last();int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;
   for(int i=0;i<M.faces;i++){
    int a=M.idx[4*i]*3,b=M.idx[4*i+1]*3,c=M.idx[4*i+2]*3;
    float ux=v[b]-v[a],uy=v[b+1]-v[a+1],uz=v[b+2]-v[a+2],vx=v[c]-v[a],vy=v[c+1]-v[a+1],vz=v[c+2]-v[a+2];

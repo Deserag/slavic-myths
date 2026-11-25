@@ -23,6 +23,8 @@ import static org.slavicmyths.desert.LamyaRules.*;
 
 public final class LamyaEntity extends Monster implements LivingThreatBoss {
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(LamyaEntity.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(LamyaEntity.class,EntityDataSerializers.INT),STAGGER=SynchedEntityData.defineId(LamyaEntity.class,EntityDataSerializers.INT);
+ private static final EntityDataAccessor<Integer> PREVIOUS=SynchedEntityData.defineId(LamyaEntity.class,EntityDataSerializers.INT);
+ private static final EntityDataAccessor<Float> PREVIOUS_PROGRESS=SynchedEntityData.defineId(LamyaEntity.class,EntityDataSerializers.FLOAT);
  private static final LamyaGeometry GEO=LamyaGeometry.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.lamya","Ламя"),BossEvent.BossBarColor.WHITE,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
@@ -36,13 +38,18 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  public LamyaEntity(EntityType<? extends LamyaEntity> type,Level w){super(type,w);xpReward=350;setPersistenceRequired();for(int i=0;i<parts.length;i++)parts[i]=new Part(this,i);}
  public static AttributeSupplier.Builder attributes(){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,INTERNAL_HP).add(Attributes.ATTACK_DAMAGE,32).add(Attributes.ARMOR,28).add(Attributes.ARMOR_TOUGHNESS,8).add(Attributes.KNOCKBACK_RESISTANCE,1).add(Attributes.FOLLOW_RANGE,64).add(Attributes.MOVEMENT_SPEED,.29);}
  @Override protected void registerGoals(){}
- @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ACTION,IDLE);b.define(START,0);b.define(STAGGER,0);}
+ @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ACTION,IDLE);b.define(START,0);b.define(STAGGER,0);b.define(PREVIOUS,IDLE);b.define(PREVIOUS_PROGRESS,0F);}
  public int action(){return entityData.get(ACTION);}
  public int stagger(){return entityData.get(STAGGER);}
  public int age(){return Math.max(0,(int)level().getGameTime()-entityData.get(START));}
  public int visualAction(){if(isDeadOrDying())return DEATH;if(action()!=IDLE)return action();if(hurtTime>0)return HURT;return IDLE;}
  public float visualProgress(float partial){int a=visualAction();if(a==DEATH)return Math.clamp((deathTime+partial)/20F,0,1);if(a==HURT)return Math.clamp((10-hurtTime+partial)/10F,0,1);if(a==IDLE||a==WALK||a==RUN)return ((age()+partial)%LENGTH[a])/LENGTH[a];return Math.clamp((age()+partial)/LENGTH[a],0,1);}
- private void change(int a){entityData.set(ACTION,a);entityData.set(START,(int)level().getGameTime());lastTick=-1;hits.clear();}
+ public int previousAction(){return entityData.get(PREVIOUS);}
+ public float previousProgress(){return entityData.get(PREVIOUS_PROGRESS);}
+ public float blend(float partial){int a=visualAction();if(a==SPAWN||a==DEATH||a==HURT)return 1;
+  float t=Math.clamp((age()+partial)/12F,0,1);return t*t*(3-2*t);
+ }
+ private void change(int a){entityData.set(PREVIOUS,visualAction());entityData.set(PREVIOUS_PROGRESS,visualProgress(0));entityData.set(ACTION,a);entityData.set(START,(int)level().getGameTime());lastTick=-1;hits.clear();}
  private boolean free(){return action()==IDLE||action()==WALK||action()==RUN;}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override public boolean isMultipartEntity(){return true;}
@@ -73,7 +80,10 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   return damaged;
  }
  public Vec3 localToWorld(Vec3 p){return position().add(p.yRot(-getYRot()*Mth.DEG_TO_RAD));}
- private float[] bounds(){return GEO.sample(visualAction(),visualProgress(0));}
+ private float[] bounds(){
+  float[] b=GEO.sample(visualAction(),visualProgress(0));float t=blend(0);
+  if(t<1){float[] p=GEO.sample(previousAction(),previousProgress());for(int k=0;k<b.length;k++)b[k]=p[k]+(b[k]-p[k])*t;}return b;
+ }
  private void updateParts(){
   float[] b=bounds();for(int i=0;i<parts.length;i++){
    int k=i*6;double lx=Double.POSITIVE_INFINITY,ly=lx,lz=lx,hx=-lx,hy=hx,hz=hx;
@@ -88,6 +98,11 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  @Override public boolean threatAttackLocked(){return !free();}
  @Override public void setTarget(LivingEntity e){if(entityData!=null&&threatAttackLocked()&&e!=getTarget())return;super.setTarget(e);}
  private void turn(Vec3 p){Vec3 d=p.subtract(position());if(d.horizontalDistanceSqr()>.001){float y=(float)(Mth.atan2(-d.x,d.z)*Mth.RAD_TO_DEG);setYRot(y);setYBodyRot(y);setYHeadRot(y);}}
+ private boolean faceGradually(Vec3 p){
+  Vec3 d=p.subtract(position());if(d.horizontalDistanceSqr()<.001)return true;
+  float wanted=(float)(Mth.atan2(-d.x,d.z)*Mth.RAD_TO_DEG),delta=Mth.wrapDegrees(wanted-getYRot()),y=getYRot()+Math.clamp(delta,-12F,12F);
+  setYRot(y);setYBodyRot(y);setYHeadRot(y);return Math.abs(delta)<=12;
+ }
  private void stop(){getNavigation().stop();setDeltaMovement(0,getDeltaMovement().y,0);}
  @Override public void tick(){
   super.tick();if(!isAlive())return;
@@ -107,7 +122,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  }
  private void walk(Vec3 dest,boolean run){
   double d=position().distanceTo(dest);if(d<1.5){stop();if(action()!=IDLE)change(IDLE);return;}
-  int a=run?RUN:WALK;if(action()!=a)change(a);turn(dest);getNavigation().moveTo(dest.x,dest.y,dest.z,run?1.35:1.0);
+  int a=run?RUN:WALK;if(action()!=a)change(a);faceGradually(dest);getNavigation().moveTo(dest.x,dest.y,dest.z,run?1.35:1.0);
  }
  private void think(ServerLevel w){
   if(home.distanceToSqr(position())>44*44){setTarget(null);walk(home,false);return;}
@@ -116,10 +131,11 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   t=getTarget();if(!validThreatTarget(t)){walk(home,false);return;}
   double d=distanceTo(t);int p=phase(getHealth()/getMaxHealth());
   if(recovery==0&&hasLineOfSight(t)&&d<19){
+   if(!faceGradually(t.position())){stop();if(action()!=IDLE)change(IDLE);return;}
    int[] choices=p==3?new int[]{ULTIMATE,FIRE_WIND,SUN_WIND,FIRE_SUN,DROUGHT,FIRE,SOLAR,WIND,CLAW,SWEEP,STING}:p==2?new int[]{FIRE_WIND,SUN_WIND,FIRE_SUN,DROUGHT,FIRE,SOLAR,WIND,CLAW,SWEEP,STING}:new int[]{FIRE,SOLAR,WIND,CLAW,SWEEP,STING};
    for(int i=0;i<choices.length;i++){int a=choices[(sequence+i)%choices.length];if(cooldown[a]>0||(mask(a)&stagger())!=0||((a==CLAW||a==STING)&&d>3.5)||(a==SWEEP&&d>5))continue;begin(a,t);return;}
   }
-  if(d>2.4)walk(t.position(),d>14);else{stop();turn(t.position());if(action()!=IDLE)change(IDLE);}
+  if(d>2.4)walk(t.position(),d>14);else{stop();faceGradually(t.position());if(action()!=IDLE)change(IDLE);}
  }
  void begin(int a,LivingEntity t){
   if(!attack(a)||!free()||(mask(a)&stagger())!=0)return;setTarget(t);if(getTarget()!=t)return;
