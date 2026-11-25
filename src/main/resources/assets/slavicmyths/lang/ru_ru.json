@@ -7091,5 +7091,13 @@
   "item.slavicmyths.venom_gland": "Ядовитая железа",
   "item.slavicmyths.solar_crystal": "Солнечный кристалл",
   "item.slavicmyths.desert_chitin": "Хитин",
-  "item.slavicmyths.fossil_amber": "Застывший янтарь"
+  "item.slavicmyths.fossil_amber": "Застывший янтарь",
+  "item.slavicmyths.ice_healing_staff": "Ледяной посох исцеления",
+  "item.slavicmyths.fire_healing_staff": "Огненный посох исцеления",
+  "item.slavicmyths.ice_healing_staff.self": "ПКМ: лечение 4 сердец и неуязвимость на 2 с (откат 20 с).",
+  "item.slavicmyths.fire_healing_staff.self": "ПКМ: лечение 3 сердец сразу и ещё 3 за 6 с (откат 20 с).",
+  "item.slavicmyths.ice_healing_staff.area": "Shift + ПКМ: область 5 блоков на 6 с; лечение 2 сердец, снижение урона на 10% (откат 40 с).",
+  "item.slavicmyths.fire_healing_staff.area": "Shift + ПКМ: область 5 блоков на 6 с; лечение 3 сердец (откат 40 с).",
+  "item.slavicmyths.healing_staff.shared": "Общие откаты каждого навыка для обоих посохов. Лечение себя и союзников.",
+  "item.slavicmyths.healing_staff.cooldown": "Перезарядка способности: %s с."
 }

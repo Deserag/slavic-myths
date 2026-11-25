@@ -101,6 +101,11 @@ public final class WeaponSkillHud {
         long now=mc.level.getGameTime();
         List<Skill> skills=new ArrayList<>();
         switch(id.getPath()) {
+            case "ice_healing_staff", "fire_healing_staff" -> {
+                String shared=org.slavicmyths.combat.IndependentWeaponCooldowns.HEALING_STAFF;
+                skills.add(new Skill("healing_cross","R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,false,now)));
+                skills.add(new Skill("healing_area","S+R",org.slavicmyths.combat.IndependentWeaponCooldowns.remaining(tag,shared,true,now)));
+            }
             case "ice_captain_axes" -> {
                 skills.add(new Skill("winter_captain_throw","R",tag.getLong("CD_winter_captain_1")-now));
                 skills.add(new Skill("winter_captain_crush","S+L",tag.getLong("CD_winter_captain_2")-now));
@@ -314,6 +319,8 @@ public final class WeaponSkillHud {
             return;
         }
         String[] rows=switch(kind){
+            case "healing_cross" -> new String[]{"        ","   ##   ","   ##   "," ###### "," ###### ","   ##   ","   ##   ","        "};
+            case "healing_area" -> new String[]{"  ####  "," ##  ## ","#  ##  #","# #### #","# #### #","#  ##  #"," ##  ## ","  ####  "};
             case "summon" -> new String[]{" #   #  "," ##  ## ","  # #   ","   #    ","  # #   "," #   #  ","#     # ","        "};
             case "crit" -> new String[]{"   ##   ","   ##   ","#  ##  #"," ###### ","  ####  "," ###### ","#  ##  #","   ##   "};
             case "shot" -> new String[]{"   ##   ","  ####  ","   ##   ","   ##   ","   ##   "," # ## # ","  ####  ","   ##   "};

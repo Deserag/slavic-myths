@@ -7093,5 +7093,13 @@
   "item.slavicmyths.venom_gland": "Venom Gland",
   "item.slavicmyths.solar_crystal": "Solar Crystal",
   "item.slavicmyths.desert_chitin": "Chitin",
-  "item.slavicmyths.fossil_amber": "Fossil Amber"
+  "item.slavicmyths.fossil_amber": "Fossil Amber",
+  "item.slavicmyths.ice_healing_staff": "Ice Healing Staff",
+  "item.slavicmyths.fire_healing_staff": "Fire Healing Staff",
+  "item.slavicmyths.ice_healing_staff.self": "RMB: heal 4 hearts; immune to damage for 2 s (20 s cooldown).",
+  "item.slavicmyths.fire_healing_staff.self": "RMB: heal 3 hearts now and 3 over 6 s (20 s cooldown).",
+  "item.slavicmyths.ice_healing_staff.area": "Shift + RMB: 5-block field for 6 s; heal 2 hearts total, reduce damage by 10% (40 s cooldown).",
+  "item.slavicmyths.fire_healing_staff.area": "Shift + RMB: 5-block field for 6 s; heal 3 hearts total (40 s cooldown).",
+  "item.slavicmyths.healing_staff.shared": "Both staves share cooldowns per ability. Heals the caster and allies.",
+  "item.slavicmyths.healing_staff.cooldown": "Ability recharges in %s s."
 }

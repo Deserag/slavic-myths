@@ -1472,3 +1472,5 @@ venom_gland	resources	desert_materials
 solar_crystal	resources	desert_materials
 desert_chitin	resources	desert_materials
 fossil_amber	resources	desert_materials
+ice_healing_staff	magic	healing_staffs
+fire_healing_staff	magic	healing_staffs

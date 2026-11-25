@@ -22,6 +22,8 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> ICE_MACE = ITEMS.register("ice_mace", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.MACE));
     public static final DeferredHolder<Item, Item> ICE_HALBERD = ITEMS.register("ice_halberd", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.HALBERD));
     public static final DeferredHolder<Item, Item> ICE_SCYTHE = ITEMS.register("ice_scythe", () -> new org.slavicmyths.winter.WinterMeleeItem(org.slavicmyths.winter.WinterMeleeItem.Kind.SCYTHE));
+    public static final DeferredHolder<Item, Item> ICE_HEALING_STAFF = ITEMS.register("ice_healing_staff", () -> new org.slavicmyths.desert.HealingStaffItem(false));
+    public static final DeferredHolder<Item, Item> FIRE_HEALING_STAFF = ITEMS.register("fire_healing_staff", () -> new org.slavicmyths.desert.HealingStaffItem(true));
     public static final DeferredHolder<Item, Item> FIERY_IRON_INGOT = ITEMS.register("fiery_iron_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> FIERY_GOLD_INGOT = ITEMS.register("fiery_gold_ingot", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> VENOM_GLAND = ITEMS.register("venom_gland", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));

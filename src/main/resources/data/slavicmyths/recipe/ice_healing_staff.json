@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "MSM",
+    " M "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:blue_ice"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    },
+    "M": {
+      "item": "slavicmyths:winter_steel_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:ice_healing_staff",
+    "count": 1
+  }
+}

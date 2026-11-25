@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "MSM",
+    " M "
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:fiery_gold_ingot"
+    },
+    "C": {
+      "item": "slavicmyths:solar_crystal"
+    },
+    "M": {
+      "item": "slavicmyths:fiery_iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:fire_healing_staff",
+    "count": 1
+  }
+}

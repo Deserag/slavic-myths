@@ -16,6 +16,7 @@ import org.slavicmyths.rpg.PathData;
 public final class IndependentWeaponCooldowns {
     public static final String NEVEYA="neveya_scythe", LOMEYA="lomeya_hammer",
         SPEAR="nine_mor_spear", AXE="nine_mor_axe", MYTAR="mytar_shackled_sickle", POLOZ="poloz_whip", HARPOON="storm_harpoon", SHADOW_KNIFE="shadow_throwing_knife";
+    public static final String HEALING_STAFF="healing_staff";
     public static String key(String weapon,boolean alternate){
         return "SlavicSkillReady_"+weapon+(alternate?"_shift":"_normal");
     }
@@ -60,6 +61,7 @@ public final class IndependentWeaponCooldowns {
         String weapon=switch(id.getPath()){
             case NEVEYA,LOMEYA,SPEAR,AXE,MYTAR,POLOZ,HARPOON,SHADOW_KNIFE -> id.getPath();
             case "lomeya_hammer_offhand" -> LOMEYA;
+            case "ice_healing_staff", "fire_healing_staff" -> HEALING_STAFF;
             default -> null;
         };
         if(weapon!=null)sync(player,stack,weapon);
