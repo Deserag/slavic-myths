@@ -1,0 +1,27 @@
+def indrikRoot = layout.buildDirectory.dir('generated/indrik-resources')
+def indrikPython = providers.environmentVariable('SAND_KING_PYTHON').orElse(System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3')
+def generateIndrikAssets = tasks.register('generateIndrikAssets', Exec) {
+    inputs.files(fileTree('tools/indrik') { include '*.py', '*.json' })
+    inputs.property('pythonExecutable', indrikPython)
+    outputs.dir(indrikRoot)
+    workingDir rootProject.projectDir
+    environment 'INDRIK_RESOURCE_ROOT', indrikRoot.get().asFile.absolutePath
+    commandLine indrikPython.get(), 'tools/indrik/export.py'
+}
+tasks.named('processResources') {
+    dependsOn generateIndrikAssets
+    from(indrikRoot)
+    inputs.files('tools/indrik/ru_ru.json','tools/indrik/en_us.json')
+    doLast {
+        ['ru_ru','en_us'].each { locale ->
+            def target = new File(destinationDir, "assets/slavicmyths/lang/${locale}.json")
+            def parser = new groovy.json.JsonSlurper()
+            def existing = target.getText('UTF-8').trim()
+            def fragment = file("tools/indrik/${locale}.json").getText('UTF-8').trim()
+            def additions = parser.parseText(fragment)
+            if (!parser.parseText(existing).keySet().containsAll(additions.keySet())) {
+                target.setText(existing.substring(0,existing.length()-1).trim()+',\n'+fragment.substring(1,fragment.length()-1)+'\n}\n','UTF-8')
+            }
+        }
+    }
+}

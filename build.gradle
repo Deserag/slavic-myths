@@ -939,3 +939,4 @@ if (project.hasProperty('desertCheck')) {
 // Sand King V2 geometry and original sounds are reproducible build resources.
 apply from: 'gradle/sand-king-assets.gradle'
 apply from: 'gradle/hala-assets.gradle'
+apply from: 'gradle/indrik-assets.gradle'
