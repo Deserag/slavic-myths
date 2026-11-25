@@ -118,5 +118,71 @@
     "sounds": [
       "slavicmyths:desert/lamya/stagger"
     ]
+  },
+  "lamya_prepare_fire": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_fire",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_fire"
+    ]
+  },
+  "lamya_prepare_solar": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_solar",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_solar"
+    ]
+  },
+  "lamya_prepare_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_wind"
+    ]
+  },
+  "lamya_prepare_claw": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_claw",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_claw"
+    ]
+  },
+  "lamya_prepare_tail_sweep": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_tail_sweep",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_tail_sweep"
+    ]
+  },
+  "lamya_prepare_tail_sting": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_tail_sting",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_tail_sting"
+    ]
+  },
+  "lamya_prepare_drought": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_drought",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_drought"
+    ]
+  },
+  "lamya_prepare_combo_fire_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_combo_fire_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_combo_fire_wind"
+    ]
+  },
+  "lamya_prepare_combo_sun_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_combo_sun_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_combo_sun_wind"
+    ]
+  },
+  "lamya_prepare_combo_fire_sun": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_combo_fire_sun",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_combo_fire_sun"
+    ]
+  },
+  "lamya_prepare_ultimate": {
+    "subtitle": "subtitles.slavicmyths.lamya_prepare_ultimate",
+    "sounds": [
+      "slavicmyths:desert/lamya/prepare_ultimate"
+    ]
   }
 }

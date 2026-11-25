@@ -20,5 +20,17 @@
   "subtitles.slavicmyths.lamya_ultimate": "Гибель последнего оазиса",
   "subtitles.slavicmyths.lamya_phase": "Ламя меняет фазу",
   "subtitles.slavicmyths.lamya_impact": "Попадание",
-  "subtitles.slavicmyths.lamya_stagger": "Голова Лами оглушена"
+  "subtitles.slavicmyths.lamya_stagger": "Голова Лами оглушена",
+  "effect.slavicmyths.lamya_drought": "Проклятие засухи",
+  "subtitles.slavicmyths.lamya_prepare_fire": "Ламя готовит: Испепеляющее дыхание",
+  "subtitles.slavicmyths.lamya_prepare_solar": "Ламя готовит: Солнечный приговор",
+  "subtitles.slavicmyths.lamya_prepare_wind": "Ламя готовит: Дыхание пустыни",
+  "subtitles.slavicmyths.lamya_prepare_claw": "Ламя готовит: Удар когтями",
+  "subtitles.slavicmyths.lamya_prepare_tail_sweep": "Ламя готовит: Удар хвостом",
+  "subtitles.slavicmyths.lamya_prepare_tail_sting": "Ламя готовит: Удар жалом",
+  "subtitles.slavicmyths.lamya_prepare_drought": "Ламя готовит: Проклятие засухи",
+  "subtitles.slavicmyths.lamya_prepare_combo_fire_wind": "Ламя готовит: Огненный смерч",
+  "subtitles.slavicmyths.lamya_prepare_combo_sun_wind": "Ламя готовит: Раскалённая буря",
+  "subtitles.slavicmyths.lamya_prepare_combo_fire_sun": "Ламя готовит: Плавление поверхности",
+  "subtitles.slavicmyths.lamya_prepare_ultimate": "Ламя готовит: Гибель последнего оазиса"
 }

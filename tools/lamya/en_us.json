@@ -20,5 +20,17 @@
   "subtitles.slavicmyths.lamya_ultimate": "Lamya: ultimate",
   "subtitles.slavicmyths.lamya_phase": "Lamya: phase",
   "subtitles.slavicmyths.lamya_impact": "Lamya: impact",
-  "subtitles.slavicmyths.lamya_stagger": "Lamya: stagger"
+  "subtitles.slavicmyths.lamya_stagger": "Lamya: stagger",
+  "effect.slavicmyths.lamya_drought": "Drought Curse",
+  "subtitles.slavicmyths.lamya_prepare_fire": "Lamya prepares: fire",
+  "subtitles.slavicmyths.lamya_prepare_solar": "Lamya prepares: solar",
+  "subtitles.slavicmyths.lamya_prepare_wind": "Lamya prepares: wind",
+  "subtitles.slavicmyths.lamya_prepare_claw": "Lamya prepares: claw",
+  "subtitles.slavicmyths.lamya_prepare_tail_sweep": "Lamya prepares: tail sweep",
+  "subtitles.slavicmyths.lamya_prepare_tail_sting": "Lamya prepares: tail sting",
+  "subtitles.slavicmyths.lamya_prepare_drought": "Lamya prepares: drought",
+  "subtitles.slavicmyths.lamya_prepare_combo_fire_wind": "Lamya prepares: combo fire wind",
+  "subtitles.slavicmyths.lamya_prepare_combo_sun_wind": "Lamya prepares: combo sun wind",
+  "subtitles.slavicmyths.lamya_prepare_combo_fire_sun": "Lamya prepares: combo fire sun",
+  "subtitles.slavicmyths.lamya_prepare_ultimate": "Lamya prepares: ultimate"
 }

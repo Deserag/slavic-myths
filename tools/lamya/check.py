@@ -18,4 +18,6 @@ with gzip.open(p/'bounds.bin.gz','rb') as f:
     assert np.isfinite(v).all()
     assert np.all(v[:,:,:n*6].reshape(a,k,n,6)[:,:,:,:3]<=v[:,:,:n*6].reshape(a,k,n,6)[:,:,:,3:])
     assert v[1,4,names.index('tail9')*6+2]<-5
+    assert v[6,4,names.index('arm-1')*6+1]<1.5
+    assert v[8,4,names.index('tail9')*6+1]<1.0
 print('Lamya V6 mesh and collision frame checks passed')

@@ -96,7 +96,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
    bar.setName(getName().copy().append("  "+Math.round(getHealth()/getMaxHealth()*HP)+" / "+Math.round(HP)+" HP"));bar.setProgress(getHealth()/getMaxHealth());
    if(!isNoAi()){
     int mask=0;for(int i=0;i<3;i++){if(stun[i]>0){stun[i]--;if(stun[i]>0)mask|=1<<i;}else pressure[i]=Math.max(0,pressure[i]-.2F);}
-    entityData.set(STAGGER,mask);for(int i=0;i<cooldown.length;i++)if(cooldown[i]>0)cooldown[i]--;if(recovery>0)recovery--;
+    entityData.set(STAGGER,mask);if(mask!=0&&tickCount%5==0)for(int i=0;i<3;i++)if((mask&(1<<i))!=0){Vec3 p=mouth(i);w.sendParticles(ParticleTypes.SMOKE,p.x,p.y,p.z,8,.3,.3,.3,.02);}for(int i=0;i<cooldown.length;i++)if(cooldown[i]>0)cooldown[i]--;if(recovery>0)recovery--;
     if(free()){int p=phase(getHealth()/getMaxHealth());if(p>seenPhase){seenPhase=p;change(PHASE);playSound(LamyaSounds.get("phase"),2,.9F);stop();}else think(w);}
     else if(action()==SPAWN||action()==PHASE){stop();if(age()>=LENGTH[action()])change(IDLE);}
     else execute(w);
@@ -117,13 +117,13 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   double d=distanceTo(t);int p=phase(getHealth()/getMaxHealth());
   if(recovery==0&&hasLineOfSight(t)&&d<19){
    int[] choices=p==3?new int[]{ULTIMATE,FIRE_WIND,SUN_WIND,FIRE_SUN,DROUGHT,FIRE,SOLAR,WIND,CLAW,SWEEP,STING}:p==2?new int[]{FIRE_WIND,SUN_WIND,FIRE_SUN,DROUGHT,FIRE,SOLAR,WIND,CLAW,SWEEP,STING}:new int[]{FIRE,SOLAR,WIND,CLAW,SWEEP,STING};
-   for(int i=0;i<choices.length;i++){int a=choices[(sequence+i)%choices.length];if(cooldown[a]>0||(mask(a)&stagger())!=0||((a==CLAW||a==SWEEP||a==STING)&&d>7))continue;begin(a,t);return;}
+   for(int i=0;i<choices.length;i++){int a=choices[(sequence+i)%choices.length];if(cooldown[a]>0||(mask(a)&stagger())!=0||((a==CLAW||a==STING)&&d>3.5)||(a==SWEEP&&d>5))continue;begin(a,t);return;}
   }
-  if(d>5)walk(t.position(),d>14);else{stop();turn(t.position());if(action()!=IDLE)change(IDLE);}
+  if(d>2.4)walk(t.position(),d>14);else{stop();turn(t.position());if(action()!=IDLE)change(IDLE);}
  }
  void begin(int a,LivingEntity t){
   if(!attack(a)||!free()||(mask(a)&stagger())!=0)return;setTarget(t);if(getTarget()!=t)return;
-  turn(t.position());lockedYaw=getYRot();locked=t.getUUID();aim=t.position();cooldown[a]=COOLDOWN[a];sequence++;change(a);stop();playSound(LamyaSounds.get("charge"),1.6F,.8F+a*.025F);
+  turn(t.position());lockedYaw=getYRot();locked=t.getUUID();aim=t.position();cooldown[a]=COOLDOWN[a];sequence++;change(a);stop();playSound(LamyaSounds.get("prepare_"+SOUND[a]),1.6F,.95F);
  }
  private void finish(){change(IDLE);locked=null;recovery=22;stop();}
  private boolean clear(Vec3 from,Vec3 to){return level().hasChunkAt(BlockPos.containing(from))&&level().hasChunkAt(BlockPos.containing(to))&&level().clip(new ClipContext(from,to,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this)).getType()==HitResult.Type.MISS;}
@@ -148,8 +148,16 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
     for(int id:ids)for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,parts[id].getBoundingBox().inflate(.15),this::validThreatTarget)){
      if(!clear(parts[id].getBoundingBox().getCenter(),e.getBoundingBox().getCenter())||!hits.add(e.getUUID()))continue;
      if(e.hurt(damageSources().mobAttack(this),a==STING?38:30)&&CombatTargeting.canControl(this,e)){
+      playSound(LamyaSounds.get("impact"),1.3F,.8F);
       Vec3 d=e.position().subtract(position()).normalize();e.setDeltaMovement(e.getDeltaMovement().add(d.scale(.65)).add(0,.35,0));e.hasImpulse=true;e.hurtMarked=true;
      }
+    }
+    if(a==STING&&elapsed==0){
+     Vec3 tip=parts[19].getBoundingBox().getCenter(),floor=ground(w,tip);
+     if(tip.distanceTo(floor)<1.4){ring(w,floor,2.3,ParticleTypes.CLOUD);for(LivingEntity v:w.getEntitiesOfClass(LivingEntity.class,new AABB(floor,floor).inflate(2.3,1.4,2.3),this::validThreatTarget)){
+      if(v.position().subtract(floor).horizontalDistanceSqr()>5.29||!v.onGround()||!clear(floor.add(0,.3,0),v.getBoundingBox().getCenter())||!hits.add(v.getUUID()))continue;
+      v.hurt(damageSources().mobAttack(this),20);
+     }}
     }
    }else if(elapsed%8==0){
     if(a==FIRE||a==FIRE_SUN)beam(w,mouth(0),aim.add(0,1,0),ParticleTypes.FLAME,16,true,false,1.05);
@@ -166,7 +174,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
      for(int k=0;k<14;k++){double angle=k*Math.PI/7+elapsed*.15;w.sendParticles(a==SUN_WIND?ParticleTypes.CLOUD:ParticleTypes.FLAME,center.x+r*.65*Math.cos(angle),center.y+(k%5)*.65,center.z+r*.65*Math.sin(angle),2,.1,.2,.1,.025);}
      for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,new AABB(center,center).inflate(r,3,r),this::validThreatTarget)){
       if(e.position().subtract(center).horizontalDistanceSqr()>r*r||!clear(center.add(0,1,0),e.getBoundingBox().getCenter())||!hasLineOfSight(e))continue;
-      e.hurt(damageSources().mobAttack(this),a==ULTIMATE?20:14);if(a!=SUN_WIND)e.igniteForSeconds(3);
+      e.hurt(damageSources().mobAttack(this),(a==ULTIMATE?20:14)*(a==SUN_WIND?1:LamyaDroughtEffect.fireMultiplier(e)));if(a!=SUN_WIND)e.igniteForSeconds(3);
       if(CombatTargeting.canControl(this,e)){Vec3 d=center.subtract(e.position()).multiply(1,0,1).normalize().scale(.38);e.setDeltaMovement(e.getDeltaMovement().add(d).add(0,.14,0));e.hasImpulse=true;e.hurtMarked=true;}
      }
     }
@@ -181,7 +189,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,new AABB(from,to).inflate(radius),this::validThreatTarget)){
    AABB b=e.getBoundingBox().inflate(radius);if(!b.contains(from)&&!b.contains(to)&&b.clip(from,to).isEmpty())continue;
    if(!clear(from,e.getBoundingBox().getCenter()))continue;
-   e.hurt(damageSources().mobAttack(this),damage*(e.hasEffect(MobEffects.HUNGER)?1.15F:1));if(fire)e.igniteForSeconds(3);
+   e.hurt(damageSources().mobAttack(this),damage*(fire?LamyaDroughtEffect.fireMultiplier(e):1));if(fire)e.igniteForSeconds(3);
    if(wind&&CombatTargeting.canControl(this,e)){e.setDeltaMovement(e.getDeltaMovement().add(d.normalize().scale(.55)).add(0,.34,0));e.hasImpulse=true;e.hurtMarked=true;}
   }
  }
@@ -192,7 +200,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   for(Zone z:zones){Vec3 p=z.p();double r=z.kind()==DROUGHT?5:2.5;ring(w,p,r,z.kind()==DROUGHT?ParticleTypes.SMOKE:ParticleTypes.FLAME);
    for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,new AABB(p,p).inflate(r,1.8,r),this::validThreatTarget)){
     if(e.position().subtract(p).horizontalDistanceSqr()>r*r||!clear(p.add(0,.5,0),e.getBoundingBox().getCenter()))continue;
-    if(z.kind()==DROUGHT){if(!e.isInWater()){e.addEffect(new MobEffectInstance(MobEffects.HUNGER,80,1));e.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,60,0));}}else{e.hurt(damageSources().mobAttack(this),6);e.igniteForSeconds(2);}
+    if(z.kind()==DROUGHT){LamyaDroughtEffect.apply(e);}else{e.hurt(damageSources().mobAttack(this),6*LamyaDroughtEffect.fireMultiplier(e));e.igniteForSeconds(2);}
    }
   }
  }
