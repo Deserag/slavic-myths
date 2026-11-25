@@ -1,0 +1,27 @@
+def lamyaRoot = layout.buildDirectory.dir('generated/lamya-resources')
+def lamyaPython = providers.environmentVariable('SAND_KING_PYTHON').orElse(System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3')
+def generateLamyaAssets = tasks.register('generateLamyaAssets', Exec) {
+    inputs.files(fileTree('tools/lamya') { include '*.py' })
+    inputs.property('pythonExecutable', lamyaPython)
+    outputs.dir(lamyaRoot)
+    workingDir rootProject.projectDir
+    environment 'LAMYA_RESOURCE_ROOT', lamyaRoot.get().asFile.absolutePath
+    commandLine lamyaPython.get(), 'tools/lamya/export.py'
+}
+tasks.named('processResources') {
+    dependsOn generateLamyaAssets
+    from(lamyaRoot)
+    inputs.files('tools/lamya/ru_ru.json','tools/lamya/en_us.json','tools/lamya/sounds.json')
+    doLast {
+        ['lang/ru_ru','lang/en_us','sounds'].each { name ->
+            def target = new File(destinationDir, "assets/slavicmyths/${name}.json")
+            def fragment = file("tools/lamya/${name.tokenize('/').last()}.json").getText('UTF-8').trim()
+            def existing = target.getText('UTF-8').trim()
+            def parser = new groovy.json.JsonSlurper()
+            def additions = parser.parseText(fragment)
+            if (!parser.parseText(existing).keySet().containsAll(additions.keySet())) {
+                target.setText(existing.substring(0,existing.length()-1).trim()+',\n'+fragment.substring(1,fragment.length()-1)+'\n}\n','UTF-8')
+            }
+        }
+    }
+}

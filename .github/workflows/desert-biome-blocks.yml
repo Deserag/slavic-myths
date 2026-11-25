@@ -42,6 +42,8 @@ jobs:
           mkdir -p /tmp/storm-idol-check
           javac -d /tmp/storm-idol-check src/main/java/org/slavicmyths/client/StormIdolMesh.java tools/storm_idol/StormIdolMeshCheck.java
           java -cp /tmp/storm-idol-check org.slavicmyths.client.StormIdolMeshCheck
+      - name: Verify Lamya exported mesh and collision frames
+        run: python3 tools/lamya/check.py build/resources/main/assets/slavicmyths/lamya
       - name: Verify packaged desert block assets
         run: python3 tools/verify_desert_blocks.py
       - name: Check 1000 generated desert tree geometries

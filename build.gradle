@@ -940,3 +940,4 @@ if (project.hasProperty('desertCheck')) {
 apply from: 'gradle/sand-king-assets.gradle'
 apply from: 'gradle/hala-assets.gradle'
 apply from: 'gradle/indrik-assets.gradle'
+apply from: 'gradle/lamya-assets.gradle'

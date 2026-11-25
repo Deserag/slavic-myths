@@ -1,0 +1,122 @@
+{
+  "lamya_ambient": {
+    "subtitle": "subtitles.slavicmyths.lamya_ambient",
+    "sounds": [
+      "slavicmyths:desert/lamya/ambient"
+    ]
+  },
+  "lamya_spawn": {
+    "subtitle": "subtitles.slavicmyths.lamya_spawn",
+    "sounds": [
+      "slavicmyths:desert/lamya/spawn"
+    ]
+  },
+  "lamya_hurt": {
+    "subtitle": "subtitles.slavicmyths.lamya_hurt",
+    "sounds": [
+      "slavicmyths:desert/lamya/hurt"
+    ]
+  },
+  "lamya_death": {
+    "subtitle": "subtitles.slavicmyths.lamya_death",
+    "sounds": [
+      "slavicmyths:desert/lamya/death"
+    ]
+  },
+  "lamya_crawl": {
+    "subtitle": "subtitles.slavicmyths.lamya_crawl",
+    "sounds": [
+      "slavicmyths:desert/lamya/crawl"
+    ]
+  },
+  "lamya_charge": {
+    "subtitle": "subtitles.slavicmyths.lamya_charge",
+    "sounds": [
+      "slavicmyths:desert/lamya/charge"
+    ]
+  },
+  "lamya_fire": {
+    "subtitle": "subtitles.slavicmyths.lamya_fire",
+    "sounds": [
+      "slavicmyths:desert/lamya/fire"
+    ]
+  },
+  "lamya_solar": {
+    "subtitle": "subtitles.slavicmyths.lamya_solar",
+    "sounds": [
+      "slavicmyths:desert/lamya/solar"
+    ]
+  },
+  "lamya_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/wind"
+    ]
+  },
+  "lamya_claw": {
+    "subtitle": "subtitles.slavicmyths.lamya_claw",
+    "sounds": [
+      "slavicmyths:desert/lamya/claw"
+    ]
+  },
+  "lamya_tail_sweep": {
+    "subtitle": "subtitles.slavicmyths.lamya_tail_sweep",
+    "sounds": [
+      "slavicmyths:desert/lamya/tail_sweep"
+    ]
+  },
+  "lamya_tail_sting": {
+    "subtitle": "subtitles.slavicmyths.lamya_tail_sting",
+    "sounds": [
+      "slavicmyths:desert/lamya/tail_sting"
+    ]
+  },
+  "lamya_drought": {
+    "subtitle": "subtitles.slavicmyths.lamya_drought",
+    "sounds": [
+      "slavicmyths:desert/lamya/drought"
+    ]
+  },
+  "lamya_combo_fire_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_combo_fire_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/combo_fire_wind"
+    ]
+  },
+  "lamya_combo_sun_wind": {
+    "subtitle": "subtitles.slavicmyths.lamya_combo_sun_wind",
+    "sounds": [
+      "slavicmyths:desert/lamya/combo_sun_wind"
+    ]
+  },
+  "lamya_combo_fire_sun": {
+    "subtitle": "subtitles.slavicmyths.lamya_combo_fire_sun",
+    "sounds": [
+      "slavicmyths:desert/lamya/combo_fire_sun"
+    ]
+  },
+  "lamya_ultimate": {
+    "subtitle": "subtitles.slavicmyths.lamya_ultimate",
+    "sounds": [
+      "slavicmyths:desert/lamya/ultimate"
+    ]
+  },
+  "lamya_phase": {
+    "subtitle": "subtitles.slavicmyths.lamya_phase",
+    "sounds": [
+      "slavicmyths:desert/lamya/phase"
+    ]
+  },
+  "lamya_impact": {
+    "subtitle": "subtitles.slavicmyths.lamya_impact",
+    "sounds": [
+      "slavicmyths:desert/lamya/impact"
+    ]
+  },
+  "lamya_stagger": {
+    "subtitle": "subtitles.slavicmyths.lamya_stagger",
+    "sounds": [
+      "slavicmyths:desert/lamya/stagger"
+    ]
+  }
+}
