@@ -7046,5 +7046,22 @@
   "desert.slavicmyths.seal_occupied": "Passage occupied.",
   "desert.slavicmyths.seal_limit": "Seal network too large.",
   "desert.slavicmyths.seal_unloaded": "Unloaded chunk boundary.",
-  "block.slavicmyths.desert_serpent_seal": "Serpent Seal"
+  "block.slavicmyths.desert_serpent_seal": "Serpent Seal",
+  "entity.slavicmyths.sand_king": "Sand King",
+  "item.slavicmyths.sand_king_spawn_egg": "Sand King Spawn Egg",
+  "death.attack.sand_king_rapid": "%1$s was crushed by the Sand King",
+  "death.attack.sand_king_rapid.player": "%1$s was crushed by the Sand King while escaping %2$s",
+  "subtitles.slavicmyths.sand_king.ambient": "Sand King rustles",
+  "subtitles.slavicmyths.sand_king.alert": "Sand King awakens",
+  "subtitles.slavicmyths.sand_king.hurt": "Sand King hurts",
+  "subtitles.slavicmyths.sand_king.death": "Sand King dies",
+  "subtitles.slavicmyths.sand_king.step": "Sand King steps",
+  "subtitles.slavicmyths.sand_king.sting": "Stinger whips",
+  "subtitles.slavicmyths.sand_king.poison": "Venom hisses",
+  "subtitles.slavicmyths.sand_king.claw": "Claw strikes",
+  "subtitles.slavicmyths.sand_king.jump": "Sand King leaps",
+  "subtitles.slavicmyths.sand_king.land": "Heavy landing",
+  "subtitles.slavicmyths.sand_king.slam_charge": "Sand King charges",
+  "subtitles.slavicmyths.sand_king.slam": "Desert wrath",
+  "subtitles.slavicmyths.sand_king.rage": "Sand King rages"
 }

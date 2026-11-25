@@ -7044,5 +7044,22 @@
   "desert.slavicmyths.seal_occupied": "Проход занят.",
   "desert.slavicmyths.seal_limit": "Слишком большая цепь печатей.",
   "desert.slavicmyths.seal_unloaded": "Граница незагруженного чанка.",
-  "block.slavicmyths.desert_serpent_seal": "Змеиная печать"
+  "block.slavicmyths.desert_serpent_seal": "Змеиная печать",
+  "entity.slavicmyths.sand_king": "Царь песков",
+  "item.slavicmyths.sand_king_spawn_egg": "Яйцо призыва Царя песков",
+  "death.attack.sand_king_rapid": "%1$s сокрушён Царём песков",
+  "death.attack.sand_king_rapid.player": "%1$s сокрушён Царём песков, спасаясь от %2$s",
+  "subtitles.slavicmyths.sand_king.ambient": "Шорох Царя песков",
+  "subtitles.slavicmyths.sand_king.alert": "Царь песков пробуждается",
+  "subtitles.slavicmyths.sand_king.hurt": "Царь песков получает урон",
+  "subtitles.slavicmyths.sand_king.death": "Царь песков погибает",
+  "subtitles.slavicmyths.sand_king.step": "Шаг Царя песков",
+  "subtitles.slavicmyths.sand_king.sting": "Взмах жала",
+  "subtitles.slavicmyths.sand_king.poison": "Шипение яда",
+  "subtitles.slavicmyths.sand_king.claw": "Удар клешни",
+  "subtitles.slavicmyths.sand_king.jump": "Прыжок Царя песков",
+  "subtitles.slavicmyths.sand_king.land": "Тяжёлое приземление",
+  "subtitles.slavicmyths.sand_king.slam_charge": "Царь песков накапливает силу",
+  "subtitles.slavicmyths.sand_king.slam": "Гнев пустыни",
+  "subtitles.slavicmyths.sand_king.rage": "Ярость Царя песков"
 }

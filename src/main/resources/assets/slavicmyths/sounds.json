@@ -9768,5 +9768,18 @@
         "type": "event"
       }
     ]
-  }
+  },
+  "sand_king_ambient": {"subtitle":"subtitles.slavicmyths.sand_king.ambient","sounds":["slavicmyths:desert/sand_king/ambient"]},
+  "sand_king_alert": {"subtitle":"subtitles.slavicmyths.sand_king.alert","sounds":["slavicmyths:desert/sand_king/alert"]},
+  "sand_king_hurt": {"subtitle":"subtitles.slavicmyths.sand_king.hurt","sounds":["slavicmyths:desert/sand_king/hurt"]},
+  "sand_king_death": {"subtitle":"subtitles.slavicmyths.sand_king.death","sounds":["slavicmyths:desert/sand_king/death"]},
+  "sand_king_step": {"subtitle":"subtitles.slavicmyths.sand_king.step","sounds":["slavicmyths:desert/sand_king/step"]},
+  "sand_king_sting": {"subtitle":"subtitles.slavicmyths.sand_king.sting","sounds":["slavicmyths:desert/sand_king/sting"]},
+  "sand_king_poison": {"subtitle":"subtitles.slavicmyths.sand_king.poison","sounds":["slavicmyths:desert/sand_king/poison"]},
+  "sand_king_claw": {"subtitle":"subtitles.slavicmyths.sand_king.claw","sounds":["slavicmyths:desert/sand_king/claw"]},
+  "sand_king_jump": {"subtitle":"subtitles.slavicmyths.sand_king.jump","sounds":["slavicmyths:desert/sand_king/jump"]},
+  "sand_king_land": {"subtitle":"subtitles.slavicmyths.sand_king.land","sounds":["slavicmyths:desert/sand_king/land"]},
+  "sand_king_slam_charge": {"subtitle":"subtitles.slavicmyths.sand_king.slam_charge","sounds":["slavicmyths:desert/sand_king/slam_charge"]},
+  "sand_king_slam": {"subtitle":"subtitles.slavicmyths.sand_king.slam","sounds":["slavicmyths:desert/sand_king/slam"]},
+  "sand_king_rage": {"subtitle":"subtitles.slavicmyths.sand_king.rage","sounds":["slavicmyths:desert/sand_king/rage"]}
 }

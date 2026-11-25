@@ -935,3 +935,6 @@ if (project.hasProperty('desertCheck')) {
         systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
     } }
 }
+
+// Sand King V2 geometry and original sounds are reproducible build resources.
+apply from: 'gradle/sand-king-assets.gradle'

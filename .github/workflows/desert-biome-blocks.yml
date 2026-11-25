@@ -15,8 +15,19 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/sand_king/requirements.txt
+      - run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
+      - name: Verify Sand King geometry and combat timeline
+        run: |
+          mkdir -p /tmp/sand-king-check
+          javac -d /tmp/sand-king-check src/main/java/org/slavicmyths/desert/SandKingGeometry.java src/main/java/org/slavicmyths/desert/SandKingRules.java tools/sand_king/GeometryCheck.java tools/sand_king/RulesCheck.java
+          java -cp /tmp/sand-king-check:build/resources/main GeometryCheck
+          java -cp /tmp/sand-king-check RulesCheck
       - name: Verify packaged desert block assets
         run: python3 tools/verify_desert_blocks.py
       - name: Check 1000 generated desert tree geometries

@@ -22,6 +22,7 @@ public final class BossThreat {
  private static Threat entry(Encounter e,Player p,long now){var t=e.players.computeIfAbsent(p.getUUID(),id->new Threat(now));decay(t,now);return t;}
  private static void decay(Threat t,long now){t.score*=Math.pow(.5,Math.max(0,now-t.last)/160D);t.last=now;}
  public static boolean attacking(Mob b){
+  if(b instanceof org.slavicmyths.desert.SandKingEntity s)return s.action()!=org.slavicmyths.desert.SandKingRules.IDLE;
   if(b.swinging)return true;
   if(b instanceof org.slavicmyths.icequeen.IceQueen q)return q.action()!=org.slavicmyths.icequeen.IceQueen.IDLE;
   if(b instanceof org.slavicmyths.entity.LandSpiritEntity s&&s.morState()!=0)return s.morSkill()!=0;
