@@ -14,6 +14,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slavicmyths.desert.*;
 public final class AntRenderer extends EntityRenderer<AntEntity> {
  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
+ private final float[] vertices=new float[24];
  private static final int[][] FACES={{0,1,2,3},{4,7,6,5},{0,4,5,1},{1,5,6,2},{2,6,7,3},{3,7,4,0}};
  public AntRenderer(EntityRendererProvider.Context c){super(c);shadowRadius=.5F;}
  public static void register(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(AntContent.QUEEN.get(),AntRenderer::new);e.registerEntityRenderer(AntContent.WORKER.get(),AntRenderer::new);e.registerEntityRenderer(AntContent.FLYING.get(),AntRenderer::new);}
@@ -23,7 +24,8 @@ public final class AntRenderer extends EntityRenderer<AntEntity> {
   stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));
   var boxes=e.pose(partial);
   int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;
-  for(var box:boxes){int rgb=box.color(),color=0xff000000|rgb,packed=(rgb==AntGeometry.E||rgb==AntGeometry.G)?LightTexture.FULL_BRIGHT:light;float[] vertices=box.vertices();var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));int base=0;float cx=0,cy=0,cz=0;for(int k=0;k<8;k++){cx+=vertices[3*k]/8;cy+=vertices[3*k+1]/8;cz+=vertices[3*k+2]/8;}for(int[] f:FACES)face(stack.last(),out,vertices,base,f,cx,cy,cz,color,packed,overlay);}
+  var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));
+  for(var box:boxes){int rgb=box.color(),color=0xff000000|rgb,packed=(rgb==AntGeometry.E||rgb==AntGeometry.G)?LightTexture.FULL_BRIGHT:light;box.verticesInto(vertices);int base=0;float cx=0,cy=0,cz=0;for(int k=0;k<8;k++){cx+=vertices[3*k]/8;cy+=vertices[3*k+1]/8;cz+=vertices[3*k+2]/8;}for(int[] f:FACES)face(stack.last(),out,vertices,base,f,cx,cy,cz,color,packed,overlay);}
   stack.popPose();super.render(e,yaw,partial,stack,buffer,light);
  }
  private static void face(PoseStack.Pose pose,VertexConsumer out,float[] v,int base,int[] f,float cx,float cy,float cz,int color,int light,int overlay){

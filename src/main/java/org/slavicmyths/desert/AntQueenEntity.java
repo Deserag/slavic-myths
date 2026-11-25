@@ -19,6 +19,9 @@ import static org.slavicmyths.desert.AntRules.*;
 public final class AntQueenEntity extends AntEntity implements LivingThreatBoss {
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.ant_queen","Королева муравьёв"),BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[AntGeometry.GROUPS.length];private final int[] cd=new int[15];
+ private final double[][] collisionLo=new double[AntGeometry.GROUPS.length][3],collisionHi=new double[AntGeometry.GROUPS.length][3];
+ private final float[] collisionVertices=new float[24];
+ private int cachedAction=-1;private float cachedProgress=-1;private java.util.List<AntGeometry.Box> cachedPose;
  private float lockedYaw;private UUID lockedTarget;private boolean fired;private int recovery;private Vec3 home;
  public AntQueenEntity(EntityType<? extends AntQueenEntity> t,Level w){super(t,w);xpReward=150;setPersistenceRequired();for(int i=0;i<parts.length;i++)parts[i]=new Part(this,i);}
  public static AttributeSupplier.Builder attributes(){return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,QUEEN_HP).add(Attributes.ATTACK_DAMAGE,20).add(Attributes.ARMOR,12).add(Attributes.ARMOR_TOUGHNESS,2).add(Attributes.KNOCKBACK_RESISTANCE,1).add(Attributes.FOLLOW_RANGE,48).add(Attributes.MOVEMENT_SPEED,.20);}
@@ -43,8 +46,14 @@ public final class AntQueenEntity extends AntEntity implements LivingThreatBoss 
   @Override public boolean hurt(DamageSource s,float a){return getParent().hurt(s,a);}
  }
  private Vec3 world(double x,double y,double z){double a=Math.toRadians(getYRot());return position().add(x*Math.cos(a)-z*Math.sin(a),y,x*Math.sin(a)+z*Math.cos(a));}
- private void updateParts(){if(parts==null)return;double[][] lo=new double[parts.length][3],hi=new double[parts.length][3];for(int i=0;i<parts.length;i++){Arrays.fill(lo[i],Double.POSITIVE_INFINITY);Arrays.fill(hi[i],Double.NEGATIVE_INFINITY);}
-  for(var b:pose(0)){int i=b.group();float[] v=b.vertices();for(int k=0;k<v.length;k+=3){Vec3 p=world(v[k],v[k+1],v[k+2]);double[] xyz={p.x,p.y,p.z};for(int j=0;j<3;j++){lo[i][j]=Math.min(lo[i][j],xyz[j]);hi[i][j]=Math.max(hi[i][j],xyz[j]);}}}
+ private void updateParts(){if(parts==null)return;double[][] lo=collisionLo,hi=collisionHi;for(int i=0;i<parts.length;i++){Arrays.fill(lo[i],Double.POSITIVE_INFINITY);Arrays.fill(hi[i],Double.NEGATIVE_INFINITY);}
+  int action=visualAction();float progress=visualProgress(0);
+  if(cachedPose==null||cachedAction!=action||cachedProgress!=progress){cachedPose=AntGeometry.pose(QUEEN,action,progress);cachedAction=action;cachedProgress=progress;}
+  double a=Math.toRadians(getYRot()),c=Math.cos(a),s=Math.sin(a),x0=getX(),y0=getY(),z0=getZ();float[] v=collisionVertices;
+  for(var b:cachedPose){int i=b.group();b.verticesInto(v);double[] l=lo[i],h=hi[i];for(int k=0;k<v.length;k+=3){
+   double x=x0+(v[k]*c-v[k+2]*s),y=y0+v[k+1],z=z0+(v[k]*s+v[k+2]*c);
+   l[0]=Math.min(l[0],x);l[1]=Math.min(l[1],y);l[2]=Math.min(l[2],z);h[0]=Math.max(h[0],x);h[1]=Math.max(h[1],y);h[2]=Math.max(h[2],z);
+  }}
   for(int i=0;i<parts.length;i++){double[] l=lo[i],h=hi[i];if(!Double.isFinite(l[0]))continue;parts[i].setPos((l[0]+h[0])/2,l[1],(l[2]+h[2])/2);parts[i].setBoundingBox(new AABB(l[0],l[1],l[2],h[0],h[1],h[2]).inflate(.025));}
  }
  public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof AntEntity)&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}

@@ -11,7 +11,23 @@ public final class AntGeometry {
  public static final int D=0x38252c,B=0x281d24,M=0x632b31,R=0xa53639,L=0xc14a43,S=0x79282e,T=0xd7ad79,I=0xf3d9ac,E=0xff4b28,G=0xfff0a3;
  public static final String[] GROUPS={"head","thorax","abdomen","jaws","leg0","leg1","leg2","leg3","leg4","leg5"};
  public record Box(double[] c,double[] d,double[][] q,int color,int group) {
-  public float[] vertices(){float[] out=new float[24];int[][] signs={{-1,-1,-1},{1,-1,-1},{1,1,-1},{-1,1,-1},{-1,-1,1},{1,-1,1},{1,1,1},{-1,1,1}};for(int k=0;k<8;k++){double[] a=add(c,mul(q,v(signs[k][0]*d[0]/2,signs[k][1]*d[1]/2,signs[k][2]*d[2]/2)));out[k*3]=(float)a[0];out[k*3+1]=(float)a[2];out[k*3+2]=(float)-a[1];}return out;}
+  public float[] vertices(){float[] out=new float[24];verticesInto(out);return out;}
+  public void verticesInto(float[] out){
+   for(int k=0;k<8;k++){
+    double x=SIGNS[k][0]*d[0]/2,y=SIGNS[k][1]*d[1]/2,z=SIGNS[k][2]*d[2]/2;
+    out[k*3]=(float)(c[0]+(q[0][0]*x+q[0][1]*y+q[0][2]*z));
+    out[k*3+1]=(float)(c[2]+(q[2][0]*x+q[2][1]*y+q[2][2]*z));
+    out[k*3+2]=(float)-(c[1]+(q[1][0]*x+q[1][1]*y+q[1][2]*z));
+   }
+  }
+ }
+ private static final int[][] SIGNS={{-1,-1,-1},{1,-1,-1},{1,1,-1},{-1,1,-1},{-1,-1,1},{1,-1,1},{1,1,1},{-1,1,1}};
+ // Only static authored ellipsoids and armor call these caches. Pose-dependent
+ // legs, antennae, jaws and wing transforms are still evaluated continuously.
+ private record Template(int group,double x,double y,double z,double rx,double ry,double rz,double step,int color,boolean belly,int plates){}
+ private static final Map<Template,List<Box>> TEMPLATES=new java.util.concurrent.ConcurrentHashMap<>();
+ private static Template key(int group,double[] c,double[] r,double step,int color,boolean belly,int plates){
+  return new Template(group,c[0],c[1],c[2],r[0],r[1],r[2],step,color,belly,plates);
  }
  static double[] v(double x,double y,double z){return new double[]{x,y,z};}
  static double[] add(double[] a,double[] b){return v(a[0]+b[0],a[1]+b[1],a[2]+b[2]);}
@@ -30,10 +46,24 @@ public final class AntGeometry {
   void box(double[] c,double[] d,int col){box(c,d,col,ID);}
   void box(double[] c,double[] d,int col,double[][] q){b.add(new Box(c,d,q,col,g));}
   void beam(double[] a,double[] b,double w,double h,int col){double[] u=sub(b,a);double ln=norm(u);if(ln<1e-8)return;u=scale(u,1/ln);double[] x=cross(u,v(0,0,1));x=norm(x)>1e-6?scale(x,1/norm(x)):v(1,0,0);double[] z=cross(x,u);box(scale(add(a,b),.5),v(w,ln+.012,h),col,new double[][]{{x[0],u[0],z[0]},{x[1],u[1],z[1]},{x[2],u[2],z[2]}});}
-  void addMesh(Mesh m,double[][] q,double[] pivot,double[] shift){for(Box x:m.b)b.add(new Box(add(add(mul(q,sub(x.c,pivot)),pivot),shift),x.d,mm(q,x.q),x.color,x.group));}
-  void ell(double[] c,double[] r,double step,int col,boolean belly){int ny=(int)ceil(r[1]/step),nz=(int)ceil(r[2]/step);for(int j=-ny;j<=ny;j++)for(int k=-nz;k<=nz;k++){double f=1-pow(j*step/r[1],2)-pow(k*step/r[2],2);if(f<0)continue;int nx=(int)(r[0]*sqrt(f)/step);box(add(c,v(0,j*step,k*step)),v((2*nx+1)*step,step,step),belly&&k*step<-.42*r[2]?0x71503e:col);}}
+  void addMesh(Mesh m,double[][] q,double[] pivot,double[] shift){
+   for(Box x:m.b){
+    double[] c=x.c;double dx=c[0]-pivot[0],dy=c[1]-pivot[1],dz=c[2]-pivot[2];
+    double[] center=v(((q[0][0]*dx+q[0][1]*dy+q[0][2]*dz)+pivot[0])+shift[0],
+     ((q[1][0]*dx+q[1][1]*dy+q[1][2]*dz)+pivot[1])+shift[1],
+     ((q[2][0]*dx+q[2][1]*dy+q[2][2]*dz)+pivot[2])+shift[2]);
+    b.add(new Box(center,x.d,x.q==ID?q:mm(q,x.q),x.color,x.group));
+   }
+  }
+  void ell(double[] c,double[] r,double step,int col,boolean belly){
+   b.addAll(TEMPLATES.computeIfAbsent(key(g,c,r,step,col,belly,0),unused->{Mesh template=new Mesh(g);template.buildEll(c,r,step,col,belly);return List.copyOf(template.b);}));
+  }
+  private void buildEll(double[] c,double[] r,double step,int col,boolean belly){int ny=(int)ceil(r[1]/step),nz=(int)ceil(r[2]/step);for(int j=-ny;j<=ny;j++)for(int k=-nz;k<=nz;k++){double f=1-pow(j*step/r[1],2)-pow(k*step/r[2],2);if(f<0)continue;int nx=(int)(r[0]*sqrt(f)/step);box(add(c,v(0,j*step,k*step)),v((2*nx+1)*step,step,step),belly&&k*step<-.42*r[2]?0x71503e:col);}}
  }
- static void armor(Mesh m,double[] c,double[] r,double step,int n){for(int j=0;j<n;j++){double y=-.79*r[1]+1.58*r[1]*j/(n-1),f=sqrt(1-pow(y/r[1],2)),dy=1.58*r[1]/(n-1)*.83;for(int i=0;i<7;i++){double a=-1.38+2.76*i/6;m.box(add(c,v(r[0]*f*sin(a),y,r[2]*f*cos(a))),v(max(step,r[0]*f*.49),dy,step*.85),(j+i)%5==0?L:R,rot('y',a));}if(j==1||j==3)m.box(add(c,v(0,y,r[2]*f+step*.5)),v(step*1.1,dy*.65,step*.48),T);}}
+ static void armor(Mesh m,double[] c,double[] r,double step,int n){
+  m.b.addAll(TEMPLATES.computeIfAbsent(key(m.g,c,r,step,0,false,n),unused->{Mesh template=new Mesh(m.g);buildArmor(template,c,r,step,n);return List.copyOf(template.b);}));
+ }
+ private static void buildArmor(Mesh m,double[] c,double[] r,double step,int n){for(int j=0;j<n;j++){double y=-.79*r[1]+1.58*r[1]*j/(n-1),f=sqrt(1-pow(y/r[1],2)),dy=1.58*r[1]/(n-1)*.83;for(int i=0;i<7;i++){double a=-1.38+2.76*i/6;m.box(add(c,v(r[0]*f*sin(a),y,r[2]*f*cos(a))),v(max(step,r[0]*f*.49),dy,step*.85),(j+i)%5==0?L:R,rot('y',a));}if(j==1||j==3)m.box(add(c,v(0,y,r[2]*f+step*.5)),v(step*1.1,dy*.65,step*.48),T);}}
  public static List<Box> pose(int kind,int act,double t){t=max(0,min(1,t));return kind==QUEEN?queen(t,act):small(t,act,kind==FLYING);}
  static List<Box> queen(double t,int act){
   double p=2*PI*t,a=sin(PI*t),hit=max(0,1-abs(t-.64)/.20),fall=act==DEATH?t*t*(3-2*t):0;
