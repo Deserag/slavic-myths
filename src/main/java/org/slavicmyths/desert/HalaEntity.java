@@ -25,7 +25,7 @@ import static org.slavicmyths.desert.HalaRules.*;
 
 public final class HalaEntity extends Monster implements LivingThreatBoss {
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(HalaEntity.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(HalaEntity.class,EntityDataSerializers.INT);
- private static final HalaGeometry GEO=HalaGeometry.INSTANCE;
+ private static final HalaGeometry.Collision GEO=HalaGeometry.Collision.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.hala","Хала"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
  private final int[] cd=new int[12];
@@ -49,11 +49,8 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
  public int battlePhase(){return phase(getHealth()/getMaxHealth());}
  public int visualAction(){if(isDeadOrDying())return DEATH;if(action()!=IDLE)return action();if(hurtTime>0)return HURT;return getDeltaMovement().horizontalDistanceSqr()>.0007?WALK:IDLE;}
  public float visualProgress(float partial){int a=visualAction();if(a==DEATH)return Mth.clamp((deathTime+partial)/20F,0,1);if(a==HURT)return Mth.clamp((10-hurtTime+partial)/10F,0,1);if(a==WALK||a==IDLE)return ((tickCount+partial)%LENGTH[a])/LENGTH[a];return Mth.clamp((age()+partial)/LENGTH[a],0,1);}
- public float[] pose(float partial){
-  int a=visualAction();float p=visualProgress(partial);float[] v=GEO.sample(a,p);
-  // V2 contains root elevation during the two airborne poses. Move the actual entity instead of doubling it.
-  if(a==DIVE||a==ULTIMATE){float dy=(float)(23*Math.sin(Math.PI*p)/14);for(int i=1;i<v.length;i+=3)v[i]-=dy;}
-  return v;
+ public static float poseElevation(int a,float p){
+  return a==DIVE||a==ULTIMATE?(float)(23*Math.sin(Math.PI*p)/14):0;
  }
  @Override public Component getName(){return hasCustomName()?super.getName():Component.translatableWithFallback("entity.slavicmyths.hala","Хала");}
  @Override public boolean removeWhenFarAway(double d){return false;}
@@ -80,13 +77,26 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
   @Override public boolean hurt(DamageSource s,float a){String g=GEO.groups[index];return getParent().hurt(s,a*(g.equals("head")?1.15F:g.startsWith("wing")?.75F:g.equals("staff")?.5F:1));}
  }
  private Vec3 world(double x,double y,double z){double a=Math.toRadians(getYRot());return position().add(x*Math.cos(a)-z*Math.sin(a),y,x*Math.sin(a)+z*Math.cos(a));}
- private Vec3 staff(){double[] p=GEO.tip(pose(0));return world(p[0],p[1],p[2]);}
+ private Vec3 staff(){
+  int a=visualAction();float p=visualProgress(0);var f=GEO.sample(a,p);
+  return world(f.tipX(),f.tipY()-poseElevation(a,p),f.tipZ());
+ }
  private void updateParts(){
-  if(parts==null)return;float[] v=pose(0);int n=parts.length;double[][] lo=new double[n][3],hi=new double[n][3];
-  for(int i=0;i<n;i++){Arrays.fill(lo[i],Double.POSITIVE_INFINITY);Arrays.fill(hi[i],Double.NEGATIVE_INFINITY);}
+  if(parts==null)return;
+  int action=visualAction();float progress=visualProgress(0),dy=poseElevation(action,progress);
+  var frame=GEO.sample(action,progress);
   double a=Math.toRadians(getYRot()),c=Math.cos(a),s=Math.sin(a);
-  for(int i=0;i<GEO.count;i++){int g=GEO.part[i];for(int k=0;k<8;k++){int p=i*24+k*3;double x=getX()+v[p]*c-v[p+2]*s,y=getY()+v[p+1],z=getZ()+v[p]*s+v[p+2]*c;lo[g][0]=Math.min(lo[g][0],x);lo[g][1]=Math.min(lo[g][1],y);lo[g][2]=Math.min(lo[g][2],z);hi[g][0]=Math.max(hi[g][0],x);hi[g][1]=Math.max(hi[g][1],y);hi[g][2]=Math.max(hi[g][2],z);}}
-  for(int i=0;i<n;i++){double[] l=lo[i],h=hi[i];if(!Double.isFinite(l[0]))continue;parts[i].setPos((l[0]+h[0])*.5,l[1],(l[2]+h[2])*.5);parts[i].setBoundingBox(new AABB(l[0],l[1],l[2],h[0],h[1],h[2]).inflate(.025));}
+  for(int i=0;i<parts.length;i++){
+   var hull=frame.hulls()[i];float[] xz=hull.xz();
+   double lx=Double.POSITIVE_INFINITY,lz=lx,hx=-lx,hz=hx;
+   for(int k=0;k<xz.length;k+=2){
+    double x=getX()+xz[k]*c-xz[k+1]*s,z=getZ()+xz[k]*s+xz[k+1]*c;
+    lx=Math.min(lx,x);lz=Math.min(lz,z);hx=Math.max(hx,x);hz=Math.max(hz,z);
+   }
+   double ly=getY()+(hull.minY()-dy),hy=getY()+(hull.maxY()-dy);
+   parts[i].setPos((lx+hx)*.5,ly,(lz+hz)*.5);
+   parts[i].setBoundingBox(new AABB(lx,ly,lz,hx,hy,hz).inflate(.025));
+  }
  }
  public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof HalaEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
  public boolean validThreatTarget(LivingEntity e){return canPursue(e)&&(e==getTarget()||CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE)||BossThreat.recordedAttacker(this,e));}
@@ -124,8 +134,8 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
  }
  void begin(int a,LivingEntity target){
   turn(target.position());lockedYaw=getYRot();lockedPoint=target.position();lockedPhase=battlePhase();
-  double[] tip=GEO.tip(GEO.sample(a,(float)RELEASE[a]/LENGTH[a]));double y=tip[1];if(a==DIVE||a==ULTIMATE)y-=23*Math.sin(Math.PI*RELEASE[a]/LENGTH[a])/14;
-  lockedDirection=target.getEyePosition().subtract(world(tip[0],y,tip[2])).normalize();sequence++;
+  var tip=GEO.sample(a,(float)RELEASE[a]/LENGTH[a]);double y=tip.tipY();if(a==DIVE||a==ULTIMATE)y-=23*Math.sin(Math.PI*RELEASE[a]/LENGTH[a])/14;
+  lockedDirection=target.getEyePosition().subtract(world(tip.tipX(),y,tip.tipZ())).normalize();sequence++;
   cd[a]=COOLDOWN[a];action(a);waveHits.clear();flightStart=-1;landed=false;getNavigation().stop();playSound(HalaSounds.get("charge"),1.4F,a==ULTIMATE?.7F:1F);
  }
  private Vec3 forward(){return Vec3.directionFromRotation(0,lockedYaw);}

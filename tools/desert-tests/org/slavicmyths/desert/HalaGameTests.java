@@ -10,7 +10,7 @@ public final class HalaGameTests {
  private static <T extends Mob> T mob(GameTestHelper h,EntityType<T> type,Vec3 p){T m=type.create(h.getLevel());if(m==null)throw new IllegalStateException("spawn failed");m.moveTo(p);m.setNoAi(true);m.setNoGravity(true);m.setPersistenceRequired();h.assertTrue(h.getLevel().addFreshEntity(m),"spawn rejected");return m;}
  private static Vec3 origin(GameTestHelper h){return Vec3.atBottomCenterOf(h.absolutePos(new BlockPos(2,2,2)));}
  @GameTest(template="empty") public static void halaV2Registration(GameTestHelper h){
-  var q=HalaContent.BOSS.get().create(h.getLevel());h.assertTrue(q!=null,"Hala not registered");h.assertTrue(q.getMaxHealth()==800,"HP");h.assertTrue(q.getParts().length>=12,"multipart missing");h.assertTrue(q.pose(0).length==2781*24,"V2 geometry lost");q.discard();h.succeed();
+  var q=HalaContent.BOSS.get().create(h.getLevel());h.assertTrue(q!=null,"Hala not registered");h.assertTrue(q.getMaxHealth()==800,"HP");h.assertTrue(q.getParts().length>=12,"multipart missing");h.assertTrue(HalaGeometry.Collision.INSTANCE.sample(HalaRules.IDLE,0).hulls().length==q.getParts().length,"collision geometry lost");q.discard();h.succeed();
  }
  @GameTest(template="empty") public static void halaProjectileRetaliationAndLock(GameTestHelper h){
   var pos=origin(h);var q=mob(h,HalaContent.BOSS.get(),pos);var a=mob(h,EntityType.SKELETON,pos.add(0,0,6));var b=mob(h,EntityType.ZOMBIE,pos.add(6,0,0));var arrow=EntityType.ARROW.create(h.getLevel());

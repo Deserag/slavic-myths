@@ -4,6 +4,8 @@ The original Python/Matplotlib prototype remains unchanged."""
 import ast, gzip, io, math, os, struct, zlib
 from pathlib import Path
 import numpy as np
+from scipy.spatial import ConvexHull, QhullError
+import re
 import soundfile as sf
 
 ROOT=Path(os.environ["HALA_RESOURCE_ROOT"])/"assets/slavicmyths"
@@ -37,7 +39,24 @@ groups=list(dict.fromkeys(group(b) for b in base))
 tip=next(i for i,(p,s,c,r,g) in enumerate(base) if g=="staff" and c=="#ffb52d" and np.allclose(s,(6,6,5)))
 folder=ROOT/"hala"
 folder.mkdir(parents=True,exist_ok=True)
-with (folder/"geometry.bin.gz").open("wb") as raw:
+# Collision data is derived from the same float32 frames at each game tick.
+rules=(Path(__file__).resolve().parents[2]/"src/main/java/org/slavicmyths/desert/HalaRules.java").read_text()
+lengths=[int(x) for x in re.search(r"LENGTH\s*=\s*\{([^}]+)\}",rules).group(1).split(",")]
+assert len(lengths)==len(ACTIONS) and all(n>0 for n in lengths)
+group_ids=np.array([groups.index(group(b)) for b in base])
+group_masks=[group_ids==i for i in range(len(groups))]
+def horizontal_hull(points):
+    points=np.unique(points,axis=0)
+    if len(points)<=2:return points
+    try:
+        return points[ConvexHull(points.astype(np.float64)).vertices]
+    except QhullError:
+        return points
+
+with (folder/"collision.bin.gz").open("wb") as collision_raw, gzip.GzipFile(fileobj=collision_raw,mode="wb",mtime=0,compresslevel=6) as collision, (folder/"geometry.bin.gz").open("wb") as raw:
+    collision.write(struct.pack(">3i",0x48434c31,len(groups),len(ACTIONS)))
+    for g in groups:
+        s=g.encode("ascii");collision.write(struct.pack(">H",len(s)));collision.write(s)
     with gzip.GzipFile(fileobj=raw,mode="wb",mtime=0,compresslevel=6) as f:
         def ints(*v): f.write(struct.pack(">"+len(v)*"i",*v))
         ints(0x48414C32,len(base),len(groups),len(ACTIONS),tip)
@@ -46,7 +65,8 @@ with (folder/"geometry.bin.gz").open("wb") as raw:
         for b in base:
             color=tuple(round(x*255) for x in rgb(b[2]))
             f.write(struct.pack(">IH",0xff000000|(color[0]<<16)|(color[1]<<8)|color[2],groups.index(group(b))))
-        for a in ACTIONS:
+        for action,a in enumerate(ACTIONS):
+            frames=[]
             ts=np.linspace(0,1,13)
             ints(len(ts))
             for t in ts:
@@ -54,7 +74,23 @@ with (folder/"geometry.bin.gz").open("wb") as raw:
                 assert len(bs)==len(base) and all(x[4]==y[4] and rgb(x[2])==rgb(y[2]) for x,y in zip(bs,base)),a
                 vertices=np.array([(V*s)@r.T+p for p,s,c,r,g in bs])/14
                 assert np.isfinite(vertices).all()
-                f.write(vertices.astype(">f4").tobytes())
+                frame=vertices.astype(np.float32)
+                frames.append(frame)
+                f.write(frame.astype(">f4").tobytes())
+            duration=lengths[action]
+            collision.write(struct.pack(">i",duration+1))
+            for tick in range(duration+1):
+                progress=np.float32(tick)/np.float32(duration)
+                x=progress*np.float32(len(frames)-1)
+                i=int(x);j=min(i+1,len(frames)-1)
+                v=frames[i]+(frames[j]-frames[i])*(x-np.float32(i))
+                for mask in group_masks:
+                    pts=v[mask].reshape(-1,3)
+                    hull=horizontal_hull(pts[:,[0,2]])
+                    collision.write(struct.pack(">ffi",float(pts[:,1].min()),float(pts[:,1].max()),len(hull)))
+                    collision.write(hull.astype(">f4").tobytes())
+                anchor=v[tip].astype(np.float64).mean(axis=0)
+                collision.write(struct.pack(">3d",*anchor))
 print("Hala V2: 2781 cuboids, "+str(len(groups))+" collision groups, 12 animation tracks")
 # Original, deterministic, non-vocal creature and magical sound effects.
 sounddir=ROOT/"sounds/desert/hala";sounddir.mkdir(parents=True,exist_ok=True)

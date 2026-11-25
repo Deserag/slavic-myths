@@ -2,6 +2,7 @@ def halaRoot = layout.buildDirectory.dir('generated/hala-resources')
 def halaPython = providers.environmentVariable('SAND_KING_PYTHON').orElse(System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3')
 def generateHalaAssets = tasks.register('generateHalaAssets', Exec) {
     inputs.files(fileTree('tools/hala') { include '*.py' })
+    inputs.file('src/main/java/org/slavicmyths/desert/HalaRules.java')
     inputs.property('pythonExecutable', halaPython)
     outputs.dir(halaRoot)
     workingDir rootProject.projectDir
