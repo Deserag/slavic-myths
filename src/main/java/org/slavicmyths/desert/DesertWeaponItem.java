@@ -27,7 +27,7 @@ public final class DesertWeaponItem extends TieredItem implements WeaponInputHan
     public DesertWeaponItem(DesertWeaponSpec spec){
         super(Tiers.DIAMOND,new Item.Properties().rarity(switch(spec.rank){
             case COMMON->Rarity.COMMON;case RARE->Rarity.RARE;case LEGENDARY->Rarity.EPIC;
-        }).attributes(MaceItem.attributes(spec.baseDamage,switch(spec){
+        }).attributes(org.slavicmyths.combat.MaceItem.attributes(spec.baseDamage,switch(spec){
             case SCORPION_DOUBLE,STINGER_DAGGER,FOUR_WINDS->2.2F;
             case DUNE_MACE,BURIED_HAMMER->.85F;default->1.4F;
         })));this.spec=spec;
