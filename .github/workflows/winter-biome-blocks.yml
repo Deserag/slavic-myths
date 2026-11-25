@@ -26,6 +26,8 @@ jobs:
         run: python3 tools/verify_winter_palace_v2.py
       - name: Verify approved Gluheya manor V1 geometry
         run: python3 tools/verify_gluheya_manor_v1.py
+      - name: Verify voxel ice armor geometry and textures
+        run: python3 tools/verify_snow_armor.py
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
       - run: python3 tools/verify_winter_blocks.py

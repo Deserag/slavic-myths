@@ -190,6 +190,7 @@ public final class ClientSetup {
         bus.addListener(ThirdPersonWeaponMotion::bake);
 
         bus.addListener(UniqueArmorModels::register);
+        bus.addListener(SnowArmorModel::register);
 
         bus.addListener(ClientSetup::navigationKeys);
 
