@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:block/block",
   "textures": {
     "palette": "slavicmyths:item/desert_weapon_palette",
     "particle": "slavicmyths:item/desert_weapon_palette"
