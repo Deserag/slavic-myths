@@ -62,6 +62,7 @@ public final class IndependentWeaponCooldowns {
             case NEVEYA,LOMEYA,SPEAR,AXE,MYTAR,POLOZ,HARPOON,SHADOW_KNIFE -> id.getPath();
             case "lomeya_hammer_offhand" -> LOMEYA;
             case "ice_healing_staff", "fire_healing_staff" -> HEALING_STAFF;
+            case "hala_solar_staff" -> id.getPath();
             default -> null;
         };
         if(weapon!=null)sync(player,stack,weapon);
