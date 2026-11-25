@@ -92,8 +92,13 @@ public final class DesertWeaponItem extends TieredItem implements WeaponInputHan
     @SubscribeEvent public static void logout(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent e){PULSES.remove(e.getEntity().getUUID());}
     private static List<AntMinionEntity> ants(ServerPlayer p){return p.serverLevel().getEntitiesOfClass(AntMinionEntity.class,p.getBoundingBox().inflate(48),a->a.playerBound()&&p.getUUID().equals(a.ownerId())&&a.isAlive());}
     private static boolean summon(ServerPlayer p,LivingEntity t){for(var a:ants(p))a.discard();int spawned=0;for(int i=0;i<4;i++){double a=i*Math.PI/2;var v=p.position().add(Math.cos(a)*1.6,0,Math.sin(a)*1.6);var ant=AntContent.WORKER.get().create(p.serverLevel());if(ant==null)continue;ant.setPos(v.x,v.y,v.z);if(!p.serverLevel().noCollision(ant))continue;ant.bindPlayer(p,i);if(t!=null)ant.command(t);if(p.serverLevel().addFreshEntity(ant))spawned++;}return spawned>0;}
-    private static void pierce(ServerPlayer p,float damage){Vec3 from=p.getEyePosition(),far=from.add(p.getLookAngle().scale(24));Vec3 end=p.serverLevel().clip(new ClipContext(from,far,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,p)).getLocation();for(var t:p.serverLevel().getEntitiesOfClass(LivingEntity.class,new AABB(from,end).inflate(1),e->legal(p,e)&&e.getBoundingBox().inflate(.2).clip(from,end).isPresent()))hit(p,t,damage);line(p,from,end,ParticleTypes.END_ROD);}
     private static boolean dash(ServerPlayer p,LivingEntity t){if(!legal(p,t))return false;Vec3 d=t.position().subtract(p.position()).multiply(1,0,1);double len=d.length();if(len<1.6)return true;Vec3 dest=p.position().add(d.normalize().scale(Math.min(3,len-1.4)));var shift=dest.subtract(p.position());if(p.serverLevel().noCollision(p,p.getBoundingBox().move(shift))&&p.serverLevel().clip(new ClipContext(p.getEyePosition(),p.getEyePosition().add(shift),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,p)).getType()==HitResult.Type.MISS)p.teleportTo(dest.x,dest.y,dest.z);return legal(p,t)&&t.distanceToSqr(p)<25;}
+    private static boolean shot(ServerPlayer p,ItemStack model,float damage,int poison,boolean push,float offset,int pierce){
+        var a=new WeaponProjectile(p.serverLevel(),p,model.copyWithCount(1),true,true);
+        a.configureDesert(damage,poison,push,pierce);
+        a.shootFromRotation(p,p.getXRot(),p.getYRot()+offset,0,2.1F,0);
+        return p.serverLevel().addFreshEntity(a);
+    }
     private static void ranged(ServerPlayer p,DesertWeaponTargeting.Ray ray,float damage,ParticleOptions type){if(ray.target()!=null)hit(p,ray.target(),damage);line(p,ray.start(),ray.end(),type);}
     @Override public void onWeaponAction(ServerPlayer p,ItemStack held,Action action){
         if(!intercepts(action)||!p.isAlive()||p.isSpectator()||p.getMainHandItem()!=held||held.getItem()!=this)return;
@@ -101,11 +106,11 @@ public final class DesertWeaponItem extends TieredItem implements WeaponInputHan
         var ray=DesertWeaponTargeting.trace(p,spec==DesertWeaponSpec.SCORPION_DOUBLE?4:spec==DesertWeaponSpec.GLASS_BLADE?6:spec==DesertWeaponSpec.QUICKSAND_WHIP?9:24);var t=ray.target();Vec3 c=center(ray);boolean ok=true;
         switch(spec){
             case SCORPION_DOUBLE->{if(t==null)return;if(hit(p,t,13)){effect(p,t,MobEffects.POISON,100,0);pulse(p,t,4,13,ParticleTypes.CRIT,null);}particles(p,c,ParticleTypes.CRIT,16,.25);}
-            case STINGER_DAGGER->{ranged(p,ray,24,ParticleTypes.CRIT);if(t!=null&&t.isAlive())effect(p,t,MobEffects.POISON,120,0);}
-            case SAND_SLING->{ranged(p,ray,s==0?16:28,ParticleTypes.POOF);if(s!=0&&t!=null&&control(p,t)){Vec3 v=t.position().subtract(p.position());t.knockback(.7,-v.x,-v.z);}}
+            case STINGER_DAGGER->ok=shot(p,held,24,120,false,0,0);
+            case SAND_SLING->ok=shot(p,new ItemStack(Items.COBBLESTONE),s==0?16:28,0,s!=0,0,0);
             case GLASS_BLADE->{if(t==null||!dash(p,t))return;if(hit(p,t,22))for(int i=1;i<=3;i++)pulse(p,t,i*20,2,ParticleTypes.CRIT,null);particles(p,c,ParticleTypes.CRIT,24,.35);}
             case DUNE_MACE->{if(!p.onGround())return;double r=s==1?5:4;for(var e:area(p,p.position(),r))if(hit(p,e,s==1?38:48)&&control(p,e)){if(s==2)e.push(0,.85,0);else{Vec3 v=e.position().subtract(p.position());e.knockback(.65,-v.x,-v.z);}}ring(p,p.position(),r,ParticleTypes.POOF);}
-            case MIRAGE_BOW->{if(s==2)pierce(p,44);else if(s==0)ranged(p,ray,26,ParticleTypes.END_ROD);else if(t!=null){for(int i=0;i<3;i++)pulse(p,t,i*3+1,12,ParticleTypes.END_ROD,ray.start().add((i-1)*.4,0,0));}else line(p,ray.start(),ray.end(),ParticleTypes.END_ROD);}
+            case MIRAGE_BOW->{if(s==2)ok=shot(p,new ItemStack(Items.ARROW),44,0,false,0,4);else if(s==0)ok=shot(p,new ItemStack(Items.ARROW),26,0,false,0,0);else{ok=false;for(int i=-1;i<=1;i++)ok|=shot(p,new ItemStack(Items.ARROW),12,0,false,i*4,0);}}
             case QUICKSAND_WHIP->{if(s==1){if(t==null)return;if(hit(p,t,30))pull(p,t,p.position());line(p,ray.start(),ray.end(),ParticleTypes.CRIT);}else{for(var e:area(p,p.position(),6))if(hit(p,e,42))effect(p,e,MobEffects.MOVEMENT_SLOWDOWN,120,1);ring(p,p.position(),6,ParticleTypes.POOF);}}
             case COLONY_SCEPTER->{if(s==1)ok=summon(p,t);else if(s==2){for(var e:area(p,c,5))hit(p,e,60);particles(p,c,ParticleTypes.POOF,60,2);}else{if(t==null)return;var own=ants(p);if(own.isEmpty())return;for(var a:own){a.command(t);a.enrage();}hit(p,t,72);particles(p,c,ParticleTypes.CRIT,40,.8);}}
             case FOUR_WINDS->{if(s==1){ranged(p,ray,48,ParticleTypes.CLOUD);}else if(s==2){if(t==null)return;for(int i=0;i<4;i++){double a=i*Math.PI/2;pulse(p,t,i*5+1,15,ParticleTypes.CLOUD,c.add(Math.cos(a)*4,1,Math.sin(a)*4));}}else{var targets=new LinkedHashSet<>(area(p,c,4));if(t!=null)targets.add(t);for(var e:targets)hit(p,e,72);line(p,c.add(0,7,0),c,ParticleTypes.CLOUD);particles(p,c,ParticleTypes.EXPLOSION,4,1);}}

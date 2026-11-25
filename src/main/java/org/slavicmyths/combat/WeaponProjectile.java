@@ -19,6 +19,11 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     private static final EntityDataAccessor<ItemStack> DISPLAY=SynchedEntityData.defineId(WeaponProjectile.class,EntityDataSerializers.ITEM_STACK);
     private boolean dealtDamage,knife,resolved,playerThrown,netherSkill,pairThrow;
     private float pairDamage=18;
+    private float desertDamage;
+    private int desertPoison,desertPierce;
+    private boolean desertKnockback;
+    private final java.util.Set<java.util.UUID> desertHits=new java.util.HashSet<>();
+    public void configureDesert(float damage,int poisonTicks,boolean push,int pierce){desertDamage=damage;desertPoison=poisonTicks;desertKnockback=push;desertPierce=pierce;pickup=Pickup.DISALLOWED;setNoGravity(true);}
     private java.util.UUID summonedTarget;
     private float summonedDamage;
     public void configureSummonedSabre(java.util.UUID target,float damage){summonedTarget=target;summonedDamage=damage;pickup=Pickup.DISALLOWED;setNoGravity(true);}
@@ -47,6 +52,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     @Override protected EntityHitResult findHitEntity(Vec3 start,Vec3 end){return dealtDamage||returning?null:super.findHitEntity(start,end);}
     @Override protected boolean canHitEntity(Entity entity) {
         Entity owner=getOwner();
+        if(desertDamage>0&&(!(owner instanceof net.minecraft.server.level.ServerPlayer p)||!(entity instanceof LivingEntity t)||desertHits.contains(t.getUUID())||!CombatTargeting.canAttack(p,t,CombatTargeting.Context.PROJECTILE)))return false;
         if(summonedTarget!=null&&!summonedTarget.equals(entity.getUUID()))return false;
         if(playerThrown&&owner==null)return false; // Logout/dimension changes cannot bypass the owner's PvP/team rules.
         return super.canHitEntity(entity)&&(!(owner instanceof Player player)||!(entity instanceof LivingEntity living)||org.slavicmyths.rpg.Abilities.canHit(player,living));
@@ -54,6 +60,16 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     @Override protected void onHitEntity(EntityHitResult hit) {
         if(level().isClientSide||dealtDamage||resolved)return;
         Entity target=hit.getEntity(),owner=getOwner();
+        if(desertDamage>0){
+            if(owner instanceof net.minecraft.server.level.ServerPlayer p&&target instanceof LivingEntity t&&CombatTargeting.canAttack(p,t,CombatTargeting.Context.PROJECTILE)&&desertHits.add(t.getUUID())){
+                if(t.hurt(MythDamageSources.caused("desert_weapon_skill",p),desertDamage)&&CombatTargeting.canControl(p,t)&&!CombatTargeting.controlResistant(t)){
+                    if(desertPoison>0)t.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,desertPoison));
+                    if(desertKnockback){Vec3 d=t.position().subtract(p.position());t.knockback(.7,-d.x,-d.z);}
+                }
+            }
+            if(desertPierce<=0||desertHits.size()>desertPierce)discard();else {setPos(hit.getLocation().add(getDeltaMovement().normalize().scale(.15)));}
+            return;
+        }
         if(summonedTarget!=null){if(owner instanceof net.minecraft.server.level.ServerPlayer p&&target instanceof LivingEntity t&&summonedTarget.equals(t.getUUID())&&CombatTargeting.canAttack(p,t,CombatTargeting.Context.DIRECT)&&p.hasLineOfSight(t)){t.hurt(MythDamageSources.periodic("reward_sweep",p),summonedDamage);if(level() instanceof ServerLevel w)w.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,t.getX(),t.getY()+t.getBbHeight()*.5,t.getZ(),12,.2,.3,.2,.1);}discard();return;}
         ItemStack weapon=getPickupItemStackOrigin();
         float damage=pairThrow?pairDamage:weapon.getItem() instanceof ThrowingWeaponItem item?item.projectileDamage(this):0;
@@ -70,6 +86,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     }
     @Override protected void onHitBlock(BlockHitResult hit) {
         if(resolved)return;
+        if(desertDamage>0){discard();return;}
         if(summonedTarget!=null){discard();return;}
         super.onHitBlock(hit);
         if(!level().isClientSide){if(pairThrow)beginReturn();else if(isKnife()){if(loyalty()>0)beginReturn();else recover(false);}}
@@ -94,6 +111,11 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     }
     @Override public void tick() {
         if(resolved){discard();return;}
+        if(desertDamage>0&&!level().isClientSide){
+            if(!(getOwner() instanceof net.minecraft.server.level.ServerPlayer p)||!p.isAlive()||p.isSpectator()||++flightTicks>40){discard();return;}
+            if(level() instanceof ServerLevel w)w.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,getX(),getY(),getZ(),1,.03,.03,.03,0);
+            super.tick();return;
+        }
         if(summonedTarget!=null&&level() instanceof ServerLevel w){
             if(++flightTicks>30||!(getOwner() instanceof net.minecraft.server.level.ServerPlayer p)||!p.isAlive()||!(w.getEntity(summonedTarget) instanceof LivingEntity t)||!t.isAlive()||!p.hasLineOfSight(t)||!CombatTargeting.canAttack(p,t,CombatTargeting.Context.DIRECT)){discard();return;}
             setDeltaMovement(t.position().add(0,t.getBbHeight()*.5,0).subtract(position()).normalize().scale(.85));
@@ -104,6 +126,6 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(!level().isClientSide&&!inGround&&!isRemoved()&&++flightTicks>(isKnife()?24:70)*RangeEnchantment.multiplier(level(),getPickupItemStackOrigin())){if(pairThrow||loyalty()>0)beginReturn();else recover(false);}
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> key){super.onSyncedDataUpdated(key);if(key==RETURNING){returning=entityData.get(RETURNING);if(returning){setNoPhysics(true);setNoGravity(true);}}}
-    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);if(summonedTarget!=null){tag.putUUID("KalinSummonedTarget",summonedTarget);tag.putFloat("KalinSummonedDamage",summonedDamage);}tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("WinterPairThrow",pairThrow);if(pairThrow)tag.putFloat("WinterPairDamage",pairDamage);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
-    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);if(tag.hasUUID("KalinSummonedTarget"))configureSummonedSabre(tag.getUUID("KalinSummonedTarget"),tag.getFloat("KalinSummonedDamage"));netherSkill=tag.getBoolean("NetherSkill");pairThrow=tag.getBoolean("WinterPairThrow");if(pairThrow){pickup=Pickup.DISALLOWED;pairDamage=tag.contains("WinterPairDamage")?tag.getFloat("WinterPairDamage"):18;}knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
+    @Override public void addAdditionalSaveData(CompoundTag tag){super.addAdditionalSaveData(tag);if(summonedTarget!=null){tag.putUUID("KalinSummonedTarget",summonedTarget);tag.putFloat("KalinSummonedDamage",summonedDamage);}tag.putFloat("DesertDamage",desertDamage);tag.putInt("DesertPoison",desertPoison);tag.putInt("DesertPierce",desertPierce);tag.putBoolean("DesertKnockback",desertKnockback);var hitIds=new net.minecraft.nbt.ListTag();for(var id:desertHits)hitIds.add(net.minecraft.nbt.StringTag.valueOf(id.toString()));tag.put("DesertHits",hitIds);tag.putBoolean("NetherSkill",netherSkill);tag.putBoolean("WinterPairThrow",pairThrow);if(pairThrow)tag.putFloat("WinterPairDamage",pairDamage);tag.putBoolean("Knife",knife);tag.putBoolean("DealtDamage",dealtDamage);tag.putBoolean("Resolved",resolved);tag.putBoolean("PlayerThrown",playerThrown);tag.putInt("FlightTicks",flightTicks);tag.putBoolean("Returning",returning);tag.putInt("ReturnTicks",returnTicks);}
+    @Override public void readAdditionalSaveData(CompoundTag tag){super.readAdditionalSaveData(tag);if(tag.hasUUID("KalinSummonedTarget"))configureSummonedSabre(tag.getUUID("KalinSummonedTarget"),tag.getFloat("KalinSummonedDamage"));if(tag.getFloat("DesertDamage")>0){configureDesert(tag.getFloat("DesertDamage"),tag.getInt("DesertPoison"),tag.getBoolean("DesertKnockback"),tag.getInt("DesertPierce"));for(var id:tag.getList("DesertHits",8))try{desertHits.add(java.util.UUID.fromString(id.getAsString()));}catch(IllegalArgumentException ignored){}}netherSkill=tag.getBoolean("NetherSkill");pairThrow=tag.getBoolean("WinterPairThrow");if(pairThrow){pickup=Pickup.DISALLOWED;pairDamage=tag.contains("WinterPairDamage")?tag.getFloat("WinterPairDamage"):18;}knife=tag.getBoolean("Knife");dealtDamage=tag.getBoolean("DealtDamage");resolved=tag.getBoolean("Resolved");playerThrown=tag.getBoolean("PlayerThrown");flightTicks=tag.getInt("FlightTicks");entityData.set(DISPLAY,getPickupItemStackOrigin().copy());returnTicks=tag.getInt("ReturnTicks");if(tag.getBoolean("Returning"))beginReturn();}
 }
