@@ -11,8 +11,8 @@ import org.slavicmyths.desert.*;
 import java.io.*;
 public final class LamyaRenderer extends EntityRenderer<LamyaEntity>{
  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
- private static final Mesh M=new Mesh();
- private final float[] vertices=new float[M.vertices*3],previous=new float[M.vertices*3];
+ private static final class MeshHolder{static final Mesh INSTANCE=new Mesh();}
+ private float[] vertices,previous;
  private static final class Mesh{
   final int vertices,faces;final int[] idx,col;final boolean[] emissive;final short[][][] frames;
   Mesh(){try(var in=LamyaGeometry.open("mesh.bin.gz")){
@@ -30,6 +30,7 @@ public final class LamyaRenderer extends EntityRenderer<LamyaEntity>{
  @Override public ResourceLocation getTextureLocation(LamyaEntity e){return WHITE;}
  @Override public boolean shouldRender(LamyaEntity e,Frustum f,double x,double y,double z){return f.isVisible(e.getBoundingBox().inflate(15,8,15));}
  @Override public void render(LamyaEntity e,float yaw,float partial,PoseStack stack,MultiBufferSource buffer,int light){
+  Mesh M=MeshHolder.INSTANCE;if(vertices==null){vertices=new float[M.vertices*3];previous=new float[M.vertices*3];}
   float[] v=vertices;M.pose(e.visualAction(),e.visualProgress(partial),v);float blend=e.blend(partial);
   if(blend<1){M.pose(e.previousAction(),e.previousProgress(),previous);for(int k=0;k<v.length;k++)v[k]=previous[k]+(v[k]-previous[k])*blend;}
   stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));var pose=stack.last();int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;

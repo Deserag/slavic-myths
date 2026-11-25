@@ -28,6 +28,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  private static final LamyaGeometry GEO=LamyaGeometry.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.lamya","Ламя"),BossEvent.BossBarColor.WHITE,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
+ private final float[] currentBounds=new float[GEO.groups.length*6+9],previousBounds=new float[GEO.groups.length*6+9];
  private final int[] cooldown=new int[LENGTH.length],stun=new int[3];
  private final float[] pressure=new float[3];
  private final Set<UUID> hits=new HashSet<>();
@@ -81,8 +82,8 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  }
  public Vec3 localToWorld(Vec3 p){return position().add(p.yRot(-getYRot()*Mth.DEG_TO_RAD));}
  private float[] bounds(){
-  float[] b=GEO.sample(visualAction(),visualProgress(0));float t=blend(0);
-  if(t<1){float[] p=GEO.sample(previousAction(),previousProgress());for(int k=0;k<b.length;k++)b[k]=p[k]+(b[k]-p[k])*t;}return b;
+  float[] b=currentBounds;GEO.sampleInto(visualAction(),visualProgress(0),b);float t=blend(0);
+  if(t<1){GEO.sampleInto(previousAction(),previousProgress(),previousBounds);for(int k=0;k<b.length;k++)b[k]=previousBounds[k]+(b[k]-previousBounds[k])*t;}return b;
  }
  private void updateParts(){
   float[] b=bounds();for(int i=0;i<parts.length;i++){

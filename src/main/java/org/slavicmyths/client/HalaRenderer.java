@@ -15,14 +15,14 @@ import org.slavicmyths.desert.*;
 public final class HalaRenderer extends EntityRenderer<HalaEntity> {
  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
  private static final int[][] FACES={{0,1,2,3},{4,7,6,5},{0,4,5,1},{1,5,6,2},{2,6,7,3},{3,7,4,0}};
- private static final HalaGeometry GEO=HalaGeometry.INSTANCE;
- private final float[] vertices=new float[GEO.count*24];
+ private float[] vertices;
  public HalaRenderer(EntityRendererProvider.Context c){super(c);shadowRadius=2.4F;}
  public static void register(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(HalaContent.BOSS.get(),HalaRenderer::new);}
  @Override public ResourceLocation getTextureLocation(HalaEntity e){return WHITE;}
  @Override public boolean shouldRender(HalaEntity e,Frustum frustum,double x,double y,double z){return frustum.isVisible(e.getBoundingBox().inflate(10,8,10));}
  @Override public void render(HalaEntity e,float yaw,float partial,PoseStack stack,MultiBufferSource buffer,int light){
   stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));
+  HalaGeometry GEO=HalaGeometry.INSTANCE;if(vertices==null)vertices=new float[GEO.count*24];
   int action=e.visualAction();float progress=e.visualProgress(partial);GEO.sampleInto(action,progress,vertices);
   float dy=HalaEntity.poseElevation(action,progress);if(dy!=0)for(int i=1;i<vertices.length;i+=3)vertices[i]-=dy;
   var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));

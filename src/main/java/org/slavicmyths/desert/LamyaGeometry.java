@@ -23,7 +23,10 @@ public final class LamyaGeometry {
   return new DataInputStream(new BufferedInputStream(new GZIPInputStream(raw)));
  }
  public float[] sample(int a,float p){
-  var f=frames[a];float x=Math.clamp(p,0,1)*(f.length-1);int i=(int)x,j=Math.min(i+1,f.length-1);float[] r=new float[f[i].length];
-  for(int k=0;k<r.length;k++)r[k]=f[i][k]+(f[j][k]-f[i][k])*(x-i);return r;
+  float[] r=new float[groups.length*6+9];sampleInto(a,p,r);return r;
+ }
+ public void sampleInto(int a,float p,float[] r){
+  var f=frames[a];float x=Math.clamp(p,0,1)*(f.length-1);int i=(int)x,j=Math.min(i+1,f.length-1);
+  for(int k=0;k<r.length;k++)r[k]=f[i][k]+(f[j][k]-f[i][k])*(x-i);
  }
 }
