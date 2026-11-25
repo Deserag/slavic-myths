@@ -9789,5 +9789,83 @@
   "ant_death": {"subtitle":"subtitles.slavicmyths.ant.death","sounds":[{"name":"minecraft:entity.spider.death","type":"event","pitch":0.65}]},
   "ant_step": {"subtitle":"subtitles.slavicmyths.ant.step","sounds":[{"name":"minecraft:entity.silverfish.step","type":"event","pitch":0.7}]},
   "ant_bite": {"subtitle":"subtitles.slavicmyths.ant.bite","sounds":[{"name":"minecraft:entity.spider.hurt","type":"event","pitch":1.1}]},
-  "ant_call": {"subtitle":"subtitles.slavicmyths.ant.call","sounds":[{"name":"minecraft:entity.bee.loop_aggressive","type":"event","pitch":0.65}]}
+  "ant_call": {"subtitle":"subtitles.slavicmyths.ant.call","sounds":[{"name":"minecraft:entity.bee.loop_aggressive","type":"event","pitch":0.65}]},
+  "hala_ambient": {
+    "subtitle": "subtitles.slavicmyths.hala.ambient",
+    "sounds": [
+      "slavicmyths:desert/hala/ambient"
+    ]
+  },
+  "hala_step": {
+    "subtitle": "subtitles.slavicmyths.hala.step",
+    "sounds": [
+      "slavicmyths:desert/hala/step"
+    ]
+  },
+  "hala_hurt": {
+    "subtitle": "subtitles.slavicmyths.hala.hurt",
+    "sounds": [
+      "slavicmyths:desert/hala/hurt"
+    ]
+  },
+  "hala_death": {
+    "subtitle": "subtitles.slavicmyths.hala.death",
+    "sounds": [
+      "slavicmyths:desert/hala/death"
+    ]
+  },
+  "hala_charge": {
+    "subtitle": "subtitles.slavicmyths.hala.charge",
+    "sounds": [
+      "slavicmyths:desert/hala/charge"
+    ]
+  },
+  "hala_beam": {
+    "subtitle": "subtitles.slavicmyths.hala.beam",
+    "sounds": [
+      "slavicmyths:desert/hala/beam"
+    ]
+  },
+  "hala_volley": {
+    "subtitle": "subtitles.slavicmyths.hala.volley",
+    "sounds": [
+      "slavicmyths:desert/hala/volley"
+    ]
+  },
+  "hala_orb": {
+    "subtitle": "subtitles.slavicmyths.hala.orb",
+    "sounds": [
+      "slavicmyths:desert/hala/orb"
+    ]
+  },
+  "hala_pillars": {
+    "subtitle": "subtitles.slavicmyths.hala.pillars",
+    "sounds": [
+      "slavicmyths:desert/hala/pillars"
+    ]
+  },
+  "hala_flash": {
+    "subtitle": "subtitles.slavicmyths.hala.flash",
+    "sounds": [
+      "slavicmyths:desert/hala/flash"
+    ]
+  },
+  "hala_dive": {
+    "subtitle": "subtitles.slavicmyths.hala.dive",
+    "sounds": [
+      "slavicmyths:desert/hala/dive"
+    ]
+  },
+  "hala_claw": {
+    "subtitle": "subtitles.slavicmyths.hala.claw",
+    "sounds": [
+      "slavicmyths:desert/hala/claw"
+    ]
+  },
+  "hala_ultimate": {
+    "subtitle": "subtitles.slavicmyths.hala.ultimate",
+    "sounds": [
+      "slavicmyths:desert/hala/ultimate"
+    ]
+  }
 }

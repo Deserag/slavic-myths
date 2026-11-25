@@ -12,3 +12,21 @@ tasks.named('processResources') {
     dependsOn generateHalaAssets
     from(halaRoot)
 }
+
+tasks.named('processResources') {
+    inputs.files('tools/hala/ru_ru.json', 'tools/hala/en_us.json')
+    doLast {
+        ['ru_ru','en_us'].each { locale ->
+            def target = new File(destinationDir, "assets/slavicmyths/lang/${locale}.json")
+            def fragment = file("tools/hala/${locale}.json").getText('UTF-8').trim()
+            if (!target.exists()) throw new GradleException("Missing existing language file: ${locale}")
+            def existing = target.getText('UTF-8').trim()
+            if (!existing.endsWith('}')) throw new GradleException("Invalid language file: ${locale}")
+            def parsed = new groovy.json.JsonSlurper().parseText(existing)
+            def additions = new groovy.json.JsonSlurper().parseText(fragment)
+            if (!parsed.keySet().containsAll(additions.keySet())) {
+                target.setText(existing.substring(0,existing.length()-1).trim() + ',\n' + fragment.substring(1,fragment.length()-1) + '\n}\n','UTF-8')
+            }
+        }
+    }
+}

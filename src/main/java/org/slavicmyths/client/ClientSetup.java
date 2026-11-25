@@ -49,6 +49,7 @@ public final class ClientSetup {
         bus.addListener(ZhelvaRenderer::register);
         bus.addListener(SandKingRenderer::register);
         bus.addListener(AntRenderer::register);
+        bus.addListener(HalaRenderer::register);
         bus.addListener(ZhelvaTrophyRenderer::register);
         bus.addListener(StratimBirdHeadRenderer::register);
 

@@ -1,0 +1,22 @@
+{
+  "entity.slavicmyths.hala": "Хала",
+  "item.slavicmyths.hala_spawn_egg": "Яйцо призыва Халы",
+  "effect.slavicmyths.solar_burn": "Ожог",
+  "death.attack.solar_magic": "%1$s испепелён солнечной магией",
+  "death.attack.solar_magic.player": "%1$s испепелён солнечной магией %2$s",
+  "death.attack.solar_burn": "%1$s погиб от ожогов",
+  "death.attack.solar_burn.player": "%1$s погиб от ожогов, сражаясь с %2$s",
+  "subtitles.slavicmyths.hala.ambient": "Хала рычит",
+  "subtitles.slavicmyths.hala.step": "Шаги Халы",
+  "subtitles.slavicmyths.hala.hurt": "Хала получает урон",
+  "subtitles.slavicmyths.hala.death": "Хала погибает",
+  "subtitles.slavicmyths.hala.charge": "Посох накапливает энергию",
+  "subtitles.slavicmyths.hala.beam": "Солнечный луч",
+  "subtitles.slavicmyths.hala.volley": "Огненный залп",
+  "subtitles.slavicmyths.hala.orb": "Малое солнце",
+  "subtitles.slavicmyths.hala.pillars": "Солнечная кара",
+  "subtitles.slavicmyths.hala.flash": "Солнечная вспышка",
+  "subtitles.slavicmyths.hala.dive": "Огненное пикирование",
+  "subtitles.slavicmyths.hala.claw": "Удар когтями",
+  "subtitles.slavicmyths.hala.ultimate": "Падение солнца"
+}

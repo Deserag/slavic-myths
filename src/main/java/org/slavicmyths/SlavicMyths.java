@@ -101,6 +101,7 @@ public final class SlavicMyths {
         org.slavicmyths.desert.DesertBlocks.init();
         org.slavicmyths.desert.SandKingContent.init(bus);
         org.slavicmyths.desert.AntContent.init(bus);
+        org.slavicmyths.desert.HalaContent.init(bus);
         org.slavicmyths.poloz.PolozContent.init();
         org.slavicmyths.quest185.Quest185Content.init(bus);
         org.slavicmyths.morozko.FrostContent.init(bus);

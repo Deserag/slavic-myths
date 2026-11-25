@@ -1,0 +1,22 @@
+{
+  "entity.slavicmyths.hala": "Hala",
+  "item.slavicmyths.hala_spawn_egg": "Hala Spawn Egg",
+  "effect.slavicmyths.solar_burn": "Solar Burn",
+  "death.attack.solar_magic": "%1$s was seared by solar magic",
+  "death.attack.solar_magic.player": "%1$s was seared by %2$s",
+  "death.attack.solar_burn": "%1$s succumbed to burns",
+  "death.attack.solar_burn.player": "%1$s succumbed to burns while fighting %2$s",
+  "subtitles.slavicmyths.hala.ambient": "Hala growls",
+  "subtitles.slavicmyths.hala.step": "Hala steps",
+  "subtitles.slavicmyths.hala.hurt": "Hala hurts",
+  "subtitles.slavicmyths.hala.death": "Hala dies",
+  "subtitles.slavicmyths.hala.charge": "Sun Staff charges",
+  "subtitles.slavicmyths.hala.beam": "Solar beam",
+  "subtitles.slavicmyths.hala.volley": "Fire volley",
+  "subtitles.slavicmyths.hala.orb": "Lesser sun",
+  "subtitles.slavicmyths.hala.pillars": "Solar judgment",
+  "subtitles.slavicmyths.hala.flash": "Solar flash",
+  "subtitles.slavicmyths.hala.dive": "Fiery dive",
+  "subtitles.slavicmyths.hala.claw": "Claw strike",
+  "subtitles.slavicmyths.hala.ultimate": "Fall of the sun"
+}
