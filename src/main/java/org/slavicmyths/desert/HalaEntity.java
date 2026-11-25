@@ -122,7 +122,7 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
   if(!sight||dist>26){if(tickCount%8==0)getNavigation().moveTo(t,1);}
   else getNavigation().stop();
  }
- private void begin(int a,LivingEntity target){
+ void begin(int a,LivingEntity target){
   turn(target.position());lockedYaw=getYRot();lockedPoint=target.position();lockedPhase=battlePhase();
   double[] tip=GEO.tip(GEO.sample(a,(float)RELEASE[a]/LENGTH[a]));double y=tip[1];if(a==DIVE||a==ULTIMATE)y-=23*Math.sin(Math.PI*RELEASE[a]/LENGTH[a])/14;
   lockedDirection=target.getEyePosition().subtract(world(tip[0],y,tip[2])).normalize();sequence++;
