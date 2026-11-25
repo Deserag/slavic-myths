@@ -24,7 +24,7 @@ public final class HalaGameTests {
  @GameTest(template="empty") public static void halaWaterLowersBurn(GameTestHelper h){
   var pos=origin(h);var e=mob(h,EntityType.ZOMBIE,pos);SolarBurnEffect.apply(e,90);
   h.getLevel().setBlockAndUpdate(BlockPos.containing(pos),net.minecraft.world.level.block.Blocks.WATER.defaultBlockState());
-  h.runAfterDelay(45,()->{h.assertTrue(SolarBurnEffect.stage(e)<3,"water failed to lower burn stage");e.discard();h.succeed();});
+  h.runAfterDelay(45,()->{h.assertTrue(SolarBurnEffect.stage(e)<3,"water failed to lower burn stage");h.getLevel().removeBlock(BlockPos.containing(pos),false);e.discard();h.succeed();});
  }
 
  private static final class ProbeConnection extends net.minecraft.network.Connection {
@@ -52,9 +52,9 @@ public final class HalaGameTests {
   h.assertTrue(misses>0&&misses<24,"stage III must sometimes miss, not always");cow.discard();h.succeed();
  }
  @GameTest(template="empty",timeoutTicks=110) public static void halaBeamDamagesMob(GameTestHelper h){
-  var pos=origin(h).add(0,24,0);var q=mob(h,HalaContent.BOSS.get(),pos);var cow=mob(h,EntityType.COW,pos.add(0,0,11));
-  cow.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(100);cow.setHealth(100);
-  q.setTarget(cow);q.begin(HalaRules.BEAM,cow);
-  h.runAfterDelay(72,()->{h.assertTrue(cow.getHealth()<100&&SolarBurnEffect.stage(cow)>0,"native solar beam missed stationary hostile mob");q.discard();cow.discard();h.succeed();});
+  var pos=origin(h).add(0,24,0);var q=mob(h,HalaContent.BOSS.get(),pos);var hostile=mob(h,EntityType.HUSK,pos.add(0,0,11));
+  hostile.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(100);hostile.setHealth(100);
+  h.assertTrue(q.hurt(h.getLevel().damageSources().mobAttack(hostile),20),"native aggressor damage failed");h.assertTrue(q.getTarget()==hostile,"native aggressor target not acquired");q.begin(HalaRules.BEAM,hostile);
+  h.runAfterDelay(72,()->{h.assertTrue(hostile.getHealth()<100&&SolarBurnEffect.stage(hostile)>0,"native solar beam missed stationary hostile mob");q.discard();hostile.discard();h.succeed();});
  }
 }

@@ -48,7 +48,7 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
  public int age(){return Math.max(0,(int)level().getGameTime()-entityData.get(START));}
  public int battlePhase(){return phase(getHealth()/getMaxHealth());}
  public int visualAction(){if(isDeadOrDying())return DEATH;if(action()!=IDLE)return action();if(hurtTime>0)return HURT;return getDeltaMovement().horizontalDistanceSqr()>.0007?WALK:IDLE;}
- public float visualProgress(float partial){int a=visualAction();if(a==DEATH)return Mth.clamp((deathTime+partial)/20F,0,1);if(a==HURT)return Mth.clamp((10-hurtTime+partial)/10F,0,1);if(a==WALK)return ((tickCount+partial)%LENGTH[WALK])/LENGTH[WALK];return a==IDLE?0:Mth.clamp((age()+partial)/LENGTH[a],0,1);}
+ public float visualProgress(float partial){int a=visualAction();if(a==DEATH)return Mth.clamp((deathTime+partial)/20F,0,1);if(a==HURT)return Mth.clamp((10-hurtTime+partial)/10F,0,1);if(a==WALK||a==IDLE)return ((tickCount+partial)%LENGTH[a])/LENGTH[a];return Mth.clamp((age()+partial)/LENGTH[a],0,1);}
  public float[] pose(float partial){
   int a=visualAction();float p=visualProgress(partial);float[] v=GEO.sample(a,p);
   // V2 contains root elevation during the two airborne poses. Move the actual entity instead of doubling it.
@@ -217,7 +217,7 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
   Set<UUID> near=new HashSet<>();for(LivingEntity e:w.getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(AURA_RADIUS),this::hostile)){
    if(distanceToSqr(e)>AURA_RADIUS*AURA_RADIUS||!hasLineOfSight(e))continue;UUID id=e.getUUID();near.add(id);int t=exposure.compute(id,(key,old)->old==null?0:Math.min(1000000,old+5));
    if(t>=100&&t%20==0)w.sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+1,e.getZ(),5,.25,.35,.25,.01);
-   if(t>=200&&(t-200)%20==0)solar(e,2+battlePhase(),6+battlePhase()*2);
+   if(HalaRules.auraPulse(t))solar(e,2+battlePhase(),6+battlePhase()*2);
   }exposure.keySet().retainAll(near);
  }
  @Override public void die(DamageSource s){super.die(s);bar.removeAllPlayers();shots.clear();exposure.clear();patches.clear();}

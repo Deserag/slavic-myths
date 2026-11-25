@@ -7,6 +7,8 @@ public final class HalaRules {
  public static final int[] COOLDOWN={0,0,180,100,240,180,180,440,40,700,0,0};
  public static final float HP=800;
  public static final double AURA_RADIUS=10;
+ public static final int AURA_DELAY=200;
+ public static boolean auraPulse(int elapsed){return elapsed>=AURA_DELAY&&(elapsed-AURA_DELAY)%20==0;}
  public static int phase(float health){return health>.7F?1:health>.35F?2:3;}
  public static int stage(int heat){return heat<=0?0:heat<40?1:heat<80?2:3;}
  public static int addHeat(int heat,int amount){return Math.clamp(heat+amount,0,100);}

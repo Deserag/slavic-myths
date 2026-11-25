@@ -47,7 +47,7 @@ with (folder/"geometry.bin.gz").open("wb") as raw:
             color=tuple(round(x*255) for x in rgb(b[2]))
             f.write(struct.pack(">IH",0xff000000|(color[0]<<16)|(color[1]<<8)|color[2],groups.index(group(b))))
         for a in ACTIONS:
-            ts=[0.] if a=="idle" else np.linspace(0,1,13)
+            ts=np.linspace(0,1,13)
             ints(len(ts))
             for t in ts:
                 bs=body(a,float(t))
