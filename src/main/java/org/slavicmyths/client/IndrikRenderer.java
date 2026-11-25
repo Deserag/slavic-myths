@@ -12,12 +12,13 @@ import org.slavicmyths.desert.*;
 public final class IndrikRenderer extends EntityRenderer<IndrikEntity> {
  private static final ResourceLocation WHITE=ResourceLocation.withDefaultNamespace("textures/block/white_concrete.png");
  private static final IndrikGeometry GEO=IndrikGeometry.INSTANCE;
+ private final float[] bonePose=new float[GEO.groups.length*12],cubeVertices=new float[24];
  public IndrikRenderer(EntityRendererProvider.Context c){super(c);shadowRadius=2.4F;}
  public static void register(EntityRenderersEvent.RegisterRenderers e){e.registerEntityRenderer(IndrikContent.BOSS.get(),IndrikRenderer::new);}
  @Override public ResourceLocation getTextureLocation(IndrikEntity e){return WHITE;}
  @Override public boolean shouldRender(IndrikEntity e,Frustum f,double x,double y,double z){return f.isVisible(e.getBoundingBox().inflate(9,7,9));}
  @Override public void render(IndrikEntity e,float yaw,float partial,PoseStack stack,MultiBufferSource buffer,int light){
-  stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));int a=e.visualAction();float progress=e.visualProgress(partial);float[] pose=GEO.sample(a,progress),v=new float[24];
+  stack.pushPose();stack.mulPose(Axis.YP.rotationDegrees(-yaw));int a=e.visualAction();float progress=e.visualProgress(partial);float[] pose=bonePose,v=cubeVertices;GEO.sampleInto(a,progress,pose);
   var out=buffer.getBuffer(RenderType.entityCutoutNoCull(WHITE));int overlay=e.hurtTime>0?OverlayTexture.pack(0,OverlayTexture.v(true)):OverlayTexture.NO_OVERLAY;
   for(int i=0;i<GEO.count;i++){GEO.cube(i,pose,v);if(!GEO.visible(i,a,progress,v))continue;int packed=(GEO.flags[i]&1)!=0?LightTexture.FULL_BRIGHT:light;
    float cx=0,cy=0,cz=0;for(int k=0;k<8;k++){cx+=v[3*k]/8;cy+=v[3*k+1]/8;cz+=v[3*k+2]/8;}

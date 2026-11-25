@@ -27,6 +27,8 @@ public final class IndrikEntity extends Monster implements LivingThreatBoss {
  private static final IndrikGeometry GEO=IndrikGeometry.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.indrik_zmey","Индрик-змей"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
  private final Part[] parts=new Part[GEO.groups.length];
+ private final float[] collisionPose=new float[GEO.groups.length*12],collisionCube=new float[24];
+ private final double[][] collisionLo=new double[GEO.groups.length][3],collisionHi=new double[GEO.groups.length][3];
  private final int[] cd=new int[LENGTH.length];
  private final Set<UUID> hits=new HashSet<>();
  private Vec3 home,lockedDirection;
@@ -71,10 +73,10 @@ public final class IndrikEntity extends Monster implements LivingThreatBoss {
   @Override public boolean hurt(DamageSource s,float a){return active&&getParent().hurt(s,a*(GEO.groups[index].equals("head")?1.15F:1));}
  }
  private void updateParts(){
-  if(parts==null)return;int a=visualAction();float progress=visualProgress(0);float[] p=GEO.sample(a,progress),v=new float[24];int n=parts.length;double[][] lo=new double[n][3],hi=new double[n][3];
-  for(int i=0;i<n;i++){Arrays.fill(lo[i],Double.POSITIVE_INFINITY);Arrays.fill(hi[i],Double.NEGATIVE_INFINITY);}
+  if(parts==null)return;int a=visualAction();float progress=visualProgress(0);GEO.sampleInto(a,progress,collisionPose);
+  int n=parts.length;double[][] lo=collisionLo,hi=collisionHi;
   double angle=Math.toRadians(getYRot()),c=Math.cos(angle),s=Math.sin(angle);
-  for(int i=0;i<GEO.count;i++){GEO.cube(i,p,v);if(!GEO.visible(i,a,progress,v))continue;int g=GEO.part[i];for(int k=0;k<24;k+=3){double x=getX()+v[k]*c-v[k+2]*s,y=getY()+v[k+1],z=getZ()+v[k]*s+v[k+2]*c;if(a==BURROW)y=Math.max(getY(),y);lo[g][0]=Math.min(lo[g][0],x);lo[g][1]=Math.min(lo[g][1],y);lo[g][2]=Math.min(lo[g][2],z);hi[g][0]=Math.max(hi[g][0],x);hi[g][1]=Math.max(hi[g][1],y);hi[g][2]=Math.max(hi[g][2],z);}}
+  GEO.bounds(a,progress,collisionPose,collisionCube,getX(),getY(),getZ(),c,s,lo,hi);
   for(int i=0;i<n;i++){double[] l=lo[i],h=hi[i];Part part=parts[i];part.active=Double.isFinite(l[0]);if(!part.active){part.setPos(getX(),getY()-8,getZ());part.setBoundingBox(new AABB(part.position(),part.position()));continue;}part.setPos((l[0]+h[0])*.5,l[1],(l[2]+h[2])*.5);part.setBoundingBox(new AABB(l[0],l[1],l[2],h[0],h[1],h[2]).inflate(.035));}
  }
  @Override public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof IndrikEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}

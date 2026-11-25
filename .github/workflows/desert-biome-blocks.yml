@@ -42,6 +42,11 @@ jobs:
           mkdir -p /tmp/storm-idol-check
           javac -d /tmp/storm-idol-check src/main/java/org/slavicmyths/client/StormIdolMesh.java tools/storm_idol/StormIdolMeshCheck.java
           java -cp /tmp/storm-idol-check org.slavicmyths.client.StormIdolMeshCheck
+      - name: Verify Indrik articulated collision support
+        run: |
+          mkdir -p /tmp/indrik-check
+          javac -d /tmp/indrik-check src/main/java/org/slavicmyths/desert/IndrikGeometry.java src/main/java/org/slavicmyths/desert/IndrikRules.java tools/indrik/GeometryCheck.java
+          java -cp /tmp/indrik-check:build/resources/main GeometryCheck
       - name: Verify Lamya exported mesh and collision frames
         run: python3 tools/lamya/check.py build/resources/main/assets/slavicmyths/lamya
       - name: Verify packaged desert block assets
