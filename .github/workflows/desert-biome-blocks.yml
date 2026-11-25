@@ -17,3 +17,17 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon --console=plain
+      - name: Verify packaged desert block assets
+        run: python3 tools/verify_desert_blocks.py
+      - name: Check 1000 generated desert tree geometries
+        run: |
+          mkdir -p /tmp/desert-tree
+          javac -d /tmp/desert-tree src/main/java/org/slavicmyths/wood/TreeShape.java tools/desert-tests/DesertTreeShapeCheck.java
+          java -cp /tmp/desert-tree DesertTreeShapeCheck
+      - name: Run native seal GameTests
+        run: ./gradlew -PdesertCheck runDesertTests --no-daemon --console=plain
+      - uses: actions/upload-artifact@v4
+        with:
+          name: desert-biome-mod
+          path: build/libs/*.jar
+          if-no-files-found: error

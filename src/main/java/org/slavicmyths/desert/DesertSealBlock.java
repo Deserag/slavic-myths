@@ -22,7 +22,16 @@ public final class DesertSealBlock extends Block {
     @Override public InteractionResult useWithoutItem(BlockState s,Level w,BlockPos p,Player player,BlockHitResult hit){
         if(w.isClientSide)return InteractionResult.SUCCESS;
         if(!player.mayBuild())return InteractionResult.PASS;
-        boolean open=!s.getValue(OPEN);
+        ToggleResult result=toggle(w,p,!s.getValue(OPEN));
+        if(result!=ToggleResult.OK){
+            player.displayClientMessage(Component.translatable("desert.slavicmyths.seal_"+result.name().toLowerCase(Locale.ROOT)),true);
+            return InteractionResult.FAIL;
+        }
+        return InteractionResult.CONSUME;
+    }
+    enum ToggleResult { OK, UNLOADED, LIMIT, OCCUPIED }
+    ToggleResult toggle(Level w,BlockPos p,boolean open){
+        if(w.isClientSide||!w.getBlockState(p).is(this))return ToggleResult.UNLOADED;
         Set<BlockPos> group=new LinkedHashSet<>();
         ArrayDeque<BlockPos> queue=new ArrayDeque<>();
         group.add(p.immutable());queue.add(p.immutable());
@@ -31,17 +40,17 @@ public final class DesertSealBlock extends Block {
             for(Direction d:Direction.values()){
                 BlockPos n=current.relative(d);
                 if(w.isOutsideBuildHeight(n))continue;
-                if(!w.hasChunkAt(n)){player.displayClientMessage(Component.translatable("desert.slavicmyths.seal_unloaded"),true);return InteractionResult.FAIL;}
+                if(!w.hasChunkAt(n))return ToggleResult.UNLOADED;
                 if(w.getBlockState(n).is(this)&&group.add(n)){
-                    if(group.size()>MAX_NETWORK){player.displayClientMessage(Component.translatable("desert.slavicmyths.seal_limit"),true);return InteractionResult.FAIL;}
+                    if(group.size()>MAX_NETWORK)return ToggleResult.LIMIT;
                     queue.addLast(n);
                 }
             }
         }
         if(!open)for(BlockPos n:group)if(!w.getEntitiesOfClass(LivingEntity.class,new AABB(n),e->!e.isSpectator()).isEmpty()){
-            player.displayClientMessage(Component.translatable("desert.slavicmyths.seal_occupied"),true);return InteractionResult.FAIL;
+            return ToggleResult.OCCUPIED;
         }
         for(BlockPos n:group){BlockState state=w.getBlockState(n);if(state.is(this)&&state.getValue(OPEN)!=open)w.setBlock(n,state.setValue(OPEN,open),Block.UPDATE_ALL);}
-        return InteractionResult.CONSUME;
+        return ToggleResult.OK;
     }
 }
