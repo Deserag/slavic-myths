@@ -8,6 +8,14 @@ for id in ids:
  text=obj.read_text();assert text.count('\nf ')>30,id
  vertices=[tuple(map(float,line.split()[1:])) for line in text.splitlines() if line.startswith('v ')]
  assert len(vertices)>30 and max(v[2] for v in vertices)-min(v[2] for v in vertices)>.06,id
+ for line in text.splitlines():
+  if not line.startswith('f '):continue
+  face=[vertices[int(v.split('/')[0])-1] for v in line.split()[1:]]
+  assert len(face)==4 and any(max(p[a] for p in face)-min(p[a] for p in face)<1e-6 for a in range(3)),(id,line)
+ held=json.loads((M/f'{id}_held.json').read_text())
+ assert held['display']==base['display'],id
+ for side in ['righthand','lefthand']:
+  assert base['display']['thirdperson_'+side]['rotation'][0]==(90 if id=='four_winds_fists' else 0),id
  assert json.loads((M/f'{id}_held.json').read_text())['loader']=='neoforge:obj',id
  assert v['perspectives']['gui']['parent']=='minecraft:item/generated',id
  for name in ['firstperson_righthand','firstperson_lefthand','thirdperson_righthand','thirdperson_lefthand']:assert name in base['display']
@@ -15,6 +23,8 @@ for id in ids:
  icon=Image.open(A/f'textures/item/desert_weapons/{id}.png');assert icon.size==(32,32) and icon.getbbox(),id
 for s in ['', '_pulling_0','_pulling_1','_pulling_2']:
  v=json.loads((M/f'mirage_bow{s}.json').read_text());assert v['base']['loader']=='neoforge:obj' and (A/v['base']['model'].split(':')[1]).is_file(),s
+ assert v['base']['display']['firstperson_righthand']['rotation']==[0,-90,0],s
+ assert v['base']['display']['firstperson_lefthand']['rotation']==[0,90,0],s
 atlas=Image.open(A/'textures/gui/weapon_skills/desert_atlas.png');assert atlas.size==(128,64)
 tiles=[atlas.crop((i%8*16,i//8*16,i%8*16+16,i//8*16+16)).tobytes() for i in range(29)];assert len(set(tiles))==29
 print('PASS: 16 OBJ resources, four hand contexts, inventory icons, 4 bow states, 29 unique skill tiles and translations')

@@ -93,13 +93,13 @@ public final class ThirdPersonWeaponMotion {
             }
             BakedModel selected=originalModel.applyTransform(context,pose,left);
             if(context!=ItemDisplayContext.THIRD_PERSON_LEFT_HAND&&context!=ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)return selected;
-            if(owner==null||stack==null||owner.isRemoved()||owner.level()==null)return this;
+            if(owner==null||stack==null||owner.isRemoved()||owner.level()==null)return selected;
             InteractionHand hand=(owner.getMainArm()==HumanoidArm.LEFT)==left?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
-            if(!ItemStack.isSameItemSameComponents(owner.getItemInHand(hand),stack))return this;
+            if(!ItemStack.isSameItemSameComponents(owner.getItemInHand(hand),stack))return selected;
             // These player archetypes now move the actual hand and attached item together.
             // Applying the old item-only kick too would slide the grip away from the palm.
             if(owner instanceof net.minecraft.client.player.AbstractClientPlayer
-                    &&PlayerWeaponPose.coverage().containsKey(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()))return this;
+                    &&PlayerWeaponPose.coverage().containsKey(BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()))return selected;
             float partial=Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(false);
             float swing=owner.swinging&&owner.swingingArm==hand?owner.getAttackAnim(partial):0;
             float walking=Mth.clamp(owner.walkAnimation.speed(partial),0,1);
@@ -114,7 +114,7 @@ public final class ThirdPersonWeaponMotion {
                 }
             }
             animate(pose,shape,left,swing,walking,charge,owner.tickCount+partial);
-            return this;
+            return selected;
         }
     }
     private static float ease(float value) {
