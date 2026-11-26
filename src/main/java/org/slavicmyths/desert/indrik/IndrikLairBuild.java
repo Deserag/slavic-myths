@@ -60,9 +60,10 @@ public final class IndrikLairBuild {
         return true;
     }
     /** Only final changed states in the current chunk. No blanket air/foundation fill. */
-    public static int render(WorldGenLevel w,BlockPos o,BoundingBox clip){
+    public static int render(WorldGenLevel w,BlockPos o,BoundingBox clip){return render(w,o,clip,VERSION);}
+    public static int render(WorldGenLevel w,BlockPos o,BoundingBox clip,int version){
         int changed=0;
-        for(Cell c:cells()){
+        for(Cell c:cells(version)){
             BlockPos p=o.offset(c.x(),c.y(),c.z());
             if(!clip.isInside(p)||w.getBlockEntity(p)!=null)continue;
             var old=w.getBlockState(p);var next=desired(w,p,c.kind());

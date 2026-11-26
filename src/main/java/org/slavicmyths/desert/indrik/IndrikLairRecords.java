@@ -48,13 +48,13 @@ public final class IndrikLairRecords extends SavedData {
         s.boss=q.getUUID();setDirty();return true;
     }
     @SubscribeEvent public static void visit(PlayerTickEvent.Post event){
-        if(!(event.getEntity() instanceof ServerPlayer p)||p.isSpectator()||p.tickCount%20!=0)return;
+        if(!(event.getEntity() instanceof ServerPlayer p)||p.isSpectator()||p.tickCount%5!=0)return;
         ServerLevel w=p.serverLevel();if(w.getDifficulty()==Difficulty.PEACEFUL)return;
         var data=get(w);
         for(Site s:data.sites.values()){
             if(s.dead||s.boss!=null)continue;
             int x=p.getBlockX()-s.o.getX(),y=p.getBlockY()-s.o.getY(),z=p.getBlockZ()-s.o.getZ();
-            if(Math.abs(x)<=RADIUS&&Math.abs(z-ARENA_Z)<=RADIUS&&arena(x,z)&&y>FLOOR&&y<-3)data.spawn(w,s);
+            if(trigger(x,y,z))data.spawn(w,s);
         }
     }
     @SubscribeEvent(priority=EventPriority.LOWEST) public static void death(LivingDeathEvent e){

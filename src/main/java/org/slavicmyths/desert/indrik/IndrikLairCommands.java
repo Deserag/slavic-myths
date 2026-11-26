@@ -46,7 +46,7 @@ public final class IndrikLairCommands {
         int changed=IndrikLairBuild.render(w,o,box);records.register(o);
         s.sendSuccess(()->Component.literal("Логово Индрика-змея построено. Изменено блоков: "+changed+
             " / "+cells().size()+". Вход: "+o.offset(0,0,ENTRANCE_Z).toShortString()+
-            ". Арена: "+o.offset(0,FLOOR+1,ARENA_Z).toShortString()+". Босс появится при входе."),true);
+            ". Арена: "+o.offset(0,FLOOR+1,ARENA_Z).toShortString()+". Босс появится при спуске в нору."),true);
         return 1;
     }
     private IndrikLairCommands(){}

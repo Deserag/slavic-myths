@@ -20,10 +20,14 @@ public final class IndrikLairGameTests {
         for(int z=ENTRANCE_Z;z<=-6;z++)for(int x=-2;x<=2;x++){
             int y=-1-(z-ENTRANCE_Z);
             h.assertTrue(at.get(x+":"+y+":"+z)==Kind.STAIR,"continuous stairs");
-            for(int dy=1;dy<=4;dy++)h.assertTrue(at.get(x+":"+(y+dy)+":"+z)==Kind.AIR,"clear staircase");
+            for(int dy=1;dy<=(Math.abs(x)<=1?6:4);dy++)h.assertTrue(at.get(x+":"+(y+dy)+":"+z)==Kind.AIR,"clear staircase");
         }
         for(int x=-7;x<=7;x++)for(int z=-2;z<=11;z++)if(arena(x,z))
             for(int y=FLOOR+1;y<=-4;y++)h.assertTrue(at.get(x+":"+y+":"+z)==Kind.AIR,"clear arena center");
+        h.assertTrue(cells(1).size()==11707,"legacy geometry retained");
+        h.assertTrue(count(Kind.LIGHT)>=20,"arena and approach lighting");
+        h.assertTrue(trigger(0,-1,-16)&&trigger(0,-4,-12),"boss activates before arena");
+        h.assertTrue(!trigger(0,6,-12)&&!trigger(15,-5,-12),"no activation on mound or outside burrow");
         h.assertTrue(IndrikLairStructure.TYPE.get()!=null&&IndrikLairStructure.PIECE.get()!=null,"registered");
         h.succeed();
     }
