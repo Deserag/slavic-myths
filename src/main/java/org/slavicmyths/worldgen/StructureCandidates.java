@@ -48,7 +48,7 @@ public final class StructureCandidates {
                 Structure other=entry.structure().value();var otherId=structures.getKey(other);
                 // The new underground city yields to every existing planner. Keeping it out of
                 // their dependency graph preserves prior placements and prevents recursive plans.
-                if(otherId!=null&&otherId.getNamespace().equals("slavicmyths")&&(otherId.getPath().equals("chud_city")||otherId.getPath().equals("chud_abandoned")||otherId.getPath().equals("serpent_hill")))continue;
+                if(otherId!=null&&otherId.getNamespace().equals("slavicmyths")&&(otherId.getPath().equals("chud_city")||otherId.getPath().equals("chud_abandoned")||otherId.getPath().equals("serpent_hill")||otherId.getPath().equals("desert_trial_dungeon")))continue;
                 // Both weighted arena variants yield to existing structures (including
                 // Posad). Resolving the zmey variant from Posad would recurse back into
                 // Posad when their candidate footprints overlap.

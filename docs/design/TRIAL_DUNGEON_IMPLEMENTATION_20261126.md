@@ -2,7 +2,7 @@
 
 Working branch: feature/desert-biome-20261125. Owner approved starting implementation; original concept #542.
 
-This commit is a **geometry / command prototype**, not a completed survival dungeon.
+This is a **geometry / command / guardian prototype**, not a completed survival dungeon. The standalone Java planner smoke test passed 3,000 layouts at the previous geometry revision; the full NeoForge build is not verified.
 Admin command: `/slavicmyths dev dungeon generate desert [floors] [seed]` (3–5, default 4).
 Uses the command position as horizontal origin. Fits below surface when possible, otherwise raises the entire plan above surface. Placement is queued on the server thread. The command is destructive within the generated footprint; use a disposable world. Survival block breaking and explosions are cancelled/filtered in registered footprints. Do not use a live save yet.
 

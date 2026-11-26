@@ -23,7 +23,7 @@ public final class CreatureBossBar extends ServerBossEvent {
   // These legacy labels already contain their own logical health display.
   if(label.getString().matches(".*[0-9]\\s*/\\s*[0-9].*")){super.setName(label);return;}
   long current=Math.max(0,Math.round(getProgress()*maximum));
-  var name=label.copy();if(org.slavicmyths.dungeon.DungeonGuardians.guardian(owner))name.append(" • ").append(Component.translatable("effect.slavicmyths.dungeon_guardian"));
+  var name=label.copy();if(org.slavicmyths.dungeon.DungeonGuardians.guardian(owner))name.append(" • ").append(Component.translatableWithFallback("effect.slavicmyths.dungeon_guardian","Хранитель подземелий"));
   super.setName(name.append("  "+current+" / "+Math.round(maximum)+" HP"));
  }
 }
