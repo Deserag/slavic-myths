@@ -29,7 +29,9 @@ public final class DungeonBuild {
         for(var box:plan.boxes)if(roomShell(box))layers.add(new Layer(box,1));
         for(var box:plan.boxes)if(roomShell(box)&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2,plan.version==1));
         for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,3));
+        // Finish every basin liner before placing any water, including in superflat air.
         for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.POOL)layers.add(new Layer(box,5));
+        for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.POOL)layers.add(new Layer(box,7));
         for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.STAIR_DESCENT)layers.add(new Layer(box,6));
         var entry=plan.entrance();
         layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,1,entry.z()-2,entry.x()+2,wellY-2,entry.z()+2,DungeonPlan.Kind.SHAFT,0),3));
@@ -106,8 +108,11 @@ public final class DungeonBuild {
         if(l.pass==5){
             boolean water=DungeonPlan.poolWater(b,x,z);
             boolean rim=!water&&(DungeonPlan.poolWater(b,x-1,z)||DungeonPlan.poolWater(b,x+1,z)||DungeonPlan.poolWater(b,x,z-1)||DungeonPlan.poolWater(b,x,z+1));
-            if(water)state=y==b.y0()?DESERT.floor:Blocks.WATER.defaultBlockState();
+            if(water)state=y==b.y0()?DESERT.floor:Blocks.AIR.defaultBlockState();
             else if(rim)state=DESERT.column;
+        }
+        if(l.pass==7&&y>b.y0()&&DungeonPlan.poolWater(b,x,z)){
+            state=Blocks.WATER.defaultBlockState();
         }
         if(l.pass==6){
             int u=DungeonPlan.stairU(b,x,z),v=DungeonPlan.stairV(b,x,z);
@@ -120,9 +125,14 @@ public final class DungeonBuild {
                     state=Blocks.SMOOTH_SANDSTONE_STAIRS.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,facing);
                 }else state=DESERT.floor;
             }else if(y==h+4)state=DESERT.trim;
-            else if(y>h&&y<h+4)state=DungeonPlan.stairGate(b,x,y,z)?DESERT.column:Blocks.AIR.defaultBlockState();
+            else if(y>h&&y<h+4)state=DungeonPlan.stairGate(b,x,y,z)?gateBars(b):Blocks.AIR.defaultBlockState();
         }
         return state;
+    }
+    private static BlockState gateBars(DungeonPlan.Box b){
+        boolean alongX=DungeonPlan.stairAlongX(b);
+        return Blocks.IRON_BARS.defaultBlockState().setValue(BlockStateProperties.NORTH,alongX).setValue(BlockStateProperties.SOUTH,alongX)
+            .setValue(BlockStateProperties.EAST,!alongX).setValue(BlockStateProperties.WEST,!alongX);
     }
     static BlockState ladder(){return Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);}
     public static boolean start(ServerLevel world,BlockPos origin,DungeonPlan plan,int surface,java.util.function.IntConsumer onComplete){
