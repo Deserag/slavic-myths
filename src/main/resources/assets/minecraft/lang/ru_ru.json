@@ -13,5 +13,6 @@
   "entity.minecraft.villager.armorer": "Бронник",
   "entity.minecraft.villager.cleric": "Знахарь",
   "entity.minecraft.villager.nitwit": "Бездельник",
-  "entity.minecraft.wandering_trader": "Купец"
+  "entity.minecraft.wandering_trader": "Купец",
+  "flat_world_preset.slavicmyths.slavic_desert": "Пустыни славянской мифологии"
 }

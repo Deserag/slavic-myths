@@ -49,6 +49,8 @@ jobs:
           java -cp /tmp/indrik-check:build/resources/main GeometryCheck
       - name: Verify Lamya exported mesh and collision frames
         run: python3 tools/lamya/check.py build/resources/main/assets/slavicmyths/lamya
+      - name: Verify desert superflat preset
+        run: python3 tools/verify_desert_flat.py
       - name: Verify packaged desert block assets
         run: python3 tools/verify_desert_blocks.py
       - name: Check 1000 generated desert tree geometries

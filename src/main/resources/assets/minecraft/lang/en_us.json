@@ -13,5 +13,6 @@
   "entity.minecraft.villager.armorer": "Armorer",
   "entity.minecraft.villager.cleric": "Herbalist",
   "entity.minecraft.villager.nitwit": "Idler",
-  "entity.minecraft.wandering_trader": "Merchant"
+  "entity.minecraft.wandering_trader": "Merchant",
+  "flat_world_preset.slavicmyths.slavic_desert": "Slavic Mythology Deserts"
 }
