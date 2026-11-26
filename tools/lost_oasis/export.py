@@ -46,6 +46,10 @@ for z in range(-57,1):
                 if (side,z,2) not in v and (side,z,1) in v:
                     v[side,z,2]="lantern"
             v.pop((x,z,y),None)
+# Light both edges of the entrance without obstructing its clear width.
+for z in [-43,-46,-50,-54]:
+    for x in [-5,5]:
+        if (x,z,1) in v and (x,z,2) not in v:v[x,z,2]="lantern"
 # Re-audit the final exported walkable ring (rather than the preview alone).
 from collections import deque
 import math
