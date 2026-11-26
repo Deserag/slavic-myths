@@ -941,3 +941,23 @@ apply from: 'gradle/sand-king-assets.gradle'
 apply from: 'gradle/hala-assets.gradle'
 apply from: 'gradle/indrik-assets.gradle'
 apply from: 'gradle/lamya-assets.gradle'
+
+
+// Standalone dungeon planner regression: run as JavaExec, not JUnit discovery.
+// Keeps the test outside the production jar and makes ordinary build/check enforce it.
+sourceSets {
+    dungeonPlanCheck {
+        java.srcDir 'tools/dungeon-plan-tests'
+    }
+}
+sourceSets.dungeonPlanCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+sourceSets.dungeonPlanCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+tasks.register('verifyDungeonPlan', JavaExec) {
+    dependsOn 'dungeonPlanCheckClasses'
+    classpath = sourceSets.dungeonPlanCheck.runtimeClasspath
+    mainClass = 'org.slavicmyths.dungeon.DungeonPlanSmoke'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+tasks.named('check') { dependsOn 'verifyDungeonPlan' }
