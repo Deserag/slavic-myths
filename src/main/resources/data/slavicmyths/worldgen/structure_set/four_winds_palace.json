@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "slavicmyths:four_winds_palace",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 32,
+    "salt": 76123923,
+    "spread_type": "linear"
+  }
+}

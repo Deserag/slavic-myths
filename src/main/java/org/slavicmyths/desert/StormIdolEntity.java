@@ -19,6 +19,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.entity.PartEntity;
 import org.slavicmyths.combat.*;
+import org.slavicmyths.desert.winds.FourWindsRecords;
 import static org.slavicmyths.desert.StormIdolRules.*;
 
 public final class StormIdolEntity extends Monster implements LivingThreatBoss {
@@ -71,7 +72,7 @@ public final class StormIdolEntity extends Monster implements LivingThreatBoss {
   for(int i=0;i<FISTS;i++)place(parts[2+i],localToWorld(fistLocal(i,0).add(0,b,0)),.42,.38);
  }
  private static void place(Part p,Vec3 center,double width,double height){p.setPos(center.x,center.y-height,center.z);p.setBoundingBox(new AABB(center.x-width,center.y-height,center.z-width,center.x+width,center.y+height,center.z+width));}
- @Override public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof StormIdolEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<64*64&&(home==null||home.distanceToSqr(e.position())<48*48)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
+ @Override public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof StormIdolEntity)&&e.isAlive()&&e.level()==level()&&FourWindsRecords.allows(this,e)&&distanceToSqr(e)<64*64&&(home==null||home.distanceToSqr(e.position())<48*48)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
  @Override public boolean validThreatTarget(LivingEntity e){return canPursue(e)&&(e==getTarget()||CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE)||BossThreat.recordedAttacker(this,e));}
  @Override public boolean acceptThreatTarget(LivingEntity e){if(threatAttackLocked()||!canPursue(e))return false;setTarget(e);return getTarget()==e;}
  @Override public boolean threatAttackLocked(){return action()!=IDLE;}
@@ -92,6 +93,7 @@ public final class StormIdolEntity extends Monster implements LivingThreatBoss {
   parts();
  }
  private void fly(Vec3 dest,double speed){
+  dest=FourWindsRecords.constrain(this,dest);
   Vec3 d=dest.subtract(position());Vec3 v=d.lengthSqr()<.16?Vec3.ZERO:d.normalize().scale(Math.min(speed,d.length()*.16));
   if(level().clip(new ClipContext(position().add(0,1,0),position().add(0,1,0).add(v.scale(3)),ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this)).getType()!=HitResult.Type.MISS)v=Vec3.ZERO;
   setDeltaMovement(getDeltaMovement().scale(.55).add(v.scale(.45)));hasImpulse=true;

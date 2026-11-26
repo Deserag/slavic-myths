@@ -1,0 +1,7 @@
+{
+  "type": "slavicmyths:four_winds_palace",
+  "biomes": "minecraft:desert",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}
