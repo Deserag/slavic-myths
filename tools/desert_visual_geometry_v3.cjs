@@ -4,7 +4,8 @@ const ids={desert_sword:"sword",desert_axe:"axe",desert_mace:"mace",desert_halbe
 const out={},add=(a,b)=>a.map((x,i)=>x+b[i]),sub=(a,b)=>a.map((x,i)=>x-b[i]),mul=(a,s)=>a.map(x=>x*s),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],norm=a=>mul(a,1/Math.hypot(...a));
 function mesh(id,k,stage=0){
  const cells=new Map(),V=[],U=[],F=[],key=(x,y,z)=>`${x},${y},${z}`;
- function box(x0,y0,z0,x1,y1,z1,c){for(let x=Math.round(x0*2);x<Math.round(x1*2);x++)for(let y=Math.round(y0*2);y<Math.round(y1*2);y++)for(let z=Math.round(z0*2);z<Math.round(z1*2);z++)cells.set(key(x,y,z),c);}
+ const grid=n=>Math.sign(n)*Math.round(Math.abs(n)*2);
+ function box(x0,y0,z0,x1,y1,z1,c){for(let x=grid(x0);x<grid(x1);x++)for(let y=grid(y0);y<grid(y1);y++)for(let z=grid(z0);z<grid(z1);z++)cells.set(key(x,y,z),c);}
  function face(p,c){let n=V.length+1,u=U.length+1;V.push(...p);U.push([(c+.5)/20,.5]);F.push("f "+p.map((_,i)=>`${n+i}/${u}`).join(" "));}
  function shaft(a,b,r=.75){box(-r,a,-r,r,b,r,1);box(-r,a,-r,-r+.5,b,r,2);for(let y=a+.5;y<b-.5;y+=2)box(-r-.25,y,-r-.25,r+.25,y+.5,r+.25,3);for(let y of [a,b-.5])box(-r-.5,y,-r-.5,r+.5,y+.5,r+.5,4);box(-1,-1.5,-1,1,1.5,1,0);for(let y of [-1.5,0,1])box(-1,y,-1,1,y+.5,1,2);}
  function jewel(x,y,z,r=1){box(x-r,y-r,z-.5,x+r,y+r,z+.5,16);box(x-r+.5,y-r+.5,z-.75,x+r-.5,y+r-.5,z+.75,17);box(x-.5,y,z-.75,x,y+.5,z+.75,19);}
@@ -22,7 +23,7 @@ function mesh(id,k,stage=0){
  else if(k==="hammer"){shaft(-6,12);box(-5,9.5,-2.5,5,14.5,2.5,14);box(-6,9,-3,-4.5,15,3,7);box(4.5,9,-3,6,15,3,7);for(let x of [-4.5,3.5])box(x,9,-3,x+1,15,3,3);box(-3.5,14,-2.5,3.5,15,2.5,8);for(let z of [-2.5,2.5]){box(-2.5,10,z-.5,2.5,14,z+.5,1);box(-2,10.5,z-.75,2,13.5,z+.75,3);jewel(0,12,z+(z>0?.5:-.5),1.25);}}
  else if(k==="sun"||k==="colony"){shaft(-5,13);if(k==="sun"){box(-2,13,-1,2,19,1,3);box(-3,14,-1,3,18,1,4);box(-1,12,-.75,1,14,.75,3);box(-1,19,-.75,1,21,.75,4);box(-5,15,-.75,-3,17,.75,4);box(3,15,-.75,5,17,.75,4);for(let x of [-1,1])for(let y of [-1,1])box(x*3-1,16+y*3-.5,-.75,x*3+1,16+y*3+.5,.75,4);for(let z of [-1,1])jewel(0,16,z,1.5);}else{box(-1.5,13,-1.5,1.5,19,1.5,14);for(let z of [-1.5,1.5])jewel(0,16,z,1.5);for(let s of [-1,1])for(let j=0;j<3;j++){let y=13+j*2;box(s<0?-3.5:1,y,-1,s<0?-1:3.5,y+1,1,15);box(s<0?-4.5:3,y+.5,-.75,s<0?-3:4.5,y+2,.75,3);}box(-.5,19,-.5,.5,21,.5,4);}}
  else if(k==="fists"){box(-2.5,-3,-2.5,-1.5,2,2.5,14);box(1.5,-3,-2.5,2.5,2,2.5,14);box(-1.5,-3,-2.5,1.5,2,-1.5,3);box(-1.5,-3,1.5,1.5,2,2.5,3);for(let x of [-2,-1,0,1]){box(x,1.5,-2.5,x+1,4,0,7);box(x,3,-2.5,x+1,4,-1,9);}box(-3,0,-1,-2,2,1,3);jewel(0,-.5,-2.5);}
- else if(k==="sling"){shaft(-2.5,1,.5);for(let s of [-1,1])for(let y=1;y<11;y+=.5){let t=(y-1)/10,x=s*Math.round((.5+3*Math.sin(Math.PI*t))*2)/2;box(x-.5,y,-.5,x+.5,y+.5,.5,2);}box(-2,6,-1,2,8,1,1);box(-1.5,6.5,-1.5,1.5,8,1.5,7);box(-1,7,-1.5,0,8,-.5,9);}
+ else if(k==="sling"){shaft(-2.5,1,.5);for(let s of [-1,1])for(let y=1;y<11;y+=.5){let t=(y-1)/10,x=s*Math.round((.5+3*Math.sin(Math.PI*t))*2)/2;box(x-.5,y,-.5,x+.5,y+.5,.5,2);}box(-3.5,6.5,-.5,3.5,7.5,.5,1);box(-2,6,-1,2,8,1,1);box(-1.5,6.5,-1.5,1.5,8,1.5,7);box(-1,7,-1.5,0,8,-.5,9);}
  else if(k==="whip"){shaft(-3,2);for(let i=0;i<45;i++){let a=i*.16,r=4.5-i*.065,x=Math.round(r*Math.sin(a)*2)/2,y=Math.round((7-r*Math.cos(a))*2)/2,z=Math.round(Math.sin(a)*2)/2;box(x-.5,y-.5,z-.5,x+.5,y+.5,z+.5,i%5===0?4:2);}box(-.5,2,-.5,.5,3,.5,3);}
  else if(k==="bow"){
   // +X is rear/string side; -X is the direction of fire. Grip fixed at origin.
@@ -30,11 +31,19 @@ function mesh(id,k,stage=0){
   box(-.75,-2,-1,.75,2,1,1);for(let y of [-1.5,-.5,.5,1.5])box(-1,y,-1.25,1,y+.5,1.25,3);
   for(let s of [-1,1]){let points=[[0,1.5],[.5,4],[1.5,7],[3,9],[rear-1,tipY-1],[rear,tipY]];
    for(let i=0;i<points.length-1;i++){let [x,y]=points[i],[xx,yy]=points[i+1],n=Math.max(1,Math.ceil(Math.abs(yy-y)*4));for(let j=0;j<=n;j++){let t=j/n,px=Math.round((x+(xx-x)*t)*2)/2,py=Math.round((y+(yy-y)*t)*2)/2*s,w=i<2?1:i<4?.75:.5,d=i<2?1:i<4?.75:.5;box(px-w,py-.5,-d,px+w,py+.5,d,i===2?3:7);box(px-w,py-.5,-d,px-w+.5,py+.5,d,i===2?5:9);}}
-   bar([rear,s*tipY,0],[rear+draw,1.5,1.25],.15,.15,9);
+   bar([rear,s*tipY,0],stage?[rear+draw,1.75,1.25]:[rear,0,0],.15,.15,9);
   }
-  if(stage){bar([rear+draw,1.5,1.25],[-5,1.5,1.25],.28,.28,2);box(-6,1,1,-5,2,1.5,8);box(-6.5,.75,.75,-5.5,2.25,1.75,7);box(rear+draw-1,1,1,rear+draw-.5,2,1.5,9);}
+  if(stage){const nock=rear+draw,head=nock-18;bar([nock,1.75,1.25],[head,1.75,1.25],.28,.28,2);box(head-1,1.25,1,head,2.25,1.5,8);box(head-1.5,1,.75,head-.5,2.5,1.75,7);box(nock-1,1,1,nock-.5,2.5,1.5,9);}
  }
  // Union of solid cuboids, only exposed faces; greedy merge adjacent coplanar faces.
+ if(k!=="bow"){
+ const remaining=new Set(cells.keys()),components=[];
+ while(remaining.size){let first=remaining.values().next().value,queue=[first];remaining.delete(first);
+  for(let i=0;i<queue.length;i++){let p=queue[i].split(",").map(Number);for(let a=0;a<3;a++)for(let d of [-1,1]){let q=p.slice();q[a]+=d;let v=key(...q);if(remaining.delete(v))queue.push(v);}}
+  components.push(queue.length);
+ }
+ if(components.length!==1)throw Error(id+" disconnected volumes: "+components.join(","));
+ }
  let planes=new Map();
  for(let [s,c] of cells){let p=s.split(",").map(Number);for(let d=0;d<6;d++){let axis=Math.floor(d/2),sign=d%2?1:-1,q=p.slice();q[axis]+=sign;if(cells.has(key(...q)))continue;let u=(axis+1)%3,v=(axis+2)%3,plane=p[axis]+(sign>0?1:0),shade=d===3?Math.min(c+1,19):c,g=[d,plane,shade].join(",");if(!planes.has(g))planes.set(g,new Set());planes.get(g).add(`${p[u]},${p[v]}`);}}
  for(let [g,ps] of planes){let [d,plane,c]=g.split(",").map(Number),axis=Math.floor(d/2),u=(axis+1)%3,v=(axis+2)%3;while(ps.size){let [a,b]=ps.values().next().value.split(",").map(Number),w=1,h=1;while(ps.has(`${a+w},${b}`))w++;outer:while(true){for(let i=0;i<w;i++)if(!ps.has(`${a+i},${b+h}`))break outer;h++;}for(let i=0;i<w;i++)for(let j=0;j<h;j++)ps.delete(`${a+i},${b+j}`);let point=(x,y)=>{let p=[0,0,0];p[axis]=plane/2;p[u]=x/2;p[v]=y/2;return p;},quad=[point(a,b),point(a+w,b),point(a+w,b+h),point(a,b+h)];face(d%2?quad:quad.reverse(),c);}}

@@ -26,12 +26,22 @@ public final class BowDrawClient {
                 HumanoidArm usingArm=player.getUsedItemHand()==InteractionHand.MAIN_HAND?player.getMainArm():player.getMainArm().getOpposite();
                 if(usingArm!=arm)return false;
                 float ticks=stack.getUseDuration(player)-(player.getUseItemRemainingTicks()-partialTick+1.0F);
+                if(stack.getItem() instanceof org.slavicmyths.desert.MirageBowItem){
+                    // The OBJ's -X arrow direction is transformed to camera -Z.
+                    // Keep the aim axis fixed; draw animation lives in the four meshes.
+                    float power=visualPower(ticks,20);
+                    int sign=arm==HumanoidArm.LEFT?-1:1;
+                    pose.translate(sign*(.38F-.18F*power),-.34F+.08F*power-equip*.6F,-1.02F+.05F*power);
+                    pose.mulPose(Axis.ZP.rotationDegrees(sign*(5F-3F*power)));
+                    if(power>.1F)pose.translate(0,Mth.sin((ticks-.1F)*1.3F)*(power-.1F)*.004F,0);
+                    return true;
+                }
                 int duration=stack.getItem() instanceof FieldBowItem bow?bow.drawTicks():30; // FinistBow.power uses30.
                 float power=stack.getItem() instanceof org.slavicmyths.nethersmithing.InfernalBow infernal?infernal.drawPower(Math.max(0,(int)ticks)):visualPower(ticks,duration);
                 drawPose(pose,arm==HumanoidArm.LEFT,equip,ticks,power);
                 return true;
             }
-        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get(), org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("empowered_infernal_bow").get());
+        },WeaponCatalog.item("short_bow"),WeaponCatalog.item("heavy_bow"),FinistItems.BOW.get(),org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("infernal_bow").get(), org.slavicmyths.nethersmithing.NetherWeapons.ITEMS.get("empowered_infernal_bow").get(),org.slavicmyths.registry.ModItems.MIRAGE_BOW.get());
     }
 
     public static float visualPower(float ticks,int duration) {

@@ -16,7 +16,9 @@ import com.mojang.math.Axis;
 @EventBusSubscriber(modid="slavicmyths",value=Dist.CLIENT)
 public final class DesertTwoHandClient {
  @SubscribeEvent public static void hand(RenderHandEvent e){var mc=Minecraft.getInstance();var p=mc.player;if(p==null)return;
-  String id=BuiltInRegistries.ITEM.getKey(p.getMainHandItem().getItem()).getPath();
+  var itemId=BuiltInRegistries.ITEM.getKey(p.getMainHandItem().getItem());
+  if(!itemId.getNamespace().equals("slavicmyths"))return;
+  String id=itemId.getPath();
   if(!java.util.Set.of("buried_hammer","desert_halberd","desert_scythe","lamya_weapon").contains(id)||!p.getOffhandItem().isEmpty())return;
   e.setCanceled(true);if(e.getHand()!=InteractionHand.MAIN_HAND)return;
   boolean left=p.getMainArm()==HumanoidArm.LEFT;int sign=left?-1:1;float arc=(float)Math.sin(Math.sqrt(e.getSwingProgress())*Math.PI);
@@ -26,8 +28,8 @@ public final class DesertTwoHandClient {
    pose.mulPose(Axis.XP.rotationDegrees(-14-38*arc));
    pose.mulPose(Axis.ZP.rotationDegrees(sign*-28));
    float size=id.equals("buried_hammer")?.69F:.64F;
-   wrist(e,sign,-2.0F*size/16F,sign*22F);
-   wrist(e,-sign,3.0F*size/16F,-sign*39F);
+   wrist(e,sign,-3.0F*size/16F,sign*22F);
+   wrist(e,-sign,4.0F*size/16F,-sign*39F);
    pose.pushPose();
    try{
     pose.mulPose(Axis.YP.rotationDegrees(id.equals("buried_hammer")?55F:-40F));
