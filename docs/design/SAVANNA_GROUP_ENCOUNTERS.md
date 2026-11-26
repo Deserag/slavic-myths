@@ -52,3 +52,24 @@ The following nine species are approved for the savanna update (user decision, 2
 | Goitered gazelle (Gazella subgutturosa) | Джейран | Herd herbivore |
 
 Kulan, great bustard and steppe marmot are explicitly deferred; no additional species are approved at this stage. Existing creatures are not to be duplicated; review AurochsMesh and existing wildlife AI before implementation. Ecological roles are design suggestions, not finalized behaviors or balance. Ordinary wildlife is distinct from boss encounters; no boss roster, stats, loot, encounter counts or structure placement have been approved. Implementation pending.
+
+
+## Cross-biome wildlife distribution
+
+Agreed design principle: all nine approved species must be able to spawn naturally in savanna (including plateau and windswept variants, subject to valid terrain). Wildlife is not exclusive to the savanna; individual species may also spawn in ecologically suitable existing Overworld biomes. Do not extend boss encounters automatically with ordinary wildlife.
+
+User-approved examples: pheasant, aurochs, saiga and tarpan can also occur in ordinary and dark forests; golden jackal can also occur in dark forests and badlands (clay/terracotta deserts). For open-country herd animals in forests, prefer clearings and woodland edges, not dense canopy. The following is a preliminary expansion matrix, with additional biomes and relative frequencies subject to tuning and approval:
+
+| Species | Primary | Other candidate biomes |
+| --- | --- | --- |
+| Aurochs | Savanna | Plains, forest, dark forest |
+| Saiga | Savanna | Plains; forest and dark forest clearings, rare |
+| Tarpan | Savanna | Plains; forest and dark forest clearings |
+| Golden jackal | Savanna | Dark forest, badlands, wooded badlands, plains |
+| Striped hyena | Savanna | Badlands, desert margins, rare |
+| Persian leopard | Savanna | Forest, dark forest, wooded badlands, foothills |
+| Common pheasant | Savanna | Forest, dark forest, plains |
+| Steppe eagle | Savanna | Plains, badlands, windswept hills |
+| Goitered gazelle | Savanna | Plains, badlands, desert margins |
+
+Implementation proposal: use species-specific biome tags and NeoForge spawn modifiers with separate primary and secondary weights; validate local terrain, clearance and group size at spawning, including suitable perches/flight space for eagles. Secondary habitats must not overwhelm their existing fauna. Large herds favor open ground; secondary forest populations are smaller/rarer where appropriate. No universal spawn tag; no spawning in oceans, Nether, End or unsuitable cold biomes. Preserve existing species and their balance. Exact weights, group sizes, biome IDs and terrain constraints remain pending. Test each approved habitat and negative controls for unsuitable biomes. This section documents design only, not implemented spawn changes.
