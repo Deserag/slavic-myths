@@ -16,11 +16,11 @@ public final class SunTempleCommands {
         var w=s.getLevel();BlockPos at=BlockPos.containing(s.getPosition());
         int surface=w.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,at.getX(),at.getZ());
         int y=SunTempleBuild.anchor(surface,w.getMinBuildHeight(),w.getMaxBuildHeight());
-        BlockPos origin=new BlockPos(at.getX()-55,y,at.getZ());
+        BlockPos origin=new BlockPos(at.getX()-SunTemplePlan.CX,y,at.getZ());
         if(!SunTempleBuild.start(w,origin,spawned->s.sendSuccess(()->Component.literal("Храм Солнца построен. Хала: "+(spawned?"появилась":"ожидает игрока (проверьте сложность)")),true))){
             s.sendFailure(Component.literal("Генерация уже идёт, храм пересекается с существующим храмом или выходит за границы мира."));return 0;
         }
-        s.sendSuccess(()->Component.literal("Начато строительство Храма Солнца: "+origin.toShortString()+". Рельеф в пределах 111 x 137 блоков будет заменён."),true);
+        s.sendSuccess(()->Component.literal("Начато строительство Храма Солнца: "+origin.toShortString()+". Рельеф в пределах 81 x 91 блоков будет заменён."),true);
         return 1;
     }
     private SunTempleCommands(){}

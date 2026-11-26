@@ -26,13 +26,13 @@ public final class SunTempleStructure extends Structure {
         if(!c.biomeSource().getNoiseBiome(x>>2,surface>>2,z>>2,c.randomState().sampler()).is(Biomes.DESERT))return Optional.empty();
         // No slope rejection: use the median terrain elevation and level the footprint.
         int[] heights=new int[25];int i=0;
-        for(int dx=-48;dx<=48;dx+=24)for(int dz=-56;dz<=56;dz+=28)
+        for(int dx=-32;dx<=32;dx+=16)for(int dz=-40;dz<=40;dz+=20)
             heights[i++]=c.chunkGenerator().getBaseHeight(x+dx,z+dz,Heightmap.Types.OCEAN_FLOOR_WG,c.heightAccessor(),c.randomState());
         Arrays.sort(heights);
-        BlockPos origin=new BlockPos(x-55,SunTempleBuild.anchor(heights[12],min,max),z-68);
+        BlockPos origin=new BlockPos(x-SunTemplePlan.W/2,SunTempleBuild.anchor(heights[12],min,max),z-SunTemplePlan.D/2);
         SunTemplePiece piece=new SunTemplePiece(origin,min+1,max-1);
         if(!StructureCoverageService.referencesFit(c.chunkPos(),List.of(piece)))return Optional.empty();
-        if(!StructureCandidates.clear(c,c.chunkPos(),id->id!=null&&(StructureCandidates.vanilla(id,"village","desert_pyramid","pillager_outpost")||id.getNamespace().equals("slavicmyths")&&!id.getPath().equals("sun_temple"))?10:0))return Optional.empty();
+        if(!StructureCandidates.clear(c,c.chunkPos(),id->id==null?0:id.toString().equals("slavicmyths:desert_trial_dungeon")?8:(StructureCandidates.vanilla(id,"village","desert_pyramid","pillager_outpost")||id.getNamespace().equals("slavicmyths")&&!id.getPath().equals("sun_temple"))?6:0))return Optional.empty();
         return Optional.of(new GenerationStub(new BlockPos(x,origin.getY(),z),b->b.addPiece(piece)));
     }
 }

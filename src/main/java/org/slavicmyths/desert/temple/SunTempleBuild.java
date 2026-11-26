@@ -18,7 +18,6 @@ import org.slavicmyths.desert.DesertBlocks;
 
 @EventBusSubscriber(modid="slavicmyths")
 public final class SunTempleBuild {
-    private static final SunTemplePlan PLAN=SunTemplePlan.INSTANCE;
     private static final Map<ServerLevel,Job> JOBS=new IdentityHashMap<>();
     private static BlockState mod(String name){return DesertBlocks.ALL.get(name).get().defaultBlockState();}
     private static BlockState[] palette(){
@@ -29,12 +28,13 @@ public final class SunTempleBuild {
             Blocks.SMOOTH_SANDSTONE_STAIRS.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH),
             Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.WEST),Blocks.RED_CARPET.defaultBlockState()};
     }
-    static BoundingBox bounds(BlockPos o,int bottom,int top){
-        return new BoundingBox(o.getX(),bottom,o.getZ(),o.getX()+SunTemplePlan.W-1,top,o.getZ()+SunTemplePlan.D-1);
+    static BoundingBox bounds(BlockPos o,int bottom,int top){return bounds(o,bottom,top,SunTemplePlan.VERSION);}
+    static BoundingBox bounds(BlockPos o,int bottom,int top,int version){
+        return new BoundingBox(o.getX(),bottom,o.getZ(),o.getX()+SunTemplePlan.width(version)-1,top,o.getZ()+SunTemplePlan.depth(version)-1);
     }
     static int anchor(int surface,int min,int max){return Math.max(min+4,Math.min(surface,max-SunTemplePlan.H));}
     /** Each column owns its terrain shaping, and writes only within the chunk clip. */
-    private static void column(WorldGenLevel w,BlockPos o,int x,int z,BlockState[] p,int minY,int maxY){
+    private static void column(WorldGenLevel w,BlockPos o,int x,int z,BlockState[] p,int minY,int maxY,int version){
         int wx=o.getX()+x,wz=o.getZ()+z,base=o.getY();
         int surface=w.getHeight(w instanceof ServerLevel?Heightmap.Types.MOTION_BLOCKING_NO_LEAVES:Heightmap.Types.WORLD_SURFACE_WG,wx,wz);
         int ground=Math.max(w.getMinBuildHeight()+1,Math.min(base-1,surface-1));
@@ -49,24 +49,24 @@ public final class SunTempleBuild {
         if(base-1>=minY&&base-1<=maxY)w.setBlock(pos.set(wx,base-1,wz),p[SunTemplePlan.STONE],Block.UPDATE_CLIENTS);
         // Clear terrain, trees, liquids and obstructions inside the envelope. The
         // upper bound includes existing terrain even when the temple is shorter.
-        int ceiling=Math.min(w.getMaxBuildHeight()-1,Math.max(base+SunTemplePlan.H-1,surface));
+        int ceiling=Math.min(w.getMaxBuildHeight()-1,Math.max(base+SunTemplePlan.height(version)-1,surface));
         for(int y=Math.max(base,minY);y<=Math.min(ceiling,maxY);y++){
-            int m=PLAN.at(x,y-base,z);
+            int m=SunTemplePlan.at(version,x,y-base,z);
             w.setBlock(pos.set(wx,y,wz),p[m],Block.UPDATE_CLIENTS);
         }
     }
-    static void render(WorldGenLevel w,BlockPos o,BoundingBox clip){
+    static void render(WorldGenLevel w,BlockPos o,BoundingBox clip,int version){
         BlockState[] p=palette();
-        for(int x=Math.max(0,clip.minX()-o.getX());x<=Math.min(SunTemplePlan.W-1,clip.maxX()-o.getX());x++)
-            for(int z=Math.max(0,clip.minZ()-o.getZ());z<=Math.min(SunTemplePlan.D-1,clip.maxZ()-o.getZ());z++)
-                column(w,o,x,z,p,clip.minY(),clip.maxY());
+        for(int x=Math.max(0,clip.minX()-o.getX());x<=Math.min(SunTemplePlan.width(version)-1,clip.maxX()-o.getX());x++)
+            for(int z=Math.max(0,clip.minZ()-o.getZ());z<=Math.min(SunTemplePlan.depth(version)-1,clip.maxZ()-o.getZ());z++)
+                column(w,o,x,z,p,clip.minY(),clip.maxY(),version);
     }
     private static final class Job {
         final ServerLevel w;final BlockPos o;final BlockState[] p=palette();final java.util.function.Consumer<Boolean> done;
         int x,z;
         Job(ServerLevel w,BlockPos o,java.util.function.Consumer<Boolean> done){this.w=w;this.o=o;this.done=done;}
         boolean step(){
-            column(w,o,x,z,p,w.getMinBuildHeight(),w.getMaxBuildHeight()-1);
+            column(w,o,x,z,p,w.getMinBuildHeight(),w.getMaxBuildHeight()-1,SunTemplePlan.VERSION);
             if(++z==SunTemplePlan.D){z=0;x++;}
             return x<SunTemplePlan.W;
         }

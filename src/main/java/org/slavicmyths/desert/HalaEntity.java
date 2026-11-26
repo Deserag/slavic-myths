@@ -111,8 +111,9 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
    if(home==null)home=position();
     if(org.slavicmyths.desert.temple.SunTempleRecords.bound(this)){
       var site=org.slavicmyths.desert.temple.SunTempleRecords.origin(this);
-      if(!org.slavicmyths.desert.temple.SunTempleRecords.inside(site,blockPosition())){
-        var center=org.slavicmyths.desert.temple.SunTempleRecords.center(site);finish();setTarget(null);getNavigation().stop();shots.clear();patches.clear();exposure.clear();
+      int templeVersion=org.slavicmyths.desert.temple.SunTempleRecords.version(this);
+      if(!org.slavicmyths.desert.temple.SunTempleRecords.inside(site,blockPosition(),templeVersion)){
+        var center=org.slavicmyths.desert.temple.SunTempleRecords.center(site,templeVersion);finish();setTarget(null);getNavigation().stop();shots.clear();patches.clear();exposure.clear();
         if(w.hasChunkAt(center)&&w.isEmptyBlock(center)) {setPos(center.getX()+.5,center.getY(),center.getZ()+.5);setDeltaMovement(Vec3.ZERO);}
       }
       if(tickCount%5==0)for(ServerPlayer p:templeViewers){if(org.slavicmyths.desert.temple.SunTempleRecords.barVisible(this,p))bar.addPlayer(p);else bar.removePlayer(p);}
