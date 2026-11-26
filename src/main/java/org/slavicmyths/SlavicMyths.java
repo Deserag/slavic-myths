@@ -81,6 +81,7 @@ public final class SlavicMyths {
         org.slavicmyths.registry.ModEffects.EFFECTS.register(bus);
         org.slavicmyths.kurgan.BurialCoffinMenu.register();
         org.slavicmyths.kurgan.KurganStructures.register();
+        org.slavicmyths.dungeon.DungeonStructure.init();
         org.slavicmyths.earth.EarthContent.init();
         org.slavicmyths.ships.RaftContent.init();
         org.slavicmyths.sivka.SivkaContent.init();

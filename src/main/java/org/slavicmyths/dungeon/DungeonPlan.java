@@ -4,8 +4,8 @@ import java.util.*;
 
 /** Seeded graph and geometry, independent of Minecraft and of the terrain. */
 public final class DungeonPlan {
-    public static final int PITCH=34, STEP=26, ARENA_OFFSET=83;
-    public enum Kind { ENTRY, HALL, PILLARS, SHRINE, FLOODED, SECRET, TRIAL, BOSS, DOUBLE, CORRIDOR, SHAFT }
+    public static final int PITCH=32, STEP=26, ARENA_OFFSET=89;
+    public enum Kind { ENTRY, HALL, PILLARS, SHRINE, FLOODED, SECRET, TRIAL, BOSS, DOUBLE, CORRIDOR, SHAFT, WELL }
     public record Point(int x,int z) {}
     public record Box(int x0,int y0,int z0,int x1,int y1,int z1,Kind kind,int floor) {
         public boolean contains(int x,int y,int z){return x>=x0&&x<=x1&&y>=y0&&y<=y1&&z>=z0&&z<=z1;}
@@ -113,6 +113,7 @@ public final class DungeonPlan {
         long king=floors.stream().flatMap(f->f.bosses.stream()).filter("sand_king"::equals).count();
         if(queen!=1||king!=1)throw new IllegalStateException("Missing/duplicate desert bosses");
     }
+    public Point entrance(){return center(floors.getFirst().rooms.get(floors.getFirst().entry));}
     public int bottom(){return -(floors.size()-1)*PITCH;}
     public int top(){return 23;}
     /** Floor zero stays underground if it fits; otherwise raise the complete structure. */

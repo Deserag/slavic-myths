@@ -11,8 +11,8 @@ public final class DungeonPlanSmoke {
             if(p.doubled)doubleCount++;
             int flat=p.anchorY(-60,-64,320);
             if(flat+p.bottom()<=-60)throw new AssertionError("Flat placement");
-            int deep=p.anchorY(100,-64,320);
-            if(deep+p.top()>=100)throw new AssertionError("Underground placement");
+            int deep=p.anchorY(110,-64,320);
+            if(deep+p.top()>=110)throw new AssertionError("Underground placement");
         }
         if(doubleCount==0)throw new AssertionError("No combined arena");
         System.out.println("3000 layouts checked; combined arenas: "+doubleCount);

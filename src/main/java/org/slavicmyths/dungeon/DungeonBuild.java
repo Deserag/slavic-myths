@@ -5,6 +5,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,21 +22,52 @@ public final class DungeonBuild {
     private static final Map<ServerLevel,Job> JOBS=new IdentityHashMap<>();
     private static final int BUDGET=4096;
     private record Layer(DungeonPlan.Box box,int pass){}
+    private static List<Layer> layers(DungeonPlan plan,int wellY){
+        List<Layer> layers=new ArrayList<>();
+        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,0));
+        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,1));
+        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2));
+        for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,3));
+        var entry=plan.entrance();
+        layers.add(new Layer(new DungeonPlan.Box(entry.x()-1,1,entry.z()-1,entry.x()+1,wellY-2,entry.z()+1,DungeonPlan.Kind.SHAFT,0),3));
+        layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,wellY-1,entry.z()-2,entry.x()+2,wellY+4,entry.z()+2,DungeonPlan.Kind.WELL,0),4));
+        return layers;
+    }
+    static BoundingBox bounds(DungeonPlan plan,BlockPos origin,int wellY){
+        List<Layer> layers=layers(plan,wellY);var b=layers.getFirst().box;
+        BoundingBox result=new BoundingBox(origin.getX()+b.x0(),origin.getY()+b.y0(),origin.getZ()+b.z0(),origin.getX()+b.x1(),origin.getY()+b.y1(),origin.getZ()+b.z1());
+        for(var layer:layers){b=layer.box;result.encapsulate(new BoundingBox(origin.getX()+b.x0(),origin.getY()+b.y0(),origin.getZ()+b.z0(),origin.getX()+b.x1(),origin.getY()+b.y1(),origin.getZ()+b.z1()));}
+        return result;
+    }
+    static void render(WorldGenLevel world,BlockPos origin,DungeonPlan plan,int wellY,BoundingBox clip){
+        for(var layer:layers(plan,wellY)){
+            var b=layer.box;
+            for(int y=Math.max(b.y0(),clip.minY()-origin.getY());y<=Math.min(b.y1(),clip.maxY()-origin.getY());y++)
+                for(int z=Math.max(b.z0(),clip.minZ()-origin.getZ());z<=Math.min(b.z1(),clip.maxZ()-origin.getZ());z++)
+                    for(int x=Math.max(b.x0(),clip.minX()-origin.getX());x<=Math.min(b.x1(),clip.maxX()-origin.getX());x++){
+                        BlockState state=stateAt(layer,x,y,z);
+                        if(state!=null)world.setBlock(origin.offset(x,y,z),state,Block.UPDATE_CLIENTS);
+                    }
+        }
+    }
     private static final class Job{
-        final ServerLevel world;final BlockPos origin;final DungeonPlan plan;final List<Layer> layers=new ArrayList<>();
+        final ServerLevel world;final BlockPos origin;final DungeonPlan plan;final List<Layer> layers;
         int index,x,y,z;
-        Job(ServerLevel world,BlockPos origin,DungeonPlan plan){
-            this.world=world;this.origin=origin;this.plan=plan;
-            for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,0));
-            for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,1));
-            for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2));
-            for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,3));
-            reset();
+        Job(ServerLevel world,BlockPos origin,DungeonPlan plan,int wellY){
+            this.world=world;this.origin=origin;this.plan=plan;this.layers=layers(plan,wellY);reset();
         }
         void reset(){if(index>=layers.size())return;var b=layers.get(index).box;x=b.x0();y=b.y0();z=b.z0();}
         boolean step(){
             if(index>=layers.size())return false;
             var l=layers.get(index);var b=l.box;
+            BlockState state=stateAt(l,x,y,z);
+            if(state!=null)world.setBlock(origin.offset(x,y,z),state,Block.UPDATE_CLIENTS);
+            if(++x>b.x1()){x=b.x0();if(++z>b.z1()){z=b.z0();if(++y>b.y1()){index++;reset();}}}
+            return true;
+        }
+    }
+    private static BlockState stateAt(Layer l,int x,int y,int z){
+        var b=l.box;
             boolean border=x==b.x0()||x==b.x1()||z==b.z0()||z==b.z1();
             boolean interior=!border&&y>b.y0()&&y<b.y1();
             BlockState state=null;
@@ -55,20 +88,28 @@ public final class DungeonBuild {
                 else if(z==b.z0()+1&&x==b.x0()+1)state=Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
                 else state=Blocks.AIR.defaultBlockState();
             }
-            if(state!=null)world.setBlock(origin.offset(x,y,z),state,Block.UPDATE_CLIENTS);
-            if(++x>b.x1()){x=b.x0();if(++z>b.z1()){z=b.z0();if(++y>b.y1()){index++;reset();}}}
-            return true;
+
+        if(l.pass==4){
+            int dx=x-b.x0(),dz=z-b.z0(),h=y-b.y0();
+            boolean edge=dx==0||dx==4||dz==0||dz==4;
+            if(h==0)state=DESERT.floor;
+            else if(h==1)state=edge?DESERT.trim:Blocks.WATER.defaultBlockState();
+            else if(h==5)state=DESERT.floor;
+            else if((dx==0||dx==4)&&(dz==0||dz==4))state=DESERT.column;
+            else state=Blocks.AIR.defaultBlockState();
         }
+        return state;
     }
     public static boolean start(ServerLevel world,BlockPos origin,DungeonPlan plan,int surface){
         if(JOBS.containsKey(world))return false;
-        for(var b:plan.boxes){
+        int wellY=Math.max(surface-origin.getY(),plan.top()+4);
+        for(var layer:layers(plan,wellY)){var b=layer.box;
             if(!world.getWorldBorder().isWithinBounds(origin.offset(b.x0(),b.y0(),b.z0()))||
                !world.getWorldBorder().isWithinBounds(origin.offset(b.x1(),b.y1(),b.z1())))return false;
             if(origin.getY()+b.y0()<world.getMinBuildHeight()||origin.getY()+b.y1()>=world.getMaxBuildHeight())return false;
         }
         if(!DungeonRecords.get(world).reserve(origin,plan))return false;
-        JOBS.put(world,new Job(world,origin,plan));return true;
+        JOBS.put(world,new Job(world,origin,plan,wellY));return true;
     }
     @SubscribeEvent public static void tick(ServerTickEvent.Post e){
         for(var it=JOBS.entrySet().iterator();it.hasNext();){

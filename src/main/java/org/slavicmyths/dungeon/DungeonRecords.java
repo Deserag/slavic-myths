@@ -26,6 +26,10 @@ public final class DungeonRecords extends SavedData {
             if(absolute(origin,a).overlaps(absolute(site.origin,b)))return false;
         sites.add(new Site(origin.immutable(),plan.seed,plan.floors.size(),plan,false));setDirty();return true;
     }
+    void registerNatural(BlockPos origin,DungeonPlan plan){
+        if(sites.stream().anyMatch(s->s.origin.equals(origin)))return;
+        if(reserve(origin,plan))complete(origin);
+    }
     void complete(BlockPos origin){
         for(int i=0;i<sites.size();i++){Site s=sites.get(i);if(s.origin.equals(origin)){sites.set(i,new Site(s.origin,s.seed,s.floors,s.plan,true));setDirty();return;}}
     }
