@@ -26,6 +26,11 @@ public final class SunTempleRecords extends SavedData {
     }
     private final Map<BlockPos,Site> sites=new HashMap<>();
     public static SunTempleRecords get(ServerLevel w){return w.getDataStorage().computeIfAbsent(new SavedData.Factory<>(SunTempleRecords::new,(n,r)->load(n)),"slavicmyths_sun_temples");}
+    public boolean overlaps(BlockPos o,int width,int depth){
+        for(Site s:sites.values())if(o.getX()<s.origin.getX()+SunTemplePlan.width(s.version)&&s.origin.getX()<o.getX()+width
+            &&o.getZ()<s.origin.getZ()+SunTemplePlan.depth(s.version)&&s.origin.getZ()<o.getZ()+depth)return true;
+        return false;
+    }
     boolean reserve(BlockPos o){return reserve(o,SunTemplePlan.VERSION);}
     private boolean reserve(BlockPos o,int version){
         for(Site s:sites.values())if(o.getX()<s.origin.getX()+SunTemplePlan.width(s.version)&&s.origin.getX()<o.getX()+SunTemplePlan.width(version)

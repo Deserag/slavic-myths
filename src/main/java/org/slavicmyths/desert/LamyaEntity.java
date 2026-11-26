@@ -19,6 +19,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.entity.PartEntity;
 import org.slavicmyths.combat.*;
+import org.slavicmyths.desert.oasis.LostOasisRecords;
 import static org.slavicmyths.desert.LamyaRules.*;
 
 public final class LamyaEntity extends Monster implements LivingThreatBoss {
@@ -57,7 +58,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
  @Override public PartEntity<?>[] getParts(){return parts;}
  @Override public boolean isPickable(){return false;}
  @Override public void setId(int id){super.setId(id);if(parts!=null)for(int i=0;i<parts.length;i++)if(parts[i]!=null)parts[i].setId(id+i+1);}
- @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}
+ @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);if(!LostOasisRecords.bound(this)||LostOasisRecords.barVisible(this,p))bar.addPlayer(p);}
  @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
  @Override protected SoundEvent getAmbientSound(){return LamyaSounds.get("ambient");}
  @Override protected SoundEvent getHurtSound(DamageSource s){return LamyaSounds.get("hurt");}
@@ -93,7 +94,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   }
  }
  Vec3 mouth(int head){float[] b=bounds();int k=GEO.groups.length*6+head*3;return localToWorld(new Vec3(b[k],b[k+1],b[k+2]));}
- @Override public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof LamyaEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<4096&&(home==null||home.distanceToSqr(e.position())<2304)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
+ @Override public boolean canPursue(LivingEntity e){return e!=null&&LostOasisRecords.allows(this,e)&&!(e instanceof LamyaEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<4096&&(home==null||home.distanceToSqr(e.position())<2304)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
  @Override public boolean validThreatTarget(LivingEntity e){return canPursue(e)&&(e==getTarget()||CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE)||BossThreat.recordedAttacker(this,e));}
  @Override public boolean acceptThreatTarget(LivingEntity e){if(threatAttackLocked()||!canPursue(e))return false;setTarget(e);return getTarget()==e;}
  @Override public boolean threatAttackLocked(){return !free();}
@@ -110,6 +111,7 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   if(level() instanceof ServerLevel w){
    if(home==null){home=position();if(free()&&!isNoAi()){change(SPAWN);playSound(LamyaSounds.get("spawn"),2,.9F);}}
    bar.setName(getName().copy().append("  "+Math.round(getHealth()/getMaxHealth()*HP)+" / "+Math.round(HP)+" HP"));bar.setProgress(getHealth()/getMaxHealth());
+   if(LostOasisRecords.bound(this)&&tickCount%10==0){for(ServerPlayer p:w.players()){if(LostOasisRecords.barVisible(this,p))bar.addPlayer(p);else bar.removePlayer(p);}}
    if(!isNoAi()){
     int mask=0;for(int i=0;i<3;i++){if(stun[i]>0){stun[i]--;if(stun[i]>0)mask|=1<<i;}else pressure[i]=Math.max(0,pressure[i]-.2F);}
     entityData.set(STAGGER,mask);if(mask!=0&&tickCount%5==0)for(int i=0;i<3;i++)if((mask&(1<<i))!=0){Vec3 p=mouth(i);w.sendParticles(ParticleTypes.SMOKE,p.x,p.y,p.z,8,.3,.3,.3,.02);}for(int i=0;i<cooldown.length;i++)if(cooldown[i]>0)cooldown[i]--;if(recovery>0)recovery--;
@@ -121,7 +123,12 @@ public final class LamyaEntity extends Monster implements LivingThreatBoss {
   }
   updateParts();
  }
+ public void releaseFromOasis(BlockPos at){
+  if(!LostOasisRecords.bound(this)||!isNoAi()||level().isClientSide)return;
+  moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,180,0);home=null;locked=null;stop();change(IDLE);setInvulnerable(false);setNoAi(false);
+ }
  private void walk(Vec3 dest,boolean run){
+  dest=LostOasisRecords.clampMovement(this,dest);
   double d=position().distanceTo(dest);if(d<1.5){stop();if(action()!=IDLE)change(IDLE);return;}
   int a=run?RUN:WALK;if(action()!=a)change(a);faceGradually(dest);getNavigation().moveTo(dest.x,dest.y,dest.z,run?1.35:1.0);
  }

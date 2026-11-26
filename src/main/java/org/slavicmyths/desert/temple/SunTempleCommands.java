@@ -9,6 +9,7 @@ import org.slavicmyths.commands.CommandTree;
 
 public final class SunTempleCommands {
     public static void register(CommandTree tree){
+        org.slavicmyths.desert.oasis.LostOasisCommands.register(tree);
         tree.add(Commands.literal("slavicmyths").then(Commands.literal("dev").requires(s->s.hasPermission(2))
             .then(Commands.literal("sun_temple").then(Commands.literal("generate").executes(c->generate(c.getSource()))))));
     }

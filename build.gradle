@@ -941,6 +941,7 @@ apply from: 'gradle/sand-king-assets.gradle'
 apply from: 'gradle/hala-assets.gradle'
 apply from: 'gradle/indrik-assets.gradle'
 apply from: 'gradle/lamya-assets.gradle'
+apply from: 'gradle/lost-oasis-assets.gradle'
 
 
 // Standalone dungeon planner regression: run as JavaExec, not JUnit discovery.

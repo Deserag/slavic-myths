@@ -1,0 +1,14 @@
+def oasisRoot = layout.buildDirectory.dir('generated/lost-oasis-resources')
+def oasisPython = providers.environmentVariable('SAND_KING_PYTHON').orElse(System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3')
+def generateLostOasisAssets = tasks.register('generateLostOasisAssets', Exec) {
+    inputs.files(fileTree('tools/lost_oasis') { include '*.py' })
+    inputs.property('pythonExecutable', oasisPython)
+    outputs.dir(oasisRoot)
+    workingDir rootProject.projectDir
+    environment 'OASIS_RESOURCE_ROOT', oasisRoot.get().asFile.absolutePath
+    commandLine oasisPython.get(), 'tools/lost_oasis/export.py'
+}
+tasks.named('processResources') {
+    dependsOn generateLostOasisAssets
+    from(oasisRoot)
+}

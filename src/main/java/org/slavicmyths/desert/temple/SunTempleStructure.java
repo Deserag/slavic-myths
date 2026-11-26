@@ -32,7 +32,7 @@ public final class SunTempleStructure extends Structure {
         BlockPos origin=new BlockPos(x-SunTemplePlan.W/2,SunTempleBuild.anchor(heights[12],min,max),z-SunTemplePlan.D/2);
         SunTemplePiece piece=new SunTemplePiece(origin,min+1,max-1);
         if(!StructureCoverageService.referencesFit(c.chunkPos(),List.of(piece)))return Optional.empty();
-        if(!StructureCandidates.clear(c,c.chunkPos(),id->id==null?0:id.toString().equals("slavicmyths:desert_trial_dungeon")?8:(StructureCandidates.vanilla(id,"village","desert_pyramid","pillager_outpost")||id.getNamespace().equals("slavicmyths")&&!id.getPath().equals("sun_temple"))?6:0))return Optional.empty();
+        if(!StructureCandidates.clear(c,c.chunkPos(),id->id==null?0:id.toString().equals("slavicmyths:desert_trial_dungeon")?8:(StructureCandidates.vanilla(id,"village","desert_pyramid","pillager_outpost")||id.getNamespace().equals("slavicmyths")&&!id.getPath().equals("sun_temple")&&!id.getPath().equals("lost_oasis"))?6:0))return Optional.empty();
         return Optional.of(new GenerationStub(new BlockPos(x,origin.getY(),z),b->b.addPiece(piece)));
     }
 }
