@@ -32,6 +32,7 @@ public final class SlavicCommands {
   org.slavicmyths.dungeon.DungeonCommands.register(tree);
   org.slavicmyths.desert.temple.SunTempleCommands.register(tree);
   org.slavicmyths.desert.winds.FourWindsCommands.register(tree);
+  org.slavicmyths.desert.indrik.IndrikLairCommands.register(tree);
   org.slavicmyths.kuzya.KuzyaResidence.commands(tree);
   org.slavicmyths.marinka.MarinkaCommands.register(tree);
   org.slavicmyths.military.MilitaryCommands.register(tree);

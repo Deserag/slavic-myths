@@ -85,6 +85,7 @@ public final class SlavicMyths {
         org.slavicmyths.desert.temple.SunTempleStructure.init();
         org.slavicmyths.desert.oasis.LostOasisStructure.init();
         org.slavicmyths.desert.winds.FourWindsStructure.init();
+        org.slavicmyths.desert.indrik.IndrikLairStructure.init();
         org.slavicmyths.earth.EarthContent.init();
         org.slavicmyths.ships.RaftContent.init();
         org.slavicmyths.sivka.SivkaContent.init();
