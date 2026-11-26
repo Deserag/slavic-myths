@@ -32,7 +32,7 @@ public final class IndrikLairPlan {
             for(int y=-3;y<h;y++)put(m,x,y,z,y<0?Kind.FILL:Kind.SANDSTONE);
         }
         // Closed, one-block shell; retain natural solid rock wherever possible.
-        for(int x=-14;x<=14;x++)for(int z=-9;z<=18;z++){
+        for(int x=-14;x<=14;x++)for(int z=-10;z<=18;z++){
             int d=x*x+(z-ARENA_Z)*(z-ARENA_Z);
             if(d>196)continue;
             boolean inner=d<=169;

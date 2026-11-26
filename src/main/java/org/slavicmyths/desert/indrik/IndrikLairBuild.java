@@ -7,6 +7,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
@@ -26,12 +27,17 @@ public final class IndrikLairBuild {
         return s.isAir()||s.is(BlockTags.BASE_STONE_OVERWORLD)||s.is(BlockTags.SAND)
             ||s.is(Blocks.SANDSTONE)||s.is(Blocks.RED_SANDSTONE)||s.is(Blocks.GRAVEL)
             ||s.is(Blocks.DIRT)||s.is(Blocks.COARSE_DIRT)||s.is(Blocks.CLAY)
-            ||s.is(Blocks.DEAD_BUSH)||s.is(Blocks.TERRACOTTA);
+            ||s.is(Blocks.DEAD_BUSH)||s.is(Blocks.TERRACOTTA)||s.is(Blocks.CALCITE)
+            ||s.is(Blocks.DRIPSTONE_BLOCK)||s.is(Blocks.TUFF)||s.is(BlockTags.COAL_ORES)
+            ||s.is(BlockTags.IRON_ORES)||s.is(BlockTags.COPPER_ORES)||s.is(BlockTags.GOLD_ORES)
+            ||s.is(BlockTags.REDSTONE_ORES)||s.is(BlockTags.LAPIS_ORES)||s.is(BlockTags.DIAMOND_ORES)
+            ||s.is(BlockTags.EMERALD_ORES);
     }
     private static BlockState desired(WorldGenLevel w,BlockPos p,Kind k){
         BlockState old=w.getBlockState(p);
         return switch(k){
-            case FILL,SEAL -> old.isSolidRender(w,p)&&w.getFluidState(p).isEmpty()?old:Blocks.SANDSTONE.defaultBlockState();
+            case FILL -> old.isSolidRender(w,p)&&w.getFluidState(p).isEmpty()?old:Blocks.SANDSTONE.defaultBlockState();
+            case SEAL -> old.isSolidRender(w,p)&&!(old.getBlock() instanceof FallingBlock)&&w.getFluidState(p).isEmpty()?old:Blocks.SANDSTONE.defaultBlockState();
             case SANDSTONE -> Blocks.SANDSTONE.defaultBlockState();
             case CUT -> Blocks.CUT_SANDSTONE.defaultBlockState();
             case CHISELED -> Blocks.CHISELED_SANDSTONE.defaultBlockState();
@@ -60,7 +66,8 @@ public final class IndrikLairBuild {
             BlockPos p=o.offset(c.x(),c.y(),c.z());
             if(!clip.isInside(p)||w.getBlockEntity(p)!=null)continue;
             var old=w.getBlockState(p);var next=desired(w,p,c.kind());
-            if(!old.equals(next)&&natural(old)&&w.setBlock(p,next,Block.UPDATE_CLIENTS))changed++;
+            if(!old.equals(next)&&(natural(old)||old.is(Blocks.WATER)||old.is(Blocks.LAVA))
+                &&w.setBlock(p,next,Block.UPDATE_CLIENTS))changed++;
         }
         return changed;
     }
