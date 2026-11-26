@@ -24,6 +24,7 @@ import org.slavicmyths.combat.*;
 import static org.slavicmyths.desert.HalaRules.*;
 
 public final class HalaEntity extends Monster implements LivingThreatBoss {
+ private final java.util.Set<ServerPlayer> templeViewers=new java.util.HashSet<>();
  private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(HalaEntity.class,EntityDataSerializers.INT),START=SynchedEntityData.defineId(HalaEntity.class,EntityDataSerializers.INT);
  private static final HalaGeometry.Collision GEO=HalaGeometry.Collision.INSTANCE;
  private final ServerBossEvent bar=new CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.hala","Хала"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
@@ -58,8 +59,8 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
  @Override public PartEntity<?>[] getParts(){return parts;}
  @Override public boolean isPickable(){return false;}
  @Override public void setId(int id){super.setId(id);if(parts!=null)for(int i=0;i<parts.length;i++)if(parts[i]!=null)parts[i].setId(id+i+1);}
- @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);bar.addPlayer(p);}
- @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);bar.removePlayer(p);}
+ @Override public void startSeenByPlayer(ServerPlayer p){super.startSeenByPlayer(p);templeViewers.add(p);if(!org.slavicmyths.desert.temple.SunTempleRecords.bound(this)||org.slavicmyths.desert.temple.SunTempleRecords.barVisible(this,p))bar.addPlayer(p);}
+ @Override public void stopSeenByPlayer(ServerPlayer p){super.stopSeenByPlayer(p);templeViewers.remove(p);bar.removePlayer(p);}
  @Override protected SoundEvent getAmbientSound(){return HalaSounds.get("ambient");}
  @Override protected SoundEvent getHurtSound(DamageSource s){return HalaSounds.get("hurt");}
  @Override protected SoundEvent getDeathSound(){return HalaSounds.get("death");}
@@ -98,7 +99,7 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
    parts[i].setBoundingBox(new AABB(lx,ly,lz,hx,hy,hz).inflate(.025));
   }
  }
- public boolean canPursue(LivingEntity e){return e!=null&&!(e instanceof HalaEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
+ public boolean canPursue(LivingEntity e){return e!=null&&org.slavicmyths.desert.temple.SunTempleRecords.allows(this,e)&&!(e instanceof HalaEntity)&&e.isAlive()&&e.level()==level()&&distanceToSqr(e)<=96*96&&(home==null||home.distanceToSqr(e.position())<=80*80)&&CombatTargeting.canAttack(this,e,CombatTargeting.Context.DIRECT);}
  public boolean validThreatTarget(LivingEntity e){return canPursue(e)&&(e==getTarget()||CombatTargeting.canAttack(this,e,CombatTargeting.Context.ACQUIRE)||BossThreat.recordedAttacker(this,e));}
  public boolean acceptThreatTarget(LivingEntity e){if(threatAttackLocked()||!validThreatTarget(e))return false;setTarget(e);return getTarget()==e;}
  public boolean threatAttackLocked(){return action()!=IDLE;}
@@ -107,7 +108,16 @@ public final class HalaEntity extends Monster implements LivingThreatBoss {
  @Override public void tick(){
   super.tick();if(!isAlive()){updateParts();return;}
   if(level() instanceof ServerLevel w){
-   if(home==null)home=position();bar.setProgress(getHealth()/getMaxHealth());bar.setColor(BossEvent.BossBarColor.RED);
+   if(home==null)home=position();
+    if(org.slavicmyths.desert.temple.SunTempleRecords.bound(this)){
+      var site=org.slavicmyths.desert.temple.SunTempleRecords.origin(this);
+      if(!org.slavicmyths.desert.temple.SunTempleRecords.inside(site,blockPosition())){
+        var center=org.slavicmyths.desert.temple.SunTempleRecords.center(site);finish();setTarget(null);getNavigation().stop();shots.clear();patches.clear();exposure.clear();
+        if(w.hasChunkAt(center)&&w.isEmptyBlock(center)) {setPos(center.getX()+.5,center.getY(),center.getZ()+.5);setDeltaMovement(Vec3.ZERO);}
+      }
+      if(tickCount%5==0)for(ServerPlayer p:templeViewers){if(org.slavicmyths.desert.temple.SunTempleRecords.barVisible(this,p))bar.addPlayer(p);else bar.removePlayer(p);}
+    }
+    bar.setProgress(getHealth()/getMaxHealth());bar.setColor(BossEvent.BossBarColor.RED);
    for(int i=0;i<cd.length;i++)if(cd[i]>0)cd[i]--;if(recovery>0)recovery--;
    updateShots(w);if(tickCount%20==0)updatePatches(w);if(action()==IDLE)think(w);else execute(w);
    if(tickCount%5==0)aura(w);

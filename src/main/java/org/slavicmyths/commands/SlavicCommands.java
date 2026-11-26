@@ -30,6 +30,7 @@ public final class SlavicCommands {
   org.slavicmyths.kalin.KalinEvents.commands(tree);
   org.slavicmyths.kurgan.KurganCommands.register(tree);
   org.slavicmyths.dungeon.DungeonCommands.register(tree);
+  org.slavicmyths.desert.temple.SunTempleCommands.register(tree);
   org.slavicmyths.kuzya.KuzyaResidence.commands(tree);
   org.slavicmyths.marinka.MarinkaCommands.register(tree);
   org.slavicmyths.military.MilitaryCommands.register(tree);
