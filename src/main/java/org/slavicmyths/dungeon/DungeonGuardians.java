@@ -20,7 +20,7 @@ import org.slavicmyths.registry.ModEffects;
 public final class DungeonGuardians {
     static final String GROUP="SlavicDungeonGroup", ORIGIN="SlavicDungeonOrigin", FLOOR="SlavicDungeonFloor", HP="SlavicDungeonLogicalHP";
     private static final ResourceLocation HEALTH=ResourceLocation.fromNamespaceAndPath("slavicmyths","dungeon_guardian_health");
-    static Mob create(ServerLevel w,String id,BlockPos pos,BlockPos origin,int floor,UUID group){
+    static Mob create(ServerLevel w,String id,BlockPos pos,BlockPos origin,int floor,UUID group,int encounter,int room,boolean roaming){
         EntityType<?> type=BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.fromNamespaceAndPath("slavicmyths",id));
         if(type==null||!(type.create(w) instanceof Mob mob))return null;
         mob.moveTo(pos.getX()+.5,pos.getY(),pos.getZ()+.5,0,0);
@@ -29,7 +29,8 @@ public final class DungeonGuardians {
         if(!w.noCollision(mob))return null;
         var tag=mob.getPersistentData();
         tag.putUUID(GROUP,group);tag.putLong(ORIGIN,origin.asLong());tag.putInt(FLOOR,floor);
-        double logical=mob.getMaxHealth()*1.5;
+        tag.putInt("SlavicDungeonEncounter",encounter);tag.putInt("SlavicDungeonRoom",room);tag.putBoolean("SlavicDungeonRoaming",roaming);
+        double logical=baseLogicalHealth(mob)*1.5;
         var health=mob.getAttribute(Attributes.MAX_HEALTH);
         if(health==null)return null;
         health.addPermanentModifier(new AttributeModifier(HEALTH,.5,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
@@ -37,6 +38,18 @@ public final class DungeonGuardians {
         mob.setHealth(mob.getMaxHealth());
         mob.addEffect(new MobEffectInstance(ModEffects.DUNGEON_GUARDIAN,-1,0,false,true,true));
         return mob;
+    }
+    private static double baseLogicalHealth(LivingEntity mob){
+        if(mob instanceof org.slavicmyths.desert.IndrikEntity)return org.slavicmyths.desert.IndrikRules.HP;
+        if(mob instanceof org.slavicmyths.desert.StormIdolEntity)return org.slavicmyths.desert.StormIdolRules.HP;
+        return mob.getMaxHealth();
+    }
+    public static boolean barVisible(LivingEntity boss,net.minecraft.server.level.ServerPlayer player){
+        if(!guardian(boss))return true;
+        if(!boss.isAlive()||boss.level()!=player.level()||player.isSpectator()||!DungeonPlan.inRange(boss.distanceToSqr(player)))return false;
+        var tag=boss.getPersistentData();
+        return DungeonRecords.get(player.serverLevel()).canSeeBoss(BlockPos.of(tag.getLong(ORIGIN)),tag.getInt(FLOOR),
+            tag.contains("SlavicDungeonRoom")?tag.getInt("SlavicDungeonRoom"):-1,tag.getBoolean("SlavicDungeonRoaming"),player.blockPosition());
     }
     public static boolean guardian(Entity e){return e!=null&&e.getPersistentData().hasUUID(GROUP);}
     public static double logicalHealth(LivingEntity e){return guardian(e)?Math.max(e.getMaxHealth(),e.getPersistentData().getDouble(HP)):e.getMaxHealth();}
@@ -62,6 +75,7 @@ public final class DungeonGuardians {
     @SubscribeEvent public static void health(LivingDamageEvent.Pre e){
         LivingEntity target=e.getEntity();
         if(target.level().isClientSide||!guardian(target)||e.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY))return;
+        if(target instanceof org.slavicmyths.desert.IndrikEntity||target instanceof org.slavicmyths.desert.StormIdolEntity){e.setNewDamage(e.getNewDamage()/1.5F);return;}
         double logical=logicalHealth(target);
         if(logical>target.getMaxHealth())e.setNewDamage((float)(e.getNewDamage()*target.getMaxHealth()/logical));
     }
@@ -69,7 +83,7 @@ public final class DungeonGuardians {
         LivingEntity mob=e.getEntity();
         if(mob.level() instanceof ServerLevel w&&guardian(mob)){
             var tag=mob.getPersistentData();
-            DungeonRecords.get(w).defeated(w,BlockPos.of(tag.getLong(ORIGIN)),tag.getInt(FLOOR),mob.getUUID());
+            DungeonRecords.get(w).defeated(w,BlockPos.of(tag.getLong(ORIGIN)),tag.contains("SlavicDungeonEncounter")?tag.getInt("SlavicDungeonEncounter"):tag.getInt(FLOOR),mob.getUUID());
         }
     }
     private DungeonGuardians(){}

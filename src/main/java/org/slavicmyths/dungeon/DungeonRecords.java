@@ -73,7 +73,7 @@ public final class DungeonRecords extends SavedData {
         for(Site s:sites)if(s.origin.equals(origin)){
             Fight fight=s.fights.get(floor);
             if(fight==null||!fight.spawned.contains(entity)||!fight.dead.add(entity))return;
-            setDirty();if(fight.cleared())openGate(w,s,floor);return;
+            setDirty();if(floor>=0&&floor<s.floors&&fight.cleared())openGate(w,s,floor);return;
         }
     }
     private int activate(ServerLevel w,ServerPlayer player,Site s,DungeonPlan.Floor f,boolean manual){
@@ -84,16 +84,21 @@ public final class DungeonRecords extends SavedData {
             Fight previous=s.fights.get(f.index()-1);
             if(previous==null||!previous.cleared())return 0;
         }
-        var arena=f.rooms().get(f.boss());
+        return spawn(w,player,s,f,f.boss(),f.index(),f.bosses(),manual,false);
+    }
+    private int spawn(ServerLevel w,ServerPlayer player,Site s,DungeonPlan.Floor f,int room,int key,List<String> roster,boolean manual,boolean roaming){
+        if(s.fights.containsKey(key)||w.getDifficulty()==Difficulty.PEACEFUL)return 0;
+        var arena=f.rooms().get(room);
         int x=(arena.x0()+arena.x1())/2,z=(arena.z0()+arena.z1())/2,y=arena.y0()+1;
         List<Mob> prepared=new ArrayList<>();UUID group=UUID.randomUUID();
-        int count=f.bosses().size();
+        int count=roster.size();
         for(int i=0;i<count;i++){
-            int dx=count==1?0:i==0?-13:13;
-            BlockPos at=s.origin.offset(x+dx,y,z+9);
+            boolean main=key<100;
+            int dx=count==1?0:i==0?(main?-13:-3):(main?13:3);
+            BlockPos at=s.origin.offset(x+dx,y,z+(main?9:0));
             if(manual)w.getChunk(at.getX()>>4,at.getZ()>>4);
             if(!w.hasChunkAt(at)||!w.isEmptyBlock(at)||!w.isEmptyBlock(at.above()))return 0;
-            Mob boss=DungeonGuardians.create(w,f.bosses().get(i),at,s.origin,f.index(),group);
+            Mob boss=DungeonGuardians.create(w,roster.get(i),at,s.origin,f.index(),group,key,room,roaming);
             if(boss==null)return 0;
             prepared.add(boss);
         }
@@ -105,17 +110,32 @@ public final class DungeonRecords extends SavedData {
             }
             fight.spawned.add(boss.getUUID());if(player!=null)boss.setTarget(player);
         }
-        s.fights.put(f.index(),fight);setDirty();
-        if(player!=null)player.displayClientMessage(Component.literal("Хранитель подземелий: победите всех боссов этажа"),true);
+        s.fights.put(key,fight);setDirty();
+        if(player!=null&&key<100)player.displayClientMessage(Component.literal("Хранитель подземелий: победите всех боссов этажа"),true);
         return fight.spawned.size();
     }
     int spawnManualGuardians(ServerLevel world,BlockPos origin){
         for(Site s:sites)if(s.origin.equals(origin)&&s.complete){
             int count=0;
-            for(var f:s.plan.floors)count+=activate(world,null,s,f,true);
+            for(var f:s.plan.floors){
+                count+=activate(world,null,s,f,true);
+                for(var encounter:s.plan.encounters(f))count+=spawn(world,null,s,f,encounter.room(),encounter.key(),encounter.bosses(),true,encounter.roaming());
+            }
             return count;
         }
         return 0;
+    }
+    public boolean canSeeBoss(BlockPos origin,int floor,int room,boolean roaming,BlockPos player){
+        for(Site s:sites)if(s.origin.equals(origin)&&floor>=0&&floor<s.floors){
+            int x=player.getX()-origin.getX(),y=player.getY()-origin.getY(),z=player.getZ()-origin.getZ();
+            if(roaming){
+                for(var b:s.plan.boxes)if(b.floor()==floor&&b.kind()!=DungeonPlan.Kind.STAIR_DESCENT&&b.kind()!=DungeonPlan.Kind.SHAFT&&b.kind()!=DungeonPlan.Kind.POOL&&b.contains(x,y,z))return true;
+                return false;
+            }
+            var f=s.plan.floors.get(floor);
+            return f.rooms().get(room>=0&&room<f.rooms().size()?room:f.boss()).contains(x,y,z);
+        }
+        return false;
     }
     private void visit(ServerPlayer player){
         BlockPos p=player.blockPosition();
@@ -125,6 +145,10 @@ public final class DungeonRecords extends SavedData {
             for(var f:s.plan.floors){
                 var arena=f.rooms().get(f.boss());
                 if(arena.contains(x,y,z)&&x>arena.x0()+2&&x<arena.x1()-2&&z>arena.z0()+2&&z<arena.z1()-2)activate(player.serverLevel(),player,s,f,false);
+                for(var encounter:s.plan.encounters(f)){
+                    var room=f.rooms().get(encounter.room());
+                    if(room.contains(x,y,z))spawn(player.serverLevel(),player,s,f,encounter.room(),encounter.key(),encounter.bosses(),false,encounter.roaming());
+                }
             }
         }
     }

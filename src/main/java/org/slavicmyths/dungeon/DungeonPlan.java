@@ -4,7 +4,7 @@ import java.util.*;
 
 /** Seeded graph and geometry, independent of Minecraft and of the terrain. */
 public final class DungeonPlan {
-    public static final int VERSION=2, PITCH=20, LEGACY_PITCH=32, STEP=26, ARENA_OFFSET=89;
+    public static final int VERSION=3, PITCH=20, LEGACY_PITCH=32, STEP=26, ARENA_OFFSET=89;
     public enum Kind { ENTRY, HALL, PILLARS, SHRINE, FLOODED, SECRET, TRIAL, BOSS, DOUBLE, CORRIDOR, SHAFT, WELL, STAIR_DESCENT, POOL }
     public record Point(int x,int z) {}
     public record Box(int x0,int y0,int z0,int x1,int y1,int z1,Kind kind,int floor) {
@@ -13,6 +13,9 @@ public final class DungeonPlan {
     }
     public record Edge(int a,int b) {
         public Edge {if(a>b){int v=a;a=b;b=v;}}
+    }
+    public record Encounter(int floor,int room,boolean roaming,List<String> bosses){
+        public int key(){return 100+floor*32+room;}
     }
     public record Floor(int index,List<Box> rooms,List<Edge> edges,int entry,int trial,int boss,Point exit,List<String> bosses) {}
     public final long seed;
@@ -45,7 +48,7 @@ public final class DungeonPlan {
     }
     public static DungeonPlan create(long seed,int count){return create(seed,count,VERSION);}
     public static DungeonPlan create(long seed,int count,int version){
-        if(version!=1&&version!=VERSION)throw new IllegalArgumentException("Unknown dungeon plan version "+version);
+        if(version<1||version>VERSION)throw new IllegalArgumentException("Unknown dungeon plan version "+version);
         int pitch=version==1?LEGACY_PITCH:PITCH;
         if(count<3||count>5)throw new IllegalArgumentException("Expected 3–5 floors");
         Random r=new Random(seed);boolean doubled=r.nextInt(5)==0;
@@ -53,6 +56,9 @@ public final class DungeonPlan {
         String[] old={"podzemnik","large_podzemnik"};
         List<Floor> floors=new ArrayList<>();List<Box> all=new ArrayList<>();Point previous=null;
         int rotation=r.nextInt(4);
+        Random roster=new Random(seed^0x5F444553455254L);
+        List<String> regional=new ArrayList<>(List.of("hala","indrik_zmey","storm_idol"));
+        Collections.shuffle(regional,roster);
         for(int f=0;f<count;f++){
             int y=-f*pitch;int turn=(rotation+f)%4;
             int bossCell=13; // south edge before rotation; arena is outside the room grid
@@ -98,6 +104,9 @@ public final class DungeonPlan {
             }
             List<String> bosses=last?(doubled?List.of("ant_queen","sand_king"):List.of(queenFirst?"sand_king":"ant_queen")):
                 f==count-2&&!doubled?List.of(queenFirst?"ant_queen":"sand_king"):List.of(old[r.nextInt(old.length)]);
+            if(version>=3&&!last&&(f!=count-2||doubled)){
+                bosses=f==0?List.of(List.of("large_podzemnik","kladovik","ovinnik","fire_serpent").get(roster.nextInt(4))):List.of(regional.removeFirst());
+            }
             floors.add(new Floor(f,List.copyOf(rooms),List.copyOf(edges),previous==null?entryCell:17,trial,16,exit,bosses));
             all.addAll(rooms);all.addAll(passages);
             if(version>=2)for(Box b:rooms)if(b.kind==Kind.FLOODED)all.add(new Box(b.x0,b.y0-2,b.z0,b.x1,b.y0,b.z1,Kind.POOL,f));
@@ -120,6 +129,37 @@ public final class DungeonPlan {
         long king=floors.stream().flatMap(f->f.bosses.stream()).filter("sand_king"::equals).count();
         if(queen!=1||king!=1)throw new IllegalStateException("Missing/duplicate desert bosses");
     }
+    /** Optional encounters have stable IDs independent of the mandatory gate fights. */
+    public List<Encounter> encounters(Floor f){
+        if(version<3)return List.of();
+        Random r=new Random(seed^0x454E434F554E5445L^((long)f.index*0x9E3779B97F4A7C15L));
+        List<Integer> candidates=new ArrayList<>();
+        for(int i=0;i<f.rooms.size();i++){
+            Box b=f.rooms.get(i);
+            if(b.kind==Kind.HALL||b.kind==Kind.PILLARS||b.kind==Kind.SHRINE||b.kind==Kind.SECRET)candidates.add(i);
+        }
+        Collections.shuffle(candidates,r);
+        List<Encounter> result=new ArrayList<>();
+        if(!candidates.isEmpty()){
+            // One optional room guardian, sometimes a pair of small fire serpents.
+            int room=candidates.removeFirst();
+            Box b=f.rooms.get(room);
+            List<String> options=b.kind==Kind.SECRET?List.of("kladovik"):List.of("large_podzemnik","kladovik","fire_serpent");
+            String id=options.get(r.nextInt(options.size()));
+            result.add(new Encounter(f.index,room,false,id.equals("fire_serpent")&&b.x1-b.x0>=16&&b.z1-b.z0>=16&&r.nextBoolean()?List.of(id,id):List.of(id)));
+        }
+        int count=1+r.nextInt(3);
+        List<String> roam=List.of("podzemnik","large_podzemnik","ovinnik","fire_serpent");
+        for(int i=0;i<count&&!candidates.isEmpty();i++){
+            int room=candidates.removeFirst();
+            result.add(new Encounter(f.index,room,true,List.of(roam.get(r.nextInt(roam.size())))));
+        }
+        return List.copyOf(result);
+    }
+    public int expectedBosses(){
+        return floors.stream().mapToInt(f->f.bosses.size()+encounters(f).stream().mapToInt(e->e.bosses.size()).sum()).sum();
+    }
+    public static boolean inRange(double distanceSquared){return distanceSquared<=30.0*30.0;}
     // Stair runs away from the central room grid, under its own upper boss arena.
     // u=0 is the lower landing, u=PITCH+1 is the gated upper landing.
     private static Box stairBox(Point p,int y,int floor){

@@ -9,7 +9,26 @@ public final class DungeonPlanSmoke {
             DungeonPlan q=DungeonPlan.create(seed,floors);
             if(!p.boxes.equals(q.boxes)||!p.floors.equals(q.floors))throw new AssertionError("Non deterministic "+seed);
             if(p.doubled)doubleCount++;
-            if(p.version!=2||DungeonPlan.create(seed,floors,1).bottom()!=-(floors-1)*32)throw new AssertionError("Version");
+            if(p.version!=3||DungeonPlan.create(seed,floors,1).bottom()!=-(floors-1)*32)throw new AssertionError("Version");
+            var allowed=java.util.Set.of("hala","indrik_zmey","storm_idol","ant_queen","sand_king");
+            var encountered=new java.util.HashSet<String>();
+            int expected=0;
+            for(var f:p.floors){
+                if(f.index()>0)for(String id:f.bosses()){
+                    if(!allowed.contains(id)||!encountered.add(id))throw new AssertionError("Regional roster");
+                }
+                var encounters=p.encounters(f);
+                if(!encounters.equals(q.encounters(q.floors.get(f.index()))))throw new AssertionError("Optional seed");
+                var keys=new java.util.HashSet<Integer>();
+                for(var e:encounters){
+                    if(e.key()<100||!keys.add(e.key())||e.room()==f.boss()||e.room()==f.trial()||e.room()==f.entry())throw new AssertionError("Optional room");
+                    for(String id:e.bosses())if(!java.util.Set.of("podzemnik","large_podzemnik","kladovik","ovinnik","fire_serpent").contains(id))throw new AssertionError("Optional roster");
+                    expected+=e.bosses().size();
+                }
+                expected+=f.bosses().size();
+            }
+            if(expected!=p.expectedBosses()||!DungeonPlan.inRange(900)||DungeonPlan.inRange(900.01))throw new AssertionError("Count/radius");
+            if(!DungeonPlan.create(seed,floors,2).encounters(p.floors.getFirst()).isEmpty())throw new AssertionError("Legacy encounters");
             int stairs=0;
             for(var box:p.boxes)if(box.kind()==DungeonPlan.Kind.STAIR_DESCENT){
                 stairs++;

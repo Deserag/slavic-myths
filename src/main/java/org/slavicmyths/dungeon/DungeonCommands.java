@@ -31,7 +31,7 @@ public final class DungeonCommands {
             var entrance=plan.entrance();
             BlockPos origin=new BlockPos(at.getX()-entrance.x(),y,at.getZ()-entrance.z());
             BlockPos well=new BlockPos(at.getX(),Math.max(surface,y+plan.top()+4),at.getZ());
-            int expected=plan.floors.stream().mapToInt(f->f.bosses().size()).sum();
+            int expected=plan.expectedBosses();
             if(!DungeonBuild.start(world,origin,plan,surface,spawned->source.sendSuccess(()->Component.literal("Подземелье построено. Боссы: "+spawned+"/"+expected+(spawned<expected?" (проверьте сложность и свободное место на аренах)":"")),true))){
                 source.sendFailure(Component.literal("Dungeon generation already running or site conflicts with world bounds."));return 0;
             }
