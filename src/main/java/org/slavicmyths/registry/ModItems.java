@@ -151,6 +151,12 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> PERUNITE = ITEMS.register("perunite", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> FERN_FLOWER = ITEMS.register("fern_flower", () -> new Item(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> FLAX = ITEMS.register("flax", () -> new BlockItem(ModBlocks.FLAX.get(), properties()));
+    public static final DeferredHolder<Item, Item> WILD_ALOE = ITEMS.register("wild_aloe", () -> new BlockItem(ModBlocks.WILD_ALOE.get(), properties()));
+    public static final DeferredHolder<Item, Item> RED_GRASS = ITEMS.register("red_grass", () -> new BlockItem(ModBlocks.RED_GRASS.get(), properties()));
+    public static final DeferredHolder<Item, Item> ELEPHANT_GRASS = ITEMS.register("elephant_grass", () -> new BlockItem(ModBlocks.ELEPHANT_GRASS.get(), properties()));
+    public static final DeferredHolder<Item, Item> THORN_BUSH = ITEMS.register("thorn_bush", () -> new BlockItem(ModBlocks.THORN_BUSH.get(), properties()));
+    public static final DeferredHolder<Item, Item> KIWANO = ITEMS.register("kiwano", () -> new BlockItem(ModBlocks.KIWANO.get(), properties()));
+    public static final DeferredHolder<Item, Item> WILD_SORGHUM = ITEMS.register("wild_sorghum", () -> new BlockItem(ModBlocks.WILD_SORGHUM.get(), properties()));
     public static final DeferredHolder<Item, Item> WORMWOOD = ITEMS.register("wormwood", () -> new BlockItem(ModBlocks.WORMWOOD.get(), properties()));
     public static final DeferredHolder<Item, Item> PERUNITE_ORE = ITEMS.register("perunite_ore", () -> new BlockItem(ModBlocks.PERUNITE_ORE.get(), properties()));
     public static final DeferredHolder<Item, Item> LESHY_HEART = ITEMS.register("leshy_heart", () -> new Item(properties().rarity(Rarity.RARE)));

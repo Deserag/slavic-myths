@@ -36,13 +36,18 @@ public final class WoodlandFeature extends Feature<WoodlandFeature.Config> {
   if(!(soil.is(Blocks.DIRT)||soil.is(Blocks.COARSE_DIRT)||soil.is(Blocks.PODZOL)||soil.is(Blocks.MYCELIUM)||soil.is(Blocks.GRASS_BLOCK)||soil.is(Blocks.FARMLAND)||((species.equals("date_palm")||species.equals("tamarisk"))&&soil.is(Blocks.SAND))))return false;
   if(giant)for(int x=0;x<2;x++)for(int z=0;z<2;z++){var below=w.getBlockState(p.offset(x,-1,z));if(!below.is(net.minecraft.tags.BlockTags.DIRT)&&!below.is(Blocks.FARMLAND))return false;}
   TreeShape shape=giant?TreeShape.giantPine(r::nextInt):new TreeShape(species,r::nextInt,r::nextDouble,r::nextBoolean);
+  // A wide baobab must have solid, natural ground under its whole footprint.
+  if(species.equals("baobab"))for(TreeShape.Cell c:shape.logs.keySet())if(c.y==0){
+   BlockPos q=pos(p,c).below();
+   if(!w.hasChunkAt(q)||!w.getBlockState(q).is(BlockTags.DIRT))return false;
+  }
   Set<TreeShape.Cell> cells=new HashSet<>(shape.logs.keySet());cells.addAll(shape.leaves.keySet());cells.addAll(shape.hanging);
   // All-or-nothing preflight: never replace builds, other trees, fluids, or terrain.
   for(TreeShape.Cell c:cells){BlockPos q=pos(p,c);if(!w.hasChunkAt(q)||q.getY()<w.getMinBuildHeight()||q.getY()>=w.getMaxBuildHeight()||!replaceable(w.getBlockState(q),set))return false;}
   for(Map.Entry<TreeShape.Cell,Integer>e:shape.logs.entrySet())w.setBlock(pos(p,e.getKey()),set.get("log").defaultBlockState().setValue(RotatedPillarBlock.AXIS,Direction.Axis.values()[e.getValue()]),3);
   for(Map.Entry<TreeShape.Cell,Integer>e:shape.leaves.entrySet()){
    BlockState s=set.get("leaves").defaultBlockState().setValue(LeavesBlock.DISTANCE,e.getValue()).setValue(LeavesBlock.PERSISTENT,false);
-   if(species.equals("rowan")||species.equals("date_palm"))s=s.setValue(RowanLeaves.BERRIES,r.nextInt(species.equals("date_palm")?6:3)==0);w.setBlock(pos(p,e.getKey()),s,3);
+   if(species.equals("rowan")||species.equals("date_palm")||species.equals("marula"))s=s.setValue(RowanLeaves.BERRIES,r.nextInt(species.equals("rowan")?3:6)==0);w.setBlock(pos(p,e.getKey()),s,3);
   }
   // Top-down order supplies each decorative segment with an existing support.
   ArrayList<TreeShape.Cell> hanging=new ArrayList<>(shape.hanging);hanging.sort(Comparator.comparingInt((TreeShape.Cell c)->c.y).reversed());

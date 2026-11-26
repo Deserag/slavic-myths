@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "slavicmyths:block/elephant_grass_bottom"
+    },
+    "half=upper": {
+      "model": "slavicmyths:block/elephant_grass_top"
+    }
+  }
+}

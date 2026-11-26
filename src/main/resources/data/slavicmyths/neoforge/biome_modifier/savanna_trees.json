@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:worldgen/core_savanna",
+  "features": [
+    "slavicmyths:baobab_natural",
+    "slavicmyths:marula_natural",
+    "slavicmyths:date_palm_savanna"
+  ],
+  "step": "vegetal_decoration"
+}

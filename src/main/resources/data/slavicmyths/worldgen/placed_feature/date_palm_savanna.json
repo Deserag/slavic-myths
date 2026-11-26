@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:date_palm_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

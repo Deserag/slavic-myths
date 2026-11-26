@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:marula_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 7
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

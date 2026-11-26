@@ -5,7 +5,7 @@ tasks.named('processResources') {
     doLast {
         def source = rootProject.file('src/main/resources')
         def output = destinationDir
-        def families = [ice_pine:'pine', frost_willow:'willow', date_palm:'pine', tamarisk:'willow']
+        def families = [ice_pine:'pine', frost_willow:'willow', date_palm:'pine', tamarisk:'willow', baobab:'linden', marula:'linden']
         def suffixes = ['log','wood','stripped_log','stripped_wood','planks','leaves','sapling','stairs','slab','fence','fence_gate','door','trapdoor','pressure_plate','button','sign']
         def blockSuffixes = suffixes + ['wall_sign','hanging_sign','wall_hanging_sign']
         def modelPattern = /(?:log(?:_horizontal)?|wood|stripped_log(?:_horizontal)?|stripped_wood|planks|leaves|sapling|stairs(?:_inner|_outer)?|slab(?:_top)?|fence(?:_inventory|_post|_side)?|fence_gate(?:_open|_wall|_wall_open)?|door(?:_bottom|_top)(?:_hinge|_left|_right|_left_open|_right_open)?|trapdoor_(?:bottom|open|top)|pressure_plate(?:_down)?|button(?:_inventory|_pressed)?|sign|wall_sign)/
@@ -43,6 +43,14 @@ tasks.named('processResources') {
                     if(leaf){dark=[58,77,20];light=[155,169,63]}
                     else if(bark){dark=[65,42,22];light=[158,108,62]}
                     else{dark=[105,67,34];light=[218,173,104]}
+                } else if(family=='baobab') {
+                    if(leaf){dark=[65,79,27];light=[161,168,75]}
+                    else if(bark){dark=[81,68,58];light=[179,155,128]}
+                    else{dark=[151,119,78];light=[235,208,156]}
+                } else if(family=='marula') {
+                    if(leaf){dark=[43,76,23];light=[142,178,73]}
+                    else if(bark){dark=[61,53,45];light=[150,136,119]}
+                    else{dark=[111,70,44];light=[205,157,99]}
                 } else if(family=='tamarisk') {
                     if(leaf){dark=[68,83,33];light=[165,164,76]}
                     else if(bark){dark=[68,40,32];light=[136,90,70]}
@@ -149,12 +157,12 @@ tasks.named('processResources') {
                     def newKey='block.slavicmyths.'+newName+'_'+suffix
                     def original=lang[oldKey]
                     if(locale=='en_us') {
-                        def prefix=[ice_pine:'Ice Pine',frost_willow:'Frost Willow',date_palm:'Date Palm',tamarisk:'Tamarisk'][newName]
+                        def prefix=[ice_pine:'Ice Pine',frost_willow:'Frost Willow',date_palm:'Date Palm',tamarisk:'Tamarisk',baobab:'Baobab',marula:'Marula'][newName]
                         def label=suffix.split('_').collect{it.capitalize()}.join(' ')
                         additions[newKey]=prefix+' '+label
                     } else {
                         def labels=[log:'Бревно',wood:'Древесина',stripped_log:'Обтёсанное бревно',stripped_wood:'Обтёсанная древесина',planks:'Доски',leaves:'Листва',sapling:'Саженец',stairs:'Ступени',slab:'Плита',fence:'Забор',fence_gate:'Калитка',door:'Дверь',trapdoor:'Люк',pressure_plate:'Нажимная плита',button:'Кнопка',sign:'Табличка',wall_sign:'Настенная табличка',hanging_sign:'Подвесная табличка',wall_hanging_sign:'Настенная подвесная табличка']
-                        additions[newKey]=labels[suffix]+' '+([ice_pine:'ледяной сосны',frost_willow:'морозной ивы',date_palm:'финиковой пальмы',tamarisk:'тамариска'][newName])
+                        additions[newKey]=labels[suffix]+' '+([ice_pine:'ледяной сосны',frost_willow:'морозной ивы',date_palm:'финиковой пальмы',tamarisk:'тамариска',baobab:'баобаба',marula:'марулы'][newName])
                     }
                 }
             }
@@ -192,6 +200,34 @@ tasks.named('processResources') {
             def lang=new groovy.json.JsonSlurper().parse(lf)
             lang['item.slavicmyths.date']=locale=='en_us'?'Date':'Финик'
             lang['block.slavicmyths.hanging_date_palm_leaves']=locale=='en_us'?'Hanging Palm Fronds':'Свисающая листва пальмы'
+            lf.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(lang))+'\n','UTF-8')
+        }
+        // Savanna fruit-bearing leaves use the same supported blockstate as rowan.
+        copyText(a+'blockstates/rowan_leaves.json','rowan','marula')
+        copyText(a+'models/block/rowan_leaves_berries.json','rowan','marula')
+        def marulaLeaves=javax.imageio.ImageIO.read(new File(output,a+'textures/block/marula_leaves.png'))
+        [[3,4],[10,7],[6,12]].each { p ->
+            int x=p[0],y=p[1]
+            marulaLeaves.setRGB(x,y,0xffe6c443 as int)
+            marulaLeaves.setRGB(x+1,y,0xffc3992c as int)
+            marulaLeaves.setRGB(x,y+1,0xffb18326 as int)
+        }
+        javax.imageio.ImageIO.write(marulaLeaves,'png',new File(output,a+'textures/block/marula_leaves_berries.png'))
+        write(a+'models/item/marula_fruit.json',groovy.json.JsonOutput.toJson([parent:'minecraft:item/generated',textures:[layer0:'slavicmyths:item/marula_fruit']]))
+        def marulaFruit=new java.awt.image.BufferedImage(16,16,java.awt.image.BufferedImage.TYPE_INT_ARGB)
+        for(int y=4;y<14;y++)for(int x=3;x<13;x++){
+            double d=(x-7.5)*(x-7.5)/22d+(y-8.5)*(y-8.5)/24d
+            if(d<=1)marulaFruit.setRGB(x,y,(x<6?0xfff5dc66:x<9?0xffdbb43d:0xffa77e25) as int)
+        }
+        marulaFruit.setRGB(8,3,0xff6c5830 as int)
+        marulaFruit.setRGB(9,3,0xff658338 as int)
+        javax.imageio.ImageIO.write(marulaFruit,'png',new File(output,a+'textures/item/marula_fruit.png'))
+        ['en_us','ru_ru'].each { locale ->
+            def lf=new File(output,a+'lang/'+locale+'.json')
+            def lang=new groovy.json.JsonSlurper().parse(lf)
+            lang['item.slavicmyths.marula_fruit']=locale=='en_us'?'Marula Fruit':'Плод марулы'
+            def plants=[wild_aloe:['Wild Aloe','Дикое алоэ'],red_grass:['Red Grass','Красная трава'],elephant_grass:['Elephant Grass','Слоновая трава'],thorn_bush:['Thorn Bush','Колючий кустарник'],kiwano:['Kiwano','Кивано'],wild_sorghum:['Wild Sorghum','Дикое сорго']]
+            plants.each { id,names -> lang['block.slavicmyths.'+id]=names[locale=='en_us'?0:1] }
             lf.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(lang))+'\n','UTF-8')
         }
         // Explicitly fail if an essential resource is not produced.

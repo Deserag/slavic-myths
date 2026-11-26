@@ -19,7 +19,7 @@ public final class TreeShape {
  public final int variant;
  public TreeShape(String species,Random r){this(species,r::nextInt,r::nextDouble,r::nextBoolean);}
  public TreeShape(String species,java.util.function.IntUnaryOperator integers,java.util.function.DoubleSupplier doubles,java.util.function.BooleanSupplier booleans){nextInt=integers;nextDouble=doubles;nextBoolean=booleans;variant=nextInt.applyAsInt(3);
-  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;case "ice_pine":icePine();break;case "frost_willow":frostWillow();break;case "date_palm":datePalm();break;case "tamarisk":tamarisk();break;default:throw new IllegalArgumentException(species);}
+  switch(species){case "linden":linden();break;case "rowan":rowan();break;case "willow":willow();break;case "pine":pine();break;case "ice_pine":icePine();break;case "frost_willow":frostWillow();break;case "date_palm":datePalm();break;case "tamarisk":tamarisk();break;case "baobab":baobab();break;case "marula":marula();break;default:throw new IllegalArgumentException(species);}
   for(Cell c:logs.keySet())leaves.remove(c);
   // Match vanilla six-face leaf distance, avoiding disconnected leaves that immediately decay.
   ArrayDeque<Cell> queue=new ArrayDeque<>();Map<Cell,Integer> distance=new HashMap<>();
@@ -103,6 +103,34 @@ public final class TreeShape {
    branch(2+nextInt.applyAsInt(2),x,y,z);crown(x,y,z,2.3,1.15,2.3,true);
   }
   crown(0,h,0,2.0,1.5,2.0,true);
+ }
+ private void baobab(){
+  int h=6+variant;
+  trunk(h);
+  for(int y=0;y<h-2;y++){
+   int radius=y<3?1:0;
+   for(int x=-radius;x<=radius;x++)for(int z=-radius;z<=radius;z++)
+    if(Math.abs(x)+Math.abs(z)<=1||y==0)logs.put(new Cell(x,y,z),1);
+  }
+  double phase=nextDouble.getAsDouble()*Math.PI/2;
+  for(int i=0;i<5;i++){
+   double a=phase+i*2*Math.PI/5;
+   int span=2+nextInt.applyAsInt(2),x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);
+   int top=h-1+nextInt.applyAsInt(2);
+   branch(h-3,x,top,z);crown(x,top+1,z,1.8,1.1,1.8,true);
+  }
+  crown(0,h,0,1.6,1.15,1.6,true);
+ }
+ private void marula(){
+  int h=5+variant+nextInt.applyAsInt(2);trunk(h);
+  double phase=nextDouble.getAsDouble()*Math.PI/2;
+  crown(0,h,0,2.6,2.1,2.6,false);
+  for(int i=0;i<5;i++){
+   double a=phase+i*2*Math.PI/5;
+   int span=2+nextInt.applyAsInt(2),x=(int)Math.round(Math.cos(a)*span),z=(int)Math.round(Math.sin(a)*span);
+   int top=h-1+nextInt.applyAsInt(2);
+   branch(h-3,x,top,z);crown(x,top,z,2.1,1.65,2.1,false);
+  }
  }
  private void pine(){int h=9+nextInt.applyAsInt(4);trunk(h);
   for(int i=0;i<5&&2+i*2<h;i++){int y=2+i*2,r=Math.max(1,3-i/2);tier(y,r,1);}

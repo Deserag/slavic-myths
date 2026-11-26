@@ -1,0 +1,12 @@
+{
+  "feature": "slavicmyths:baobab_natural",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 19
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

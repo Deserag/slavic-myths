@@ -13,6 +13,12 @@ public final class WoodlandClient {
    Sheets.addWoodType(s.type);
    for(String k:new String[]{"leaves","sapling","door","trapdoor"})ItemBlockRenderTypes.setRenderLayer(s.get(k),RenderType.cutoutMipped());
   }
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.WILD_ALOE.get(),RenderType.cutout());
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.RED_GRASS.get(),RenderType.cutout());
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.ELEPHANT_GRASS.get(),RenderType.cutout());
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.THORN_BUSH.get(),RenderType.cutout());
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.KIWANO.get(),RenderType.cutout());
+  ItemBlockRenderTypes.setRenderLayer(org.slavicmyths.registry.ModBlocks.WILD_SORGHUM.get(),RenderType.cutout());
   ItemBlockRenderTypes.setRenderLayer(Woodlands.HANGING.get(),RenderType.cutoutMipped());
   ItemBlockRenderTypes.setRenderLayer(Woodlands.FROST_HANGING.get(),RenderType.cutoutMipped());
   ItemBlockRenderTypes.setRenderLayer(Woodlands.PALM_HANGING.get(),RenderType.cutoutMipped());

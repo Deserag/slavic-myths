@@ -49,6 +49,12 @@ public final class ModBlocks {
     public static final DeferredHolder<Block, Block> NETTLE = BLOCKS.register("nettle", () -> new WildPlantBlock(plantProperties()));
     public static final DeferredHolder<Block, Block> FIREWEED = BLOCKS.register("fireweed", () -> new WildPlantBlock(plantProperties()));
     public static final DeferredHolder<Block, Block> JUNIPER_BERRIES = BLOCKS.register("juniper_berries", () -> new WildPlantBlock(plantProperties()));
+    public static final DeferredHolder<Block, Block> WILD_ALOE = BLOCKS.register("wild_aloe", () -> new WildPlantBlock(plantProperties().noOcclusion()));
+    public static final DeferredHolder<Block, Block> RED_GRASS = BLOCKS.register("red_grass", () -> new WildPlantBlock(plantProperties().noOcclusion()));
+    public static final DeferredHolder<Block, Block> ELEPHANT_GRASS = BLOCKS.register("elephant_grass", () -> new net.minecraft.world.level.block.DoublePlantBlock(plantProperties().noOcclusion()));
+    public static final DeferredHolder<Block, Block> THORN_BUSH = BLOCKS.register("thorn_bush", () -> new WildPlantBlock(plantProperties().noOcclusion()));
+    public static final DeferredHolder<Block, Block> KIWANO = BLOCKS.register("kiwano", () -> new WildPlantBlock(plantProperties().noOcclusion()));
+    public static final DeferredHolder<Block, Block> WILD_SORGHUM = BLOCKS.register("wild_sorghum", () -> new WildPlantBlock(plantProperties().noOcclusion()));
     public static final DeferredHolder<Block, Block> PERUNITE_ORE = BLOCKS.register("perunite_ore",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0F, 3.0F)
                     .sound(SoundType.STONE)

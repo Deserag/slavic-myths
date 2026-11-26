@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:worldgen/core_savanna",
+  "features": [
+    "slavicmyths:patch_wild_aloe",
+    "slavicmyths:patch_red_grass",
+    "slavicmyths:patch_elephant_grass",
+    "slavicmyths:patch_thorn_bush",
+    "slavicmyths:patch_kiwano",
+    "slavicmyths:patch_wild_sorghum"
+  ],
+  "step": "vegetal_decoration"
+}
