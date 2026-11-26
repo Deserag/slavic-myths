@@ -81,6 +81,7 @@ public final class CombatTargeting {
         return cache.get(owner).map(p->w.getScoreboard().getPlayersTeam(p.getName())).orElse(null);
     }
     private static boolean allied(LivingEntity a,LivingEntity b){
+        if(org.slavicmyths.dungeon.DungeonGuardians.allied(a,b))return true;
         var x=affiliation(a);var y=affiliation(b);var at=effectiveTeam(a);var bt=effectiveTeam(b);
         return a.isAlliedTo(b)||b.isAlliedTo(a)||at!=null&&at.isAlliedTo(bt)
                 ||x!=null&&(x.equals(b.getUUID())||x.equals(y))||y!=null&&y.equals(a.getUUID());

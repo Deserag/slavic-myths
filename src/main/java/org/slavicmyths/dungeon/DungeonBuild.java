@@ -29,7 +29,7 @@ public final class DungeonBuild {
         for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2));
         for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,3));
         var entry=plan.entrance();
-        layers.add(new Layer(new DungeonPlan.Box(entry.x()-1,1,entry.z()-1,entry.x()+1,wellY-2,entry.z()+1,DungeonPlan.Kind.SHAFT,0),3));
+        layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,1,entry.z()-2,entry.x()+2,wellY-2,entry.z()+2,DungeonPlan.Kind.SHAFT,0),3));
         layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,wellY-1,entry.z()-2,entry.x()+2,wellY+4,entry.z()+2,DungeonPlan.Kind.WELL,0),4));
         return layers;
     }
@@ -83,9 +83,11 @@ public final class DungeonBuild {
                 if(height==1&&((dx==3&&dz==3)||(dx==w-3&&dz==d-3)))state=DESERT.trim;
             }
             if(l.pass==3){
-                // Three-wide shaft, stone-lined on the north side; ladder faces south.
-                if(z==b.z0())state=DESERT.wall;
-                else if(z==b.z0()+1&&x==b.x0()+1)state=Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
+                // Sealed shaft; open the lower landing, and seal the upper boss gate.
+                boolean lowerDoor=z==b.z1()&&x>b.x0()&&x<b.x1()&&y<b.y0()+3;
+                if(b.floor()>0&&y==b.y1())state=DESERT.floor;
+                else if(border&&!lowerDoor)state=DESERT.wall;
+                else if(z==b.z0()+1&&x==b.x0()+2)state=ladder();
                 else state=Blocks.AIR.defaultBlockState();
             }
 
@@ -100,6 +102,7 @@ public final class DungeonBuild {
         }
         return state;
     }
+    static BlockState ladder(){return Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);}
     public static boolean start(ServerLevel world,BlockPos origin,DungeonPlan plan,int surface){
         if(JOBS.containsKey(world))return false;
         int wellY=Math.max(surface-origin.getY(),plan.top()+4);

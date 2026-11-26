@@ -89,7 +89,7 @@ public final class DungeonPlan {
                 Box landing=room(previous,y,13,13,8,Kind.ENTRY,f);
                 rooms.add(landing);connect(passages,landing,rooms.get(entryCell),y,f);
                 edges.add(new Edge(entryCell,17));
-                all.add(new Box(previous.x-1,y+1,previous.z-1,previous.x+1,y+PITCH,previous.z+1,Kind.SHAFT,f));
+                all.add(new Box(previous.x-2,y+1,previous.z-2,previous.x+2,y+PITCH,previous.z+2,Kind.SHAFT,f));
             }
             List<String> bosses=last?(doubled?List.of("ant_queen","sand_king"):List.of(queenFirst?"sand_king":"ant_queen")):
                 f==count-2&&!doubled?List.of(queenFirst?"ant_queen":"sand_king"):List.of(old[r.nextInt(old.length)]);
