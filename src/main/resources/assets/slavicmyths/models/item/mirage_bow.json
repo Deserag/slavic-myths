@@ -1,76 +1,73 @@
 {
-  "parent": "item/generated",
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
   "textures": {
-    "layer0": "slavicmyths:item/desert_weapons/mirage_bow"
+    "particle": "slavicmyths:item/desert_weapons/mirage_bow"
   },
-  "display": {
-    "thirdperson_righthand": {
-      "rotation": [
-        -80,
-        260,
-        -40
-      ],
-      "translation": [
-        -1,
-        -2,
-        2.5
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ]
+  "base": {
+    "loader": "neoforge:obj",
+    "model": "slavicmyths:models/item/desert_mesh/mirage_bow.obj",
+    "mtl_override": "slavicmyths:models/item/desert_mesh/desert.mtl",
+    "textures": {
+      "palette": "slavicmyths:item/desert_weapons/palette",
+      "particle": "slavicmyths:item/desert_weapons/palette"
     },
-    "thirdperson_lefthand": {
-      "rotation": [
-        -80,
-        -280,
-        40
-      ],
-      "translation": [
-        -1,
-        -2,
-        2.5
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ]
+    "automatic_culling": false,
+    "shade_quads": true,
+    "flip_v": false,
+    "emissive_ambient": false,
+    "gui_light": "front",
+    "display": {
+      "gui": {
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          2.1452740130266488,
+          0,
+          0
+        ],
+        "scale": [
+          0.43778318992880005,
+          0.43778318992880005,
+          0.43778318992880005
+        ]
+      },
+      "ground": {
+        "translation": [
+          0,
+          3,
+          0
+        ],
+        "scale": [
+          0.4,
+          0.4,
+          0.4
+        ]
+      },
+      "fixed": {
+        "rotation": [
+          0,
+          180,
+          0
+        ],
+        "scale": [
+          0.55,
+          0.55,
+          0.55
+        ]
+      }
     },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        -90,
-        25
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ]
-    },
-    "firstperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        -25
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ]
+    "parent": "minecraft:item/bow"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/desert_weapons/mirage_bow"
+      }
     }
   },
   "overrides": [

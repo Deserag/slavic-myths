@@ -100,9 +100,9 @@
           0
         ],
         "scale": [
-          0.75,
-          0.75,
-          0.75
+          1,
+          1,
+          1
         ]
       },
       "firstperson_lefthand": {
@@ -117,12 +117,14 @@
           0
         ],
         "scale": [
-          0.75,
-          0.75,
-          0.75
+          1,
+          1,
+          1
         ]
       }
-    }
+    },
+    "emissive_ambient": false,
+    "gui_light": "front"
   },
   "perspectives": {
     "gui": {
@@ -131,5 +133,8 @@
         "layer0": "slavicmyths:item/desert_weapons/stinger_dagger"
       }
     }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/desert_weapons/stinger_dagger"
   }
 }

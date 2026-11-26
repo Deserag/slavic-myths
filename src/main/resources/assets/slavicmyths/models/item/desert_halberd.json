@@ -100,9 +100,9 @@
           0
         ],
         "scale": [
-          0.62,
-          0.62,
-          0.62
+          0.85,
+          0.85,
+          0.85
         ]
       },
       "firstperson_lefthand": {
@@ -117,12 +117,14 @@
           0
         ],
         "scale": [
-          0.62,
-          0.62,
-          0.62
+          0.85,
+          0.85,
+          0.85
         ]
       }
-    }
+    },
+    "emissive_ambient": false,
+    "gui_light": "front"
   },
   "perspectives": {
     "gui": {
@@ -131,5 +133,8 @@
         "layer0": "slavicmyths:item/desert_weapons/desert_halberd"
       }
     }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/desert_weapons/desert_halberd"
   }
 }

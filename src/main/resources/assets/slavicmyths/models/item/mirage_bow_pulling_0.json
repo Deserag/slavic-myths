@@ -1,6 +1,73 @@
 {
-  "parent": "slavicmyths:item/mirage_bow",
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
   "textures": {
-    "layer0": "slavicmyths:item/desert_weapons/mirage_bow_pulling_0"
+    "particle": "slavicmyths:item/desert_weapons/mirage_bow_pulling_0"
+  },
+  "base": {
+    "loader": "neoforge:obj",
+    "model": "slavicmyths:models/item/desert_mesh/mirage_bow_pulling_0.obj",
+    "mtl_override": "slavicmyths:models/item/desert_mesh/desert.mtl",
+    "textures": {
+      "palette": "slavicmyths:item/desert_weapons/palette",
+      "particle": "slavicmyths:item/desert_weapons/palette"
+    },
+    "automatic_culling": false,
+    "shade_quads": true,
+    "flip_v": false,
+    "emissive_ambient": false,
+    "gui_light": "front",
+    "display": {
+      "gui": {
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          2.1452740130266488,
+          0,
+          0
+        ],
+        "scale": [
+          0.43778318992880005,
+          0.43778318992880005,
+          0.43778318992880005
+        ]
+      },
+      "ground": {
+        "translation": [
+          0,
+          3,
+          0
+        ],
+        "scale": [
+          0.4,
+          0.4,
+          0.4
+        ]
+      },
+      "fixed": {
+        "rotation": [
+          0,
+          180,
+          0
+        ],
+        "scale": [
+          0.55,
+          0.55,
+          0.55
+        ]
+      }
+    },
+    "parent": "minecraft:item/bow"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "slavicmyths:item/desert_weapons/mirage_bow_pulling_0"
+      }
+    }
   }
 }

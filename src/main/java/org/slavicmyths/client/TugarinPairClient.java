@@ -22,12 +22,14 @@ import org.slavicmyths.combat.*;
 public final class TugarinPairClient {
     public static final net.minecraft.client.resources.model.ModelResourceLocation HELD=net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/tugarin_sword_held"));
     private static final String[] PAIRS={"tugarin_sword","ice_captain_axes","snow_wanderer_hammers","silence_blades","northern_beast_claws","lomeya_hammer","four_winds_fists","scorpion_double_sting"};
+    private static final String[] DESERT_HELD={"desert_sword","desert_axe","desert_mace","desert_halberd","desert_scythe","stinger_dagger","sand_sling","desert_glass_blade","dune_mace","buried_hammer","hala_solar_staff","colony_scepter","lamya_weapon","quicksand_whip"};
+    private static java.util.stream.Stream<String> heldIds(){return java.util.stream.Stream.concat(java.util.Arrays.stream(PAIRS),java.util.Arrays.stream(DESERT_HELD));}
     private static net.minecraft.client.resources.model.ModelResourceLocation heldModel(String id){
         return net.minecraft.client.resources.model.ModelResourceLocation.standalone(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","item/"+id+"_held"));
     }
-    public static void registerModels(ModelEvent.RegisterAdditional e){for(String id:PAIRS)e.register(heldModel(id));}
+    public static void registerModels(ModelEvent.RegisterAdditional e){heldIds().forEach(id->e.register(heldModel(id)));}
     public static void bake(ModelEvent.ModifyBakingResult e){
-        for(String id:PAIRS){
+        for(String id:heldIds().toList()){
             var key=net.minecraft.client.resources.model.ModelResourceLocation.inventory(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths",id));
             var inventory=e.getModels().get(key);var held=e.getModels().get(heldModel(id));
             if(inventory!=null&&held!=null)e.getModels().put(key,new net.neoforged.neoforge.client.model.BakedModelWrapper<net.minecraft.client.resources.model.BakedModel>(inventory){

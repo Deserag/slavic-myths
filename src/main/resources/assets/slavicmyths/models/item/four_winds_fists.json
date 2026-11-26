@@ -66,9 +66,9 @@
           0
         ],
         "scale": [
-          0.7,
-          0.7,
-          0.7
+          0.85,
+          0.85,
+          0.85
         ]
       },
       "thirdperson_lefthand": {
@@ -83,9 +83,9 @@
           0
         ],
         "scale": [
-          0.7,
-          0.7,
-          0.7
+          0.85,
+          0.85,
+          0.85
         ]
       },
       "firstperson_righthand": {
@@ -100,9 +100,9 @@
           0
         ],
         "scale": [
-          0.58,
-          0.58,
-          0.58
+          0.85,
+          0.85,
+          0.85
         ]
       },
       "firstperson_lefthand": {
@@ -117,12 +117,14 @@
           0
         ],
         "scale": [
-          0.58,
-          0.58,
-          0.58
+          0.85,
+          0.85,
+          0.85
         ]
       }
-    }
+    },
+    "emissive_ambient": false,
+    "gui_light": "front"
   },
   "perspectives": {
     "gui": {
@@ -131,5 +133,8 @@
         "layer0": "slavicmyths:item/desert_weapons/four_winds_fists"
       }
     }
+  },
+  "textures": {
+    "particle": "slavicmyths:item/desert_weapons/four_winds_fists"
   }
 }
