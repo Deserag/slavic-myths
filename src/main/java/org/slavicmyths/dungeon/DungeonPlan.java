@@ -4,8 +4,8 @@ import java.util.*;
 
 /** Seeded graph and geometry, independent of Minecraft and of the terrain. */
 public final class DungeonPlan {
-    public static final int PITCH=32, STEP=26, ARENA_OFFSET=89;
-    public enum Kind { ENTRY, HALL, PILLARS, SHRINE, FLOODED, SECRET, TRIAL, BOSS, DOUBLE, CORRIDOR, SHAFT, WELL }
+    public static final int VERSION=2, PITCH=20, LEGACY_PITCH=32, STEP=26, ARENA_OFFSET=89;
+    public enum Kind { ENTRY, HALL, PILLARS, SHRINE, FLOODED, SECRET, TRIAL, BOSS, DOUBLE, CORRIDOR, SHAFT, WELL, STAIR_DESCENT, POOL }
     public record Point(int x,int z) {}
     public record Box(int x0,int y0,int z0,int x1,int y1,int z1,Kind kind,int floor) {
         public boolean contains(int x,int y,int z){return x>=x0&&x<=x1&&y>=y0&&y<=y1&&z>=z0&&z<=z1;}
@@ -16,11 +16,12 @@ public final class DungeonPlan {
     }
     public record Floor(int index,List<Box> rooms,List<Edge> edges,int entry,int trial,int boss,Point exit,List<String> bosses) {}
     public final long seed;
+    public final int version;
     public final List<Floor> floors;
     public final List<Box> boxes;
     public final boolean doubled;
-    private DungeonPlan(long seed,List<Floor> floors,List<Box> boxes,boolean doubled){
-        this.seed=seed;this.floors=List.copyOf(floors);this.boxes=List.copyOf(boxes);this.doubled=doubled;
+    private DungeonPlan(long seed,List<Floor> floors,List<Box> boxes,boolean doubled,int version){
+        this.seed=seed;this.version=version;this.floors=List.copyOf(floors);this.boxes=List.copyOf(boxes);this.doubled=doubled;
     }
     private static Point cell(int i){return new Point((i%4)*STEP-39,(i/4)*STEP-39);}
     private static Point rotate(Point p,int k){return switch(k&3){case 1->new Point(-p.z,p.x);case 2->new Point(-p.x,-p.z);case 3->new Point(p.z,-p.x);default->p;};}
@@ -42,7 +43,10 @@ public final class DungeonPlan {
         Point elbow=new Point(p.x,q.z);
         segment(out,p,elbow,y,floor);if(!elbow.equals(q))segment(out,elbow,q,y,floor);
     }
-    public static DungeonPlan create(long seed,int count){
+    public static DungeonPlan create(long seed,int count){return create(seed,count,VERSION);}
+    public static DungeonPlan create(long seed,int count,int version){
+        if(version!=1&&version!=VERSION)throw new IllegalArgumentException("Unknown dungeon plan version "+version);
+        int pitch=version==1?LEGACY_PITCH:PITCH;
         if(count<3||count>5)throw new IllegalArgumentException("Expected 3–5 floors");
         Random r=new Random(seed);boolean doubled=r.nextInt(5)==0;
         boolean queenFirst=r.nextBoolean();
@@ -50,7 +54,7 @@ public final class DungeonPlan {
         List<Floor> floors=new ArrayList<>();List<Box> all=new ArrayList<>();Point previous=null;
         int rotation=r.nextInt(4);
         for(int f=0;f<count;f++){
-            int y=-f*PITCH;int turn=(rotation+f)%4;
+            int y=-f*pitch;int turn=(rotation+f)%4;
             int bossCell=13; // south edge before rotation; arena is outside the room grid
             int entryCell=f==0?1:11; // previous south edge becomes the local east edge
             Set<Integer> visited=new LinkedHashSet<>();Set<Edge> edges=new LinkedHashSet<>();
@@ -82,21 +86,24 @@ public final class DungeonPlan {
             Point exit=rotate(new Point(-13,ARENA_OFFSET),turn);
             boolean last=f==count-1;
             int width=last&&doubled?91:65,depth=last&&doubled?77:59;
-            Box arena=room(exit,y,(turn&1)==0?width:depth,(turn&1)==0?depth:width,last&&doubled?27:23,last&&doubled?Kind.DOUBLE:Kind.BOSS,f);
+            Box arena=room(exit,y,(turn&1)==0?width:depth,(turn&1)==0?depth:width,version==1?(last&&doubled?27:23):(last&&doubled?18:16),last&&doubled?Kind.DOUBLE:Kind.BOSS,f);
             rooms.add(arena);connect(passages,rooms.get(bossCell),arena,y,f);
             edges.add(new Edge(bossCell,16));
             if(previous!=null){
                 Box landing=room(previous,y,13,13,8,Kind.ENTRY,f);
                 rooms.add(landing);connect(passages,landing,rooms.get(entryCell),y,f);
                 edges.add(new Edge(entryCell,17));
-                all.add(new Box(previous.x-2,y+1,previous.z-2,previous.x+2,y+PITCH,previous.z+2,Kind.SHAFT,f));
+                if(version==1)all.add(new Box(previous.x-2,y+1,previous.z-2,previous.x+2,y+pitch,previous.z+2,Kind.SHAFT,f));
+                else all.add(stairBox(previous,y,f));
             }
             List<String> bosses=last?(doubled?List.of("ant_queen","sand_king"):List.of(queenFirst?"sand_king":"ant_queen")):
                 f==count-2&&!doubled?List.of(queenFirst?"ant_queen":"sand_king"):List.of(old[r.nextInt(old.length)]);
             floors.add(new Floor(f,List.copyOf(rooms),List.copyOf(edges),previous==null?entryCell:17,trial,16,exit,bosses));
-            all.addAll(rooms);all.addAll(passages);previous=exit;
+            all.addAll(rooms);all.addAll(passages);
+            if(version>=2)for(Box b:rooms)if(b.kind==Kind.FLOODED)all.add(new Box(b.x0,b.y0-2,b.z0,b.x1,b.y0,b.z1,Kind.POOL,f));
+            previous=exit;
         }
-        DungeonPlan plan=new DungeonPlan(seed,floors,all,doubled);plan.validate();return plan;
+        DungeonPlan plan=new DungeonPlan(seed,floors,all,doubled,version);plan.validate();return plan;
     }
     public void validate(){
         for(Floor floor:floors){
@@ -113,14 +120,39 @@ public final class DungeonPlan {
         long king=floors.stream().flatMap(f->f.bosses.stream()).filter("sand_king"::equals).count();
         if(queen!=1||king!=1)throw new IllegalStateException("Missing/duplicate desert bosses");
     }
+    // Stair runs away from the central room grid, under its own upper boss arena.
+    // u=0 is the lower landing, u=PITCH+1 is the gated upper landing.
+    private static Box stairBox(Point p,int y,int floor){
+        int dx=Math.abs(p.x)>Math.abs(p.z)?Integer.signum(p.x):0;
+        int dz=dx==0?Integer.signum(p.z):0;
+        int x=p.x+dx*(PITCH+2),z=p.z+dz*(PITCH+2);
+        return new Box(Math.min(p.x,x)-Math.abs(dz)*2,y,Math.min(p.z,z)-Math.abs(dx)*2,
+            Math.max(p.x,x)+Math.abs(dz)*2,y+PITCH+4,Math.max(p.z,z)+Math.abs(dx)*2,Kind.STAIR_DESCENT,floor);
+    }
+    public static boolean stairAlongX(Box b){return b.x1-b.x0>b.z1-b.z0;}
+    public static int stairSign(Box b){return stairAlongX(b)?Integer.signum(b.x0+b.x1):Integer.signum(b.z0+b.z1);}
+    public static int stairU(Box b,int x,int z){
+        return stairAlongX(b)?(stairSign(b)>0?x-b.x0:b.x1-x):(stairSign(b)>0?z-b.z0:b.z1-z);
+    }
+    public static int stairV(Box b,int x,int z){return stairAlongX(b)?z-(b.z0+b.z1)/2:x-(b.x0+b.x1)/2;}
+    public static int stairY(Box b,int u){return b.y0+Math.min(PITCH,u);}
+    public static boolean stairGate(Box b,int x,int y,int z){
+        return stairU(b,x,z)==PITCH+1&&Math.abs(stairV(b,x,z))<2&&y>b.y0+PITCH&&y<=b.y0+PITCH+3;
+    }
+    // Two separated recessed basins in opposite quadrants; both central axes stay dry.
+    public static boolean poolWater(Box b,int x,int z){
+        int dx=x-(b.x0+b.x1)/2,dz=z-(b.z0+b.z1)/2;
+        return dx*dz>0&&Math.abs(dx)>=3&&Math.abs(dz)>=3
+            &&Math.abs(dx)<=(b.x1-b.x0)/2-2&&Math.abs(dz)<=(b.z1-b.z0)/2-2;
+    }
     public Point entrance(){return center(floors.getFirst().rooms.get(floors.getFirst().entry));}
-    public int bottom(){return -(floors.size()-1)*PITCH;}
-    public int top(){return 23;}
+    public int bottom(){return -(floors.size()-1)*(version==1?LEGACY_PITCH:PITCH)-(version==1?0:2);}
+    public int top(){return version==1?23:16;}
     /** Floor zero stays underground if it fits; otherwise raise the complete structure. */
     public int anchorY(int surface,int min,int max){
         int underground=surface-top()-4;
         int y=underground+bottom()>=min+2?underground:Math.max(surface+1-bottom(),min+2-bottom());
-        if(y+top()+1>=max)throw new IllegalArgumentException("Dungeon does not fit build height");
+        if(y+top()+8>=max)throw new IllegalArgumentException("Dungeon does not fit build height");
         return y;
     }
 }

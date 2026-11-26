@@ -53,6 +53,14 @@ public final class DungeonRecords extends SavedData {
     }
     private void openGate(ServerLevel w,Site s,int floor){
         if(floor+1>=s.floors)return;
+        for(var b:s.plan.boxes)if(b.kind()==DungeonPlan.Kind.STAIR_DESCENT&&b.floor()==floor+1){
+            int upper=b.y0()+DungeonPlan.PITCH;
+            for(int x=b.x0();x<=b.x1();x++)for(int z=b.z0();z<=b.z1();z++)for(int y=upper+1;y<=upper+3;y++)
+                if(DungeonPlan.stairGate(b,x,y,z)){
+                    BlockPos p=s.origin.offset(x,y,z);
+                    if(w.hasChunkAt(p)&&!w.isEmptyBlock(p))w.setBlock(p,Blocks.AIR.defaultBlockState(),Block.UPDATE_CLIENTS);
+                }
+        }
         for(var b:s.plan.boxes)if(b.kind()==DungeonPlan.Kind.SHAFT&&b.floor()==floor+1){
             for(int x=b.x0()+1;x<b.x1();x++)for(int z=b.z0()+1;z<b.z1();z++){
                 BlockPos p=s.origin.offset(x,b.y1(),z);if(!w.hasChunkAt(p))continue;
@@ -68,14 +76,13 @@ public final class DungeonRecords extends SavedData {
             setDirty();if(fight.cleared())openGate(w,s,floor);return;
         }
     }
-    private void activate(ServerPlayer player,Site s,DungeonPlan.Floor f){
-        ServerLevel w=player.serverLevel();
+    private int activate(ServerLevel w,ServerPlayer player,Site s,DungeonPlan.Floor f,boolean manual){
         Fight existing=s.fights.get(f.index());
-        if(existing!=null){if(existing.cleared())openGate(w,s,f.index());return;}
-        if(w.getDifficulty()==Difficulty.PEACEFUL)return;
-        if(f.index()>0){
+        if(existing!=null){if(existing.cleared())openGate(w,s,f.index());return 0;}
+        if(w.getDifficulty()==Difficulty.PEACEFUL)return 0;
+        if(!manual&&f.index()>0){
             Fight previous=s.fights.get(f.index()-1);
-            if(previous==null||!previous.cleared())return;
+            if(previous==null||!previous.cleared())return 0;
         }
         var arena=f.rooms().get(f.boss());
         int x=(arena.x0()+arena.x1())/2,z=(arena.z0()+arena.z1())/2,y=arena.y0()+1;
@@ -84,21 +91,31 @@ public final class DungeonRecords extends SavedData {
         for(int i=0;i<count;i++){
             int dx=count==1?0:i==0?-13:13;
             BlockPos at=s.origin.offset(x+dx,y,z+9);
-            if(!w.hasChunkAt(at)||!w.isEmptyBlock(at)||!w.isEmptyBlock(at.above()))return;
+            if(manual)w.getChunk(at.getX()>>4,at.getZ()>>4);
+            if(!w.hasChunkAt(at)||!w.isEmptyBlock(at)||!w.isEmptyBlock(at.above()))return 0;
             Mob boss=DungeonGuardians.create(w,f.bosses().get(i),at,s.origin,f.index(),group);
-            if(boss==null)return;
+            if(boss==null)return 0;
             prepared.add(boss);
         }
         Fight fight=new Fight();
         for(Mob boss:prepared){
             if(!w.addFreshEntity(boss)){
                 for(Mob other:prepared)if(fight.spawned.contains(other.getUUID()))other.discard();
-                return;
+                return 0;
             }
-            fight.spawned.add(boss.getUUID());boss.setTarget(player);
+            fight.spawned.add(boss.getUUID());if(player!=null)boss.setTarget(player);
         }
         s.fights.put(f.index(),fight);setDirty();
-        player.displayClientMessage(Component.literal("Хранитель подземелий: победите всех боссов этажа"),true);
+        if(player!=null)player.displayClientMessage(Component.literal("Хранитель подземелий: победите всех боссов этажа"),true);
+        return fight.spawned.size();
+    }
+    int spawnManualGuardians(ServerLevel world,BlockPos origin){
+        for(Site s:sites)if(s.origin.equals(origin)&&s.complete){
+            int count=0;
+            for(var f:s.plan.floors)count+=activate(world,null,s,f,true);
+            return count;
+        }
+        return 0;
     }
     private void visit(ServerPlayer player){
         BlockPos p=player.blockPosition();
@@ -107,7 +124,7 @@ public final class DungeonRecords extends SavedData {
             int x=p.getX()-s.origin.getX(),y=p.getY()-s.origin.getY(),z=p.getZ()-s.origin.getZ();
             for(var f:s.plan.floors){
                 var arena=f.rooms().get(f.boss());
-                if(arena.contains(x,y,z)&&x>arena.x0()+2&&x<arena.x1()-2&&z>arena.z0()+2&&z<arena.z1()-2)activate(player,s,f);
+                if(arena.contains(x,y,z)&&x>arena.x0()+2&&x<arena.x1()-2&&z>arena.z0()+2&&z<arena.z1()-2)activate(player.serverLevel(),player,s,f,false);
             }
         }
     }
@@ -131,13 +148,13 @@ public final class DungeonRecords extends SavedData {
                 for(Tag id:f.getList("Dead",8))fight.dead.add(UUID.fromString(id.getAsString()));
                 fights.put(f.getInt("Floor"),fight);
             }
-            d.sites.add(new Site(BlockPos.of(s.getLong("Origin")),seed,floors,DungeonPlan.create(seed,floors),s.getBoolean("Complete"),fights));
+            d.sites.add(new Site(BlockPos.of(s.getLong("Origin")),seed,floors,DungeonPlan.create(seed,floors,s.contains("PlanVersion")?s.getInt("PlanVersion"):1),s.getBoolean("Complete"),fights));
         }return d;
     }
     @Override public CompoundTag save(CompoundTag n,HolderLookup.Provider r){
         ListTag list=new ListTag();
         for(Site s:sites){
-            CompoundTag t=new CompoundTag();t.putLong("Origin",s.origin.asLong());t.putLong("Seed",s.seed);t.putInt("Floors",s.floors);t.putBoolean("Complete",s.complete);
+            CompoundTag t=new CompoundTag();t.putLong("Origin",s.origin.asLong());t.putLong("Seed",s.seed);t.putInt("Floors",s.floors);t.putInt("PlanVersion",s.plan.version);t.putBoolean("Complete",s.complete);
             ListTag fights=new ListTag();
             for(var entry:s.fights.entrySet()){
                 CompoundTag f=new CompoundTag();f.putInt("Floor",entry.getKey());ListTag spawned=new ListTag(),dead=new ListTag();

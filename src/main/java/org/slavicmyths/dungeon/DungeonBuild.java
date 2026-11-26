@@ -21,13 +21,16 @@ public final class DungeonBuild {
     private static final Palette DESERT=new Palette(Blocks.SANDSTONE.defaultBlockState(),Blocks.SMOOTH_SANDSTONE.defaultBlockState(),Blocks.CHISELED_SANDSTONE.defaultBlockState(),Blocks.CUT_SANDSTONE.defaultBlockState());
     private static final Map<ServerLevel,Job> JOBS=new IdentityHashMap<>();
     private static final int BUDGET=4096;
-    private record Layer(DungeonPlan.Box box,int pass){}
+    private record Layer(DungeonPlan.Box box,int pass,boolean legacy){Layer(DungeonPlan.Box box,int pass){this(box,pass,false);}}
+    private static boolean roomShell(DungeonPlan.Box box){return box.kind()!=DungeonPlan.Kind.SHAFT&&box.kind()!=DungeonPlan.Kind.STAIR_DESCENT&&box.kind()!=DungeonPlan.Kind.POOL;}
     private static List<Layer> layers(DungeonPlan plan,int wellY){
         List<Layer> layers=new ArrayList<>();
-        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,0));
-        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,1));
-        for(var box:plan.boxes)if(box.kind()!=DungeonPlan.Kind.SHAFT&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2));
+        for(var box:plan.boxes)if(roomShell(box))layers.add(new Layer(box,0));
+        for(var box:plan.boxes)if(roomShell(box))layers.add(new Layer(box,1));
+        for(var box:plan.boxes)if(roomShell(box)&&box.kind()!=DungeonPlan.Kind.CORRIDOR)layers.add(new Layer(box,2,plan.version==1));
         for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.SHAFT)layers.add(new Layer(box,3));
+        for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.POOL)layers.add(new Layer(box,5));
+        for(var box:plan.boxes)if(box.kind()==DungeonPlan.Kind.STAIR_DESCENT)layers.add(new Layer(box,6));
         var entry=plan.entrance();
         layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,1,entry.z()-2,entry.x()+2,wellY-2,entry.z()+2,DungeonPlan.Kind.SHAFT,0),3));
         layers.add(new Layer(new DungeonPlan.Box(entry.x()-2,wellY-1,entry.z()-2,entry.x()+2,wellY+4,entry.z()+2,DungeonPlan.Kind.WELL,0),4));
@@ -51,10 +54,10 @@ public final class DungeonBuild {
         }
     }
     private static final class Job{
-        final ServerLevel world;final BlockPos origin;final DungeonPlan plan;final List<Layer> layers;
+        final ServerLevel world;final BlockPos origin;final DungeonPlan plan;final List<Layer> layers;final java.util.function.IntConsumer onComplete;
         int index,x,y,z;
-        Job(ServerLevel world,BlockPos origin,DungeonPlan plan,int wellY){
-            this.world=world;this.origin=origin;this.plan=plan;this.layers=layers(plan,wellY);reset();
+        Job(ServerLevel world,BlockPos origin,DungeonPlan plan,int wellY,java.util.function.IntConsumer onComplete){
+            this.world=world;this.origin=origin;this.plan=plan;this.layers=layers(plan,wellY);this.onComplete=onComplete;reset();
         }
         void reset(){if(index>=layers.size())return;var b=layers.get(index).box;x=b.x0();y=b.y0();z=b.z0();}
         boolean step(){
@@ -78,7 +81,7 @@ public final class DungeonBuild {
                 int w=b.x1()-b.x0(),d=b.z1()-b.z0();
                 boolean pillar=(dx==4||dx==w-4)&&(dz==4||dz==d-4);
                 if(pillar&&height<=b.y1()-b.y0()-1&&b.kind()!=DungeonPlan.Kind.SECRET)state=height==1||y==b.y1()-1?DESERT.trim:DESERT.column;
-                if(height==1&&b.kind()==DungeonPlan.Kind.FLOODED&&dx>=w/2-2&&dx<=w/2+2&&dz>=4&&dz<=d-4)state=Blocks.WATER.defaultBlockState();
+                if(l.legacy&&height==1&&b.kind()==DungeonPlan.Kind.FLOODED&&dx>=w/2-2&&dx<=w/2+2&&dz>=4&&dz<=d-4)state=Blocks.WATER.defaultBlockState();
                 if(height==2&&((dx==3&&dz==3)||(dx==w-3&&dz==d-3)))state=Blocks.SOUL_LANTERN.defaultBlockState();
                 if(height==1&&((dx==3&&dz==3)||(dx==w-3&&dz==d-3)))state=DESERT.trim;
             }
@@ -100,10 +103,29 @@ public final class DungeonBuild {
             else if((dx==0||dx==4)&&(dz==0||dz==4))state=DESERT.column;
             else state=Blocks.AIR.defaultBlockState();
         }
+        if(l.pass==5){
+            boolean water=DungeonPlan.poolWater(b,x,z);
+            boolean rim=!water&&(DungeonPlan.poolWater(b,x-1,z)||DungeonPlan.poolWater(b,x+1,z)||DungeonPlan.poolWater(b,x,z-1)||DungeonPlan.poolWater(b,x,z+1));
+            if(water)state=y==b.y0()?DESERT.floor:Blocks.WATER.defaultBlockState();
+            else if(rim)state=DESERT.column;
+        }
+        if(l.pass==6){
+            int u=DungeonPlan.stairU(b,x,z),v=DungeonPlan.stairV(b,x,z);
+            int h=DungeonPlan.stairY(b,u);
+            if(Math.abs(v)==2){if(y>=h-1&&y<=h+4)state=DESERT.wall;}
+            else if(y==h-1)state=DESERT.floor;
+            else if(y==h){
+                if(u>=1&&u<=DungeonPlan.PITCH){
+                    Direction facing=DungeonPlan.stairAlongX(b)?(DungeonPlan.stairSign(b)>0?Direction.EAST:Direction.WEST):(DungeonPlan.stairSign(b)>0?Direction.SOUTH:Direction.NORTH);
+                    state=Blocks.SMOOTH_SANDSTONE_STAIRS.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,facing);
+                }else state=DESERT.floor;
+            }else if(y==h+4)state=DESERT.trim;
+            else if(y>h&&y<h+4)state=DungeonPlan.stairGate(b,x,y,z)?DESERT.column:Blocks.AIR.defaultBlockState();
+        }
         return state;
     }
     static BlockState ladder(){return Blocks.LADDER.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);}
-    public static boolean start(ServerLevel world,BlockPos origin,DungeonPlan plan,int surface){
+    public static boolean start(ServerLevel world,BlockPos origin,DungeonPlan plan,int surface,java.util.function.IntConsumer onComplete){
         if(JOBS.containsKey(world))return false;
         int wellY=Math.max(surface-origin.getY(),plan.top()+4);
         for(var layer:layers(plan,wellY)){var b=layer.box;
@@ -112,15 +134,18 @@ public final class DungeonBuild {
             if(origin.getY()+b.y0()<world.getMinBuildHeight()||origin.getY()+b.y1()>=world.getMaxBuildHeight())return false;
         }
         if(!DungeonRecords.get(world).reserve(origin,plan))return false;
-        JOBS.put(world,new Job(world,origin,plan,wellY));return true;
+        JOBS.put(world,new Job(world,origin,plan,wellY,onComplete));return true;
     }
     @SubscribeEvent public static void tick(ServerTickEvent.Post e){
         for(var it=JOBS.entrySet().iterator();it.hasNext();){
             var entry=it.next();if(entry.getKey().getServer()!=e.getServer())continue;
             Job job=entry.getValue();int n=0;while(n++<BUDGET&&job.step()){}
             if(job.index>=job.layers.size()){
-                DungeonRecords.get(job.world).complete(job.origin);
+                DungeonRecords records=DungeonRecords.get(job.world);
+                records.complete(job.origin);
                 it.remove();
+                int spawned=records.spawnManualGuardians(job.world,job.origin);
+                job.onComplete.accept(spawned);
             }
         }
     }

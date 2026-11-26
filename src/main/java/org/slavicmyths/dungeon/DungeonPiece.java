@@ -19,11 +19,11 @@ public final class DungeonPiece extends StructurePiece {
     }
     public DungeonPiece(CompoundTag n){
         super(DungeonStructure.PIECE.get(),n);
-        plan=DungeonPlan.create(n.getLong("Seed"),n.getInt("Floors"));
+        plan=DungeonPlan.create(n.getLong("Seed"),n.getInt("Floors"),n.contains("PlanVersion")?n.getInt("PlanVersion"):1);
         origin=BlockPos.of(n.getLong("Origin"));wellY=n.getInt("WellY");
     }
     @Override protected void addAdditionalSaveData(StructurePieceSerializationContext c,CompoundTag n){
-        n.putLong("Seed",plan.seed);n.putInt("Floors",plan.floors.size());n.putLong("Origin",origin.asLong());n.putInt("WellY",wellY);
+        n.putLong("Seed",plan.seed);n.putInt("PlanVersion",plan.version);n.putInt("Floors",plan.floors.size());n.putLong("Origin",origin.asLong());n.putInt("WellY",wellY);
     }
     @Override public synchronized void postProcess(WorldGenLevel w,StructureManager sm,ChunkGenerator g,RandomSource random,BoundingBox clip,ChunkPos chunk,BlockPos pivot){
         if(!registered){registered=true;var server=w.getLevel();server.getServer().execute(()->DungeonRecords.get(server).registerNatural(origin,plan));}
