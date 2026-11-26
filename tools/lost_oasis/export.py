@@ -36,6 +36,47 @@ for x in range(-5,6):
 for x in range(-5,6):
     for z in range(-57,-52):
         v[x,z,-2]="sand";v[x,z,-1]="old";v[x,z,0]="stone";v[x,z,1]="light"
+# Clear the principal entrance aisle. Move the two floor lanterns to the side
+# rather than leaving obstacles in the 9-block passage.
+for z in range(-57,1):
+    for x in range(-4,5):
+        for y in range(2,9):
+            if v.get((x,z,y))=="lantern":
+                side=-6 if x<0 else 6
+                if (side,z,2) not in v and (side,z,1) in v:
+                    v[side,z,2]="lantern"
+            v.pop((x,z,y),None)
+# Re-audit the final exported walkable ring (rather than the preview alone).
+from collections import deque
+import math
+def radius(x,z):return math.hypot(x,z/1.08)
+def field():
+    q=deque(); result={}
+    for p,m in v.items():
+        if m=="lantern" and 2<=p[2]<=6 and 30<=radius(*p[:2])<=52:
+            q.append(p);result[p]=15
+    while q:
+        x,z,y=q.popleft();n=result[x,z,y]-1
+        if n<=0:continue
+        for dx,dz,dy in [(1,0,0),(-1,0,0),(0,1,0),(0,-1,0),(0,0,1),(0,0,-1)]:
+            p=(x+dx,z+dz,y+dy)
+            if not(1<=p[2]<=8 and 30<=radius(*p[:2])<=53):continue
+            if p in v and v[p] not in ("lantern","water","water2"):continue
+            if result.get(p,0)<n:result[p]=n;q.append(p)
+    return result
+final_walk=[(x,z,2) for x in range(-51,52) for z in range(-56,57) if 40<=radius(x,z)<47 and not(z>=30 and abs(x)<=24) and (x,z,1) in v and (x,z,2) not in v and (x,z,3) not in v]
+final_light=field()
+# Do not insert lamps in the main aisle; use supported side positions instead.
+for _ in range(70):
+    dark=[p for p in final_walk if p not in v and final_light.get(p,0)<8 and not(abs(p[0])<=4 and p[1]<=0)]
+    if not dark:break
+    p=min(dark,key=lambda p:final_light.get(p,0));v[p]="lantern";final_light=field()
+final_walk=[p for p in final_walk if p not in v]
+assert all(final_light.get(p,0)>=8 for p in final_walk), "Exported gallery light proxy"
+print("Final exported gallery light:",len(final_walk),min(final_light[p] for p in final_walk))
+for z in range(-57,1):
+    for x in range(-4,5):
+        assert (x,z,1) in v and all((x,z,y) not in v for y in range(2,9))
 # Actual occupied coordinates determine the active footprint; no terrain edits outside it.
 assert len(walk)>1500 and min(levels[p] for p in walk)>=8
 assert sum(v.get((x,z,5))=="fire" for x in range(-20,21) for z in range(-22,23))==12

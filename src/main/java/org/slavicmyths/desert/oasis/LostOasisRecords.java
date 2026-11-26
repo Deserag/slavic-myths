@@ -26,7 +26,8 @@ public final class LostOasisRecords extends SavedData {
     }
     private final Map<BlockPos,Site> sites=new HashMap<>();
     public static LostOasisRecords get(ServerLevel w){return w.getDataStorage().computeIfAbsent(new SavedData.Factory<>(LostOasisRecords::new,(n,r)->load(n)),"slavicmyths_lost_oases");}
-    private boolean overlaps(BlockPos o){for(Site s:sites.values())if(o.getX()<s.o.getX()+W&&s.o.getX()<o.getX()+W&&o.getZ()<s.o.getZ()+D&&s.o.getZ()<o.getZ()+D)return true;return false;}
+    private boolean overlaps(BlockPos o){return overlaps(o,W,D);}
+    public boolean overlaps(BlockPos o,int width,int depth){for(Site s:sites.values())if(o.getX()<s.o.getX()+W&&s.o.getX()<o.getX()+width&&o.getZ()<s.o.getZ()+D&&s.o.getZ()<o.getZ()+depth)return true;return false;}
     boolean reserveManual(BlockPos o){
         Site old=sites.get(o);
         if(old!=null)return old.manual&&!old.ready;

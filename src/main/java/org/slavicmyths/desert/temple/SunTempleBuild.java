@@ -74,6 +74,7 @@ public final class SunTempleBuild {
     static boolean start(ServerLevel w,BlockPos o,java.util.function.Consumer<Boolean> done){
         if(JOBS.containsKey(w)||o.getY()<w.getMinBuildHeight()+1||o.getY()+SunTemplePlan.H>w.getMaxBuildHeight()
             ||!w.getWorldBorder().isWithinBounds(o)||!w.getWorldBorder().isWithinBounds(o.offset(SunTemplePlan.W-1,0,SunTemplePlan.D-1))
+            ||org.slavicmyths.desert.oasis.LostOasisRecords.get(w).overlaps(o,SunTemplePlan.W,SunTemplePlan.D)
             ||!SunTempleRecords.get(w).reserve(o))return false;
         JOBS.put(w,new Job(w,o,done));return true;
     }
