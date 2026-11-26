@@ -35,4 +35,20 @@ Numbers (e.g. 3–6 followers, 5–7 pack members) are starting points, not fina
 - No forced chunk loading, bounded AI workload, and no interference with desert content.
 - Build, GameTests, in-game visual and behavioral tests required before acceptance.
 
-No new bosses or wildlife are approved by this document; exact creatures, stats, loot, encounter count and structure placement remain open.
+## Approved ordinary wildlife roster
+
+The following nine species are approved for the savanna update (user decision, 2026-11-26):
+
+| Species | Russian name | Broad ecological role |
+| --- | --- | --- |
+| Aurochs (Bos primigenius) | Тур | Large herd herbivore |
+| Saiga (Saiga tatarica) | Сайгак | Herd herbivore |
+| Tarpan | Тарпан | Wild horse, herd herbivore |
+| Golden jackal (Canis aureus) | Шакал | Small predator |
+| Striped hyena (Hyaena hyaena) | Полосатая гиена | Predator/scavenger |
+| Persian leopard (Panthera pardus tulliana) | Переднеазиатский леопард | Solitary predator |
+| Common pheasant (Phasianus colchicus) | Фазан | Ground bird |
+| Steppe eagle (Aquila nipalensis) | Степной орёл | Flying raptor |
+| Goitered gazelle (Gazella subgutturosa) | Джейран | Herd herbivore |
+
+Kulan, great bustard and steppe marmot are explicitly deferred; no additional species are approved at this stage. Existing creatures are not to be duplicated; review AurochsMesh and existing wildlife AI before implementation. Ecological roles are design suggestions, not finalized behaviors or balance. Ordinary wildlife is distinct from boss encounters; no boss roster, stats, loot, encounter counts or structure placement have been approved. Implementation pending.
