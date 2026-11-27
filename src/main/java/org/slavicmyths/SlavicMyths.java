@@ -210,6 +210,7 @@ public final class SlavicMyths {
         bus.addListener(org.slavicmyths.hunt.HuntSpawns::placements);
         bus.addListener(org.slavicmyths.world.SpiritSpawns::registerPlacements);
         bus.addListener(org.slavicmyths.world.WildlifeSpawns::placements);
+        bus.addListener(org.slavicmyths.savanna.SavannaSpawns::placements);
         bus.addListener(org.slavicmyths.water.WaterSpawns::placements);
         bus.addListener(org.slavicmyths.world.LandEncounters::placements);
         bus.addListener(org.slavicmyths.nethersmithing.NetherSmithing::defaults);

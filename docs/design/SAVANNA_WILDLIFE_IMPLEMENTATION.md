@@ -1,0 +1,3 @@
+# Savanna wildlife — initial source implementation
+
+Nine approved ordinary species, separate from future boss encounters. V2-style single torso geometry with pixel atlases, articulated limbs, wings and timed attacks. Spawn group identity is saved; secondary habitat tags and weights are independent of primary savanna. AI includes local flock cohesion, defensive aurochs, prey avoidance and limited predator hunting. Vanilla drops are provisional; no new boss rewards or mechanics. This is a first source implementation, not a tested release. Validate with Gradle, GameTests and in-game model/animation and biome spawning inspection.

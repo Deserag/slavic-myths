@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:savanna_striped_hyena_secondary",
+  "spawners": [
+    {
+      "type": "slavicmyths:striped_hyena",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 3
+    }
+  ]
+}

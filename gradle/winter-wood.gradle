@@ -228,6 +228,11 @@ tasks.named('processResources') {
             lang['item.slavicmyths.marula_fruit']=locale=='en_us'?'Marula Fruit':'Плод марулы'
             def plants=[wild_aloe:['Wild Aloe','Дикое алоэ'],red_grass:['Red Grass','Красная трава'],elephant_grass:['Elephant Grass','Слоновая трава'],thorn_bush:['Thorn Bush','Колючий кустарник'],kiwano:['Kiwano','Кивано'],wild_sorghum:['Wild Sorghum','Дикое сорго']]
             plants.each { id,names -> lang['block.slavicmyths.'+id]=names[locale=='en_us'?0:1] }
+            def savannaAnimals=[aurochs:['Aurochs','Тур'],saiga:['Saiga','Сайгак'],tarpan:['Tarpan','Тарпан'],jayran:['Goitered Gazelle','Джейран'],jackal:['Golden Jackal','Шакал'],striped_hyena:['Striped Hyena','Полосатая гиена'],persian_leopard:['Persian Leopard','Переднеазиатский леопард'],pheasant:['Pheasant','Фазан'],steppe_eagle:['Steppe Eagle','Степной орёл']]
+            savannaAnimals.each { id,names ->
+                lang['entity.slavicmyths.'+id]=names[locale=='en_us'?0:1]
+                lang['item.slavicmyths.'+id+'_spawn_egg']=locale=='en_us'?names[0]+' Spawn Egg':'Яйцо призыва: '+names[1]
+            }
             lf.setText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(lang))+'\n','UTF-8')
         }
         // Explicitly fail if an essential resource is not produced.

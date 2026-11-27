@@ -292,6 +292,15 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> BROWN_BEAR_SPAWN_EGG=ITEMS.register("brown_bear_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(true,0x4b3427,0xb28a62,properties()));
     public static final DeferredHolder<Item, Item> BEAR_CUB_SPAWN_EGG=egg("bear_cub_spawn_egg",ModEntities.BEAR_CUB,0x6b4a35,0xcda578);
     public static final DeferredHolder<Item, Item> GREY_WOLF_SPAWN_EGG=egg("grey_wolf_spawn_egg",ModEntities.GREY_WOLF,0x34353a,0xd99a37);
+    public static final DeferredHolder<Item, Item> AUROCHS_SPAWN_EGG=egg("aurochs_spawn_egg",ModEntities.AUROCHS,0x654839,0x33251e);
+    public static final DeferredHolder<Item, Item> SAIGA_SPAWN_EGG=egg("saiga_spawn_egg",ModEntities.SAIGA,0xc69a62,0x66513a);
+    public static final DeferredHolder<Item, Item> TARPAN_SPAWN_EGG=egg("tarpan_spawn_egg",ModEntities.TARPAN,0x8f8271,0x34312c);
+    public static final DeferredHolder<Item, Item> JAYRAN_SPAWN_EGG=egg("jayran_spawn_egg",ModEntities.JAYRAN,0xbd8952,0x5a4634);
+    public static final DeferredHolder<Item, Item> JACKAL_SPAWN_EGG=egg("jackal_spawn_egg",ModEntities.JACKAL,0xbc8546,0x534a41);
+    public static final DeferredHolder<Item, Item> STRIPED_HYENA_SPAWN_EGG=egg("striped_hyena_spawn_egg",ModEntities.STRIPED_HYENA,0xa89980,0x3c3836);
+    public static final DeferredHolder<Item, Item> PERSIAN_LEOPARD_SPAWN_EGG=egg("persian_leopard_spawn_egg",ModEntities.PERSIAN_LEOPARD,0xc99543,0x4e3728);
+    public static final DeferredHolder<Item, Item> PHEASANT_SPAWN_EGG=egg("pheasant_spawn_egg",ModEntities.PHEASANT,0xa85d32,0x225a50);
+    public static final DeferredHolder<Item, Item> STEPPE_EAGLE_SPAWN_EGG=egg("steppe_eagle_spawn_egg",ModEntities.STEPPE_EAGLE,0x67452d,0x382b25);
     public static final DeferredHolder<Item, Item> FOREST_WOLF_SPAWN_EGG=egg("forest_wolf_spawn_egg",ModEntities.FOREST_WOLF,0x292b2e,0xb2a98f);
     public static final DeferredHolder<Item, Item> BOAR_SPAWN_EGG=egg("boar_spawn_egg",ModEntities.BOAR,0x493a32,0xd5c09c);
     public static final DeferredHolder<Item, Item> STAG_SPAWN_EGG=ITEMS.register("stag_spawn_egg",()->new org.slavicmyths.item.WildlifeFamilyEgg(false,0x76533b,0xd1ad7b,properties()));

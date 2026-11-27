@@ -1,0 +1,60 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:worldgen/core_savanna",
+  "spawners": [
+    {
+      "type": "slavicmyths:aurochs",
+      "weight": 5,
+      "minCount": 3,
+      "maxCount": 6
+    },
+    {
+      "type": "slavicmyths:saiga",
+      "weight": 7,
+      "minCount": 8,
+      "maxCount": 14
+    },
+    {
+      "type": "slavicmyths:tarpan",
+      "weight": 5,
+      "minCount": 5,
+      "maxCount": 9
+    },
+    {
+      "type": "slavicmyths:jayran",
+      "weight": 6,
+      "minCount": 4,
+      "maxCount": 7
+    },
+    {
+      "type": "slavicmyths:jackal",
+      "weight": 5,
+      "minCount": 2,
+      "maxCount": 5
+    },
+    {
+      "type": "slavicmyths:striped_hyena",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 3
+    },
+    {
+      "type": "slavicmyths:persian_leopard",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 1
+    },
+    {
+      "type": "slavicmyths:pheasant",
+      "weight": 8,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "slavicmyths:steppe_eagle",
+      "weight": 2,
+      "minCount": 1,
+      "maxCount": 2
+    }
+  ]
+}

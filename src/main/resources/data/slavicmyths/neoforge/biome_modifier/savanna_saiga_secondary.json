@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:savanna_saiga_secondary",
+  "spawners": [
+    {
+      "type": "slavicmyths:saiga",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 4
+    }
+  ]
+}

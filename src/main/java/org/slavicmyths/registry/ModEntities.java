@@ -38,6 +38,18 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.entity.WildlifeEntity>> BOAR = wildlife("boar", org.slavicmyths.entity.WildlifeEntity.Kind.BOAR, 1.05F, 1.0F);
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.entity.WildlifeEntity>> STAG = wildlife("stag", org.slavicmyths.entity.WildlifeEntity.Kind.STAG, 1.0F, 2.1F);
     public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.entity.WildlifeEntity>> DOE = wildlife("doe", org.slavicmyths.entity.WildlifeEntity.Kind.DOE, .9F, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> AUROCHS = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.AUROCHS, 1.3F, 1.95F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> SAIGA = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.SAIGA, 0.7F, 1.45F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> TARPAN = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.TARPAN, 1F, 1.95F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> JAYRAN = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.JAYRAN, 0.65F, 1.5F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> JACKAL = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.JACKAL, 0.65F, 0.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> STRIPED_HYENA = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.STRIPED_HYENA, 0.85F, 1.1F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> PERSIAN_LEOPARD = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.PERSIAN_LEOPARD, 0.85F, 1.1F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> PHEASANT = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.PHEASANT, 0.45F, 0.65F);
+    public static final DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> STEPPE_EAGLE = savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind.STEPPE_EAGLE, 0.75F, 1.05F);
+    private static DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.savanna.SavannaAnimal>> savannaAnimal(org.slavicmyths.savanna.SavannaAnimal.Kind kind,float width,float height){
+        return ENTITIES.register(kind.id,()->EntityType.Builder.<org.slavicmyths.savanna.SavannaAnimal>of((type,world)->new org.slavicmyths.savanna.SavannaAnimal(type,world,kind),MobCategory.CREATURE).sized(width,height).clientTrackingRange(10).build("slavicmyths:"+kind.id));
+    }
     private static DeferredHolder<EntityType<?>, EntityType<org.slavicmyths.entity.WildlifeEntity>> wildlife(String id, org.slavicmyths.entity.WildlifeEntity.Kind kind, float width, float height) {
         return ENTITIES.register(id, () -> EntityType.Builder.<org.slavicmyths.entity.WildlifeEntity>of((type,world) -> new org.slavicmyths.entity.WildlifeEntity(type,world,kind), MobCategory.CREATURE).sized(width,height).clientTrackingRange(10).build("slavicmyths:"+id));
     }
@@ -94,6 +106,15 @@ public final class ModEntities {
         event.put(OVINNIK.get(), org.slavicmyths.entity.OvinnikEntity.attributes().build());
         event.put(BROWN_BEAR.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.BEAR).build());
         event.put(BEAR_CUB.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.CUB).build());
+        event.put(AUROCHS.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.AUROCHS).build());
+        event.put(SAIGA.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.SAIGA).build());
+        event.put(TARPAN.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.TARPAN).build());
+        event.put(JAYRAN.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.JAYRAN).build());
+        event.put(JACKAL.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.JACKAL).build());
+        event.put(STRIPED_HYENA.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.STRIPED_HYENA).build());
+        event.put(PERSIAN_LEOPARD.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.PERSIAN_LEOPARD).build());
+        event.put(PHEASANT.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.PHEASANT).build());
+        event.put(STEPPE_EAGLE.get(),org.slavicmyths.savanna.SavannaAnimal.attributes(org.slavicmyths.savanna.SavannaAnimal.Kind.STEPPE_EAGLE).build());
         event.put(FOREST_WOLF.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.WOLF).build());
         event.put(BOAR.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.BOAR).build());
         event.put(STAG.get(), org.slavicmyths.entity.WildlifeEntity.attributes(org.slavicmyths.entity.WildlifeEntity.Kind.STAG).build());

@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:savanna_persian_leopard_rare",
+  "spawners": [
+    {
+      "type": "slavicmyths:persian_leopard",
+      "weight": 1,
+      "minCount": 1,
+      "maxCount": 1
+    }
+  ]
+}

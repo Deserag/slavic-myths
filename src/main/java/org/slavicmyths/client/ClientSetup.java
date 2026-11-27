@@ -480,6 +480,15 @@ public final class ClientSetup {
 
         event.registerEntityRenderer(ModEntities.BEAR_CUB.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.CUB,"bear_cub",.4F));
 
+        event.registerEntityRenderer(ModEntities.AUROCHS.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.AUROCHS,0.72F));
+        event.registerEntityRenderer(ModEntities.SAIGA.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.SAIGA,0.39F));
+        event.registerEntityRenderer(ModEntities.TARPAN.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.TARPAN,0.55F));
+        event.registerEntityRenderer(ModEntities.JAYRAN.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.JAYRAN,0.36F));
+        event.registerEntityRenderer(ModEntities.JACKAL.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.JACKAL,0.36F));
+        event.registerEntityRenderer(ModEntities.STRIPED_HYENA.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.STRIPED_HYENA,0.47F));
+        event.registerEntityRenderer(ModEntities.PERSIAN_LEOPARD.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.PERSIAN_LEOPARD,0.47F));
+        event.registerEntityRenderer(ModEntities.PHEASANT.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.PHEASANT,0.25F));
+        event.registerEntityRenderer(ModEntities.STEPPE_EAGLE.get(),ctx->new SavannaAnimalRenderer(ctx,org.slavicmyths.savanna.SavannaAnimal.Kind.STEPPE_EAGLE,0.41F));
         event.registerEntityRenderer(ModEntities.FOREST_WOLF.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.WOLF,"forest_wolf",.5F));
 
         event.registerEntityRenderer(ModEntities.BOAR.get(), m -> new WildlifeRenderer(m, org.slavicmyths.entity.WildlifeEntity.Kind.BOAR,"boar",.6F));

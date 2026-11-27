@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#slavicmyths:savanna_jayran_secondary",
+  "spawners": [
+    {
+      "type": "slavicmyths:jayran",
+      "weight": 3,
+      "minCount": 1,
+      "maxCount": 4
+    }
+  ]
+}
