@@ -49,10 +49,10 @@ for owner, sites in calls.items():
         print(f"REVIEW registrar {owner}: " + ", ".join(sites))
 
 main = (JAVA / "SlavicMyths.java").read_text(encoding="utf-8")
-network = (JAVA / "netherboss/NetherTrophyNetwork.java").read_text(encoding="utf-8")
+network = (JAVA / "rpg/RpgNetwork.java").read_text(encoding="utf-8")
 payload = (JAVA / "network/MythPayloads.java").read_text(encoding="utf-8")
-if "NetherTrophyNetwork::register" not in main:
-    errors.append("NetherTrophyNetwork registration listener missing in SlavicMyths")
+if "RpgNetwork::register" not in main:
+    errors.append("RpgNetwork registration listener missing in SlavicMyths")
 if not all(x in network for x in ("RegisterPayloadHandlersEvent", "MythPayloads.NetherTrophy.TYPE", ".playToServer(")):
     errors.append("NetherTrophy network handler not registered for server-bound payload")
 if "record NetherTrophy(" not in payload:

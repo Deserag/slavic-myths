@@ -45,8 +45,13 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
             "slavicmyths", "textures/block/textile_cloth.png");
     private final ItemRenderer items;
     private final ItemStack helm;
-    private String paletteKey = "";
-    private Map<BlockPos, BlockState> cachedPalette = Map.of();
+    private final Map<String, Map<BlockPos, BlockState>> paletteCache =
+            new LinkedHashMap<>(8, .75F, true) {
+                @Override protected boolean removeEldestEntry(
+                        Map.Entry<String, Map<BlockPos, BlockState>> eldest) {
+                    return size() > 8;
+                }
+            };
     private final Map<FirstShipEntity, Double> sailPressure = new WeakHashMap<>();
 
     public FirstShipRenderer(EntityRendererProvider.Context context) {
@@ -62,33 +67,35 @@ public final class FirstShipRenderer extends EntityRenderer<FirstShipEntity> {
         String key = ship.geometryVersion() + ":" + ship.rigLevel() + ":"
                 + ship.fabricQuality() + ":" + ship.movingCargoView()
                 + ":" + (config == null ? "" : config.wire());
-        if (key.equals(paletteKey)) return cachedPalette;
+        Map<BlockPos, BlockState> cached = paletteCache.get(key);
+        if (cached != null) return cached;
         ListTag cargo = ShipModularBlockHull.decodeVisibleCargo(
                 ship.movingCargoView());
+        Map<BlockPos, BlockState> palette;
         try {
             if (config != null)
-                cachedPalette = ShipModularBlockHull.localVisualPalette(config, cargo);
+                palette = ShipModularBlockHull.localVisualPalette(config, cargo);
             else {
                 var snapshot = new FirstShipBlockHull.MotionSnapshot(cargo,
                         ship.geometryVersion(), ship.rigLevel(), ship.fabricQuality(), 0);
-                cachedPalette = FirstShipBlockHull.localMotionPalette(snapshot);
+                palette = FirstShipBlockHull.localMotionPalette(snapshot);
             }
         } catch (RuntimeException invalid) {
-            cachedPalette = Map.of();
+            palette = Map.of();
         }
         // Calculate hidden cells only when the ship palette changes. Doing
         // six neighbour lookups for every cube on every rendered frame would
         // replace GPU pressure with avoidable render-thread CPU work.
-        if (!cachedPalette.isEmpty()) {
-            Map<BlockPos, BlockState> source = cachedPalette;
+        if (!palette.isEmpty()) {
+            Map<BlockPos, BlockState> source = palette;
             Map<BlockPos, BlockState> visible = new LinkedHashMap<>();
             for (var entry : source.entrySet())
                 if (!hiddenOpaque(entry.getKey(), entry.getValue(), source))
                     visible.put(entry.getKey(), entry.getValue());
-            cachedPalette = java.util.Collections.unmodifiableMap(visible);
+            palette = java.util.Collections.unmodifiableMap(visible);
         }
-        paletteKey = key;
-        return cachedPalette;
+        paletteCache.put(key, palette);
+        return palette;
     }
 
     /**

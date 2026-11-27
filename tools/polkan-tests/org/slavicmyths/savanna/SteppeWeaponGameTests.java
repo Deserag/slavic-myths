@@ -25,7 +25,7 @@ public final class SteppeWeaponGameTests {
   h.assertTrue(!SteppeWeapons.split(blade)&&!SteppeWeapons.visualPair(blade),"Combined mode starts split");
   SteppeWeapons.mode(blade,true);SteppeWeapons.poison(blade,6);
   h.assertTrue(SteppeWeapons.split(blade)&&SteppeWeapons.visualPair(blade)&&blade.getCount()==1&&blade.getDamageValue()==37,"Mode change duplicated or damaged stack");
-  var saved=ItemStack.parseOptional(h.getLevel().registryAccess(),blade.save(h.getLevel().registryAccess()));
+  var saved=ItemStack.parseOptional(h.getLevel().registryAccess(),(net.minecraft.nbt.CompoundTag)blade.save(h.getLevel().registryAccess()));
   h.assertTrue(SteppeWeapons.split(saved)&&SteppeWeapons.poison(saved)==6&&saved.getDamageValue()==37,"Mode/poison failed save-load");
   SteppeWeapons.mode(saved,false);h.assertTrue(!SteppeWeapons.visualPair(saved)&&saved.getDamageValue()==37&&SteppeWeapons.poison(saved)==6,"Combined mode did not restore correctly");
   h.succeed();
@@ -43,8 +43,13 @@ public final class SteppeWeaponGameTests {
   handler.onWeaponAction(p,stack,WeaponInputHandler.Action.LEFT_CLICK);h.assertTrue(stack.getDamageValue()==1,"Cooldown did not block repeat");
   p.setShiftKeyDown(true);handler.onWeaponAction(p,stack,WeaponInputHandler.Action.SHIFT_RIGHT_CLICK);
   h.assertTrue(SteppeWeapons.poison(stack)==1&&stack.getDamageValue()==1,"Poison selection spent durability");
-  handler.onWeaponAction(p,stack,WeaponInputHandler.Action.SHIFT_LEFT_CLICK);h.assertTrue(stack.getDamageValue()==4,"Triple shot did not consume three durability");
-  h.getLevel().getEntitiesOfClass(WeaponProjectile.class,p.getBoundingBox().inflate(6),a->a.getPersistentData().getBoolean("SteppeNeedle")&&a.getOwner()==p).forEach(a->a.discard());
-  p.discard();h.succeed();
+  handler.onWeaponAction(p,stack,WeaponInputHandler.Action.SHIFT_LEFT_CLICK);
+  h.assertTrue(stack.getDamageValue()==1,"Triple shot bypassed the shared shot interval");
+  h.runAtTickTime(9,()->{
+   handler.onWeaponAction(p,stack,WeaponInputHandler.Action.SHIFT_LEFT_CLICK);
+   h.assertTrue(stack.getDamageValue()==4,"Triple shot did not consume three durability after the shared interval");
+   h.getLevel().getEntitiesOfClass(WeaponProjectile.class,p.getBoundingBox().inflate(30),a->a.getPersistentData().getBoolean("SteppeNeedle")&&a.getOwner()==p).forEach(a->a.discard());
+   p.discard();h.succeed();
+  });
  }
 }

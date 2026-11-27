@@ -1,0 +1,7 @@
+gradle.beforeProject { p -> p.plugins.withId('net.neoforged.moddev') { p.sourceSets { steppeVisualClient { java.srcDir 'tools/steppe-visual-client' } }; p.sourceSets.steppeVisualClient.compileClasspath += p.sourceSets.main.output+p.sourceSets.main.compileClasspath; p.sourceSets.steppeVisualClient.runtimeClasspath += p.sourceSets.main.runtimeClasspath; p.tasks.named('compileSteppeVisualClientJava') { dependsOn p.tasks.named('classes') }; p.neoForge.mods.maybeCreate('slavicmyths').sourceSet(p.sourceSets.steppeVisualClient) } }
+gradle.projectsEvaluated { def p=gradle.rootProject; p.neoForge.runs.client.gameDirectory=p.file('work/steppe-visual-client'); p.neoForge.runs.client.programArguments.addAll('--width','1280','--height','720'); p.neoForge.runs.client.systemProperty('steppe.visual.ids','polkan_spear,polkan_axe,polkan_bow,skarapeya_blade,skarapeya_whip,skarapeya_gusli,skarapeya_needle,steppe_spear') }
+
+
+
+
+
