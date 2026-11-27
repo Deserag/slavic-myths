@@ -1,0 +1,20 @@
+name: Polkan savanna validation
+on:
+  push:
+    branches: ['feature/savanna-biome-20261126']
+    paths: ['src/**', '.github/workflows/polkan-savanna-validation.yml', 'build.gradle', 'gradle.properties']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew
+      - run: ./gradlew clean build --no-daemon

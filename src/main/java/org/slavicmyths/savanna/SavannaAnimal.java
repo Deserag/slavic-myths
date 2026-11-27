@@ -49,6 +49,13 @@ public final class SavannaAnimal extends PathfinderMob {
     UUID packId;
     int packSlot=-1;
     private UUID groupId;
+    UUID polkanOwner;
+    int polkanSlot=-1, polkanCooldown;
+    boolean polkanReleased;
+    public boolean polkanGuard(){return getType()==org.slavicmyths.registry.ModEntities.POLKAN_TARPAN.get();}
+    public void releasePolkan(){polkanReleased=true;polkanOwner=null;setTarget(null);entityData.set(STRIKE,0);entityData.set(CHARGE,false);getNavigation().stop();}
+    void polkanStrike(int ticks,boolean charge){entityData.set(STRIKE,ticks);entityData.set(CHARGE,charge);}
+
     private LivingEntity danger;
     private int fear,anger,cooldown;
     LivingEntity sharedHuntTarget;
@@ -69,7 +76,7 @@ public final class SavannaAnimal extends PathfinderMob {
     }
     private SavannaAnimal(EntityType<? extends SavannaAnimal> type,Level world,Kind kind,boolean packBoss,HyenaRole role){
         super(type,world);this.kind=kind;this.packBoss=packBoss;this.hyenaRole=role;
-        if(isEncounterMember()){setPersistenceRequired();xpReward=0;}
+        if(isEncounterMember()||polkanGuard()){setPersistenceRequired();xpReward=0;}
         if(kind==Kind.STEPPE_EAGLE){
             moveControl=new FlyingMoveControl(this,20,true);
             navigation=new FlyingPathNavigation(this,world);
@@ -92,6 +99,7 @@ public final class SavannaAnimal extends PathfinderMob {
     public static AttributeSupplier.Builder packAttributes(){return attributes(Kind.JACKAL).add(Attributes.MAX_HEALTH,JackalPacks.MEMBER_HP).add(Attributes.ATTACK_DAMAGE,8).add(Attributes.FOLLOW_RANGE,36).add(Attributes.MOVEMENT_SPEED,.34);}
     @Override public net.minecraft.network.chat.Component getName(){
         if(hasCustomName())return super.getName();
+        if(polkanGuard())return net.minecraft.network.chat.Component.translatableWithFallback(getType().getDescriptionId(),"Тарпан Полкана");
         if(packBoss)return net.minecraft.network.chat.Component.translatableWithFallback("entity.slavicmyths.steppe_pack_jackal","Степной шакал стаи");
         if(isHyenaPack())return net.minecraft.network.chat.Component.translatableWithFallback(getType().getDescriptionId(),switch(hyenaRole){case LEADER->"Чёрная гиена";case GUARD->"Телохранитель Чёрной гиены";default->"Гиена свиты";});
         return super.getName();
@@ -108,6 +116,7 @@ public final class SavannaAnimal extends PathfinderMob {
     @Override protected void registerGoals(){}
     private void installGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));
+        if(polkanGuard()){goalSelector.addGoal(7,new LookAtPlayerGoal(this,Player.class,7));return;}
         if(kind.damage>0)goalSelector.addGoal(1,new StrikeGoal());
         goalSelector.addGoal(2,new EscapeGoal());
         if(kind.flock()&&!isEncounterMember())goalSelector.addGoal(3,new GroupGoal());
@@ -143,6 +152,7 @@ public final class SavannaAnimal extends PathfinderMob {
     @Override public boolean hurt(DamageSource source,float amount){
         boolean hit=super.hurt(source,amount);
         if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity attacker&&attacker!=this&&valid(attacker)){
+            if(polkanGuard()){if(!polkanReleased&&level() instanceof ServerLevel w&&polkanOwner!=null&&w.getEntity(polkanOwner) instanceof Polkan leader)leader.provoke(attacker);return hit;}
             if(isHyenaPack()){
                 if(level() instanceof ServerLevel w&&packId!=null&&packTargetAllowed(attacker)){
                     HyenaPacks.get(w).attacked(this,attacker);
@@ -159,6 +169,7 @@ public final class SavannaAnimal extends PathfinderMob {
     @Override public void aiStep(){
         super.aiStep();
         if(level().isClientSide)return;
+        if(polkanGuard()){if(level() instanceof ServerLevel w&&isAlive())Polkan.guardStep(this,w);return;}
         if(cooldown>0)cooldown--;
         if(isEncounterMember()){if(level() instanceof ServerLevel w&&isAlive())packStep(w);return;}
         if(fear>0)fear--;
@@ -247,6 +258,7 @@ public final class SavannaAnimal extends PathfinderMob {
     }
     @Override public void die(DamageSource source){
         super.die(source);
+        if(polkanGuard()&&polkanOwner!=null&&level() instanceof ServerLevel w)PolkanHerd.get(w).dead(polkanOwner,polkanSlot);
         if(isEncounterMember()&&level() instanceof ServerLevel w&&packId!=null&&isDeadOrDying()){if(isHyenaPack())HyenaPacks.get(w).died(this,w);else JackalPacks.get(w).died(this,w);}
     }
     @Override public void remove(RemovalReason reason){
@@ -348,6 +360,6 @@ public final class SavannaAnimal extends PathfinderMob {
         public void tick(){if(tickCount%10==0)getNavigation().moveTo(leader,1.0);}
         public void stop(){leader=null;getNavigation().stop();}
     }
-    @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(groupId!=null)n.putUUID("SavannaGroup",groupId);if(packBoss&&packId!=null){n.putUUID("JackalPack",packId);n.putInt("JackalSlot",packSlot);}if(isHyenaPack()&&packId!=null){n.putUUID("HyenaPack",packId);n.putInt("HyenaSlot",packSlot);}}
-    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);if(packBoss&&n.hasUUID("JackalPack")){packId=n.getUUID("JackalPack");packSlot=n.getInt("JackalSlot");}if(isHyenaPack()&&n.hasUUID("HyenaPack")){packId=n.getUUID("HyenaPack");packSlot=n.getInt("HyenaSlot");}entityData.set(ROAR,0);entityData.set(CHARGE,false);}
+    @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(polkanGuard()){if(polkanOwner!=null)n.putUUID("PolkanOwner",polkanOwner);n.putInt("PolkanSlot",polkanSlot);n.putBoolean("PolkanReleased",polkanReleased);}if(groupId!=null)n.putUUID("SavannaGroup",groupId);if(packBoss&&packId!=null){n.putUUID("JackalPack",packId);n.putInt("JackalSlot",packSlot);}if(isHyenaPack()&&packId!=null){n.putUUID("HyenaPack",packId);n.putInt("HyenaSlot",packSlot);}}
+    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);if(polkanGuard()){polkanOwner=n.hasUUID("PolkanOwner")?n.getUUID("PolkanOwner"):null;polkanSlot=n.getInt("PolkanSlot");polkanReleased=n.getBoolean("PolkanReleased");}groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);if(packBoss&&n.hasUUID("JackalPack")){packId=n.getUUID("JackalPack");packSlot=n.getInt("JackalSlot");}if(isHyenaPack()&&n.hasUUID("HyenaPack")){packId=n.getUUID("HyenaPack");packSlot=n.getInt("HyenaSlot");}entityData.set(ROAR,0);entityData.set(CHARGE,false);}
 }
