@@ -61,8 +61,9 @@ public final class JackalPacks extends SavedData {
         });
         n.put("Packs",rows);return n;
     }
-    boolean spawn(SavannaAnimal seed,ServerLevel w){
-        if(!w.getEntitiesOfClass(SavannaAnimal.class,seed.getBoundingBox().inflate(128),a->a!=seed&&a.isPackBoss()&&a.packId!=null&&a.isAlive()).isEmpty())return false;
+    boolean spawn(SavannaAnimal seed,ServerLevel w){return spawn(seed,w,null);}
+    boolean spawn(SavannaAnimal seed,ServerLevel w,ServerPlayer summoner){
+        if(summoner==null&&!w.getEntitiesOfClass(SavannaAnimal.class,seed.getBoundingBox().inflate(128),a->a!=seed&&a.isPackBoss()&&a.packId!=null&&a.isAlive()).isEmpty())return false;
         if(!w.canSeeSky(seed.blockPosition()))return false;
         List<SavannaAnimal> members=new ArrayList<>();members.add(seed);
         for(int i=1;i<SIZE;i++){
@@ -74,6 +75,7 @@ public final class JackalPacks extends SavedData {
                 BlockPos column=BlockPos.containing(seed.getX()+Math.cos(angle)*radius,seed.getY(),seed.getZ()+Math.sin(angle)*radius);
                 if(!w.hasChunkAt(column))continue;
                 BlockPos p=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,column);
+                if(summoner!=null&&!w.mayInteract(summoner,p))continue;
                 if(Math.abs(p.getY()-seed.getY())>4||!w.canSeeSky(p)||!w.getFluidState(p).isEmpty()
                     ||!w.getBlockState(p.below()).isFaceSturdy(w,p.below(),net.minecraft.core.Direction.UP))continue;
                 member.moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,seed.getYRot(),0);

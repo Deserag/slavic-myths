@@ -296,6 +296,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> SAIGA_SPAWN_EGG=egg("saiga_spawn_egg",ModEntities.SAIGA,0xc69a62,0x66513a);
     public static final DeferredHolder<Item, Item> TARPAN_SPAWN_EGG=egg("tarpan_spawn_egg",ModEntities.TARPAN,0x8f8271,0x34312c);
     public static final DeferredHolder<Item, Item> JAYRAN_SPAWN_EGG=egg("jayran_spawn_egg",ModEntities.JAYRAN,0xbd8952,0x5a4634);
+    public static final DeferredHolder<Item, Item> STEPPE_JACKAL_PACK_SPAWN_EGG=ITEMS.register("steppe_jackal_pack_spawn_egg",()->new org.slavicmyths.savanna.JackalPackSpawnEgg(properties()));
     public static final DeferredHolder<Item, Item> JACKAL_SPAWN_EGG=egg("jackal_spawn_egg",ModEntities.JACKAL,0xbc8546,0x534a41);
     public static final DeferredHolder<Item, Item> STRIPED_HYENA_SPAWN_EGG=egg("striped_hyena_spawn_egg",ModEntities.STRIPED_HYENA,0xa89980,0x3c3836);
     public static final DeferredHolder<Item, Item> PERSIAN_LEOPARD_SPAWN_EGG=egg("persian_leopard_spawn_egg",ModEntities.PERSIAN_LEOPARD,0xc99543,0x4e3728);
