@@ -142,7 +142,7 @@ public final class Polkan extends PathfinderMob {
     private boolean launch(ServerLevel w,LivingEntity t,float damage,boolean spear){
         if(t==null||!hostileTo(t)||!hasLineOfSight(t))return false;PolkanMissile m=ModEntities.POLKAN_MISSILE.get().create(w);if(m==null)return false;
         Vec3 origin=handPosition();Vec3 delta=t.getBoundingBox().getCenter().subtract(origin);double flight=delta.length()/2.9;Vec3 aim=spear?delta:delta.add(0,.5*.035*flight*flight,0);m.init(this,spear,damage*(phase()==3?1.2F:1F),origin,aim.normalize().scale(spear?2.1:2.9));
-        if(!w.addFreshEntity(m))return false;if(spear){spearId=m.getUUID();entityData.set(SPEAR_OUT,true);}playSound(spear?SoundEvents.TRIDENT_THROW:SoundEvents.ARROW_SHOOT,1,.85F);return true;
+        if(!w.addFreshEntity(m))return false;if(spear){spearId=m.getUUID();entityData.set(SPEAR_OUT,true);}playSound(spear?SoundEvents.TRIDENT_THROW.value():SoundEvents.ARROW_SHOOT,1,.85F);return true;
     }
     Vec3 handPosition(){Vec3 f=forward(),side=new Vec3(-f.z,0,f.x);return position().add(0,2.65,0).add(f.scale(.65)).add(side.scale(.45));}
     boolean ownsSpear(UUID id){return id.equals(spearId)&&action()==THROW;}
