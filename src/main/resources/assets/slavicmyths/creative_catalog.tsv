@@ -967,8 +967,8 @@ magma_lord_heart	resources	burning_islands_205
 magma_lord_head	heads	burning_islands_205
 fire_serpent_spawn_egg	mobs	boss
 pharaohka_leader_spawn_egg	mobs	boss
+tsar_pike_spawn_egg	mobs	boss
 grey_wolf_spawn_egg	mobs	neutral
-ledeya_spawn_egg	mobs	hostile
 lost_hall_stone	decor	nether_lost_halls
 cracked_lost_hall_stone	decor	nether_lost_halls
 polished_lost_hall_stone	decor	nether_lost_halls
@@ -990,12 +990,12 @@ lost_hall_stone_wall	decor	nether_lost_halls
 polished_lost_hall_stone_stairs	decor	nether_lost_halls
 polished_lost_hall_stone_slab	decor	nether_lost_halls
 polished_lost_hall_stone_wall	decor	nether_lost_halls
+ledeya_spawn_egg	mobs	hostile
 large_podzemnik_spawn_egg	mobs	elite
 unresting_prince_spawn_egg	mobs	elite
 cursed_volkolak_spawn_egg	mobs	miniboss
 nightingale_spawn_egg	mobs	boss
 likho_one_eyed_spawn_egg	mobs	boss
-tugarin_zmey_spawn_egg	mobs	boss
 livingstone_ore	resources	nether_minerals
 alatyrite_ore	resources	nether_minerals
 runnik_ore	resources	nether_minerals
@@ -1062,8 +1062,8 @@ amulet_of_the_faded	magic	bosses_21x
 last_watch_horn	magic	bosses_21x
 morova_silence_pendant	accessories	bosses_21x
 fallen_druzhina_horn	accessories	bosses_21x
+tugarin_zmey_spawn_egg	mobs	boss
 agneya_spawn_egg	mobs	boss
-ant_queen_spawn_egg	mobs	boss
 pine_chair	furniture	furniture_chair
 linden_chair	furniture	furniture_chair
 apple_chair	furniture	furniture_chair
@@ -1150,10 +1150,10 @@ morovoy_raven_head	heads	boss_head
 fire_serpent_head	hidden	legacy_zmey_trophy
 mor_serpent_head	hidden	legacy_zmey_trophy
 morovoy_fire_zmey_head	heads	boss_head
+ant_queen_spawn_egg	mobs	boss
 black_hyena_pack_spawn_egg	mobs	boss
 steppe_jackal_pack_spawn_egg	mobs	boss
-extinguished_flame_guardian_spawn_egg	mobs	miniboss
-defiled_spring_keeper_spawn_egg	mobs	miniboss
+deep_sea_serpent_spawn_egg	mobs	boss
 garlic	food	ingredients
 garlic_clove	food	ingredients
 horseradish	food	ingredients
@@ -1189,11 +1189,11 @@ warped_wardrobe	furniture	furniture_wardrobe
 warped_weapon_rack	furniture	furniture_weapon_rack
 posad_test_proof	resources	boss_material
 posad_test_receipt	resources	boss_material
-idolishche_poganoe_spawn_egg	mobs	boss
-marinka_spawn_egg	mobs	boss
+extinguished_flame_guardian_spawn_egg	mobs	miniboss
+defiled_spring_keeper_spawn_egg	mobs	miniboss
 
 crimson_pepper	food	ingredients
-skim_beast_spawn_egg	mobs	boss
+idolishche_poganoe_spawn_egg	mobs	boss
 bauk_wool	resources	boss_material
 bauk_cloak	accessories	boss_loot
 ledeya_helmet	armor	sisters_set
@@ -1238,7 +1238,7 @@ pasque_flower	decor	flowers_buyan
 heather	decor	flowers_buyan
 globeflower	decor	flowers_buyan
 tansy	decor	flowers_buyan
-kartaus_spawn_egg	mobs	boss
+marinka_spawn_egg	mobs	boss
 deep_sea_serpent_head	heads	boss_trophy
 abyssal_crest	decor	boss_trophy
 pharaohka_tide_pearl	resources	boss_material
@@ -1285,7 +1285,7 @@ mytar_shackled_sickle	weapons	mytar
 mytar_chain	resources	mytar
 gneteya_great_hammer	weapons	boss_material_weapon
 winter_owl_head	heads	boss
-morovoy_raven_spawn_egg	mobs	boss
+skim_beast_spawn_egg	mobs	boss
 frozen_cobblestone	decor	frozen_stone
 frozen_cobblestone_stairs	decor	frozen_stone
 frozen_cobblestone_slab	decor	frozen_stone
@@ -1532,6 +1532,8 @@ thorn_bush	farming	herbs
 kiwano	farming	herbs
 wild_sorghum	farming	herbs
 marula_fruit	resources	natural
+kartaus_spawn_egg	mobs	boss
+morovoy_raven_spawn_egg	mobs	boss
 grove_guardian_spawn_egg	mobs	navya_grove
 zharenitsa_spawn_egg	mobs	nether
 magma_lord_spawn_egg	mobs	burning_islands_205
@@ -1556,12 +1558,10 @@ ice_queen_spawn_egg	mobs	boss
 lamya_spawn_egg	mobs	boss
 northern_wolverine_spawn_egg	mobs	boss
 winter_owl_spawn_egg	mobs	boss
-deep_sea_serpent_spawn_egg	mobs	boss
 auka_spawn_egg	mobs	boss
 gluheya_spawn_egg	mobs	boss
 indrik_zmey_spawn_egg	mobs	boss
 ocean_zmey_spawn_egg	mobs	boss
 sand_king_spawn_egg	mobs	boss
 stratim_bird_spawn_egg	mobs	boss
-tsar_pike_spawn_egg	mobs	boss
 zhelva_spawn_egg	mobs	boss
