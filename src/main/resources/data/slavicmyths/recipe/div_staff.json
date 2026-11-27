@@ -1,0 +1,30 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:div_eye"
+    },
+    {
+      "item": "slavicmyths:div_eye"
+    },
+    {
+      "item": "slavicmyths:div_feather"
+    },
+    {
+      "item": "slavicmyths:div_feather"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:div_staff",
+    "count": 1
+  }
+}

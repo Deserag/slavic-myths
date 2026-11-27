@@ -1,0 +1,25 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:steppe_axe"
+    },
+    {
+      "item": "slavicmyths:polkan_seal"
+    },
+    {
+      "item": "slavicmyths:polkan_seal"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:polkan_axe",
+    "count": 1
+  }
+}

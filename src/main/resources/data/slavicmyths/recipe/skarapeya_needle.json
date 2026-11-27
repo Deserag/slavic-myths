@@ -1,0 +1,27 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "ingredients": [
+    {
+      "item": "slavicmyths:skarapeya_fang"
+    },
+    {
+      "item": "slavicmyths:skarapeya_fang"
+    },
+    {
+      "item": "slavicmyths:skarapeya_gland"
+    },
+    {
+      "item": "slavicmyths:skarapeya_scale"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:skarapeya_needle",
+    "count": 1
+  }
+}

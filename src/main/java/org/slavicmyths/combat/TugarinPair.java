@@ -17,7 +17,7 @@ public final class TugarinPair {
     private static final net.minecraft.tags.TagKey<net.minecraft.world.item.Item> PAIRED=net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","paired_weapons"));
     // Tugarin-only combat effects must not be applied to other paired weapons.
     public static boolean held(Player p){return p.getMainHandItem().is(RareWeapons.TUGARIN.get());}
-    public static boolean holdsPair(Player p){return held(p)||p.getMainHandItem().is(PAIRED);}
+    public static boolean holdsPair(Player p){return held(p)||p.getMainHandItem().is(PAIRED)||org.slavicmyths.savanna.SteppeWeapons.visualPair(p.getMainHandItem());}
     public static boolean usesBothHands(Player p){return holdsPair(p)||p.getMainHandItem().is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("slavicmyths","two_handed_weapons")));}
     private static CompoundTag state(Player p){var d=p.getPersistentData();if(!d.contains(Player.PERSISTED_NBT_TAG,10))d.put(Player.PERSISTED_NBT_TAG,new CompoundTag());var root=d.getCompound(Player.PERSISTED_NBT_TAG);if(!root.contains(KEY,10))root.put(KEY,new CompoundTag());return root.getCompound(KEY);}
     public static void update(ServerPlayer p){var d=state(p);if(!p.isAlive()||!usesBothHands(p)){restore(p);return;}

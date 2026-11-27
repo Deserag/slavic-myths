@@ -1,0 +1,25 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:steppe_bow"
+    },
+    {
+      "item": "slavicmyths:div_feather"
+    },
+    {
+      "item": "slavicmyths:div_feather"
+    },
+    {
+      "item": "slavicmyths:div_feather"
+    },
+    {
+      "item": "slavicmyths:div_eye"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:div_bow",
+    "count": 1
+  }
+}

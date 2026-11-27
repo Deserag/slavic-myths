@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " IT",
+    "IST",
+    " IT"
+  ],
+  "key": {
+    "I": {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:steppe_bow",
+    "count": 1
+  }
+}

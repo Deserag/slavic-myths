@@ -16,7 +16,8 @@ public final class SteppeArmorEvents {
  @SubscribeEvent public static void crit(CriticalHitEvent event){
   var p=event.getEntity();if(p.level().isClientSide||!(event.getTarget() instanceof LivingEntity)||p.getAttackStrengthScale(.5F)<.9F)return;
   int pieces=SteppeArmor.count(p);boolean cloak=SteppeCloak.worn(p);
-  if(!event.isCriticalHit()&&(pieces>0||cloak)&&p.getRandom().nextFloat()<.05F*(pieces+(cloak?1:0))){event.setCriticalHit(true);event.setDamageMultiplier(1.5F);event.setDisableSweep(true);}
+  boolean weapon=SteppeWeapons.isStandard(p.getMainHandItem())||SteppeWeapons.kind(p.getMainHandItem())==SteppeWeapons.Kind.JACKAL_DAGGERS;
+  if(!event.isCriticalHit()&&(pieces>0||cloak||weapon)&&p.getRandom().nextFloat()<.05F*(pieces+(cloak?1:0)+(weapon?1:0))){event.setCriticalHit(true);event.setDamageMultiplier(1.5F);event.setDisableSweep(true);}
   if(pieces==4&&event.isCriticalHit())event.setDamageMultiplier(event.getDamageMultiplier()*1.25F);
  }
  @SubscribeEvent public static void visibility(LivingEvent.LivingVisibilityEvent event){

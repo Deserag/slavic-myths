@@ -53,6 +53,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
     @Override protected boolean canHitEntity(Entity entity) {
         Entity owner=getOwner();
         if(desertDamage>0&&(!(owner instanceof net.minecraft.server.level.ServerPlayer p)||!(entity instanceof LivingEntity t)||desertHits.contains(t.getUUID())||!CombatTargeting.canAttack(p,t,CombatTargeting.Context.PROJECTILE)))return false;
+        if(pairThrow&&owner instanceof net.minecraft.server.level.ServerPlayer p&&org.slavicmyths.savanna.SteppeWeapons.kind(getItem())!=null&&entity instanceof LivingEntity t&&!CombatTargeting.canAttack(p,t,CombatTargeting.Context.PROJECTILE))return false;
         if(summonedTarget!=null&&!summonedTarget.equals(entity.getUUID()))return false;
         if(playerThrown&&owner==null)return false; // Logout/dimension changes cannot bypass the owner's PvP/team rules.
         return super.canHitEntity(entity)&&(!(owner instanceof Player player)||!(entity instanceof LivingEntity living)||org.slavicmyths.rpg.Abilities.canHit(player,living));
