@@ -29,8 +29,8 @@ public final class SteppeWeaponSkills {
  static String poisonName(int n){return POISONS[Math.floorMod(n,7)];}
  private static boolean legal(ServerPlayer p,LivingEntity x,boolean area){return x!=null&&x!=p&&x.isAlive()&&x.level()==p.level()&&CombatTargeting.canAttack(p,x,area?CombatTargeting.Context.AREA:CombatTargeting.Context.DIRECT)&&(!area||CombatTargeting.isEnemy(p,x,CombatTargeting.Context.ACQUIRE)||x==p.getLastHurtMob()||x==p.getLastHurtByMob())&&p.hasLineOfSight(x);}
  private static String key(Kind k,Action a){return "SteppeCD_"+k.id+"_"+a.id();}
- private static boolean ready(ServerPlayer p,Kind k,Action a){return p.getPersistentData().getLong(key(k,a))<=p.serverLevel().getGameTime();}
- private static void commit(ServerPlayer p,ItemStack s,Kind k,Action a,int cd,int wear){p.getPersistentData().putLong(key(k,a),p.serverLevel().getGameTime()+cd);if(wear>0&&!p.hasInfiniteMaterials())s.hurtAndBreak(wear,p,EquipmentSlot.MAINHAND);p.swing(InteractionHand.MAIN_HAND,true);}
+ private static boolean ready(ServerPlayer p,Kind k,Action a){return p.getPersistentData().getLong(key(k,a))<=p.server.overworld().getGameTime();}
+ private static void commit(ServerPlayer p,ItemStack s,Kind k,Action a,int cd,int wear){p.getPersistentData().putLong(key(k,a),p.server.overworld().getGameTime()+cd);if(wear>0&&!p.hasInfiniteMaterials())s.hurtAndBreak(wear,p,EquipmentSlot.MAINHAND);p.swing(InteractionHand.MAIN_HAND,true);}
  private static void schedule(ServerPlayer p,ItemStack s,int delay,java.util.function.Consumer<ServerPlayer> r){var q=TASKS.computeIfAbsent(p,x->new ArrayList<>());if(q.size()<64)q.add(new Task(p.serverLevel().getGameTime()+delay,p.serverLevel(),s,r));}
  @SubscribeEvent public static void tick(PlayerTickEvent.Post e){if(!(e.getEntity() instanceof ServerPlayer p))return;var q=TASKS.get(p);if(q==null)return;if(!p.isAlive()){TASKS.remove(p);return;}var due=new ArrayList<Task>();q.removeIf(t->{if(t.world()!=p.serverLevel()||t.held()!=null&&(t.held().isEmpty()||p.getMainHandItem()!=t.held()))return true;if(t.due()<=p.serverLevel().getGameTime()){due.add(t);return true;}return false;});for(var t:due)t.run().accept(p);if(q.isEmpty())TASKS.remove(p);}
  @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p)TASKS.remove(p);}
@@ -49,21 +49,29 @@ public final class SteppeWeaponSkills {
  private static ItemStack ammo(ServerPlayer p){if(p.getOffhandItem().is(Items.ARROW))return p.getOffhandItem();for(var s:p.getInventory().items)if(s.is(Items.ARROW))return s;return ItemStack.EMPTY;}
  private static boolean shot(ServerPlayer p,ItemStack weapon,float damage,float yaw,int venom,boolean mark,int pierce,boolean free){
   ItemStack ammo=ammo(p);if(!free&&!p.hasInfiniteMaterials()&&ammo.isEmpty())return false;
-  var arrow=new Arrow(p.serverLevel(),p,new ItemStack(Items.ARROW),weapon.copyWithCount(1));arrow.setBaseDamage(damage/2.5F);arrow.pickup=AbstractArrow.Pickup.DISALLOWED;arrow.setPierceLevel((byte)pierce);
+  if(free){
+   var needle=new WeaponProjectile(p.serverLevel(),p,new ItemStack(SteppeWeapons.NEEDLE_PROJECTILE.get()),true,true);
+   needle.configureDesert(damage,0,false,0);needle.getPersistentData().putBoolean("SteppeNeedle",true);needle.getPersistentData().putInt(POISON,venom);needle.shootFromRotation(p,p.getXRot(),p.getYRot()+yaw,0,2.5F,0);return p.serverLevel().addFreshEntity(needle);
+  }
+  var fired=weapon.copyWithCount(1);
+  if(pierce>0)fired.enchant(p.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.PIERCING),pierce);
+  var arrow=new Arrow(p.serverLevel(),p,new ItemStack(Items.ARROW),fired);arrow.setBaseDamage(damage/2.5F);arrow.pickup=AbstractArrow.Pickup.DISALLOWED;
   arrow.getPersistentData().putBoolean("SteppeProjectile",true);arrow.getPersistentData().putInt(POISON,venom);arrow.getPersistentData().putBoolean(CURSE,mark);arrow.shootFromRotation(p,p.getXRot(),p.getYRot()+yaw,0,2.5F,0);
   if(!p.serverLevel().addFreshEntity(arrow))return false;if(!free&&!p.hasInfiniteMaterials())ammo.shrink(1);return true;
  }
  @SubscribeEvent public static void projectileDamage(LivingIncomingDamageEvent e){if(e.getSource().getDirectEntity() instanceof Arrow a&&a.getPersistentData().getBoolean("SteppeProjectile")&&(!(a.getOwner() instanceof ServerPlayer p)||!CombatTargeting.canAttack(p,e.getEntity(),CombatTargeting.Context.PROJECTILE)))e.setCanceled(true);}
  @SubscribeEvent public static void projectileHit(LivingDamageEvent.Post e){if(e.getNewDamage()<=0||!(e.getSource().getEntity() instanceof ServerPlayer p))return;if(e.getSource().getDirectEntity() instanceof Arrow a&&a.getPersistentData().getBoolean("SteppeProjectile")){int v=a.getPersistentData().getInt(POISON);if(v>=0)poison(p,e.getEntity(),v);if(a.getPersistentData().getBoolean(CURSE))curse(p,e.getEntity(),true);}else if(e.getSource().getDirectEntity() instanceof WeaponProjectile a&&SteppeWeapons.kind(a.getItem())==Kind.SKARAPEYA_BLADE)poison(p,e.getEntity(),SteppeWeapons.poison(a.getItem()));}
+ public static void needleHit(ServerPlayer p,LivingEntity t,int venom){poison(p,t,venom);}
  static void meleePassive(ServerPlayer p,LivingEntity t,ItemStack s,Kind k){if(!legal(p,t,false))return;if(k==Kind.DIV_CLAWS)curse(p,t,true);if(k==Kind.SKARAPEYA_BLADE||k==Kind.SKARAPEYA_WHIP)poison(p,t,SteppeWeapons.poison(s));if(k==Kind.HYENA_KNUCKLES)bleed(p,t);}
  private static void bleed(ServerPlayer p,LivingEntity t){if(t.getPersistentData().getLong("SteppeBleedUntil")>p.serverLevel().getGameTime())return;t.getPersistentData().putLong("SteppeBleedUntil",p.serverLevel().getGameTime()+80);for(int i=1;i<=4;i++)schedule(p,null,i*20,x->{if(legal(x,t,false)&&t.distanceToSqr(x)<=256)t.hurt(MythDamageSources.periodic("steppe_weapon_skill",x),2);});}
  static void use(ServerPlayer p,ItemStack s,Kind k,Action a){
   if(!p.isAlive()||p.isSpectator()||p.getMainHandItem()!=s||SteppeWeapons.kind(s)!=k||((a==Action.SHIFT_LEFT_CLICK||a==Action.SHIFT_RIGHT_CLICK)!=p.isShiftKeyDown())||!ready(p,k,a))return;
   if((k.pair()||k==Kind.SKARAPEYA_BLADE)&&!p.getOffhandItem().isEmpty())return;
   int venom=SteppeWeapons.poison(s);
+  if(k==Kind.SKARAPEYA_BLADE&&a==Action.RIGHT_CLICK&&!SteppeWeapons.split(s)&&p.isShiftKeyDown())return;
   if(a==Action.SHIFT_RIGHT_CLICK&&(k==Kind.SKARAPEYA_GUSLI||k==Kind.SKARAPEYA_WHIP||k==Kind.SKARAPEYA_NEEDLE)){SteppeWeapons.poison(s,venom+1);p.displayClientMessage(Component.literal(poisonName(venom+1)),true);commit(p,s,k,a,8,0);return;}
   if(k==Kind.SKARAPEYA_BLADE&&a==Action.SHIFT_RIGHT_CLICK){if(!WeaponProjectile.pairedInFlight(p).isEmpty())return;SteppeWeapons.mode(s,!SteppeWeapons.split(s));commit(p,s,k,a,10,0);return;}
-  if(k==Kind.SKARAPEYA_NEEDLE){int n=a==Action.SHIFT_LEFT_CLICK?3:1,done=0;for(int i=0;i<n;i++){if(!p.hasInfiniteMaterials()&&s.getMaxDamage()-s.getDamageValue()<=done)break;if(shot(p,s,12,(i-(n-1)*.5F)*3,venom,false,0,true))done++;}if(done>0){commit(p,s,k,a,n==1?8:60,done);p.serverLevel().playSound(null,p.blockPosition(),SoundEvents.ARROW_SHOOT,SoundSource.PLAYERS,.6F,1.5F);}return;}
+  if(k==Kind.SKARAPEYA_NEEDLE){if(a==Action.RIGHT_CLICK)return;int n=a==Action.SHIFT_LEFT_CLICK?3:1,done=0;for(int i=0;i<n;i++){if(!p.hasInfiniteMaterials()&&s.getMaxDamage()-s.getDamageValue()<=done)break;if(shot(p,s,12,(i-(n-1)*.5F)*3,venom,false,0,true))done++;}if(done>0){commit(p,s,k,a,n==1?8:60,done);p.getPersistentData().putLong(key(k,Action.LEFT_CLICK),p.server.overworld().getGameTime()+8);p.serverLevel().playSound(null,p.blockPosition(),SoundEvents.ARROW_SHOOT,SoundSource.PLAYERS,.6F,1.5F);}return;}
   if(k.bow()){boolean fan=a==Action.SHIFT_LEFT_CLICK;int n=fan?3:1,done=0;for(int i=0;i<n;i++)if(shot(p,s,fan?13:24,(i-(n-1)*.5F)*8,-1,k==Kind.DIV_BOW,fan?0:3,false))done++;if(done>0)commit(p,s,k,a,fan?100:160,1);return;}
   if(k==Kind.POLKAN_SPEAR||k==Kind.STEPPE_SPEAR){
    if(a==Action.SHIFT_LEFT_CLICK){area(p,p.position(),5,100,25,-1,false);commit(p,s,k,a,100,1);return;}

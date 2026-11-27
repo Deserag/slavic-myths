@@ -63,7 +63,9 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         Entity target=hit.getEntity(),owner=getOwner();
         if(desertDamage>0){
             if(owner instanceof net.minecraft.server.level.ServerPlayer p&&target instanceof LivingEntity t&&CombatTargeting.canAttack(p,t,CombatTargeting.Context.PROJECTILE)&&desertHits.add(t.getUUID())){
-                if(t.hurt(MythDamageSources.caused("desert_weapon_skill",p),desertDamage)&&CombatTargeting.canControl(p,t)&&!CombatTargeting.controlResistant(t)){
+                boolean needle=getPersistentData().getBoolean("SteppeNeedle");
+                if(t.hurt(MythDamageSources.caused(needle?"steppe_weapon_skill":"desert_weapon_skill",p),desertDamage)&&CombatTargeting.canControl(p,t)&&!CombatTargeting.controlResistant(t)){
+                    if(needle)org.slavicmyths.savanna.SteppeWeaponSkills.needleHit(p,t,getPersistentData().getInt("SteppeProjectilePoison"));
                     if(desertPoison>0)t.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,desertPoison));
                     if(desertKnockback){Vec3 d=t.position().subtract(p.position());t.knockback(.7,-d.x,-d.z);}
                 }
@@ -114,7 +116,7 @@ public final class WeaponProjectile extends AbstractArrow implements ItemSupplie
         if(resolved){discard();return;}
         if(desertDamage>0&&!level().isClientSide){
             if(!(getOwner() instanceof net.minecraft.server.level.ServerPlayer p)||!p.isAlive()||p.isSpectator()||++flightTicks>40){discard();return;}
-            if(level() instanceof ServerLevel w)w.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,getX(),getY(),getZ(),1,.03,.03,.03,0);
+            if(level() instanceof ServerLevel w){if(getPersistentData().getBoolean("SteppeNeedle"))w.sendParticles(new net.minecraft.core.particles.DustParticleOptions(new org.joml.Vector3f(.45F,.95F,.12F),.8F),getX(),getY(),getZ(),2,.04,.04,.04,0);else w.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,getX(),getY(),getZ(),1,.03,.03,.03,0);}
             super.tick();return;
         }
         if(summonedTarget!=null&&level() instanceof ServerLevel w){
