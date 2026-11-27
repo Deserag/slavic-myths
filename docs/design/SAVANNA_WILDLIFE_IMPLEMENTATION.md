@@ -1,3 +1,6 @@
 # Savanna wildlife — initial source implementation
 
 Nine approved ordinary species, separate from future boss encounters. V2-style single torso geometry with pixel atlases, articulated limbs, wings and timed attacks. Spawn group identity is saved; secondary habitat tags and weights are independent of primary savanna. AI includes local flock cohesion, defensive aurochs, prey avoidance and limited predator hunting. Vanilla drops are provisional; no new boss rewards or mechanics. This is a first source implementation, not a tested release. Validate with Gradle, GameTests and in-game model/animation and biome spawning inspection.
+
+## V3 visual refinement (owner feedback)
+- Nine atlases rebuilt using original species palettes, 256×128, distinct non-overlapping cuboid UV islands (intentional mirrored limb reuse). Eyes mapped only onto forward portions of head side faces; removed pheasant eye cuboids using unrelated UVs. Moved face/neck forward; shortened quadruped legs by 2–3 pixels and birds by 1, grounded rest-pose feet, removed coplanar upper/lower leg overlap. Existing animation structure, boss scaling/tints, behavior and attributes unchanged. Atlas generation checked for UV collisions and bounds; actual client visual QA and Gradle build pending.
