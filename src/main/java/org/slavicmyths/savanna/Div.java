@@ -10,6 +10,7 @@ import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
@@ -28,6 +29,7 @@ public final class Div extends PathfinderMob {
     private static final EntityDataAccessor<Boolean> FLYING=SynchedEntityData.defineId(Div.class,EntityDataSerializers.BOOLEAN);
     private final ServerBossEvent bar=new ServerBossEvent(Component.translatableWithFallback("entity.slavicmyths.div","Див"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
     private final long[] ready=new long[14];
+    public static int phaseFor(float hp){return hp<=560?3:hp<=1120?2:1;}
     private final List<Shot> shots=new ArrayList<>();
     private final List<Zone> zones=new ArrayList<>();
     private record Doom(long due,Vec3 at){}
@@ -36,6 +38,8 @@ public final class Div extends PathfinderMob {
     private Vec3 aim=Vec3.ZERO,flightOrigin=Vec3.ZERO;
     private int delay,airTicks;
     private long roamAt;
+    private Vec3 patrolPoint;
+    private long patrolUntil;
     private record Shot(Vec3 pos,Vec3 velocity,float damage,int life,boolean curse){}
     private record Zone(Vec3 pos,long start,long end){}
     public Div(EntityType<? extends Div> type,Level world){super(type,world);setPersistenceRequired();xpReward=0;}
@@ -63,7 +67,8 @@ public final class Div extends PathfinderMob {
     private void mark(LivingEntity x){if(doomed.containsKey(x.getUUID()))return;int n=DivCurse.add(x,getUUID());if(n==4)doomed.put(x.getUUID(),new Doom(level().getGameTime()+40,x.position()));}
     private void area(List<LivingEntity> xs,double r,double min,double max,float dmg,boolean curse,double kb){for(LivingEntity x:xs){double dot=front().dot(flat(x.position().subtract(position())));if(inRange(x,r)&&dot>=min&&dot<=max)hit(x,dmg,curse,kb);}}
     private void start(int a,LivingEntity t){entityData.set(ACTION,a);entityData.set(AGE,0);locked=t.getUUID();aim=t.position();flightOrigin=position();if(a!=TAIL)face(aim);getNavigation().stop();ready[a]=level().getGameTime()+(phase()==3?(int)(COOLDOWN[a]*.75):COOLDOWN[a]);playSound(SoundEvents.PHANTOM_AMBIENT,1.8F,.65F);}
-    private void finish(){grabbed=null;locked=null;entityData.set(ACTION,IDLE);entityData.set(AGE,0);delay=10;setNoGravity(false);entityData.set(FLYING,false);}
+    private void finish(){grabbed=null;patrolPoint=null;locked=null;entityData.set(ACTION,IDLE);entityData.set(AGE,0);delay=10;setNoGravity(false);entityData.set(FLYING,false);}
+    @Override public boolean causeFallDamage(float distance,float multiplier,DamageSource source){return false;}
     private void fly(Vec3 target,double speed){Vec3 d=target.subtract(position());Vec3 v=d.length()<speed?d:d.normalize().scale(speed);if(level().hasChunkAt(BlockPos.containing(position().add(v)))&&level().noCollision(this,getBoundingBox().move(v))){setNoGravity(true);entityData.set(FLYING,true);setDeltaMovement(v);}else{setDeltaMovement(Vec3.ZERO);setNoGravity(false);entityData.set(FLYING,false);}}
     private void particleLine(ServerLevel w,Vec3 a,Vec3 b){int count=Math.min(48,Math.max(1,(int)(a.distanceTo(b)*2)));for(int i=0;i<=count;i++){Vec3 v=a.lerp(b,i/(double)count);w.sendParticles(ParticleTypes.WITCH,v.x,v.y,v.z,1,0,0,0,0);}}
     private void ring(ServerLevel w,Vec3 pos,double r){for(int i=0;i<32;i++){double a=i*Math.PI/16;w.sendParticles(ParticleTypes.WITCH,pos.x+r*Math.cos(a),pos.y+.15,pos.z+r*Math.sin(a),1,0,0,0,0);}}
@@ -72,19 +77,24 @@ public final class Div extends PathfinderMob {
         for(LivingEntity x:w.getEntitiesOfClass(LivingEntity.class,new AABB(from,limit).inflate(.5),this::valid)){var p=x.getBoundingBox().inflate(.2).clip(from,limit);if(p.isPresent()&&from.distanceToSqr(p.get())<best){best=from.distanceToSqr(p.get());target=x;}}
         particleLine(w,from,limit);if(target!=null){if(target.hurt(damageSources().mobAttack(this),shot.damage)&&shot.curse)mark(target);}else if(block.getType()==HitResult.Type.MISS&&shot.life>1)next.add(new Shot(to,shot.velocity,shot.damage,shot.life-1,shot.curse));}shots.clear();shots.addAll(next);}
     private void tickZones(ServerLevel w,List<LivingEntity> xs){long now=w.getGameTime();zones.removeIf(z->now>=z.end);for(Zone z:zones){if(now%10==0)ring(w,z.pos,4);if(now>=z.start&&(now-z.start)%20==0)for(LivingEntity x:xs)if(x.position().distanceToSqr(z.pos)<=16)hit(x,4,false,0);}}
-    private void tickDoom(ServerLevel w){long now=w.getGameTime();var it=doomed.entrySet().iterator();while(it.hasNext()){var row=it.next();LivingEntity x=lookup(w,row.getKey());if(x==null||!DivCurse.owned(x,getUUID())){it.remove();continue;}if(now>=row.getValue().due){DivCurse.clear(x);it.remove();Vec3 at=row.getValue().at;ring(w,at,3);particleLine(w,at.add(0,8,0),at);if(x.position().distanceToSqr(at)<=9&&inRange(x,42))hit(x,60,false,1.2);}else if(now%5==0)ring(w,row.getValue().at,3);}}
+    private void tickDoom(ServerLevel w){long now=w.getGameTime();var it=doomed.entrySet().iterator();while(it.hasNext()){var row=it.next();LivingEntity x=lookup(w,row.getKey());if(x==null||!DivCurse.owned(x,getUUID())){it.remove();continue;}if(now>=row.getValue().due){DivCurse.clear(x);it.remove();Vec3 at=row.getValue().at;ring(w,at,3);particleLine(w,at.add(0,8,0),at);if(x.position().distanceToSqr(at)<=9&&inRange(x,42))hit(x,60,false,1.2);}else {if(now%5==0)ring(w,row.getValue().at,3);if(action()==IDLE){start(FATE,x);}}}}
     private int choose(ServerLevel w,LivingEntity t){double d=distanceTo(t);int[] choices=d<=8?(phase()==1?new int[]{TAIL,CLAW,DOUBLE,WING,CURSED_CLAW}:new int[]{TAIL,GRAB,CURSED_CLAW,DOUBLE,WING,CLAW}):(phase()==1?new int[]{FEATHER,SCREAM,GAZE}:new int[]{DIVE,GROUND,FAN,GAZE,SCREAM,FEATHER});for(int a:choices){if(w.getGameTime()<ready[a])continue;if(a==TAIL&&front().dot(flat(t.position().subtract(position())))>-.2)continue;if(a==GRAB&&(!onGround()||d>6))continue;if(a==DIVE&&(d<9||d>36))continue;if(d>44)continue;if(hasLineOfSight(t))return a;}return IDLE;}
-    @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w)||!isAlive())return;if(w.getDifficulty()==Difficulty.PEACEFUL){discard();return;}entityData.set(PHASE,getHealth()<=560?3:getHealth()<=1120?2:1);bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0,1));
+    @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w)||!isAlive()||isNoAi())return;if(w.getDifficulty()==Difficulty.PEACEFUL){discard();return;}entityData.set(PHASE,phaseFor(getHealth()));bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0,1));
         if(tickCount%20==0){Set<ServerPlayer> viewers=new HashSet<>();for(ServerPlayer p:w.players())if(!p.isSpectator()&&distanceToSqr(p)<=64*64)viewers.add(p);for(ServerPlayer p:List.copyOf(bar.getPlayers()))if(!viewers.contains(p))bar.removePlayer(p);for(ServerPlayer p:viewers)if(!bar.getPlayers().contains(p))bar.addPlayer(p);}
         var xs=candidates(w);tickShots(w);tickZones(w,xs);tickDoom(w);
         LivingEntity t=getTarget();if(!valid(t)||distanceToSqr(t)>4096){t=xs.stream().min(Comparator.comparingDouble(this::distanceToSqr)).orElse(null);setTarget(t);}
         if(action()!=IDLE){advance(w,lookup(w,locked),xs);return;}
         if(delay>0)delay--;
-        if(t==null){if(w.getGameTime()>=roamAt){roamAt=w.getGameTime()+180;BlockPos p=blockPosition().offset(random.nextInt(31)-15,0,random.nextInt(31)-15);if(w.hasChunkAt(p)){p=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,p);getNavigation().moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,1);}}return;}
+        if(t==null){
+            long now=w.getGameTime();
+            if(tickCount%60==0){LivingEntity prey=w.getEntitiesOfClass(SavannaAnimal.class,getBoundingBox().inflate(40),x->valid(x)&&(x.getType()==org.slavicmyths.registry.ModEntities.SAIGA.get()||x.getType()==org.slavicmyths.registry.ModEntities.JAYRAN.get()||x.getType()==org.slavicmyths.registry.ModEntities.TARPAN.get())).stream().min(Comparator.comparingDouble(this::distanceToSqr)).orElse(null);if(prey!=null){setTarget(prey);return;}}
+            if(patrolPoint!=null){if(now>=patrolUntil||position().distanceToSqr(patrolPoint)<2){patrolPoint=null;setNoGravity(false);entityData.set(FLYING,false);setDeltaMovement(Vec3.ZERO);}else{face(patrolPoint);fly(patrolPoint,.38);}return;}
+            if(now>=roamAt){roamAt=now+240;BlockPos p=blockPosition().offset(random.nextInt(41)-20,0,random.nextInt(41)-20);if(w.hasChunkAt(p)){p=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,p);if(random.nextBoolean()&&w.canSeeSky(blockPosition())){patrolPoint=Vec3.atBottomCenterOf(p).add(0,10,0);patrolUntil=now+100;}else getNavigation().moveTo(p.getX()+.5,p.getY(),p.getZ()+.5,1);}}return;}
+        if(patrolPoint!=null){patrolPoint=null;setNoGravity(false);entityData.set(FLYING,false);}
         if(delay==0){int a=choose(w,t);if(a!=IDLE){start(a,t);return;}}
         getLookControl().setLookAt(t,30,30);if(tickCount%8==0)getNavigation().moveTo(t,1.35);
     }
-    private void advance(ServerLevel w,LivingEntity t,List<LivingEntity> xs){int a=action(),n=actionAge()+1;entityData.set(AGE,n);if(t==null){finish();return;}if(n<=8&&a!=TAIL){aim=t.position();face(aim);}switch(a){
+    private void advance(ServerLevel w,LivingEntity t,List<LivingEntity> xs){int a=action(),n=actionAge()+1;entityData.set(AGE,n);if(t==null){finish();return;}if(n<=8&&a!=TAIL&&a!=FATE){aim=t.position();face(aim);}switch(a){
         case CLAW->{if(n==13)area(xs,7,.2,1,32,false,.8);}
         case DOUBLE->{if(n==13||n==26)area(xs,7,.1,1,22,false,.4);}
         case WING->{if(n==18)area(xs,10,-.3,1,28,false,2);}
@@ -93,7 +103,7 @@ public final class Div extends PathfinderMob {
         case FEATHER->{if(n==15&&hasLineOfSight(t))shoot(t,1,20,true);}
         case FAN->{if(n==19&&hasLineOfSight(t))shoot(t,7,14,false);}
         case SCREAM->{if(n>=18&&n<=32&&n%4==2)ring(w,position().add(0,2,0),(n-14)*1.25);if(n==24)area(xs,24,.25,1,34,true,1);}
-        case GAZE->{if(n>=12&&n<28&&n%4==0)particleLine(w,mouth(),aim.add(0,1,0));if(n==28){particleLine(w,mouth(),aim.add(0,1,0));for(LivingEntity x:xs)if(x.position().distanceToSqr(aim)<9&&inRange(x,42))hit(x,40,false,0);}}
+        case GAZE->{if(n>=12&&n<28&&n%4==0)particleLine(w,mouth(),aim.add(0,1,0));if(n==28){Vec3 origin=mouth(),end=aim.add(0,1,0);HitResult block=w.clip(new ClipContext(origin,end,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,this));Vec3 limit=block.getType()==HitResult.Type.MISS?end:block.getLocation();particleLine(w,origin,limit);for(LivingEntity x:xs)if(inRange(x,42)&&x.getBoundingBox().inflate(.6).clip(origin,limit).isPresent())hit(x,40,false,0);}}
         case GROUND->{if(n==18){zones.add(new Zone(aim,w.getGameTime()+20,w.getGameTime()+180));ring(w,aim,4);}}
         case GRAB->{if(n==20&&inRange(t,6)&&hasLineOfSight(t))grabbed=t.getUUID();if(grabbed!=null&&n>=20&&n<48){fly(flightOrigin.add(0,3,0),.35);Vec3 p=position().add(front().scale(2.4)).add(0,3.8,0);if(w.noCollision(t,t.getBoundingBox().move(p.subtract(t.position())))){t.teleportTo(p.x,p.y,p.z);t.setDeltaMovement(Vec3.ZERO);t.fallDistance=0;}else grabbed=null;}if(n==48&&grabbed!=null){hit(t,48,false,0);t.setDeltaMovement(front().scale(1.15).add(0,.35,0));t.hurtMarked=true;grabbed=null;}if(n>=48)fly(flightOrigin,.45);}
         case DIVE->{if(n<=28)fly(flightOrigin.add(0,7,0),.55);if(n==28){aim=t.position();face(aim);}if(n>=29&&n<=55){fly(aim,.95);if(n==55||position().distanceToSqr(aim)<2.25){area(xs,8,-1,1,50,false,1.5);ring(w,position(),5);entityData.set(AGE,56);}}if(n>=56){BlockPos p=w.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,blockPosition());fly(Vec3.atBottomCenterOf(p),.5);}}
