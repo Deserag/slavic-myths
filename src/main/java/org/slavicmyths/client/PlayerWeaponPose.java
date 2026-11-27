@@ -44,6 +44,17 @@ public final class PlayerWeaponPose {
    support.xRot=-.95F-.65F*wave;support.yRot=(left?-1:1)*.55F;support.zRot=(left?-1:1)*-.25F;
    if(twoHanded(entity)){primary.yRot=(left?-1:1)*-.4F;support.xRot=-1.085F-.43F*wave;support.yRot=(left?-1:1)*(1F-.05F*wave);support.zRot=0;}
   }
+  // Gusli are supported from below; the free hand moves over the strings instead of swinging the instrument.
+  if(org.slavicmyths.savanna.SteppeWeapons.kind(entity.getMainHandItem())==org.slavicmyths.savanna.SteppeWeapons.Kind.SKARAPEYA_GUSLI
+      &&entity.getOffhandItem().isEmpty()&&!entity.isUsingItem()){
+   boolean left=entity.getMainArm()==HumanoidArm.LEFT;
+   float sign=left?-1F:1F;
+   ModelPart holder=left?model.leftArm:model.rightArm,player=left?model.rightArm:model.leftArm;
+   float swing=entity.getAttackAnim(Mth.clamp(age-entity.tickCount,0,1));
+   float strum=Mth.sin((float)Math.sqrt(swing)*Mth.PI);
+   holder.xRot=-.92F;holder.yRot=-sign*.24F;holder.zRot=sign*.06F;
+   player.xRot=-1.05F+.18F*strum;player.yRot=sign*(.62F+.22F*strum);player.zRot=0;
+  }
   if(org.slavicmyths.savanna.SteppeWeapons.visualPair(entity.getMainHandItem())&&entity.getOffhandItem().isEmpty()&&!entity.isUsingItem()){
    float partial=Mth.clamp(age-entity.tickCount,0,1);for(HumanoidArm arm:HumanoidArm.values()){
     InteractionHand hand=arm==entity.getMainArm()?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
@@ -106,6 +117,6 @@ public final class PlayerWeaponPose {
   }
   arm.zRot+=sign*.025F*sway;
  }
- private static boolean twoHanded(LivingEntity e){var id=BuiltInRegistries.ITEM.getKey(e.getMainHandItem().getItem()).getPath();return java.util.Set.of("buried_hammer","desert_halberd","desert_scythe","lamya_weapon","steppe_halberd","steppe_scythe","polkan_axe","skarapeya_gusli","skarapeya_whip").contains(id)||id.equals("skarapeya_blade")&&!org.slavicmyths.savanna.SteppeWeapons.split(e.getMainHandItem());}
+ private static boolean twoHanded(LivingEntity e){var id=BuiltInRegistries.ITEM.getKey(e.getMainHandItem().getItem()).getPath();return java.util.Set.of("buried_hammer","desert_halberd","desert_scythe","lamya_weapon","steppe_halberd","steppe_scythe","polkan_axe","skarapeya_whip").contains(id)||id.equals("skarapeya_blade")&&!org.slavicmyths.savanna.SteppeWeapons.split(e.getMainHandItem());}
  private PlayerWeaponPose(){}
 }
