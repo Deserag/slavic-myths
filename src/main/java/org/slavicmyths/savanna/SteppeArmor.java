@@ -47,6 +47,11 @@ public final class SteppeArmor {
    if(damage>0)mods=mods.withModifierAdded(Attributes.ATTACK_DAMAGE,new AttributeModifier(id(key+"_damage"),damage,AttributeModifier.Operation.ADD_MULTIPLIED_BASE),slot);
    return mods;
   }
+  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){
+   super.appendHoverText(s,c,lines,f);
+   lines.add(Component.literal("Шанс критического удара: +5%").withStyle(net.minecraft.ChatFormatting.GOLD));
+   lines.add(Component.literal("Полный комплект: 12% уклонения, −35% обнаружения, +25% множитель крита").withStyle(net.minecraft.ChatFormatting.GRAY));
+  }
   @Override public ResourceLocation getArmorTexture(ItemStack stack,Entity e,EquipmentSlot slot,ArmorMaterial.Layer layer,boolean inner){return id("textures/armor/steppe/steppe_atlas.png");}
  }
  private SteppeArmor(){}

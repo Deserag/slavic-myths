@@ -12,3 +12,6 @@ Replaced fourteen inventory textures with 32×32 transparent pixel-art sprites e
 
 ## Stage 4 — armor silhouette
 Refined the rig to 173 independently articulated cuboids: staggered shoulder pelts with separate front/back shingles, visible upper forearms, golden bracers, layered hood, extended collar, diagonal torso strap and geometric red sash. Standard arm pivots corrected. Visual acceptance remains pending.
+
+## Stage 5 — comparison corrections
+259 armor cuboids. Dark lower hood frame, staggered hanging shoulder and back tufts, leather belt with brass buckle, rear sash with fang ornaments and gold chain, smaller boot profile and separate visible toe plates. Added tooltips. This is a technical approximation, not an accepted client screenshot.

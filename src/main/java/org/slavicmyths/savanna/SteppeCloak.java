@@ -12,6 +12,10 @@ public final class SteppeCloak extends Item implements ICurioItem {
  public static void init(){}
  private SteppeCloak(){super(new Properties().stacksTo(1).rarity(Rarity.EPIC));}
  @Override public Component getName(ItemStack stack){return Component.translatableWithFallback(getDescriptionId(),"Плащ князя земель");}
+ @Override public void appendHoverText(ItemStack s,TooltipContext c,java.util.List<Component> lines,TooltipFlag f){
+  lines.add(Component.literal("+10% урона и скорости; +5% шанс крита").withStyle(net.minecraft.ChatFormatting.GOLD));
+  lines.add(Component.literal("−15% обнаружения; +15% урона призванных существ").withStyle(net.minecraft.ChatFormatting.GRAY));
+ }
  @Override public boolean canEquip(SlotContext c,ItemStack s){return "charm".equals(c.identifier());}
  public static boolean worn(LivingEntity e){return CuriosApi.getCuriosInventory(e).map(i->i.findCurios(s->s.is(ITEM.get())).stream().anyMatch(r->"charm".equals(r.slotContext().identifier()))).orElse(false);}
 }
