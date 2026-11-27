@@ -32,4 +32,39 @@ public final class GusliClient {
   Musician(EntityRendererProvider.Context m,boolean slim){super(m,slim);model=new PlayerModel<AbstractClientPlayer>(m.bakeLayer(slim?net.minecraft.client.model.geom.ModelLayers.PLAYER_SLIM:net.minecraft.client.model.geom.ModelLayers.PLAYER),slim){@Override public void setupAnim(AbstractClientPlayer p,float a,float b,float age,float y,float x){super.setupAnim(p,a,b,age,y,x);rightArm.xRot=-.95F+Mth.sin(age*.6F)*.08F;rightArm.yRot=-.45F;leftArm.xRot=-1.05F;leftArm.yRot=.5F;rightSleeve.copyFrom(rightArm);leftSleeve.copyFrom(leftArm);}};addLayer(new FolkEquipmentLayer(this));}
  }
  @SubscribeEvent public static void hand(RenderHandEvent e){Minecraft mc=Minecraft.getInstance();if(mc.player==null||!playing(mc.player)||e.getItemStack().getItem()!=ModItems.GUSLI.get())return;e.setCanceled(true);PoseStack m=e.getPoseStack();m.pushPose();m.translate(.05,-.48,-.8);m.mulPose(com.mojang.math.Axis.XP.rotationDegrees(65));m.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(Mth.sin((mc.player.tickCount+e.getPartialTick())*.6F)*1.5F));mc.getItemRenderer().renderStatic(e.getItemStack(),ItemDisplayContext.NONE,e.getPackedLight(),net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,m,e.getMultiBufferSource(),mc.level,0);m.popPose();}
+
+ // Separate first-person presentation for the trophy: use the real baked instrument and both visible wrists.
+ // No change to ordinary Gusli use, cooldowns, or server skill timing.
+ @SubscribeEvent public static void steppeHand(RenderHandEvent e){
+  Minecraft mc=Minecraft.getInstance();var p=mc.player;
+  if(p==null||mc.level==null||!p.isAlive()||p.isUsingItem()
+      ||!p.getOffhandItem().isEmpty()
+      ||org.slavicmyths.savanna.SteppeWeapons.kind(p.getMainHandItem())!=org.slavicmyths.savanna.SteppeWeapons.Kind.SKARAPEYA_GUSLI)return;
+  if(e.getHand()==net.minecraft.world.InteractionHand.OFF_HAND){if(e.getItemStack().isEmpty())e.setCanceled(true);return;}
+  if(org.slavicmyths.savanna.SteppeWeapons.kind(e.getItemStack())!=org.slavicmyths.savanna.SteppeWeapons.Kind.SKARAPEYA_GUSLI)return;
+  e.setCanceled(true);
+  int sign=p.getMainArm()==net.minecraft.world.entity.HumanoidArm.LEFT?-1:1;
+  float strum=Mth.sin((float)Math.sqrt(Mth.clamp(e.getSwingProgress(),0,1))*Mth.PI);
+  var pose=e.getPoseStack();
+  pose.pushPose();try{
+   pose.translate(0,-.52-.55*e.getEquipProgress(),-.94);
+   // Both wrists are in the same instrument-local coordinate frame.
+   pose.pushPose();try{
+    pose.translate(sign*.29,-.10,.04);
+    WeaponHands.renderGrip(e,sign);
+   }finally{pose.popPose();}
+   pose.pushPose();try{
+    pose.translate(-sign*(.22-.14*strum),.045+.055*strum,.04);
+    pose.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(sign*(13+25*strum)));
+    WeaponHands.renderGrip(e,-sign);
+   }finally{pose.popPose();}
+   pose.pushPose();try{
+    pose.mulPose(com.mojang.math.Axis.XP.rotationDegrees(42));
+    pose.mulPose(com.mojang.math.Axis.ZP.rotationDegrees(sign*4));
+    pose.scale(.73F,.73F,.73F);
+    mc.getItemRenderer().renderStatic(e.getItemStack(),ItemDisplayContext.NONE,e.getPackedLight(),
+       net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,pose,e.getMultiBufferSource(),mc.level,0);
+   }finally{pose.popPose();}
+  }finally{pose.popPose();}
+ }
 }
