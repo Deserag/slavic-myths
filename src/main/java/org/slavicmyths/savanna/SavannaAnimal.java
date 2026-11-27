@@ -3,6 +3,8 @@ package org.slavicmyths.savanna;
 import java.util.EnumSet;
 import java.util.UUID;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.syncher.*;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,6 +40,9 @@ public final class SavannaAnimal extends PathfinderMob {
     }
     private static final EntityDataAccessor<Integer> STRIKE=SynchedEntityData.defineId(SavannaAnimal.class,EntityDataSerializers.INT);
     private final Kind kind;
+    private final boolean packBoss;
+    UUID packId;
+    int packSlot=-1;
     private UUID groupId;
     private LivingEntity danger;
     private int fear,anger,cooldown;
@@ -46,7 +51,11 @@ public final class SavannaAnimal extends PathfinderMob {
         Group(UUID id){this.id=id;}
     }
     public SavannaAnimal(EntityType<? extends SavannaAnimal> type,Level world,Kind kind){
-        super(type,world);this.kind=kind;
+        this(type,world,kind,false);
+    }
+    public SavannaAnimal(EntityType<? extends SavannaAnimal> type,Level world,Kind kind,boolean packBoss){
+        super(type,world);this.kind=kind;this.packBoss=packBoss;
+        if(packBoss){setPersistenceRequired();xpReward=0;}
         if(kind==Kind.STEPPE_EAGLE){
             moveControl=new FlyingMoveControl(this,20,true);
             navigation=new FlyingPathNavigation(this,world);
@@ -54,6 +63,9 @@ public final class SavannaAnimal extends PathfinderMob {
         installGoals();
     }
     public Kind kind(){return kind;}
+    public boolean isPackBoss(){return packBoss;}
+    public static AttributeSupplier.Builder packAttributes(){return attributes(Kind.JACKAL).add(Attributes.MAX_HEALTH,JackalPacks.MEMBER_HP).add(Attributes.ATTACK_DAMAGE,8).add(Attributes.FOLLOW_RANGE,36).add(Attributes.MOVEMENT_SPEED,.34);}
+    @Override public net.minecraft.network.chat.Component getName(){return packBoss&&!hasCustomName()?net.minecraft.network.chat.Component.translatableWithFallback("entity.slavicmyths.steppe_pack_jackal","Степной шакал стаи"):super.getName();}
     public int strikeTicks(){return entityData.get(STRIKE);}
     public int strikeLength(){return kind==Kind.AUROCHS?18:12;}
     public static AttributeSupplier.Builder attributes(Kind kind){
@@ -68,7 +80,8 @@ public final class SavannaAnimal extends PathfinderMob {
         goalSelector.addGoal(0,new FloatGoal(this));
         if(kind.damage>0)goalSelector.addGoal(1,new StrikeGoal());
         goalSelector.addGoal(2,new EscapeGoal());
-        if(kind.flock())goalSelector.addGoal(3,new GroupGoal());
+        if(kind.flock()&&!packBoss)goalSelector.addGoal(3,new GroupGoal());
+        if(packBoss)goalSelector.addGoal(3,new PackRoamGoal());
         if(kind==Kind.STEPPE_EAGLE)goalSelector.addGoal(5,new WaterAvoidingRandomFlyingGoal(this,1.0));
         else goalSelector.addGoal(5,new WaterAvoidingRandomStrollGoal(this,.85));
         goalSelector.addGoal(7,new LookAtPlayerGoal(this,Player.class,7));
@@ -79,7 +92,7 @@ public final class SavannaAnimal extends PathfinderMob {
         Group group=data instanceof Group g?g:new Group(getUUID());
         groupId=group.id;return group;
     }
-    @Override public int getMaxSpawnClusterSize(){return kind.maxGroup;}
+    @Override public int getMaxSpawnClusterSize(){return packBoss?1:kind.maxGroup;}
     private boolean sameGroup(SavannaAnimal other){return groupId!=null&&groupId.equals(other.groupId)&&kind==other.kind;}
     private boolean valid(LivingEntity e){return e!=null&&e.isAlive()&&e.level()==level()&&(!(e instanceof Player p)||!p.isCreative()&&!p.isSpectator());}
     private boolean prey(LivingEntity e){
@@ -99,6 +112,7 @@ public final class SavannaAnimal extends PathfinderMob {
     @Override public boolean hurt(DamageSource source,float amount){
         boolean hit=super.hurt(source,amount);
         if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity attacker&&attacker!=this&&valid(attacker)){
+            if(packBoss){if(level() instanceof ServerLevel w&&packId!=null&&canAttack(attacker)&&!(attacker instanceof SavannaAnimal a&&a.isPackBoss())){JackalPacks.get(w).attacked(packId,attacker);setTarget(attacker);}return hit;}
             alert(attacker);
             if(kind.flock())for(SavannaAnimal a:level().getEntitiesOfClass(SavannaAnimal.class,getBoundingBox().inflate(14),x->x!=this&&sameGroup(x)&&x.isAlive()))a.alert(attacker);
         }
@@ -108,6 +122,7 @@ public final class SavannaAnimal extends PathfinderMob {
         super.aiStep();
         if(level().isClientSide)return;
         if(cooldown>0)cooldown--;
+        if(packBoss){if(level() instanceof ServerLevel w&&isAlive())packStep(w);return;}
         if(fear>0)fear--;
         if(fear==0||!valid(danger))danger=null;
         LivingEntity target=getTarget();
@@ -130,6 +145,41 @@ public final class SavannaAnimal extends PathfinderMob {
             getNavigation().moveTo(getX()+random.nextInt(13)-6,getY()+4,getZ()+random.nextInt(13)-6,1);
         }
     }
+    private void packStep(ServerLevel w){
+        JackalPacks data=JackalPacks.get(w);
+        if(packId==null&&!data.spawn(this,w)){discard();return;}
+        if(!data.validMember(this)){discard();return;}
+        data.update(this,w);
+        LivingEntity old=getTarget();
+        if(old!=null&&(!valid(old)||!canAttack(old)||distanceToSqr(old)>36*36)){setTarget(null);entityData.set(STRIKE,0);}
+        if((tickCount+getId())%10==0&&strikeTicks()==0){
+            LivingEntity next=data.target(this,w);
+            if(next!=getTarget()){setTarget(next);getNavigation().stop();}
+        }
+    }
+    boolean packEnraged(){return packBoss&&level() instanceof ServerLevel w&&JackalPacks.get(w).enraged(packId);}
+    boolean packPrey(LivingEntity x){return x!=this&&valid(x)&&canAttack(x)&&!isAlliedTo(x)
+        &&!(x instanceof SavannaAnimal a&&(a.isPackBoss()||a.kind()==Kind.JACKAL))
+        &&x.getMaxHealth()<getMaxHealth();}
+    private final class PackRoamGoal extends Goal{
+        PackRoamGoal(){setFlags(EnumSet.of(Flag.MOVE));}
+        public boolean canUse(){return packId!=null&&getTarget()==null&&level() instanceof ServerLevel;}
+        public boolean requiresUpdateEveryTick(){return true;}
+        public void tick(){
+            if((tickCount+getId())%20!=0||!(level() instanceof ServerLevel w))return;
+            Vec3 p=JackalPacks.get(w).roamPoint(SavannaAnimal.this,w);
+            if(p!=null)getNavigation().moveTo(p.x,p.y,p.z,1.05);
+        }
+        public void stop(){getNavigation().stop();}
+    }
+    @Override public void die(DamageSource source){
+        super.die(source);
+        if(packBoss&&level() instanceof ServerLevel w&&packId!=null&&isDeadOrDying())JackalPacks.get(w).died(this,w);
+    }
+    @Override public void remove(RemovalReason reason){
+        if(packBoss&&level() instanceof ServerLevel w&&packId!=null)JackalPacks.get(w).removed(this,w);
+        super.remove(reason);
+    }
     private final class StrikeGoal extends Goal{
         StrikeGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
         public boolean canUse(){return valid(getTarget());}
@@ -144,13 +194,27 @@ public final class SavannaAnimal extends PathfinderMob {
                 getNavigation().stop();
                 if(t==strikeLength()/2&&distanceToSqr(target)<reach*reach&&hasLineOfSight(target))doHurtTarget(target);
                 entityData.set(STRIKE,t-1);
-                if(t==1)cooldown=kind==Kind.AUROCHS?35:25;
+                if(t==1)cooldown=packBoss?(packEnraged()?10:25):kind==Kind.AUROCHS?35:25;
                 return;
             }
             if(distanceToSqr(target)<reach*reach&&cooldown==0&&hasLineOfSight(target)){
                 entityData.set(STRIKE,strikeLength());getNavigation().stop();return;
             }
-            if(tickCount%5==0)getNavigation().moveTo(target,1.3);
+            if(packBoss){
+                double dist=distanceToSqr(target);
+                if(cooldown==0&&onGround()&&dist>reach*reach&&dist<16&&hasLineOfSight(target)&&random.nextInt(5)==0){
+                    Vec3 forward=target.position().subtract(position()).multiply(1,0,1).normalize();
+                    setDeltaMovement(forward.scale(.48).add(0,.32,0));entityData.set(STRIKE,strikeLength());getNavigation().stop();return;
+                }
+                if(tickCount%5==0){
+                    if(dist<reach*reach){getNavigation().stop();}
+                    else if(dist>25||tickCount%20==0)getNavigation().moveTo(target,packEnraged()?1.55:1.3);
+                    else{
+                        double angle=packSlot*2*Math.PI/JackalPacks.SIZE;
+                        getNavigation().moveTo(target.getX()+Math.cos(angle)*1.6,target.getY(),target.getZ()+Math.sin(angle)*1.6,packEnraged()?1.55:1.3);
+                    }
+                }
+            }else if(tickCount%5==0)getNavigation().moveTo(target,1.3);
         }
     }
     private final class EscapeGoal extends Goal{
@@ -182,6 +246,6 @@ public final class SavannaAnimal extends PathfinderMob {
         public void tick(){if(tickCount%10==0)getNavigation().moveTo(leader,1.0);}
         public void stop(){leader=null;getNavigation().stop();}
     }
-    @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(groupId!=null)n.putUUID("SavannaGroup",groupId);}
-    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);}
+    @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(groupId!=null)n.putUUID("SavannaGroup",groupId);if(packBoss&&packId!=null){n.putUUID("JackalPack",packId);n.putInt("JackalSlot",packSlot);}}
+    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);if(packBoss&&n.hasUUID("JackalPack")){packId=n.getUUID("JackalPack");packSlot=n.getInt("JackalSlot");}}
 }
