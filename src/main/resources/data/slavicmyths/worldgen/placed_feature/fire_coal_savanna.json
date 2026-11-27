@@ -11,13 +11,14 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:triangle",
+        "type": "minecraft:trapezoid",
         "min_inclusive": {
           "absolute": 0
         },
         "max_inclusive": {
           "absolute": 96
-        }
+        },
+        "plateau": 0
       }
     },
     {

@@ -3,3 +3,6 @@
 
 ## Models and projectile follow-up
 All 20 weapon model resources, 6 material textures, 3 draw stages on three bows, 2 draw stages and charged model on crossbow, two serpent blade states; 533 cuboids in base unique models. Five standard weapons reuse desert OBJ meshes with recolored palette. Dedicated needle projectile display, collision and green trail; hidden technical item cannot be recovered. Piercing arrow configured through projectile weapon's enchantment copy instead of private AbstractArrow method. Durability set explicitly on melee item and repair through steppe ingot. First-pass geometry is not pixel-identical to approved illustrations; client inspection and skill pose/effect polish remain. No build or GameTests executed.
+
+## CI corrections and player pose
+Initial CI exposed ambiguous MaceItem and private AbstractArrow piercing method. Both corrected. Earlier savanna runtime CI also exposed invalid minecraft:triangle height provider in sulfur_lower/fire_coal_savanna; corrected to minecraft:trapezoid plateau 0. Added player shoulder pose coverage for new melee/staff items, split/combined blade handling, sequence swing and colored arc/melody effects. Still requires final CI and client inspection.

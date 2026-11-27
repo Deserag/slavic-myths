@@ -66,7 +66,7 @@ public final class SteppeWeapons {
  static void mode(ItemStack s,boolean split){var n=state(s);n.putBoolean("SteppeSplit",split);s.set(DataComponents.CUSTOM_DATA,CustomData.of(n));var current=s.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,attrs(Kind.SKARAPEYA_BLADE,!split));var base=attrs(Kind.SKARAPEYA_BLADE,split);for(var e:current.modifiers())if(!e.modifier().id().equals(Item.BASE_ATTACK_DAMAGE_ID)&&!e.modifier().id().equals(Item.BASE_ATTACK_SPEED_ID)&&!e.modifier().id().equals(id("skarapeya_blade_reach")))base=base.withModifierAdded(e.attribute(),e.modifier(),e.slot());s.set(DataComponents.ATTRIBUTE_MODIFIERS,base);}
  static void poison(ItemStack s,int p){var n=state(s);n.putInt("SteppePoison",Math.floorMod(p,7));s.set(DataComponents.CUSTOM_DATA,CustomData.of(n));}
  public static boolean visualPair(ItemStack s){Kind k=kind(s);return k!=null&&(k.pair()||split(s));}
- static ItemAttributeModifiers attrs(Kind k,boolean split){var a=MaceItem.attributes(split?17:k.damage,split?2.0F:k.speed);if(k.reach()>0&&!split)a=a.withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE,new AttributeModifier(id(k.id+"_reach"),k.reach(),AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);return a;}
+ static ItemAttributeModifiers attrs(Kind k,boolean split){var a=org.slavicmyths.combat.MaceItem.attributes(split?17:k.damage,split?2.0F:k.speed);if(k.reach()>0&&!split)a=a.withModifierAdded(Attributes.ENTITY_INTERACTION_RANGE,new AttributeModifier(id(k.id+"_reach"),k.reach(),AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);return a;}
  public static boolean isStandard(ItemStack s){var k=kind(s);return k!=null&&k.standard();}
  public static final class Weapon extends Item implements WeaponInputHandler {
   public final Kind kind;

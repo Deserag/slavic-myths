@@ -26,7 +26,11 @@ public final class PlayerWeaponPose {
   add(Shape.POLEAXE,"berdysh");add(Shape.SICKLE,"noon_sickle");add(Shape.STAFF,"carved_staff","storm_staff","veles_staff","likho_staff");
   for(String metal:new String[]{"stone","gold","iron","silver","diamond","perunite","netherite"}){add(Shape.KNIFE,metal+"_throwing_knife");add(Shape.SULITSA,metal+"_sulitsa");}
   add(Shape.KNIFE,"shadow_throwing_knife");
-  add(Shape.WHIP,"poloz_whip");
+  add(Shape.WHIP,"poloz_whip","skarapeya_whip");
+  add(Shape.BLADE,"steppe_sword","div_claws","hyena_knuckles","skarapeya_blade");
+  add(Shape.KNIFE,"jackal_daggers","skarapeya_needle");
+  add(Shape.HEAVY,"steppe_axe","steppe_mace","polkan_axe");
+  add(Shape.SPEAR,"steppe_spear","polkan_spear");add(Shape.POLEAXE,"steppe_halberd");add(Shape.SICKLE,"steppe_scythe");add(Shape.STAFF,"div_staff","steppe_veles_staff","skarapeya_gusli");
  }
  private static void add(Shape shape,String... names){for(String name:names)if(IDS.put(name,shape)!=null)throw new IllegalStateException(name);}
  public static Map<String,Shape> coverage(){return java.util.Collections.unmodifiableMap(IDS);}
@@ -39,6 +43,14 @@ public final class PlayerWeaponPose {
    primary.xRot=-.85F-.65F*wave;primary.yRot=(left?-1:1)*-.25F;
    support.xRot=-.95F-.65F*wave;support.yRot=(left?-1:1)*.55F;support.zRot=(left?-1:1)*-.25F;
    if(twoHanded(entity)){primary.yRot=(left?-1:1)*-.4F;support.xRot=-1.085F-.43F*wave;support.yRot=(left?-1:1)*(1F-.05F*wave);support.zRot=0;}
+  }
+  if(org.slavicmyths.savanna.SteppeWeapons.visualPair(entity.getMainHandItem())&&!entity.isUsingItem()){
+   float partial=Mth.clamp(age-entity.tickCount,0,1);for(HumanoidArm arm:HumanoidArm.values()){
+    InteractionHand hand=arm==entity.getMainArm()?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
+    ModelPart part=arm==HumanoidArm.LEFT?model.leftArm:model.rightArm;
+    float swing=entity.swinging&&entity.swingingArm==hand?entity.getAttackAnim(partial):0;
+    part.xRot=-.65F-.8F*Mth.sin((float)Math.sqrt(swing)*Mth.PI);part.yRot=arm==HumanoidArm.LEFT?.22F:-.22F;part.zRot=0;
+   }
   }
   if(TugarinPairClient.uprightWinter(entity.getMainHandItem())&&!entity.isUsingItem()){
    boolean pair=org.slavicmyths.combat.TugarinPair.holdsPair((net.minecraft.world.entity.player.Player)entity);
@@ -94,6 +106,6 @@ public final class PlayerWeaponPose {
   }
   arm.zRot+=sign*.025F*sway;
  }
- private static boolean twoHanded(LivingEntity e){var id=BuiltInRegistries.ITEM.getKey(e.getMainHandItem().getItem()).getPath();return java.util.Set.of("buried_hammer","desert_halberd","desert_scythe","lamya_weapon").contains(id);}
+ private static boolean twoHanded(LivingEntity e){var id=BuiltInRegistries.ITEM.getKey(e.getMainHandItem().getItem()).getPath();return java.util.Set.of("buried_hammer","desert_halberd","desert_scythe","lamya_weapon","steppe_halberd","steppe_scythe","polkan_axe","skarapeya_gusli","skarapeya_whip").contains(id)||id.equals("skarapeya_blade")&&!org.slavicmyths.savanna.SteppeWeapons.split(e.getMainHandItem());}
  private PlayerWeaponPose(){}
 }
