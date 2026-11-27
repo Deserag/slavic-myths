@@ -330,6 +330,7 @@ public final class ModItems {
     public static final DeferredHolder<Item, Item> SKATERT=ITEMS.register("skatert",()->new org.slavicmyths.artifact.SkatertItem(properties().rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> BADNYAK=ITEMS.register("badnyak",()->new org.slavicmyths.artifact.BadnyakItem(properties().rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> VELES_STAFF=ITEMS.register("veles_staff",()->new org.slavicmyths.artifact.VelesStaffItem(properties().rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item,Item> STEPPE_VELES_STAFF=ITEMS.register("steppe_veles_staff",()->new org.slavicmyths.artifact.VelesStaffItem(properties().rarity(Rarity.EPIC),true));
     public static final DeferredHolder<Item, Item> RAW_PIKE=food("raw_pike",3,.2F),COOKED_PIKE=food("cooked_pike",7,.7F),RAW_CARP=food("raw_carp",3,.2F),COOKED_CARP=food("cooked_carp",6,.65F),SMOKED_CARP=food("smoked_carp",8,.8F),RAW_CRAYFISH=food("raw_crayfish",2,.1F),COOKED_CRAYFISH=food("cooked_crayfish",5,.6F),UKHA=stew("ukha",8,.8F);
     public static final DeferredHolder<Item, Item> OLD_HOOK=ITEMS.register("old_hook",()->new Item(properties()));
     public static final DeferredHolder<Item, Item> PEARL_FRAGMENT=ITEMS.register("pearl_fragment",()->new Item(properties().rarity(Rarity.UNCOMMON)));

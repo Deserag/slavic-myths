@@ -1,0 +1,28 @@
+{
+  "type": "slavicmyths:armorer_shapeless",
+  "copy_components": true,
+  "ingredients": [
+    {
+      "item": "slavicmyths:veles_staff"
+    },
+    {
+      "item": "slavicmyths:jackal_fang"
+    },
+    {
+      "item": "slavicmyths:black_hyena_fang"
+    },
+    {
+      "item": "slavicmyths:veteran_hyena_fang"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    },
+    {
+      "item": "slavicmyths:steppe_ingot"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:steppe_veles_staff",
+    "count": 1
+  }
+}

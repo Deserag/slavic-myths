@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment",
+  "type": "slavicmyths:armorer_shapeless",
   "ingredients": [
     {
       "item": "minecraft:leather_leggings"
@@ -21,5 +20,6 @@
   "result": {
     "id": "slavicmyths:steppe_leggings",
     "count": 1
-  }
+  },
+  "copy_components": true
 }

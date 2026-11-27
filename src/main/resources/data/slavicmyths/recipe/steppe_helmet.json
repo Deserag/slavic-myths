@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment",
+  "type": "slavicmyths:armorer_shapeless",
   "ingredients": [
     {
       "item": "minecraft:leather_helmet"
@@ -18,5 +17,6 @@
   "result": {
     "id": "slavicmyths:steppe_helmet",
     "count": 1
-  }
+  },
+  "copy_components": true
 }

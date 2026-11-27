@@ -151,6 +151,7 @@ public final class SavannaAnimal extends PathfinderMob {
     }
     @Override public boolean hurt(DamageSource source,float amount){
         boolean hit=super.hurt(source,amount);
+        if(org.slavicmyths.artifact.ArtifactEvents.summoned(this))return hit;
         if(hit&&!level().isClientSide&&source.getEntity() instanceof LivingEntity attacker&&attacker!=this&&valid(attacker)){
             if(polkanGuard()){if(!polkanReleased&&level() instanceof ServerLevel w&&polkanOwner!=null&&w.getEntity(polkanOwner) instanceof Polkan leader)leader.provoke(attacker);return hit;}
             if(isHyenaPack()){
@@ -169,6 +170,7 @@ public final class SavannaAnimal extends PathfinderMob {
     @Override public void aiStep(){
         super.aiStep();
         if(level().isClientSide)return;
+        if(org.slavicmyths.artifact.ArtifactEvents.summoned(this))return;
         if(polkanGuard()){if(level() instanceof ServerLevel w&&isAlive())Polkan.guardStep(this,w);return;}
         if(cooldown>0)cooldown--;
         if(isEncounterMember()){if(level() instanceof ServerLevel w&&isAlive())packStep(w);return;}
@@ -233,7 +235,7 @@ public final class SavannaAnimal extends PathfinderMob {
             if(next!=getTarget()){setTarget(next);getNavigation().stop();}
         }
     }
-    boolean cooperativeHunter(){return kind==Kind.JACKAL||kind==Kind.STRIPED_HYENA;}
+    boolean cooperativeHunter(){return !org.slavicmyths.artifact.ArtifactEvents.summoned(this)&&(kind==Kind.JACKAL||kind==Kind.STRIPED_HYENA);}
     boolean huntAlly(SavannaAnimal other){return other!=this&&other.isAlive()&&other.kind==kind&&
         (isEncounterMember()?other.isEncounterMember()&&packId!=null&&packId.equals(other.packId):!other.isEncounterMember());}
     boolean huntTargetAllowed(LivingEntity x){return cooperativeHunter()&&packTargetAllowed(x);}

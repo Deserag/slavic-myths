@@ -30,8 +30,8 @@ public final class ArtifactEvents {
   }
   if(p.getTicksUsingItem()>=40)org.slavicmyths.progression.Knowledge.award(p,"self_playing_music");
  }
- @SubscribeEvent public static void join(EntityJoinLevelEvent event){if(!event.getLevel().isClientSide&&event.getEntity() instanceof Mob){Mob m=(Mob)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity)m.goalSelector.addGoal(-9,new GuardianGoal((WildlifeEntity)m));}}
- @SubscribeEvent public static void target(LivingChangeTargetEvent event){if(event.getNewAboutToBeSetTarget()!=null&&event.getEntity() instanceof Mob&&calm(event.getEntity()))event.setNewAboutToBeSetTarget(null);}
+ @SubscribeEvent public static void join(EntityJoinLevelEvent event){if(!event.getLevel().isClientSide&&event.getEntity() instanceof Mob){Mob m=(Mob)event.getEntity();m.goalSelector.addGoal(-10,new CalmGoal(m));if(m instanceof WildlifeEntity||m instanceof org.slavicmyths.savanna.SavannaAnimal)m.goalSelector.addGoal(-9,new GuardianGoal(m));}}
+ @SubscribeEvent public static void target(LivingChangeTargetEvent event){if(event.getNewAboutToBeSetTarget()!=null&&event.getEntity() instanceof Mob&&(calm(event.getEntity())||summoned(event.getEntity())&&!enemy(event.getEntity(),event.getNewAboutToBeSetTarget())))event.setNewAboutToBeSetTarget(null);}
  @SubscribeEvent public static void attack(LivingIncomingDamageEvent event){Entity attacker=event.getSource().getEntity();if(attacker instanceof LivingEntity&&(calm((LivingEntity)attacker)||(summoned((LivingEntity)attacker)&&!enemy((LivingEntity)attacker,event.getEntity()))))event.setCanceled(true);}
  @SubscribeEvent public static void embers(net.neoforged.neoforge.event.tick.EntityTickEvent.Post event){if(!(event.getEntity() instanceof LivingEntity e))return;if(e.level().isClientSide||e.tickCount%20!=0||!e.getPersistentData().contains("SlavicEmbersUntil"))return;if(now(e.level())<e.getPersistentData().getLong("SlavicEmbersUntil"))((ServerLevel)e.level()).sendParticles(ParticleTypes.FLAME,e.getX(),e.getY()+.6,e.getZ(),1,.2,.3,.2,0);else e.getPersistentData().remove("SlavicEmbersUntil");}
  @SubscribeEvent public static void drops(LivingDropsEvent event){if(summoned(event.getEntity()))event.setCanceled(true);}
@@ -46,7 +46,7 @@ public final class ArtifactEvents {
   public void stop(){mob.getNavigation().stop();}
  }
  private static final class GuardianGoal extends Goal {
-  final WildlifeEntity mob;GuardianGoal(WildlifeEntity m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
+  final Mob mob;GuardianGoal(Mob m){mob=m;setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK,Flag.JUMP));}
   public boolean canUse(){return summoned(mob);}public boolean canContinueToUse(){return canUse();}
   public void tick(){Player p=owner(mob);if(now(mob.level())>=mob.getPersistentData().getLong("SlavicGuardianUntil")||p==null||!p.isAlive()){((ServerLevel)mob.level()).sendParticles(ParticleTypes.HAPPY_VILLAGER,mob.getX(),mob.getY()+.5,mob.getZ(),8,.4,.4,.4,.02);mob.discard();return;}
    LivingEntity target=p.getLastHurtMob();if(!enemy(mob,target)||mob.distanceToSqr(target)>256)target=p.getLastHurtByMob();if(!enemy(mob,target)||mob.distanceToSqr(target)>256)target=null;mob.setTarget(target);

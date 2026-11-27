@@ -29,7 +29,9 @@ public final class WeaponSkillInput {
         if(!WeaponSkillBindings.shiftLeftSkill(held)) return;
         event.setCanceled(true);
         event.setSwingHand(false);
-        if(held.getItem() instanceof org.slavicmyths.sisters.GneteyaGreatHammer) {
+        if(held.getItem() instanceof org.slavicmyths.artifact.VelesStaffItem staff && staff.steppe()) {
+            PacketDistributor.sendToServer(new org.slavicmyths.artifact.VelesStaffNetwork.SteppeSummon());
+        } else if(held.getItem() instanceof org.slavicmyths.sisters.GneteyaGreatHammer) {
             PacketDistributor.sendToServer(new org.slavicmyths.sisters.GneteyaHammerNetwork.BoneFracture());
         } else if(held.getItem() instanceof org.slavicmyths.gorynych.SerpentCrossbow) {
             PacketDistributor.sendToServer(new org.slavicmyths.gorynych.CrossbowVolley.Toggle());
