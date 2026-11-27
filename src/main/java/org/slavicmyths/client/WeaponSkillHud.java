@@ -101,6 +101,94 @@ public final class WeaponSkillHud {
         long now=mc.level.getGameTime();
         List<Skill> skills=new ArrayList<>();
         switch(id.getPath()) {
+            case "polkan_spear" -> {
+                skills.add(new Skill("winter_captain_throw","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_halberd_sweep","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("winter_bow_volley","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "polkan_bow" -> {
+                skills.add(new Skill("winter_bow_draw","R",VANILLA));
+                skills.add(new Skill("mirage_trishot","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("mirage_pierce","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "div_claws" -> {
+                skills.add(new Skill("winter_claw_dash","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_claw_flurry","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("winds_crush","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "skarapeya_gusli" -> {
+                skills.add(new Skill("wave","L",tag.getLong("SteppeCD_"+id.getPath()+"_"+0)-now));
+                skills.add(new Skill("vortex","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_queen_spikes","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("mode","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "jackal_daggers" -> {
+                skills.add(new Skill("winter_claw_dash","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_claw_flurry","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("crit","",0));
+            }
+            case "hyena_knuckles" -> {
+                skills.add(new Skill("winds_punch","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winds_barrage","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+            }
+            case "polkan_axe" -> {
+                skills.add(new Skill("glass_dash","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_halberd_sweep","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+            }
+            case "div_staff" -> {
+                skills.add(new Skill("hala_beam","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_bow_volley","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("hala_burst","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "div_bow" -> {
+                skills.add(new Skill("winter_bow_draw","R",VANILLA));
+                skills.add(new Skill("mirage_trishot","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("mirage_pierce","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "skarapeya_whip" -> {
+                skills.add(new Skill("whip_pull","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("whip_sweep","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("mode","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "skarapeya_needle" -> {
+                skills.add(new Skill("shot","L",tag.getLong("SteppeCD_"+id.getPath()+"_"+0)-now));
+                skills.add(new Skill("mirage_trishot","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("mode","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "steppe_sword" -> {
+                skills.add(new Skill("winter_sword_wave","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+            }
+            case "steppe_axe" -> {
+                skills.add(new Skill("winter_axe_crush","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+            }
+            case "steppe_mace" -> {
+                skills.add(new Skill("winter_mace_slam","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+            }
+            case "steppe_halberd" -> {
+                skills.add(new Skill("winter_halberd_sweep","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+                skills.add(new Skill("winter_halberd_sweep","S+L",tag.getLong("SteppeCD_"+id.getPath()+"_"+2)-now));
+                skills.add(new Skill("winter_halberd_projectile","S+R",tag.getLong("SteppeCD_"+id.getPath()+"_"+3)-now));
+            }
+            case "steppe_scythe" -> {
+                skills.add(new Skill("winter_scythe_harvest","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+            }
+            case "steppe_spear" -> {
+                skills.add(new Skill("winter_captain_throw","R",tag.getLong("SteppeCD_"+id.getPath()+"_"+1)-now));
+            }
+            case "steppe_bow" -> {
+                skills.add(new Skill("winter_bow_draw","R",VANILLA));
+            }
+            case "steppe_crossbow" -> {
+                skills.add(new Skill("winter_crossbow_load","R",VANILLA));
+            }
+            case "skarapeya_blade" -> {
+                boolean split=org.slavicmyths.savanna.SteppeWeapons.split(stack);
+                skills.add(new Skill(split?"winter_blades_throw":"wave","R",tag.getLong("SteppeCD_skarapeya_blade_1")-now));
+                skills.add(new Skill(split?"winter_claw_flurry":"winter_halberd_sweep","S+L",tag.getLong("SteppeCD_skarapeya_blade_2")-now));
+                skills.add(new Skill("mode","S+R",tag.getLong("SteppeCD_skarapeya_blade_3")-now));
+            }
+            case "steppe_veles_staff" -> skills.add(new Skill("veles_staff_forest_guardian","R",VANILLA));
+
             case "scorpion_double_sting" -> {
                 skills.add(new Skill("scorpion_double_strike","R",tag.getLong(org.slavicmyths.desert.DesertWeaponItem.cooldownKey("scorpion_double_sting",1))-now));
             }

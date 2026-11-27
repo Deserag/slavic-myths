@@ -42,7 +42,7 @@ public final class WeaponTooltips {
     private static final Pattern SKILL_NAMES = Pattern.compile("(?<=— )[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё\\s-]{2,40}(?=:)");
     private static final Pattern TOKENS = Pattern.compile(KEYS.pattern() + "|" + SKILL_NAMES.pattern() + "|" + DAMAGE_VALUES.pattern() + "|" + VALUES.pattern());
 
-    public static boolean isWeapon(String id) { return WEAPONS.contains(id) || org.slavicmyths.desert.DesertWeaponItem.isDesertWeapon(id) || id.equals("ice_healing_staff") || id.equals("fire_healing_staff"); }
+    public static boolean isWeapon(String id) { return WEAPONS.contains(id) || java.util.Arrays.stream(org.slavicmyths.savanna.SteppeWeapons.Kind.values()).anyMatch(k -> k.id.equals(id)) || id.equals("steppe_veles_staff") || org.slavicmyths.desert.DesertWeaponItem.isDesertWeapon(id) || id.equals("ice_healing_staff") || id.equals("fire_healing_staff"); }
     public static boolean isElderSerpentWeapon(String id) { return ELDER_SERPENT_WEAPONS.contains(id); }
 
     @SubscribeEvent(priority=net.neoforged.bus.api.EventPriority.LOWEST) public static void tooltip(ItemTooltipEvent event) {

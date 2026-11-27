@@ -31,8 +31,18 @@ public final class SteppeWeaponSkills {
  private static String key(Kind k,Action a){return "SteppeCD_"+k.id+"_"+a.id();}
  private static boolean ready(ServerPlayer p,Kind k,Action a){return p.getPersistentData().getLong(key(k,a))<=p.server.overworld().getGameTime();}
  private static void commit(ServerPlayer p,ItemStack s,Kind k,Action a,int cd,int wear){p.getPersistentData().putLong(key(k,a),p.server.overworld().getGameTime()+cd);if(k==Kind.SKARAPEYA_BLADE&&wear>0){SteppeWeapons.poison(s,SteppeWeapons.poison(s)+1);}if(wear>0&&!p.hasInfiniteMaterials())s.hurtAndBreak(wear,p,EquipmentSlot.MAINHAND);p.swing(InteractionHand.MAIN_HAND,true);}
+ private static void syncHud(ServerPlayer p){
+  ItemStack s=p.getMainHandItem();Kind k=SteppeWeapons.kind(s);if(k==null)return;
+  var old=s.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag();
+  boolean changed=false;
+  for(Action a:Action.values()){
+   String key=key(k,a);long ready=p.getPersistentData().getLong(key);
+   if(old.getLong(key)!=ready){old.putLong(key,ready);changed=true;}
+  }
+  if(changed)s.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(old));
+ }
  private static void schedule(ServerPlayer p,ItemStack s,int delay,java.util.function.Consumer<ServerPlayer> r){var q=TASKS.computeIfAbsent(p,x->new ArrayList<>());if(q.size()<64)q.add(new Task(p.serverLevel().getGameTime()+delay,p.serverLevel(),s,r));}
- @SubscribeEvent public static void tick(PlayerTickEvent.Post e){if(!(e.getEntity() instanceof ServerPlayer p))return;var q=TASKS.get(p);if(q==null)return;if(!p.isAlive()){TASKS.remove(p);return;}var due=new ArrayList<Task>();q.removeIf(t->{if(t.world()!=p.serverLevel()||t.held()!=null&&(t.held().isEmpty()||p.getMainHandItem()!=t.held()))return true;if(t.due()<=p.serverLevel().getGameTime()){due.add(t);return true;}return false;});for(var t:due)t.run().accept(p);if(q.isEmpty())TASKS.remove(p);}
+ @SubscribeEvent public static void tick(PlayerTickEvent.Post e){if(!(e.getEntity() instanceof ServerPlayer p))return;syncHud(p);var q=TASKS.get(p);if(q==null)return;if(!p.isAlive()){TASKS.remove(p);return;}var due=new ArrayList<Task>();q.removeIf(t->{if(t.world()!=p.serverLevel()||t.held()!=null&&(t.held().isEmpty()||p.getMainHandItem()!=t.held()))return true;if(t.due()<=p.serverLevel().getGameTime()){due.add(t);return true;}return false;});for(var t:due)t.run().accept(p);if(q.isEmpty())TASKS.remove(p);}
  @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p)TASKS.remove(p);}
  private static Vec3 end(ServerPlayer p,double range){Vec3 from=p.getEyePosition(),to=from.add(p.getLookAngle().scale(range));var b=p.serverLevel().clip(new ClipContext(from,to,ClipContext.Block.COLLIDER,ClipContext.Fluid.NONE,p));return b.getType()==HitResult.Type.MISS?to:b.getLocation();}
  private static LivingEntity aim(ServerPlayer p,double range){Vec3 from=p.getEyePosition(),to=end(p,range);return p.serverLevel().getEntitiesOfClass(LivingEntity.class,new AABB(from,to).inflate(1),x->legal(p,x,false)&&x.getBoundingBox().inflate(.3).clip(from,to).isPresent()).stream().min(Comparator.comparingDouble(x->x.distanceToSqr(p))).orElse(null);}

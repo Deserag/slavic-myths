@@ -75,7 +75,7 @@ public final class SteppeWeapons {
   @Override public boolean isEnchantable(ItemStack s){return true;}
   @Override public boolean isValidRepairItem(ItemStack s,ItemStack material){return material.is(SteppeResources.ITEMS.get("steppe_ingot").get());}
   @Override public Component getName(ItemStack s){return label(kind,s);}
-  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){super.appendHoverText(s,c,lines,f);lines.add(Component.literal(kind.tip));if(kind.serpent())lines.add(Component.literal("Яд: "+SteppeWeaponSkills.poisonName(poison(s))));if(kind==Kind.SKARAPEYA_BLADE)lines.add(Component.literal(split(s)?"Два клинка":"Двусторонний клинок"));}
+  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){super.appendHoverText(s,c,lines,f);appendSkillLines(kind,lines);if(kind.serpent())lines.add(Component.literal("Яд: "+SteppeWeaponSkills.poisonName(poison(s))));if(kind==Kind.SKARAPEYA_BLADE)lines.add(Component.literal(split(s)?"Два клинка":"Двусторонний клинок"));}
   @Override public boolean supportsEnchantment(ItemStack stack,net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> e){return !e.is(net.minecraft.world.item.enchantment.Enchantments.SWEEPING_EDGE)&&(e.value().isSupportedItem(new ItemStack(Items.IRON_SWORD))||super.supportsEnchantment(stack,e));}
   @Override public boolean isPrimaryItemFor(ItemStack stack,net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> e){return supportsEnchantment(stack,e);}
   @Override public boolean hurtEnemy(ItemStack stack,LivingEntity target,LivingEntity attacker){if(attacker instanceof net.minecraft.server.level.ServerPlayer p){SteppeWeaponSkills.meleePassive(p,target,stack,kind);stack.hurtAndBreak(1,p,EquipmentSlot.MAINHAND);}return true;}
@@ -93,7 +93,10 @@ public final class SteppeWeapons {
   @Override public Component getName(ItemStack s){return label(kind,s);}
   @Override public boolean intercepts(Action a){return kind!=Kind.STEPPE_BOW&&(a==Action.SHIFT_LEFT_CLICK||a==Action.SHIFT_RIGHT_CLICK);}
   @Override public void onWeaponAction(net.minecraft.server.level.ServerPlayer p,ItemStack s,Action a){SteppeWeaponSkills.use(p,s,kind,a);}
-  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){super.appendHoverText(s,c,lines,f);lines.add(Component.literal(kind.tip));}
+  @Override public void appendHoverText(ItemStack s,TooltipContext c,List<Component> lines,TooltipFlag f){super.appendHoverText(s,c,lines,f);appendSkillLines(kind,lines);}
+ }
+ private static void appendSkillLines(Kind kind,List<Component> lines){
+  for(String skill:kind.tip.split(";\\s*"))lines.add(Component.literal(skill.trim()));
  }
  private SteppeWeapons(){}
 }

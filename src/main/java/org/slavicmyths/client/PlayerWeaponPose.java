@@ -44,12 +44,12 @@ public final class PlayerWeaponPose {
    support.xRot=-.95F-.65F*wave;support.yRot=(left?-1:1)*.55F;support.zRot=(left?-1:1)*-.25F;
    if(twoHanded(entity)){primary.yRot=(left?-1:1)*-.4F;support.xRot=-1.085F-.43F*wave;support.yRot=(left?-1:1)*(1F-.05F*wave);support.zRot=0;}
   }
-  if(org.slavicmyths.savanna.SteppeWeapons.visualPair(entity.getMainHandItem())&&!entity.isUsingItem()){
+  if(org.slavicmyths.savanna.SteppeWeapons.visualPair(entity.getMainHandItem())&&entity.getOffhandItem().isEmpty()&&!entity.isUsingItem()){
    float partial=Mth.clamp(age-entity.tickCount,0,1);for(HumanoidArm arm:HumanoidArm.values()){
     InteractionHand hand=arm==entity.getMainArm()?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
     ModelPart part=arm==HumanoidArm.LEFT?model.leftArm:model.rightArm;
     float swing=entity.swinging&&entity.swingingArm==hand?entity.getAttackAnim(partial):0;
-    part.xRot=-.65F-.8F*Mth.sin((float)Math.sqrt(swing)*Mth.PI);part.yRot=arm==HumanoidArm.LEFT?.22F:-.22F;part.zRot=0;
+    part.xRot=-.36F-1.0F*Mth.sin((float)Math.sqrt(swing)*Mth.PI);part.yRot=0;part.zRot=arm==HumanoidArm.LEFT?-.10F:.10F;
    }
   }
   if(TugarinPairClient.uprightWinter(entity.getMainHandItem())&&!entity.isUsingItem()){
