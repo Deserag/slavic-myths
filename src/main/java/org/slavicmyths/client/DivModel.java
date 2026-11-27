@@ -1,4 +1,6 @@
 package org.slavicmyths.client;
+import java.util.ArrayList;
+import java.util.List;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -11,13 +13,27 @@ final class DivModel extends EntityModel<Div> {
     private static final int DARK=0,PURPLE=1,MID=2,LIGHT=3,RED=4,RED2=5,BONE=6,SKIN=7,CLAW=8,HAIR=9,Hock=10,Shin=11,Foot=12,Joint=13,Band=14;
     private final FolkModelGeometry g=new FolkModelGeometry();
     private final ModelPart root,body,head,tail;
-    private final ModelPart[] arms=new ModelPart[2],fore=new ModelPart[2],legs=new ModelPart[2],closed=new ModelPart[2],spread=new ModelPart[2];
+    private final ModelPart[] arms=new ModelPart[2],fore=new ModelPart[2],legs=new ModelPart[2],closed=new ModelPart[2];
+    private record WingSegment(ModelPart part,Vec3 a,Vec3 b,float length){}
+    private final List<List<WingSegment>> folded=List.of(new ArrayList<>(),new ArrayList<>()), extended=List.of(new ArrayList<>(),new ArrayList<>());
+    private List<WingSegment> capture;
     private static Vec3 v(double x,double y,double z){return new Vec3(x,y,z);}
     private static Vec3 mc(Vec3 p){return v(p.x,-p.z,p.y);}
     private ModelPart part(ModelPart parent,Vec3 pivot){ModelPart p=g.part(256,256);Vec3 q=mc(pivot);p.setPos((float)q.x,(float)q.y,(float)q.z);if(parent!=null)g.attach(parent,p);return p;}
     private void box(ModelPart p,Vec3 c,double w,double d,double h,int col){Vec3 q=mc(c);g.box(p,(col%4)*64+1,(col/4)*64+1,(float)(q.x-w/2),(float)(q.y-h/2),(float)(q.z-d/2),(float)w,(float)h,(float)d);}
-    private void limb(ModelPart p,Vec3 a,Vec3 b,double w,double dep,int col){Vec3 z=b.subtract(a).normalize(),q=v(0,1,0);q=q.subtract(z.scale(q.dot(z)));if(q.length()<.1){q=v(1,0,0);q=q.subtract(z.scale(q.dot(z)));}Vec3 y=q.normalize(),x=y.cross(z);Vec3 cx=mc(x),cy=mc(y),cz=mc(z);ModelPart child=part(p,a.add(b).scale(.5));float yr=(float)Math.asin(Mth.clamp(-cx.z,-1,1));child.yRot=yr;if(Math.abs(Math.cos(yr))>1e-5){child.xRot=(float)Math.atan2(cy.z,cz.z);child.zRot=(float)Math.atan2(cx.y,cx.x);}else{child.xRot=0;child.zRot=(float)Math.atan2(-cy.x,cy.y);}
-        float l=(float)a.distanceTo(b);g.box(child,(col%4)*64+1,(col/4)*64+1,(float)(-w/2),(float)(-dep/2),-l/2,(float)w,(float)dep,l);}
+    private void limb(ModelPart p,Vec3 a,Vec3 b,double w,double dep,int col){
+        ModelPart child=part(p,a.add(b).scale(.5));float l=(float)a.distanceTo(b);poseSegment(child,a,b,l);
+        g.box(child,(col%4)*64+1,(col/4)*64+1,(float)(-w/2),(float)(-dep/2),-l/2,(float)w,(float)dep,l);
+        if(capture!=null)capture.add(new WingSegment(child,a,b,l));
+    }
+    private static void poseSegment(ModelPart child,Vec3 a,Vec3 b,float baseLength){
+        Vec3 mid=mc(a.lerp(b,.5));child.setPos((float)mid.x,(float)mid.y,(float)mid.z);
+        Vec3 z=b.subtract(a).normalize(),q=v(0,1,0);q=q.subtract(z.scale(q.dot(z)));if(q.length()<.1){q=v(1,0,0);q=q.subtract(z.scale(q.dot(z)));}
+        Vec3 y=q.normalize(),x=y.cross(z);Vec3 cx=mc(x),cy=mc(y),cz=mc(z);float yr=(float)Math.asin(Mth.clamp(-cx.z,-1,1));child.yRot=yr;
+        if(Math.abs(Math.cos(yr))>1e-5){child.xRot=(float)Math.atan2(cy.z,cz.z);child.zRot=(float)Math.atan2(cx.y,cx.x);}else{child.xRot=0;child.zRot=(float)Math.atan2(-cy.x,cy.y);}
+        child.zScale=(float)a.distanceTo(b)/baseLength;
+    }
+    private void wings(int i,float openness,float flap){var f=folded.get(i);var e=extended.get(i);for(int k=0;k<f.size();k++){WingSegment from=f.get(k),to=e.get(k);poseSegment(from.part,from.a.lerp(to.a,openness),from.b.lerp(to.b,openness),from.length);}closed[i].zRot=flap;}
     private void feather(ModelPart p,Vec3 a,Vec3 b,double w,double d,int c,int tip){Vec3 delta=b.subtract(a);limb(p,a,a.add(delta.scale(.70)),w,d,c);limb(p,a.add(delta.scale(.67)),a.add(delta.scale(.9)),w*.77,d*.87,tip);limb(p,a.add(delta.scale(.88)),b,w*.49,d*.68,tip);}
     private void f(ModelPart p,Vec3 a,Vec3 b,double w,double d,int c){feather(p,a,b,w,d,c,c);}
     private static int palette(int i,int... values){return values[Math.floorMod(i,values.length)];}
@@ -48,7 +64,7 @@ final class DivModel extends EntityModel<Div> {
             box(lower,palm,3,2.4,2.1,Foot);
             for(int i=-1;i<=1;i++){Vec3 a=palm.add(i*.9,-.3,-.6),b=palm.add(i*1.5,-1.15,-2.5-(i==0?.5:0)),c=b.add(-i*.25,-1.15,-1.2),d=c.add(-i*.15,-.7,.1);limb(lower,a,b,1.05,1.15,BONE);limb(lower,b,c,.9,.95,CLAW);limb(lower,c,d,.65,.7,CLAW);}
             limb(lower,palm.add(-s*1.1,.2,0),palm.add(-s*2.2,-.8,-1.3),1,1,BONE);limb(lower,palm.add(-s*2.2,-.8,-1.3),palm.add(-s*1.9,-2,-2),.85,.85,CLAW);
-            Vec3 rt=v(s*4.7,1.8,32);closed[j]=part(body,rt);spread[j]=part(body,rt);wing(closed[j],s,rt,false);wing(spread[j],s,rt,true);
+            Vec3 rt=v(s*4.7,1.8,32);closed[j]=part(body,rt);capture=folded.get(j);wing(closed[j],s,rt,false);capture=extended.get(j);wing(part(null,rt),s,rt,true);capture=null;if(folded.get(j).size()!=extended.get(j).size())throw new IllegalStateException("Div wing topology mismatch");
         }
         Vec3 hp=v(0,-7.2,36.8);head=part(body,hp);Vec3 hc=v(0,-7.2,39.7).subtract(hp);Vec3 q=mc(hc);
         g.box(head,192,192,(float)q.x-4,(float)q.y-4,(float)q.z-4,8,8,8);
@@ -64,8 +80,9 @@ final class DivModel extends EntityModel<Div> {
     private static float env(float t,float a,float b,float c,float d){return smooth((t-a)/(b-a))*(1-smooth((t-c)/(d-c)));}
     @Override public void setupAnim(Div e,float walk,float amount,float age,float yaw,float pitch){int a=e.action();float t=Mth.clamp((e.actionAge()+Mth.clamp(age-e.tickCount,0,1))/Math.max(1,Div.duration(a)),0,1),wind=env(t,.02F,.28F,.29F,.45F),hit=env(t,.27F,.43F,.48F,.84F),pulse=env(t,.05F,.33F,.56F,.92F);
         body.xRot=body.yRot=0;head.xRot=pitch*.012F;head.yRot=yaw*.012F;tail.yRot=Mth.sin(age*.1F)*.08F;
-        boolean open=e.flying()||a==Div.WING||a==Div.FAN||a==Div.FEATHER||a==Div.SCREAM||a==Div.GRAB||a==Div.DIVE;
-        for(int i=0;i<2;i++){int s=i==0?-1:1;arms[i].xRot=fore[i].xRot=0;legs[i].xRot=Mth.sin(walk*.6F+i*Mth.PI)*Math.min(amount,1)*.25F;closed[i].visible=!open;spread[i].visible=open;closed[i].zRot=0;spread[i].zRot=s*(e.flying()?Mth.sin(age*.5F)*.32F:(wind-hit)*.28F);}
+        float openness=switch(a){case Div.WING,Div.DIVE->.95F*pulse;case Div.FAN,Div.FEATHER,Div.GRAB->.85F*pulse;case Div.SCREAM->.55F*pulse;case Div.GROUND->.5F*pulse;case Div.FATE->.72F*pulse;default->e.flying()?1F:0F;};
+        if(e.flying()&&(a==Div.DIVE||a==Div.GRAB))openness=Math.max(openness,.85F*env(t,.02F,.20F,.78F,.99F));
+        for(int i=0;i<2;i++){int s=i==0?-1:1;arms[i].xRot=fore[i].xRot=0;legs[i].xRot=Mth.sin(walk*.6F+i*Mth.PI)*Math.min(amount,1)*.25F;wings(i,openness,s*openness*(e.flying()?Mth.sin(age*.5F)*.32F:(wind-hit)*.28F));}
         switch(a){case Div.CLAW,Div.CURSED_CLAW->{arms[1].xRot=.65F*wind-1.24F*hit;fore[1].xRot=.38F*wind-.2F*hit;body.xRot=.12F*wind-.16F*hit;}
             case Div.DOUBLE->{arms[1].xRot=-1.2F*env(t,.13F,.29F,.32F,.49F);arms[0].xRot=-1.2F*env(t,.42F,.58F,.63F,.85F);}
             case Div.WING->{body.yRot=-.48F*wind+.55F*hit;}

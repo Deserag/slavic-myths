@@ -10,3 +10,5 @@ Proposed tier VIII, 1600 actual HP, armor 16, toughness 6, knockback resistance 
 Owner approved model V1 and 13 Python attack animations. Tier VIII, 1600 HP. Ground and ranged attacks, four independent curse timers and flight attacks, single spawn egg. First Java port is unverified: build, runtime, exact animation timing and balance still need validation. Loot rewards not approved; empty loot table for now.
 
 Follow-up adds collision-checked egg use, curse stack/health GameTests alongside the isolated savanna test suite, hostile bird patrol/prey selection and creature tags. The first combat port uses server-traced particle projectiles (not a registered visible feather model); landing, flight, animation transitions and all 13 skill timings still require in-game QA.
+
+Wing motion interpolates the folded/extended Python feather endpoints; eye-only emissive texture remains flat on the player head. Both are unverified visually in the game.

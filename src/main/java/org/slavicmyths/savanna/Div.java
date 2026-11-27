@@ -26,6 +26,7 @@ public final class Div extends PathfinderMob {
     private static final int[] COOLDOWN={0,60,140,180,500,160,240,80,200,320,400,480,440,0};
     private static final int[] DURATION={0,26,40,34,72,30,30,30,38,44,48,36,90,54};
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT), AGE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT), PHASE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> FATE_CHARGE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> FLYING=SynchedEntityData.defineId(Div.class,EntityDataSerializers.BOOLEAN);
     private final ServerBossEvent bar=new ServerBossEvent(Component.translatableWithFallback("entity.slavicmyths.div","Див"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
     private final long[] ready=new long[14];
@@ -47,8 +48,8 @@ public final class Div extends PathfinderMob {
     @Override public float getMaxHealth(){return (float)CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}
     @Override public double getAttributeValue(net.minecraft.core.Holder<Attribute> a){return a.equals(Attributes.MAX_HEALTH)?CreatureHealthBalance.uncappedMaximum(getAttribute(a)):super.getAttributeValue(a);}
     @Override protected void registerGoals(){goalSelector.addGoal(0,new FloatGoal(this));}
-    @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ACTION,0);b.define(AGE,0);b.define(PHASE,1);b.define(FLYING,false);}
-    public int action(){return entityData.get(ACTION);} public int actionAge(){return entityData.get(AGE);} public int phase(){return entityData.get(PHASE);} public boolean flying(){return entityData.get(FLYING);}
+    @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(ACTION,0);b.define(AGE,0);b.define(PHASE,1);b.define(FLYING,false);b.define(FATE_CHARGE,0);}
+    public int action(){return entityData.get(ACTION);} public int actionAge(){return entityData.get(AGE);} public int phase(){return entityData.get(PHASE);} public boolean flying(){return entityData.get(FLYING);} public int fateCharge(){return entityData.get(FATE_CHARGE);}
     public static int duration(int a){return a>=0&&a<DURATION.length?DURATION[a]:1;}
     @Override public int getMaxSpawnClusterSize(){return 1;}
     @Override public Component getName(){return hasCustomName()?super.getName():Component.translatableWithFallback(getType().getDescriptionId(),"Див");}
@@ -81,7 +82,7 @@ public final class Div extends PathfinderMob {
     private int choose(ServerLevel w,LivingEntity t){double d=distanceTo(t);int[] choices=d<=8?(phase()==1?new int[]{TAIL,CLAW,DOUBLE,WING,CURSED_CLAW}:new int[]{TAIL,GRAB,CURSED_CLAW,DOUBLE,WING,CLAW}):(phase()==1?new int[]{FEATHER,SCREAM,GAZE}:new int[]{DIVE,GROUND,FAN,GAZE,SCREAM,FEATHER});for(int a:choices){if(w.getGameTime()<ready[a])continue;if(a==TAIL&&front().dot(flat(t.position().subtract(position())))>-.2)continue;if(a==GRAB&&(!onGround()||d>6))continue;if(a==DIVE&&(d<9||d>36))continue;if(d>44)continue;if(hasLineOfSight(t))return a;}return IDLE;}
     @Override public void tick(){super.tick();if(!(level() instanceof ServerLevel w)||!isAlive()||isNoAi())return;if(w.getDifficulty()==Difficulty.PEACEFUL){discard();return;}entityData.set(PHASE,phaseFor(getHealth()));bar.setProgress(Math.clamp(getHealth()/getMaxHealth(),0,1));
         if(tickCount%20==0){Set<ServerPlayer> viewers=new HashSet<>();for(ServerPlayer p:w.players())if(!p.isSpectator()&&distanceToSqr(p)<=64*64)viewers.add(p);for(ServerPlayer p:List.copyOf(bar.getPlayers()))if(!viewers.contains(p))bar.removePlayer(p);for(ServerPlayer p:viewers)if(!bar.getPlayers().contains(p))bar.addPlayer(p);}
-        var xs=candidates(w);tickShots(w);tickZones(w,xs);tickDoom(w);
+        var xs=candidates(w);tickShots(w);tickZones(w,xs);tickDoom(w);entityData.set(FATE_CHARGE,(int)doomed.values().stream().mapToLong(v->Math.max(0,v.due-w.getGameTime())).min().orElse(0));
         LivingEntity t=getTarget();if(!valid(t)||distanceToSqr(t)>4096){t=xs.stream().min(Comparator.comparingDouble(this::distanceToSqr)).orElse(null);setTarget(t);}
         if(action()!=IDLE){advance(w,lookup(w,locked),xs);return;}
         if(delay>0)delay--;
