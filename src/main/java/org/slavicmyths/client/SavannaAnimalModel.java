@@ -89,9 +89,9 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
             int sign=i==0?-1:1;String side=i==0?"L":"R";
             int inner=Math.round(span*.55F),outer=Math.round(span*.48F);
             p("wing"+side,"body",sign*w*.47F,-h*.3F,0,0,0,sign*1.35F);
-            b("wing"+side",0,80,sign<0?-inner:0,0,-l*.36F,inner,2,Math.round(l*.72F));
+            b("wing"+side,0,80,sign<0?-inner:0,0,-l*.36F,inner,2,Math.round(l*.72F));
             p("wingTip"+side,"wing"+side,sign*inner,0,1,0,0,sign*.18F);
-            b("wingTip"+side",40,80,sign<0?-outer:0,0,-2,outer,1,Math.round(l*.55F));
+            b("wingTip"+side,40,80,sign<0?-outer:0,0,-2,outer,1,Math.round(l*.55F));
             p("leg"+i,"body",sign*w*.25F,h/2F-1,0,0,0,0);
             b("leg"+i,88,44,-.5F,0,-.5F,1,g,1);
             b("leg"+i,100,44,-1,g-1,-2,2,1,3);
