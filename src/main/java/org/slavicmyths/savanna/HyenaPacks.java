@@ -141,6 +141,10 @@ public final class HyenaPacks extends SavedData {
             &&a.distanceToSqr(x)<=36*36)candidates.add(x);
         candidates.sort(Comparator.comparing(Entity::getUUID));
         if(!candidates.isEmpty())return candidates.get(Math.floorMod(a.packSlot,candidates.size()));
+        if(a.packSlot!=0&&w.getEntity(p.ids[0]) instanceof SavannaAnimal leader&&leader.isAlive()){
+            LivingEntity prey=leader.getTarget();
+            if(a.packPrey(prey)&&a.distanceToSqr(prey)<32*32)return prey;
+        }
         LivingEntity previous=a.getTarget();
         if(previous!=null&&a.packPrey(previous)&&a.distanceToSqr(previous)<=32*32)return previous;
         return w.getEntitiesOfClass(LivingEntity.class,a.getBoundingBox().inflate(24),x->a.packPrey(x)&&a.hasLineOfSight(x))
@@ -189,6 +193,7 @@ public final class HyenaPacks extends SavedData {
         Pack p=packs.get(a.packId);p.dead|=1<<a.packSlot;p.hp[a.packSlot]=0;setDirty();
         // Role-specific rewards are deferred. Keep the roster after leader death for future individual claims.
         if(a.packSlot==0){p.roarUntil=0;p.threats.clear();p.leaderAttacker=null;}
+        else if(a.packSlot<=2)p.nextRoar=Math.min(p.nextRoar,w.getGameTime()+(((p.dead&6)==6)?120:160));
         refresh(p,w,a);
     }
     void removed(SavannaAnimal a,ServerLevel w){

@@ -116,7 +116,7 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
             p("tail").yRot+=Mth.sin(age*.1F)*.12F;p("tailTip").yRot+=Mth.sin(age*.1F-.5F)*.13F;
             p("earL").zRot+=Mth.sin(age*.09F)*.05F;p("earR").zRot-=Mth.sin(age*.08F)*.05F;
             if(kind==SavannaAnimal.Kind.AUROCHS){p("neck").xRot+=strike*.45F;p("head").xRot+=strike*.25F;}
-            else if(kind.predator()){p("jaw").xRot+=strike*.52F;p("head").xRot+=strike*.18F;p("body").z-=strike*.8F;if(e.roarTicks()>0){float roar=Mth.sin((20-e.roarTicks())*3.1415927F/20F);p("jaw").xRot+=roar*.8F;p("head").xRot-=roar*.35F;}}
+            else if(kind.predator()){p("jaw").xRot+=strike*.52F;p("head").xRot+=strike*.18F;p("body").z-=strike*.8F;if(e.charging()){p("body").xRot+=.12F;p("head").xRot+=.2F;}if(e.roarTicks()>0){float roar=Mth.sin((20-e.roarTicks())*3.1415927F/20F);p("jaw").xRot+=roar*.8F;p("head").xRot-=roar*.35F;}}
         }else{
             boolean flying=!e.onGround()&&!e.isInWater();
             for(int i=0;i<2;i++){

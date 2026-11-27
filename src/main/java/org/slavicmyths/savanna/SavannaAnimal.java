@@ -44,7 +44,8 @@ public final class SavannaAnimal extends PathfinderMob {
     public enum HyenaRole { NONE, LEADER, GUARD, RETINUE }
     private final HyenaRole hyenaRole;
     private static final EntityDataAccessor<Integer> ROAR=SynchedEntityData.defineId(SavannaAnimal.class,EntityDataSerializers.INT);
-    private boolean heavyStrike;
+    private boolean heavyStrike, chargeHit;
+    private static final EntityDataAccessor<Boolean> CHARGE=SynchedEntityData.defineId(SavannaAnimal.class,EntityDataSerializers.BOOLEAN);
     UUID packId;
     int packSlot=-1;
     private UUID groupId;
@@ -75,9 +76,10 @@ public final class SavannaAnimal extends PathfinderMob {
     public Kind kind(){return kind;}
     public boolean isPackBoss(){return packBoss;}
     public HyenaRole hyenaRole(){return hyenaRole;}
-    public boolean isHyenaPack(){return hyenaRole!=HyenaRole.NONE;}
+    public boolean isHyenaPack(){return hyenaRole!=null&&hyenaRole!=HyenaRole.NONE;}
     public boolean isEncounterMember(){return packBoss||isHyenaPack();}
     public int roarTicks(){return entityData.get(ROAR);}
+    public boolean charging(){return entityData.get(CHARGE);}
     public float encounterScale(){return packBoss?1.5F:hyenaRole==HyenaRole.LEADER?2.5F:hyenaRole==HyenaRole.GUARD?2F:1F;}
     public static AttributeSupplier.Builder hyenaAttributes(HyenaRole role){
         return attributes(Kind.STRIPED_HYENA).add(Attributes.MAX_HEALTH,role==HyenaRole.LEADER?400:role==HyenaRole.GUARD?150:29)
@@ -99,7 +101,7 @@ public final class SavannaAnimal extends PathfinderMob {
             .add(Attributes.ATTACK_DAMAGE,kind.damage).add(Attributes.FOLLOW_RANGE,24)
             .add(Attributes.ARMOR,kind==Kind.AUROCHS?3:0);
     }
-    @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STRIKE,0);b.define(ROAR,0);}
+    @Override protected void defineSynchedData(SynchedEntityData.Builder b){super.defineSynchedData(b);b.define(STRIKE,0);b.define(ROAR,0);b.define(CHARGE,false);}
     @Override protected void registerGoals(){}
     private void installGoals(){
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -238,7 +240,7 @@ public final class SavannaAnimal extends PathfinderMob {
         StrikeGoal(){setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));}
         public boolean canUse(){return valid(getTarget());}
         public boolean requiresUpdateEveryTick(){return true;}
-        public void stop(){entityData.set(STRIKE,0);getNavigation().stop();}
+        public void stop(){entityData.set(STRIKE,0);entityData.set(CHARGE,false);heavyStrike=false;chargeHit=false;getNavigation().stop();}
         public void tick(){
             LivingEntity target=getTarget();if(!valid(target)||isHyenaPack()&&!packTargetAllowed(target))return;
             if(isHyenaPack()&&roarTicks()>0){getNavigation().stop();return;}
@@ -247,12 +249,23 @@ public final class SavannaAnimal extends PathfinderMob {
             int t=strikeTicks();
             if(t>0){
                 getNavigation().stop();
-                if(t==strikeLength()/2&&distanceToSqr(target)<reach*reach&&hasLineOfSight(target)){
+                if(charging()){
+                    if(t>3&&!chargeHit){
+                        double distance=distanceToSqr(target);
+                        if(distance<reach*reach&&hasLineOfSight(target)){
+                            chargeHit=true;
+                            if(doHurtTarget(target))target.knockback(1.5,getX()-target.getX(),getZ()-target.getZ());
+                        }else if(onGround()&&!horizontalCollision&&hasLineOfSight(target)){
+                            Vec3 direction=target.position().subtract(position()).multiply(1,0,1).normalize();
+                            setDeltaMovement(direction.x*.7,getDeltaMovement().y,direction.z*.7);
+                        }
+                    }
+                }else if(t==strikeLength()/2&&distanceToSqr(target)<reach*reach&&hasLineOfSight(target)){
                     boolean hit=doHurtTarget(target);
                     if(hit&&isHyenaPack()&&heavyStrike)target.knockback(hyenaRole==HyenaRole.LEADER?1.5:0.85,getX()-target.getX(),getZ()-target.getZ());
                 }
                 entityData.set(STRIKE,t-1);
-                if(t==1){cooldown=isHyenaPack()?(hyenaBoosted()?12:28):packBoss?(packEnraged()?10:25):kind==Kind.AUROCHS?35:25;heavyStrike=false;}
+                if(t==1){cooldown=isHyenaPack()?(hyenaBoosted()?12:28):packBoss?(packEnraged()?10:25):kind==Kind.AUROCHS?35:25;heavyStrike=false;entityData.set(CHARGE,false);chargeHit=false;}
                 return;
             }
             if(distanceToSqr(target)<reach*reach&&cooldown==0&&hasLineOfSight(target)){
@@ -265,6 +278,7 @@ public final class SavannaAnimal extends PathfinderMob {
                 if(cooldown==0&&onGround()&&dist>reach*reach&&dist<lungeRange&&hasLineOfSight(target)&&random.nextInt(isHyenaPack()&&hyenaBoosted()?3:5)==0){
                     Vec3 forward=target.position().subtract(position()).multiply(1,0,1).normalize();
                     heavyStrike=isHyenaPack()&&hyenaRole!=HyenaRole.RETINUE;
+                    if(hyenaRole==HyenaRole.LEADER){entityData.set(CHARGE,true);chargeHit=false;}
                     setDeltaMovement(forward.scale(hyenaRole==HyenaRole.LEADER?.85:hyenaRole==HyenaRole.GUARD?.60:.48).add(0,.32,0));entityData.set(STRIKE,strikeLength());getNavigation().stop();return;
                 }
                 if(tickCount%5==0){
@@ -310,5 +324,5 @@ public final class SavannaAnimal extends PathfinderMob {
         public void stop(){leader=null;getNavigation().stop();}
     }
     @Override public void addAdditionalSaveData(CompoundTag n){super.addAdditionalSaveData(n);if(groupId!=null)n.putUUID("SavannaGroup",groupId);if(packBoss&&packId!=null){n.putUUID("JackalPack",packId);n.putInt("JackalSlot",packSlot);}if(isHyenaPack()&&packId!=null){n.putUUID("HyenaPack",packId);n.putInt("HyenaSlot",packSlot);}}
-    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);if(packBoss&&n.hasUUID("JackalPack")){packId=n.getUUID("JackalPack");packSlot=n.getInt("JackalSlot");}if(isHyenaPack()&&n.hasUUID("HyenaPack")){packId=n.getUUID("HyenaPack");packSlot=n.getInt("HyenaSlot");}entityData.set(ROAR,0);}
+    @Override public void readAdditionalSaveData(CompoundTag n){super.readAdditionalSaveData(n);groupId=n.hasUUID("SavannaGroup")?n.getUUID("SavannaGroup"):null;entityData.set(STRIKE,0);if(packBoss&&n.hasUUID("JackalPack")){packId=n.getUUID("JackalPack");packSlot=n.getInt("JackalSlot");}if(isHyenaPack()&&n.hasUUID("HyenaPack")){packId=n.getUUID("HyenaPack");packSlot=n.getInt("HyenaSlot");}entityData.set(ROAR,0);entityData.set(CHARGE,false);}
 }
