@@ -1,0 +1,125 @@
+{
+  "loader": "neoforge:obj",
+  "model": "slavicmyths:models/item/desert_mesh/desert_sword.obj",
+  "mtl_override": "slavicmyths:models/item/desert_mesh/desert.mtl",
+  "textures": {
+    "palette": "slavicmyths:item/steppe_weapons/standard_palette",
+    "particle": "slavicmyths:item/steppe_weapons/standard_palette"
+  },
+  "automatic_culling": false,
+  "shade_quads": true,
+  "flip_v": false,
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -38
+      ],
+      "translation": [
+        -2.42209221847256,
+        -3.1001366674339246,
+        0
+      ],
+      "scale": [
+        0.7961811080572834,
+        0.7961811080572834,
+        0.7961811080572834
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        145,
+        -12
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -145,
+        12
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ]
+    }
+  },
+  "emissive_ambient": false,
+  "gui_light": "front"
+}
