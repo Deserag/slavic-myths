@@ -152,6 +152,9 @@
     "slavicmyths:fossilized_bones",
     "slavicmyths:solar_seal",
     "slavicmyths:desert_serpent_seal",
-    "slavicmyths:wind_seal"
+    "slavicmyths:wind_seal",
+    "slavicmyths:sulfur_ore",
+    "slavicmyths:deepslate_sulfur_ore",
+    "slavicmyths:fire_coal_ore"
   ]
 }

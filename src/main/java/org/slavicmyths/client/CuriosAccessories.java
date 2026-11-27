@@ -20,6 +20,7 @@ public final class CuriosAccessories implements ICurioRenderer {
     @SubscribeEvent public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             CuriosRendererRegistry.register(org.slavicmyths.finist.FinistItems.QUIVER.get(), FinistQuiverRenderer::new);
+            CuriosRendererRegistry.register(org.slavicmyths.savanna.SteppeCloak.ITEM.get(), SteppeCloakRenderer::new);
             CuriosRendererRegistry.register(org.slavicmyths.accessories.Accessories.ITEMS.get("podvey_belt").get(), () -> new NewAccessoryRenderer(true));
             CuriosRendererRegistry.register(org.slavicmyths.accessories.Accessories.ITEMS.get("leshy_necklace").get(), () -> new NewAccessoryRenderer(false));
             CuriosRendererRegistry.register(ModItems.POYAS_TUGARINA.get(), CuriosAccessories::new);

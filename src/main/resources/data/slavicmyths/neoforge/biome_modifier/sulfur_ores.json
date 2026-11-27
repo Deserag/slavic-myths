@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "slavicmyths:sulfur_upper",
+    "slavicmyths:sulfur_lower",
+    "slavicmyths:sulfur_deep"
+  ],
+  "step": "underground_ores"
+}

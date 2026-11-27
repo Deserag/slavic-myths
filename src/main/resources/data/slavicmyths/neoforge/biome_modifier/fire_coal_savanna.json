@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#slavicmyths:worldgen/core_savanna",
+  "features": [
+    "slavicmyths:fire_coal_savanna"
+  ],
+  "step": "underground_ores"
+}

@@ -45,6 +45,8 @@ public final class SlavicMyths {
         org.slavicmyths.nethersmithing.NetherArmor.init();
         org.slavicmyths.winter.SnowArmor.init();
         org.slavicmyths.savanna.SteppeArmor.init();
+        org.slavicmyths.savanna.SteppeResources.init();
+        org.slavicmyths.savanna.SteppeCloak.init();
         org.slavicmyths.nethersmithing.NetherWeapons.init();
         org.slavicmyths.infernalfurnace.InfernalFurnace.init();
         org.slavicmyths.navya.NavyaBlocks.init();

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "VGV",
+    "JBJ",
+    "J J"
+  ],
+  "key": {
+    "V": {
+      "item": "slavicmyths:veteran_hyena_hide"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "J": {
+      "item": "slavicmyths:jackal_hide"
+    },
+    "B": {
+      "item": "slavicmyths:black_hyena_hide"
+    }
+  },
+  "result": {
+    "id": "slavicmyths:steppe_prince_cloak",
+    "count": 1
+  }
+}

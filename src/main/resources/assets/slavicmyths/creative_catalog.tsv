@@ -1576,3 +1576,10 @@ steppe_helmet	armor	steppe
 steppe_chestplate	armor	steppe
 steppe_leggings	armor	steppe
 steppe_boots	armor	steppe
+sulfur_ore	resources	steppe
+deepslate_sulfur_ore	resources	steppe
+fire_coal_ore	resources	steppe
+fire_coal	resources	steppe
+sky_coal	resources	steppe
+steppe_ingot	resources	steppe
+steppe_prince_cloak	accessories	steppe

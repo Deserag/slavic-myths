@@ -3,6 +3,9 @@
   "values": [
     "slavicmyths:bog_iron_ore",
     "slavicmyths:livingstone_ore",
-    "slavicmyths:infernal_furnace"
+    "slavicmyths:infernal_furnace",
+    "slavicmyths:sulfur_ore",
+    "slavicmyths:deepslate_sulfur_ore",
+    "slavicmyths:fire_coal_ore"
   ]
 }
