@@ -2,7 +2,7 @@ name: Polkan savanna validation
 on:
   push:
     branches: ['feature/savanna-biome-20261126']
-    paths: ['src/**', '.github/workflows/polkan-savanna-validation.yml', 'build.gradle', 'gradle.properties']
+    paths: ['src/**', 'tools/polkan-tests/**', '.github/workflows/polkan-savanna-validation.yml', 'build.gradle', 'gradle.properties']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,4 +31,4 @@ jobs:
           if grep -Eiq 'Duplicate registration|Failed to create mod instance|Mod loading failed|Failed to load correctly|ExceptionInInitializerError|broken mod state|Failed to start the minecraft server' /tmp/polkan-gametest.log; then
             exit 1
           fi
-          grep -Eiq 'All ([4-9]|[1-9][0-9]+) required tests passed' /tmp/polkan-gametest.log
+          grep -Eiq 'All ([8-9]|[1-9][0-9]+) required tests passed' /tmp/polkan-gametest.log

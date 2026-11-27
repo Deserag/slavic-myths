@@ -6,3 +6,5 @@ All 20 weapon model resources, 6 material textures, 3 draw stages on three bows,
 
 ## CI corrections and player pose
 Initial CI exposed ambiguous MaceItem and private AbstractArrow piercing method. Both corrected. Earlier savanna runtime CI also exposed invalid minecraft:triangle height provider in sulfur_lower/fire_coal_savanna; corrected to minecraft:trapezoid plateau 0. Added player shoulder pose coverage for new melee/staff items, split/combined blade handling, sequence swing and colored arc/melody effects. Still requires final CI and client inspection.
+
+Added two isolated weapon GameTests (registry/split persistence and ammo-free needle wear). Blade poison automatically cycles on successful damaging skills, attacks while a returning weapon is away are blocked, and hyena knuckles gain +20% ordinary melee damage below half target HP. Savanna CI watches isolated tests and requires eight or more required tests.
