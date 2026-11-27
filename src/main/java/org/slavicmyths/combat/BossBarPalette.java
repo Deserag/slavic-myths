@@ -69,6 +69,9 @@ public final class BossBarPalette {
         Map.entry("nine_mor_serpent",9)
     );
 
+    /** Existing danger rank, without changing the color or assigning an unknown level. */
+    public static int levelForId(String id){return LEVELS.getOrDefault(id,0);}
+
     public static BossEvent.BossBarColor colorFor(EntityType<?> entityType,BossEvent.BossBarColor previousColor){
         var key=BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
         if(key==null||!"slavicmyths".equals(key.getNamespace()))return previousColor;

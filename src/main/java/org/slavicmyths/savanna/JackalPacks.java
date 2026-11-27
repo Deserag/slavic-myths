@@ -159,6 +159,7 @@ public final class JackalPacks extends SavedData {
         List<SavannaAnimal> members=loaded(p,w);members.remove(excluded);
         float total=0;for(int i=0;i<SIZE;i++)if((p.dead&(1<<i))==0)total+=p.hp[i];
         p.bar.setProgress(Math.max(0,Math.min(1,total/(SIZE*MEMBER_HP))));
+        p.bar.setName(org.slavicmyths.combat.CreatureBossBar.healthLabel(Component.translatableWithFallback("boss.slavicmyths.steppe_jackal_pack","Стая степных шакалов"),total,SIZE*MEMBER_HP));
         if(p.dead==ALL||members.isEmpty()){p.bar.removeAllPlayers();return;}
         Set<ServerPlayer> viewers=new HashSet<>();
         for(ServerPlayer player:w.players())if(!player.isSpectator()&&members.stream().anyMatch(a->a.distanceToSqr(player)<=48*48))viewers.add(player);

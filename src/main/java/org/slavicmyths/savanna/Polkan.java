@@ -24,7 +24,7 @@ public final class Polkan extends PathfinderMob {
     public static final int IDLE=0,THRUST=1,SWEEP=2,CHARGE=3,BOW=4,VOLLEY=5,RUNE_BOW=6,THROW=7,STOMP=8,KICK=9,COMMAND=10,GUARD=11;
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(Polkan.class,EntityDataSerializers.INT),AGE=SynchedEntityData.defineId(Polkan.class,EntityDataSerializers.INT),PHASE=SynchedEntityData.defineId(Polkan.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> RUN=SynchedEntityData.defineId(Polkan.class,EntityDataSerializers.BOOLEAN),SPEAR_OUT=SynchedEntityData.defineId(Polkan.class,EntityDataSerializers.BOOLEAN);
-    private final ServerBossEvent bar=new ServerBossEvent(Component.translatableWithFallback("entity.slavicmyths.polkan","Полкан"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.polkan","Полкан"),BossEvent.BossBarColor.RED,BossEvent.BossBarOverlay.PROGRESS);
     private final Map<UUID,Long> threats=new HashMap<>();
     private final long[] ready=new long[12];
     private final Set<UUID> chargeHits=new HashSet<>();

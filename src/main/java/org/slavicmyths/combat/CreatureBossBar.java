@@ -34,6 +34,12 @@ public final class CreatureBossBar extends ServerBossEvent {
   }
  }
  @Override public void setColor(BossEvent.BossBarColor color){super.setColor(owner==null?color:BossBarPalette.colorFor(owner.getType(),color));}
+ /** Shared formatter for group encounters with their own saved health ledger. */
+ public static Component healthLabel(Component name,double current,double maximum){
+  if(!Double.isFinite(maximum)||maximum<0)maximum=0;
+  if(!Double.isFinite(current))current=0;
+  return name.copy().append("  "+(long)Math.ceil(Math.clamp(current,0,maximum))+" / "+Math.round(maximum)+" HP");
+ }
  private void refresh(){
   if(label==null)return;
   if(owner==null){super.setName(label);return;}

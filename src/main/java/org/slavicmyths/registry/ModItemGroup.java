@@ -124,7 +124,8 @@ public final class ModItemGroup {
         return BuiltInRegistries.ITEM.stream()
                 .filter(item -> BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("slavicmyths"))
                 .filter(item -> category(item) == category)
-                .sorted(Comparator.<Item>comparingInt(item -> CreativeCatalog.order(BuiltInRegistries.ITEM.getKey(item).getPath()))
+                .sorted(Comparator.<Item>comparingInt(item -> category == 8 ? MobEggOrder.rank(BuiltInRegistries.ITEM.getKey(item).getPath()) : 0)
+                        .thenComparingInt(item -> CreativeCatalog.order(BuiltInRegistries.ITEM.getKey(item).getPath()))
                         .thenComparing(item -> BuiltInRegistries.ITEM.getKey(item).getPath()))
                 .toList();
     }

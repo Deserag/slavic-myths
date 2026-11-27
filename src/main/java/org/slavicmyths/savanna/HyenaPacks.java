@@ -183,6 +183,7 @@ public final class HyenaPacks extends SavedData {
     private void refresh(Pack p,ServerLevel w,SavannaAnimal excluded){
         List<SavannaAnimal> members=loaded(p,w);members.remove(excluded);
         p.bar.setProgress(Math.max(0,Math.min(1,p.hp[0]/LEADER_HP)));
+        p.bar.setName(org.slavicmyths.combat.CreatureBossBar.healthLabel(Component.translatableWithFallback("boss.slavicmyths.black_hyena","Чёрная гиена"),p.hp[0],LEADER_HP));
         if((p.dead&1)!=0||members.stream().noneMatch(a->a.packSlot==0)){p.bar.removeAllPlayers();return;}
         Set<ServerPlayer> viewers=new HashSet<>();
         for(ServerPlayer player:w.players())if(!player.isSpectator()&&members.stream().anyMatch(a->a.packSlot==0&&a.distanceToSqr(player)<=48*48))viewers.add(player);

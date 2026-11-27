@@ -28,7 +28,7 @@ public final class Div extends PathfinderMob {
     private static final EntityDataAccessor<Integer> ACTION=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT), AGE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT), PHASE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> FATE_CHARGE=SynchedEntityData.defineId(Div.class,EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> FLYING=SynchedEntityData.defineId(Div.class,EntityDataSerializers.BOOLEAN);
-    private final ServerBossEvent bar=new ServerBossEvent(Component.translatableWithFallback("entity.slavicmyths.div","Див"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,Component.translatableWithFallback("entity.slavicmyths.div","Див"),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
     private final long[] ready=new long[14];
     public static int phaseFor(float hp){return hp<=560?3:hp<=1120?2:1;}
     private final List<Shot> shots=new ArrayList<>();
