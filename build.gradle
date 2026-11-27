@@ -962,3 +962,18 @@ tasks.register('verifyDungeonPlan', JavaExec) {
     }
 }
 tasks.named('check') { dependsOn 'verifyDungeonPlan' }
+
+
+// Isolated Polkan encounter GameTests, excluded from the production JAR.
+if (project.hasProperty('polkanCheck')) {
+    sourceSets { polkanCheck { java.srcDir 'tools/polkan-tests'; resources.srcDir 'tools/accessories278-test-resources' } }
+    sourceSets.polkanCheck.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    sourceSets.polkanCheck.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    tasks.named('compilePolkanCheckJava') { dependsOn 'classes' }
+    neoForge.mods.slavicmyths.sourceSet(sourceSets.polkanCheck)
+    neoForge.runs { polkanTests {
+        type = 'gameTestServer'
+        gameDirectory = file('run-polkan-checks')
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'slavicmyths_accessories278'
+    } }
+}

@@ -18,3 +18,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon
+      - name: Run Polkan GameTests
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew -PpolkanCheck runPolkanTests --no-daemon --console=plain 2>&1 | tee /tmp/polkan-gametest.log
+          if grep -Eiq 'Duplicate registration|Failed to create mod instance|Mod loading failed|Failed to load correctly|ExceptionInInitializerError|broken mod state|Failed to start the minecraft server' /tmp/polkan-gametest.log; then
+            exit 1
+          fi
+          grep -Eiq 'All ([4-9]|[1-9][0-9]+) required tests passed' /tmp/polkan-gametest.log

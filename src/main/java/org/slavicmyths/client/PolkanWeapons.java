@@ -52,7 +52,7 @@ final class PolkanWeapons {
             for(int s:new int[]{-1,1}){
                 ModelPart limb=s<0?upper:lower;
                 for(int i=0;i<5;i++){
-                    int zc=i==0?0:i==1?-1:i==2?-3:i==3?-5:-7;
+                    int zc=i==0?0:i==1?1:i==2?3:i==3?5:7;
                     float yy=s<0?-(i+1)*3:i*3;
                     box(g,limb,i==4?GOLD:WOOD,-.9F,yy,zc,1.8F,3.2F,2);
                     if(i==1||i==2||i==3)box(g,limb,GOLD,-1.05F,yy,zc-.1F,2.1F,.6F,2.2F);
@@ -62,13 +62,13 @@ final class PolkanWeapons {
                     }
                 }
             }
-            stringTop=part(g,root,0,-19,-6);stringBottom=part(g,root,0,19,-6);
+            stringTop=part(g,root,0,-19,8);stringBottom=part(g,root,0,19,8);
             box(g,stringTop,STRING,-.13F,0,-.13F,.26F,19,.26F);
             box(g,stringBottom,STRING,-.13F,-19,-.13F,.26F,19,.26F);
         }
         void draw(float t){
             upper.xRot=-.15F*t;lower.xRot=.15F*t;
-            float depth=-6F+(float)Math.sin(.15F*t)*15;
+            float depth=8F+(float)Math.sin(.15F*t)*15;
             float pull=depth+10*t;float a=(float)Math.atan2(pull-depth,19);
             stringTop.z=depth;stringBottom.z=depth;stringTop.xRot=a;stringBottom.xRot=-a;
             float stretch=(float)Math.sqrt(19*19+(pull-depth)*(pull-depth))/19;
