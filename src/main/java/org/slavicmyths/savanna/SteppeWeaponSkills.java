@@ -73,11 +73,13 @@ public final class SteppeWeaponSkills {
  static void use(ServerPlayer p,ItemStack s,Kind k,Action a){
   if(!p.isAlive()||p.isSpectator()||p.getMainHandItem()!=s||SteppeWeapons.kind(s)!=k||((a==Action.SHIFT_LEFT_CLICK||a==Action.SHIFT_RIGHT_CLICK)!=p.isShiftKeyDown())||!ready(p,k,a))return;
   if((k.pair()||k==Kind.SKARAPEYA_BLADE)&&!p.getOffhandItem().isEmpty())return;
+  if(a==Action.SHIFT_LEFT_CLICK&&(k==Kind.POLKAN_SPEAR||k==Kind.STEPPE_SPEAR||k==Kind.SKARAPEYA_BLADE&&SteppeWeapons.split(s))&&!WeaponProjectile.pairedInFlight(p).isEmpty())return;
+  if(k==Kind.SKARAPEYA_NEEDLE&&a==Action.SHIFT_LEFT_CLICK&&!ready(p,k,Action.LEFT_CLICK))return;
   int venom=SteppeWeapons.poison(s);
   if(k==Kind.SKARAPEYA_BLADE&&a==Action.RIGHT_CLICK&&!SteppeWeapons.split(s)&&p.isShiftKeyDown())return;
   if(a==Action.SHIFT_RIGHT_CLICK&&(k==Kind.SKARAPEYA_GUSLI||k==Kind.SKARAPEYA_WHIP||k==Kind.SKARAPEYA_NEEDLE)){SteppeWeapons.poison(s,venom+1);p.displayClientMessage(Component.literal(poisonName(venom+1)),true);commit(p,s,k,a,8,0);return;}
   if(k==Kind.SKARAPEYA_BLADE&&a==Action.SHIFT_RIGHT_CLICK){if(!WeaponProjectile.pairedInFlight(p).isEmpty())return;SteppeWeapons.mode(s,!SteppeWeapons.split(s));commit(p,s,k,a,10,0);return;}
-  if(k==Kind.SKARAPEYA_NEEDLE){if(a==Action.RIGHT_CLICK)return;int n=a==Action.SHIFT_LEFT_CLICK?3:1,done=0;for(int i=0;i<n;i++){if(!p.hasInfiniteMaterials()&&s.getMaxDamage()-s.getDamageValue()<=done)break;if(shot(p,s,12,(i-(n-1)*.5F)*3,venom,false,0,true))done++;}if(done>0){commit(p,s,k,a,n==1?8:60,done);p.getPersistentData().putLong(key(k,Action.LEFT_CLICK),p.server.overworld().getGameTime()+8);p.serverLevel().playSound(null,p.blockPosition(),SoundEvents.ARROW_SHOOT,SoundSource.PLAYERS,.6F,1.5F);}return;}
+  if(k==Kind.SKARAPEYA_NEEDLE){if(a!=Action.LEFT_CLICK&&a!=Action.SHIFT_LEFT_CLICK)return;int n=a==Action.SHIFT_LEFT_CLICK?3:1,done=0;for(int i=0;i<n;i++){if(!p.hasInfiniteMaterials()&&s.getMaxDamage()-s.getDamageValue()<=done)break;if(shot(p,s,12,(i-(n-1)*.5F)*3,venom,false,0,true))done++;}if(done>0){commit(p,s,k,a,n==1?8:60,done);p.getPersistentData().putLong(key(k,Action.LEFT_CLICK),p.server.overworld().getGameTime()+8);p.serverLevel().playSound(null,p.blockPosition(),SoundEvents.ARROW_SHOOT,SoundSource.PLAYERS,.6F,1.5F);}return;}
   if(k.bow()){boolean fan=a==Action.SHIFT_LEFT_CLICK;int n=fan?3:1,done=0;for(int i=0;i<n;i++)if(shot(p,s,fan?13:24,(i-(n-1)*.5F)*8,-1,k==Kind.DIV_BOW,fan?0:3,false))done++;if(done>0)commit(p,s,k,a,fan?100:160,1);return;}
   if(k==Kind.POLKAN_SPEAR||k==Kind.STEPPE_SPEAR){
    if(a==Action.SHIFT_LEFT_CLICK){area(p,p.position(),5,100,25,-1,false);commit(p,s,k,a,100,1);return;}
