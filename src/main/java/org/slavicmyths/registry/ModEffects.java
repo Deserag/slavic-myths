@@ -30,6 +30,8 @@ public final class ModEffects {
     public static final DeferredHolder<MobEffect, MobEffect> MOROVA_PLAGUE = EFFECTS.register("morova_plague", org.slavicmyths.netherboss.MorovaPlagueEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> SOLAR_BURN=EFFECTS.register("solar_burn",org.slavicmyths.desert.SolarBurnEffect::new);
  public static final DeferredHolder<MobEffect,MobEffect> LAMYA_DROUGHT=EFFECTS.register("lamya_drought",org.slavicmyths.desert.LamyaDroughtEffect::new);
+ public static final DeferredHolder<MobEffect,MobEffect> SKARAPEYA_STONE=EFFECTS.register("skarapeya_stone",org.slavicmyths.savanna.SkarapeyaPoison.Stone::new);
+ public static final DeferredHolder<MobEffect,MobEffect> SKARAPEYA_BLOOD=EFFECTS.register("skarapeya_black_blood",org.slavicmyths.savanna.SkarapeyaPoison.BlackBlood::new);
  private static final class CurseEffect extends MobEffect {
   CurseEffect(){super(MobEffectCategory.HARMFUL,0x657780);
    addAttributeModifier(Attributes.MOVEMENT_SPEED,ResourceLocation.fromNamespaceAndPath("slavicmyths","4fe2072b-4d7e-4fe9-b8a6-3c925b5817da"),AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL,amplifier->amplifier>0?-.15:-.10);
