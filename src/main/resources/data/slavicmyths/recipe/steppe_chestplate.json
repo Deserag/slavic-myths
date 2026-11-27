@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:leather_chestplate"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:black_hyena_hide"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:steppe_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:leather_leggings"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:jackal_hide"
+    },
+    {
+      "item": "slavicmyths:veteran_hyena_hide"
+    }
+  ],
+  "result": {
+    "id": "slavicmyths:steppe_leggings",
+    "count": 1
+  }
+}

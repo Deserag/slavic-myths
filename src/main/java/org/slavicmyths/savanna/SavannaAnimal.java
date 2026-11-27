@@ -257,6 +257,7 @@ public final class SavannaAnimal extends PathfinderMob {
         public void stop(){getNavigation().stop();}
     }
     @Override public void die(DamageSource source){
+        if(!isDeadOrDying() || getHealth()<=0) SteppeDrops.drop(this,source);
         super.die(source);
         if(polkanGuard()&&polkanOwner!=null&&level() instanceof ServerLevel w)PolkanHerd.get(w).dead(polkanOwner,polkanSlot);
         if(isEncounterMember()&&level() instanceof ServerLevel w&&packId!=null&&isDeadOrDying()){if(isHyenaPack())HyenaPacks.get(w).died(this,w);else JackalPacks.get(w).died(this,w);}

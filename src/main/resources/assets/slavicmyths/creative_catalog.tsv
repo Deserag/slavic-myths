@@ -1566,3 +1566,13 @@ ocean_zmey_spawn_egg	mobs	boss
 sand_king_spawn_egg	mobs	boss
 stratim_bird_spawn_egg	mobs	boss
 zhelva_spawn_egg	mobs	boss
+jackal_hide	resources	steppe
+jackal_fang	resources	steppe
+black_hyena_hide	resources	steppe
+black_hyena_fang	resources	steppe
+veteran_hyena_hide	resources	steppe
+veteran_hyena_fang	resources	steppe
+steppe_helmet	armor	steppe
+steppe_chestplate	armor	steppe
+steppe_leggings	armor	steppe
+steppe_boots	armor	steppe

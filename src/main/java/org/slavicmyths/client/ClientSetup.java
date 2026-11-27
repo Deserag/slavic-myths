@@ -197,6 +197,7 @@ public final class ClientSetup {
 
         bus.addListener(UniqueArmorModels::register);
         bus.addListener(SnowArmorModel::register);
+        bus.addListener(SteppeArmorModel::register);
 
         bus.addListener(ClientSetup::navigationKeys);
 
