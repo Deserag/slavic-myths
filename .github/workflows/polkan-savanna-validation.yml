@@ -16,9 +16,14 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install asset generation dependencies
+        run: python -m pip install numpy scipy soundfile pillow matplotlib opencv-python-headless
       - run: chmod +x gradlew
       - run: ./gradlew clean build --no-daemon
-      - name: Run Polkan GameTests
+      - name: Run savanna Polkan and Div GameTests
         shell: bash
         run: |
           set -o pipefail
