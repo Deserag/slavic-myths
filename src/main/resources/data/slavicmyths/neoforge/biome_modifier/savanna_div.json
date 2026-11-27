@@ -1,0 +1,1 @@
+{"type":"neoforge:add_spawns","biomes":"#slavicmyths:worldgen/core_savanna","spawners":[{"type":"slavicmyths:div","weight":1,"minCount":1,"maxCount":1}]}

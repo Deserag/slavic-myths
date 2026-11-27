@@ -5,3 +5,6 @@ Owner approved concept board variant 3 (four-limbed anatomical revision). The cr
 
 ## Combat direction — draft, pending owner approval
 Proposed tier VIII, 1600 actual HP, armor 16, toughness 6, knockback resistance 0.9, follow range 64; hostile mythical beast. Size draft: height 8–10 blocks, wingspan 16–20. Reuse shared uncapped health mechanism (CreatureHealthBalance) as appropriate; verify real health, save/load and bossbar. Ground melee, ranged curses, flight and landing windows. Four eyes communicate curse charge. Proposed Doom Mark: maximum four stacks, visible individually, 12-second independent expirations, fourth triggers a delayed avoidable attack and consumes marks; no permanent unavoidable debuff. Proposed phases >70%, 35–70%, <=35% (1120 and 560 HP). No combat stats, attacks, rewards, spawn rules or code are approved by this document beyond the owner-approved visual design; implementation not started.
+
+## Approved combat direction and first implementation (2026-11-27)
+Owner approved model V1 and 13 Python attack animations. Tier VIII, 1600 HP. Ground and ranged attacks, four independent curse timers and flight attacks, single spawn egg. First Java port is unverified: build, runtime, exact animation timing and balance still need validation. Loot rewards not approved; empty loot table for now.
