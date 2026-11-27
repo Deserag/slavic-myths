@@ -121,6 +121,7 @@ public final class JackalPacks extends SavedData {
             &&a.distanceToSqr(x)<=36*36)candidates.add(x);
         candidates.sort(Comparator.comparing(Entity::getUUID));
         if(!candidates.isEmpty())return candidates.get(Math.floorMod(a.packSlot,candidates.size()));
+        LivingEntity hunt=CooperativeHunt.choose(a,w);if(hunt!=null)return hunt;
         LivingEntity previous=a.getTarget();
         if(previous!=null&&a.packPrey(previous)&&a.distanceToSqr(previous)<=32*32)return previous;
         return w.getEntitiesOfClass(LivingEntity.class,a.getBoundingBox().inflate(24),x->a.packPrey(x)&&a.hasLineOfSight(x))

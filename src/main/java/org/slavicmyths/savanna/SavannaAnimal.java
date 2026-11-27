@@ -51,6 +51,9 @@ public final class SavannaAnimal extends PathfinderMob {
     private UUID groupId;
     private LivingEntity danger;
     private int fear,anger,cooldown;
+    LivingEntity sharedHuntTarget;
+    long nextHuntCheck;
+    int huntFlank;
     private static final class Group implements SpawnGroupData {
         final UUID id;
         Group(UUID id){this.id=id;}
@@ -133,6 +136,7 @@ public final class SavannaAnimal extends PathfinderMob {
     }
     private void alert(LivingEntity attacker){
         if(!valid(attacker))return;
+        sharedHuntTarget=null;nextHuntCheck=0;
         if(kind==Kind.AUROCHS||kind.predator()){setTarget(attacker);anger=240;}
         else{danger=attacker;fear=120;setTarget(null);}
     }
@@ -158,6 +162,15 @@ public final class SavannaAnimal extends PathfinderMob {
         if(cooldown>0)cooldown--;
         if(isEncounterMember()){if(level() instanceof ServerLevel w&&isAlive())packStep(w);return;}
         if(fear>0)fear--;
+        if(cooperativeHunter()&&level() instanceof ServerLevel w&&fear==0){
+            LivingEntity old=getTarget();
+            if(old==null||old==sharedHuntTarget){
+                LivingEntity hunt=CooperativeHunt.choose(this,w);
+                if(hunt!=null){if(old!=hunt){setTarget(hunt);getNavigation().stop();}anger=180;}
+                else if(old!=null&&old==sharedHuntTarget){setTarget(null);entityData.set(STRIKE,0);}
+                else if(old!=null&&old!=sharedHuntTarget){setTarget(null);entityData.set(STRIKE,0);}
+            }
+        }
         if(fear==0||!valid(danger))danger=null;
         LivingEntity target=getTarget();
         if(target!=null&&(!valid(target)||distanceToSqr(target)>32*32||anger<=0)){setTarget(null);entityData.set(STRIKE,0);}
@@ -209,6 +222,10 @@ public final class SavannaAnimal extends PathfinderMob {
             if(next!=getTarget()){setTarget(next);getNavigation().stop();}
         }
     }
+    boolean cooperativeHunter(){return kind==Kind.JACKAL||kind==Kind.STRIPED_HYENA;}
+    boolean huntAlly(SavannaAnimal other){return other!=this&&other.isAlive()&&other.kind==kind&&
+        (isEncounterMember()?other.isEncounterMember()&&packId!=null&&packId.equals(other.packId):!other.isEncounterMember());}
+    boolean huntTargetAllowed(LivingEntity x){return cooperativeHunter()&&packTargetAllowed(x);}
     boolean packTargetAllowed(LivingEntity x){return x!=this&&valid(x)&&canAttack(x)&&!isAlliedTo(x)
         &&!(x instanceof SavannaAnimal a&&((packId!=null&&packId.equals(a.packId))||a.kind()==kind));}
     private boolean hyenaBoosted(){return isHyenaPack()&&level() instanceof ServerLevel w&&
@@ -291,7 +308,15 @@ public final class SavannaAnimal extends PathfinderMob {
                         getNavigation().moveTo(target.getX()+Math.cos(angle)*offset,target.getY(),target.getZ()+Math.sin(angle)*offset,chase);
                     }
                 }
-            }else if(tickCount%5==0)getNavigation().moveTo(target,1.3);
+            }else if(tickCount%5==0){
+                if(cooperativeHunter()&&target==sharedHuntTarget){
+                    double dist=distanceToSqr(target);
+                    if(dist<reach*reach)getNavigation().stop();
+                    else if(dist>36||tickCount%20==0)getNavigation().moveTo(target,1.3);
+                    else{double angle=huntFlank*Math.PI/6;double radius=Math.max(1.6,target.getBbWidth()*.5+getBbWidth()*.5);
+                        getNavigation().moveTo(target.getX()+Math.cos(angle)*radius,target.getY(),target.getZ()+Math.sin(angle)*radius,1.3);}
+                }else getNavigation().moveTo(target,1.3);
+            }
         }
     }
     private final class EscapeGoal extends Goal{

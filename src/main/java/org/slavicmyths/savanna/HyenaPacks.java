@@ -141,6 +141,7 @@ public final class HyenaPacks extends SavedData {
             &&a.distanceToSqr(x)<=36*36)candidates.add(x);
         candidates.sort(Comparator.comparing(Entity::getUUID));
         if(!candidates.isEmpty())return candidates.get(Math.floorMod(a.packSlot,candidates.size()));
+        LivingEntity hunt=CooperativeHunt.choose(a,w);if(hunt!=null)return hunt;
         if(a.packSlot!=0&&w.getEntity(p.ids[0]) instanceof SavannaAnimal leader&&leader.isAlive()){
             LivingEntity prey=leader.getTarget();
             if(a.packPrey(prey)&&a.distanceToSqr(prey)<32*32)return prey;
