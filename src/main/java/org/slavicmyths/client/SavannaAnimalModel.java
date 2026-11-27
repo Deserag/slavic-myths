@@ -12,6 +12,7 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
     private final Map<String,ModelPart> parts=new LinkedHashMap<>();
     private final Map<String,float[]> rest=new LinkedHashMap<>();
     private final SavannaAnimal.Kind kind;
+    private int coat=255;
     public SavannaAnimalModel(SavannaAnimal.Kind kind){
         this.kind=kind;p("root",null,0,0,0,0,0,0);
         switch(kind){
@@ -99,6 +100,7 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
         b("tail",60,80,-1.5F,0,0,3,1,tailLength);
     }
     @Override public void setupAnim(SavannaAnimal e,float walk,float amount,float age,float yaw,float pitch){
+        coat=e.hyenaRole()==SavannaAnimal.HyenaRole.LEADER?58:e.hyenaRole()==SavannaAnimal.HyenaRole.GUARD?165:255;
         parts.forEach((name,part)->{float[] r=rest.get(name);part.setPos(r[0],r[1],r[2]);part.xRot=r[3];part.yRot=r[4];part.zRot=r[5];});
         float phase=walk*.75F,move=Math.min(1,amount),run=Mth.clamp((move-.45F)*1.8F,0,1);
         p("head").yRot+=yaw*.012F;p("head").xRot+=pitch*.01F+Mth.sin(age*.08F)*.025F*(1-move);
@@ -114,7 +116,7 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
             p("tail").yRot+=Mth.sin(age*.1F)*.12F;p("tailTip").yRot+=Mth.sin(age*.1F-.5F)*.13F;
             p("earL").zRot+=Mth.sin(age*.09F)*.05F;p("earR").zRot-=Mth.sin(age*.08F)*.05F;
             if(kind==SavannaAnimal.Kind.AUROCHS){p("neck").xRot+=strike*.45F;p("head").xRot+=strike*.25F;}
-            else if(kind.predator()){p("jaw").xRot+=strike*.52F;p("head").xRot+=strike*.18F;p("body").z-=strike*.8F;}
+            else if(kind.predator()){p("jaw").xRot+=strike*.52F;p("head").xRot+=strike*.18F;p("body").z-=strike*.8F;if(e.roarTicks()>0){float roar=Mth.sin((20-e.roarTicks())*3.1415927F/20F);p("jaw").xRot+=roar*.8F;p("head").xRot-=roar*.35F;}}
         }else{
             boolean flying=!e.onGround()&&!e.isInWater();
             for(int i=0;i<2;i++){
@@ -127,5 +129,5 @@ public final class SavannaAnimalModel extends EntityModel<SavannaAnimal>{
             p("head").xRot+=strike*.3F;
         }
     }
-    @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){p("root").render(pose,out,light,overlay,color);}
+    @Override public void renderToBuffer(PoseStack pose,VertexConsumer out,int light,int overlay,int color){int tinted=(color&0xff000000)|((((color>>>16)&255)*coat/255)<<16)|((((color>>>8)&255)*coat/255)<<8)|((color&255)*coat/255);p("root").render(pose,out,light,overlay,tinted);}
 }

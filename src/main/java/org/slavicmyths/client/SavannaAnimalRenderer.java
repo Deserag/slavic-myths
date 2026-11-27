@@ -8,6 +8,6 @@ public final class SavannaAnimalRenderer extends MobRenderer<SavannaAnimal,Savan
         super(ctx,new SavannaAnimalModel(kind),shadow);
         texture=ResourceLocation.fromNamespaceAndPath("slavicmyths","textures/entity/savanna/"+kind.id+".png");
     }
-    @Override protected void scale(SavannaAnimal e,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick){if(e.isPackBoss())pose.scale(1.5F,1.5F,1.5F);}
+    @Override protected void scale(SavannaAnimal e,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick){float scale=e.encounterScale();pose.scale(scale,scale,scale);}
     @Override public ResourceLocation getTextureLocation(SavannaAnimal e){return texture;}
 }
