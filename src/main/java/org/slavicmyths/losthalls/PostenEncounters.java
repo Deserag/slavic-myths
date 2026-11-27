@@ -20,10 +20,10 @@ import net.minecraft.world.level.saveddata.SavedData;
 /** Server-thread encounter accounting. Entity spawning, attacks and item delivery
  * are separate consumers; this journal never loads a chunk or ticks a world. */
 public final class PostenEncounters extends SavedData {
-    public static final int VERSION = 1;
-    public static final float MAX_HEALTH = 650;
-    public static final float SPLIT_HEALTH = 260;
-    public static final float COPY_HEALTH = 65;
+    public static final int VERSION = 2;
+    public static final float MAX_HEALTH = 1600;
+    public static final float SPLIT_HEALTH = 640;
+    public static final float COPY_HEALTH = 160;
 
     public enum Phase { BODY, COPIES, DEFEATED }
     public enum Mask { SORROW, ANGER, DECAY, SILENCE }
@@ -94,7 +94,7 @@ public final class PostenEncounters extends SavedData {
     public static PostenEncounters loadManual(CompoundTag tag,HolderLookup.Provider lookup){var d=load(tag,lookup);d.manual=true;return d;}
     public void cancelManual(UUID arena,UUID body) {
         if(!manual||isReadOnly())return;var e=encounters.get(arena);if(e==null||!e.body.equals(body))return;
-        e.phase=Phase.DEFEATED;e.bodyHealth=0;java.util.Arrays.fill(e.copyHealth,0);setDirty();
+        e.phase=Phase.DEFEATED;e.bodyHealth=SPLIT_HEALTH;java.util.Arrays.fill(e.copyHealth,0);setDirty();
     }
     public boolean isReadOnly() { return readOnlySnapshot != null; }
 
@@ -122,7 +122,7 @@ public final class PostenEncounters extends SavedData {
         return encounter == null ? Optional.empty() : Optional.of(encounter.snapshot());
     }
 
-    /** Boundary overkill is discarded: body stops at 260; copies start at 4x65. */
+    /** Boundary overkill is discarded: body stops at SPLIT_HEALTH; four copies share that pool. */
     public Damage damageBody(UUID arena, UUID body, float amount) {
         Encounter e = encounters.get(arena);
         if (isReadOnly() || e == null || !e.body.equals(body) || e.phase != Phase.BODY
@@ -199,7 +199,12 @@ public final class PostenEncounters extends SavedData {
     public static PostenEncounters load(CompoundTag root, HolderLookup.Provider lookup) {
         PostenEncounters data = new PostenEncounters();
         try {
-            require(root.contains("Version", Tag.TAG_INT) && root.getInt("Version") == VERSION);
+            require(root.contains("Version", Tag.TAG_INT));
+            int version = root.getInt("Version");
+            require(version == 1 || version == VERSION);
+            float savedMax = version == 1 ? 650F : MAX_HEALTH;
+            float savedSplit = version == 1 ? 260F : SPLIT_HEALTH;
+            float savedCopy = version == 1 ? 65F : COPY_HEALTH;
             require(root.contains("Encounters", Tag.TAG_LIST));
             ListTag list = root.getList("Encounters", Tag.TAG_COMPOUND);
             require(list.size() == ((ListTag) root.get("Encounters")).size());
@@ -225,19 +230,26 @@ public final class PostenEncounters extends SavedData {
                     int index = mask.ordinal();
                     require(masks.add(mask) && e.copies[index].equals(copy.getUUID("Entity")));
                     float hp = copy.getFloat("Health");
-                    require(Float.isFinite(hp) && hp >= 0 && hp <= COPY_HEALTH);
+                    require(Float.isFinite(hp) && hp >= 0 && hp <= savedCopy);
                     e.copyHealth[index] = hp;
                 }
-                require(Float.isFinite(e.bodyHealth) && e.bodyHealth >= SPLIT_HEALTH && e.bodyHealth <= MAX_HEALTH);
+                require(Float.isFinite(e.bodyHealth) && e.bodyHealth >= savedSplit && e.bodyHealth <= savedMax);
                 if (e.phase == Phase.BODY) {
-                    require(e.bodyHealth > SPLIT_HEALTH && !e.rewardsClaimed);
-                    for (float hp : e.copyHealth) require(hp == COPY_HEALTH);
+                    require(e.bodyHealth > savedSplit && !e.rewardsClaimed);
+                    for (float hp : e.copyHealth) require(hp == savedCopy);
                 } else {
-                    require(e.bodyHealth == SPLIT_HEALTH);
+                    require(e.bodyHealth == savedSplit);
                     require(e.phase == Phase.DEFEATED ? e.health() == 0 : e.health() > 0 && !e.rewardsClaimed);
+                }
+                if (version == 1) {
+                    e.bodyHealth = e.bodyHealth * MAX_HEALTH / savedMax;
+                    for (int i = 0; i < e.copyHealth.length; i++) {
+                        e.copyHealth[i] = e.copyHealth[i] * COPY_HEALTH / savedCopy;
+                    }
                 }
                 data.encounters.put(e.arena, e);
             }
+            if (version == 1) data.setDirty();
         } catch (IllegalArgumentException | ClassCastException invalid) {
             data.encounters.clear();
             data.entityIds.clear();

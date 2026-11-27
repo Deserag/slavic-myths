@@ -51,7 +51,7 @@ public final class DeepSeaSerpentEntity extends Monster {
 
     private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
         Component.translatableWithFallback("entity.slavicmyths.deep_sea_serpent","Морской змей"),
-        BossEvent.BossBarColor.BLUE,BossEvent.BossBarOverlay.PROGRESS);
+        org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.RED),BossEvent.BossBarOverlay.PROGRESS);
     private int biteCooldown=20,grabCooldown=100,vortexCooldown=180;
     private int phaseTicks,wanderTicks,dryTicks,holdTicks;
     private float rescueDamage;

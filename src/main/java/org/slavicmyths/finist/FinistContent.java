@@ -22,7 +22,7 @@ public final class FinistContent {
  public static ResourceLocation id(String s){return ResourceLocation.fromNamespaceAndPath("slavicmyths",s);}public static SoundEvent sound(String s){return SOUNDS.get(s).get();}public static void init(){}
  @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){
  e.put(FINIST.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,170).add(Attributes.ARMOR,12).add(Attributes.MOVEMENT_SPEED,.28).add(Attributes.FOLLOW_RANGE,24).add(Attributes.KNOCKBACK_RESISTANCE,.12).build());
- e.put(KARTAUS.get(),net.minecraft.world.entity.monster.Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,650).add(Attributes.ARMOR,10).add(Attributes.ARMOR_TOUGHNESS,2).add(Attributes.MOVEMENT_SPEED,.21).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,.7).build());
+ e.put(KARTAUS.get(),net.minecraft.world.entity.monster.Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,800).add(Attributes.ARMOR,10).add(Attributes.ARMOR_TOUGHNESS,2).add(Attributes.MOVEMENT_SPEED,.21).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,.7).build());
  e.put(BANNER.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,45).add(Attributes.MOVEMENT_SPEED,0).add(Attributes.KNOCKBACK_RESISTANCE,1).build());
  e.put(ANCHOR.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,12).add(Attributes.MOVEMENT_SPEED,0).add(Attributes.KNOCKBACK_RESISTANCE,1).build());}
 }

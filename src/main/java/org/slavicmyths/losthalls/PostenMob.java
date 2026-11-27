@@ -30,7 +30,8 @@ public final class PostenMob extends PathfinderMob {
  private UUID arena,body,lastPlayer;private BlockPos home;private int clone=-1,cooldown=50,castAge,sequence,ending;private boolean registered,manual,modeChecked;private Vec3 transit,castAim=Vec3.ZERO,poisonCenter=Vec3.ZERO;private long poisonUntil;
  private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,Component.translatable("entity.slavicmyths.posten"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.PURPLE),BossEvent.BossBarOverlay.PROGRESS);
  public PostenMob(EntityType<? extends PostenMob> t,Level w){super(t,w);xpReward=0;}
- public static void init(net.neoforged.bus.api.IEventBus bus){ModItems.ITEMS.register("posten_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(TYPE,0x242032,0x6ac2cf,new Item.Properties()));bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->e.put(TYPE.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,650).add(Attributes.MOVEMENT_SPEED,.22).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,.8).build()));}
+ public static void init(net.neoforged.bus.api.IEventBus bus){ModItems.ITEMS.register("posten_spawn_egg",()->new net.neoforged.neoforge.common.DeferredSpawnEggItem(TYPE,0x242032,0x6ac2cf,new Item.Properties()));bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e)->e.put(TYPE.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,PostenEncounters.MAX_HEALTH).add(Attributes.MOVEMENT_SPEED,.22).add(Attributes.FOLLOW_RANGE,32).add(Attributes.KNOCKBACK_RESISTANCE,.8).build()));}
+ @Override public float getMaxHealth(){return (float)org.slavicmyths.combat.CreatureHealthBalance.uncappedMaximum(getAttribute(Attributes.MAX_HEALTH));}
  public boolean controller(){return clone<0;}public int mask(){return entityData.get(MASK);}public int stage(){return entityData.get(STAGE);}public int cast(){return entityData.get(CAST);}public float castTime(float partial){return Math.max(0,level().getGameTime()-entityData.get(START)+partial);}
  public void bind(UUID id,BlockPos at){arena=id;body=getUUID();home=at.immutable();manual=false;modeChecked=true;setPersistenceRequired();}
  private void bindManual(ServerLevel world){manual=true;modeChecked=true;arena=UUID.nameUUIDFromBytes(("posten:manual:"+world.dimension().location()+":"+getUUID()).getBytes(StandardCharsets.UTF_8));body=getUUID();home=blockPosition().immutable();setPersistenceRequired();}
@@ -50,7 +51,7 @@ public final class PostenMob extends PathfinderMob {
  @Override protected void actuallyHurt(DamageSource source,float amount){
   if(!(level() instanceof ServerLevel s)||arena==null||controller()&&stage()!=0||!controller()&&stage()!=1)return;
   var journal=journal(s);var before=journal.snapshot(arena).orElse(null);if(before==null)return;
-  float hp=getHealth();super.actuallyHurt(source,controller()?Math.min(amount,Math.max(0,hp-260)):amount);float damage=Math.max(0,hp-getHealth());
+  float hp=getHealth();super.actuallyHurt(source,controller()?Math.min(amount,Math.max(0,hp-PostenEncounters.SPLIT_HEALTH)):amount);float damage=Math.max(0,hp-getHealth());
   var applied=controller()?journal.damageBody(arena,getUUID(),damage):journal.damageCopy(arena,getUUID(),damage);
   if(source.getEntity() instanceof ServerPlayer player){lastPlayer=player.getUUID();if(body!=null&&s.getEntity(body) instanceof PostenMob owner)owner.lastPlayer=lastPlayer;}
   var state=journal.snapshot(arena).orElseThrow();
@@ -68,8 +69,9 @@ public final class PostenMob extends PathfinderMob {
   if(controller()&&!registered){registered=true;if(!journal.register(arena,getUUID())&&journal.snapshot(arena).filter(e->e.body().equals(getUUID())).isEmpty()){discard();return;}}
   var state=journal.snapshot(arena).orElse(null);if(state==null||!body.equals(state.body())){discard();return;}
   if(controller()){
-   entityData.set(STAGE,state.phase().ordinal());bar.setProgress(state.health()/650F);setInvisible(state.phase()==Phase.COPIES);
+   entityData.set(STAGE,state.phase().ordinal());bar.setProgress(state.health()/PostenEncounters.MAX_HEALTH);setInvisible(state.phase()==Phase.COPIES);
    if(state.phase()==Phase.DEFEATED){bar.removeAllPlayers();if(cast()!=6)begin(6);if(++ending>=80)deliver(s,journal);return;}
+   setHealth(state.health());
    if(state.phase()==Phase.COPIES){if(tickCount%20==0)reconcile(s,state);return;}
   }else{
    entityData.set(STAGE,1);var own=state.copies().stream().filter(c->c.entity().equals(getUUID())).findFirst().orElse(null);
@@ -106,7 +108,7 @@ public final class PostenMob extends PathfinderMob {
  private Vec3 findWall(ServerLevel s){for(Direction d:Direction.Plane.HORIZONTAL)for(int distance=20;distance<=31;distance++){BlockPos p=home.relative(d,distance);if(!s.hasChunkAt(p)||!s.hasChunkAt(p.relative(d,2)))continue;Vec3 v=Vec3.atBottomCenterOf(p);if(!s.getBlockState(p.relative(d,2).above()).isAir()&&safe(s,v)&&distanceToSqr(v)>36)return v;}return null;}
  private void reconcile(ServerLevel s,PostenEncounters.Snapshot state){
   int cx=home.getX()>>4,cz=home.getZ()>>4;for(int x=cx-2;x<=cx+2;x++)for(int z=cz-2;z<=cz+2;z++)if(!s.hasChunk(x,z)||!s.areEntitiesLoaded(ChunkPos.asLong(x,z)))return;
-  int i=0;for(var c:state.copies()){if(c.health()<=0||s.getEntity(c.entity())!=null){i++;continue;}BlockPos feet=home.offset(i%2==0?-4:4,0,i<2?-4:4);i++;Vec3 at=null;for(int dy:new int[]{0,1,-1,2,-2,3,-3}){Vec3 candidate=Vec3.atBottomCenterOf(feet.above(dy));if(safe(s,candidate)){at=candidate;break;}}if(at==null)continue;var copy=TYPE.get().create(s);if(copy==null)continue;copy.setUUID(c.entity());copy.manual=manual;copy.modeChecked=true;copy.arena=arena;copy.body=getUUID();copy.home=home;copy.clone=c.mask().ordinal();copy.getAttribute(Attributes.MAX_HEALTH).setBaseValue(65);copy.entityData.set(MASK,copy.clone);copy.entityData.set(STAGE,1);copy.setHealth(c.health());copy.setPersistenceRequired();copy.moveTo(at.x,at.y,at.z,0,0);s.addFreshEntity(copy);}
+  int i=0;for(var c:state.copies()){if(c.health()<=0||s.getEntity(c.entity())!=null){i++;continue;}BlockPos feet=home.offset(i%2==0?-4:4,0,i<2?-4:4);i++;Vec3 at=null;for(int dy:new int[]{0,1,-1,2,-2,3,-3}){Vec3 candidate=Vec3.atBottomCenterOf(feet.above(dy));if(safe(s,candidate)){at=candidate;break;}}if(at==null)continue;var copy=TYPE.get().create(s);if(copy==null)continue;copy.setUUID(c.entity());copy.manual=manual;copy.modeChecked=true;copy.arena=arena;copy.body=getUUID();copy.home=home;copy.clone=c.mask().ordinal();copy.getAttribute(Attributes.MAX_HEALTH).setBaseValue(PostenEncounters.COPY_HEALTH);copy.entityData.set(MASK,copy.clone);copy.entityData.set(STAGE,1);copy.setHealth(c.health());copy.setPersistenceRequired();copy.moveTo(at.x,at.y,at.z,0,0);s.addFreshEntity(copy);}
  }
  private void deliver(ServerLevel s,PostenEncounters journal){
   if(manual){discard();return;}
@@ -115,5 +117,5 @@ public final class PostenMob extends PathfinderMob {
   if(journal.claimRewards(arena,getUUID())){var player=s.getServer().getPlayerList().getPlayer(pin.recipient());if(player!=null)BossRewardInbox.reconcile(player);}discard();
  }
  @Override public void addAdditionalSaveData(CompoundTag t){super.addAdditionalSaveData(t);t.putBoolean("PostenManual",manual);if(arena!=null)t.putUUID("PostenArena",arena);if(body!=null)t.putUUID("PostenBody",body);if(home!=null)t.putLong("PostenHome",home.asLong());if(lastPlayer!=null)t.putUUID("PostenWinner",lastPlayer);t.putInt("PostenClone",clone);t.putInt("PostenMask",mask());t.putInt("PostenEnding",ending);}
- @Override public void readAdditionalSaveData(CompoundTag t){super.readAdditionalSaveData(t);manual=t.getBoolean("PostenManual");modeChecked=false;arena=t.hasUUID("PostenArena")?t.getUUID("PostenArena"):null;body=t.hasUUID("PostenBody")?t.getUUID("PostenBody"):null;home=t.contains("PostenHome")?BlockPos.of(t.getLong("PostenHome")):null;lastPlayer=t.hasUUID("PostenWinner")?t.getUUID("PostenWinner"):null;clone=t.contains("PostenClone")?Math.clamp(t.getInt("PostenClone"),-1,3):-1;if(clone>=0)getAttribute(Attributes.MAX_HEALTH).setBaseValue(65);entityData.set(MASK,Math.clamp(t.getInt("PostenMask"),0,3));entityData.set(STAGE,controller()?0:1);ending=Math.clamp(t.getInt("PostenEnding"),0,80);registered=false;}
+ @Override public void readAdditionalSaveData(CompoundTag t){super.readAdditionalSaveData(t);manual=t.getBoolean("PostenManual");modeChecked=false;arena=t.hasUUID("PostenArena")?t.getUUID("PostenArena"):null;body=t.hasUUID("PostenBody")?t.getUUID("PostenBody"):null;home=t.contains("PostenHome")?BlockPos.of(t.getLong("PostenHome")):null;lastPlayer=t.hasUUID("PostenWinner")?t.getUUID("PostenWinner"):null;clone=t.contains("PostenClone")?Math.clamp(t.getInt("PostenClone"),-1,3):-1;getAttribute(Attributes.MAX_HEALTH).setBaseValue(clone>=0?PostenEncounters.COPY_HEALTH:PostenEncounters.MAX_HEALTH);entityData.set(MASK,Math.clamp(t.getInt("PostenMask"),0,3));entityData.set(STAGE,controller()?0:1);ending=Math.clamp(t.getInt("PostenEnding"),0,80);registered=false;}
 }

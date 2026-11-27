@@ -23,7 +23,7 @@ public final class MarinkaContent {
  public static ResourceLocation id(String p){return ResourceLocation.fromNamespaceAndPath("slavicmyths",p);}public static SoundEvent sound(String key){return SOUNDS.get(key).get();}public static void init(){}
  @SubscribeEvent public static void attributes(EntityAttributeCreationEvent e){
  e.put(DOBRYNYA.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,230).add(Attributes.MOVEMENT_SPEED,.27).add(Attributes.ATTACK_DAMAGE,9).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.35).build());
- e.put(MARINKA.get(),net.minecraft.world.entity.monster.Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,600).add(Attributes.MOVEMENT_SPEED,.30).add(Attributes.ATTACK_DAMAGE,5).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.65).build());
+ e.put(MARINKA.get(),net.minecraft.world.entity.monster.Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,800).add(Attributes.MOVEMENT_SPEED,.30).add(Attributes.ATTACK_DAMAGE,5).add(Attributes.FOLLOW_RANGE,40).add(Attributes.KNOCKBACK_RESISTANCE,.65).build());
  e.put(ANCHOR.get(),Mob.createMobAttributes().add(Attributes.MAX_HEALTH,80).add(Attributes.MOVEMENT_SPEED,0).build());
  e.put(TUR.get(),net.minecraft.world.entity.monster.Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,35).add(Attributes.MOVEMENT_SPEED,.25).add(Attributes.ATTACK_DAMAGE,5).build());}
  private MarinkaContent(){}

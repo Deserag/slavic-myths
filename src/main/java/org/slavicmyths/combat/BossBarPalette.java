@@ -13,6 +13,9 @@ import net.minecraft.world.entity.EntityType;
 public final class BossBarPalette {
     private static final Map<String,Integer> LEVELS=Map.ofEntries(
         Map.entry("ataman",4),
+        Map.entry("pharaohka_leader",6),
+        Map.entry("tsar_pike",6),
+        Map.entry("deep_sea_serpent",7),
         Map.entry("buried_volkhv",5),
         Map.entry("cursed_volkolak",6),
         Map.entry("defiled_spring_keeper",7),

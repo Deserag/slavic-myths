@@ -10,9 +10,8 @@ public final class MobEggOrder {
     public static final int UNRANKED_BOSS=1000;
     // Encounter eggs do not use the individual entity's ID. The two savanna pack
     // ranks are the level VI candidates recorded in SAVANNA_GROUP_ENCOUNTERS.
-    // Pike V and Deep Sea Serpent VI are explicitly recorded in docs/ocean.
     private static final Map<String,Integer> ENCOUNTER_LEVELS=Map.of(
-        "steppe_jackal_pack",6,"black_hyena_pack",6,"pharaohka_leader",5,"tsar_pike",5,"deep_sea_serpent",6);
+        "steppe_jackal_pack",6,"black_hyena_pack",6);
     // Boss encounters without a verified level in the shared palette or design.
     private static final Set<String> UNRANKED=Set.of("auka","winter_owl","northern_wolverine",
         "ocean_zmey","stratim_bird","zhelva",

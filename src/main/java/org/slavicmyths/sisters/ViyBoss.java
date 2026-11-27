@@ -66,10 +66,16 @@ public final class ViyBoss extends Monster {
     }
     @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag){
         super.readAdditionalSaveData(tag);
+        var hp=getAttribute(Attributes.MAX_HEALTH);
+        if(hp!=null&&hp.getBaseValue()==2800D){
+            float old=getHealth(),max=getMaxHealth();
+            hp.setBaseValue(2400D);
+            setHealth(CreatureHealthBalance.proportional(old,max,getMaxHealth()));
+        }
         setCustomNameVisible(false);
     }
     public static AttributeSupplier.Builder attributes(){
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,2800)
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,2400)
             .add(Attributes.ATTACK_DAMAGE,30).add(Attributes.MOVEMENT_SPEED,.18)
             .add(Attributes.ARMOR,19).add(Attributes.KNOCKBACK_RESISTANCE,1.0)
             .add(Attributes.FOLLOW_RANGE,48);

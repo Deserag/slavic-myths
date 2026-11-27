@@ -47,7 +47,7 @@ public final class TsarPikeEntity extends Monster {
         SynchedEntityData.defineId(TsarPikeEntity.class,EntityDataSerializers.FLOAT);
 
     private final ServerBossEvent bar=new org.slavicmyths.combat.CreatureBossBar(this,
-        Component.translatable("entity.slavicmyths.tsar_pike"),BossEvent.BossBarColor.GREEN,
+        Component.translatable("entity.slavicmyths.tsar_pike"),org.slavicmyths.combat.BossBarPalette.colorFor(getType(),BossEvent.BossBarColor.BLUE),
         BossEvent.BossBarOverlay.PROGRESS);
 
     private int biteCooldown=20, grabCooldown=140, tailCooldown=60, leapCooldown=80;
